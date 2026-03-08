@@ -1,0 +1,7 @@
+﻿# Tests detmeme v2.0;;;;;;
+question;nb_criteres;cibles;valeurs;labels;reference;residu
+même portrait que Guillaume Moulin;1;portrait;;Même portrait;guillaume moulin;
+même portrait et même prénom que id 123;2;portrait, prenom;, ;Même portrait, Même prénom;id:123;
+même bruxisme nocturne que Marie Martin;1;pathologie;bruxisme nocturne;Même bruxisme nocturne;marie martin;
+même béance antérieure gauche et même âge que Jean Dupont;2;pathologie, age;beance anterieure gauche, ;Même beance anterieure gauche, Même âge;jean dupont;
+mêmes portrait, prénom, nom, âge et sexe que Jean Valjean;1;portrait;;Même portrait;jean valjean;sexe

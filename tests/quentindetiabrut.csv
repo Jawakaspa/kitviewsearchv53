@@ -1,0 +1,8 @@
+﻿# Généré par detiabrut.py V1.0.3 avec gpt41mini [none];;;;;
+# Tests Quentin;;;;;
+question;L1;L2;L3;L4;L5
+patients en classe 2 agés de plus de 20 ans et de moins de 23 ans;[tag] Classe 2;[age] Âge > 20;[age] Âge < 23;Résidu: 'patients en ages et';2641ms
+Patient compris entre 13 et 16 avec une classe d'angle de 1 uniquement;[age] Âge between [13, 16];[tag] Classe D'Angle De 1 [Uniquement];Résidu: 'patient avec une d angle';2437ms;
+Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3;[age] Âge > 17;[age] Âge < 23;[tag] Classe 3;Résidu: 'patients avec un et de';3034ms
+Patient enfant avec rétrognathie et ou classe 2;[tag] Rétrognathie;[tag] Classe 2;[age] Âge None None;Résidu: 'patient avec et ou';2771ms
+Patient metal compris entre 20 e 24 ans;[age] Âge between [20, 24];Résidu: 'patient metal compris';2018ms;;

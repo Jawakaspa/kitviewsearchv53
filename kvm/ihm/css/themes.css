@@ -1,0 +1,369 @@
+/**
+ * Thèmes Kitview - 10 looks différents
+ * =====================================
+ * Chaque thème définit des variables CSS utilisées par kvm.css et chatbot.css
+ */
+
+/* ========================================
+   THÈME 1: KITVIEW (défaut - bleu professionnel)
+   ======================================== */
+[data-theme="kitview"], :root {
+    --theme-primary: #2563eb;
+    --theme-secondary: #3b82f6;
+    --theme-accent: #60a5fa;
+    --theme-bg: #ffffff;
+    --theme-bg-alt: #f8fafc;
+    --theme-text: #1e293b;
+    --theme-text-muted: #64748b;
+    --theme-border: #e2e8f0;
+    --theme-header-bg: linear-gradient(135deg, #1e40af, #3b82f6);
+    --theme-header-text: #ffffff;
+    --theme-link: #2563eb;
+    --theme-success: #10b981;
+    --theme-warning: #f59e0b;
+    --theme-error: #ef4444;
+    --theme-shadow: rgba(37, 99, 235, 0.1);
+}
+
+/* ========================================
+   THÈME 2: ORCHIDÉE (violet élégant)
+   ======================================== */
+[data-theme="orchidee"] {
+    --theme-primary: #7c3aed;
+    --theme-secondary: #8b5cf6;
+    --theme-accent: #a78bfa;
+    --theme-bg: #ffffff;
+    --theme-bg-alt: #faf5ff;
+    --theme-text: #1e1b4b;
+    --theme-text-muted: #6b7280;
+    --theme-border: #e9d5ff;
+    --theme-header-bg: linear-gradient(135deg, #5b21b6, #7c3aed);
+    --theme-header-text: #ffffff;
+    --theme-link: #7c3aed;
+    --theme-success: #10b981;
+    --theme-warning: #f59e0b;
+    --theme-error: #ef4444;
+    --theme-shadow: rgba(124, 58, 237, 0.1);
+}
+
+/* ========================================
+   THÈME 3: FORÊT (vert nature)
+   ======================================== */
+[data-theme="foret"] {
+    --theme-primary: #059669;
+    --theme-secondary: #10b981;
+    --theme-accent: #34d399;
+    --theme-bg: #ffffff;
+    --theme-bg-alt: #ecfdf5;
+    --theme-text: #064e3b;
+    --theme-text-muted: #6b7280;
+    --theme-border: #a7f3d0;
+    --theme-header-bg: linear-gradient(135deg, #047857, #10b981);
+    --theme-header-text: #ffffff;
+    --theme-link: #059669;
+    --theme-success: #10b981;
+    --theme-warning: #f59e0b;
+    --theme-error: #ef4444;
+    --theme-shadow: rgba(5, 150, 105, 0.1);
+}
+
+/* ========================================
+   THÈME 4: OCÉAN (bleu-vert apaisant)
+   ======================================== */
+[data-theme="ocean"] {
+    --theme-primary: #0891b2;
+    --theme-secondary: #06b6d4;
+    --theme-accent: #22d3ee;
+    --theme-bg: #ffffff;
+    --theme-bg-alt: #ecfeff;
+    --theme-text: #164e63;
+    --theme-text-muted: #6b7280;
+    --theme-border: #a5f3fc;
+    --theme-header-bg: linear-gradient(135deg, #0e7490, #06b6d4);
+    --theme-header-text: #ffffff;
+    --theme-link: #0891b2;
+    --theme-success: #10b981;
+    --theme-warning: #f59e0b;
+    --theme-error: #ef4444;
+    --theme-shadow: rgba(8, 145, 178, 0.1);
+}
+
+/* ========================================
+   THÈME 5: COUCHER DE SOLEIL (orange chaleureux)
+   ======================================== */
+[data-theme="sunset"] {
+    --theme-primary: #ea580c;
+    --theme-secondary: #f97316;
+    --theme-accent: #fb923c;
+    --theme-bg: #ffffff;
+    --theme-bg-alt: #fff7ed;
+    --theme-text: #431407;
+    --theme-text-muted: #78716c;
+    --theme-border: #fed7aa;
+    --theme-header-bg: linear-gradient(135deg, #c2410c, #f97316);
+    --theme-header-text: #ffffff;
+    --theme-link: #ea580c;
+    --theme-success: #10b981;
+    --theme-warning: #f59e0b;
+    --theme-error: #ef4444;
+    --theme-shadow: rgba(234, 88, 12, 0.1);
+}
+
+/* ========================================
+   THÈME 6: ROSE DOUX (féminin et moderne)
+   ======================================== */
+[data-theme="rose"] {
+    --theme-primary: #db2777;
+    --theme-secondary: #ec4899;
+    --theme-accent: #f472b6;
+    --theme-bg: #ffffff;
+    --theme-bg-alt: #fdf2f8;
+    --theme-text: #500724;
+    --theme-text-muted: #6b7280;
+    --theme-border: #fbcfe8;
+    --theme-header-bg: linear-gradient(135deg, #be185d, #ec4899);
+    --theme-header-text: #ffffff;
+    --theme-link: #db2777;
+    --theme-success: #10b981;
+    --theme-warning: #f59e0b;
+    --theme-error: #ef4444;
+    --theme-shadow: rgba(219, 39, 119, 0.1);
+}
+
+/* ========================================
+   THÈME 7: NUIT (mode sombre élégant)
+   ======================================== */
+[data-theme="nuit"] {
+    --theme-primary: #6366f1;
+    --theme-secondary: #818cf8;
+    --theme-accent: #a5b4fc;
+    --theme-bg: #0f172a;
+    --theme-bg-alt: #1e293b;
+    --theme-text: #f1f5f9;
+    --theme-text-muted: #94a3b8;
+    --theme-border: #334155;
+    --theme-header-bg: linear-gradient(135deg, #4338ca, #6366f1);
+    --theme-header-text: #ffffff;
+    --theme-link: #818cf8;
+    --theme-success: #34d399;
+    --theme-warning: #fbbf24;
+    --theme-error: #f87171;
+    --theme-shadow: rgba(99, 102, 241, 0.2);
+}
+
+/* Ajustements spécifiques pour le mode sombre */
+[data-theme="nuit"] .help-section,
+[data-theme="nuit"] .note-box,
+[data-theme="nuit"] .step-list li {
+    background: var(--theme-bg-alt);
+    border-color: var(--theme-border);
+}
+
+[data-theme="nuit"] img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+[data-theme="nuit"] #chatbot-modal {
+    background: var(--theme-bg);
+    border-color: var(--theme-border);
+}
+
+[data-theme="nuit"] #chatbot-messages {
+    background: var(--theme-bg-alt);
+}
+
+[data-theme="nuit"] .chat-message.assistant {
+    background: var(--theme-bg);
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+[data-theme="nuit"] #chatbot-toolbar,
+[data-theme="nuit"] #chatbot-input-area {
+    background: var(--theme-bg);
+    border-color: var(--theme-border);
+}
+
+[data-theme="nuit"] #chatbot-input {
+    background: var(--theme-bg-alt);
+    border-color: var(--theme-border);
+    color: var(--theme-text);
+}
+
+[data-theme="nuit"] #chatbot-config-modal .config-content {
+    background: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+/* ========================================
+   THÈME 8: MINIMALISTE (gris épuré)
+   ======================================== */
+[data-theme="minimal"] {
+    --theme-primary: #374151;
+    --theme-secondary: #4b5563;
+    --theme-accent: #6b7280;
+    --theme-bg: #ffffff;
+    --theme-bg-alt: #f9fafb;
+    --theme-text: #111827;
+    --theme-text-muted: #6b7280;
+    --theme-border: #e5e7eb;
+    --theme-header-bg: linear-gradient(135deg, #1f2937, #374151);
+    --theme-header-text: #ffffff;
+    --theme-link: #374151;
+    --theme-success: #10b981;
+    --theme-warning: #f59e0b;
+    --theme-error: #ef4444;
+    --theme-shadow: rgba(55, 65, 81, 0.1);
+}
+
+/* ========================================
+   THÈME 9: LAVANDE (doux et reposant)
+   ======================================== */
+[data-theme="lavande"] {
+    --theme-primary: #7e22ce;
+    --theme-secondary: #9333ea;
+    --theme-accent: #c084fc;
+    --theme-bg: #faf5ff;
+    --theme-bg-alt: #f3e8ff;
+    --theme-text: #3b0764;
+    --theme-text-muted: #7e22ce;
+    --theme-border: #e9d5ff;
+    --theme-header-bg: linear-gradient(135deg, #6b21a8, #9333ea);
+    --theme-header-text: #ffffff;
+    --theme-link: #7e22ce;
+    --theme-success: #10b981;
+    --theme-warning: #f59e0b;
+    --theme-error: #ef4444;
+    --theme-shadow: rgba(126, 34, 206, 0.1);
+}
+
+/* ========================================
+   THÈME 10: CAFÉ (tons chauds et confortables)
+   ======================================== */
+[data-theme="cafe"] {
+    --theme-primary: #92400e;
+    --theme-secondary: #b45309;
+    --theme-accent: #d97706;
+    --theme-bg: #fffbeb;
+    --theme-bg-alt: #fef3c7;
+    --theme-text: #451a03;
+    --theme-text-muted: #78716c;
+    --theme-border: #fcd34d;
+    --theme-header-bg: linear-gradient(135deg, #78350f, #b45309);
+    --theme-header-text: #ffffff;
+    --theme-link: #92400e;
+    --theme-success: #10b981;
+    --theme-warning: #f59e0b;
+    --theme-error: #ef4444;
+    --theme-shadow: rgba(146, 64, 14, 0.1);
+}
+
+/* ========================================
+   APPLICATION DES VARIABLES AU SITE
+   ======================================== */
+
+/* Header */
+.help-header {
+    background: var(--theme-header-bg) !important;
+    color: var(--theme-header-text) !important;
+}
+
+.help-header h1,
+.help-header .logo-text {
+    color: var(--theme-header-text) !important;
+}
+
+/* Body */
+body {
+    background-color: var(--theme-bg);
+    color: var(--theme-text);
+}
+
+/* Links */
+a {
+    color: var(--theme-link);
+}
+
+a:hover {
+    color: var(--theme-primary);
+}
+
+/* Sections */
+.help-section {
+    background: var(--theme-bg);
+    border-color: var(--theme-border);
+}
+
+.help-section h2 {
+    color: var(--theme-primary);
+}
+
+/* Note boxes */
+.note-box {
+    border-left-color: var(--theme-primary);
+    background: var(--theme-bg-alt);
+}
+
+.note-box.tip {
+    border-left-color: var(--theme-success);
+}
+
+.note-box.warning {
+    border-left-color: var(--theme-warning);
+}
+
+.note-box.info {
+    border-left-color: var(--theme-accent);
+}
+
+/* Buttons */
+button, .btn {
+    background: var(--theme-primary);
+    color: white;
+}
+
+button:hover, .btn:hover {
+    background: var(--theme-secondary);
+}
+
+/* Level chips */
+.level-chip.active {
+    background: var(--theme-primary) !important;
+    border-color: var(--theme-primary) !important;
+}
+
+/* Search */
+#searchInput:focus {
+    border-color: var(--theme-primary);
+    box-shadow: 0 0 0 3px var(--theme-shadow);
+}
+
+/* Footer */
+.help-footer {
+    background: var(--theme-bg-alt);
+    border-top-color: var(--theme-border);
+    color: var(--theme-text-muted);
+}
+
+/* Chatbot adaptation */
+#chatbot-toggle {
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-secondary)) !important;
+}
+
+#chatbot-header {
+    background: var(--theme-header-bg) !important;
+}
+
+.chat-message.user {
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-secondary)) !important;
+}
+
+#chatbot-send {
+    background: linear-gradient(135deg, var(--theme-primary), var(--theme-secondary)) !important;
+}
+
+.suggestion-chip:hover {
+    background: var(--theme-primary) !important;
+    border-color: var(--theme-primary) !important;
+}

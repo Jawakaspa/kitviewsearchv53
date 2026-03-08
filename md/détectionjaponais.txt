@@ -1,0 +1,6 @@
+Excellent ! La détection fonctionne très bien. Notez que :
+
+Le japonais avec hiragana (の) est correctement détecté comme ja
+Le japonais en katakana pur est détecté comme ja
+Le kanji seul sans kana est détecté comme cn (c'est normal car les kanji sont partagés)
+Les autres scripts (thaï, arabe) sont détectés à 100%

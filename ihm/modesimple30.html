@@ -1,0 +1,2131 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate" class="notranslate">
+    <title>Kitview Search - Mode d'emploi (Simplifié)</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.kitview.com/favicon.ico">
+    <style>
+/*
+ * modesimple30.html V1.1.0 - 11/02/2026
+ * Mode d'emploi pour simple30.html (version simplifiée)
+ * Dérivé de simpleemploi.html V1.0.0
+ * Ajouts : Recherche full-text dans la page + Assistant IA chatbot
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3B9DD8;
+    --primary-light: #e3f2fd;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #e8e8e8;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --button-hover: #2d8bc7;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --code-bg: #f4f4f4;
+    --toc-bg: #fafafa;
+    --highlight-yellow: #fffb8f;
+    --tag-dark: #2c3e50;
+    --patho-light: #f0f4f8;
+}
+
+[data-theme="dark"] {
+    --primary-light: #1e3a5f;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888888;
+    --border-color: #404040;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --code-bg: #2a2a2a;
+    --toc-bg: #252525;
+    --highlight-yellow: #5a5730;
+    --tag-dark: #4a5568;
+    --patho-light: #2d3748;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════════════════════════ */
+
+.help-header {
+    background: var(--bg-primary);
+    padding: 15px 25px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-left .logo {
+    height: 32px;
+}
+
+.header-left h1 {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left h1 .icon {
+    font-size: 24px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BOUTONS
+   ═══════════════════════════════════════════════════════════════ */
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 18px;
+}
+
+.icon-button:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.back-button:hover {
+    background: var(--button-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SÉLECTEUR DE LANGUE V5.1
+   ═══════════════════════════════════════════════════════════════ */
+
+.lang-button-container {
+    position: relative;
+}
+
+.lang-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.lang-button:hover {
+    border-color: var(--primary-color);
+    background: var(--bg-secondary);
+}
+
+.lang-button .flag-img {
+    width: 22px;
+    height: 16px;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+.lang-button .dropdown-arrow {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-left: 4px;
+}
+
+.lang-popup {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    min-width: 280px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.lang-popup-header {
+    padding: 12px 18px;
+    background: var(--bg-secondary);
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.lang-popup-section {
+    padding: 12px 18px;
+}
+
+.chips-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.lang-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.lang-chip:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary-color);
+}
+
+.lang-chip.selected {
+    background: var(--primary-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.lang-chip .chip-flag {
+    width: 18px;
+    height: 13px;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+.translation-info {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GOOGLE TRANSLATE WIDGET - Invisible mais fonctionnel
+   ═══════════════════════════════════════════════════════════════ */
+
+#google_translate_element {
+    position: absolute !important;
+    top: -100px !important;
+    left: 0 !important;
+    opacity: 0 !important;
+    pointer-events: none !important;
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+.goog-te-banner-frame {
+    display: none !important;
+}
+
+body {
+    top: 0 !important;
+    position: static !important;
+}
+
+html.translated-ltr,
+html.translated-rtl {
+    margin-top: 0 !important;
+}
+
+.goog-te-gadget {
+    height: 0 !important;
+    overflow: hidden !important;
+}
+
+.notranslate {
+    font-family: inherit !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTAINER PRINCIPAL
+   ═══════════════════════════════════════════════════════════════ */
+
+.help-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 25px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TABLE DES MATIÈRES (sidebar)
+   ═══════════════════════════════════════════════════════════════ */
+
+.toc-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 90px;
+    height: fit-content;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+}
+
+.toc-card {
+    background: var(--toc-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.toc-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toc-list {
+    list-style: none;
+}
+
+.toc-list li {
+    margin-bottom: 8px;
+}
+
+.toc-list a {
+    display: block;
+    padding: 8px 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.toc-list a:hover {
+    background: var(--bg-primary);
+    color: var(--primary-color);
+}
+
+.toc-list a.active {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.toc-list .toc-sub {
+    margin-left: 15px;
+    font-size: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTENU PRINCIPAL
+   ═══════════════════════════════════════════════════════════════ */
+
+.help-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.content-card {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 35px 40px;
+}
+
+.help-content h1.main-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.version-badge {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    border-radius: 12px;
+}
+
+.simplified-badge {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    background: #e8f5e9;
+    color: #27ae60;
+    border-radius: 12px;
+}
+
+[data-theme="dark"] .simplified-badge {
+    background: #1b3d2f;
+}
+
+.help-content .subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+.help-section {
+    margin-bottom: 40px;
+    scroll-margin-top: 100px;
+}
+
+.help-section h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.help-section h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 25px 0 12px 0;
+}
+
+.help-section h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 20px 0 10px 0;
+}
+
+.help-section p {
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+.help-section ul, .help-section ol {
+    margin: 12px 0 12px 25px;
+}
+
+.help-section li {
+    margin-bottom: 6px;
+}
+
+.help-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.help-table th,
+.help-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+.help-table th {
+    background: var(--bg-secondary);
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.help-table tr:hover {
+    background: var(--bg-secondary);
+}
+
+.help-table code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.code-block {
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 15px 0;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.5;
+}
+
+.ascii-schema {
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+.note-box {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.note-box.info {
+    background: #e3f2fd;
+    border-left: 4px solid var(--primary-color);
+}
+
+.note-box.tip {
+    background: #e8f5e9;
+    border-left: 4px solid var(--success-color);
+}
+
+.note-box.warning {
+    background: #fff3e0;
+    border-left: 4px solid var(--warning-color);
+}
+
+.note-box.new {
+    background: #fce4ec;
+    border-left: 4px solid #e91e63;
+}
+
+[data-theme="dark"] .note-box.info { background: #1e3a5f; }
+[data-theme="dark"] .note-box.tip { background: #1b3d2f; }
+[data-theme="dark"] .note-box.warning { background: #3d3020; }
+[data-theme="dark"] .note-box.new { background: #3d1f2f; }
+
+.note-box strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.color-indicator {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.color-indicator.red { background: #e74c3c; }
+.color-indicator.orange { background: #f39c12; }
+.color-indicator.green { background: #27ae60; }
+
+kbd {
+    display: inline-block;
+    padding: 3px 8px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   STYLES SPÉCIFIQUES "MÊME QUE"
+   ═══════════════════════════════════════════════════════════════ */
+
+.demo-tag {
+    display: inline-block;
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 12px;
+    font-weight: 500;
+    margin: 2px 4px 2px 0;
+}
+
+.demo-tag.dark {
+    background: var(--tag-dark);
+    color: white;
+}
+
+.demo-tag.light {
+    background: var(--patho-light);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+}
+
+.demo-tag.active {
+    border: 2px solid #e74c3c;
+    box-shadow: 0 0 4px rgba(231, 76, 60, 0.3);
+}
+
+.demo-card {
+    background: var(--highlight-yellow);
+    border: 2px solid #f0e68c;
+    border-radius: 8px;
+    padding: 12px;
+    margin: 10px 0;
+    font-size: 13px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .help-container {
+        flex-direction: column;
+    }
+    
+    .toc-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
+    
+    .toc-card {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .toc-title {
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+    
+    .toc-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .toc-list li {
+        margin-bottom: 0;
+    }
+    
+    .toc-list .toc-sub {
+        display: none;
+    }
+    
+    .content-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .help-header {
+        padding: 12px 15px;
+    }
+    
+    .header-left h1 {
+        font-size: 16px;
+    }
+    
+    .header-left h1 span:not(.icon) {
+        display: none;
+    }
+    
+    .help-container {
+        padding: 15px;
+    }
+    
+    .content-card {
+        padding: 20px;
+    }
+    
+    .help-content h1.main-title {
+        font-size: 24px;
+    }
+    
+    .help-section h2 {
+        font-size: 18px;
+    }
+    
+    .help-table {
+        font-size: 12px;
+    }
+    
+    .help-table th,
+    .help-table td {
+        padding: 8px 10px;
+    }
+}
+
+.help-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/*═══════════════════════════════════════════════════════════════
+  RECHERCHE FULL-TEXT DANS LA PAGE
+  ═══════════════════════════════════════════════════════════════*/
+
+.header-center-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    max-width: 400px;
+    margin: 0 15px;
+}
+
+.search-page-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 6px 12px;
+    flex: 1;
+    transition: border-color 0.2s;
+}
+
+.search-page-box:focus-within {
+    border-color: var(--primary-color);
+}
+
+.search-page-box .search-icon { font-size: 14px; color: var(--text-muted); }
+
+.search-page-box input {
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 13px;
+    color: var(--text-primary);
+    width: 100%;
+}
+
+.search-page-box .clear-btn {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-muted);
+    padding: 0 2px;
+    display: none;
+}
+
+.search-page-box .clear-btn.visible { display: block; }
+
+.search-nav {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.search-nav.visible { display: flex; }
+
+.search-nav button {
+    border: none;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+    padding: 3px 8px;
+    cursor: pointer;
+    font-size: 11px;
+    color: var(--text-primary);
+    transition: background 0.2s;
+}
+
+.search-nav button:hover { background: var(--bg-tertiary); }
+
+mark.search-highlight {
+    background: #ffeb3b;
+    color: #333;
+    padding: 1px 2px;
+    border-radius: 2px;
+}
+
+mark.search-highlight.current {
+    background: #ff9800;
+    color: #fff;
+    font-weight: 600;
+}
+
+[data-theme="dark"] mark.search-highlight { background: #8d6e00; color: #fff; }
+[data-theme="dark"] mark.search-highlight.current { background: #ff9800; color: #fff; }
+
+/*═══════════════════════════════════════════════════════════════
+  CHATBOT ASSISTANT IA
+  ═══════════════════════════════════════════════════════════════*/
+
+#chatbot-toggle {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(59, 157, 216, 0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all 0.3s;
+}
+
+#chatbot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 24px rgba(59, 157, 216, 0.6);
+}
+
+#chatbot-toggle svg {
+    width: 26px;
+    height: 26px;
+    fill: currentColor;
+}
+
+#chatbot-modal {
+    display: none;
+    position: fixed;
+    bottom: 90px;
+    right: 24px;
+    width: 380px;
+    max-height: 520px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+    z-index: 1001;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+#chatbot-modal.open { display: flex; }
+
+#chatbot-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px;
+    background: var(--primary-color);
+    color: #fff;
+}
+
+#chatbot-header .avatar { font-size: 24px; }
+#chatbot-header .title h4 { font-size: 15px; font-weight: 600; margin: 0; }
+#chatbot-header .title span { font-size: 11px; opacity: 0.85; }
+
+#chatbot-close {
+    margin-left: auto;
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 22px;
+    cursor: pointer;
+    padding: 4px;
+    opacity: 0.8;
+}
+
+#chatbot-close:hover { opacity: 1; }
+
+#chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    min-height: 200px;
+    max-height: 320px;
+}
+
+.chat-msg {
+    margin-bottom: 12px;
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-size: 13px;
+    line-height: 1.5;
+    word-wrap: break-word;
+}
+
+.chat-msg.user {
+    background: var(--primary-color);
+    color: #fff;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.chat-msg.assistant {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border-bottom-left-radius: 4px;
+}
+
+.chat-msg.assistant strong { color: var(--primary-color); }
+
+.chat-msg.loading {
+    background: var(--bg-secondary);
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.chat-msg.error {
+    background: #fdecea;
+    color: #c62828;
+    border-bottom-left-radius: 4px;
+}
+
+[data-theme="dark"] .chat-msg.error { background: #3d1f1f; color: #ef9a9a; }
+
+#chatbot-suggestions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 0 16px 12px;
+}
+
+.suggestion-chip {
+    font-size: 11px;
+    padding: 5px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.suggestion-chip:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+#chatbot-input-area {
+    display: flex;
+    align-items: center;
+    padding: 10px 12px;
+    border-top: 1px solid var(--border-color);
+    gap: 8px;
+}
+
+#chatbot-input {
+    flex: 1;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 8px 14px;
+    font-size: 13px;
+    outline: none;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    transition: border-color 0.2s;
+}
+
+#chatbot-input:focus { border-color: var(--primary-color); }
+
+#chatbot-send {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: none;
+    background: var(--primary-color);
+    color: #fff;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    flex-shrink: 0;
+}
+
+#chatbot-send:hover { background: var(--button-hover); }
+
+#chatbot-send svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+@media (max-width: 480px) {
+    #chatbot-modal {
+        bottom: 0;
+        right: 0;
+        left: 0;
+        width: 100%;
+        max-height: 80vh;
+        border-radius: 16px 16px 0 0;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="help-header">
+        <div class="header-left">
+            <img src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png" alt="Logo Kitview" class="logo">
+            <h1><span class="icon">❓</span> <span class="notranslate">User Guide</span></h1>
+        </div>
+        
+        <div class="header-right">
+            <!-- Recherche full-text dans la page -->
+            <div class="header-center-search">
+                <div class="search-page-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="pageSearchInput" placeholder="Chercher dans le guide..." autocomplete="off">
+                    <button class="clear-btn" id="pageSearchClear" title="Effacer">✕</button>
+                </div>
+                <div class="search-nav" id="searchNav">
+                    <span id="searchCounter">0/0</span>
+                    <button id="searchPrev" title="Précédent">◀</button>
+                    <button id="searchNext" title="Suivant">▶</button>
+                </div>
+            </div>
+            
+            <!-- Sélecteur de langue custom V5.1 -->
+            <div class="lang-button-container">
+                <button class="lang-button" id="langButton" onclick="toggleLangPopup()">
+                    <img src="https://flagcdn.com/w40/fr.png" alt="FR" class="flag-img" id="currentFlag">
+                    <span id="currentLangCode">FR</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                
+                <div class="lang-popup" id="langPopup" style="display: none;">
+                    <div class="lang-popup-header">
+                        <span>🌐</span> Langue du mode d'emploi
+                    </div>
+                    <div class="lang-popup-section">
+                        <div class="chips-container">
+                            <div class="lang-chip selected" data-lang="fr" data-flag="fr" onclick="applyLanguage('fr', 'FR', 'fr')">
+                                <img src="https://flagcdn.com/w40/fr.png" alt="FR" class="chip-flag"> FR
+                            </div>
+                            <div class="lang-chip" data-lang="en" data-flag="gb" onclick="applyLanguage('en', 'EN', 'gb')">
+                                <img src="https://flagcdn.com/w40/gb.png" alt="EN" class="chip-flag"> EN
+                            </div>
+                            <div class="lang-chip" data-lang="de" data-flag="de" onclick="applyLanguage('de', 'DE', 'de')">
+                                <img src="https://flagcdn.com/w40/de.png" alt="DE" class="chip-flag"> DE
+                            </div>
+                            <div class="lang-chip" data-lang="es" data-flag="es" onclick="applyLanguage('es', 'ES', 'es')">
+                                <img src="https://flagcdn.com/w40/es.png" alt="ES" class="chip-flag"> ES
+                            </div>
+                            <div class="lang-chip" data-lang="it" data-flag="it" onclick="applyLanguage('it', 'IT', 'it')">
+                                <img src="https://flagcdn.com/w40/it.png" alt="IT" class="chip-flag"> IT
+                            </div>
+                            <div class="lang-chip" data-lang="pt" data-flag="pt" onclick="applyLanguage('pt', 'PT', 'pt')">
+                                <img src="https://flagcdn.com/w40/pt.png" alt="PT" class="chip-flag"> PT
+                            </div>
+                            <div class="lang-chip" data-lang="pl" data-flag="pl" onclick="applyLanguage('pl', 'PL', 'pl')">
+                                <img src="https://flagcdn.com/w40/pl.png" alt="PL" class="chip-flag"> PL
+                            </div>
+                            <div class="lang-chip" data-lang="ro" data-flag="ro" onclick="applyLanguage('ro', 'RO', 'ro')">
+                                <img src="https://flagcdn.com/w40/ro.png" alt="RO" class="chip-flag"> RO
+                            </div>
+                            <div class="lang-chip" data-lang="th" data-flag="th" onclick="applyLanguage('th', 'TH', 'th')">
+                                <img src="https://flagcdn.com/w40/th.png" alt="TH" class="chip-flag"> TH
+                            </div>
+                            <div class="lang-chip" data-lang="ar" data-flag="sa" onclick="applyLanguage('ar', 'AR', 'sa')">
+                                <img src="https://flagcdn.com/w40/sa.png" alt="AR" class="chip-flag"> AR
+                            </div>
+                            <div class="lang-chip" data-lang="zh-CN" data-flag="cn" onclick="applyLanguage('zh-CN', 'CN', 'cn')">
+                                <img src="https://flagcdn.com/w40/cn.png" alt="CN" class="chip-flag"> CN
+                            </div>
+                        </div>
+                        <div class="translation-info">
+                            🔄 Traduction automatique par Google Translate
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Google Translate Widget (invisible via CSS) -->
+            <div id="google_translate_element"></div>
+            
+            <!-- Thème -->
+            <button class="icon-button" id="themeToggle" title="Changer le thème">
+                🌙
+            </button>
+            
+            <!-- Retour -->
+            <button class="back-button notranslate" onclick="goBack()">
+                ← Retour
+            </button>
+        </div>
+    </header>
+
+    <!-- Container principal -->
+    <div class="help-container">
+        <!-- Table des matières -->
+        <aside class="toc-sidebar">
+            <nav class="toc-card">
+                <div class="toc-title">📑 Sommaire</div>
+                <ul class="toc-list">
+                    <li><a href="#presentation">1. Présentation</a></li>
+                    <li><a href="#premier-demarrage">2. Premier démarrage</a></li>
+                    <li class="toc-sub"><a href="#ecran-accueil">Écran d'accueil</a></li>
+                    <li class="toc-sub"><a href="#indicateur-etat">Indicateur d'état</a></li>
+                    <li class="toc-sub"><a href="#controles-bandeau">Contrôles du bandeau</a></li>
+                    <li><a href="#utilisation-base">3. Utilisation de base</a></li>
+                    <li class="toc-sub"><a href="#recherche-texte">Recherche texte</a></li>
+                    <li class="toc-sub"><a href="#recherche-vocale">Recherche vocale</a></li>
+                    <li class="toc-sub"><a href="#panneau-lateral">Panneau latéral</a></li>
+                    <li class="toc-sub"><a href="#affichage-resultats">Affichage résultats</a></li>
+                    <li class="toc-sub"><a href="#recherche-similarite" style="color: #e91e63; font-weight: 600;">🎯 Même X que...</a></li>
+                    <li class="toc-sub"><a href="#photofit" style="color: #e91e63; font-weight: 600;">📸 Photofit</a></li>
+                    <li><a href="#raccourcis">4. Raccourcis</a></li>
+                    <li><a href="#recherche-page" style="color: #e91e63; font-weight: 600;">🔍 5. Recherche dans le guide</a></li>
+                    <li><a href="#assistant-ia" style="color: #e91e63; font-weight: 600;">🤖 6. Assistant IA</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu -->
+        <main class="help-content">
+            <div class="content-card">
+                
+                <h1 class="main-title">
+                    Kitview Search
+                    <span class="version-badge">v5.2</span>
+                    <span class="simplified-badge">Simplifié</span>
+                </h1>
+                <p class="subtitle">Guide d'utilisation de l'interface simplifiée (<code>simple30.html</code>)</p>
+
+                <!-- ═══════════════════════════════════════════════════════
+                     Section 1 : Présentation
+                     ═══════════════════════════════════════════════════════ -->
+                <section class="help-section" id="presentation">
+                    <h2>📋 1. Présentation</h2>
+                    
+                    <p><strong>Kitview Search — Version Simplifiée</strong> est une interface épurée de recherche multilingue permettant d'interroger une base de données de patients orthodontiques. Tous les contrôles essentiels (base, langue, détection) sont directement visibles dans le bandeau, sans barre d'outils à activer. L'interface s'adapte à tous les écrans (PC, tablette, mobile).</p>
+                    
+                    <div class="note-box info">
+                        <strong>💡 Interface simplifiée</strong>
+                        <p style="margin-bottom: 0;">Par rapport à la version complète (<code>chat30.html</code>), cette version supprime : le mode démo, la page paramètres, la page analyse et la checkbox de barre d'outils. Tous les sélecteurs utiles restent accessibles directement dans le bandeau.</p>
+                    </div>
+
+                    <div class="note-box new">
+                        <strong>🆕 Fonctionnalités disponibles</strong>
+                        <ul style="margin-top: 8px; margin-bottom: 0;">
+                            <li><strong>Recherche par portrait (Photofit)</strong> : trouvez des patients ayant un portrait similaire grâce à la comparaison d'images</li>
+                            <li><strong>Scores de similarité</strong> : chaque fiche affiche un badge coloré indiquant le pourcentage de ressemblance</li>
+                            <li><strong>Recherche par similarité</strong> : cliquez sur n'importe quel élément d'un patient pour trouver des cas similaires</li>
+                            <li><strong>Sélecteur de langue simplifié</strong> : clic direct sur le drapeau pour changer de langue</li>
+                            <li><strong>Sélecteurs toujours visibles</strong> : base de données, langue, mode de détection dans le bandeau</li>
+                        </ul>
+                    </div>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════
+                     Section 2 : Premier démarrage
+                     ═══════════════════════════════════════════════════════ -->
+                <section class="help-section" id="premier-demarrage">
+                    <h2>🚀 2. Premier démarrage</h2>
+                    
+                    <h3 id="ecran-accueil">2.1 Écran d'accueil</h3>
+                    <p>Au lancement, l'interface affiche directement tous les contrôles dans le bandeau. Aucune activation préalable n'est nécessaire.</p>
+                    
+                    <div class="ascii-schema">┌──────────────────────────────────────────────────────────────────┐
+│  ☰  [logo Kitview] Search  │ [Base ▼] [🌐FR] [Détection ▼] ? 🌙 │
+├──────────────────────────────────────────────────────────────────┤
+│                                                                  │
+│  ┌─────────────┐                                                 │
+│  │ ✨ Nouvelle │     Bienvenue 👋                                │
+│  │  recherche  │                                                 │
+│  └─────────────┘     ┌─────────────────────────────────┐        │
+│                      │ Rechercher un patient...     🎤 ⬆️ │        │
+│  Conversations       └─────────────────────────────────┘        │
+│  récentes                                                        │
+│  ─────────────                                                   │
+│  Exemples                                                        │
+│  ─────────────                                                   │
+│                                                                  │
+│  F1.0.0/S...                                                     │
+└──────────────────────────────────────────────────────────────────┘</div>
+
+                    <h3>2.2 Éléments du bandeau</h3>
+                    
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Élément</th>
+                                <th>Position</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>☰ (Menu)</td>
+                                <td>Gauche</td>
+                                <td>Afficher/masquer le panneau latéral</td>
+                            </tr>
+                            <tr>
+                                <td>Logo Kitview</td>
+                                <td>Gauche</td>
+                                <td>Logo de l'application</td>
+                            </tr>
+                            <tr>
+                                <td>"Search"</td>
+                                <td>Gauche</td>
+                                <td>Indicateur d'état (couleur variable, voir 2.3)</td>
+                            </tr>
+                            <tr>
+                                <td>[Base ▼]</td>
+                                <td>Centre</td>
+                                <td>Sélecteur de base de données</td>
+                            </tr>
+                            <tr>
+                                <td>🌐 FR</td>
+                                <td>Centre</td>
+                                <td>Bouton langue (clic = popup de sélection)</td>
+                            </tr>
+                            <tr>
+                                <td>[Détection ▼]</td>
+                                <td>Centre</td>
+                                <td>Sélecteur du moteur de détection (standard, IA...)</td>
+                            </tr>
+                            <tr>
+                                <td>❓ (Aide)</td>
+                                <td>Droite</td>
+                                <td>Ouvre ce mode d'emploi</td>
+                            </tr>
+                            <tr>
+                                <td>🌙 (Thème)</td>
+                                <td>Droite</td>
+                                <td>Bascule jour/nuit</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="indicateur-etat">2.3 Indicateur d'état "Search"</h3>
+                    <p>Le mot "Search" change de couleur selon l'état du système :</p>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Couleur</th>
+                                <th>Signification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="color-indicator red"></span> Rouge</td>
+                                <td>Chargement en cours</td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-indicator orange"></span> Orange</td>
+                                <td>Connexion au serveur</td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-indicator green"></span> Vert</td>
+                                <td>Prêt à l'emploi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="controles-bandeau">2.4 Contrôles du bandeau</h3>
+                    
+                    <h4>Sélecteur de base de données</h4>
+                    <p>Le menu déroulant <strong>[Base ▼]</strong> permet de choisir la base de données à interroger. Le sous-titre sous "Search" indique la base active et le nombre de patients.</p>
+                    
+                    <h4>Sélection de la langue 🌐</h4>
+                    <p>Cliquez sur le bouton langue pour ouvrir le panneau de sélection. La langue s'applique <strong>immédiatement</strong> au clic sur le drapeau.</p>
+                    <ul>
+                        <li><strong>Langues disponibles</strong> : FR 🇫🇷, EN 🇬🇧, DE 🇩🇪, ES 🇪🇸, IT 🇮🇹, PT 🇵🇹, PL 🇵🇱, RO 🇷🇴, TH 🇹🇭, AR 🇸🇦, CN 🇨🇳, et AUTO (détection automatique)</li>
+                        <li><strong>Checkbox "→fr"</strong> : force la traduction des résultats en français, quelle que soit la langue de la question</li>
+                    </ul>
+                    
+                    <h4>Mode de détection</h4>
+                    <p>Le menu déroulant <strong>[Détection ▼]</strong> permet de choisir le moteur d'analyse des requêtes (standard, IA...). Le mode "standard" analyse les mots-clés localement, tandis que les modes IA envoient la question à un modèle de langage pour une interprétation plus fine.</p>
+                    
+                    <div class="note-box tip">
+                        <strong>💡 Bon à savoir</strong>
+                        Le thème jour/nuit est sauvegardé automatiquement dans le navigateur. Il peut aussi suivre les préférences système (mode "auto").
+                    </div>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════
+                     Section 3 : Utilisation de base
+                     ═══════════════════════════════════════════════════════ -->
+                <section class="help-section" id="utilisation-base">
+                    <h2>🔍 3. Utilisation de base</h2>
+                    
+                    <h3 id="recherche-texte">3.1 Effectuer une recherche</h3>
+                    <ol>
+                        <li><strong>Cliquez dans la zone de recherche</strong> au centre de l'écran</li>
+                        <li><strong>Saisissez votre requête</strong> en langage naturel</li>
+                        <li><strong>Lancez la recherche</strong> en cliquant sur ⬆️ ou en appuyant sur <kbd>Entrée</kbd></li>
+                    </ol>
+                    
+                    <div class="note-box tip">
+                        <strong>💡 Exemples de requêtes</strong>
+                        <code>patients avec béance</code> • <code>classe II division 1</code> • <code>adultes avec encombrement</code> • <code>enfants de moins de 12 ans</code>
+                    </div>
+
+                    <h3 id="recherche-vocale">3.2 Recherche vocale 🎤</h3>
+                    <p>Le bouton microphone permet deux modes :</p>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Mode</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Clic simple</td>
+                                <td>Normal</td>
+                                <td>Écoute unique, recherche après 5 sec de silence</td>
+                            </tr>
+                            <tr>
+                                <td>Clic long</td>
+                                <td>Mains libres</td>
+                                <td>Écoute prolongée, dites "Kitview" + votre recherche</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="note-box info">
+                        <strong>Mode mains libres</strong>
+                        Dites "Kitview patients avec bruxisme de moins de 30 ans" pour lancer automatiquement la recherche.
+                    </div>
+
+                    <h3 id="panneau-lateral">3.3 Panneau latéral</h3>
+                    <p>Le panneau gauche propose :</p>
+                    <ul>
+                        <li><strong>✨ Nouvelle recherche</strong> : Réinitialise l'interface</li>
+                        <li><strong>Conversations récentes</strong> : Historique des recherches (cliquez pour copier, ▶ pour relancer)</li>
+                        <li><strong>Exemples</strong> : Suggestions de recherches prédéfinies</li>
+                    </ul>
+                    
+                    <div class="note-box tip">
+                        <strong>💡 Astuce</strong>
+                        La bordure droite du panneau est redimensionnable par glisser-déposer.
+                    </div>
+
+                    <h3 id="affichage-resultats">3.4 Affichage des résultats</h3>
+                    <p>Les résultats s'affichent sous forme de cartes patient contenant :</p>
+                    <ul>
+                        <li><strong>ID patient</strong> (en haut à gauche de la carte)</li>
+                        <li><strong>Portrait</strong> (photo ou silhouette)</li>
+                        <li><strong>Prénom</strong> (fond clair) et <strong>Nom</strong> (fond sombre)</li>
+                        <li><strong>Sexe</strong> (♂/♀, fond clair) et <strong>Âge</strong> (fond sombre)</li>
+                        <li><strong>Pathologies</strong> groupées par tag (voir section 3.5)</li>
+                    </ul>
+                    <p><strong>Cliquez sur une carte</strong> pour voir les détails complets du patient.</p>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════
+                     Section 3.5 : Recherche par similarité
+                     ═══════════════════════════════════════════════════════ -->
+                <section class="help-section" id="recherche-similarite">
+                    <h2>🎯 3.5 Recherche par similarité - "Même X que..."</h2>
+                    
+                    <div class="note-box new">
+                        <strong>🆕 Fonctionnalité V5.1 — Enrichie en V5.2 (Photofit)</strong>
+                        Cette fonctionnalité permet de trouver des patients similaires à un patient de référence en cliquant directement sur ses caractéristiques. En V5.2, la recherche par portrait compare visuellement les photos des patients.
+                    </div>
+
+                    <h3>Principe général</h3>
+                    <p>Après une recherche initiale, <strong>tous les éléments des cartes patients sont cliquables</strong>. Cliquez sur n'importe quelle caractéristique pour trouver d'autres patients ayant la même.</p>
+
+                    <h3>Comment utiliser cette fonctionnalité</h3>
+                    
+                    <h4>Étape 1 : Recherche initiale</h4>
+                    <p>Effectuez une recherche normale, par exemple : <code>patients avec bruxisme</code></p>
+                    
+                    <h4>Étape 2 : Sélection du patient de référence</h4>
+                    <p>Cliquez sur n'importe quel élément cliquable d'une fiche patient :</p>
+                    
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Élément cliqué</th>
+                                <th>Recherche générée</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Portrait 📸</td><td>"même portrait" — <em>comparaison Photofit avec scores de similarité (V5.2)</em></td></tr>
+                            <tr><td>Prénom</td><td>"même prénom"</td></tr>
+                            <tr><td>Nom</td><td>"même nom"</td></tr>
+                            <tr><td>Sexe (♂/♀)</td><td>"même sexe"</td></tr>
+                            <tr><td>Âge</td><td>"même âge" (±3 ans)</td></tr>
+                            <tr><td>Tag (ex: Béance)</td><td>"même béance"</td></tr>
+                            <tr><td>Pathologie complète</td><td>"même béance antérieure gauche modérée"</td></tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>Étape 3 : Patient sélectionné</h4>
+                    <p>La fiche du patient de référence s'affiche avec un <strong>fond jaune</strong> pour la distinguer :</p>
+                    
+                    <div class="demo-card">
+                        <strong>ID: 1234</strong> &nbsp; Portrait | <span style="text-decoration: underline;">Guillaume</span> <span style="background: #2c3e50; color: white; padding: 2px 6px; border-radius: 4px;">Moulin</span> &nbsp; ♂ <span style="background: #2c3e50; color: white; padding: 2px 6px; border-radius: 4px;">32 ans</span>
+                        <br><br>
+                        <span class="demo-tag dark">Béance</span>
+                        <span class="demo-tag light">Béance Antérieure Gauche Modérée</span>
+                    </div>
+                    
+                    <h4>Étape 4 : Ajouter des critères</h4>
+                    <p>Cliquez sur d'autres éléments <strong>du même patient</strong> pour combiner les critères.</p>
+                    <p>Exemple : après avoir cliqué sur "portrait", cliquez aussi sur "âge" → la recherche devient <code>"même portrait et même âge que Guillaume Moulin"</code></p>
+                    
+                    <h4>Étape 5 : Retirer un critère</h4>
+                    <p>Les critères actifs sont entourés d'une <strong>bordure rouge</strong>. Re-cliquez sur un élément actif pour le retirer :</p>
+                    
+                    <div style="margin: 10px 0;">
+                        <span class="demo-tag dark active">Béance</span> ← Critère actif (bordure rouge)
+                        &nbsp;&nbsp;
+                        <span class="demo-tag dark">Classe II</span> ← Critère inactif
+                    </div>
+                    
+                    <h4>Étape 6 : Changer de patient de référence</h4>
+                    <p>Cliquez sur n'importe quel élément d'un <strong>autre patient</strong> : le premier patient sera désélectionné et le nouveau deviendra la référence.</p>
+                    
+                    <h4>Étape 7 : Revenir à la recherche initiale</h4>
+                    <p>Retirez tous les critères actifs en re-cliquant dessus, ou lancez une nouvelle recherche.</p>
+
+                    <h3>Syntaxe directe dans la barre de recherche</h3>
+                    <p>Vous pouvez aussi taper directement des requêtes "même" :</p>
+                    
+                    <div class="code-block">même portrait que Guillaume Moulin
+même âge et même sexe que Hélène Joly
+mêmes portrait, prénom et âge que Jean Dupont
+même béance antérieure que id 123</div>
+
+                    <h3>Affichage des pathologies</h3>
+                    <p>Les pathologies utilisent un système de groupement visuel :</p>
+                    
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Apparence</th>
+                                <th>Exemple</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Tags</strong> (1 mot)</td>
+                                <td>Fond sombre, texte blanc</td>
+                                <td><span class="demo-tag dark">Béance</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>Pathologies</strong> (complètes)</td>
+                                <td>Fond clair, texte noir</td>
+                                <td><span class="demo-tag light">Béance Antérieure Gauche Modérée</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <p>Les pathologies sont <strong>groupées par tag</strong> : toutes les pathologies commençant par "Béance" sont affichées ensemble sous le tag "Béance".</p>
+                    
+                    <div class="note-box tip">
+                        <strong>💡 Astuce</strong>
+                        Si vous cliquez sur une pathologie complète alors que le tag correspondant était sélectionné, le tag sera automatiquement désélectionné (la pathologie est plus précise).
+                    </div>
+
+                    <h3 id="photofit">Recherche par portrait (Photofit) 📸</h3>
+                    
+                    <div class="note-box new">
+                        <strong>🆕 Nouveauté V5.2</strong>
+                        La recherche par portrait utilise la comparaison d'images pour trouver des patients ayant un visage similaire.
+                    </div>
+                    
+                    <h4>Comment lancer une recherche par portrait</h4>
+                    <p>Deux façons de déclencher la recherche :</p>
+                    <ol>
+                        <li><strong>Cliquer sur la photo</strong> d'un patient dans les résultats → lance automatiquement <code>même portrait que [Prénom Nom]</code></li>
+                        <li><strong>Taper dans la barre de recherche</strong> : <code>même portrait que Guillaume Moulin</code> ou <code>même portrait que id 123</code></li>
+                    </ol>
+
+                    <h4>Scores de similarité</h4>
+                    <p>Chaque fiche patient affiche un <strong>badge coloré</strong> devant le mot PATHOLOGIES indiquant le pourcentage de ressemblance avec le portrait de référence :</p>
+                    
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Badge</th>
+                                <th>Score</th>
+                                <th>Signification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span style="background: #ffc107; color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 700;">🎯 100%</span></td>
+                                <td>100%</td>
+                                <td>Patient de référence (fond jaune)</td>
+                            </tr>
+                            <tr>
+                                <td><span style="background: #28a745; color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 700;">🟢 97%</span></td>
+                                <td>≥ 80%</td>
+                                <td>Ressemblance excellente</td>
+                            </tr>
+                            <tr>
+                                <td><span style="background: #17a2b8; color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 700;">🔵 72%</span></td>
+                                <td>≥ 60%</td>
+                                <td>Bonne ressemblance</td>
+                            </tr>
+                            <tr>
+                                <td><span style="background: #fd7e14; color: #fff; padding: 2px 8px; border-radius: 12px; font-size: 12px; font-weight: 700;">🟠 54%</span></td>
+                                <td>&lt; 60%</td>
+                                <td>Ressemblance modérée</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <h4>Lecture des résultats</h4>
+                    <p>Les résultats d'une recherche par portrait sont triés par score décroissant. Le patient de référence apparaît en premier avec un <strong>fond jaune</strong> et le badge <span style="background: #ffc107; color: #fff; padding: 1px 6px; border-radius: 10px; font-size: 11px; font-weight: 700;">🎯 100%</span>.</p>
+                    <p>Le bandeau bleu en haut des résultats indique la recherche en cours, par exemple :</p>
+                    <div class="ascii-schema" style="background: #3B9DD8; color: white; padding: 12px 16px; border-radius: 8px;">même portrait que Thierry Lecoq
+base01600.db / standard</div>
+                    
+                    <div class="note-box tip">
+                        <strong>💡 Astuce</strong>
+                        Après une recherche par portrait, vous pouvez affiner en cliquant sur d'autres critères du patient de référence (âge, sexe, pathologies...) pour combiner les filtres.
+                    </div>
+                    
+                    <div class="note-box warning">
+                        <strong>⚠️ Important</strong>
+                        Les recherches "même" ne sont pas enregistrées dans l'historique des conversations récentes, car elles sont généralement des explorations temporaires.
+                    </div>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════
+                     Section 4 : Raccourcis et astuces
+                     ═══════════════════════════════════════════════════════ -->
+                <section class="help-section" id="raccourcis">
+                    <h2>⌨️ 4. Raccourcis et astuces</h2>
+
+                    <h3>4.1 Raccourcis clavier</h3>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Raccourci</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><kbd>Entrée</kbd></td><td>Lancer la recherche</td></tr>
+                            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd></td><td>Recherche vocale (mode normal)</td></tr>
+                            <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd></td><td>Mode mains libres</td></tr>
+                            <tr><td><kbd>Escape</kbd></td><td>Fermer modale / arrêter écoute vocale</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>4.2 Astuces</h3>
+                    <ul>
+                        <li><strong>Autocomplétion</strong> : Le champ de recherche propose des suggestions basées sur l'historique</li>
+                        <li><strong>Panneau redimensionnable</strong> : Glissez la bordure droite du panneau latéral</li>
+                        <li><strong>Cartes patients</strong> : Cliquez pour développer, cliquez à nouveau pour réduire</li>
+                        <li><strong>Thème automatique</strong> : Le mode "Auto" suit les préférences système</li>
+                        <li><strong>Recherche "même"</strong> : Cliquez sur n'importe quel élément d'un patient pour trouver des cas similaires</li>
+                        <li><strong>Photofit</strong> : Cliquez sur la photo d'un patient pour trouver des portraits ressemblants (V5.2)</li>
+                        <li><strong>Langue instantanée</strong> : Cliquez directement sur un drapeau pour changer de langue</li>
+                    </ul>
+
+                    <h3>4.3 Exemples de requêtes</h3>
+                    <div class="code-block">patients avec béance
+classe II division 1
+adultes avec encombrement
+enfants de moins de 12 ans
+patients traités par invisalign
+bruxisme et classe 3
+femmes de plus de 40 ans avec supraclusion
+même portrait que Guillaume Moulin
+même âge et même sexe que id 123
+même portrait que id 456</div>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════
+                     Section 5 : Recherche dans le guide
+                     ═══════════════════════════════════════════════════════ -->
+                <section class="help-section" id="recherche-page">
+                    <h2>🔍 5. Recherche dans le guide</h2>
+                    
+                    <div class="note-box new">
+                        <strong>🆕 Nouveauté</strong>
+                        Une barre de recherche full-text permet de trouver rapidement n'importe quel mot ou expression dans ce mode d'emploi.
+                    </div>
+                    
+                    <h3>5.1 Utilisation</h3>
+                    <p>La barre de recherche <strong>🔍 « Chercher dans le guide... »</strong> est située dans le bandeau supérieur.</p>
+                    <ol>
+                        <li>Tapez un mot ou une expression (minimum 2 caractères)</li>
+                        <li>Les occurrences sont surlignées en <mark class="search-highlight">jaune</mark> dans la page</li>
+                        <li>L'occurrence courante est surlignée en <mark class="search-highlight current">orange</mark></li>
+                        <li>Utilisez les boutons ◀ ▶ pour naviguer entre les résultats</li>
+                        <li>Le compteur indique votre position (ex: <code>3/12</code>)</li>
+                    </ol>
+                    
+                    <h3>5.2 Raccourcis</h3>
+                    <table class="help-table">
+                        <thead><tr><th>Raccourci</th><th>Action</th></tr></thead>
+                        <tbody>
+                            <tr><td><kbd>F3</kbd></td><td>Résultat suivant</td></tr>
+                            <tr><td><kbd>Shift</kbd>+<kbd>F3</kbd></td><td>Résultat précédent</td></tr>
+                            <tr><td><kbd>Escape</kbd></td><td>Effacer la recherche</td></tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- ═══════════════════════════════════════════════════════
+                     Section 6 : Assistant IA
+                     ═══════════════════════════════════════════════════════ -->
+                <section class="help-section" id="assistant-ia">
+                    <h2>🤖 6. Assistant IA</h2>
+                    
+                    <div class="note-box new">
+                        <strong>🆕 Nouveauté</strong>
+                        Un assistant IA est disponible pour répondre à vos questions sur le mode d'emploi. Il utilise le contenu de cette page comme contexte pour fournir des réponses précises.
+                    </div>
+                    
+                    <h3>6.1 Accéder à l'assistant</h3>
+                    <p>Cliquez sur le <strong>bouton bleu 💬</strong> en bas à droite de l'écran pour ouvrir la fenêtre de chat.</p>
+                    
+                    <h3>6.2 Poser une question</h3>
+                    <ol>
+                        <li>Tapez votre question dans le champ de saisie en bas de la fenêtre de chat</li>
+                        <li>Appuyez sur <kbd>Entrée</kbd> ou cliquez sur le bouton d'envoi</li>
+                        <li>L'assistant analyse le contenu du mode d'emploi et vous répond</li>
+                    </ol>
+                    
+                    <h3>6.3 Questions suggérées</h3>
+                    <p>Des puces de suggestions sont proposées pour vous guider. Cliquez dessus pour lancer la question automatiquement.</p>
+                    
+                    <h3>6.4 Fonctionnement technique</h3>
+                    <p>L'assistant utilise un modèle d'IA (Claude ou GPT) hébergé côté serveur via des variables d'environnement sécurisées. Aucune clé API n'est stockée côté navigateur.</p>
+                    
+                    <div class="note-box info">
+                        <strong>💡 Bon à savoir</strong>
+                        <p style="margin-bottom: 0;">L'assistant fonctionne uniquement lorsque le serveur est accessible et qu'une clé API (ANTHROPIC_API_KEY ou OPENAI_API_KEY) est configurée côté serveur. Si l'assistant n'est pas disponible, un message d'erreur s'affiche.</p>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════
+         CHATBOT ASSISTANT IA - Bouton flottant + Modale
+         ═══════════════════════════════════════════════════════ -->
+
+    <!-- Bouton flottant -->
+    <button id="chatbot-toggle" title="Assistant IA" aria-label="Ouvrir l'assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+            <circle cx="8" cy="10" r="1.5"/>
+            <circle cx="12" cy="10" r="1.5"/>
+            <circle cx="16" cy="10" r="1.5"/>
+        </svg>
+    </button>
+
+    <!-- Modale de chat -->
+    <div id="chatbot-modal" role="dialog" aria-labelledby="chatbot-title">
+        <div id="chatbot-header">
+            <div class="avatar">🤖</div>
+            <div class="title">
+                <h4 id="chatbot-title">Assistant Kitview</h4>
+                <span>Posez vos questions sur le guide</span>
+            </div>
+            <button id="chatbot-close" aria-label="Fermer">×</button>
+        </div>
+        
+        <div id="chatbot-messages" role="log" aria-live="polite">
+            <div class="chat-msg assistant">Bonjour ! 👋 Je suis l'assistant du mode d'emploi Kitview Search. Posez-moi vos questions sur l'utilisation de l'interface.</div>
+        </div>
+        
+        <div id="chatbot-suggestions">
+            <button class="suggestion-chip" data-q="Comment faire une recherche ?">🔍 Recherche</button>
+            <button class="suggestion-chip" data-q="Comment fonctionne la recherche vocale ?">🎤 Vocal</button>
+            <button class="suggestion-chip" data-q="Comment fonctionne même que ?">🎯 Même que</button>
+            <button class="suggestion-chip" data-q="Comment fonctionne le Photofit ?">📸 Photofit</button>
+            <button class="suggestion-chip" data-q="Comment changer la langue ?">🌐 Langue</button>
+        </div>
+        
+        <div id="chatbot-input-area">
+            <input type="text" id="chatbot-input" placeholder="Posez votre question..." autocomplete="off" aria-label="Votre question">
+            <button id="chatbot-send" aria-label="Envoyer">
+                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="help-footer notranslate">
+        Kitview Search - Mode d'emploi (Simplifié) v5.2 - February 2026
+    </footer>
+
+    <!-- Google Translate Script -->
+    <script type="text/javascript">
+/*
+ * modesimple30.html V1.1.0 - 11/02/2026
+ * JavaScript - Full-text search + Chatbot IA + Navigation
+ */
+
+// ═══════════════════════════════════════════════════════════════
+// GOOGLE TRANSLATE WIDGET
+// ═══════════════════════════════════════════════════════════════
+
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'fr',
+        includedLanguages: 'en,de,es,it,pt,pl,ro,th,ar,zh-CN',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+        autoDisplay: false
+    }, 'google_translate_element');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// SÉLECTEUR DE LANGUE V5.1
+// ═══════════════════════════════════════════════════════════════
+
+let currentLang = 'fr';
+
+function toggleLangPopup() {
+    const popup = document.getElementById('langPopup');
+    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+}
+
+function closeLangPopup() {
+    document.getElementById('langPopup').style.display = 'none';
+}
+
+function applyLanguage(langCode, displayCode, flagCode) {
+    closeLangPopup();
+    if (langCode === currentLang) return;
+    document.querySelectorAll('.lang-chip').forEach(chip => {
+        chip.classList.toggle('selected', chip.dataset.lang === langCode);
+    });
+    document.getElementById('currentFlag').src = `https://flagcdn.com/w40/${flagCode}.png`;
+    document.getElementById('currentLangCode').textContent = displayCode;
+    if (langCode === 'fr') resetGoogleTranslate();
+    else triggerGoogleTranslate(langCode);
+    currentLang = langCode;
+}
+
+function triggerGoogleTranslate(langCode) {
+    const select = document.querySelector('.goog-te-combo');
+    if (select) { select.value = langCode; select.dispatchEvent(new Event('change', { bubbles: true })); return; }
+    document.cookie = `googtrans=/fr/${langCode}; path=/`;
+    setTimeout(() => window.location.reload(), 100);
+}
+
+function resetGoogleTranslate() {
+    const select = document.querySelector('.goog-te-combo');
+    if (select) { select.value = 'fr'; select.dispatchEvent(new Event('change', { bubbles: true })); document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT'; return; }
+    document.cookie = 'googtrans=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+    window.location.reload();
+}
+
+document.addEventListener('click', (e) => {
+    const container = document.querySelector('.lang-button-container');
+    const popup = document.getElementById('langPopup');
+    if (container && popup && popup.style.display === 'block' && !container.contains(e.target)) closeLangPopup();
+});
+
+function detectCurrentLanguage() {
+    const match = document.cookie.match(/googtrans=\/fr\/([^;]+)/);
+    if (match && match[1]) {
+        const chip = document.querySelector(`.lang-chip[data-lang="${match[1]}"]`);
+        if (chip) {
+            currentLang = match[1];
+            document.getElementById('currentFlag').src = `https://flagcdn.com/w40/${chip.dataset.flag}.png`;
+            document.getElementById('currentLangCode').textContent = chip.textContent.trim();
+            document.querySelectorAll('.lang-chip').forEach(c => c.classList.remove('selected'));
+            chip.classList.add('selected');
+        }
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// GESTION DU THÈME
+// ═══════════════════════════════════════════════════════════════
+
+const themeToggleBtn = document.getElementById('themeToggle');
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark' || (!savedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.body.setAttribute('data-theme', 'dark');
+        themeToggleBtn.textContent = '☀️';
+    }
+}
+
+function toggleTheme() {
+    const isDark = document.body.hasAttribute('data-theme');
+    if (isDark) { document.body.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); themeToggleBtn.textContent = '🌙'; }
+    else { document.body.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); themeToggleBtn.textContent = '☀️'; }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════════════════════
+
+function goBack() {
+    if (window.history.length > 1) window.history.back();
+    else { window.close(); setTimeout(() => { window.location.href = 'simple30.html'; }, 100); }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RECHERCHE FULL-TEXT DANS LA PAGE
+// ═══════════════════════════════════════════════════════════════
+
+let searchMatches = [];
+let searchCurrentIndex = -1;
+
+function clearSearchHighlights() {
+    document.querySelectorAll('mark.search-highlight').forEach(mark => {
+        const parent = mark.parentNode;
+        parent.replaceChild(document.createTextNode(mark.textContent), mark);
+        parent.normalize();
+    });
+    searchMatches = [];
+    searchCurrentIndex = -1;
+    updateSearchCounter();
+}
+
+function highlightText(query) {
+    clearSearchHighlights();
+    if (!query || query.length < 2) return;
+    
+    const contentArea = document.querySelector('.help-content');
+    if (!contentArea) return;
+    
+    const walker = document.createTreeWalker(contentArea, NodeFilter.SHOW_TEXT, {
+        acceptNode: (node) => {
+            if (node.parentElement.closest('.search-page-box, .search-nav, script, style, .code-block')) return NodeFilter.FILTER_REJECT;
+            return NodeFilter.FILTER_ACCEPT;
+        }
+    });
+    
+    const textNodes = [];
+    while (walker.nextNode()) textNodes.push(walker.currentNode);
+    
+    const queryLower = query.toLowerCase();
+    
+    textNodes.forEach(node => {
+        const text = node.textContent;
+        const lower = text.toLowerCase();
+        let idx = lower.indexOf(queryLower);
+        if (idx === -1) return;
+        
+        const fragment = document.createDocumentFragment();
+        let lastIdx = 0;
+        
+        while (idx !== -1) {
+            if (idx > lastIdx) fragment.appendChild(document.createTextNode(text.substring(lastIdx, idx)));
+            const mark = document.createElement('mark');
+            mark.className = 'search-highlight';
+            mark.textContent = text.substring(idx, idx + query.length);
+            fragment.appendChild(mark);
+            lastIdx = idx + query.length;
+            idx = lower.indexOf(queryLower, lastIdx);
+        }
+        
+        if (lastIdx < text.length) fragment.appendChild(document.createTextNode(text.substring(lastIdx)));
+        node.parentNode.replaceChild(fragment, node);
+    });
+    
+    searchMatches = Array.from(document.querySelectorAll('mark.search-highlight'));
+    if (searchMatches.length > 0) navigateSearch(0);
+    updateSearchCounter();
+}
+
+function navigateSearch(index) {
+    if (searchMatches.length === 0) return;
+    searchMatches.forEach(m => m.classList.remove('current'));
+    searchCurrentIndex = ((index % searchMatches.length) + searchMatches.length) % searchMatches.length;
+    const current = searchMatches[searchCurrentIndex];
+    current.classList.add('current');
+    current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    updateSearchCounter();
+}
+
+function updateSearchCounter() {
+    const counter = document.getElementById('searchCounter');
+    const nav = document.getElementById('searchNav');
+    if (searchMatches.length > 0) {
+        counter.textContent = `${searchCurrentIndex + 1}/${searchMatches.length}`;
+        nav.classList.add('visible');
+    } else {
+        counter.textContent = '0/0';
+        nav.classList.remove('visible');
+    }
+}
+
+function initPageSearch() {
+    const input = document.getElementById('pageSearchInput');
+    const clearBtn = document.getElementById('pageSearchClear');
+    let debounceTimer;
+    
+    input.addEventListener('input', () => {
+        clearBtn.classList.toggle('visible', input.value.length > 0);
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => highlightText(input.value.trim()), 300);
+    });
+    
+    clearBtn.addEventListener('click', () => {
+        input.value = '';
+        clearBtn.classList.remove('visible');
+        clearSearchHighlights();
+        input.focus();
+    });
+    
+    document.getElementById('searchPrev').addEventListener('click', () => navigateSearch(searchCurrentIndex - 1));
+    document.getElementById('searchNext').addEventListener('click', () => navigateSearch(searchCurrentIndex + 1));
+    
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'F3') {
+            e.preventDefault();
+            if (searchMatches.length > 0) navigateSearch(searchCurrentIndex + (e.shiftKey ? -1 : 1));
+        }
+        if (e.key === 'Escape' && input.value) {
+            input.value = '';
+            clearBtn.classList.remove('visible');
+            clearSearchHighlights();
+        }
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHATBOT ASSISTANT IA
+// ═══════════════════════════════════════════════════════════════
+
+let chatHistory = [];
+
+function extractPageContext() {
+    const sections = document.querySelectorAll('.help-section');
+    let text = '';
+    sections.forEach(s => {
+        const clone = s.cloneNode(true);
+        clone.querySelectorAll('script, style, mark').forEach(el => el.remove());
+        text += clone.textContent.replace(/\s+/g, ' ').trim() + '\n\n';
+    });
+    return text.substring(0, 5000);
+}
+
+function addChatMessage(content, role) {
+    const messages = document.getElementById('chatbot-messages');
+    const div = document.createElement('div');
+    div.className = `chat-msg ${role}`;
+    
+    if (role === 'assistant') {
+        // Simple markdown: **bold** et listes
+        let html = content
+            .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+            .replace(/\n- /g, '<br>• ')
+            .replace(/\n\d+\.\s/g, (m) => '<br>' + m.trim() + ' ')
+            .replace(/\n/g, '<br>');
+        div.innerHTML = html;
+    } else {
+        div.textContent = content;
+    }
+    
+    messages.appendChild(div);
+    messages.scrollTop = messages.scrollHeight;
+    return div;
+}
+
+async function sendChatMessage(question) {
+    if (!question.trim()) return;
+    
+    addChatMessage(question, 'user');
+    chatHistory.push({ role: 'user', content: question });
+    
+    const loadingMsg = addChatMessage('⏳ Réflexion en cours...', 'loading');
+    
+    // Masquer les suggestions après la première question
+    const suggestions = document.getElementById('chatbot-suggestions');
+    if (suggestions) suggestions.style.display = 'none';
+    
+    try {
+        // Détecter le base URL du serveur
+        const baseUrl = window.location.origin;
+        
+        const response = await fetch(`${baseUrl}/ia/help-chatbot`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                question: question,
+                page_context: extractPageContext(),
+                history: chatHistory.slice(-6),
+                lang: currentLang || 'fr'
+            })
+        });
+        
+        loadingMsg.remove();
+        
+        if (!response.ok) {
+            const err = await response.json().catch(() => ({ detail: response.statusText }));
+            throw new Error(err.detail || `Erreur ${response.status}`);
+        }
+        
+        const data = await response.json();
+        addChatMessage(data.reponse, 'assistant');
+        chatHistory.push({ role: 'assistant', content: data.reponse });
+        
+    } catch (error) {
+        loadingMsg.remove();
+        const errorDiv = addChatMessage(`❌ ${error.message}`, 'error');
+        console.error('[Chatbot]', error);
+    }
+}
+
+function initChatbot() {
+    const toggle = document.getElementById('chatbot-toggle');
+    const modal = document.getElementById('chatbot-modal');
+    const close = document.getElementById('chatbot-close');
+    const input = document.getElementById('chatbot-input');
+    const send = document.getElementById('chatbot-send');
+    
+    toggle.addEventListener('click', () => {
+        modal.classList.toggle('open');
+        if (modal.classList.contains('open')) input.focus();
+    });
+    
+    close.addEventListener('click', () => modal.classList.remove('open'));
+    
+    send.addEventListener('click', () => {
+        sendChatMessage(input.value);
+        input.value = '';
+    });
+    
+    input.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' && !e.shiftKey) {
+            e.preventDefault();
+            sendChatMessage(input.value);
+            input.value = '';
+        }
+    });
+    
+    // Suggestions
+    document.querySelectorAll('.suggestion-chip').forEach(chip => {
+        chip.addEventListener('click', () => {
+            const q = chip.dataset.q;
+            input.value = q;
+            sendChatMessage(q);
+            input.value = '';
+        });
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// TABLE DES MATIÈRES - Surlignage actif au scroll
+// ═══════════════════════════════════════════════════════════════
+
+function initTocHighlight() {
+    const sections = document.querySelectorAll('.help-section');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    if (!('IntersectionObserver' in window)) return;
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                tocLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === '#' + id);
+                });
+            }
+        });
+    }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
+    
+    sections.forEach(section => observer.observe(section));
+}
+
+// ═══════════════════════════════════════════════════════════════
+// INITIALISATION
+// ═══════════════════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    initTocHighlight();
+    detectCurrentLanguage();
+    initPageSearch();
+    initChatbot();
+    themeToggleBtn.addEventListener('click', toggleTheme);
+    console.log('[ModSimple] Mode d\'emploi simplifié V1.1.0 - search + chatbot');
+});
+    </script>
+    
+    <!-- Google Translate API -->
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>

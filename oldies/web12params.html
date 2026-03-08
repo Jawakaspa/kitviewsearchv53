@@ -1,0 +1,1295 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitview Search - Paramètres</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.kitview.com/favicon.ico">
+    <style>
+/*
+ * web12params.html V1.0.5 - 04/01/2026 08:20:35
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3B9DD8;
+    --primary-light: #e3f2fd;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --button-hover: #2d8bc7;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --border-color: #404040;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header */
+.params-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 750px;
+    margin-bottom: 20px;
+    padding: 15px 20px;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.params-header h1 {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.params-header h1 .icon {
+    font-size: 24px;
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.back-button:hover {
+    background: var(--button-hover);
+}
+
+/* Container principal */
+.params-container {
+    width: 100%;
+    max-width: 750px;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+}
+
+/* Tableau des paramètres */
+.settings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.settings-table th,
+.settings-table td {
+    border: 1px solid var(--border-color);
+    padding: 8px 10px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.settings-table th {
+    background: var(--bg-secondary);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.settings-table th.col-label { width: 35%; }
+.settings-table th.col-actif { width: 10%; text-align: center; }
+.settings-table th.col-bandeau { width: 12%; text-align: center; }
+.settings-table th.col-valeur { width: 43%; }
+
+.settings-table td.center { text-align: center; }
+.settings-table td.indent { padding-left: 25px; color: var(--text-secondary); }
+
+.settings-table tr.section-header td:first-child { font-weight: 600; }
+.settings-table tr.sub-item { background: var(--bg-secondary); }
+
+.settings-table .locked {
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.settings-table .info-text {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.settings-table input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.settings-table .setting-control {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 13px;
+}
+
+.settings-table .setting-control.small {
+    width: 80px;
+}
+
+.settings-table .slider-inline {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.settings-table .slider-inline input[type="range"] {
+    flex: 1;
+    height: 6px;
+}
+
+.settings-table .slider-inline span {
+    min-width: 40px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+/* Section exemples */
+.examples-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.examples-section label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+.examples-section textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 13px;
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Actions */
+.settings-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.analyse-button {
+    padding: 12px 30px;
+    background: #27ae60;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.analyse-button:hover {
+    background: #219a52;
+}
+
+.save-button {
+    padding: 12px 30px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.save-button:hover {
+    background: var(--button-hover);
+}
+
+/* Toast notification */
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: #27ae60;
+    color: white;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-size: 14px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.toast.active {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+/* Mode sombre */
+[data-theme="dark"] .settings-table th {
+    background: #333;
+}
+
+[data-theme="dark"] .settings-table tr.sub-item {
+    background: #2a2a2a;
+}
+
+/* Version info */
+.version-info {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+    font-size: 11px;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+    
+/* Section Moteurs IA */
+.ia-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.ia-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.ia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+}
+
+.ia-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.ia-item:hover {
+    border-color: var(--primary-color);
+}
+
+.ia-item.inactive {
+    opacity: 0.5;
+}
+
+.ia-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.ia-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ia-item-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.ia-item-provider {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.ia-item-cost {
+    font-size: 11px;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.ia-loading {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-secondary);
+}
+
+/* Section Options Détection IA (detiabrut) */
+.detiabrut-section {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+.detiabrut-section h3 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.detiabrut-section .section-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+}
+
+.detiabrut-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.detiabrut-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: all 0.2s;
+}
+
+.detiabrut-item:hover {
+    border-color: var(--primary-color);
+}
+
+.detiabrut-item.disabled {
+    opacity: 0.5;
+    background: #ffebee;
+}
+
+[data-theme="dark"] .detiabrut-item.disabled {
+    background: #3d2828;
+}
+
+.detiabrut-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.detiabrut-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.detiabrut-item-name {
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.detiabrut-item-desc {
+    font-size: 10px;
+    color: var(--text-secondary);
+}
+
+.detiabrut-actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+}
+
+.detiabrut-actions button {
+    padding: 6px 12px;
+    font-size: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.detiabrut-actions button:hover {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+.detiabrut-command {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 12px;
+    color: var(--text-primary);
+}
+
+.detiabrut-command .cmd-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-bottom: 4px;
+}
+
+.detiabrut-command .cmd-value {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+</style>
+</head>
+<body>
+    <!-- Header avec bouton retour -->
+    <div class="params-header">
+        <h1><span class="icon">⚙️</span> Paramètres</h1>
+        <button class="back-button" onclick="goBack()">
+            ← Retour à la recherche
+        </button>
+    </div>
+
+    <!-- Container des paramètres -->
+    <div class="params-container">
+        <table class="settings-table">
+            <thead>
+                <tr>
+                    <th class="col-label">Paramètre</th>
+                    <th class="col-actif">Actif</th>
+                    <th class="col-bandeau">Bandeau</th>
+                    <th class="col-valeur">Valeur</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Jour/Nuit -->
+                <tr data-setting="theme">
+                    <td>Jour/Nuit</td>
+                    <td class="center"><input type="checkbox" id="activeTheme" checked></td>
+                    <td class="center"><input type="checkbox" id="bandeauTheme"></td>
+                    <td>
+                        <select id="themeSelect" class="setting-control">
+                            <option value="auto">Auto</option>
+                            <option value="light">Clair</option>
+                            <option value="dark">Sombre</option>
+                        </select>
+                    </td>
+                </tr>
+                <!-- Style visuel -->
+                <tr data-setting="style">
+                    <td>Style visuel</td>
+                    <td class="center"><input type="checkbox" id="activeStyle" checked></td>
+                    <td class="center">—</td>
+                    <td>
+                        <select id="styleSelect" class="setting-control">
+                            <option value="classic">Windows</option>
+                            <option value="glass">LiquidGlass</option>
+                        </select>
+                    </td>
+                </tr>
+                <!-- Filigrane -->
+                <tr data-setting="filigrane">
+                    <td>Filigrane</td>
+                    <td class="center"><span class="locked">V</span></td>
+                    <td class="center">—</td>
+                    <td>
+                        <div class="slider-inline">
+                            <input type="range" id="filigraneSlider" min="0" max="100" value="50" class="setting-control">
+                            <span id="filigraneValue">50%</span>
+                        </div>
+                    </td>
+                </tr>
+                <!-- Nom utilisateur -->
+                <tr data-setting="username">
+                    <td>Nom d'utilisateur</td>
+                    <td class="center"><input type="checkbox" id="activeUsername" checked></td>
+                    <td class="center">—</td>
+                    <td><input type="text" id="userNameInput" placeholder="Votre nom" class="setting-control"></td>
+                </tr>
+                <!-- Bases -->
+                <tr data-setting="bases">
+                    <td>Bases</td>
+                    <td class="center"><span class="locked">V</span></td>
+                    <td class="center"><input type="checkbox" id="bandeauBases"></td>
+                    <td>
+                        <select id="baseSelectorSettings" class="setting-control">
+                            <option value="">Chargement...</option>
+                        </select>
+                    </td>
+                </tr>
+                <!-- Internationalisation -->
+                <tr data-setting="i18n">
+                    <td>Internationalisation</td>
+                    <td class="center"><input type="checkbox" id="activeI18n" checked></td>
+                    <td class="center"><input type="checkbox" id="bandeauI18n" checked></td>
+                    <td><span class="info-text">Bouton langue dans toolbar</span></td>
+                </tr>
+                <!-- Union -->
+                <tr data-setting="union">
+                    <td>Mode Union</td>
+                    <td class="center"><input type="checkbox" id="activeUnion"></td>
+                    <td class="center">—</td>
+                    <td>
+                        <select id="unionIASelect" class="setting-control">
+                            <!-- Options chargées dynamiquement depuis /ia -->
+                        </select>
+                    </td>
+                </tr>
+                <!-- Panel gauche -->
+                <tr data-setting="panel" class="section-header">
+                    <td>Panel gauche</td>
+                    <td class="center"><input type="checkbox" id="activePanel" checked></td>
+                    <td class="center">—</td>
+                    <td></td>
+                </tr>
+                <!-- Historique -->
+                <tr data-setting="historique" class="sub-item">
+                    <td class="indent">↳ Historique</td>
+                    <td class="center"><input type="checkbox" id="activeHistorique" checked></td>
+                    <td class="center">—</td>
+                    <td></td>
+                </tr>
+                <!-- Exemples -->
+                <tr data-setting="exemples" class="sub-item">
+                    <td class="indent">↳ Exemples</td>
+                    <td class="center"><input type="checkbox" id="activeExemples" checked></td>
+                    <td class="center">—</td>
+                    <td></td>
+                </tr>
+                <!-- Durée démo -->
+                <tr data-setting="demo">
+                    <td>Durée cycle démo</td>
+                    <td class="center"><input type="checkbox" id="activeDemo" checked></td>
+                    <td class="center">—</td>
+                    <td><input type="number" id="demoDurationInput" min="10" max="120" value="20" class="setting-control small"> sec</td>
+                </tr>
+                <!-- Limite résultats -->
+                <tr data-setting="limit">
+                    <td>Limite résultats</td>
+                    <td class="center"><input type="checkbox" id="activeLimit" checked></td>
+                    <td class="center">—</td>
+                    <td><input type="number" id="resultsLimitInput" min="10" max="200" value="100" class="setting-control small"></td>
+                </tr>
+                <!-- Nombre par page -->
+                <tr data-setting="pagesize">
+                    <td>Nombre par page</td>
+                    <td class="center"><input type="checkbox" id="activePagesize" checked></td>
+                    <td class="center">—</td>
+                    <td><input type="number" id="pageSizeInput" min="10" max="100" value="20" class="setting-control small"></td>
+                </tr>
+            </tbody>
+        </table>
+        
+        <!-- Section Moteurs IA -->
+        <div class="ia-section">
+            <h3>🤖 Moteurs IA disponibles</h3>
+            <p style="font-size: 12px; color: var(--text-secondary); margin-bottom: 12px;">
+                Cochez les moteurs que vous souhaitez voir apparaître dans le sélecteur de recherche.
+            </p>
+            <div id="iaGrid" class="ia-grid">
+                <div class="ia-loading">Chargement des moteurs IA...</div>
+            </div>
+        </div>
+        
+        <!-- Section Options Détection IA (detiabrut) -->
+        <div class="detiabrut-section">
+            <h3>🔬 Options de détection IA</h3>
+            <p class="section-desc">
+                Désactivez des référentiels pour tester l'IA "brute" (sans guidance métier).
+                Les cases cochées = référentiels <strong>activés</strong>.
+            </p>
+            
+            <div class="detiabrut-grid" id="detiabrutGrid">
+                <div class="detiabrut-item" data-option="tags">
+                    <input type="checkbox" id="detiabrut_tags" checked onchange="updateDetiabrut()">
+                    <div class="detiabrut-item-info">
+                        <div class="detiabrut-item-name">Tags</div>
+                        <div class="detiabrut-item-desc">Liste des 800 pathologies</div>
+                    </div>
+                </div>
+                <div class="detiabrut-item" data-option="adjs">
+                    <input type="checkbox" id="detiabrut_adjs" checked onchange="updateDetiabrut()">
+                    <div class="detiabrut-item-info">
+                        <div class="detiabrut-item-name">Adjectifs</div>
+                        <div class="detiabrut-item-desc">Liste des 200 qualificatifs</div>
+                    </div>
+                </div>
+                <div class="detiabrut-item" data-option="ages">
+                    <input type="checkbox" id="detiabrut_ages" checked onchange="updateDetiabrut()">
+                    <div class="detiabrut-item-info">
+                        <div class="detiabrut-item-name">Âges</div>
+                        <div class="detiabrut-item-desc">Patterns âge/sexe</div>
+                    </div>
+                </div>
+                <div class="detiabrut-item" data-option="angles">
+                    <input type="checkbox" id="detiabrut_angles" checked onchange="updateDetiabrut()">
+                    <div class="detiabrut-item-info">
+                        <div class="detiabrut-item-name">Angles</div>
+                        <div class="detiabrut-item-desc">Seuils ANB/SNA/SNB</div>
+                    </div>
+                </div>
+                <div class="detiabrut-item" data-option="mapping">
+                    <input type="checkbox" id="detiabrut_mapping" checked onchange="updateDetiabrut()">
+                    <div class="detiabrut-item-info">
+                        <div class="detiabrut-item-name">Mapping</div>
+                        <div class="detiabrut-item-desc">Détecté → Canonique</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="detiabrut-actions">
+                <button onclick="setDetiabrut('detia')">✓ Tout activer (detia)</button>
+                <button onclick="setDetiabrut('brut')">✗ Tout désactiver (brut)</button>
+            </div>
+            
+            <div class="detiabrut-command">
+                <div class="cmd-label">Commande CLI équivalente :</div>
+                <div class="cmd-value" id="detiabrut_cmd">python detiabrut.py "question" detia</div>
+            </div>
+        </div>
+        
+        <!-- Exemples de recherche -->
+        <div class="examples-section">
+            <label for="examplesTextarea">Exemples de recherche (un par ligne) - Utilisés pour la démo</label>
+            <textarea id="examplesTextarea" rows="5" placeholder="Un exemple par ligne"></textarea>
+        </div>
+        
+        <!-- Boutons d'action -->
+        <div class="settings-actions">
+            <button class="analyse-button" onclick="goToAnalyse()">📊 Analyse des logs</button>
+            <button class="save-button" onclick="saveSettings()">💾 Enregistrer et retourner</button>
+        </div>
+        
+        <!-- Info version -->
+        <div class="version-info">
+            Kitview Search - Page Paramètres v1.1.0 (web12)
+        </div>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">✓ Paramètres enregistrés</div>
+
+    <script>
+/*
+ * web12params.html V1.0.0 - JavaScript
+ * Gestion des paramètres via localStorage
+ */
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Configuration API (auto-détection local vs Render vs file://)
+// ╚════════════════════════════════════════════════════════════════
+
+const API_BASE_URL = (function() {
+    const hostname = window.location.hostname;
+    const protocol = window.location.protocol;
+    
+    // Si on ouvre le fichier directement (file://), forcer localhost:8000
+    if (protocol === 'file:') {
+        console.log('[API] Mode file:// détecté → http://localhost:8000');
+        return 'http://localhost:8000';
+    }
+    
+    // Si on est sur Render (*.onrender.com)
+    if (hostname.includes('onrender.com')) {
+        return window.location.origin;
+    }
+    
+    // Si on est sur localhost ou IP locale
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname.startsWith('192.168.')) {
+        return 'http://localhost:8000';
+    }
+    
+    // Sinon, utiliser l'origine actuelle
+    return window.location.origin;
+})();
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Exemples par défaut
+// ╚════════════════════════════════════════════════════════════════
+
+const DEFAULT_EXAMPLES = [
+    "patients avec béance",
+    "classe II division 1",
+    "adultes avec encombrement",
+    "enfants de moins de 12 ans",
+    "patients traités par invisalign"
+];
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Éléments du DOM
+// ╚════════════════════════════════════════════════════════════════
+
+const elements = {
+    // Valeurs
+    themeSelect: document.getElementById('themeSelect'),
+    styleSelect: document.getElementById('styleSelect'),
+    filigraneSlider: document.getElementById('filigraneSlider'),
+    filigraneValue: document.getElementById('filigraneValue'),
+    userNameInput: document.getElementById('userNameInput'),
+    baseSelectorSettings: document.getElementById('baseSelectorSettings'),
+    unionIASelect: document.getElementById('unionIASelect'),
+    demoDurationInput: document.getElementById('demoDurationInput'),
+    resultsLimitInput: document.getElementById('resultsLimitInput'),
+    pageSizeInput: document.getElementById('pageSizeInput'),
+    examplesTextarea: document.getElementById('examplesTextarea'),
+    
+    // Checkboxes Actif
+    activeTheme: document.getElementById('activeTheme'),
+    activeStyle: document.getElementById('activeStyle'),
+    activeUsername: document.getElementById('activeUsername'),
+    activeI18n: document.getElementById('activeI18n'),
+    activeUnion: document.getElementById('activeUnion'),
+    activePanel: document.getElementById('activePanel'),
+    activeHistorique: document.getElementById('activeHistorique'),
+    activeExemples: document.getElementById('activeExemples'),
+    activeDemo: document.getElementById('activeDemo'),
+    activeLimit: document.getElementById('activeLimit'),
+    activePagesize: document.getElementById('activePagesize'),
+    
+    // Checkboxes Bandeau
+    bandeauTheme: document.getElementById('bandeauTheme'),
+    bandeauBases: document.getElementById('bandeauBases'),
+    bandeauI18n: document.getElementById('bandeauI18n'),
+    
+    // Detiabrut options
+    detiabrut_tags: document.getElementById('detiabrut_tags'),
+    detiabrut_adjs: document.getElementById('detiabrut_adjs'),
+    detiabrut_ages: document.getElementById('detiabrut_ages'),
+    detiabrut_angles: document.getElementById('detiabrut_angles'),
+    detiabrut_mapping: document.getElementById('detiabrut_mapping'),
+    detiabrut_cmd: document.getElementById('detiabrut_cmd'),
+    
+    // Toast
+    toast: document.getElementById('toast')
+};
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Chargement des paramètres depuis localStorage
+// ╚════════════════════════════════════════════════════════════════
+
+function loadSettings() {
+    // Valeurs
+    elements.themeSelect.value = localStorage.getItem('theme') || 'auto';
+    elements.styleSelect.value = localStorage.getItem('uiStyle') || 'classic';
+    elements.userNameInput.value = localStorage.getItem('userName') || 'Utilisateur';
+    elements.demoDurationInput.value = localStorage.getItem('demoDuration') || '20';
+    elements.resultsLimitInput.value = localStorage.getItem('resultsLimit') || '100';
+    elements.pageSizeInput.value = localStorage.getItem('pageSize') || '20';
+    
+    // Filigrane
+    const filigraneVal = localStorage.getItem('filigraneIntensity') || '50';
+    elements.filigraneSlider.value = filigraneVal;
+    elements.filigraneValue.textContent = filigraneVal + '%';
+    
+    // Exemples
+    const examples = JSON.parse(localStorage.getItem('examples') || 'null') || DEFAULT_EXAMPLES;
+    elements.examplesTextarea.value = examples.join('\n');
+    
+    // Base sélectionnée
+    const currentBase = localStorage.getItem('currentBase') || '';
+    
+    // Checkboxes Actif
+    elements.activeTheme.checked = localStorage.getItem('activeTheme') !== 'false';
+    elements.activeStyle.checked = localStorage.getItem('activeStyle') !== 'false';
+    elements.activeUsername.checked = localStorage.getItem('activeUsername') !== 'false';
+    elements.activeI18n.checked = localStorage.getItem('activeI18n') !== 'false';
+    elements.activeUnion.checked = localStorage.getItem('unionMode') === 'true';
+    elements.activePanel.checked = localStorage.getItem('activePanel') !== 'false';
+    elements.activeHistorique.checked = localStorage.getItem('activeHistorique') !== 'false';
+    elements.activeExemples.checked = localStorage.getItem('activeExemples') !== 'false';
+    elements.activeDemo.checked = localStorage.getItem('activeDemo') !== 'false';
+    elements.activeLimit.checked = localStorage.getItem('activeLimit') !== 'false';
+    elements.activePagesize.checked = localStorage.getItem('activePagesize') !== 'false';
+    
+    // Checkboxes Bandeau
+    elements.bandeauTheme.checked = localStorage.getItem('bandeauTheme') === 'true';
+    elements.bandeauBases.checked = localStorage.getItem('bandeauBases') === 'true';
+    elements.bandeauI18n.checked = localStorage.getItem('bandeauI18n') !== 'false';
+    
+    // Appliquer le thème à cette page
+    applyTheme(elements.themeSelect.value);
+    
+    // Activer/désactiver les contrôles selon Actif
+    applyActiveStates();
+    
+    // Charger les options detiabrut
+    loadDetiabrutSettings();
+}
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Sauvegarde des paramètres dans localStorage
+// ╚════════════════════════════════════════════════════════════════
+
+function saveSettings() {
+    // Valeurs
+    localStorage.setItem('theme', elements.themeSelect.value);
+    localStorage.setItem('uiStyle', elements.styleSelect.value);
+    localStorage.setItem('userName', elements.userNameInput.value);
+    localStorage.setItem('demoDuration', elements.demoDurationInput.value);
+    localStorage.setItem('resultsLimit', elements.resultsLimitInput.value);
+    localStorage.setItem('pageSize', elements.pageSizeInput.value);
+    localStorage.setItem('filigraneIntensity', elements.filigraneSlider.value);
+    
+    // Base sélectionnée
+    if (elements.baseSelectorSettings.value) {
+        localStorage.setItem('currentBase', elements.baseSelectorSettings.value);
+    }
+    
+    // Union IA
+    localStorage.setItem('unionMode', elements.activeUnion.checked);
+    if (elements.unionIASelect.value) {
+        localStorage.setItem('unionIA', elements.unionIASelect.value);
+    }
+    
+    // Exemples
+    const examples = elements.examplesTextarea.value
+        .split('\n')
+        .map(e => e.trim())
+        .filter(e => e.length > 0);
+    localStorage.setItem('examples', JSON.stringify(examples));
+    
+    // Checkboxes Actif
+    localStorage.setItem('activeTheme', elements.activeTheme.checked);
+    localStorage.setItem('activeStyle', elements.activeStyle.checked);
+    localStorage.setItem('activeUsername', elements.activeUsername.checked);
+    localStorage.setItem('activeI18n', elements.activeI18n.checked);
+    localStorage.setItem('activePanel', elements.activePanel.checked);
+    localStorage.setItem('activeHistorique', elements.activeHistorique.checked);
+    localStorage.setItem('activeExemples', elements.activeExemples.checked);
+    localStorage.setItem('activeDemo', elements.activeDemo.checked);
+    localStorage.setItem('activeLimit', elements.activeLimit.checked);
+    localStorage.setItem('activePagesize', elements.activePagesize.checked);
+    
+    // Checkboxes Bandeau
+    localStorage.setItem('bandeauTheme', elements.bandeauTheme.checked);
+    localStorage.setItem('bandeauBases', elements.bandeauBases.checked);
+    localStorage.setItem('bandeauI18n', elements.bandeauI18n.checked);
+    
+    // Options detiabrut
+    saveDetiabrutSettings();
+    
+    // Afficher le toast
+    showToast();
+    
+    // Retour après un court délai
+    setTimeout(() => {
+        goBack();
+    }, 800);
+}
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Appliquer le thème
+// ╚════════════════════════════════════════════════════════════════
+
+function applyTheme(theme) {
+    if (theme === 'auto') {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    } else {
+        document.documentElement.setAttribute('data-theme', theme);
+    }
+}
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Appliquer les états Actif
+// ╚════════════════════════════════════════════════════════════════
+
+function applyActiveStates() {
+    elements.themeSelect.disabled = !elements.activeTheme.checked;
+    elements.styleSelect.disabled = !elements.activeStyle.checked;
+    elements.userNameInput.disabled = !elements.activeUsername.checked;
+    elements.demoDurationInput.disabled = !elements.activeDemo.checked;
+    elements.resultsLimitInput.disabled = !elements.activeLimit.checked;
+    elements.pageSizeInput.disabled = !elements.activePagesize.checked;
+    elements.unionIASelect.disabled = !elements.activeUnion.checked;
+}
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Charger les bases disponibles depuis l'API
+// ╚════════════════════════════════════════════════════════════════
+
+async function loadAvailableBases() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/bases`);
+        if (!response.ok) throw new Error('Erreur API');
+        
+        const data = await response.json();
+        const bases = data.bases || [];
+        
+        elements.baseSelectorSettings.innerHTML = '';
+        
+        bases.forEach(base => {
+            const option = document.createElement('option');
+            option.value = base;
+            option.textContent = base;
+            elements.baseSelectorSettings.appendChild(option);
+        });
+        
+        // Sélectionner la base actuelle
+        const currentBase = localStorage.getItem('currentBase');
+        if (currentBase && bases.includes(currentBase)) {
+            elements.baseSelectorSettings.value = currentBase;
+        }
+        
+    } catch (error) {
+        console.error('Erreur chargement bases:', error);
+        elements.baseSelectorSettings.innerHTML = '<option value="">Serveur non connecté</option>';
+    }
+}
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Charger les moteurs IA depuis l'API (v1.1 - avec gestion actif)
+// ╚════════════════════════════════════════════════════════════════
+
+// Cache global des moteurs IA (tous, pas seulement actifs)
+let ALL_IA_MODELS = [];
+
+async function loadIAModels() {
+    const iaGrid = document.getElementById('iaGrid');
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/ia`);
+        if (!response.ok) throw new Error('Erreur API');
+        
+        const data = await response.json();
+        ALL_IA_MODELS = data.moteurs || [];
+        
+        // 1. Peupler la grille des moteurs IA (pour activation/désactivation)
+        if (iaGrid) {
+            iaGrid.innerHTML = '';
+            
+            ALL_IA_MODELS.forEach(moteur => {
+                const isActive = moteur.actif === 'O';
+                const isStandard = moteur.moteur === 'standard';
+                
+                const item = document.createElement('div');
+                item.className = `ia-item ${isActive ? '' : 'inactive'}`;
+                item.dataset.moteur = moteur.moteur;
+                
+                // Déterminer le provider (via)
+                let provider = 'Local';
+                if (moteur.via === 'openai') provider = 'OpenAI';
+                else if (moteur.via === 'eden') provider = 'Eden AI';
+                else if (!moteur.via && isStandard) provider = 'Sans IA';
+                
+                item.innerHTML = `
+                    <input type="checkbox" 
+                           id="ia_${moteur.moteur}" 
+                           ${isActive ? 'checked' : ''} 
+                           ${isStandard ? 'disabled title="Standard toujours actif"' : ''}
+                           onchange="toggleIA('${moteur.moteur}', this.checked)">
+                    <div class="ia-item-info">
+                        <div class="ia-item-name">${moteur.notes || moteur.moteur}</div>
+                        <div class="ia-item-provider">${provider}</div>
+                    </div>
+                    <div class="ia-item-cost">${moteur.cout > 0 ? '$' + moteur.cout : 'Gratuit'}</div>
+                `;
+                
+                iaGrid.appendChild(item);
+            });
+        }
+        
+        // 2. Peupler le sélecteur Union (seulement les actifs, sans standard)
+        elements.unionIASelect.innerHTML = '';
+        
+        ALL_IA_MODELS
+            .filter(m => m.actif === 'O' && m.moteur !== 'standard')
+            .forEach(moteur => {
+                const option = document.createElement('option');
+                option.value = moteur.moteur;
+                option.textContent = moteur.notes || moteur.moteur;
+                elements.unionIASelect.appendChild(option);
+            });
+        
+        // Sélectionner le moteur union actuel
+        const unionIA = localStorage.getItem('unionIA') || 'gpt4o';
+        if (elements.unionIASelect.querySelector(`option[value="${unionIA}"]`)) {
+            elements.unionIASelect.value = unionIA;
+        }
+        
+    } catch (error) {
+        console.error('Erreur chargement moteurs IA:', error);
+        if (iaGrid) {
+            iaGrid.innerHTML = '<div class="ia-loading" style="color: #e74c3c;">❌ Erreur de chargement des moteurs IA</div>';
+        }
+        // Fallback statique pour le sélecteur union
+        elements.unionIASelect.innerHTML = `
+            <option value="gpt4o">GPT-4o</option>
+            <option value="sonnet">Claude Sonnet</option>
+            <option value="gemini25flash">Gemini Flash</option>
+        `;
+    }
+}
+
+/**
+ * Bascule l'état actif d'un moteur IA
+ * Sauvegarde via l'API PUT /ia/{moteur}
+ */
+async function toggleIA(moteur, isActive) {
+    const item = document.querySelector(`.ia-item[data-moteur="${moteur}"]`);
+    
+    try {
+        // Appel API pour mettre à jour le statut
+        const response = await fetch(`${API_BASE_URL}/ia/${moteur}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ actif: isActive ? 'O' : 'N' })
+        });
+        
+        if (!response.ok) {
+            throw new Error(`HTTP ${response.status}`);
+        }
+        
+        // Mettre à jour l'affichage
+        if (item) {
+            item.classList.toggle('inactive', !isActive);
+        }
+        
+        // Mettre à jour le cache local
+        const idx = ALL_IA_MODELS.findIndex(m => m.moteur === moteur);
+        if (idx !== -1) {
+            ALL_IA_MODELS[idx].actif = isActive ? 'O' : 'N';
+        }
+        
+        // Mettre à jour le sélecteur Union
+        updateUnionSelector();
+        
+        console.log(`[IA] ${moteur} ${isActive ? 'activé' : 'désactivé'}`);
+        
+    } catch (error) {
+        console.error(`Erreur modification ${moteur}:`, error);
+        // Rétablir la checkbox
+        const checkbox = document.getElementById(`ia_${moteur}`);
+        if (checkbox) {
+            checkbox.checked = !isActive;
+        }
+        alert(`Erreur lors de la modification du moteur ${moteur}`);
+    }
+}
+
+/**
+ * Met à jour le sélecteur Union après un changement d'état
+ */
+function updateUnionSelector() {
+    const currentValue = elements.unionIASelect.value;
+    elements.unionIASelect.innerHTML = '';
+    
+    ALL_IA_MODELS
+        .filter(m => m.actif === 'O' && m.moteur !== 'standard')
+        .forEach(moteur => {
+            const option = document.createElement('option');
+            option.value = moteur.moteur;
+            option.textContent = moteur.notes || moteur.moteur;
+            elements.unionIASelect.appendChild(option);
+        });
+    
+    // Restaurer la sélection si toujours valide
+    if (elements.unionIASelect.querySelector(`option[value="${currentValue}"]`)) {
+        elements.unionIASelect.value = currentValue;
+    }
+}
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Options Détection IA (detiabrut)
+// ╚════════════════════════════════════════════════════════════════
+
+const DETIABRUT_OPTIONS = ['tags', 'adjs', 'ages', 'angles', 'mapping'];
+
+/**
+ * Met à jour l'affichage de la commande et les styles visuels
+ */
+function updateDetiabrut() {
+    const disabledOptions = [];
+    
+    DETIABRUT_OPTIONS.forEach(opt => {
+        const checkbox = elements[`detiabrut_${opt}`];
+        const item = checkbox.closest('.detiabrut-item');
+        
+        if (!checkbox.checked) {
+            disabledOptions.push(opt);
+            item.classList.add('disabled');
+        } else {
+            item.classList.remove('disabled');
+        }
+    });
+    
+    // Générer la commande CLI
+    let cmdValue;
+    if (disabledOptions.length === 0) {
+        cmdValue = 'python detiabrut.py "question" detia';
+    } else if (disabledOptions.length === DETIABRUT_OPTIONS.length) {
+        cmdValue = 'python detiabrut.py "question" brut';
+    } else {
+        cmdValue = `python detiabrut.py "question" ${disabledOptions.join(' ')}`;
+    }
+    
+    elements.detiabrut_cmd.textContent = cmdValue;
+}
+
+/**
+ * Active ou désactive toutes les options
+ */
+function setDetiabrut(mode) {
+    const checked = (mode === 'detia');
+    
+    DETIABRUT_OPTIONS.forEach(opt => {
+        elements[`detiabrut_${opt}`].checked = checked;
+    });
+    
+    updateDetiabrut();
+}
+
+/**
+ * Charge les options detiabrut depuis localStorage
+ */
+function loadDetiabrutSettings() {
+    DETIABRUT_OPTIONS.forEach(opt => {
+        const saved = localStorage.getItem(`detiabrut_${opt}`);
+        // Par défaut tout est activé (true)
+        elements[`detiabrut_${opt}`].checked = saved === null ? true : saved === 'true';
+    });
+    
+    updateDetiabrut();
+}
+
+/**
+ * Sauvegarde les options detiabrut dans localStorage
+ */
+function saveDetiabrutSettings() {
+    DETIABRUT_OPTIONS.forEach(opt => {
+        localStorage.setItem(`detiabrut_${opt}`, elements[`detiabrut_${opt}`].checked);
+    });
+}
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Toast notification
+// ╚════════════════════════════════════════════════════════════════
+
+function showToast() {
+    elements.toast.classList.add('active');
+    setTimeout(() => {
+        elements.toast.classList.remove('active');
+    }, 2000);
+}
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Navigation
+// ╚════════════════════════════════════════════════════════════════
+
+function goBack() {
+    // Retourner à web8.html (même répertoire)
+    window.location.href = 'web12.html';
+}
+
+function goToAnalyse() {
+    // Aller à la page d'analyse
+    window.location.href = 'analyse12.html';
+}
+
+// ╔════════════════════════════════════════════════════════════════
+// ║ Event listeners v1.1.0 : Chargement parallèle
+// ╚════════════════════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', async function() {
+    console.log('🔧 Kitview Search - Page Paramètres initialisée');
+    
+    // Charger les paramètres existants
+    loadSettings();
+    
+    // Charger les données dynamiques EN PARALLÈLE
+    const basesPromise = loadAvailableBases();
+    const iaPromise = loadIAModels();
+    
+    // Attendre les deux en parallèle
+    await Promise.all([basesPromise, iaPromise]);
+    
+    console.log('✓ Données dynamiques chargées');
+    
+    // Slider filigrane - mise à jour en temps réel
+    elements.filigraneSlider.addEventListener('input', () => {
+        elements.filigraneValue.textContent = elements.filigraneSlider.value + '%';
+    });
+    
+    // Thème - application en temps réel
+    elements.themeSelect.addEventListener('change', () => {
+        applyTheme(elements.themeSelect.value);
+    });
+    
+    // Checkboxes Actif - mise à jour des états
+    const activeCheckboxes = [
+        elements.activeTheme, elements.activeStyle, elements.activeUsername,
+        elements.activeDemo, elements.activeLimit, elements.activePagesize,
+        elements.activeUnion
+    ];
+    
+    activeCheckboxes.forEach(checkbox => {
+        if (checkbox) {
+            checkbox.addEventListener('change', applyActiveStates);
+        }
+    });
+});
+
+// Écouter les changements de thème système
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
+    if (elements.themeSelect.value === 'auto') {
+        applyTheme('auto');
+    }
+});
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿# Tests Quentin - Scénario KO : commentaires décrivant des problèmes non résolus;;;
+question;page;résultat;commentaire
+patients en classe 2 agés de plus de 20 ans et de moins de 23 ans;index;trop de patients;Le système ne détecte pas du tout la borne de plus de 20 ans ni celle de moins de 23 ans dans les critères d'âge
+Patient compris entre 13 et 16 avec une classe d'angle de 1 uniquement;index;aucun filtre;Les nombres 13 et 16 ne sont pas reconnus comme des âges et aucun critère d'âge n'apparaît dans la détection
+Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3;index;312 patients au lieu de 12;La classe 3 n'est pas détectée comme pathologie et est ignorée par le module de détection des tags
+Patient enfant avec rétrognathie et ou classe 2;index;tous les enfants retournés;Le mot rétrognathie n'est pas dans le glossaire et n'est pas détecté du tout comme pathologie et classe 2 est interprété comme dentaire en standard et squelettique en IA.
+Patient metal compris entre 20 e 24 ans;index;pas d'âge pris en compte;Le e isolé entre 20 et 24 casse complètement la détection d'âge et aucune tranche n'est identifiée

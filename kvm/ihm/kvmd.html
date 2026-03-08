@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta class="notranslate" content="notranslate" name="google"/>
+<title data-txt="txt_0001">Kitview - Manuel d'utilisation (Standard)</title>
+<link href="https://www.kitview.com/favicon.ico" rel="icon" type="image/png"/>
+<link href="https://www.kitview.com/favicon.ico" rel="apple-touch-icon"/>
+<link href="css/kvm.css" rel="stylesheet"/>
+<link href="css/themes.css" rel="stylesheet"/>
+<link href="css/chatbot.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Header -->
+<header class="help-header">
+<div class="header-left">
+<img alt="Logo Kitview" class="logo" data-alt-txt="txt_0486" src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png"/>
+<h1><span class="icon">📖</span> <span class="" data-txt="txt_0002">Manuel d'utilisation</span></h1>
+</div>
+<!-- Zone de recherche -->
+<div class="header-center notranslate">
+<div class="search-box" id="searchBox">
+<span class="search-icon">🔍</span>
+<input data-placeholder-txt="txt_0558" id="searchInput" placeholder="Rechercher dans le manuel..." type="text"/>
+<button class="clear-search" id="clearSearch" title="Effacer">✕</button>
+</div>
+<select class="section-filter" id="sectionFilter">
+<option data-txt="txt_0563" value="all">📑 Toutes les sections</option>
+<option data-txt="txt_0564" value="presentation">1. Présentation</option>
+<option data-txt="txt_0565" value="gestion-patients">2. Gestion patients</option>
+<option data-txt="txt_0566" value="personnalisation">3. Personnalisation</option>
+<option data-txt="txt_0567" value="import-export">4. Import/Export</option>
+<option data-txt="txt_0568" value="seances">5. Séances photos</option>
+<option data-txt="txt_0569" value="gabarits">6. Gabarits</option>
+<option data-txt="txt_0570" value="viewers">7. Viewers</option>
+<option data-txt="txt_0571" value="modification-photos">8. Modification photos</option>
+<option data-txt="txt_0572" value="presentations">9. Présentations fixes</option>
+<option data-txt="txt_0573" value="docking">10. Docking</option>
+<option data-txt="txt_0574" value="creer-presentation">11. Créer présentation</option>
+<option data-txt="txt_0575" value="diaporama">12. Diaporama</option>
+<option data-txt="txt_0576" value="comparateur">13. Comparateur</option>
+<option data-txt="txt_0577" value="courrier">14. Courrier</option>
+<option data-txt="txt_0578" value="portfolio">15. Portfolio</option>
+<option data-txt="txt_0579" value="filtre-population">16. Filtre population</option>
+<option data-txt="txt_0580" value="recherche-date">17. Recherche date</option>
+<option data-txt="txt_0581" value="formulaires">18. Formulaires</option>
+<option data-txt="txt_0582" value="support-formation">19. Support formation</option>
+</select>
+<!-- Navigation des résultats inline -->
+<div class="search-nav-inline" id="searchNavInline">
+<span class="search-results-count-inline" id="searchResultsCount">0</span>
+<button class="search-nav-btn" data-txt="txt_0559" id="prevResult" title="Précédent (Shift+F3)">Préc.</button>
+<span class="search-nav-index" id="currentResultIndex">0/0</span>
+<button class="search-nav-btn" data-txt="txt_0560" id="nextResult" title="Suivant (F3)">Suiv.</button>
+<button class="search-close-btn" id="closeSearchResults" title="Fermer">✕</button>
+</div>
+<!-- Chips de niveau -->
+<div class="level-chips-container notranslate">
+<a class="level-chip standard" href="kvms.html" title="Version Standard">📘 <span class="chip-label" data-txt="txt_0585">Standard</span></a>
+<a class="level-chip debutant active" href="kvmd.html" title="Version Débutant">🟢 <span class="chip-label" data-txt="txt_0586">Débutant</span></a>
+<a class="level-chip intermediaire" href="kvmi.html" title="Version Intermédiaire">🟡 <span class="chip-label" data-txt="txt_0587">Inter.</span></a>
+<a class="level-chip expert" href="kvme.html" title="Version Expert">🔴 <span class="chip-label" data-txt="txt_0588">Expert</span></a>
+</div>
+</div>
+<div class="header-right">
+<!-- Bouton d'aide -->
+<a class="icon-button help-button" data-title-txt="txt_0607" href="aide.html" id="helpButton" title="Guide du manuel">❓</a>
+<!-- Sélecteur de langue custom -->
+<div class="lang-button-container">
+<button class="lang-button" data-txt="txt_0561" id="langButton" onclick="toggleLangPopup()"><img alt="FR" class="flag-img" id="currentFlag" src="https://flagcdn.com/w40/fr.png"/><span id="currentLangCode">FR</span><span class="dropdown-arrow">▼</span>▼</button>
+<div class="lang-popup" id="langPopup" style="display: none;">
+<div class="lang-popup-header" data-txt="txt_0584">Langue du manuel</div>
+<div class="lang-popup-section">
+<div class="lang-popup-label" data-txt="txt_0583">Sélectionnez une langue</div>
+<div class="chips-container">
+<div class="lang-chip selected" data-flag="fr" data-lang="fr" onclick="selectLanguage('fr', 'FR', 'fr')">
+<img alt="FR" class="chip-flag" src="https://flagcdn.com/w40/fr.png"/> FR
+                            </div>
+<div class="lang-chip" data-flag="gb" data-lang="en" onclick="selectLanguage('en', 'EN', 'gb')">
+<img alt="EN" class="chip-flag" src="https://flagcdn.com/w40/gb.png"/> EN
+                            </div>
+<div class="lang-chip" data-flag="de" data-lang="de" onclick="selectLanguage('de', 'DE', 'de')">
+<img alt="DE" class="chip-flag" src="https://flagcdn.com/w40/de.png"/> DE
+                            </div>
+<div class="lang-chip" data-flag="es" data-lang="es" onclick="selectLanguage('es', 'ES', 'es')">
+<img alt="ES" class="chip-flag" src="https://flagcdn.com/w40/es.png"/> ES
+                            </div>
+<div class="lang-chip" data-flag="it" data-lang="it" onclick="selectLanguage('it', 'IT', 'it')">
+<img alt="IT" class="chip-flag" src="https://flagcdn.com/w40/it.png"/> IT
+                            </div>
+<div class="lang-chip" data-flag="pt" data-lang="pt" onclick="selectLanguage('pt', 'PT', 'pt')">
+<img alt="PT" class="chip-flag" src="https://flagcdn.com/w40/pt.png"/> PT
+                            </div>
+<div class="lang-chip" data-flag="pl" data-lang="pl" onclick="selectLanguage('pl', 'PL', 'pl')">
+<img alt="PL" class="chip-flag" src="https://flagcdn.com/w40/pl.png"/> PL
+                            </div>
+<div class="lang-chip" data-flag="ro" data-lang="ro" onclick="selectLanguage('ro', 'RO', 'ro')">
+<img alt="RO" class="chip-flag" src="https://flagcdn.com/w40/ro.png"/> RO
+                            </div>
+<div class="lang-chip" data-flag="th" data-lang="th" onclick="selectLanguage('th', 'TH', 'th')">
+<img alt="TH" class="chip-flag" src="https://flagcdn.com/w40/th.png"/> TH
+                            </div>
+<div class="lang-chip" data-flag="sa" data-lang="ar" onclick="selectLanguage('ar', 'AR', 'sa')">
+<img alt="AR" class="chip-flag" src="https://flagcdn.com/w40/sa.png"/> AR
+                            </div>
+<div class="lang-chip" data-flag="cn" data-lang="zh-CN" onclick="selectLanguage('zh-CN', 'CN', 'cn')">
+<img alt="CN" class="chip-flag" src="https://flagcdn.com/w40/cn.png"/> CN
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Google Translate Widget (invisible via CSS) -->
+<div id="google_translate_element"></div>
+<!-- Thème -->
+<button class="icon-button" id="themeToggle" title="Changer le thème">
+                🌙
+            </button>
+<!-- Retour -->
+<button class="back-button notranslate" data-txt="txt_0562" onclick="goBack()">Retour</button>
+</div>
+</header>
+<!-- Container principal -->
+<div class="help-container">
+<!-- Table des matières -->
+<aside class="toc-sidebar">
+<nav class="toc-card">
+<div class="toc-title" data-txt="txt_0446">Sommaire</div>
+<ul class="toc-list">
+<li><a data-txt="txt_0158" href="#presentation">1. Présentation générale</a></li>
+<li><a data-txt="txt_0159" href="#gestion-patients">2. Gestion des patients</a></li>
+<li class="toc-sub"><a data-txt="txt_0160" href="#creer-patient">Créer un patient</a></li>
+<li class="toc-sub"><a data-txt="txt_0161" href="#supprimer-patient">Supprimer un patient</a></li>
+<li class="toc-sub"><a data-txt="txt_0162" href="#photo-identite">Photo d'identité</a></li>
+<li><a data-txt="txt_0163" href="#personnalisation">3. Personnalisation</a></li>
+<li class="toc-sub"><a data-txt="txt_0164" href="#onglets-style">Onglets et style</a></li>
+<li class="toc-sub"><a data-txt="txt_0165" href="#couleurs">Couleurs du bureau</a></li>
+<li class="toc-sub"><a data-txt="txt_0166" href="#vignettes">Taille des vignettes</a></li>
+<li><a data-txt="txt_0167" href="#import-export">4. Import / Export</a></li>
+<li class="toc-sub"><a data-txt="txt_0168" href="#import-photos">Importer des photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0169" href="#export-photos">Exporter des photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0170" href="#drag-drop">Glisser-déposer</a></li>
+<li><a data-txt="txt_0171" href="#seances">5. Séances photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0172" href="#protocole">Protocole</a></li>
+<li class="toc-sub"><a data-txt="txt_0173" href="#wifi">WiFi</a></li>
+<li><a data-txt="txt_0174" href="#gabarits">6. Gabarits et mots-clés</a></li>
+<li class="toc-sub"><a data-txt="txt_0175" href="#creer-motcle">Créer un mot-clé</a></li>
+<li class="toc-sub"><a data-txt="txt_0176" href="#creer-gabarit">Créer un gabarit</a></li>
+<li class="toc-sub"><a data-txt="txt_0177" href="#creer-filtre">Créer un filtre</a></li>
+<li><a data-txt="txt_0178" href="#viewers">7. Viewers</a></li>
+<li class="toc-sub"><a data-txt="txt_0179" href="#presentation-viewers">Présentation</a></li>
+<li class="toc-sub"><a data-txt="txt_0180" href="#personnaliser-viewers">Personnaliser</a></li>
+<li class="toc-sub"><a data-txt="txt_0181" href="#ajouter-viewers">Ajouter des viewers</a></li>
+<li><a data-txt="txt_0182" href="#modification-photos">8. Modification de photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0183" href="#copier-coller">Copier-coller</a></li>
+<li class="toc-sub"><a data-txt="txt_0184" href="#luminosite">Luminosité</a></li>
+<li class="toc-sub"><a data-txt="txt_0185" href="#recadrer">Recadrer</a></li>
+<li><a data-txt="txt_0186" href="#presentations">9. Présentations fixes</a></li>
+<li><a data-txt="txt_0187" href="#docking">10. Le Docking</a></li>
+<li><a data-txt="txt_0188" href="#creer-presentation">11. Créer une présentation</a></li>
+<li><a data-txt="txt_0189" href="#diaporama">12. Diaporama</a></li>
+<li><a data-txt="txt_0190" href="#comparateur">13. Comparer des photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0191" href="#comparer-2vues">Mode 2 Vues</a></li>
+<li class="toc-sub"><a data-txt="txt_0192" href="#comparateur-colonne-ligne">Colonne / Ligne</a></li>
+<li class="toc-sub"><a data-txt="txt_0193" href="#comparateur-protocole">Par séances</a></li>
+<li><a data-txt="txt_0194" href="#courrier">14. Modèles de courrier</a></li>
+<li class="toc-sub"><a data-txt="txt_0195" href="#creer-courrier">Créer un courrier</a></li>
+<li><a data-txt="txt_0196" href="#portfolio">15. Portfolio / PowerPoint</a></li>
+<li><a data-txt="txt_0197" href="#filtre-population">16. Filtre de population</a></li>
+<li><a data-txt="txt_0198" href="#recherche-date">17. Recherche par date</a></li>
+<li class="toc-sub"><a data-txt="txt_0199" href="#date-precise">Date précise</a></li>
+<li class="toc-sub"><a data-txt="txt_0200" href="#plage-dates">Plage de dates</a></li>
+<li><a data-txt="txt_0201" href="#formulaires">18. Formulaires</a></li>
+<li class="toc-sub"><a data-txt="txt_0202" href="#completer-formulaire">Compléter un formulaire</a></li>
+<li class="toc-sub"><a data-txt="txt_0203" href="#recherche-formulaires">Recherche de cas</a></li>
+<li><a data-txt="txt_0204" href="#support-formation">19. Support de formation</a></li>
+</ul>
+</nav>
+</aside>
+<!-- Contenu principal -->
+<main class="help-content">
+<div class="content-card">
+<h1 class="main-title"><span data-txt="txt_0004">📖 Manuel d'utilisation Kitview</span><span class="version-badge" data-txt="txt_0589">v1.5</span>
+</h1>
+<p class="subtitle" data-txt="txt_0005">Guide simple pour organiser les photos de vos patients Ne vous inquiétez pas, c'est comme gérer un album photo familial ! Ce guide va vous expliquer pas à pas comment bien ranger et retrouver facilement toutes les photos de vos patients dans Kitview.</p>
+<!-- SECTION 1: PRÉSENTATION GÉNÉRALE -->
+<section class="help-section" id="presentation">
+<h2 data-txt="txt_0006">1. Présentation générale</h2>
+<p data-txt="txt_0093">Kitview est comme un grand album photo numérique spécialement créé pour les orthodontistes. Imaginez un classeur géant où vous pouvez ranger toutes les photos, vidéos et autres fichiers de vos patients de manière très organisée. Ne vous inquiétez pas, c'est très simple à utiliser ! Le logiciel vous aide à classer automatiquement toutes les images (photos de sourires, radiographies, etc.) dans le bon dossier de chaque patient. Plus besoin de chercher partout vos fichiers tout est rangé au bon endroit, comme dans un meuble de bureau parfaitement organisé.</p>
+<ul>
+<li data-txt="txt_0205"><strong>Photos</strong> : portraits, photos intra-buccales, photos de face/profil</li>
+<li data-txt="txt_0206"><strong>Radios</strong> : panoramiques, téléradiographies</li>
+<li data-txt="txt_0207"><strong>Scans 3D</strong> : modèles numériques</li>
+<li data-txt="txt_0208"><strong>Documents</strong> : PDF, courriers, compte-rendus</li>
+<li data-txt="txt_0209"><strong>Vidéos et audio</strong></li>
+</ul>
+<img alt="L'écran d'accueil de Kitview votre espace de travail principal Quand vous ouvrez Kitview, vous arrivez sur l'écran d'accueil, comme la page principale d'un site web. C'est votre espace de travail principal, un peu comme le bureau de votre ordinateur. Ne vous inquiétez pas, cet écran a été conçu pour être simple à utiliser. C'est depuis cet endroit que vous pourrez accéder à toutes les fonctions importantes : voir les photos de vos patients, les organiser, et gérer votre cabinet dentaire au quotidien. Prenez le temps de vous familiariser avec cet écran c'est votre point de départ pour toutes vos tâches dans Kitview." data-alt-txt="txt_0487" src="img/page05_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0094">L'écran d'accueil de Kitview fonctionne comme un album photo numérique pour vos patients. Ne vous inquiétez pas, c'est très simple ! Vous verrez d'un côté la liste de tous vos patients (comme un répertoire téléphonique), et de l'autre côté de petites images miniatures de leurs photos (qu'on appelle des vignettes, comme les petites photos qu'on voit sur un téléphone). C'est votre espace de travail principal où vous pouvez facilement retrouver et consulter les photos de chaque patient.</p>
+<div class="note-box tip" data-note-content-txt="txt_0448">
+<strong data-txt="txt_0447">Conseil</strong>
+                        Kitview s'intègre avec votre logiciel de gestion de cabinet pour synchroniser automatiquement la liste des patients.
+                    </div>
+</section>
+<!-- SECTION 2: GESTION DES PATIENTS -->
+<section class="help-section" id="gestion-patients">
+<h2 data-txt="txt_0007">2. Gestion des patients</h2>
+<h3 data-txt="txt_0025" id="creer-patient">Créer un nouveau patient</h3>
+<p data-txt="txt_0095">Pour créer une nouvelle fiche patient dans Kitview (comme créer une nouvelle chemise dans un classeur) : Ne vous inquiétez pas, c'est très simple ! Une fiche patient, c'est comme un dossier personnalisé où vous allez ranger toutes les informations et photos d'un patient spécifique. Pensez-y comme à la création d'un nouvel album photo personnel pour chaque personne que vous soignez.</p>
+<ol class="step-list">
+<li data-txt="txt_0210">Cliquez sur l'onglet« Patient »</li>
+<li data-txt="txt_0211">Une nouvelle fenêtre va apparaître sur votre écran, comme un formulaire à compléter. Ne vous inquiétez pas, c'est très simple ! Vous devez juste remplir les informations de base de votre patient : tapez son nom de famille, son prénom, sa date de naissance (jour/mois/année), et choisissez son sexe dans la liste proposée. C'est comme remplir une fiche patient classique, mais sur l'ordinateur.</li>
+<li data-txt="txt_0212">Cliquez sur« Valider »</li>
+</ol>
+<img alt="Ajouter un nouveau patient dans votre logiciel Ne vous inquiétez pas, ajouter un nouveau patient est très simple ! C'est comme créer une nouvelle fiche dans un classeur médical, mais sur votre ordinateur. Voici comment procéder étape par étape : Cherchez le bouton &quot;Nouveau patient&quot; ou &quot;Ajouter un patient&quot; (généralement visible sur l'écran principal) Cliquez dessus pour ouvrir une nouvelle fiche vierge Remplissez les informations demandées (nom, prénom, date de naissance, etc.) Sauvegardez en cliquant sur &quot;Enregistrer&quot; Une fois créé, ce patient apparaîtra dans votre liste, comme un nouvel album photo qui attendrait d'être rempli avec les clichés orthodontiques !" data-alt-txt="txt_0488" src="img/page06_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0096">Créer un nouveau dossier patient comme ouvrir un nouveau classeur Cette fenêtre vous permet d'ajouter un nouveau patient dans votre logiciel, exactement comme si vous créiez un nouveau dossier papier dans votre classeur. Ne vous inquiétez pas, c'est très simple : il vous suffit de remplir les informations de base du patient (nom, prénom, date de naissance) et le logiciel créera automatiquement son dossier numérique où vous pourrez ensuite ranger toutes ses photos.</p>
+<h3 data-txt="txt_0026" id="supprimer-patient">Supprimer une fiche patient</h3>
+<div class="note-box warning" data-note-content-txt="txt_0450">
+<strong data-txt="txt_0449">⚠️ Attention Ne vous inquiétez pas, cette mention "Attention" apparaît simplement pour vous signaler un point important à retenir. C'est comme un panneau de signalisation qui vous dit "regardez bien ici". Prenez le temps de lire ce qui suit, cela vous aidera à bien utiliser le logiciel.</strong>
+                        La suppression d'une fiche patient est définitive et supprime également toutes les photos et documents associés. Cette action nécessite le mode Administration.
+                    </div>
+<ol class="step-list">
+<li data-txt="txt_0213">Cliquez sur« Paramètres »</li>
+<li data-txt="txt_0214">Ne vous inquiétez pas, c'est très simple ! Pour accéder aux réglages de base de votre logiciel, suivez ces étapes : Cherchez le bouton « Administration » (c'est comme la boîte à outils de votre logiciel) Cliquez dessus Dans le menu qui s'ouvre, cliquez sur « Général » (c'est là où se trouvent les paramètres principaux, comme les réglages généraux de votre téléphone)</li>
+<li data-txt="txt_0215">Cochez la case « Passer en mode administration ». Ne vous inquiétez pas, c'est comme avoir les clés principales du logiciel cela vous donne accès à tous les réglages importants. Cherchez cette option dans votre interface et cliquez simplement dessus pour l'activer.</li>
+<li data-txt="txt_0216">Sélectionnez le patient à supprimer</li>
+<li data-txt="txt_0217">Ne vous inquiétez pas, supprimer un patient est simple comme retirer une fiche d'un classeur. Voici comment faire étape par étape : D'abord, cliquez sur le bouton "Patient" (c'est comme ouvrir le tiroir de votre classeur) Ensuite, cliquez sur "Supprimer le patient sélectionné" (c'est comme retirer définitivement la fiche du patient de votre classeur) Attention : cette action supprime toutes les photos et informations du patient. Assurez-vous d'avoir sélectionné le bon patient avant de confirmer.</li>
+</ol>
+<img alt="Comment supprimer le dossier d'un patient Ne vous inquiétez pas, c'est une opération simple et sécurisée. Parfois, vous devez retirer un patient de votre logiciel (par exemple s'il a été créé par erreur ou s'il ne souhaite plus être suivi dans votre cabinet). Pensez à cette action comme si vous retiriez définitivement un dossier papier de votre classeur une fois supprimé, toutes les photos et informations de ce patient disparaîtront du logiciel. **Important :** Assurez-vous d'abord que c'est bien le bon patient à supprimer, car cette action ne peut pas être annulée." data-alt-txt="txt_0489" src="img/page07_img01.jpeg"/>
+<h3 data-txt="txt_0027" id="photo-identite">Photo d'identité</h3>
+<p data-txt="txt_0097">Pour choisir ou changer la photo principale de votre patient : La photo d'identité, c'est comme la photo de profil d'un contact dans votre téléphone c'est l'image qui représente votre patient dans le logiciel. Ne vous inquiétez pas, c'est très simple à faire. Voici comment procéder étape par étape : Ouvrez d'abord le dossier de votre patient Cherchez la zone où s'affiche actuellement sa photo (ou un cadre vide s'il n'en a pas encore) Cliquez sur cette zone une fenêtre va s'ouvrir pour vous permettre de choisir une nouvelle photo Sélectionnez la photo que vous souhaitez utiliser parmi celles déjà prises Validez votre choix C'est tout ! La nouvelle photo apparaîtra désormais comme photo d'identité de ce patient dans tout le logiciel.</p>
+<ol class="step-list">
+<li data-txt="txt_0218">Sélectionnez le patient dans la liste</li>
+<li data-txt="txt_0219">Cliquez sur la photo que vous souhaitez utiliser comme photo d'identité</li>
+<li data-txt="txt_0220">Faites unclic droitsur la photo</li>
+<li data-txt="txt_0221">Pour ajouter une photo d'identité de votre patient, c'est très simple : Cliquez d'abord sur le menu « Patient » (comme si vous ouvriez le dossier de cette personne) Puis sélectionnez « Photo d'identité » dans la liste qui apparaît Ne vous inquiétez pas, c'est comme feuilleter un album photo pour trouver la bonne section !</li>
+</ol>
+<img alt="Choisir la photo principale du patient Cette fonction vous permet de sélectionner quelle photo apparaîtra en premier quand vous ouvrirez le dossier d'un patient. C'est comme choisir la photo de couverture d'un album photo. Pour définir une photo d'identité : Ouvrez le dossier du patient Regardez toutes ses photos Cliquez sur celle que vous voulez mettre en avant Sélectionnez &quot;Définir comme photo d'identité&quot; Cette photo s'affichera désormais automatiquement quand vous consulterez ce patient. Ne vous inquiétez pas, vous pourrez toujours la changer plus tard si besoin !" data-alt-txt="txt_0490" src="img/page08_img02.jpeg"/>
+<p class="img-caption" data-txt="txt_0098">Comment choisir la photo principale de votre patient Ne vous inquiétez pas, c'est très simple ! Imaginez que vous voulez choisir la meilleure photo pour représenter votre patient, comme quand vous choisissez une photo de profil sur votre téléphone. Voici comment faire : Faites un clic droit sur la photo que vous préférez (comme si vous ouvriez un petit menu secret) Un petit menu va apparaître à l'écran Choisissez l'option pour en faire la photo principale Cette photo apparaîtra désormais en premier quand vous ouvrirez le dossier de ce patient, comme la photo de couverture d'un album photo familial.</p>
+</section>
+<!-- SECTION 3: PERSONNALISATION -->
+<section class="help-section" id="personnalisation">
+<h2 data-txt="txt_0008">3. Personnalisation de l'interface</h2>
+<h3 data-txt="txt_0028" id="onglets-style">Onglets et style de présentation</h3>
+<p data-txt="txt_0099">Kitview vous permet de changer l'apparence de votre écran, comme si vous réorganisiez votre bureau pour qu'il vous convienne mieux. Ne vous inquiétez pas, c'est très simple ! Vous pouvez choisir parmi plusieurs façons d'afficher vos photos et informations à l'écran. Par exemple, vous pourriez préférer voir de grandes images ou plutôt plusieurs petites photos à la fois. C'est entièrement à vous de décider ce qui vous convient le mieux pour travailler confortablement.</p>
+<h4 data-txt="txt_0065">Ajouter/Supprimer des onglets</h4>
+<ol class="step-list">
+<li data-txt="txt_0222">Cliquez sur« Paramètres »</li>
+<li data-txt="txt_0223">Sélectionnez« Affichage »→« Apparence »</li>
+<li data-txt="txt_0224">Cochez ou décochez les onglets souhaités</li>
+</ol>
+<img alt="Comment organiser vos onglets comme organiser les intercalaires d'un classeur Les onglets dans Kitview fonctionnent comme les intercalaires dans un classeur de bureau. Chaque onglet vous permet de séparer et organiser différents types de photos de vos patients. Ne vous inquiétez pas, c'est très simple à personnaliser selon vos besoins !" data-alt-txt="txt_0491" src="img/page09_img01.png"/>
+<h3 data-txt="txt_0029" id="couleurs">Couleurs du bureau</h3>
+<p data-txt="txt_0100">Pour changer les couleurs de votre écran Kitview (comme changer la couleur des murs de votre cabinet) : Ne vous inquiétez pas, c'est très simple ! Vous pouvez modifier les couleurs de votre logiciel pour qu'il vous plaise davantage, exactement comme vous choisiriez la peinture de votre bureau.</p>
+<ol class="step-list">
+<li data-txt="txt_0225">Cliquez sur« Bureaux »</li>
+<li data-txt="txt_0226">Cliquez sur l'option « Couleurs du bureau » pour changer l'apparence de votre écran principal. C'est comme choisir la couleur des murs de votre cabinet cela personnalise votre espace de travail selon vos préférences.</li>
+<li data-txt="txt_0227">Choisissez les couleurs souhaitées pour chaque élément</li>
+<li data-txt="txt_0228">Cliquez sur« OK »pour valider</li>
+</ol>
+<img alt="Couleurs du bureau" data-alt-txt="txt_0492" src="img/page09_img02.png"/>
+<img alt="Exemples de couleurs" data-alt-txt="txt_0493" src="img/page09_img03.png"/>
+<h3 data-txt="txt_0030" id="vignettes">Taille des vignettes</h3>
+<p data-txt="txt_0101">Ne vous inquiétez pas, c'est très simple ! Vous pouvez changer la taille des petites images (qu'on appelle "miniatures") qui s'affichent à l'écran. Imaginez que vous regardez un album photo : parfois vous voulez voir les photos plus grandes pour mieux les distinguer, parfois plus petites pour en voir plus à la fois. C'est exactement pareil ici vous pouvez agrandir ou rétrécir ces petites images selon ce qui vous convient le mieux.</p>
+<ol class="step-list">
+<li data-txt="txt_0229">Cliquez sur« Paramètres »</li>
+<li data-txt="txt_0230">Ne vous inquiétez pas, c'est très simple ! Pour voir vos résultats, cliquez d'abord sur le menu « Affichage » en haut de votre écran (comme si vous ouvriez un tiroir), puis choisissez « Résultats » dans la liste qui apparaît. C'est comme ouvrir un album photo pour regarder vos images.</li>
+<li data-txt="txt_0231">Changez la taille d'affichage de vos petites photos (appelées "vignettes") Ne vous inquiétez pas, c'est très simple ! Les vignettes sont comme des petites versions de vos photos qui s'affichent à l'écran pensez aux petites images que vous voyez dans un album photo avant de cliquer pour les agrandir. Vous pouvez les rendre plus grandes si vous voulez mieux voir les détails, ou plus petites si vous voulez en voir plus à la fois sur votre écran. Ajustez simplement la valeur selon votre préférence.</li>
+</ol>
+<img alt="Changer la taille des petites images d'aperçu Dans Kitview, vous voyez des petites versions de vos photos (comme des vignettes dans un album photo). Ne vous inquiétez pas, vous pouvez facilement ajuster leur taille pour mieux les voir. C'est comme agrandir ou rétrécir les photos dans votre album pour qu'elles soient plus confortables à regarder." data-alt-txt="txt_0494" src="img/page09_img04.png"/>
+<h4 data-txt="txt_0066">Personnaliser la couleur de sélection des photos</h4>
+<ol class="step-list">
+<li data-txt="txt_0232">Cliquez sur« Paramètres »</li>
+<li data-txt="txt_0233">Ne vous inquiétez pas, c'est très simple ! Pour voir vos résultats, cliquez d'abord sur le menu « Affichage » en haut de votre écran (comme si vous ouvriez un tiroir), puis choisissez « Résultats » dans la liste qui apparaît. C'est comme ouvrir un album photo pour regarder vos images.</li>
+<li data-txt="txt_0234">Changer la couleur qui met en surbrillance vos photos sélectionnées Ne vous inquiétez pas, c'est très simple ! Quand vous cliquez sur une photo dans Kitview, elle se colore pour montrer qu'elle est sélectionnée comme quand vous surlignez du texte avec un feutre. Vous pouvez choisir cette couleur selon vos préférences : bleu, vert, rouge... C'est juste pour vous aider à mieux voir quelles photos vous avez choisies dans votre album.</li>
+</ol>
+<div class="note-box tip" data-note-content-txt="txt_0452">
+<strong data-txt="txt_0451">Conseil</strong>
+                        Pensez à enregistrer votre bureau une fois les modifications effectuées : <strong>Bureaux → Enregistrer le bureau courant</strong>
+</div>
+</section>
+<!-- SECTION 4: IMPORT / EXPORT -->
+<section class="help-section" id="import-export">
+<h2 data-txt="txt_0009">4. Import / Export de documents</h2>
+<h3 data-txt="txt_0031" id="import-photos">Importer des photos</h3>
+<p data-txt="txt_0102">Ne vous inquiétez pas, ajouter des photos dans le dossier d'un patient est très simple ! Kitview vous propose plusieurs façons de faire, comme si vous aviez plusieurs chemins pour ranger une photo dans un album. Nous allons voir ensemble toutes ces possibilités pour que vous puissiez choisir celle qui vous convient le mieux.</p>
+<h4 data-txt="txt_0067">Méthode 1 : Glisser-déposer depuis Windows</h4>
+<ol class="step-list">
+<li data-txt="txt_0235">Sélectionnez le patient concerné</li>
+<li data-txt="txt_0236">Ouvrez l'explorateur Windows avec vos photos</li>
+<li data-txt="txt_0237">Sélectionnez les photos à importer</li>
+<li data-txt="txt_0238">Pour ajouter vos photos dans Kitview, c'est très simple ! Imaginez que vous déplacez des photos physiques dans un album : cliquez sur vos photos avec votre souris, maintenez le clic enfoncé, puis faites glisser vos photos vers la zone où vous voyez les petites images (qu'on appelle "vignettes"). Relâchez ensuite le clic de votre souris. Ne vous inquiétez pas, vos photos seront automatiquement ajoutées au dossier de votre patient !</li>
+</ol>
+<img alt="Ajouter des photos en les faisant glisser Pour ajouter vos photos dans Kitview, c'est très simple comme quand vous déplacez un fichier sur votre bureau ! Il suffit de sélectionner vos photos sur votre ordinateur, puis de les faire glisser (en maintenant le clic) jusqu'à la fenêtre Kitview. Relâchez le clic et vos photos s'ajouteront automatiquement. C'est comme déposer des photos dans un album !" data-alt-txt="txt_0495" src="img/page11_img01.jpeg"/>
+<h4 data-txt="txt_0068">Méthode 2 : Import depuis Outlook</h4>
+<p data-txt="txt_0103">Vous pouvez ajouter des photos directement depuis vos emails dans Kitview, comme si vous déplaciez des photos de votre boîte mail vers un album photo numérique. Cette fonction pratique vous évite de sauvegarder d'abord les photos sur votre ordinateur : vous pouvez les transférer en une seule étape depuis l'email vers le dossier de votre patient. C'est très utile quand vous recevez des photos par email de vos patients ou confrères.</p>
+<ol class="step-list">
+<li data-txt="txt_0239">Ouvrez l'email dans Outlook</li>
+<li data-txt="txt_0240">Sélectionnez la ou les pièces jointes</li>
+<li data-txt="txt_0241">Déplacez vos photos dans Kitview Pour ajouter des photos, c'est très simple : cliquez sur votre photo sur votre ordinateur, maintenez le bouton de la souris enfoncé, puis déplacez-la vers la fenêtre Kitview (comme si vous déposiez une photo dans un album). Relâchez le bouton : votre photo est automatiquement ajoutée ! Ne vous inquiétez pas, c'est aussi facile que de déplacer un fichier d'un dossier à un autre.</li>
+</ol>
+<img alt="Récupérer des photos depuis Outlook Si vous recevez parfois des photos de patients par email dans Outlook, ne vous inquiétez pas : vous pouvez facilement les transférer dans Kitview. C'est comme déplacer des photos de votre boîte aux lettres vers votre album photo professionnel. Cette fonction vous permet de récupérer directement les images reçues par email et de les classer avec le bon patient." data-alt-txt="txt_0496" src="img/page11_img02.png"/>
+<h3 data-txt="txt_0032" id="export-photos">Exporter des photos</h3>
+<p data-txt="txt_0104">Pour copier vos photos de patients sur votre ordinateur Windows ou sur une clé USB (comme quand vous sauvegardez vos photos de vacances) : Ne vous inquiétez pas, c'est très simple ! Vous allez pouvoir récupérer toutes les photos de vos patients pour les utiliser ailleurs, exactement comme quand vous copiez des photos de votre téléphone sur votre ordinateur.</p>
+<ol class="step-list">
+<li data-txt="txt_0242">Sélectionnez la ou les photos à exporter</li>
+<li data-txt="txt_0243">Faites unclic droit</li>
+<li data-txt="txt_0244">Pour exporter vos photos rapidement (comme faire une copie de vos images), suivez ces étapes simples : Cliquez d'abord sur le bouton "Exporter" (pensez-y comme "faire une copie") Dans le menu qui s'ouvre, choisissez "Export rapide" Ne vous inquiétez pas, cette fonction vous permet de sauvegarder vos photos facilement et rapidement, comme si vous faisiez des photocopies de documents importants.</li>
+<li data-txt="txt_0245">Choisissez le dossier de destination</li>
+</ol>
+<img alt="Sauvegarder vos photos sur votre ordinateur Ne vous inquiétez pas, c'est très simple ! &quot;Exporter&quot; signifie simplement copier vos photos depuis Kitview vers un dossier de votre ordinateur, comme quand vous sortez des photos d'un album pour les ranger ailleurs. Cela vous permet de garder une copie de sauvegarde ou de partager vos photos avec d'autres personnes." data-alt-txt="txt_0497" src="img/page12_img01.png"/>
+<h3 data-txt="txt_0033" id="drag-drop">Glisser-déposer avancé</h3>
+<p data-txt="txt_0105" style=";display:none;">Le glisser-déposer fonctionne dans les deux sens :</p>
+<ul>
+<li data-txt="txt_0246">Envoyer vos photos vers Kitview : comment ajouter facilement vos images de patients Cette fonction vous permet d'ajouter des photos de vos patients dans Kitview, comme si vous rangiez des photos dans un album. Ne vous inquiétez pas, c'est très simple !</li>
+<li data-txt="txt_0247"><strong>Depuis Kitview</strong> : pour envoyer vos photos vers votre ordinateur Windows, par email, ou vers d'autres applications. Ne vous inquiétez pas, c'est comme faire un "copier-coller" de vos photos depuis l'album Kitview vers l'endroit où vous en avez besoin.</li>
+</ul>
+<img alt="Déplacer des éléments dans les deux sens Vous pouvez facilement déplacer vos photos ou dossiers en les faisant glisser avec votre souris, comme si vous déplaciez des photos papier sur une table. Cette fonction marche dans les deux sens : vous pouvez déplacer un élément d'un endroit vers un autre, et aussi le ramener à sa place d'origine si vous changez d'avis. Ne vous inquiétez pas, c'est très simple à utiliser !" data-alt-txt="txt_0498" src="img/page12_img02.png"/>
+<h4 data-txt="txt_0069">Configuration du format de nom des pièces jointes</h4>
+<p data-txt="txt_0106">Pour changer le nom de vos photos quand vous les sauvegardez sur votre ordinateur : Ne vous inquiétez pas, c'est comme renommer des photos dans un album vous pouvez choisir le nom que vous voulez donner à chaque image avant de la sauvegarder. Cette option vous permet de personnaliser les noms pour mieux vous y retrouver.</p>
+<ol class="step-list">
+<li data-txt="txt_0248">Cliquez sur« Paramètres »</li>
+<li data-txt="txt_0249">Sélectionnez« Courrier »</li>
+<li data-txt="txt_0250">Choisissez comment vous voulez que les noms apparaissent en utilisant des codes simples. Par exemple : tapez %n pour afficher le nom de famille, %p pour le prénom. Ne vous inquiétez pas, c'est comme remplir un formulaire automatique le logiciel remplacera ces codes par les vraies informations de vos patients.</li>
+</ol>
+<img alt="Comment préparer vos photos pour les envoyer Ne vous inquiétez pas, c'est plus simple qu'il n'y paraît ! Pensez à ceci comme à préparer vos photos avant de les mettre dans une enveloppe pour les envoyer à quelqu'un. Dans cette section, vous allez apprendre à régler la façon dont vos photos de patients seront préparées quand vous voudrez les partager ou les sauvegarder ailleurs. C'est comme choisir la taille et la qualité de vos photos avant de les imprimer ou de les envoyer par email." data-alt-txt="txt_0499" src="img/page13_img01.png"/>
+</section>
+<!-- SECTION 5: SÉANCES PHOTOS -->
+<section class="help-section" id="seances">
+<h2 data-txt="txt_0010">5. Séances photos</h2>
+<h3 data-txt="txt_0034" id="protocole">Protocole de séance</h3>
+<p data-txt="txt_0107">Le protocole, c'est comme une recette de cuisine qui vous guide étape par étape ! Il vous montre dans quel ordre prendre vos photos du patient, en suivant une liste prédéfinie. Pour chaque photo, des gabarits (comme des modèles) s'affichent à l'écran pour vous aider à bien positionner votre appareil photo. Ne vous inquiétez pas, c'est très simple : il suffit de suivre les instructions une par une, comme si vous suiviez les étapes d'une recette !</p>
+<ol class="step-list">
+<li data-txt="txt_0251">Sélectionnez le patient</li>
+<li data-txt="txt_0252">Cliquez sur« Séance »</li>
+<li data-txt="txt_0253">Cliquez sur« Commencer la séance »</li>
+<li data-txt="txt_0254">Ne vous inquiétez pas, c'est très simple ! Le logiciel va vous montrer des modèles de photos à l'écran (comme des exemples à suivre). Voici comment procéder pas à pas : Regardez le premier modèle qui apparaît sur votre écran Positionnez votre appareil photo pour reproduire exactement la même vue Prenez la photo Le logiciel passera automatiquement au modèle suivant Répétez jusqu'à avoir toutes les photos nécessaires Pensez à cela comme suivre une recette de cuisine : chaque étape vous guide vers le résultat parfait pour le dossier de votre patient.</li>
+</ol>
+<img alt="Mode séance" data-alt-txt="txt_0500" src="img/page14_img01.png"/>
+<p class="img-caption" data-txt="txt_0108">L'écran pour prendre des photos avec les guides de placement Ne vous inquiétez pas, c'est comme avoir un assistant qui vous montre exactement où placer votre appareil photo ! Quand vous prenez des photos de vos patients, des guides transparents s'affichent sur votre écran pour vous aider à bien positionner chaque photo. C'est simple : il suffit de faire correspondre ce que vous voyez avec le guide affiché.</p>
+<h3 data-txt="txt_0035" id="wifi">Acquisition WiFi</h3>
+<p data-txt="txt_0109">Kitview peut recevoir automatiquement les photos prises avec un appareil photo spécial qui se connecte à Internet (appelé "appareil photo WiFi"). C'est comme si votre appareil photo pouvait envoyer directement les photos dans votre ordinateur, sans avoir besoin de câbles ou de cartes mémoire. Dès que vous prenez une photo du sourire de votre patient, elle arrive automatiquement dans Kitview c'est très pratique et cela vous fait gagner du temps ! Ne vous inquiétez pas, la configuration de cette fonction est expliquée étape par étape dans les sections suivantes.</p>
+<ol class="step-list">
+<li data-txt="txt_0255">Connectez votre appareil photo au WiFi (internet sans fil) Pour que votre appareil photo puisse "parler" avec le logiciel Kitview sur votre ordinateur, vous devez l'activer en mode WiFi. C'est comme brancher un téléphone sans fil à sa base : cela permet aux deux appareils de communiquer à distance. Ne vous inquiétez pas, c'est plus simple qu'il n'y paraît ! Cherchez dans les réglages de votre appareil photo une option appelée "WiFi" ou représentée par le symbole des ondes WiFi, puis activez-la.</li>
+<li data-txt="txt_0256">Dans Kitview, cliquez sur« Acquisition »</li>
+<li data-txt="txt_0257">Sélectionnez« WiFi »</li>
+<li data-txt="txt_0258">Les photos sont reçues automatiquement</li>
+</ol>
+<img alt="Prendre des photos par WiFi C'est comme utiliser votre appareil photo qui se connecte à votre ordinateur sans fil, comme votre téléphone se connecte à internet. Ne vous inquiétez pas, c'est très pratique une fois configuré !" data-alt-txt="txt_0501" src="img/page15_img01.jpeg"/>
+<div class="note-box info" data-note-content-txt="txt_0454">
+<strong data-txt="txt_0453">️ Information</strong>
+                        L'appareil photo et l'ordinateur doivent être connectés au même réseau WiFi.
+                    </div>
+</section>
+<!-- SECTION 6: GABARITS ET MOTS-CLÉS -->
+<section class="help-section" id="gabarits">
+<h2 data-txt="txt_0011">6. Gabarits et mots-clés</h2>
+<p data-txt="txt_0110">Les gabarits, c'est comme des règles de rangement automatique pour vos photos imaginez un assistant qui range vos photos dans les bons dossiers pour vous ! Ne vous inquiétez pas, c'est plus simple qu'il n'y paraît. Le logiciel va regarder les mots-clés de vos photos (par exemple "sourire", "profil", "avant traitement") et les classer automatiquement au bon endroit. Pour créer votre propre règle de rangement personnalisée, c'est très facile il suffit de suivre 3 étapes simples que nous allons voir ensemble :</p>
+<h3 data-txt="txt_0036" id="creer-motcle">Étape 1 : Créer le mot-clé dans le dictionnaire</h3>
+<ol class="step-list">
+<li data-txt="txt_0259">Cliquez sur« Paramètres »</li>
+<li data-txt="txt_0260">Ne vous inquiétez pas, c'est très simple ! Pour accéder au dictionnaire des termes médicaux (comme un petit carnet de vocabulaire spécialisé), suivez ces étapes : Cliquez d'abord sur le menu « Dictionnaire » (vous le trouverez dans la barre de menus en haut) Puis sélectionnez « Thésaurus de votre domaine » (c'est la liste de tous les termes techniques de l'orthodontie que le logiciel connaît) C'est comme ouvrir un dictionnaire médical intégré à votre logiciel !</li>
+<li data-txt="txt_0261">Cliquez sur le bouton « Tout développer » pour afficher toutes les familles de patients. C'est comme ouvrir tous les dossiers d'un classeur d'un coup pour voir tout le contenu. Ne vous inquiétez pas, c'est très simple : un seul clic suffit pour avoir une vue d'ensemble de tous vos patients.</li>
+<li data-txt="txt_0262">Choisissez le bon patient dans votre liste. C'est comme chercher le bon dossier dans un classeur : cliquez simplement sur le nom de la famille du patient que vous voulez consulter. Ne vous inquiétez pas, vous pouvez toujours changer de patient si vous vous trompez.</li>
+<li data-txt="txt_0263">Cliquez sur« Créer une nouvelle étiquette »</li>
+</ol>
+<img alt="Comment créer un mot-clé pour retrouver vos photos facilement Les mots-clés, c'est comme des étiquettes que vous collez sur vos photos pour les retrouver plus facilement exactement comme vous le feriez avec des photos papier dans un album ! Ne vous inquiétez pas, c'est très simple à faire et cela vous fera gagner beaucoup de temps par la suite." data-alt-txt="txt_0502" src="img/page31_img01.png"/>
+<p class="img-caption" data-txt="txt_0111">Écran pour organiser vos mots-clés Cet écran vous permet de gérer vos mots-clés, comme si vous organisiez les étiquettes dans un classeur. Les mots-clés vous aident à retrouver rapidement vos photos de patients. Par exemple, vous pouvez créer des étiquettes comme "avant traitement", "après traitement", ou "appareil dentaire". Ne vous inquiétez pas, c'est très simple à utiliser !</p>
+<h3 data-txt="txt_0037" id="creer-gabarit">Étape 2 : Créer le gabarit</h3>
+<ol class="step-list">
+<li data-txt="txt_0264">Cliquez sur« Paramètres »</li>
+<li data-txt="txt_0265">Pour accéder aux outils prédéfinis, cliquez d'abord sur le menu "Gabarits" en haut de votre écran, puis choisissez "Boîte à outils". C'est comme ouvrir une boîte qui contient tous les modèles prêts à utiliser pour vos photos de patients.</li>
+<li data-txt="txt_0266">Ne vous inquiétez pas, créer une nouvelle famille est très simple ! Pensez à cela comme ajouter un nouveau dossier dans un classeur. Voici comment faire étape par étape : Placez votre curseur sur le nom d'une famille existante dans votre liste Faites un clic droit (appuyez sur le bouton droit de votre souris) Dans le petit menu qui apparaît, cliquez sur "Ajouter" Une nouvelle famille sera créée automatiquement C'est aussi simple que cela ! Vous pourrez ensuite renommer cette nouvelle famille avec le nom de votre patient.</li>
+<li data-txt="txt_0267">Cliquez sur« Créer un nouveau gabarit »</li>
+<li data-txt="txt_0268">Pour ajouter une photo à votre modèle (comme ajouter une image dans un cadre photo), cliquez simplement sur le bouton « Charger une image ». Ne vous inquiétez pas, c'est très simple : une fenêtre s'ouvrira pour vous permettre de choisir la photo que vous souhaitez depuis votre ordinateur, exactement comme lorsque vous sélectionnez une photo pour l'envoyer par email.</li>
+<li data-txt="txt_0269">Remplissez le champ « Désignation » c'est comme donner un nom à votre dossier. Tapez simplement le nom que vous voulez donner dans la case prévue à cet effet. Ne vous inquiétez pas, vous pourrez toujours le modifier plus tard si nécessaire.</li>
+<li data-txt="txt_0270">Double-cliquez sur la famille que vous venez de créer (comme si vous ouvriez un dossier sur votre ordinateur) pour y associer le mot-clé. C'est comme ouvrir un classeur pour y ranger un document : un double-clic suffit pour accéder à l'intérieur et faire le lien entre votre famille et le mot-clé choisi.</li>
+<li data-txt="txt_0271">Cliquez sur« Valider »</li>
+</ol>
+<img alt="Comment créer un modèle de présentation pour vos photos Ne vous inquiétez pas, créer un gabarit (ou modèle) dans Kitview, c'est comme préparer un album photo vide que vous pourrez réutiliser. Imaginez que vous créez un cadre personnalisé où vous placerez les photos de vos patients de la même manière à chaque fois. Voici comment procéder étape par étape : Cette fonction vous permet de préparer la mise en page de vos photos avant même de les prendre Une fois créé, ce modèle vous fera gagner du temps car vous n'aurez plus qu'à y glisser les nouvelles photos C'est particulièrement pratique pour présenter les cas de vos patients de façon professionnelle et cohérente" data-alt-txt="txt_0503" src="img/page32_img01.png"/>
+<p class="img-caption" data-txt="txt_0112">Créer un nouveau modèle de présentation Cette fenêtre vous permet de créer un modèle personnalisé pour organiser vos photos de patients. Pensez à cela comme à créer un album photo type que vous pourrez réutiliser pour tous vos patients. Ne vous inquiétez pas, c'est plus simple qu'il n'y paraît !</p>
+<h3 data-txt="txt_0038" id="creer-filtre">Étape 3 : Créer le filtre (collection)</h3>
+<ol class="step-list">
+<li data-txt="txt_0272">Ne vous inquiétez pas, c'est très simple ! Regardez à gauche de votre écran : vous verrez une liste qui ressemble à un arbre avec des branches (on appelle cela l'arborescence). Trouvez le mot "Tous" dans cette liste. Placez votre souris sur ce mot "Tous", puis appuyez sur le bouton droit de votre souris (pas le gauche comme d'habitude). Un petit menu va alors apparaître.</li>
+<li data-txt="txt_0273">Cliquez sur le bouton « Ajouter une collection à la racine ». Ne vous inquiétez pas, c'est comme créer un nouveau dossier principal dans votre classeur de photos la "racine" signifie simplement que votre nouvelle collection sera au niveau principal, pas à l'intérieur d'une autre collection existante.</li>
+<li data-txt="txt_0274">Donnez un nom à votre nouvelle collection de photos (pensez-y comme créer un nouvel album photo). Ce nom doit être exactement le même que le mot-clé que vous avez choisi. Par exemple, si votre mot-clé est "appareil", nommez votre collection "appareil". C'est simple : un nom = un mot-clé identique.</li>
+<li data-txt="txt_0275">Cliquez sur« Ajouter une condition »</li>
+<li data-txt="txt_0276">Choisissez le mot-clé que vous venez de créer à l'étape précédente. Ne vous inquiétez pas, c'est simple : regardez dans la liste qui s'affiche et cliquez sur le mot-clé que vous avez ajouté juste avant. C'est comme choisir une étiquette dans votre boîte à étiquettes pour la coller sur un dossier.</li>
+<li data-txt="txt_0277">Cliquez sur« Valider »</li>
+</ol>
+<img alt="Comment créer un filtre pour trier vos photos Un filtre, c'est comme un système de tri pour vos photos de patients. Imaginez que vous avez un grand album photo et que vous voulez rapidement retrouver certaines images selon des critères précis (par exemple, toutes les photos d'un patient particulier ou toutes les photos prises à une certaine date). Ne vous inquiétez pas, c'est très simple à utiliser ! Le filtre va vous aider à organiser et retrouver rapidement les bonnes photos parmi toutes celles stockées dans Kitview." data-alt-txt="txt_0504" src="img/page34_img01.jpeg"/>
+<div class="note-box tip" data-note-content-txt="txt_0456">
+<strong data-txt="txt_0455">Conseil</strong>
+                        Une fois vos gabarits créés, allez dans l'onglet « Gabarit » et cliquez sur le bouton « Rafraîchir » pour voir apparaître vos nouvelles créations.
+                    </div>
+<h4 data-txt="txt_0070">Modifier l'image d'un gabarit existant</h4>
+<ol class="step-list">
+<li data-txt="txt_0278">Pour accéder aux outils, suivez ces étapes simples : Cliquez d'abord sur le bouton « Paramètres » (comme si vous ouvriez un tiroir de rangement) Puis sélectionnez « Gabarits » (ce sont vos modèles de mise en page) Enfin, cliquez sur « Boîte à outils » (votre coffre à outils numériques) Ne vous inquiétez pas, chaque clic vous mène simplement vers l'étape suivante !</li>
+<li data-txt="txt_0279">Choisissez le modèle de photo que vous souhaitez personnaliser Ne vous inquiétez pas, c'est simple ! Un gabarit (ou modèle) est comme un patron de couture : il définit comment vos photos seront organisées et présentées. Vous allez simplement cliquer sur celui que vous voulez modifier parmi la liste proposée.</li>
+<li data-txt="txt_0280">Cliquez sur le bouton « Modifier le gabarit sélectionné » pour personnaliser votre modèle de présentation. Ne vous inquiétez pas, c'est comme modifier un modèle de document vous pourrez ajuster la mise en page selon vos besoins.</li>
+<li data-txt="txt_0281">Cliquez sur« Charger une image »</li>
+<li data-txt="txt_0282">Sélectionnez la nouvelle image</li>
+<li data-txt="txt_0283">Cliquez sur« Valider »</li>
+</ol>
+<img alt="Personnaliser votre modèle de photos Vous pouvez modifier la disposition de vos photos, comme réorganiser les photos dans un album. Ne vous inquiétez pas, c'est très simple ! Vous pouvez changer l'ordre des photos, ajouter ou retirer des emplacements selon vos besoins. C'est comme personnaliser la mise en page d'un album photo traditionnel." data-alt-txt="txt_0505" src="img/page37_img01.jpeg"/>
+</section>
+<!-- SECTION 7: VIEWERS -->
+<section class="help-section" id="viewers">
+<h2 data-txt="txt_0012">7. Viewers</h2>
+<h3 data-txt="txt_0039" id="presentation-viewers">Présentation des viewers</h3>
+<p data-txt="txt_0113">Les viewers, c'est comme avoir plusieurs écrans de télévision dans votre cabinet pour regarder les photos de vos patients. Imaginez que vous avez plusieurs cadres photo géants sur votre bureau c'est exactement ce que font les viewers dans Kitview. Ces zones d'affichage vous permettent de voir les photos de vos patients en très grand, comme si vous les agrandissiez avec une loupe. Ne vous inquiétez pas, c'est très simple à utiliser ! Vous pouvez créer autant de viewers que vous voulez un pour les photos de face, un autre pour les profils, un troisième pour les photos intra-orales... C'est vous qui décidez ! Chaque viewer peut être personnalisé selon vos besoins, comme si vous choisissiez la taille et l'emplacement de chaque cadre photo dans votre cabinet.</p>
+<p data-txt="txt_0114">Kitview propose plusieurs modes d'affichage :</p>
+<ul>
+<li data-txt="txt_0284"><strong>1 Vue</strong> : une seule photo en grand</li>
+<li data-txt="txt_0285"><strong>2 Vues</strong> : deux photos côte à côte pour comparaison</li>
+<li data-txt="txt_0286"><strong>4 Vues</strong> : afficher quatre photos ensemble pour avoir une vue d'ensemble Cette option vous permet de voir quatre photos en même temps sur votre écran, comme si vous regardiez quatre photos posées côte à côte sur une table. C'est très pratique pour comparer différents angles ou suivre l'évolution d'un traitement en un seul coup d'œil.</li>
+<li data-txt="txt_0287">Les gabarits : comment vos photos s'affichent selon les modèles choisis Ne vous inquiétez pas, c'est très simple ! Un gabarit, c'est comme un moule à gâteau : il donne une forme précise à vos photos d'orthodontie. Imaginez que vous avez un album photo avec différents types de pages : certaines pour une seule grande photo, d'autres pour plusieurs petites photos côte à côte. Dans Kitview, les gabarits fonctionnent exactement pareil ! Quand vous choisissez un gabarit (ou "template"), le logiciel arrange automatiquement vos photos selon ce modèle. Par exemple, un gabarit peut afficher les photos "avant/après" côte à côte, ou organiser toutes les vues d'un patient sur une seule page. C'est le logiciel qui fait tout le travail d'arrangement pour vous !</li>
+<li data-txt="txt_0288"><strong>Portfolio</strong> : voir vos photos comme dans un album Le portfolio vous permet de voir toutes les photos de votre patient regroupées ensemble, comme si vous feuilletiez un album photo. Ne vous inquiétez pas, c'est très simple à utiliser ! Toutes les images s'affichent côte à côte pour que vous puissiez facilement comparer l'évolution du traitement de votre patient.</li>
+</ul>
+<img alt="Viewer 1 vue" data-alt-txt="txt_0506" src="img/page42_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0115">Mode 1 Vue</p>
+<img alt="Viewer 2 vues" data-alt-txt="txt_0507" src="img/page43_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0116">Mode 2 Vues</p>
+<img alt="Affichage 4 photos en même temps Cette fonction vous permet de voir 4 photos côte à côte sur votre écran, comme si vous regardiez 4 photos posées sur une table. C'est très pratique pour comparer les dents de votre patient sous différents angles. Ne vous inquiétez pas, c'est très simple à utiliser !" data-alt-txt="txt_0508" src="img/page43_img02.jpeg"/>
+<p class="img-caption" data-txt="txt_0117">Le Mode 4 Vues vous permet de voir 4 photos en même temps sur votre écran, comme si vous regardiez 4 photos posées côte à côte sur votre bureau. C'est très pratique pour comparer l'évolution du traitement de votre patient par exemple, vous pouvez voir les photos du début, du milieu et de la fin du traitement d'un seul coup d'œil. Ne vous inquiétez pas, c'est très simple à utiliser et cela vous fera gagner beaucoup de temps !</p>
+<h4 data-txt="txt_0071">Sélectionner les photos à afficher</h4>
+<ol class="step-list">
+<li data-txt="txt_0289">Ne vous inquiétez pas, c'est très simple ! En haut de votre écran, vous verrez des onglets comme des étiquettes de classeur. Cliquez sur l'un d'eux selon ce que vous voulez voir : « 1 Vue » pour voir une seule photo à la fois (comme regarder une photo dans vos mains) « 2 Vues » pour comparer deux photos côte à côte « 4 Vues » pour voir quatre photos en même temps sur votre écran Cliquez simplement sur l'onglet de votre choix pour changer d'affichage.</li>
+<li data-txt="txt_0290">Cliquez sur la photo souhaitée ou faites un glisser-déposer</li>
+</ol>
+<div class="note-box tip" data-note-content-txt="txt_0458">
+<strong data-txt="txt_0457">Rappel glisser-déposer</strong>
+                        Sélectionnez la photo, maintenez le clic gauche appuyé, puis relâchez au bon endroit.
+                    </div>
+<h3 data-txt="txt_0040" id="personnaliser-viewers">Personnaliser les viewers</h3>
+<h4 data-txt="txt_0072">Mettre les viewers à la même taille</h4>
+<ol class="step-list">
+<li data-txt="txt_0291">Quand vous affichez 4 photos en même temps à l'écran (comme si vous aviez 4 photos étalées sur votre bureau), vous pouvez les réorganiser facilement. Regardez en haut à droite de votre écran : vous verrez une petite icône appelée "Réorganiser les fenêtres sœurs". Cliquez simplement dessus avec votre souris. Ne vous inquiétez pas, c'est très simple cette fonction vous permet de mieux organiser vos 4 photos pour les voir plus clairement.</li>
+<li data-txt="txt_0292">Pour ajuster manuellement la taille : placez votre souris sur la ligne qui sépare les deux zones (comme une frontière invisible). Vous verrez apparaître une petite flèche à double sens ↔. C'est le signal que vous pouvez maintenant faire glisser cette ligne pour agrandir ou rétrécir les zones, comme si vous déplaciez une cloison. Ne vous inquiétez pas, c'est très simple !</li>
+<li data-txt="txt_0293">Cliquez avec le bouton gauche de votre souris et maintenez ce bouton enfoncé (ne le relâchez pas). Tout en gardant le bouton appuyé, bougez votre souris pour ajuster l'élément. C'est comme si vous faisiez glisser un objet sur votre bureau vous le tenez fermement et vous le déplacez où vous voulez.</li>
+</ol>
+<img alt="Changer l'ordre de vos fenêtres de photos Ne vous inquiétez pas, c'est très simple ! Imaginez que vous avez plusieurs albums photos ouverts sur votre bureau et que vous voulez les ranger différemment. C'est exactement ce que fait cette fonction : elle vous permet de déplacer et réorganiser vos fenêtres de photos comme vous le souhaitez sur votre écran." data-alt-txt="txt_0509" src="img/page45_img01.jpeg"/>
+<h4 data-txt="txt_0073">Personnaliser la barre d'outils des viewers</h4>
+<ol class="step-list">
+<li data-txt="txt_0294">Placez votre souris dans la zone d'affichage des photos (l'écran où vous voyez vos images), puis cliquez sur le bouton droit de votre souris. Ne vous inquiétez pas, c'est comme ouvrir un menu dans n'importe quel logiciel cela va faire apparaître une liste d'options disponibles.</li>
+<li data-txt="txt_0295">Cliquez sur le bouton « Personnaliser les menus ». Ne vous inquiétez pas, c'est comme réorganiser les raccourcis sur votre bureau d'ordinateur vous allez pouvoir choisir quels outils apparaissent en priorité selon vos besoins.</li>
+<li data-txt="txt_0296">Choisissez les barres d'outils que vous souhaitez voir à l'écran Les barres d'outils, c'est comme une boîte à outils sur votre bureau : elles contiennent tous les boutons dont vous avez besoin pour travailler avec vos photos de patients. Ne vous inquiétez pas, vous pouvez facilement décider lesquelles afficher ou masquer selon vos préférences. Cochez simplement celles que vous trouvez utiles vous pourrez toujours changer d'avis plus tard.</li>
+<li data-txt="txt_0297">Pour appliquer le même affichage à toutes vos fenêtres de photos (ne vous inquiétez pas, c'est très simple) : faites un clic droit avec votre souris sur la photo, puis choisissez "Appliquer ce menu aux autres viewers". C'est comme si vous disiez au logiciel "utilise les mêmes réglages pour toutes mes autres photos ouvertes". Cela vous évite de refaire la même manipulation sur chaque photo une par une.</li>
+</ol>
+<img alt="Modifier votre barre d'outils selon vos besoins La barre d'outils, c'est comme la trousse d'un artisan : vous pouvez choisir quels outils garder à portée de main pour travailler plus facilement. Ne vous inquiétez pas, c'est très simple à faire et vous pourrez toujours revenir en arrière si vous changez d'avis." data-alt-txt="txt_0510" src="img/page47_img01.png"/>
+<img alt="Choisir les outils que vous voulez voir à l'écran Dans Kitview, vous pouvez décider quels boutons et outils apparaissent sur votre écran, comme si vous choisissiez quels ustensiles garder à portée de main sur votre bureau. Cette personnalisation vous permet de n'afficher que ce dont vous avez vraiment besoin au quotidien, rendant le logiciel plus simple et moins encombré." data-alt-txt="txt_0511" src="img/page48_img01.png"/>
+<h4 data-txt="txt_0074">Modifier l'incrustation des informations</h4>
+<p data-txt="txt_0118">Pour modifier les informations affichées sur les photos (date, nom, etc.) :</p>
+<ol class="step-list">
+<li data-txt="txt_0298">Cliquez sur« Paramètres »</li>
+<li data-txt="txt_0299">Pour accéder aux options d'affichage, ne vous inquiétez pas, c'est très simple ! Cliquez d'abord sur le menu « Affichage » en haut de votre écran (comme quand vous ouvrez un tiroir), puis dans la liste qui s'affiche, cliquez sur « Divers ». C'est comme ouvrir un classeur puis choisir la bonne section.</li>
+<li data-txt="txt_0300">Double-cliquez sur "Viewers" (cela signifie cliquer deux fois rapidement avec votre souris sur ce mot). Ne vous inquiétez pas, c'est comme ouvrir un dossier sur votre bureau d'ordinateur.</li>
+<li data-txt="txt_0301">Personnalisez l'apparence de vos photos : vous pouvez changer leur taille (les rendre plus grandes ou plus petites), modifier leur couleur (comme appliquer un filtre), et choisir quelles informations afficher avec chaque photo (nom du patient, date, etc.). C'est comme organiser un album photo selon vos préférences !</li>
+<li data-txt="txt_0302">Cliquez sur le point d'interrogation « ? » pour découvrir tous les codes que vous pouvez utiliser. Ne vous inquiétez pas, c'est très simple ! Ces petits codes sont comme des raccourcis magiques : par exemple, %c ajoutera automatiquement la date, et %n ajoutera le nom du patient. C'est comme utiliser des étiquettes qui se remplissent toutes seules !</li>
+</ol>
+<img alt="Affichage des photos avec informations superposées Cette fonction vous permet d'ajouter des informations directement sur vos photos de patients, comme des notes ou des mesures. C'est comme écrire des annotations sur une photo papier, mais de façon numérique. Ne vous inquiétez pas, c'est très simple à utiliser et cela vous aidera à mieux expliquer les traitements à vos patients." data-alt-txt="txt_0512" src="img/page50_img01.jpeg"/>
+<img alt="Personnaliser les informations sur vos photos Ne vous inquiétez pas, cette fonction est plus simple qu'elle n'y paraît ! Vous pouvez ajouter des informations directement sur vos photos de patients, comme quand vous écrivez au dos d'une photo papier. Par exemple, vous pourrez faire apparaître le nom du patient, la date de la prise de vue, ou d'autres détails importants directement sur l'image. C'est très pratique pour identifier rapidement vos photos plus tard !" data-alt-txt="txt_0513" src="img/page51_img01.png"/>
+<h3 data-txt="txt_0041" id="ajouter-viewers">Ajouter des viewers</h3>
+<ol class="step-list">
+<li data-txt="txt_0303">Pour accéder aux réglages principaux du logiciel, suivez ces étapes simples : En haut de votre écran, cliquez sur le bouton "Paramètres" (comme lorsque vous réglez votre téléphone) Dans le menu qui s'ouvre, choisissez "Administration" Puis cliquez sur "Général" Ne vous inquiétez pas, ces réglages vous permettront de personnaliser votre logiciel selon vos besoins. C'est comme organiser votre bureau de travail à votre façon !</li>
+<li data-txt="txt_0304">Activez le "Mode Expert" en cochant la case correspondante. Ne vous inquiétez pas, cette option vous donne simplement accès à plus de fonctionnalités avancées comme passer d'un mode simple à un mode complet dans votre appareil photo. Vous pouvez toujours revenir au mode normal si besoin.</li>
+<li data-txt="txt_0305">Ne vous inquiétez pas, c'est très simple ! Pour réorganiser votre bureau (comme ranger votre bureau physique), suivez ces étapes : Cliquez d'abord sur le bouton « Bureaux » (vous le trouverez dans le menu principal) Puis cliquez sur « Réorganiser le bureau » C'est comme si vous vouliez réaménager votre espace de travail pour mieux vous organiser !</li>
+<li data-txt="txt_0306">Des icônes apparaissent sur l'interface</li>
+<li data-txt="txt_0307">Dans l'onglet "Viewer" (c'est comme l'onglet d'un classeur qui vous permet de voir les photos), cliquez sur le bouton "Ajouter un viewer". Ne vous inquiétez pas, c'est très simple : cherchez ce bouton à l'écran et cliquez dessus avec votre souris.</li>
+<li data-txt="txt_0308">Une nouvelle fenêtre s'ouvre pour voir vos photos c'est comme ouvrir un album photo sur votre écran. Ne vous inquiétez pas, c'est très simple à déplacer ! Vous pouvez changer sa position exactement comme vous le souhaitez : utilisez les petites flèches de direction (↑ ↓ ← →) sur votre clavier les mêmes que pour jouer ou naviguer. Appuyez doucement sur ces flèches pour faire glisser la fenêtre vers le haut, le bas, la gauche ou la droite jusqu'à trouver l'emplacement parfait sur votre écran.</li>
+<li data-txt="txt_0309">Pour changer le nom de votre onglet (comme renommer un dossier), c'est très simple : faites un clic droit avec votre souris sur l'onglet, puis cliquez sur « Rename » dans le petit menu qui apparaît. Ne vous inquiétez pas, vous pourrez toujours le modifier à nouveau si besoin !</li>
+</ol>
+<img alt="Mode avancé Le &quot;Mode expert&quot; devient le &quot;Mode avancé&quot; c'est comme passer du mode débutant au mode expérimenté dans un jeu. Ne vous inquiétez pas, cela signifie simplement que vous aurez accès à plus d'options et de fonctionnalités dans le logiciel, comme un photographe professionnel qui utilise plus de réglages sur son appareil photo." data-alt-txt="txt_0514" src="img/page52_img01.png"/>
+<img alt="Ajouter un visualiseur de photos Un visualiseur, c'est comme une loupe numérique qui vous permet de regarder vos photos de patients plus facilement. Ne vous inquiétez pas, c'est très simple à ajouter ! Cliquez simplement sur le bouton &quot;Ajouter&quot; puis sélectionnez &quot;Visualiseur&quot; dans le menu qui apparaît." data-alt-txt="txt_0515" src="img/page53_img01.jpeg"/>
+<div class="note-box warning" data-note-content-txt="txt_0460">
+<strong data-txt="txt_0459" style=";display:none;">⚠️ Important</strong>
+                        N'oubliez pas d'enregistrer votre bureau après les modifications : <strong>Bureaux → Enregistrer le bureau courant</strong>
+</div>
+</section>
+<!-- SECTION 8: MODIFICATION DE PHOTOS -->
+<section class="help-section" id="modification-photos">
+<h2 data-txt="txt_0013">8. Modification de photos</h2>
+<h3 data-txt="txt_0042" id="copier-coller">Copier-coller une photo</h3>
+<p data-txt="txt_0119">Pour faire une copie d'une photo dans le dossier de votre patient : Ne vous inquiétez pas, c'est comme faire une photocopie d'un document ! Vous allez créer une deuxième version identique de la photo qui restera dans le même dossier patient. C'est très utile si vous voulez garder l'original intact et modifier la copie, ou tout simplement avoir deux versions de la même image.</p>
+<h4 data-txt="txt_0075">Méthode 1 : Menu contextuel</h4>
+<ol class="step-list">
+<li data-txt="txt_0310">Faites un clic droit sur la photo à dupliquer</li>
+<li data-txt="txt_0311">Cliquez sur« Edition »</li>
+<li data-txt="txt_0312">Cliquez sur« Copier »</li>
+<li data-txt="txt_0313">Cliquez sur« Coller »</li>
+</ol>
+<img alt="Copier-coller une photo (dupliquer une image) Cette fonction vous permet de faire une copie d'une photo existante, comme quand vous photocopiez un document. C'est très utile si vous voulez utiliser la même photo à plusieurs endroits sans la déplacer de son emplacement original. Pour copier-coller une photo : Cliquez d'abord sur la photo que vous voulez copier Faites un clic droit et choisissez &quot;Copier&quot; Allez à l'endroit où vous voulez placer la copie Faites un clic droit et choisissez &quot;Coller&quot; Ne vous inquiétez pas : la photo originale reste à sa place, vous créez simplement une copie identique ailleurs." data-alt-txt="txt_0516" src="img/page58_img01.jpeg"/>
+<h4 data-txt="txt_0076">Méthode 2 : Menu Edition</h4>
+<ol class="step-list">
+<li data-txt="txt_0314">Sélectionnez la photo</li>
+<li data-txt="txt_0315">Cliquez sur le menu« Edition »en haut</li>
+<li data-txt="txt_0316">Cliquez sur« Copier »puis« Coller »</li>
+</ol>
+<img alt="Menu Edition" data-alt-txt="txt_0517" src="img/page59_img01.jpeg"/>
+<h3 data-txt="txt_0043" id="luminosite">Modifier la luminosité</h3>
+<ol class="step-list">
+<li data-txt="txt_0317">Cliquez sur l'onglet "1 Vue" en haut de votre écran. C'est comme choisir la première page d'un album photo vous verrez cet onglet avec le chiffre "1" suivi du mot "Vue". Un simple clic dessus vous permettra d'accéder à cette section. Ne vous inquiétez pas, c'est très simple !</li>
+<li data-txt="txt_0318">Sélectionnez la photo à modifier</li>
+<li data-txt="txt_0319">Regardez en haut de votre écran où s'affichent les photos : vous verrez une barre avec plusieurs petites images (c'est la barre d'outils). Cherchez l'icône qui ressemble à une palette de peintre et cliquez dessus avec votre souris. Ne vous inquiétez pas, c'est facile à repérer !</li>
+<li data-txt="txt_0320">Modifiez la luminosité (pour rendre la photo plus claire ou plus sombre) et le contraste (pour avoir des couleurs plus vives ou plus douces) en déplaçant les petites barres avec votre souris. C'est comme régler la luminosité de votre télévision : glissez vers la droite pour augmenter, vers la gauche pour diminuer. Ne vous inquiétez pas, vous pouvez essayer plusieurs fois jusqu'à obtenir le résultat souhaité.</li>
+<li data-txt="txt_0321">La photo de gauche montre le résultat, celle de droite l'original</li>
+<li data-txt="txt_0322">Cliquez sur« OK »</li>
+</ol>
+<img alt="Réglage luminosité" data-alt-txt="txt_0518" src="img/page60_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0120">Régler la luminosité et le contraste de vos photos Cette fonction vous permet d'améliorer la qualité de vos photos, comme quand vous réglez la luminosité de votre écran de télévision. Ne vous inquiétez pas, c'est très simple ! Vous pouvez rendre vos photos plus claires ou plus sombres (luminosité) et ajuster la différence entre les zones claires et foncées (contraste) pour mieux voir les détails.</p>
+<h4 data-txt="txt_0077">Revenir à la photo d'origine</h4>
+<p data-txt="txt_0121">Si vous avez retouché une photo de patient et que vous voulez retrouver la photo d'origine (comme si vous n'aviez jamais fait de modifications) : Ne vous inquiétez pas, c'est tout à fait possible ! Kitview garde toujours une copie de votre photo originale, comme une sauvegarde. Voici comment faire étape par étape :</p>
+<ol class="step-list">
+<li data-txt="txt_0323">Faites un clic droit sur la photo modifiée</li>
+<li data-txt="txt_0324">Sélectionnez« Image »</li>
+<li data-txt="txt_0325">Cliquez sur« Revenir à l'original »</li>
+<li data-txt="txt_0326">Rafraîchissez si nécessaire</li>
+</ol>
+<img alt="Annuler les modifications Ne vous inquiétez pas, si vous avez fait des changements par erreur, vous pouvez facilement revenir en arrière. C'est comme utiliser la gomme sur un dessin cela efface vos dernières modifications pour retrouver la version d'origine. Cliquez simplement sur cette option et vos photos retrouveront leur état initial." data-alt-txt="txt_0519" src="img/page61_img01.jpeg"/>
+<div class="note-box tip" data-note-content-txt="txt_0462">
+<strong data-txt="txt_0461">Conseil</strong>
+                        Si vous souhaitez effectuer des modifications sur une photo, dupliquez-la avant pour conserver l'original.
+                    </div>
+<h4 data-txt="txt_0078">Modifier avec Paint</h4>
+<p data-txt="txt_0122">Si vous voulez modifier vos photos de manière plus poussée avec un autre logiciel de retouche : Ne vous inquiétez pas, c'est comme utiliser un autre outil plus spécialisé pour perfectionner vos photos, comme un photographe professionnel le ferait. Vous pourrez ensuite ramener votre photo modifiée dans Kitview.</p>
+<ol class="step-list">
+<li data-txt="txt_0327">Faites un clic droit sur la photo</li>
+<li data-txt="txt_0328">Cliquez sur « Menu Explorateur » (ne vous inquiétez pas, c'est comme ouvrir un tiroir pour accéder à vos dossiers de photos)</li>
+<li data-txt="txt_0329">Pour modifier votre photo, cliquez sur le bouton « Ouvrir avec », puis sélectionnez « Paint ». Paint est un logiciel simple de dessin déjà installé sur votre ordinateur, comme une boîte de crayons numérique. C'est parfait pour faire des modifications basiques sur vos photos.</li>
+<li data-txt="txt_0330">Modifiez vos informations Ne vous inquiétez pas, c'est très simple ! Quand vous voulez changer quelque chose dans votre dossier (comme le nom d'un patient ou une date), cliquez simplement sur la zone que vous souhaitez modifier. C'est comme corriger un texte dans un document : cliquez à l'endroit voulu, effacez ce qui ne va pas, et tapez la nouvelle information. Puis sauvegardez vos changements.</li>
+<li data-txt="txt_0331">Pour que vos modifications soient prises en compte dans Kitview, vous devez les enregistrer. C'est comme sauvegarder un document sur votre ordinateur ! Cliquez sur l'icône en forme de disquette (le petit carré avec une encoche) c'est le symbole universel pour "sauvegarder". Une fois que vous avez cliqué dessus, vos changements seront automatiquement appliqués et visibles dans le logiciel Kitview. Ne vous inquiétez pas, c'est une étape simple mais importante à ne pas oublier !</li>
+</ol>
+<img alt="Ouvrir avec Paint (logiciel de dessin) Cette fonction vous permet d'ouvrir votre photo dans Paint, le logiciel de dessin simple de Windows. C'est comme sortir une photo de votre album pour la retoucher avec des crayons ou des feutres. Vous pourrez alors dessiner des flèches, entourer des zones importantes, ou ajouter du texte sur la photo de votre patient. Ne vous inquiétez pas, c'est très simple à utiliser !" data-alt-txt="txt_0520" src="img/page62_img01.jpeg"/>
+<img alt="Modifier vos photos avec Paint (le logiciel de dessin de Windows) Ne vous inquiétez pas, c'est très simple ! Paint est comme une boîte à outils de dessin sur votre ordinateur. Vous pouvez l'utiliser pour retoucher vos photos d'orthodontie par exemple pour ajouter des flèches, entourer une zone importante, ou écrire des notes. Pour ouvrir une photo dans Paint : Cliquez droit sur votre photo Choisissez &quot;Ouvrir avec&quot; puis &quot;Paint&quot; Votre photo s'ouvre comme sur une feuille de papier virtuelle Vous pouvez alors dessiner dessus avec les outils (pinceau, crayon) ou ajouter du texte, exactement comme si vous dessiniez sur papier !" data-alt-txt="txt_0521" src="img/page63_img01.jpeg"/>
+<h3 data-txt="txt_0044" id="recadrer">Recadrer une photo</h3>
+<p data-txt="txt_0123">Pour garder seulement une partie de votre photo (comme découper une photo avec des ciseaux) : Ne vous inquiétez pas, c'est très simple ! Imaginez que vous voulez découper une photo papier pour ne garder que le visage du patient. C'est exactement la même chose, mais sur l'ordinateur. Voici comment faire étape par étape :</p>
+<ol class="step-list">
+<li data-txt="txt_0332">Sélectionnez la photo</li>
+<li data-txt="txt_0333">Cliquez sur l'onglet« 1 Vue »</li>
+<li data-txt="txt_0334">Dans la barre d'outils (la rangée de boutons en haut de votre écran), cliquez sur l'outil "Sélection rectangle". Cet outil ressemble généralement à un petit carré en pointillés et vous permet de dessiner un cadre rectangulaire autour de la zone que vous voulez sélectionner, comme si vous encadriez une partie d'une photo avec vos mains.</li>
+<li data-txt="txt_0335">Dessinez un rectangle autour de la zone à conserver</li>
+<li data-txt="txt_0336">Cliquez sur l'outil « Massicot » (c'est comme des ciseaux virtuels) pour recadrer votre photo. Cet outil vous permet de couper les bords de votre image pour ne garder que la partie qui vous intéresse, exactement comme vous le feriez avec des ciseaux sur une photo papier.</li>
+<li data-txt="txt_0337">Cliquez sur l'icône disquette (le petit carré avec une encoche) pour sauvegarder vos modifications. C'est comme fermer un album photo après y avoir ajouté des images cela permet de conserver tout votre travail en sécurité.</li>
+</ol>
+<img alt="Ajuster le cadrage de vos photos Cette fonction vous permet de recadrer vos photos, c'est-à-dire de garder seulement la partie qui vous intéresse (comme quand vous coupez une photo papier avec des ciseaux). Par exemple, vous pouvez zoomer sur la bouche du patient ou enlever les parties inutiles autour. Ne vous inquiétez pas, c'est très simple à utiliser !" data-alt-txt="txt_0522" src="img/page66_img01.jpeg"/>
+<h4 data-txt="txt_0079">Outils de la barre viewers</h4>
+<ul>
+<li data-txt="txt_0338"><strong>Rotation droite/gauche</strong> : faire pivoter la photo</li>
+<li data-txt="txt_0339"><strong>Symétrie horizontale/verticale</strong> : retourner votre photo comme dans un miroir Cette fonction vous permet de retourner votre photo, exactement comme si vous la regardiez dans un miroir. Ne vous inquiétez pas, c'est très simple : Symétrie horizontale : retourne la photo de gauche à droite (comme votre reflet dans un miroir) Symétrie verticale : retourne la photo de haut en bas (comme si vous la retourniez sens dessus dessous)</li>
+<li data-txt="txt_0340">Améliorer la qualité de vos photos : rendre plus clair ou plus sombre, ajuster les contrastes Ne vous inquiétez pas, c'est très simple ! Vous pouvez facilement améliorer vos photos en jouant sur deux réglages principaux : La luminosité : pour rendre votre photo plus claire (comme augmenter l'éclairage) ou plus sombre Le contraste : pour faire ressortir les détails (comme régler la netteté de votre télévision)</li>
+<li data-txt="txt_0341"><strong>Ajouter du texte</strong> sur votre photo : écrire des notes directement sur l'image Vous pouvez écrire des commentaires directement sur vos photos de patients, comme si vous écriviez des notes sur une photo papier avec un stylo. C'est très pratique pour pointer des détails importants ou noter vos observations. Ne vous inquiétez pas, c'est très simple à utiliser !</li>
+</ul>
+<img alt="Barre d'outils pour voir les photos Cette barre contient tous les boutons dont vous avez besoin pour regarder et manipuler vos photos de patients. C'est comme la barre d'outils de votre appareil photo elle vous donne accès à toutes les fonctions principales d'un simple clic. Ne vous inquiétez pas, chaque bouton est conçu pour être facile à utiliser !" data-alt-txt="txt_0523" src="img/page65_img01.png"/>
+<p class="img-caption" data-txt="txt_0124">Outils disponibles pour regarder vos photos Ne vous inquiétez pas, c'est simple ! Quand vous regardez une photo de patient, vous avez accès à plusieurs outils pratiques, comme une boîte à outils complète. Ces boutons vous permettent de mieux voir et analyser les photos : vous pouvez par exemple zoomer pour voir les détails, faire pivoter l'image, ou ajuster la luminosité exactement comme avec les photos sur votre téléphone, mais avec des outils spécialement conçus pour le travail dentaire.</p>
+</section>
+<!-- SECTION 9: PRÉSENTATIONS FIXES -->
+<section class="help-section" id="presentations">
+<h2 data-txt="txt_0014">9. Présentations fixes</h2>
+<p data-txt="txt_0125">Les présentations fixes, c'est comme avoir un album photo automatique qui se crée tout seul ! Voici comment cela fonctionne : Quand vous prenez des photos de vos patients, vous leur donnez des petites étiquettes (qu'on appelle "mots-clés") par exemple "avant traitement", "6 mois après", etc. Les présentations fixes utilisent ces étiquettes pour créer automatiquement des comparaisons entre les photos un peu comme si vous mettiez côte à côte les photos "avant" et "après" d'un patient sur votre bureau. C'est très pratique pour : Montrer à vos patients leurs progrès (ils adorent voir l'évolution !) Présenter vos cas à d'autres orthodontistes Ne vous inquiétez pas, une fois que vos photos sont bien étiquetées, tout se fait automatiquement. C'est comme avoir un assistant qui range vos photos dans le bon ordre !</p>
+<div class="note-box info" data-note-content-txt="txt_0464">
+<strong data-txt="txt_0463">️ Prérequis</strong>
+                        Pour que les présentations fonctionnent correctement, vos photos doivent avoir les bons mots-clés associés.
+                    </div>
+<h3 data-txt="txt_0045">Accéder aux présentations</h3>
+<ol class="step-list">
+<li data-txt="txt_0342">Sélectionnez un patient</li>
+<li data-txt="txt_0343">Cliquez sur l'onglet« Présentation »</li>
+<li data-txt="txt_0344">Ne vous inquiétez pas, c'est très simple ! Regardez tout en bas de votre écran : vous verrez plusieurs options de présentation disponibles, comme si vous choisissiez différents modèles de mise en page pour vos photos. Cliquez simplement sur celle qui vous plaît le mieux pour changer l'apparence de vos images.</li>
+</ol>
+<img alt="Présentations fixes" data-alt-txt="txt_0524" src="img/page68_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0126">Comment utiliser l'écran des présentations fixes Ne vous inquiétez pas, cette section est plus simple qu'elle n'y paraît ! Les "présentations fixes" sont comme des modèles d'albums photo pré-organisés. Au lieu de créer vos présentations de photos une par une, vous utilisez des formats déjà préparés. Imaginez que vous avez des classeurs avec des emplacements déjà marqués pour chaque type de photo (avant/après, sourire, profil, etc.). C'est exactement ce que font ces présentations fixes : elles vous donnent une structure toute prête pour organiser vos photos de patients de manière cohérente. Cette interface vous permettra de choisir et d'utiliser ces modèles pré-conçus pour gagner du temps dans votre travail quotidien.</p>
+<h3 data-txt="txt_0046">Types de présentations disponibles</h3>
+<h4 data-txt="txt_0080">Séquence complète</h4>
+<p data-txt="txt_0127">Vue d'ensemble qui rassemble toutes les photos de votre patient : sa photo de visage, les photos prises à l'intérieur de sa bouche, et la radiographie panoramique (la grande radio qui montre toutes les dents). C'est comme avoir tous les éléments importants sur une même page, pratique pour avoir une vision complète du cas.</p>
+<h4 data-txt="txt_0081" style=";display:none;">Début Fin ¾</h4>
+<p data-txt="txt_0128">Comparez les photos de profil de votre patient prises avant et après le traitement. C'est comme regarder deux photos côte à côte pour voir les changements vous verrez clairement les améliorations du sourire et du profil de votre patient.</p>
+<img alt="Présentation Début Fin" data-alt-txt="txt_0525" src="img/page69_img01.jpeg"/>
+<h4 data-txt="txt_0082">Séquence complète 2</h4>
+<p data-txt="txt_0129">Affichage complet qui montre à la fois la photo de profil du patient et sa radiographie panoramique (image des dents et des mâchoires). C'est comme avoir deux photos côte à côte dans le même album pour mieux comparer et analyser le cas.</p>
+<img alt="Séquence complète 2" data-alt-txt="txt_0526" src="img/page69_img02.jpeg"/>
+<h4 data-txt="txt_0083">Moulages</h4>
+<p data-txt="txt_0130">Affichage de vos photos de moulages dentaires comme consulter un album photo de vos empreintes dentaires. Cette section vous permet de voir toutes les photos des moulages dentaires de vos patients, rangées de manière claire et organisée. Ne vous inquiétez pas, c'est très simple à utiliser pensez à cela comme à un album photo numérique spécialement conçu pour les empreintes dentaires de votre cabinet.</p>
+<img alt="Affichage des empreintes dentaires Cette section vous montre comment visualiser les moulages (empreintes) des dents de vos patients. Pensez à cela comme à un album photo spécialement conçu pour les empreintes dentaires. Ne vous inquiétez pas, c'est très simple à utiliser !" data-alt-txt="txt_0527" src="img/page70_img01.jpeg"/>
+<h4 data-txt="txt_0084" style=";display:none;">Début En cours Fin</h4>
+<p data-txt="txt_0131">Suivez l'évolution du sourire de votre patient comme un album photo en 3 étapes Cette fonction vous permet de comparer facilement 3 photos prises à différents moments du traitement, comme si vous feuilletiez un album photo. Par exemple : une photo avant le traitement, une au milieu, et une à la fin. C'est très simple : le logiciel place les 3 images côte à côte pour que vous puissiez voir d'un coup d'œil les progrès réalisés. Ne vous inquiétez pas, c'est automatique une fois que vous avez sélectionné vos 3 photos.</p>
+<img alt="Début En cours Fin" data-alt-txt="txt_0528" src="img/page70_img02.jpeg"/>
+<h4 data-txt="txt_0085">Comparateur</h4>
+<p data-txt="txt_0132">Cet outil vous permet de placer deux photos l'une à côté de l'autre pour les comparer facilement comme lorsque vous placez deux photos sur votre table pour voir les différences. Vous pouvez personnaliser cet affichage selon vos préférences, par exemple choisir quelle photo va à gauche ou à droite. C'est très pratique pour comparer un "avant" et un "après" traitement. Ne vous inquiétez pas, c'est simple à utiliser !</p>
+</section>
+<!-- SECTION 10: DOCKING (Le Bureau) -->
+<section class="help-section" id="docking">
+<h2 data-txt="txt_0015">10. Le Docking (personnalisation du bureau)</h2>
+<p data-txt="txt_0133">Pensez à votre bureau comme à votre espace de travail personnel, comme un vrai bureau physique que vous pouvez organiser à votre goût. Dans Kitview, c'est exactement pareil ! Vous pouvez complètement personnaliser votre écran principal selon vos habitudes de travail. Ne vous inquiétez pas, c'est très simple : vous pouvez ajouter de nouveaux éléments (comme poser un nouvel objet sur votre bureau), enlever ceux qui ne vous servent pas (comme ranger dans un tiroir), ou simplement les déplacer pour les avoir sous la main là où c'est le plus pratique pour vous. Chaque orthodontiste peut ainsi créer son environnement de travail idéal !</p>
+<h3 data-txt="txt_0047">Activer le mode de personnalisation</h3>
+<ol class="step-list">
+<li data-txt="txt_0345">Cliquez sur« Paramètres »</li>
+<li data-txt="txt_0346">Pour accéder aux réglages généraux de votre logiciel (comme les paramètres principaux de votre appareil photo), suivez ces étapes simples : Cherchez le bouton « Administration » dans votre écran c'est là où se trouvent tous les réglages importants Cliquez dessus pour ouvrir le menu Dans la liste qui s'affiche, cliquez sur « Général » Ne vous inquiétez pas, c'est comme ouvrir les paramètres de votre téléphone quelques clics suffisent !</li>
+<li data-txt="txt_0347">Activez le "Mode Expert" en cochant la case correspondante. Ne vous inquiétez pas, cette option vous donne simplement accès à plus de fonctionnalités avancées comme passer d'un mode simple à un mode complet dans votre appareil photo. Vous pouvez toujours revenir au mode normal si besoin.</li>
+<li data-txt="txt_0348">Cliquez sur« Bureaux »</li>
+<li data-txt="txt_0349">Cliquez sur le bouton « Réorganiser le bureau ». Cette fonction vous permet de remettre de l'ordre dans votre espace de travail, comme lorsque vous rangez votre bureau physique. Ne vous inquiétez pas, c'est très simple à utiliser.</li>
+</ol>
+<img alt="Mode fenêtre attachée Ce mode vous permet d'attacher la fenêtre Kitview au bord de votre écran, comme un panneau qui se colle sur le côté. C'est pratique pour garder vos photos toujours visibles pendant que vous travaillez avec d'autres logiciels. Ne vous inquiétez pas, c'est très simple à utiliser !" data-alt-txt="txt_0529" src="img/page38_img01.png"/>
+<h3 data-txt="txt_0048">Actions disponibles</h3>
+<ul>
+<li data-txt="txt_0350">Pour agrandir ou rétrécir une zone de votre écran (comme ajuster la taille d'une fenêtre) : placez votre curseur de souris exactement sur la ligne qui sépare deux zones vous verrez apparaître une petite flèche à double sens. C'est le signal que vous êtes au bon endroit ! Cliquez alors et maintenez le bouton de la souris enfoncé, puis faites glisser vers la droite pour agrandir ou vers la gauche pour rétrécir. Ne vous inquiétez pas, c'est comme déplacer une cloison dans une pièce c'est très simple une fois qu'on a le coup de main !</li>
+<li data-txt="txt_0351"><strong>Supprimer une zone</strong> : cliquez sur la croix de la zone</li>
+<li data-txt="txt_0352">Pour déplacer une zone de votre écran, c'est simple comme déplacer un objet sur votre bureau ! Voici comment faire étape par étape : Placez votre souris sur le titre de la zone (la barre du haut) Cliquez et maintenez le bouton de la souris enfoncé (comme si vous attrapiez l'objet) Sans relâcher, déplacez votre souris vers les petites flèches que vous voyez à l'écran Relâchez le bouton de la souris une fois arrivé au bon endroit Ne vous inquiétez pas si vous ne réussissez pas du premier coup, c'est normal ! Vous pouvez recommencer autant de fois que nécessaire.</li>
+</ul>
+<img alt="Modifier l'apparence de votre écran principal Ne vous inquiétez pas, c'est très simple ! Vous pouvez personnaliser votre bureau Kitview comme vous arrangeriez votre bureau de travail. Cela vous permet d'organiser les éléments à votre façon pour vous sentir plus à l'aise. Vous pourrez changer les couleurs, déplacer les boutons ou modifier la taille du texte selon vos préférences." data-alt-txt="txt_0530" src="img/page39_img01.jpeg"/>
+<img alt="Résultat personnalisation" data-alt-txt="txt_0531" src="img/page40_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0134">Voici comment créer votre propre espace de travail personnalisé Ne vous inquiétez pas, personnaliser votre bureau dans Kitview est aussi simple que de réorganiser votre bureau physique ! Pensez-y comme à l'aménagement de votre espace de travail : vous pouvez placer vos outils les plus utilisés à portée de main et organiser tout selon vos habitudes. Étape par étape : Cliquez sur le bouton "Personnaliser" (comme si vous déplaciez des objets sur votre bureau) Glissez et déposez les éléments où vous le souhaitez Sauvegardez vos modifications C'est tout ! Votre bureau est maintenant organisé exactement comme vous le voulez.</p>
+<div class="note-box warning" data-note-content-txt="txt_0466">
+<strong data-txt="txt_0465" style=";display:none;">⚠️ Important</strong>
+                        Pensez toujours à enregistrer votre bureau après modifications : <strong>Bureaux → Enregistrer le bureau courant</strong>
+</div>
+</section>
+<!-- SECTION 11: CRÉER UNE PRÉSENTATION FIXE -->
+<section class="help-section" id="creer-presentation">
+<h2 data-txt="txt_0016">11. Créer une présentation fixe personnalisée</h2>
+<p data-txt="txt_0135">Vous pouvez créer vos propres présentations personnalisées, comme si vous composiez votre propre album photo. C'est très simple : choisissez les petites images d'aperçu (appelées vignettes) qui vous intéressent et ajoutez des mots-clés pour les retrouver facilement plus tard. Pensez-y comme à la création d'un classeur sur mesure avec vos photos préférées, organisées exactement comme vous le souhaitez. Ne vous inquiétez pas, vous gardez le contrôle total sur ce que vous voulez inclure dans votre présentation.</p>
+<h3 data-txt="txt_0049">Étapes de création</h3>
+<ol class="step-list">
+<li data-txt="txt_0353">Cliquez sur l'onglet« Paramètres »</li>
+<li data-txt="txt_0354">Cliquez sur« Administration »</li>
+<li data-txt="txt_0355">Cliquez sur« Général »</li>
+<li data-txt="txt_0356">Activez le « Mode expert » en cliquant sur la petite case à cocher à côté de cette option. C'est comme passer du mode automatique au mode manuel sur un appareil photo cela vous donne accès à plus d'options avancées. Ne vous inquiétez pas, vous pourrez toujours revenir au mode normal si besoin.</li>
+<li data-txt="txt_0357">Cliquez sur l'onglet« Présentation »</li>
+<li data-txt="txt_0358">Une fenêtre s'ouvre : cliquez sur« Présentations libres »</li>
+<li data-txt="txt_0359">Cliquez sur« Créer une présentation libre »</li>
+<li data-txt="txt_0360">Nommez votre présentation</li>
+</ol>
+<img alt="Créer une présentation fixe (comme un diaporama figé) Une présentation fixe, c'est comme créer un album photo dont les pages ne bougent plus. Une fois que vous l'avez créée, les photos restent dans l'ordre que vous avez choisi, même si vous ajoutez de nouvelles photos au dossier du patient plus tard. C'est très pratique quand vous voulez montrer l'évolution d'un traitement à un moment précis, sans que cela change par la suite." data-alt-txt="txt_0532" src="img/page71_img01.png"/>
+<h3 data-txt="txt_0050">Ajouter des vignettes à la présentation</h3>
+<ol class="step-list">
+<li data-txt="txt_0361">Cliquez sur le petit+</li>
+<li data-txt="txt_0362">Une nouvelle fenêtre va apparaître sur votre écran (comme quand vous ouvrez un nouveau dossier). Ne vous inquiétez pas, c'est normal ! Dans cette fenêtre, vous verrez plusieurs choix. Cliquez simplement sur le bouton qui indique « Vignette avec attributs ». Cette option vous permettra de voir vos photos sous forme de petites images avec leurs informations, comme dans un album photo avec des légendes.</li>
+<li data-txt="txt_0363">Ne vous inquiétez pas, c'est très simple ! Voici comment procéder étape par étape : Placez votre souris à l'endroit où vous voulez commencer votre sélection Appuyez sur le bouton gauche de votre souris et maintenez-le enfoncé (comme si vous vouliez dessiner) Tout en gardant le bouton enfoncé, déplacez votre souris pour tracer un carré ou un rectangle autour de la zone qui vous intéresse Relâchez le bouton de la souris vous verrez alors apparaître une petite image (appelée "vignette"), comme un aperçu de ce que vous avez sélectionné Pour finaliser, cliquez rapidement deux fois de suite (double-clic) sur cette petite vignette C'est exactement comme dessiner un cadre autour d'une photo pour la sélectionner !</li>
+<li data-txt="txt_0364">Une nouvelle fenêtre apparaît à l'écran, comme si vous ouvriez un petit carnet d'adresses. Dans cette fenêtre, vous verrez une liste de mots-clés disponibles. Tapez quelques lettres du mot que vous cherchez dans la zone de recherche (ne vous inquiétez pas, vous n'avez pas besoin de taper le mot en entier). Une fois que vous voyez le mot-clé souhaité dans la liste, cliquez deux fois rapidement dessus avec votre souris c'est ce qu'on appelle un "double-clic". C'est simple : clic-clic rapidement, comme si vous frappiez deux fois à une porte.</li>
+<li data-txt="txt_0365">Le mot-clé s'affiche dans le tableau à droite</li>
+<li data-txt="txt_0366">Cliquez sur le bouton "Valider" pour confirmer votre choix ne vous inquiétez pas, c'est simple ! Répétez cette même étape pour chacune des petites images (appelées "vignettes") une par une. Comme quand vous triez des photos dans un album, vous devez valider chaque image séparément.</li>
+</ol>
+<img alt="Ajouter des petites images d'aperçu Les vignettes sont comme de petites photos miniatures qui vous donnent un aperçu rapide de vos images, comme les petites photos qu'on voit sur la pellicule d'un appareil photo. Cliquez ici pour en ajouter à votre dossier patient." data-alt-txt="txt_0533" src="img/page72_img01.png"/>
+<h4 data-txt="txt_0086">Redimensionner et aligner les vignettes</h4>
+<p data-txt="txt_0136">Pour sélectionner plusieurs photos en même temps (comme quand vous voulez déplacer plusieurs objets d'un coup), c'est simple : gardez le doigt appuyé sur la touche "Ctrl" de votre clavier (ne vous inquiétez pas, c'est la touche marquée "Ctrl" en bas à gauche), puis cliquez une par une sur chaque petite image que vous voulez choisir. Une fois que vous avez sélectionné toutes vos photos, vous pourrez utiliser les boutons d'alignement pour les ranger proprement, comme si vous aligniez des cadres photos sur un mur.</p>
+<ul>
+<li data-txt="txt_0367"><strong>Même largeur</strong> : uniformise la largeur</li>
+<li data-txt="txt_0368"><strong>Aligné en bas/haut</strong> : aligne verticalement</li>
+<li data-txt="txt_0369"><strong>Aligné à gauche/droite</strong> : aligne horizontalement</li>
+</ul>
+<img alt="Outils pour aligner les photos Ces outils vous aident à bien positionner vos photos de dents, comme quand vous ajustez un cadre photo sur un mur pour qu'il soit bien droit. Ne vous inquiétez pas, c'est très simple à utiliser !" data-alt-txt="txt_0534" src="img/page73_img01.png"/>
+<p data-txt="txt_0137">Cliquez sur l'icône de sauvegarde (elle ressemble à une petite disquette) pour enregistrer votre présentation. C'est comme sauvegarder un document cela permet de conserver tout votre travail en sécurité. Ne vous inquiétez pas, c'est très simple : un seul clic suffit !</p>
+</section>
+<!-- SECTION 12: DIAPORAMA -->
+<section class="help-section" id="diaporama">
+<h2 data-txt="txt_0017">12. Diaporama</h2>
+<p data-txt="txt_0138">Le diaporama, c'est comme un album photo que vous feuilletez sur votre écran. Cette fonction vous permet de voir toutes les photos d'un patient les unes après les autres, en grand format qui remplit tout votre écran d'ordinateur. C'est très pratique pour examiner en détail l'évolution du traitement de votre patient, comme si vous regardiez de grandes photos posées sur votre bureau. Ne vous inquiétez pas, c'est très simple à utiliser !</p>
+<h3 data-txt="txt_0051">Lancer un diaporama</h3>
+<ol class="step-list">
+<li data-txt="txt_0370">Sélectionnez le patient</li>
+<li data-txt="txt_0371">Cliquez sur« Affichage »</li>
+<li data-txt="txt_0372">Cliquez sur« Diaporama »</li>
+<li data-txt="txt_0373">Utilisez les flèches pour faire défiler les photos</li>
+</ol>
+<img alt="Mode diaporama Regardez vos photos une par une automatiquement Le mode diaporama, c'est comme regarder un album photo qui se tourne tout seul. Les photos de votre patient défilent automatiquement à l'écran, une après l'autre, sans que vous ayez besoin de cliquer. C'est très pratique pour présenter l'évolution du traitement à votre patient de façon fluide et professionnelle." data-alt-txt="txt_0535" src="img/page74_img01.png"/>
+<div class="note-box tip" data-note-content-txt="txt_0468">
+<strong data-txt="txt_0467">Conseil</strong>
+                        Pour quitter le diaporama, appuyez sur la touche <kbd>Échap</kbd> de votre clavier.
+                    </div>
+<p data-txt="txt_0139">Si vous voulez voir seulement quelques photos de votre patient (et pas toutes), c'est très simple ! D'abord, cliquez sur les photos qui vous intéressent pour les sélectionner (comme quand vous choisissez des photos dans un album). Ensuite, cliquez sur le bouton « Diaporama » : vos photos choisies vont défiler automatiquement à l'écran, une par une. Ne vous inquiétez pas, c'est aussi facile que de regarder un album photo sur votre téléphone !</p>
+</section>
+<!-- SECTION 13: COMPARER DES PHOTOS -->
+<section class="help-section" id="comparateur">
+<h2 data-txt="txt_0018">13. Comparer des photos</h2>
+<p data-txt="txt_0140">Kitview vous propose plusieurs outils très pratiques pour comparer des photos de vos patients, comme si vous placiez deux photos côte à côte sur votre bureau. Ces outils vous permettent de montrer facilement à vos patients comment leur sourire s'améliore au fil du traitement orthodontique. C'est un excellent moyen de visualiser les progrès réalisés et de motiver vos patients ! Ne vous inquiétez pas, ces outils sont simples à utiliser.</p>
+<h3 data-txt="txt_0052" id="comparer-2vues">Comparer deux photos (mode 2 Vues)</h3>
+<ol class="step-list">
+<li data-txt="txt_0374">Cliquez sur l'onglet« 2 Vues »</li>
+<li data-txt="txt_0375">Sélectionnez les deux photos à comparer</li>
+<li data-txt="txt_0376">Pour verrouiller une photo, cliquez sur lepetit cadenas</li>
+<li data-txt="txt_0377">Une photo reste immobile (elle est "bloquée" en place) pendant que vous pouvez faire défiler l'autre photo avec votre souris ou votre doigt. C'est comme avoir deux albums photo côte à côte : l'un reste ouvert à la même page tandis que vous tournez les pages du second pour comparer les images.</li>
+</ol>
+<img alt="Comment comparer deux photos de votre patient Cette fonction vous permet de placer deux photos côte à côte sur votre écran, comme si vous posiez deux photos papier sur votre bureau pour les examiner ensemble. C'est très pratique pour voir l'évolution du traitement de votre patient en comparant un &quot;avant&quot; et un &quot;après&quot;, ou pour observer les différences entre deux angles de vue. Ne vous inquiétez pas, c'est très simple à utiliser !" data-alt-txt="txt_0536" src="img/page75_img01.jpeg"/>
+<h3 data-txt="txt_0053" id="comparateur-colonne-ligne">Comparateur en colonne ou ligne</h3>
+<p data-txt="txt_0141">Le comparateur est comme une table lumineuse où vous pouvez poser plusieurs photos côte à côte pour les observer ensemble. Cette fonction vous permet de sélectionner plusieurs photos de votre patient et de les afficher en même temps sur votre écran. C'est très pratique pour voir l'évolution du traitement par exemple, comparer les dents avant et après la pose d'un appareil. Ne vous inquiétez pas, c'est très simple à utiliser :</p>
+<ol class="step-list">
+<li data-txt="txt_0378">Sélectionnez les photos à comparer</li>
+<li data-txt="txt_0379">Pour comparer vos photos (comme quand vous regardez un avant/après chez le coiffeur), cliquez simplement sur l'une de ces icônes selon ce que vous préférez : **Comparateur en colonne** : vos photos s'affichent l'une au-dessus de l'autre (comme deux photos collées verticalement) **Comparateur en ligne** : vos photos s'affichent côte à côte (comme deux photos posées sur une table) Pour chaque type, vous pouvez choisir : **Manuel** : vous choisissez vous-même quelles photos comparer **Automatique** : le logiciel sélectionne automatiquement les photos les plus appropriées Ne vous inquiétez pas, vous pourrez toujours changer d'affichage si le premier choix ne vous convient pas !</li>
+</ol>
+<img alt="Comparer deux photos côte à côte Cette fonction vous permet de placer deux photos de votre patient l'une à côté de l'autre, comme si vous mettiez deux photos imprimées sur votre bureau pour les comparer. C'est très pratique pour voir l'évolution du traitement par exemple comparer une photo &quot;avant&quot; et une photo &quot;après&quot;. Ne vous inquiétez pas, c'est très simple à utiliser !" data-alt-txt="txt_0537" src="img/page76_img01.jpeg"/>
+<h4 data-txt="txt_0087">Mode manuel</h4>
+<p data-txt="txt_0142">Pour regarder vos différentes photos, c'est très simple ! Utilisez les petites flèches (comme sur une télécommande) pour passer d'une photo à l'autre. Ne vous inquiétez pas : la photo de référence (celle qui se trouve à gauche de votre écran, ou en haut) ne bouge pas elle reste toujours visible pour que vous puissiez comparer avec les autres photos. C'est comme si vous aviez un album photo où une page reste ouverte pendant que vous feuilletez les autres pages.</p>
+<img alt="L'outil de comparaison manuelle des colonnes Cet outil vous permet de comparer deux photos côte à côte, comme si vous placiez deux photos papier l'une à côté de l'autre sur votre bureau. C'est très pratique pour voir l'évolution du traitement de votre patient en comparant une photo &quot;avant&quot; et une photo &quot;après&quot;. Ne vous inquiétez pas, c'est très simple à utiliser : il suffit de sélectionner les deux photos que vous voulez comparer, et elles s'afficheront automatiquement côte à côte sur votre écran." data-alt-txt="txt_0538" src="img/page77_img01.jpeg"/>
+<h4 data-txt="txt_0088">Mode automatique</h4>
+<p data-txt="txt_0143">Les photos défilent automatiquement par date de prise de vue.</p>
+<img alt="L'outil de comparaison automatique en colonnes Cette fonctionnalité vous permet de comparer facilement deux photos côte à côte, comme si vous placiez deux photos sur votre bureau pour les regarder en même temps. Ne vous inquiétez pas, c'est très simple à utiliser ! Le logiciel organise automatiquement vos images en deux colonnes pour que vous puissiez voir l'évolution du traitement de votre patient d'un coup d'œil." data-alt-txt="txt_0539" src="img/page78_img01.jpeg"/>
+<img alt="Le comparateur automatique vous aide à aligner vos photos en une seule ligne, comme si vous rangiez des photos sur une table pour les comparer facilement. Ne vous inquiétez pas, c'est très simple : le logiciel fait le travail tout seul pour que toutes vos photos de patient s'alignent parfaitement. C'est comme avoir un assistant qui organise automatiquement vos images pour que vous puissiez voir l'évolution du traitement d'un coup d'œil." data-alt-txt="txt_0540" src="img/page78_img02.jpeg"/>
+<div class="note-box tip" data-note-content-txt="txt_0470">
+<strong data-txt="txt_0469">Conseil</strong>
+                        Pour quitter le comparateur, appuyez sur <kbd>Échap</kbd>.
+                    </div>
+<h3 data-txt="txt_0054" id="comparateur-protocole">Comparateur par séances protocole</h3>
+<p data-txt="txt_0144">Si vous prenez toujours vos photos de la même manière (par exemple : toujours dans le même ordre, avec les mêmes angles), cette fonction vous permet de voir l'évolution du traitement de votre patient. C'est comme avoir un album photo où vous pourriez comparer les photos "avant" et "après" côte à côte. Ne vous inquiétez pas, c'est très pratique pour suivre les progrès du traitement orthodontique au fil des rendez-vous.</p>
+<ol class="step-list">
+<li data-txt="txt_0382">Cliquez sur l'onglet« Présentation »</li>
+<li data-txt="txt_0383">Cliquez sur l'onglet« Comparateur »</li>
+<li data-txt="txt_0384">Choisissez les photos que vous voulez montrer à votre patient (par exemple : les 3 photos prises à l'intérieur de la bouche). C'est comme sélectionner les meilleures photos dans un album pour les présenter à quelqu'un. Cliquez simplement sur chaque photo que vous souhaitez inclure dans votre présentation.</li>
+<li data-txt="txt_0385">Choisissez comment vous voulez organiser vos photos : **Horizontal/Vertical** : comme quand vous tournez votre téléphone pour prendre une photo, choisissez si vos images s'affichent dans le sens de la largeur ou de la hauteur **Manuel/Automatique** : soit vous décidez vous-même de l'organisation (Manuel), soit le logiciel s'en charge tout seul (Automatique plus simple pour débuter) Ne vous inquiétez pas, vous pourrez toujours changer ces réglages plus tard !</li>
+</ol>
+<img alt="Comparateur par séances Comparer les photos entre différentes visites Cette fonction vous permet de voir côte à côte les photos prises lors de différents rendez-vous de votre patient. C'est comme avoir deux albums photo ouverts en même temps pour voir l'évolution du traitement. Ne vous inquiétez pas, c'est très simple à utiliser et très utile pour montrer les progrès à vos patients." data-alt-txt="txt_0541" src="img/page79_img01.jpeg"/>
+<p data-txt="txt_0145">Ne vous inquiétez pas, c'est très simple à comprendre ! Imaginez que vous regardez un album photo de famille : les photos de votre premier rendez-vous avec le patient restent toujours visibles au même endroit (soit en haut de votre écran, soit sur la gauche). Pendant ce temps, les photos des autres rendez-vous défilent une par une, classées par date du plus ancien au plus récent. C'est comme si vous aviez une photo de référence qui ne bouge jamais, et que vous pouviez faire défiler les autres photos à côté pour comparer l'évolution du traitement.</p>
+<img alt="Voir les différences entre deux séances de photos Cette fonction vous permet de comparer facilement les photos de votre patient prises à deux moments différents. C'est comme placer côte à côte deux albums photos pour voir l'évolution du traitement. Ne vous inquiétez pas, c'est très simple à utiliser et très utile pour suivre les progrès de vos patients." data-alt-txt="txt_0542" src="img/page80_img03.jpeg"/>
+</section>
+<!-- SECTION 14: MODÈLES DE COURRIER -->
+<section class="help-section" id="courrier">
+<h2 data-txt="txt_0019">14. Modèles de courrier</h2>
+<p data-txt="txt_0146">Kitview vous permet de créer des lettres personnalisées très facilement, comme si vous aviez un assistant qui remplissait automatiquement les informations pour vous ! Voici comment cela fonctionne : imaginez que vous avez un modèle de lettre (comme un formulaire à trous). Kitview va automatiquement remplir ces "trous" avec les bonnes informations de chaque patient leur nom, prénom, adresse, et même leurs photos si besoin. Par exemple, au lieu d'écrire manuellement "Cher Monsieur Dupont" pour chaque patient, vous écrivez une seule fois "Cher [NOM DU PATIENT]" dans votre modèle. Kitview se charge ensuite de remplacer automatiquement cette partie par le vrai nom de chaque patient quand vous imprimez ou envoyez la lettre. C'est un vrai gain de temps ne vous inquiétez pas, c'est beaucoup plus simple à utiliser qu'à expliquer !</p>
+<div class="note-box info" data-note-content-txt="txt_0472">
+<strong data-txt="txt_0471">️ Prérequis</strong>
+                        Les photos doivent être bien identifiées (mots-clés) pour que les champs de fusion fonctionnent correctement.
+                    </div>
+<h3 data-txt="txt_0055">Utiliser un modèle existant</h3>
+<ol class="step-list">
+<li data-txt="txt_0386">Sélectionnez le patient</li>
+<li data-txt="txt_0387">Cliquez sur l'onglet« Courrier »</li>
+<li data-txt="txt_0388">Sélectionnez le modèle souhaité dans la liste</li>
+<li data-txt="txt_0389">Ne vous inquiétez pas, c'est très simple ! Quand vous ouvrez le courrier, c'est comme si vous preniez une lettre déjà commencée : toutes les informations importantes de votre patient (son nom, son âge, etc.) sont déjà écrites automatiquement. Vous n'avez pas besoin de tout retaper à la main le logiciel a fait le travail pour vous, comme un assistant très efficace !</li>
+</ol>
+<img alt="Liste des modèles de lettres Cette section vous montre tous vos modèles de courriers, comme un classeur qui contiendrait tous vos modèles de lettres types. Ne vous inquiétez pas, c'est très simple à utiliser ! Vous y trouverez par exemple vos modèles de lettres pour les patients, les correspondants médicaux, ou les devis. C'est comme avoir sous la main tous vos modèles de documents prêts à être utilisés." data-alt-txt="txt_0543" src="img/page83_img02.jpeg"/>
+<img alt="Créer des lettres personnalisées automatiquement Cette fonction vous permet de créer facilement des lettres pour vos patients en utilisant leurs informations personnelles. C'est comme avoir un assistant qui remplit automatiquement les noms, adresses et autres détails dans vos courriers vous n'avez plus besoin de tout retaper à chaque fois ! Ne vous inquiétez pas, c'est très simple à utiliser une fois que vous connaissez les étapes de base." data-alt-txt="txt_0544" src="img/page84_img01.png"/>
+<h4 data-txt="txt_0089">Voir les champs de fusion</h4>
+<p data-txt="txt_0147">Pour personnaliser votre document avec les informations de vos patients, c'est très simple ! Cliquez sur le mode « Création » pensez-y comme à un mode d'édition, comme quand vous modifiez un document Word. Une fois dans ce mode, vous pourrez voir et modifier les petits codes spéciaux (appelés "champs de fusion") qui ressemblent à ceci : &lt;Prénom&gt;, &lt;Nom&gt;, &lt;Date du jour&gt;. Ces codes fonctionnent comme des étiquettes vides qui se remplissent automatiquement avec les vraies informations de chaque patient. Ne vous inquiétez pas, c'est plus simple que ça en a l'air !</p>
+<img alt="Mode création de courrier Ce mode vous permet de créer des lettres pour vos patients, comme si vous utilisiez un traitement de texte simple. Ne vous inquiétez pas, c'est très facile à utiliser ! Vous pourrez rédiger vos courriers médicaux étape par étape, exactement comme quand vous écrivez une lettre classique." data-alt-txt="txt_0545" src="img/page85_img01.png"/>
+<h3 data-txt="txt_0056" id="creer-courrier">Créer un nouveau modèle de courrier</h3>
+<ol class="step-list">
+<li data-txt="txt_0390">Cliquez sur l'onglet« Courrier »</li>
+<li data-txt="txt_0391">Choisissez un modèle déjà créé pour vous servir de point de départ Comme lorsque vous utilisez un modèle de lettre pour gagner du temps, vous pouvez partir d'un modèle existant plutôt que de tout recommencer. Cliquez simplement sur le modèle qui vous convient le mieux ne vous inquiétez pas, vous pourrez le modifier ensuite selon vos besoins.</li>
+<li data-txt="txt_0392">Cliquez sur« Création »</li>
+<li data-txt="txt_0393">Cliquez sur« Nouveau »pour un document vierge</li>
+<li data-txt="txt_0394">Dans la section « Propriétés Page », cochez la case « Paysage » si vous voulez imprimer en format horizontal (comme une feuille tournée sur le côté). Ne vous inquiétez pas, vous pouvez toujours revenir en arrière si ce n'est pas le bon choix.</li>
+</ol>
+<img alt="Comment créer un courrier pour vos patients Ne vous inquiétez pas, créer un courrier dans Kitview est très simple ! C'est comme utiliser un traitement de texte, mais spécialement conçu pour les orthodontistes. Voici comment procéder étape par étape : Cliquez sur le bouton &quot;Nouveau courrier&quot; (il ressemble souvent à une enveloppe ou une feuille) Choisissez le type de courrier que vous voulez envoyer (par exemple : compte-rendu, convocation) Le logiciel remplira automatiquement les informations du patient Rédigez votre message dans la zone de texte Relisez et cliquez sur &quot;Enregistrer&quot; C'est aussi facile que d'écrire une lettre traditionnelle, mais en plus rapide !" data-alt-txt="txt_0546" src="img/page86_img01.jpeg"/>
+<img alt="Document vierge" data-alt-txt="txt_0547" src="img/page87_img01.png"/>
+<h4 data-txt="txt_0090">Ajouter des éléments</h4>
+<ul>
+<li data-txt="txt_0395">Pour ajouter du texte sur votre photo (comme écrire une note sur une image), c'est très simple : Cliquez sur le bouton « Ajouter » en haut de votre écran Choisissez « Ajouter texte » dans le menu qui apparaît Dessinez un rectangle sur la photo à l'endroit où vous voulez placer votre texte (comme si vous traciez un cadre avec votre souris) Double-cliquez à l'intérieur de ce cadre pour commencer à taper votre texte Ne vous inquiétez pas, vous pouvez toujours modifier ou déplacer votre texte après !</li>
+<li data-txt="txt_0396">Pour ajouter une photo dans votre document (comme coller une image dans un album) : Cliquez sur le bouton « Ajouter » (ne vous inquiétez pas, c'est simple) Choisissez « Champ image » dans le menu qui apparaît Avec votre souris, dessinez un rectangle à l'endroit où vous voulez placer votre photo comme si vous traciez un cadre photo Double-cliquez dans ce cadre que vous venez de créer Une liste apparaît : choisissez la photo que vous souhaitez insérer C'est tout ! Votre image s'affichera automatiquement dans le cadre.</li>
+</ul>
+<img alt="Ajouter des éléments à votre courrier Cette fonction vous permet d'enrichir vos lettres aux patients, comme si vous ajoutiez des photos ou des notes dans une lettre papier. Ne vous inquiétez pas, c'est très simple ! Vous pouvez par exemple insérer des images des dents de votre patient ou des informations importantes directement dans votre courrier pour le rendre plus complet et personnalisé." data-alt-txt="txt_0548" src="img/page88_img01.png"/>
+<h4 data-txt="txt_0091">Enregistrer le modèle</h4>
+<ol class="step-list">
+<li data-txt="txt_0397">Cliquez sur le bouton « Aperçu » pour voir à quoi ressemblera votre résultat final. C'est comme regarder une photo avant de l'imprimer cela vous permet de vérifier que tout est correct avant de continuer. Ne vous inquiétez pas, vous pouvez toujours revenir en arrière pour faire des modifications si nécessaire.</li>
+<li data-txt="txt_0398">Cliquez sur« Enregistrer »</li>
+<li data-txt="txt_0399">Sélectionnez le dossier« Letters »</li>
+<li data-txt="txt_0400">Nommez votre fichier et cliquez sur« Enregistrer »</li>
+</ol>
+</section>
+<!-- SECTION 15: PORTFOLIO ET POWERPOINT -->
+<section class="help-section" id="portfolio">
+<h2 data-txt="txt_0020">15. Portfolio et présentation PowerPoint</h2>
+<p data-txt="txt_0148">Le Portfolio, c'est comme un grand album photo spécial qui vous permet de rassembler les photos de différents patients en un seul endroit. Imaginez que vous voulez créer une présentation pour montrer vos meilleurs résultats : au lieu de chercher les photos une par une dans chaque dossier patient, vous les regroupez toutes dans votre Portfolio. Une fois que vous avez sélectionné toutes les photos que vous voulez, le logiciel crée automatiquement pour vous une belle présentation PowerPoint comme si vous aviez un assistant qui s'occupe de tout ! C'est très pratique pour préparer des conférences ou montrer votre travail. Ne vous inquiétez pas, le logiciel fait tout le travail technique à votre place.</p>
+<h3 data-txt="txt_0057">Exemple : Toutes les intrabuccales de tous les patients</h3>
+<ol class="step-list">
+<li data-txt="txt_0401">Cliquez sur l'onglet« Tous »dans l'arborescence</li>
+<li data-txt="txt_0402">Choisissez le type de photos que vous voulez voir, comme "Intrabuccales" (photos prises à l'intérieur de la bouche). C'est comme choisir un album photo spécifique dans votre collection cliquez simplement sur la catégorie qui vous intéresse pour voir toutes les photos de ce type.</li>
+<li data-txt="txt_0403">Cliquez sur le bouton « Filtrer la population selon la collection ». Cette fonction vous permet de trier vos patients comme si vous rangiez des dossiers dans différents classeurs. Par exemple, vous pourrez voir uniquement les patients d'une collection spécifique (comme "Traitement Invisalign" ou "Enfants"). C'est très pratique pour organiser votre travail !</li>
+<li data-txt="txt_0404">Cliquez sur« Sélectionner tous les patients »</li>
+<li data-txt="txt_0405">Cliquez sur l'onglet« Portfolio »</li>
+<li data-txt="txt_0406">Toutes les photos correspondantes s'affichent</li>
+<li data-txt="txt_0407">Pour ajouter vos photos dans Kitview, c'est très simple ! Pensez à cela comme si vous organisiez des photos dans un album : D'abord, regardez vos photos disponibles sur la gauche de l'écran Cliquez sur chaque photo que vous voulez utiliser pour la sélectionner (elle sera encadrée) Une fois vos photos choisies, maintenez le clic sur l'une d'elles et faites-la glisser vers la zone de droite Relâchez le clic : vos photos sont maintenant intégrées ! Ne vous inquiétez pas si cela semble nouveau, c'est comme déplacer des fichiers sur votre bureau d'ordinateur. Avec un peu de pratique, ce geste deviendra automatique.</li>
+<li data-txt="txt_0408">Cliquez sur l'icône PowerPoint (le petit logo orange et rouge qui ressemble à une présentation). Une fenêtre va s'ouvrir pour vous demander combien de photos vous voulez afficher sur chaque diapositive de votre présentation. C'est comme choisir combien de photos mettre sur chaque page d'un album : vous pouvez en mettre 1, 2, 4 ou plus selon vos préférences. Ne vous inquiétez pas, vous pourrez toujours modifier ce choix plus tard.</li>
+</ol>
+<img alt="Album des photos à l'intérieur de la bouche Ne vous inquiétez pas, c'est simple ! Un &quot;portfolio intrabuccales&quot; est comme un album photo spécial qui contient toutes les photos prises à l'intérieur de la bouche de vos patients. Pensez-y comme à un classeur où vous rangez toutes les images des dents, gencives et autres structures à l'intérieur de la bouche. Ces photos vous aident à suivre l'évolution du traitement orthodontique de chaque patient." data-alt-txt="txt_0549" src="img/page89_img01.jpeg"/>
+<h4 data-txt="txt_0092" style=";display:none;">Résultat dans PowerPoint</h4>
+<p data-txt="txt_0149">La présentation s'ouvre automatiquement dans PowerPoint (le logiciel de Microsoft pour créer des diaporamas). Ne vous inquiétez pas, c'est très simple ! Une fois ouverte, vous pouvez personnaliser votre présentation comme vous le souhaitez : ajouter du texte pour expliquer les photos de votre patient, changer la disposition des éléments sur la page, modifier les couleurs, etc. C'est comme si vous aviez reçu un album photo pré-rempli que vous pouvez maintenant décorer et annoter selon vos besoins.</p>
+<img alt="Présentation PowerPoint" data-alt-txt="txt_0550" src="img/page90_img01.jpeg"/>
+<div class="note-box warning" data-note-content-txt="txt_0474">
+<strong data-txt="txt_0473" style=";display:none;">⚠️ Important</strong>
+                        Pensez à enregistrer votre présentation PowerPoint après les modifications.
+                    </div>
+</section>
+<!-- SECTION 16: FILTRE DE POPULATION -->
+<section class="help-section" id="filtre-population">
+<h2 data-txt="txt_0021">16. Filtre de population</h2>
+<p data-txt="txt_0150">Les filtres de population, c'est comme un système de tri dans un grand classeur de photos. Imaginez que vous avez des centaines de photos de patients dans votre cabinet : les filtres vous aident à retrouver rapidement exactement ce que vous cherchez. Par exemple, vous pouvez chercher : Toutes les photos de radiographies d'un patient précis Toutes les photos avant/après de plusieurs patients Un type particulier de clichés (photos du sourire, photos de profil, etc.) Ne vous inquiétez pas, c'est très simple à utiliser ! Les filtres sont classés par catégories, comme des onglets dans un classeur, pour que vous vous y retrouviez facilement. Cela vous fait gagner beaucoup de temps plutôt que de chercher manuellement dans toutes vos photos.</p>
+<h3 data-txt="txt_0058">Exemple : Afficher toutes les radios panoramiques</h3>
+<ol class="step-list">
+<li data-txt="txt_0409">Cliquez dans l'onglet« Tous »</li>
+<li data-txt="txt_0410">Pour voir vos radiographies panoramiques, c'est très simple ! Cliquez d'abord sur le bouton "Radio" (comme si vous ouvriez un classeur de radiographies), puis choisissez "Panoramique". Vous pouvez aussi sélectionner une autre catégorie selon le type de radiographie que vous cherchez. Ne vous inquiétez pas, c'est comme feuilleter un album photo organisé par sections !</li>
+<li data-txt="txt_0411">Cliquez sur le bouton « Filtrer la population selon la collection ». Cette fonction vous permet de trier vos patients comme si vous rangiez des dossiers dans différents classeurs. Par exemple, vous pourrez voir uniquement les patients d'une collection spécifique (comme "Traitement Invisalign" ou "Enfants"). C'est très pratique pour organiser votre travail !</li>
+<li data-txt="txt_0412">Cliquez sur« Sélectionner tous les patients »</li>
+<li data-txt="txt_0413">Résultat : toutes les radios panoramiques de tous vos patients s'affichent</li>
+<li data-txt="txt_0414">Ne vous inquiétez pas, c'est très simple ! Imaginez que chaque patient a son propre classeur personnel dans votre armoire. Pour retrouver une radio spécifique, il vous suffit d'ouvrir le bon classeur. Voici comment faire : cliquez sur le nom du patient pour ouvrir son dossier (comme si vous ouvriez son classeur personnel), puis parcourez ses photos jusqu'à trouver la radio que vous cherchez. C'est comme feuilleter un album photo pour retrouver une image particulière.</li>
+</ol>
+<img alt="Le filtre de population vous permet de trier vos patients, comme si vous fouilli dans un classeur pour trouver un dossier précis. Cette fonction vous aide à retrouver rapidement le patient que vous cherchez parmi tous ceux enregistrés dans Kitview. Ne vous inquiétez pas, c'est très simple à utiliser !" data-alt-txt="txt_0551" src="img/page91_img01.jpeg"/>
+<div class="note-box tip" data-note-content-txt="txt_0476">
+<strong data-txt="txt_0475" style=";display:none;">💡 Astuce</strong>
+                        Pensez à revenir à votre base complète après une recherche : retournez dans les filtres de population, cliquez sur l'onglet « Tous » puis « Rafraîchir ».
+                    </div>
+</section>
+<!-- SECTION 17: RECHERCHE PAR DATE -->
+<section class="help-section" id="recherche-date">
+<h2 data-txt="txt_0022">17. Retrouver des photos par date</h2>
+<p data-txt="txt_0151">Les filtres de population fonctionnent comme un système de recherche dans un album photo géant. Imaginez que vous cherchez des photos dans votre album personnel : vous pouvez dire "je veux voir toutes les photos prises le 15 mars" ou "montre-moi toutes les photos prises entre janvier et mars". C'est exactement pareil ici ! Vous pouvez rechercher des photos prises à une date précise (par exemple le 10 janvier 2024) ou sur une période plus large (par exemple toutes les photos prises entre le 1er et le 31 janvier). Ne vous inquiétez pas, c'est très simple à utiliser le logiciel vous guide pas à pas pour choisir vos dates.</p>
+<h3 data-txt="txt_0059" id="date-precise">Recherche à une date précise</h3>
+<p data-txt="txt_0152"><strong>Exemple :</strong>Rechercher toutes les photos prises le 24/11/2017</p>
+<ol class="step-list">
+<li data-txt="txt_0415">Cliquez sur« Quoi »</li>
+<li data-txt="txt_0416">Cliquez sur le bouton « Ajouter une condition à la racine ». Ne vous inquiétez pas, la "racine" c'est simplement le point de départ de votre règle comme le tronc d'un arbre d'où partent toutes les branches. En cliquant ici, vous allez créer votre première condition.</li>
+<li data-txt="txt_0417">Une nouvelle fenêtre va s'ouvrir sur votre écran (comme quand on ouvre une nouvelle page). Ne vous inquiétez pas, c'est simple : tapez le mot "Création" avec votre clavier dans la zone prévue. Une fois que vous appuyez sur Entrée, vous verrez que ce mot apparaît automatiquement dans la liste qui s'affiche. C'est comme ajouter un nouveau nom dans un carnet d'adresses !</li>
+<li data-txt="txt_0418">Ne vous inquiétez pas, c'est très simple ! Vous voyez le mot "Création" à l'écran ? Cliquez deux fois rapidement dessus (comme si vous ouvriez un dossier sur votre bureau). Une fois que vous aurez fait ce double-clic, le mot "Création" va automatiquement apparaître dans le tableau qui se trouve sur la partie droite de votre écran. C'est comme si vous déplaciez une étiquette d'un côté à l'autre !</li>
+<li data-txt="txt_0419">Cliquez sur« Valider »</li>
+<li data-txt="txt_0420">Ne vous inquiétez pas, c'est très simple ! Vous allez maintenant modifier deux éléments : D'abord, cliquez sur le menu déroulant de la condition et sélectionnez "Égale à" (comme quand vous choisissez une option dans une liste) Ensuite, changez la date en cliquant dans le champ de date et en saisissant la nouvelle date souhaitée C'est comme ajuster les critères d'un filtre pour trouver exactement ce que vous cherchez dans vos photos !</li>
+<li data-txt="txt_0421">Tous les patients ayant des photos prises à cette date s'affichent</li>
+<li data-txt="txt_0422">Toutes les photos prises à cette date s'affichent</li>
+</ol>
+<img alt="Trouver des photos prises à une date précise Vous voulez retrouver toutes les photos prises un jour particulier ? C'est très simple ! Imaginez que vous cherchez dans un album photo classique : au lieu de tourner toutes les pages, vous allez directement à la date qui vous intéresse. Voici comment faire étape par étape : Ne vous inquiétez pas, cette fonction est très intuitive Vous pourrez voir instantanément toutes les photos du jour choisi C'est comme avoir un calendrier magique qui vous montre directement les bonnes images Cette recherche est parfaite quand vous vous souvenez du jour exact d'une séance photo avec votre patient." data-alt-txt="txt_0552" src="img/page92_img01.jpeg"/>
+<p data-txt="txt_0153">Pour afficher les photos de chaque patient, cliquez sur chaque dossier patient.</p>
+<div class="note-box tip" data-note-content-txt="txt_0478">
+<strong data-txt="txt_0477">Rappel</strong>
+                        N'oubliez pas de revenir à votre base complète après la recherche : onglet « Tous » puis « Rafraîchir ».
+                    </div>
+<h3 data-txt="txt_0060" id="plage-dates">Recherche dans une plage de dates</h3>
+<p data-txt="txt_0154">Voici comment rechercher toutes les photos prises sur une période donnée (par exemple entre le 13/09/2017 et le 13/09/2018) : C'est comme chercher dans un album photo en précisant "je veux voir toutes les photos de cette année-là". Ne vous inquiétez pas, c'est très simple : Allez dans la fonction de recherche (généralement représentée par une loupe) Choisissez l'option "recherche par date" Indiquez la date de début : 13/09/2017 Indiquez la date de fin : 13/09/2018 Lancez la recherche Le logiciel va alors vous montrer toutes les photos de vos patients prises pendant cette période d'un an, comme si vous feuilletiez un album chronologique.</p>
+<ol class="step-list">
+<li data-txt="txt_0423">Cliquez sur« Quoi »</li>
+<li data-txt="txt_0424">Cliquez sur le bouton « Ajouter une condition à la racine ». Ne vous inquiétez pas, la "racine" c'est simplement le point de départ de votre règle comme le tronc d'un arbre d'où partent toutes les branches. En cliquant ici, vous allez créer votre première condition.</li>
+<li data-txt="txt_0425">Tapez le mot "Création" avec votre clavier, puis cliquez deux fois rapidement sur ce mot pour l'ajouter à votre liste. Ne vous inquiétez pas, c'est comme cliquer deux fois sur un fichier pour l'ouvrir le double-clic permet de confirmer votre choix.</li>
+<li data-txt="txt_0426">Cliquez sur« Valider »</li>
+<li data-txt="txt_0427">Refaites exactement la même chose une deuxième fois pour créer une nouvelle condition. Ne vous inquiétez pas, c'est comme ajouter une deuxième règle à votre liste vous suivez simplement les mêmes étapes que vous venez de faire.</li>
+<li data-txt="txt_0428">Pour le premier critère, choisissez "Antérieure à" dans la liste déroulante (comme quand vous sélectionnez une option dans un menu). Ensuite, cliquez dans le champ de date et tapez la date limite que vous souhaitez par exemple, si vous voulez voir toutes les photos prises avant le 15 mars 2024, tapez cette date. C'est comme dire "montre-moi tout ce qui s'est passé avant cette date".</li>
+<li data-txt="txt_0429">Pour la seconde condition, ne vous inquiétez pas, c'est très simple ! Cliquez sur le menu déroulant et choisissez « Postérieure à » (cela signifie "après cette date"). Ensuite, indiquez la date de début à partir de laquelle vous voulez voir les photos comme si vous disiez "montre-moi toutes les photos prises après le 15 janvier par exemple".</li>
+<li data-txt="txt_0430">Tous les patients ayant des photos dans cette plage s'affichent</li>
+</ol>
+<img alt="Chercher des photos par période Vous pouvez retrouver facilement les photos prises entre deux dates précises, comme si vous feuilletiez un album photo chronologique. Par exemple, vous voulez voir toutes les photos prises en janvier ? C'est très simple ! Il suffit d'indiquer la date de début (1er janvier) et la date de fin (31 janvier), et le logiciel vous montrera automatiquement toutes les photos de cette période. C'est pratique pour suivre l'évolution du traitement de vos patients mois par mois." data-alt-txt="txt_0553" src="img/page94_img01.jpeg"/>
+<div class="note-box info" data-note-content-txt="txt_0480">
+<strong data-txt="txt_0479" style=";display:none;">ℹ️ Note</strong>
+                        Les deux conditions sont combinées avec un ET logique : les photos affichées sont à la fois antérieures à la date de fin ET postérieures à la date de début.
+                    </div>
+</section>
+<!-- SECTION 18: FORMULAIRES -->
+<section class="help-section" id="formulaires">
+<h2 data-txt="txt_0023">18. Formulaires</h2>
+<p data-txt="txt_0155">Les formulaires sont comme un dossier médical numérique pour chaque patient. Ne vous inquiétez pas, c'est très simple à comprendre ! Imaginez un classeur où vous rangez toutes les informations importantes sur vos patients : leurs coordonnées, leur historique médical, leurs traitements... C'est exactement ce que font ces formulaires dans le logiciel. Concrètement, ils vous permettent de : Garder en mémoire toutes les informations de vos patients (comme dans un carnet d'adresses très détaillé) Retrouver rapidement ce que vous cherchez (plus besoin de fouiller dans des piles de papiers !) Organiser et utiliser ces informations facilement (par exemple, pour préparer un rapport ou suivre l'évolution d'un traitement) C'est comme avoir un assistant personnel qui classe et organise parfaitement tous vos dossiers patients !</p>
+<h3 data-txt="txt_0061" id="completer-formulaire">Compléter un formulaire</h3>
+<ol class="step-list">
+<li data-txt="txt_0431">Cliquez dans l'onglet« Formulaire »</li>
+<li data-txt="txt_0432">Sélectionnez le formulaire dont vous avez besoin</li>
+<li data-txt="txt_0433">Complétez les informations</li>
+<li data-txt="txt_0434">Enregistrez le formulaire en cliquant sur l'icône disquette (le petit symbole qui ressemble à une disquette, comme celles qu'on utilisait autrefois pour sauvegarder des fichiers). Ne vous inquiétez pas, c'est simple : un clic suffit pour que vos informations soient sauvegardées en sécurité.</li>
+<li data-txt="txt_0435">Le logiciel a créé automatiquement un résumé de votre formulaire (comme un petit aperçu de ce que vous avez rempli). Pour voir tous les détails de ce résumé, cliquez simplement sur la petite icône qui ressemble à un dossier ne vous inquiétez pas, c'est très facile à repérer !</li>
+</ol>
+<img alt="Comment remplir un formulaire c'est simple ! Un formulaire, c'est comme un questionnaire à remplir sur papier, mais sur votre écran. Ne vous inquiétez pas, c'est très facile : Cliquez dans chaque case vide avec votre souris Tapez les informations demandées au clavier Passez à la case suivante en appuyant sur &quot;Tab&quot; ou en cliquant dedans Une fois tout rempli, cliquez sur le bouton &quot;Valider&quot; ou &quot;Enregistrer&quot; Comme quand vous remplissez un formulaire chez le médecin, prenez votre temps et vérifiez vos informations avant de valider." data-alt-txt="txt_0554" src="img/page96_img01.png"/>
+<h3 data-txt="txt_0062" id="recherche-formulaires">Recherche de cas similaires</h3>
+<p data-txt="txt_0156"><strong>Exemple :</strong> Comment trouver facilement les dossiers de vos patients qui ont une inflammation des gencives Ne vous inquiétez pas, c'est très simple ! Imaginez que vous cherchez dans un grand classeur médical. Au lieu de feuilleter tous les dossiers un par un, le logiciel va faire cette recherche pour vous en quelques secondes. Vous pourrez ainsi retrouver rapidement tous les patients concernés par ce problème de gencives.</p>
+<ol class="step-list">
+<li data-txt="txt_0436">Cliquez sur un dossier patient</li>
+<li data-txt="txt_0437">Cliquez sur l'onglet« Formulaire »</li>
+<li data-txt="txt_0438">Pour voir le résumé de tous vos formulaires (comme un aperçu de tous vos documents), c'est très simple : cherchez la petite image qui ressemble à un dossier ou à un classeur sur votre écran, puis cliquez dessus avec votre souris. Ne vous inquiétez pas si vous ne le trouvez pas tout de suite, ce petit dossier se trouve généralement dans la barre d'outils en haut de votre écran.</li>
+<li data-txt="txt_0439">Pour chercher quelque chose dans vos photos, c'est très simple ! Regardez en haut de votre écran : vous verrez une petite loupe (comme une loupe de détective). Cliquez dessus avec votre souris. Cette loupe s'appelle "Mode recherche" c'est votre outil pour retrouver rapidement n'importe quelle photo de patient. Ne vous inquiétez pas, c'est aussi facile que de chercher dans un album photo !</li>
+<li data-txt="txt_0440">Cliquez sur les critères que vous souhaitez retrouver dans vos photos (par exemple : « gingivite »). C'est comme utiliser des étiquettes pour retrouver facilement certains types de photos de vos patients. Ne vous inquiétez pas, c'est très simple : il suffit de cliquer sur le mot qui décrit ce que vous cherchez.</li>
+<li data-txt="txt_0441">Cliquez à nouveau sur l'icône loupe (qui ressemble à une loupe de détective) appelée « Mode recherche », puis cliquez sur le bouton « Recherche ». Ne vous inquiétez pas, c'est comme utiliser un moteur de recherche sur internet vous activez d'abord le mode recherche, puis vous lancez la recherche.</li>
+<li data-txt="txt_0442">Les dossiers patients correspondants s'affichent</li>
+</ol>
+<img alt="Recherche de cas similaires Trouvez facilement des patients avec des problèmes dentaires ressemblants Cette fonction vous aide à retrouver d'autres patients qui ont des problèmes orthodontiques similaires à celui que vous regardez actuellement. C'est comme avoir un assistant qui fouille dans tous vos dossiers pour vous montrer des cas comparables. Ne vous inquiétez pas, c'est très simple à utiliser et cela vous fera gagner beaucoup de temps pour comparer les traitements et leurs résultats." data-alt-txt="txt_0555" src="img/page97_img01.png"/>
+<div class="note-box tip" data-note-content-txt="txt_0482">
+<strong data-txt="txt_0481" style=";display:none;">💡 Astuce</strong>
+                        Pour consulter chaque formulaire, allez dans le dossier patient et cliquez sur l'onglet « Formulaire ».
+                    </div>
+</section>
+<!-- SECTION 19: SUPPORT DE FORMATION -->
+<section class="help-section" id="support-formation">
+<h2 data-txt="txt_0024">19. Support de formation</h2>
+<p data-txt="txt_0157">Ne vous inquiétez pas, vous n'êtes pas seul pour apprendre Kitview ! Nous avons créé un site internet spécialement pour vous aider, comme une école en ligne dédiée à Kitview. Sur ce site, vous trouverez de nombreuses vidéos qui vous montrent étape par étape comment utiliser le logiciel c'est comme avoir un professeur qui vous guide à votre rythme. Vous y découvrirez aussi des exemples de formulaires tout prêts que vous pourrez utiliser dans votre cabinet, comme des modèles que vous n'avez plus qu'à personnaliser. C'est un véritable guide d'accompagnement pour vous sentir à l'aise avec le logiciel !</p>
+<h3 data-txt="txt_0063">Accéder au site support</h3>
+<ol class="step-list">
+<li data-txt="txt_0443">Cliquez dans l'onglet« Aide »</li>
+<li data-txt="txt_0444">Pour accéder à l'aide et aux tutoriels, cliquez sur le bouton « Support formation ». Ne vous inquiétez pas, c'est comme ouvrir un manuel d'instructions vous y trouverez toutes les explications pour bien utiliser le logiciel, étape par étape.</li>
+<li data-txt="txt_0445">Vous êtes redirigé vers le site :www.kitview-support.fr</li>
+</ol>
+<img alt="Accès au support de formation" data-alt-txt="txt_0556" src="img/page98_img01.jpeg"/>
+<h3 data-txt="txt_0064">Identifiants de connexion</h3>
+<div class="note-box info">
+<strong data-txt="txt_0483">🔐 Connexion au site support</strong><br/> </div>
+<img alt="Page pour obtenir de l'aide Cette page vous permet de contacter notre équipe d'assistance. Ne vous inquiétez pas, c'est comme avoir un service client toujours disponible pour vous aider. Si vous rencontrez un problème ou avez une question, c'est ici que vous pouvez demander de l'aide à nos experts." data-alt-txt="txt_0557" src="img/page98_img02.png"/>
+<div class="note-box tip" data-note-content-txt="txt_0485">
+<strong data-txt="txt_0484">Ressources disponibles</strong>
+                        Le site support contient des tutoriels vidéo, des guides pratiques et des modèles de formulaires téléchargeables pour optimiser votre utilisation de Kitview.
+                    </div>
+</section>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="help-footer" data-txt="txt_0590">Kitview - Manuel d'utilisation v1.5 (Standard) - Janvier 2026</footer>
+<!-- Google Translate Script -->
+<script src="js/kvm.js"></script>
+<!-- Google Translate API -->
+<script>
+// Google Translate - Chargement conditionnel (uniquement sur serveur)
+(function() {
+    // Détecter si on est en local (file://) ou sur un serveur
+    if (window.location.protocol === 'file:') {
+        console.log('[KVM] Mode local détecté - Google Translate désactivé');
+        // Masquer les options de langues autres que FR/EN
+        document.addEventListener('DOMContentLoaded', function() {
+            var chips = document.querySelectorAll('.lang-chip[data-lang]');
+            chips.forEach(function(chip) {
+                var lang = chip.getAttribute('data-lang');
+                if (lang !== 'fr' && lang !== 'en') {
+                    chip.style.opacity = '0.4';
+                    chip.style.pointerEvents = 'none';
+                    chip.title = 'Disponible uniquement sur serveur web';
+                }
+            });
+        });
+    } else {
+        // On est sur un serveur, charger Google Translate
+        var script = document.createElement('script');
+        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.head.appendChild(script);
+    }
+})();
+</script>
+<!-- ========================================
+     CHATBOT ASSISTANT IA
+     ======================================== -->
+<!-- Bouton flottant -->
+<button aria-label="Ouvrir l'assistant" id="chatbot-toggle" title="Assistant IA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"></path>
+<circle cx="8" cy="10" r="1.5"></circle>
+<circle cx="12" cy="10" r="1.5"></circle>
+<circle cx="16" cy="10" r="1.5"></circle>
+</svg>
+</button>
+<!-- Modale de chat -->
+<div aria-labelledby="chatbot-title" id="chatbot-modal" role="dialog">
+<div id="chatbot-header">
+<div class="avatar">🤖</div>
+<div class="title">
+<h4 data-txt="txt_0601" id="chatbot-title">Annuler</h4>
+<span data-txt="txt_0602">La clé est stockée uniquement dans votre navigateur.</span>
+</div>
+<button aria-label="Fermer" id="chatbot-close">×</button>
+</div>
+<div id="chatbot-toolbar">
+<button data-txt="txt_0603" id="chatbot-suggestions-btn">Bienvenue ! Je suis votre assistant.</button>
+<button data-txt="txt_0604" id="chatbot-clear-btn">📋 Copier</button>
+<button aria-label="Paramètres" id="chatbot-settings-btn" title="Paramètres">⚙️</button>
+</div>
+<div id="chatbot-suggestions-panel">
+<h5 data-txt="txt_0605">🎨 Thème visuel</h5>
+<div class="suggestions-list"></div>
+</div>
+<div aria-live="polite" id="chatbot-messages" role="log"></div>
+<div id="chatbot-input-area">
+<input aria-label="Votre question" autocomplete="off" data-placeholder-txt="txt_0606" id="chatbot-input" placeholder="Crédit API épuisé" type="text"/>
+<button aria-label="Envoyer" id="chatbot-send">
+<svg viewbox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+</button>
+</div>
+</div>
+<!-- Modal de configuration API -->
+<div aria-labelledby="chatbot-config-title" id="chatbot-config-modal" role="dialog">
+<div class="config-overlay"></div>
+<div class="config-content">
+<h3 data-txt="txt_0607" id="chatbot-config-title">Manuel du manuel</h3>
+<p data-txt="txt_0608">Guide du manuel</p>
+<p><a data-txt="txt_0609" href="https://console.anthropic.com" rel="noopener" target="_blank">← Manuel</a></p>
+<input id="chatbot-api-key-input" placeholder="sk-ant-api03-..." type="password"/>
+<div class="config-buttons">
+<button data-txt="txt_0610" id="chatbot-config-save">🎯 Bienvenue dans le guide du manuel</button>
+<button data-txt="txt_0611" id="chatbot-config-cancel">Découvrez toutes les fonctionnalités de ce manuel interactif et apprenez à l'utiliser efficacement pour maîtriser Kitview.</button>
+</div>
+<p class="config-note" data-txt="txt_0612">Fonctionnalités</p>
+</div>
+</div>
+<!-- Scripts -->
+<script src="/api/kvm/env-config.js"></script>
+<script src="js/chatbot-config.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/themes.js"></script>
+<script src="js/section-export.js"></script>
+</body>
+</html>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitview Search - Analyse V2.0.2</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+/*
+ * analyse.html V1.0.3 - 05/01/2026 20:04:44
+ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --primary: #3B9DD8;
+    --primary-light: #e3f2fd;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0,0,0,0.1);
+    --success: #27ae60;
+    --warning: #f39c12;
+    --danger: #e74c3c;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --border: #404040;
+    --shadow: 0 2px 8px rgba(0,0,0,0.3);
+    --primary-light: #1e3a5f;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+}
+
+.header { background: var(--bg-primary); padding: 15px 20px; box-shadow: var(--shadow); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
+.header h1 { font-size: 20px; font-weight: 600; }
+.header-actions { display: flex; gap: 10px; }
+.header-actions button { padding: 10px 20px; border: 1px solid var(--border); border-radius: 8px; background: var(--bg-primary); color: var(--text-primary); cursor: pointer; font-size: 14px; }
+.header-actions button:hover { background: var(--bg-secondary); }
+
+.content { max-width: 1400px; margin: 0 auto; padding: 20px; }
+
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 15px; margin-bottom: 20px; }
+.stat-card { background: var(--bg-primary); padding: 15px; border-radius: 12px; box-shadow: var(--shadow); text-align: center; cursor: pointer; transition: transform 0.2s; }
+.stat-card:hover { transform: translateY(-2px); }
+.stat-card .value { font-size: 28px; font-weight: 700; color: var(--primary); }
+.stat-card .label { font-size: 12px; color: var(--text-secondary); margin-top: 5px; }
+.stat-card.positive .value { color: var(--success); }
+.stat-card.negative .value { color: var(--danger); }
+.stat-card.warning .value { color: var(--warning); }
+
+.filters-panel { background: var(--bg-primary); padding: 15px 20px; border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 20px; }
+.filters-panel h3 { font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; }
+.filters-row { display: flex; flex-wrap: wrap; gap: 12px; align-items: flex-end; }
+.filter-group { display: flex; flex-direction: column; gap: 4px; }
+.filter-group label { font-size: 11px; color: var(--text-secondary); }
+.filter-group input, .filter-group select { padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-primary); color: var(--text-primary); font-size: 13px; }
+.filter-group.large input { min-width: 180px; }
+.filter-actions { display: flex; gap: 8px; }
+.filter-actions button { padding: 8px 14px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-primary); color: var(--text-primary); cursor: pointer; font-size: 13px; }
+.filter-actions button.apply { background: var(--primary); color: white; border-color: var(--primary); }
+
+.tabs { display: flex; background: var(--bg-secondary); border-radius: 8px; padding: 4px; margin-bottom: 20px; }
+.tabs button { flex: 1; padding: 10px 15px; border: none; border-radius: 6px; background: transparent; color: var(--text-secondary); cursor: pointer; font-size: 14px; }
+.tabs button.active { background: var(--bg-primary); color: var(--primary); font-weight: 600; box-shadow: var(--shadow); }
+
+.tab-content { display: none; }
+.tab-content.active { display: block; }
+
+.recap-view { background: var(--bg-primary); border-radius: 12px; box-shadow: var(--shadow); padding: 25px; }
+.recap-section { margin-bottom: 25px; }
+.recap-section h2 { font-size: 16px; color: var(--primary); margin-bottom: 15px; }
+.recap-item { padding: 8px 0; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; }
+.recap-item:last-child { border-bottom: none; }
+.recap-item .label { color: var(--text-secondary); }
+.recap-item .value { font-weight: 500; }
+.recap-item .value.good { color: var(--success); }
+.recap-item .value.bad { color: var(--danger); }
+.recap-item .value.warning { color: var(--warning); }
+.recap-list { list-style: none; }
+.recap-list li { padding: 6px 0; color: var(--text-secondary); }
+.recommendations { background: var(--primary-light); padding: 15px; border-radius: 8px; margin-top: 10px; }
+.recommendations ul { list-style: decimal; margin-left: 20px; }
+.recommendations li { padding: 5px 0; font-size: 13px; }
+
+.charts-controls { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; padding: 10px 15px; background: var(--bg-primary); border-radius: 8px; box-shadow: var(--shadow); }
+.charts-controls .period-selector { display: flex; gap: 5px; }
+.charts-controls .period-btn { padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-secondary); color: var(--text-secondary); cursor: pointer; font-size: 12px; }
+.charts-controls .period-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.charts-controls .date-range { display: flex; gap: 10px; align-items: center; }
+.charts-controls .date-range input { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; }
+
+.charts-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.chart-card { background: var(--bg-primary); border-radius: 12px; box-shadow: var(--shadow); padding: 20px; }
+.chart-card.full-width { grid-column: 1 / -1; }
+.chart-card h3 { font-size: 14px; color: var(--text-secondary); margin-bottom: 15px; }
+.chart-container { position: relative; height: 250px; }
+
+.sort-bar { display: flex; align-items: center; gap: 15px; padding: 12px 15px; background: var(--bg-primary); border-radius: 8px; margin-bottom: 15px; box-shadow: var(--shadow); }
+.sort-bar label { font-size: 12px; color: var(--text-secondary); font-weight: 500; }
+.sort-bar .sort-buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+.sort-bar .sort-btn { padding: 6px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-secondary); color: var(--text-secondary); cursor: pointer; font-size: 12px; }
+.sort-bar .sort-btn:hover { border-color: var(--primary); color: var(--primary); }
+.sort-bar .sort-btn.active { background: var(--primary); color: white; border-color: var(--primary); font-weight: 600; }
+.sort-bar .sort-btn .sort-dir { font-size: 10px; margin-left: 4px; }
+
+.cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 15px; }
+.search-card { background: var(--bg-primary); border-radius: 12px; box-shadow: var(--shadow); padding: 15px; cursor: pointer; transition: transform 0.2s; position: relative; }
+.search-card:hover { transform: translateY(-2px); }
+.search-card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+.search-card-rating { font-size: 24px; }
+.search-card-meta { font-size: 11px; color: var(--text-secondary); display: flex; gap: 10px; }
+.search-card-question { font-size: 14px; font-weight: 500; margin-bottom: 10px; line-height: 1.4; }
+.search-card-stats { display: flex; gap: 15px; font-size: 12px; color: var(--text-secondary); }
+.search-card-stats span { background: var(--bg-secondary); padding: 4px 8px; border-radius: 4px; }
+.search-card-comment { margin-top: 10px; padding: 10px; background: #fff3e0; border-radius: 6px; font-size: 12px; }
+[data-theme="dark"] .search-card-comment { background: #4a3000; }
+.search-card-actions { position: absolute; top: 10px; right: 10px; }
+.btn-play { width: 32px; height: 32px; border: none; border-radius: 50%; background: var(--primary); color: white; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; }
+
+.classic-view { background: var(--bg-primary); border-radius: 12px; box-shadow: var(--shadow); overflow: hidden; }
+.recherches-table { width: 100%; border-collapse: collapse; }
+.recherches-table th, .recherches-table td { padding: 12px 10px; text-align: left; border-bottom: 1px solid var(--border); }
+.recherches-table th { background: var(--bg-secondary); font-size: 11px; text-transform: uppercase; color: var(--text-secondary); }
+.recherches-table th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
+.recherches-table th.sortable:hover { color: var(--primary); }
+.recherches-table th .sort-arrows { display: inline-flex; flex-direction: column; margin-left: 6px; vertical-align: middle; line-height: 0.6; font-size: 10px; color: #ccc; }
+.recherches-table th.sorted-asc { font-weight: 700; color: var(--primary); }
+.recherches-table th.sorted-asc .sort-arrows .arrow-up { color: var(--primary); }
+.recherches-table th.sorted-desc { font-weight: 700; color: var(--primary); }
+.recherches-table th.sorted-desc .sort-arrows .arrow-down { color: var(--primary); }
+.recherches-table tbody tr { cursor: pointer; }
+.recherches-table tbody tr:hover { background: var(--bg-secondary); }
+.recherches-table .rating { font-size: 18px; }
+.recherches-table .mode { padding: 3px 8px; border-radius: 4px; font-size: 11px; background: var(--bg-secondary); }
+.btn-play-small { width: 28px; height: 28px; border: none; border-radius: 50%; background: var(--primary); color: white; cursor: pointer; font-size: 12px; }
+
+.pagination { display: flex; justify-content: center; align-items: center; gap: 8px; padding: 15px; flex-wrap: wrap; }
+.pagination button { padding: 8px 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg-primary); color: var(--text-primary); cursor: pointer; font-size: 13px; }
+.pagination button:disabled { opacity: 0.5; cursor: not-allowed; }
+.pagination button.active { background: var(--primary); color: white; border-color: var(--primary); }
+.pagination .page-info { font-size: 12px; color: var(--text-secondary); margin-left: 10px; }
+.pagination .items-per-page { display: flex; align-items: center; gap: 5px; margin-left: 15px; }
+.pagination .items-per-page label { font-size: 12px; color: var(--text-secondary); }
+.pagination .items-per-page select { padding: 6px 10px; border: 1px solid var(--border); border-radius: 6px; font-size: 12px; }
+
+.modal-overlay { position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); display: none; justify-content: center; align-items: center; z-index: 1000; padding: 20px; }
+.modal-overlay.visible { display: flex; }
+.modal-content { background: var(--bg-primary); border-radius: 12px; max-width: 700px; width: 100%; max-height: 90vh; overflow-y: auto; }
+.modal-header { display: flex; justify-content: space-between; align-items: center; padding: 20px; border-bottom: 1px solid var(--border); }
+.modal-header h2 { font-size: 18px; }
+.modal-close { background: none; border: none; font-size: 24px; cursor: pointer; color: var(--text-secondary); }
+.modal-body { padding: 20px; }
+.detail-grid { display: grid; grid-template-columns: 140px 1fr; gap: 10px; }
+.detail-label { font-size: 12px; color: var(--text-secondary); padding: 8px 0; }
+.detail-value { font-size: 14px; padding: 8px 0; word-break: break-word; }
+.detail-value.highlight { background: var(--primary-light); padding: 10px; border-radius: 6px; }
+.modal-footer { padding: 15px 20px; border-top: 1px solid var(--border); display: flex; justify-content: flex-end; gap: 10px; }
+.modal-footer button { padding: 10px 20px; border-radius: 8px; cursor: pointer; font-size: 14px; }
+.modal-footer button.secondary { background: var(--bg-secondary); border: 1px solid var(--border); color: var(--text-primary); }
+.modal-footer button.primary { background: var(--primary); border: none; color: white; }
+
+@media (max-width: 768px) {
+    .charts-grid { grid-template-columns: 1fr; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .filters-row { flex-direction: column; }
+}
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <h1>📊 Analyse des recherches</h1>
+    <div class="header-actions">
+        <button onclick="exportCSV()">📥 Export</button>
+        <button onclick="window.location.href='web14.html'">← Retour</button>
+    </div>
+</header>
+
+<main class="content">
+    <div class="stats-grid">
+        <div class="stat-card" onclick="filterByAll()"><div class="value" id="statTotal">-</div><div class="label">Recherches</div></div>
+        <div class="stat-card positive" onclick="filterByRating('👍')"><div class="value" id="statPositif">-</div><div class="label">👍 Positifs</div></div>
+        <div class="stat-card negative" onclick="filterByRating('👎')"><div class="value" id="statNegatif">-</div><div class="label">👎 Négatifs</div></div>
+        <div class="stat-card"><div class="value" id="statSatisfaction">-</div><div class="label">Satisfaction</div></div>
+        <div class="stat-card warning" onclick="filterByErreur()"><div class="value" id="statErreurs">-</div><div class="label">Erreurs</div></div>
+        <div class="stat-card"><div class="value" id="statTempsMoyen">-</div><div class="label">Temps moy.</div></div>
+    </div>
+
+    <div class="filters-panel">
+        <h3>🔍 Filtres</h3>
+        <div class="filters-row">
+            <div class="filter-group large"><label>Recherche question</label><input type="text" id="filterQ" placeholder="Dans la question..."></div>
+            <div class="filter-group large"><label>🔎 Commentaires</label><input type="text" id="filterComment" placeholder="Dans les commentaires..."></div>
+            <div class="filter-group"><label>Rating</label><select id="filterRating"><option value="">Tous</option><option value="👍">👍</option><option value="👎">👎</option><option value="null">Sans</option></select></div>
+            <div class="filter-group"><label>Mode</label><select id="filterMode"><option value="">Tous</option><option value="standard">Standard</option><option value="ia">IA</option><option value="standardia">Standard+IA</option></select></div>
+            <div class="filter-group"><label>Du</label><input type="date" id="filterDateDebut"></div>
+            <div class="filter-group"><label>Au</label><input type="date" id="filterDateFin"></div>
+            <div class="filter-group"><label>Problème</label><select id="filterProbleme"><option value="">Tous</option><option value="Bug IHM">Bug IHM</option><option value="Trop de patients">Trop de patients</option><option value="Autre">Autre</option></select></div>
+            <div class="filter-actions"><button onclick="resetFilters()">↺</button><button class="apply" onclick="applyFilters()">Filtrer</button></div>
+        </div>
+    </div>
+
+    <div class="tabs">
+        <button id="tabRecap" class="active" onclick="switchTab('recap')">📋 Récap</button>
+        <button id="tabCharts" onclick="switchTab('charts')">📊 Graphiques</button>
+        <button id="tabCards" onclick="switchTab('cards')">🃏 Cards</button>
+        <button id="tabClassic" onclick="switchTab('classic')">📋 Classique</button>
+    </div>
+
+    <div id="contentRecap" class="tab-content active">
+        <div class="recap-view" id="recapContent"><p style="padding:40px;text-align:center">Chargement...</p></div>
+    </div>
+
+    <div id="contentCharts" class="tab-content">
+        <div class="charts-controls">
+            <div class="date-range"><span>📅</span><input type="date" id="chartDateDebut"><span>→</span><input type="date" id="chartDateFin"></div>
+            <div class="period-selector">
+                <button class="period-btn" onclick="setPeriod(7)">7j</button>
+                <button class="period-btn active" onclick="setPeriod(30)">30j</button>
+                <button class="period-btn" onclick="setPeriod(90)">90j</button>
+                <button class="period-btn" onclick="setPeriod(365)">1an</button>
+                <button class="period-btn" onclick="setPeriod(0)">Tout</button>
+            </div>
+        </div>
+        <div class="charts-grid">
+            <div class="chart-card full-width"><h3>📈 Évolution journalière</h3><div class="chart-container"><canvas id="chartEvolution"></canvas></div></div>
+            <div class="chart-card"><h3>🥧 Ratings</h3><div class="chart-container"><canvas id="chartRatings"></canvas></div></div>
+            <div class="chart-card"><h3>📊 Par mode</h3><div class="chart-container"><canvas id="chartModes"></canvas></div></div>
+            <div class="chart-card full-width"><h3>⏱️ Temps moyen/jour</h3><div class="chart-container"><canvas id="chartTemps"></canvas></div></div>
+            <div class="chart-card"><h3>🔝 Top 10 termes</h3><div class="chart-container"><canvas id="chartTermes"></canvas></div></div>
+            <div class="chart-card"><h3>🤖 Moteurs IA</h3><div class="chart-container"><canvas id="chartMoteurs"></canvas></div></div>
+        </div>
+    </div>
+
+    <div id="contentCards" class="tab-content">
+        <div class="sort-bar">
+            <label>Trier:</label>
+            <div class="sort-buttons">
+                <button class="sort-btn active" data-sort="timestamp" onclick="sortBy('timestamp')">Date</button>
+                <button class="sort-btn" data-sort="questionoriginale" onclick="sortBy('questionoriginale')">Question</button>
+                <button class="sort-btn" data-sort="nb_patients" onclick="sortBy('nb_patients')">Patients</button>
+                <button class="sort-btn" data-sort="rating" onclick="sortBy('rating')">Rating</button>
+                <button class="sort-btn" data-sort="mode" onclick="sortBy('mode')">Mode</button>
+            </div>
+        </div>
+        <div class="cards-grid" id="cardsContainer"></div>
+        <div class="pagination" id="paginationCards"></div>
+    </div>
+
+    <div id="contentClassic" class="tab-content">
+        <div class="classic-view">
+            <table class="recherches-table">
+                <thead><tr>
+                    <th class="sortable" data-sort="timestamp" onclick="sortBy('timestamp')">Date <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                    <th class="sortable" data-sort="questionoriginale" onclick="sortBy('questionoriginale')">Question <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                    <th class="sortable" data-sort="mode" onclick="sortBy('mode')">Mode <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                    <th class="sortable" data-sort="nb_patients" onclick="sortBy('nb_patients')">Patients <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                    <th class="sortable" data-sort="rating" onclick="sortBy('rating')">Rating <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                    <th>Problème</th>
+                    <th>▶</th>
+                </tr></thead>
+                <tbody id="tableBody"></tbody>
+            </table>
+        </div>
+        <div class="pagination" id="paginationClassic"></div>
+    </div>
+</main>
+
+<div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+        <div class="modal-header"><h2>Détail</h2><button class="modal-close" onclick="closeModal()">&times;</button></div>
+        <div class="modal-body" id="modalBody"></div>
+        <div class="modal-footer"><button class="secondary" onclick="closeModal()">Fermer</button><button class="primary" onclick="relancerCurrent()">▶ Relancer</button></div>
+    </div>
+</div>
+
+<script>
+/*
+ * analyse.html V2.0.2 - 05/01/2026 19:50
+ * Version finale - Couleurs Top 10, sans debug
+ */
+
+const API_BASE_URL = (window.location.hostname === 'localhost' || window.location.protocol === 'file:') 
+    ? 'http://localhost:8000' : '';
+
+let allRecherches = [], totalRecherches = 0, currentOffset = 0, currentLimit = 20;
+let currentFilters = {}, currentSort = { column: 'timestamp', direction: 'desc' };
+let currentRecherche = null, chartsLoaded = false, chartInstances = {};
+
+const MODE_COLORS = { 'standard': '#3B9DD8', 'ia': '#9b59b6', 'standardia': '#1abc9c', 'standarddeepl': '#f39c12', 'iadeepl': '#e74c3c' };
+const MOTEUR_COLORS = { 'gpt4o': '#10a37f', 'gpt4omini': '#10a37f', 'gpt41mini': '#10a37f', 'sonnet': '#d97706', 'haiku': '#d97706', 'gemini25flash': '#4285f4', 'gemini15pro': '#4285f4', 'mistrallarge': '#ff7000', 'mistralsmall': '#ff7000', 'mistralmedium': '#ff7000', 'deepseekr1': '#0066ff', 'deepseekv3': '#0066ff', 'llama33': '#0668E1', 'command': '#5046e5', 'commandr': '#5046e5', 'qwen25': '#7c3aed' };
+
+// Couleurs pour le Top 10 termes (palette variée)
+const TERMES_COLORS = [
+    '#e74c3c', '#3498db', '#2ecc71', '#f39c12', '#9b59b6',
+    '#1abc9c', '#e67e22', '#34495e', '#16a085', '#c0392b'
+];
+
+// ═══════════════════════════════════════════════════════════════
+// DATES - PARSING FRANÇAIS DD/MM/YYYY HH:MM
+// ═══════════════════════════════════════════════════════════════
+function parseDateFR(str) {
+    if (!str || typeof str !== 'string') return null;
+    const m = str.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})(?:\s+(\d{1,2}):(\d{1,2})(?::(\d{1,2}))?)?/);
+    if (!m) return null;
+    const d = new Date(parseInt(m[3]), parseInt(m[2])-1, parseInt(m[1]), parseInt(m[4]||0), parseInt(m[5]||0), parseInt(m[6]||0));
+    return isNaN(d.getTime()) ? null : d;
+}
+
+function dateToISO(str) {
+    const d = parseDateFR(str);
+    if (!d) return null;
+    return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+
+function formatDateShort(iso) {
+    if (!iso) return '';
+    const p = iso.split('-');
+    return p.length === 3 ? `${p[2]}/${p[1]}` : iso;
+}
+
+function compareDates(a, b) {
+    const da = parseDateFR(a), db = parseDateFR(b);
+    if (!da && !db) return 0;
+    if (!da) return 1;
+    if (!db) return -1;
+    return da.getTime() - db.getTime();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════════════════════════
+document.addEventListener('DOMContentLoaded', () => {
+    applyTheme();
+    initDateFilters();
+    loadStats();
+    loadRecap();
+    loadRecherches();
+});
+
+function applyTheme() {
+    const t = localStorage.getItem('theme') || 'auto';
+    if (t === 'dark' || (t === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches))
+        document.documentElement.setAttribute('data-theme', 'dark');
+}
+
+function initDateFilters() {
+    const today = new Date(), ago = new Date(today);
+    ago.setDate(ago.getDate() - 30);
+    document.getElementById('chartDateFin').value = today.toISOString().split('T')[0];
+    document.getElementById('chartDateDebut').value = ago.toISOString().split('T')[0];
+}
+
+// ═══════════════════════════════════════════════════════════════
+// LOAD DATA
+// ═══════════════════════════════════════════════════════════════
+async function loadStats() {
+    try {
+        const r = await fetch(`${API_BASE_URL}/analyse/stats`);
+        const s = await r.json();
+        document.getElementById('statTotal').textContent = s.total_recherches || 0;
+        document.getElementById('statPositif').textContent = s.ratings?.positif || 0;
+        document.getElementById('statNegatif').textContent = s.ratings?.negatif || 0;
+        document.getElementById('statSatisfaction').textContent = (s.taux_satisfaction?.toFixed(1) || 0) + '%';
+        document.getElementById('statErreurs').textContent = s.erreurs || s.erreurs_count || 0;
+        document.getElementById('statTempsMoyen').textContent = (s.temps_moyen_ms || 0) + 'ms';
+        totalRecherches = s.total_recherches || 0;
+    } catch (e) { console.error('loadStats', e); }
+}
+
+async function loadRecap() {
+    const c = document.getElementById('recapContent');
+    try {
+        const r = await fetch(`${API_BASE_URL}/analyse/stats`);
+        const s = await r.json();
+        const cls = s.taux_satisfaction > 70 ? 'good' : s.taux_satisfaction > 50 ? 'warning' : 'bad';
+        c.innerHTML = `<div class="recap-section"><h2>📊 Vue d'ensemble</h2>
+            <div class="recap-item"><span class="label">Satisfaction</span><span class="value ${cls}">${s.taux_satisfaction?.toFixed(1)||0}%</span></div>
+            <div class="recap-item"><span class="label">Erreurs</span><span class="value">${s.erreurs||s.erreurs_count||0}</span></div>
+            <div class="recap-item"><span class="label">Temps moyen</span><span class="value">${s.temps_moyen_ms||0} ms</span></div>
+        </div>
+        <div class="recap-section"><h2>🔴 Problèmes</h2><ul class="recap-list">
+            ${(s.types_problemes||[]).map(p=>`<li>• ${p.type||p.probleme}: ${p.count}</li>`).join('')||'<li>Aucun</li>'}
+        </ul></div>
+        <div class="recap-section"><h2>💡 Recommandations</h2><div class="recommendations"><ul>
+            ${s.taux_satisfaction < 70 ? '<li>Analyser les 👎</li>' : ''}
+            ${(s.erreurs||s.erreurs_count) > 0 ? '<li>Investiguer les erreurs</li>' : ''}
+            ${s.taux_satisfaction >= 70 ? '<li>✅ Système OK</li>' : ''}
+        </ul></div></div>`;
+    } catch (e) { c.innerHTML = '<p style="color:red;padding:20px">Erreur</p>'; }
+}
+
+async function loadRecherches() {
+    try {
+        let url = `${API_BASE_URL}/analyse/recherches?offset=${currentOffset}&limit=${currentLimit}`;
+        if (currentFilters.q) url += `&q=${encodeURIComponent(currentFilters.q)}`;
+        if (currentFilters.rating) url += `&rating=${encodeURIComponent(currentFilters.rating)}`;
+        if (currentFilters.mode) url += `&mode=${encodeURIComponent(currentFilters.mode)}`;
+        if (currentFilters.date_debut) url += `&date_debut=${currentFilters.date_debut}`;
+        if (currentFilters.date_fin) url += `&date_fin=${currentFilters.date_fin}`;
+        if (currentFilters.type_probleme) url += `&type_probleme=${encodeURIComponent(currentFilters.type_probleme)}`;
+        if (currentFilters.erreur) url += `&erreur=true`;
+        
+        const r = await fetch(url);
+        const d = await r.json();
+        
+        let recherches = d.recherches || [];
+        
+        if (currentFilters.comment && currentFilters.comment.trim()) {
+            const norm = normalizeText(currentFilters.comment);
+            recherches = recherches.filter(r => normalizeText(r.commentaire || '').includes(norm));
+        }
+        
+        allRecherches = recherches;
+        totalRecherches = currentFilters.comment ? recherches.length : (d.total || 0);
+        
+        sortAndRender();
+        updatePagination();
+        updateSortIcons();
+    } catch (e) {
+        document.getElementById('cardsContainer').innerHTML = '<p style="color:red;padding:40px;text-align:center">Erreur</p>';
+        document.getElementById('tableBody').innerHTML = '<tr><td colspan="7" style="text-align:center;color:red">Erreur</td></tr>';
+    }
+}
+
+function normalizeText(t) { return t ? t.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '') : ''; }
+
+// ═══════════════════════════════════════════════════════════════
+// TRI & RENDU
+// ═══════════════════════════════════════════════════════════════
+function sortBy(col) {
+    if (currentSort.column === col) {
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSort.column = col;
+        currentSort.direction = col === 'timestamp' ? 'desc' : 'asc';
+    }
+    updateSortIcons();
+    sortAndRender();
+}
+
+function updateSortIcons() {
+    document.querySelectorAll('.recherches-table th.sortable').forEach(th => {
+        th.classList.remove('sorted-asc', 'sorted-desc');
+        if (th.dataset.sort === currentSort.column) th.classList.add(`sorted-${currentSort.direction}`);
+    });
+    document.querySelectorAll('.sort-bar .sort-btn').forEach(btn => {
+        btn.classList.remove('active');
+        const dir = btn.querySelector('.sort-dir');
+        if (dir) dir.remove();
+        if (btn.dataset.sort === currentSort.column) {
+            btn.classList.add('active');
+            const s = document.createElement('span');
+            s.className = 'sort-dir';
+            s.textContent = currentSort.direction === 'asc' ? '▲' : '▼';
+            btn.appendChild(s);
+        }
+    });
+}
+
+function sortAndRender() {
+    if (!allRecherches.length) { renderCards([]); renderTable([]); return; }
+    
+    const sorted = [...allRecherches].sort((a, b) => {
+        let va = a[currentSort.column], vb = b[currentSort.column];
+        
+        if (currentSort.column === 'timestamp') {
+            const r = compareDates(va, vb);
+            return currentSort.direction === 'asc' ? r : -r;
+        }
+        if (currentSort.column === 'nb_patients' || currentSort.column === 'temps_ms') {
+            va = parseInt(va) || 0; vb = parseInt(vb) || 0;
+            return currentSort.direction === 'asc' ? va - vb : vb - va;
+        }
+        va = String(va || '').toLowerCase(); vb = String(vb || '').toLowerCase();
+        const r = va.localeCompare(vb);
+        return currentSort.direction === 'asc' ? r : -r;
+    });
+    
+    renderCards(sorted);
+    renderTable(sorted);
+}
+
+function renderCards(data) {
+    const c = document.getElementById('cardsContainer');
+    if (!data.length) { c.innerHTML = '<p style="padding:40px;text-align:center;color:var(--text-secondary)">Aucune recherche</p>'; return; }
+    c.innerHTML = data.map(r => `
+        <div class="search-card" onclick="openDetail('${r.session_id}')">
+            <div class="search-card-actions"><button class="btn-play" onclick="event.stopPropagation();relancer('${esc(r.questionoriginale||'')}','${esc(r.base||'')}','${esc(r.languesaisie||'')}')">▶</button></div>
+            <div class="search-card-header">
+                <div class="search-card-rating">${r.rating||'➖'}</div>
+                <div class="search-card-meta"><span>${(r.timestamp||'').substring(0,16)}</span><span>${r.mode||''}</span></div>
+            </div>
+            <div class="search-card-question">${esc((r.questionoriginale||'').substring(0,100))}</div>
+            <div class="search-card-stats">
+                <span>${r.nb_patients||0} patients</span><span>${r.temps_ms||0}ms</span>
+                ${r.type_probleme?`<span style="color:var(--warning)">${r.type_probleme}</span>`:''}
+            </div>
+            ${r.commentaire?`<div class="search-card-comment">${esc(r.commentaire.substring(0,100))}</div>`:''}
+        </div>
+    `).join('');
+}
+
+function renderTable(data) {
+    const tb = document.getElementById('tableBody');
+    if (!data.length) { tb.innerHTML = '<tr><td colspan="7" style="text-align:center;padding:40px">Aucune</td></tr>'; return; }
+    tb.innerHTML = data.map(r => `
+        <tr onclick="openDetail('${r.session_id}')">
+            <td>${(r.timestamp||'').substring(0,16)}</td>
+            <td>${esc((r.questionoriginale||'').substring(0,50))}</td>
+            <td><span class="mode">${r.mode||''}</span></td>
+            <td>${r.nb_patients||0}</td>
+            <td class="rating">${r.rating||'➖'}</td>
+            <td>${r.type_probleme||''}</td>
+            <td><button class="btn-play-small" onclick="event.stopPropagation();relancer('${esc(r.questionoriginale||'')}','${esc(r.base||'')}','${esc(r.languesaisie||'')}')">▶</button></td>
+        </tr>
+    `).join('');
+}
+
+function esc(t) { return t ? t.replace(/'/g,"\\'").replace(/"/g,'&quot;').replace(/</g,'&lt;') : ''; }
+
+// ═══════════════════════════════════════════════════════════════
+// PAGINATION
+// ═══════════════════════════════════════════════════════════════
+function updatePagination() {
+    const h = createPaginationHtml();
+    document.getElementById('paginationCards').innerHTML = h;
+    document.getElementById('paginationClassic').innerHTML = h;
+}
+
+function createPaginationHtml() {
+    const tp = Math.ceil(totalRecherches / currentLimit), cp = Math.floor(currentOffset / currentLimit) + 1;
+    if (tp <= 1) return `<span class="page-info">${totalRecherches} résultat(s)</span>` + itemsPerPageHtml();
+    let h = `<button onclick="goToPage(${cp-1})" ${cp===1?'disabled':''}>←</button>`;
+    const sp = Math.max(1, cp-2), ep = Math.min(tp, cp+2);
+    if (sp > 1) { h += `<button onclick="goToPage(1)">1</button>`; if (sp > 2) h += `<span>...</span>`; }
+    for (let i = sp; i <= ep; i++) h += `<button class="${i===cp?'active':''}" onclick="goToPage(${i})">${i}</button>`;
+    if (ep < tp) { if (ep < tp-1) h += `<span>...</span>`; h += `<button onclick="goToPage(${tp})">${tp}</button>`; }
+    h += `<button onclick="goToPage(${cp+1})" ${cp>=tp?'disabled':''}>→</button>`;
+    h += `<span class="page-info">${totalRecherches}</span>` + itemsPerPageHtml();
+    return h;
+}
+
+function itemsPerPageHtml() {
+    return `<div class="items-per-page"><label>Par page:</label><select onchange="changeItemsPerPage(this.value)">
+        <option value="10" ${currentLimit===10?'selected':''}>10</option>
+        <option value="20" ${currentLimit===20?'selected':''}>20</option>
+        <option value="50" ${currentLimit===50?'selected':''}>50</option>
+        <option value="100" ${currentLimit===100?'selected':''}>100</option>
+        <option value="200" ${currentLimit===200?'selected':''}>200</option>
+    </select></div>`;
+}
+
+function goToPage(p) {
+    const tp = Math.ceil(totalRecherches / currentLimit);
+    if (p < 1 || p > tp) return;
+    currentOffset = (p - 1) * currentLimit;
+    loadRecherches();
+}
+
+function changeItemsPerPage(v) { currentLimit = parseInt(v); currentOffset = 0; loadRecherches(); }
+
+// ═══════════════════════════════════════════════════════════════
+// FILTRES
+// ═══════════════════════════════════════════════════════════════
+function applyFilters() {
+    currentFilters = {
+        q: document.getElementById('filterQ').value.trim(),
+        comment: document.getElementById('filterComment').value.trim(),
+        rating: document.getElementById('filterRating').value,
+        mode: document.getElementById('filterMode').value,
+        date_debut: document.getElementById('filterDateDebut').value,
+        date_fin: document.getElementById('filterDateFin').value,
+        type_probleme: document.getElementById('filterProbleme').value
+    };
+    currentOffset = 0;
+    loadRecherches();
+}
+
+function resetFilters() {
+    ['filterQ','filterComment','filterRating','filterMode','filterDateDebut','filterDateFin','filterProbleme'].forEach(id => document.getElementById(id).value = '');
+    currentFilters = {};
+    currentSort = { column: 'timestamp', direction: 'desc' };
+    currentOffset = 0;
+    updateSortIcons();
+    loadRecherches();
+}
+
+function filterByAll() { resetFilters(); switchTab('classic'); }
+function filterByRating(r) { resetFiltersQuiet(); document.getElementById('filterRating').value = r; currentFilters = { rating: r }; currentOffset = 0; loadRecherches(); switchTab('classic'); }
+function filterByErreur() { resetFiltersQuiet(); currentFilters = { erreur: true }; currentOffset = 0; loadRecherches(); switchTab('classic'); }
+function resetFiltersQuiet() { ['filterQ','filterComment','filterRating','filterMode','filterDateDebut','filterDateFin','filterProbleme'].forEach(id => document.getElementById(id).value = ''); }
+
+// ═══════════════════════════════════════════════════════════════
+// ONGLETS
+// ═══════════════════════════════════════════════════════════════
+function switchTab(tab) {
+    ['Recap','Charts','Cards','Classic'].forEach(t => {
+        document.getElementById('tab'+t).classList.toggle('active', t.toLowerCase() === tab);
+        document.getElementById('content'+t).classList.toggle('active', t.toLowerCase() === tab);
+    });
+    if (tab === 'charts' && !chartsLoaded) { chartsLoaded = true; loadCharts(); }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// GRAPHIQUES
+// ═══════════════════════════════════════════════════════════════
+function setPeriod(days) {
+    document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+    event.target.classList.add('active');
+    const today = new Date();
+    document.getElementById('chartDateFin').value = today.toISOString().split('T')[0];
+    if (days === 0) { document.getElementById('chartDateDebut').value = ''; }
+    else { const s = new Date(today); s.setDate(s.getDate() - days); document.getElementById('chartDateDebut').value = s.toISOString().split('T')[0]; }
+    loadCharts();
+}
+
+async function loadCharts() {
+    const dd = document.getElementById('chartDateDebut').value, df = document.getElementById('chartDateFin').value;
+    let params = new URLSearchParams();
+    if (dd) params.append('date_debut', dd);
+    if (df) params.append('date_fin', df);
+    
+    try {
+        const [sr, rr] = await Promise.all([
+            fetch(`${API_BASE_URL}/analyse/stats?${params}`),
+            fetch(`${API_BASE_URL}/analyse/recherches?limit=10000&${params}`)
+        ]);
+        const stats = await sr.json(), rd = await rr.json();
+        const recherches = rd.recherches || [];
+        
+        renderChartEvolution(recherches);
+        renderChartRatings(stats);
+        renderChartModes(recherches);
+        renderChartTemps(recherches);
+        renderChartTermes(recherches);
+        renderChartMoteurs(recherches);
+    } catch (e) { console.error('loadCharts', e); }
+}
+
+function renderChartEvolution(data) {
+    const ctx = document.getElementById('chartEvolution');
+    if (chartInstances.evolution) chartInstances.evolution.destroy();
+    
+    const parJour = {};
+    data.forEach(r => {
+        const iso = dateToISO(r.timestamp);
+        if (iso) {
+            if (!parJour[iso]) parJour[iso] = { pos: 0, neg: 0, autre: 0 };
+            if (r.rating === '👍') parJour[iso].pos++;
+            else if (r.rating === '👎') parJour[iso].neg++;
+            else parJour[iso].autre++;
+        }
+    });
+    
+    const dates = Object.keys(parJour).sort();
+    if (!dates.length) { ctx.parentElement.innerHTML = '<p style="text-align:center;padding:50px;color:var(--text-secondary)">Aucune donnée</p>'; return; }
+    
+    chartInstances.evolution = new Chart(ctx, {
+        type: 'bar',
+        data: { labels: dates.map(formatDateShort), datasets: [
+            { label: '👍', data: dates.map(d => parJour[d].pos), backgroundColor: 'rgba(39,174,96,0.8)', stack: 's' },
+            { label: '👎', data: dates.map(d => parJour[d].neg), backgroundColor: 'rgba(231,76,60,0.8)', stack: 's' },
+            { label: 'Sans', data: dates.map(d => parJour[d].autre), backgroundColor: 'rgba(189,195,199,0.8)', stack: 's' }
+        ]},
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'top' } }, scales: { x: { stacked: true }, y: { stacked: true, beginAtZero: true } } }
+    });
+}
+
+function renderChartRatings(stats) {
+    const ctx = document.getElementById('chartRatings');
+    if (chartInstances.ratings) chartInstances.ratings.destroy();
+    const pos = stats.ratings?.positif || 0, neg = stats.ratings?.negatif || 0, sans = (stats.total_recherches||0) - pos - neg;
+    chartInstances.ratings = new Chart(ctx, {
+        type: 'doughnut',
+        data: { labels: ['👍', '👎', 'Sans'], datasets: [{ data: [pos, neg, sans], backgroundColor: ['#27ae60', '#e74c3c', '#bdc3c7'] }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' } } }
+    });
+}
+
+function renderChartModes(data) {
+    const ctx = document.getElementById('chartModes');
+    if (chartInstances.modes) chartInstances.modes.destroy();
+    const pm = {};
+    data.forEach(r => { const m = r.mode || 'inconnu'; pm[m] = (pm[m]||0) + 1; });
+    const modes = Object.keys(pm).sort((a,b) => pm[b] - pm[a]);
+    if (!modes.length) { ctx.parentElement.innerHTML = '<p style="text-align:center;padding:50px">Aucune</p>'; return; }
+    chartInstances.modes = new Chart(ctx, {
+        type: 'bar',
+        data: { labels: modes, datasets: [{ label: 'Recherches', data: modes.map(m => pm[m]), backgroundColor: modes.map(m => MODE_COLORS[m] || '#95a5a6') }] },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { beginAtZero: true } } }
+    });
+}
+
+function renderChartTemps(data) {
+    const ctx = document.getElementById('chartTemps');
+    if (chartInstances.temps) chartInstances.temps.destroy();
+    const pj = {};
+    data.forEach(r => {
+        const iso = dateToISO(r.timestamp), t = parseInt(r.temps_ms) || 0;
+        if (iso && t > 0) { if (!pj[iso]) pj[iso] = { tot: 0, cnt: 0 }; pj[iso].tot += t; pj[iso].cnt++; }
+    });
+    const dates = Object.keys(pj).sort(), moy = dates.map(d => Math.round(pj[d].tot / pj[d].cnt));
+    if (!dates.length) { ctx.parentElement.innerHTML = '<p style="text-align:center;padding:50px">Aucune donnée temps</p>'; return; }
+    chartInstances.temps = new Chart(ctx, {
+        type: 'line',
+        data: { labels: dates.map(formatDateShort), datasets: [{ label: 'ms', data: moy, borderColor: '#f39c12', backgroundColor: 'rgba(243,156,18,0.1)', fill: true, tension: 0.3 }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+}
+
+function renderChartTermes(data) {
+    const ctx = document.getElementById('chartTermes');
+    if (chartInstances.termes) chartInstances.termes.destroy();
+    const cpt = {};
+    data.forEach(r => {
+        const pathos = (r.pathologies || '').split(',').map(p => p.trim().toLowerCase()).filter(p => p && p.length > 2);
+        pathos.forEach(p => cpt[p] = (cpt[p]||0) + 1);
+    });
+    const sorted = Object.entries(cpt).sort((a,b) => b[1] - a[1]).slice(0, 10);
+    if (!sorted.length) { ctx.parentElement.innerHTML = '<p style="text-align:center;padding:50px">Aucune pathologie</p>'; return; }
+    
+    // Couleurs variées pour chaque barre
+    const colors = sorted.map((_, i) => TERMES_COLORS[i % TERMES_COLORS.length]);
+    
+    chartInstances.termes = new Chart(ctx, {
+        type: 'bar',
+        data: { labels: sorted.map(s => s[0].substring(0,15)), datasets: [{ label: 'Count', data: sorted.map(s => s[1]), backgroundColor: colors, borderRadius: 4 }] },
+        options: { responsive: true, maintainAspectRatio: false, indexAxis: 'y', plugins: { legend: { display: false } }, scales: { x: { beginAtZero: true } } }
+    });
+}
+
+function renderChartMoteurs(data) {
+    const ctx = document.getElementById('chartMoteurs');
+    if (chartInstances.moteurs) chartInstances.moteurs.destroy();
+    const pm = {};
+    data.forEach(r => { if (r.moteur && r.moteur.trim()) pm[r.moteur] = (pm[r.moteur]||0) + 1; });
+    const moteurs = Object.keys(pm).sort((a,b) => pm[b] - pm[a]);
+    if (!moteurs.length) { ctx.parentElement.innerHTML = '<p style="text-align:center;padding:50px">Aucune IA</p>'; return; }
+    chartInstances.moteurs = new Chart(ctx, {
+        type: 'doughnut',
+        data: { labels: moteurs, datasets: [{ data: moteurs.map(m => pm[m]), backgroundColor: moteurs.map(m => MOTEUR_COLORS[m] || '#95a5a6') }] },
+        options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom', labels: { boxWidth: 10, font: { size: 9 } } } } }
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// MODAL
+// ═══════════════════════════════════════════════════════════════
+async function openDetail(sid) {
+    const m = document.getElementById('modalOverlay'), b = document.getElementById('modalBody');
+    m.classList.add('visible');
+    b.innerHTML = '<p style="padding:40px;text-align:center">Chargement...</p>';
+    try {
+        const r = await fetch(`${API_BASE_URL}/analyse/recherche/${sid}`);
+        const d = await r.json();
+        currentRecherche = d;
+        b.innerHTML = `<div class="detail-grid">
+            <div class="detail-label">Session</div><div class="detail-value" style="font-size:10px;font-family:monospace">${d.session_id||''}</div>
+            <div class="detail-label">Date</div><div class="detail-value">${d.timestamp||''}</div>
+            <div class="detail-label">Question</div><div class="detail-value highlight">${d.questionoriginale||''}</div>
+            <div class="detail-label">Mode</div><div class="detail-value">${d.mode||''} ${d.moteur?`(${d.moteur})`:''}</div>
+            <div class="detail-label">Patients</div><div class="detail-value">${d.nb_patients||0}</div>
+            <div class="detail-label">Temps</div><div class="detail-value">${d.temps_ms||0} ms</div>
+            <div class="detail-label">Rating</div><div class="detail-value" style="font-size:24px">${d.rating||'➖'}</div>
+            ${d.type_probleme?`<div class="detail-label">Problème</div><div class="detail-value">${d.type_probleme}</div>`:''}
+            ${d.commentaire?`<div class="detail-label">Commentaire</div><div class="detail-value" style="background:#fff3e0;padding:10px;border-radius:6px">${d.commentaire}</div>`:''}
+            ${d.erreur?`<div class="detail-label">Erreur</div><div class="detail-value" style="color:red">${d.erreur}</div>`:''}
+        </div>`;
+    } catch (e) { b.innerHTML = '<p style="color:red">Erreur</p>'; }
+}
+
+function closeModal(e) { if (e && e.target !== document.getElementById('modalOverlay')) return; document.getElementById('modalOverlay').classList.remove('visible'); currentRecherche = null; }
+function relancerCurrent() { if (currentRecherche?.questionoriginale) relancer(currentRecherche.questionoriginale, currentRecherche.base, currentRecherche.languesaisie); }
+function relancer(q, b, l) { if (!q) return; let u = `web14.html?q=${encodeURIComponent(q)}`; if (b) u += `&base=${encodeURIComponent(b)}`; window.location.href = u; }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+function exportCSV() {
+    let u = `${API_BASE_URL}/analyse/export?`;
+    if (currentFilters.q) u += `&q=${encodeURIComponent(currentFilters.q)}`;
+    if (currentFilters.rating) u += `&rating=${encodeURIComponent(currentFilters.rating)}`;
+    if (currentFilters.mode) u += `&mode=${encodeURIComponent(currentFilters.mode)}`;
+    if (currentFilters.date_debut) u += `&date_debut=${currentFilters.date_debut}`;
+    if (currentFilters.date_fin) u += `&date_fin=${currentFilters.date_fin}`;
+    window.open(u, '_blank');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,106 @@
+﻿# qpats25000in.csv généré par pipeline.py V1.0.10;;;;;;
+# Date: 05/01/2026 20:19:58;;;;;;
+# Base: base25000.db;;;;;;
+# Questions: 100;;;;;;
+question;listcount;nb_criteres;tags;adjectifs;ages;residu
+fr;LIST;0;;;;fr
+enfants ?;LIST;1;;;enfant;
+enfants ?;LIST;1;;;enfant;
+Nombre de patients avec linguo-version avec déviation maxillaire ?;COUNT;3;déviation maxillaire, linguo-version;;;de patients avec avec
+avec bruxisme ?;LIST;1;bruxisme;;;avec
+avec niti avec tong e femmes ?;LIST;4;dysfonction linguale, niti;;Féminin, femmes;avec avec
+adultes avec prémolaire avec bruxisme avec occlusion croisée ?;LIST;4;occlusion croisée, prémolaire, bruxisme;;adultes;avec avec avec
+enfants avec empreinte ?;LIST;2;empreinte;;enfant;avec
+de plus de 12 ans avec tong e avec hygiène ?;LIST;3;dysfonction linguale, hygiène;;plus age que 12 ans;avec avec
+avec béance hommes de moins de 10 ans ?;LIST;3;béance;;moins de 10 ans, Masculin;avec
+avec rétrusion femmes ?;LIST;3;classe ii d'angle;;Féminin, femmes;avec
+avec malposition nocturne avec luxation méniscale mandibulaire ?;LIST;2;luxation méniscale, malposition;mandibulaire;;avec nocturne avec
+avec contention avec onychophagie avec herbst femmes ?;LIST;5;onychophagie, contention, herbst;;Féminin, femmes;avec avec avec
+avec béance avec bruxisme ?;LIST;2;bruxisme, béance;;;avec avec
+Combien de patients avec métal avec aéro ?;COUNT;3;métal, aéro;;;de patients avec avec
+Nombre de patients avec gouttière hommes ?;COUNT;4;gouttière;;Masculin, hommes;de patients avec
+de plus de 9 ans avec ligature avec gouttière ?;LIST;2;gouttière;;plus age que 9 ans;avec ligature avec
+avec bruxisme nocturne avec macrognathie ?;LIST;2;macrognathie, bruxisme;nocturne;;avec avec
+avec interposition linguale ?;LIST;1;dysfonction linguale;;;avec
+Nombre de patients de moins de 14 ans avec béance avec dysfonction linguale ?;COUNT;4;dysfonction linguale, béance;;moins de 14 ans;patients avec avec
+avec onychophagie femmes ?;LIST;3;onychophagie;;Féminin, femmes;avec
+avec minivis ?;LIST;1;minivis;;;avec
+avec luxation femmes enfants ?;LIST;4;luxation;;Féminin, femmes, enfant;avec
+avec fil qui pique ?;LIST;1;arc;;;avec qui pique
+avec béance ?;LIST;1;béance;;;avec
+Nombre de patients avec malocclusion ?;COUNT;2;malocclusion;;;de patients avec
+enfants ?;LIST;1;;;enfant;
+avec douleur incluse ?;LIST;2;douleur, inclusion;;;avec
+avec béance avec récidive ?;LIST;2;récidive, béance;;;avec avec
+avec béance femmes de moins de 20 ans ?;LIST;3;béance;;moins de 20 ans, Féminin;avec
+avec infraposition ?;LIST;1;infraposition;;;avec
+Nombre de patients avec béance avec bruxisme avec résorption radiculaire ?;COUNT;4;résorption radiculaire, bruxisme, béance;;;de patients avec avec avec
+Combien de patients avec béance ?;COUNT;2;béance;;;de patients avec
+Combien de patients de moins de 25 ans ?;COUNT;2;;;moins de 25 ans;patients
+de plus de 19 ans avec scanner femmes ?;LIST;3;scanner;;plus age que 19 ans, Féminin;avec
+Combien de patients avec dysfonction linguale avec niti femmes de moins de 29 ans ?;COUNT;5;dysfonction linguale, niti;;moins de 29 ans, Féminin;patients avec avec
+avec vestibulo-version ?;LIST;1;vestibulo-version;;;avec
+Nombre de patients avec asymétrie faciale avec béance avec bruxisme ?;COUNT;4;asymétrie faciale, bruxisme, béance;;;de patients avec avec avec
+Nombre de patients avec béance ?;COUNT;2;béance;;;de patients avec
+avec arthrite avec bruxisme ?;LIST;2;arthrite, bruxisme;;;avec avec
+avec béance femmes de moins de 19 ans ?;LIST;3;béance;;moins de 19 ans, Féminin;avec
+avec SNA = 84 ?;LIST;1;position maxillaire normale;;;avec
+Nombre de patients avec dent surnuméraire avec béance nocturne ?;COUNT;3;dent surnuméraire, béance;;;de patients avec avec nocturne
+avec SNB de 81 avec bagues ?;LIST;2;position mandibulaire normale, bagues;;;avec avec
+avec bruxisme avec céramique ?;LIST;2;céramique, bruxisme;;;avec avec
+Combien de patients avec mésialisation avec quad helix ?;COUNT;3;quad helix, mésialisation;;;de patients avec avec
+avec béance ?;LIST;1;béance;;;avec
+avec ANB plus de 5 de plus de 13 ans ?;LIST;2;classe ii squelettique;;13 ans;avec
+de moins de 16 ans avec dentition permanente ?;LIST;2;dentition permanente;;moins de 16 ans;avec
+Combien de patients avec prognathisme maxillaire avec béance ?;COUNT;3;prognathisme maxillaire, béance;;;de patients avec avec
+avec micrognathie femmes enfants ?;LIST;4;micrognathie;;Féminin, femmes, enfant;avec
+Nombre de patients avec SNA de 82 de plus de 17 ans ?;COUNT;3;position maxillaire normale;;17 ans;patients avec plus
+Combien de patients avec spacing droite avec chirurgie droite ?;COUNT;3;chirurgie, diastème;;;de patients avec droite avec droite
+avec SNA supérieur à 85 ?;LIST;1;prognathisme maxillaire;;;avec
+avec luxation méniscale ?;LIST;1;luxation méniscale;;;avec
+de moins de 20 ans avec plaque éventail droite ?;LIST;2;plaque éventail;;moins de 20 ans;avec droite
+avec élastiques intermaxillaires avec composite avec béance ?;LIST;3;élastiques intermaxillaires, composite, béance;;;avec avec avec
+avec tong e ?;LIST;1;dysfonction linguale;;;avec
+Combien de patients avec bruxisme ?;COUNT;2;bruxisme;;;de patients avec
+avec succion ?;LIST;1;succion;;;avec
+avec béance avec phonation femmes adultes ?;LIST;5;phonation, béance;;adultes, Féminin, femmes;avec avec
+Combien de patients avec rétrusion hommes de moins de 17 ans ?;COUNT;4;classe ii d'angle;;moins de 17 ans, Masculin;patients avec
+avec écarteur ?;LIST;1;écarteur;;;avec
+avec béance hommes ?;LIST;3;béance;;Masculin, hommes;avec
+Combien de patients avec béance gauche avec bruxisme gauche hommes ?;COUNT;5;bruxisme, béance;gauche;Masculin, hommes;de patients avec avec
+avec ectopie avec occlusion inversée hommes de moins de 22 ans ?;LIST;4;occlusion inversée, ectopie;;moins de 22 ans, Masculin;avec avec
+Combien de patients avec béance hommes ?;COUNT;4;béance;;Masculin, hommes;de patients avec
+Combien de patients avec SNB moins de 77 avec macrodontie ?;COUNT;3;rétrognathisme mandibulaire, macrodontie;;;patients avec avec
+avec SNB supérieur à 84 avec caries dentaires ?;LIST;2;prognathisme mandibulaire, caries dentaires;;;avec avec
+Nombre de patients avec caries dentaires avec béance ?;COUNT;3;caries dentaires, béance;;;de patients avec avec
+Nombre de patients de moins de 32 ans avec malocclusion gauche ?;COUNT;3;malocclusion;gauche;moins de 32 ans;patients avec
+avec incisive centrale ?;LIST;1;incisive;;;avec centrale
+avec version avec dysfonction linguale ?;LIST;2;dysfonction linguale, version;;;avec avec
+avec succion droite avec apnée du sommeil droite ?;LIST;2;apnée du sommeil, succion;;;avec droite avec droite
+Combien de patients avec SNA > 85 avec céramique ?;COUNT;3;prognathisme maxillaire, céramique;;;de patients avec avec
+Nombre de patients adultes ?;COUNT;2;;;adultes;de patients
+avec composite avec propulsor avec récession gingivale ?;LIST;3;récession gingivale, composite, propulsor;;;avec avec avec
+avec bruxisme hommes de plus de 2 ans ?;LIST;3;bruxisme;;plus age que 2 ans, Masculin;avec
+avec empreinte avec translation ?;LIST;2;translation, empreinte;;;avec avec
+Nombre de patients avec diastemata avec consultation ?;COUNT;3;consultation, diastemata;;;de patients avec avec
+avec plaque y hommes ?;LIST;3;plaque y;;Masculin, hommes;avec
+avec chirurgie femmes enfants ?;LIST;4;chirurgie;;Féminin, femmes, enfant;avec
+avec béance avec maladie parodontale avec bruxisme hommes ?;LIST;5;maladie parodontale, bruxisme, béance;;Masculin, hommes;avec avec avec
+enfants avec béance femmes ?;LIST;4;béance;;Féminin, femmes, enfant;avec
+avec macrodontie ?;LIST;1;macrodontie;;;avec
+avec béance ?;LIST;1;béance;;;avec
+Combien de patients de plus de 1 ans avec ostéotomie femmes ?;COUNT;4;ostéotomie;;plus age que 1 ans, Féminin;patients avec
+avec nécrose pulpaire femmes ?;LIST;3;nécrose pulpaire;;Féminin, femmes;avec
+avec ANB de 0 enfants avec bielles ?;LIST;3;classe i squelettique, bielles;;enfant;avec avec
+de moins de 27 ans avec prognathisme maxillaire gauche ?;LIST;2;prognathisme maxillaire;;moins de 27 ans;avec gauche
+Nombre de patients avec ANB > 7 ?;COUNT;2;classe ii squelettique;;;de patients avec
+enfants avec traitement interceptif ?;LIST;2;traitement interceptif;;enfant;avec
+avec maladie parodontale hommes de moins de 23 ans ?;LIST;3;maladie parodontale;;moins de 23 ans, Masculin;avec
+Nombre de patients de moins de 15 ans avec béance ?;COUNT;3;béance;;moins de 15 ans;patients avec
+Nombre de patients avec béance hommes de plus de 15 ans ?;COUNT;4;béance;;plus age que 15 ans, Masculin;patients avec
+Combien de patients avec propulsor ?;COUNT;2;propulsor;;;de patients avec
+Combien de patients avec mésialisation ?;COUNT;2;mésialisation;;;de patients avec
+de moins de 22 ans avec plaque y ?;LIST;2;plaque y;;moins de 22 ans;avec
+avec plaque éventail avec scanner intra-oral hommes ?;LIST;4;scanner intra-oral, plaque éventail;;Masculin, hommes;avec avec
+avec asymétrie faciale avec bruxisme ?;LIST;2;asymétrie faciale, bruxisme;;;avec avec
+avec interposition linguale hommes ?;LIST;3;dysfonction linguale;;Masculin, hommes;avec

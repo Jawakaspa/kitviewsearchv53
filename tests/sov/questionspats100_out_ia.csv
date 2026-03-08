@@ -1,0 +1,104 @@
+﻿# Généré par detia.py avec claude-sonnet
+# questionspats100.csv V1.0.0 - 12/12/2025 00:23:02;;;;;;;
+question;listcount;nb_criteres;tags;adjectifs;ages;residu;latency_ms
+crit1_canon;LIST;0;;;;crit1_canon;2922.7
+plus de 10 ans ?;LIST;1;;;plus age que 10 ans;?;3586.5
+plus de 15 ans ?;LIST;1;;;plus age que 15 ans;?;3438.0
+Anb=4° harmonieuse ?;LIST;1;classe i squelettique;idéal;;?;4269.1
+maxillaire en avant ?;LIST;1;Prognathisme maxillaire;;;?;4076.7
+classe iii squelettique ?;LIST;1;classe iii squelettique;;;?;3963.7
+tous ?;LIST;0;;;;;918.6
+mandibule proéminente ?;LIST;0;;;;;748.8
+h ?;LIST;1;;;Homme;?;3902.4
+majeurs ?;LIST;1;;;Adultes;?;3672.9
+classe 3 squelettique ?;LIST;1;classe iii squelettique;;;?;3862.3
+maxillaire reculé grave ?;LIST;1;rétrognathie maxillaire;sévère;;?;4474.4
+mandibule en retrait ?;LIST;1;rétrognathie mandibulaire;;;?;3975.2
+écart légère ?;LIST;1;béance;modéré;;?;4090.4
+toutes ?;LIST;1;;;Toutes;?;3509.3
+gone ?;LIST;1;;;Enfant;;3364.7
+etudiantes ?;LIST;2;;;étudiante, Féminin;;4279.3
+rétrognathie maxillaire grave bénin ?;LIST;1;rétrognathie maxillaire;sévère, modéré;;?;4516.2
+au moins 18  ans ?;LIST;1;;;au moins 18 ans;?;3746.6
+usure dentaire des dents nuitamment ?;LIST;1;bruxisme;nocturne;;dents;4202.9
+écart ?;LIST;0;;;;;716.6
+Anb= 3° ?;LIST;1;classe i squelettique;;;?;4171.8
+homme ?;LIST;1;;;Homme;?;3473.0
+vingtaine ?;LIST;1;;;Vingtaine;?;3516.6
+classe 3 squelettique ?;LIST;1;classe iii squelettique;;;?;622.2
+classe 2 squelettique div 1 div 2 ?;LIST;1;classe II squelettique;division 1, division 2;;;4301.2
+mandibule en retrait majeure modérée et maxillaire en retrait léger ?;LIST;2;rétrognathie mandibulaire, rétrognathie maxillaire;sévère, modéré, modéré;;?;6395.7
+environ 17 ans et Anb<0° ?;LIST;2;classe iii squelettique;;Environ 17 ans;?;4912.4
+Anb <0° et prognathie mandibulaire majeur bénin ?;LIST;2;classe iii squelettique, Prognathisme mandibulaire;sévère, modéré;;?;5685.5
+classe iii squelettique et adolescente ?;LIST;2;classe iii squelettique;;Adolescente;?;4942.8
+Anb<0° et maxillaire avancé modéré ?;LIST;2;classe iii squelettique, prognathisme maxillaire;modéré;;?;5268.5
+extraction immédiat différée et Classe III squelettique ?;LIST;0;;;;;814.2
+mandibule en avant et toutes ?;LIST;2;Prognathisme mandibulaire;;Toutes;?;5152.6
+mandibule en retrait marquée modérée et 8 ans ?;LIST;2;rétrognathie mandibulaire;sévère, modéré;8 ans;?;5327.8
+Prognathisme mandibulaire modéré majeur et Prognathisme maxillaire bénin ?;LIST;2;Prognathisme mandibulaire, Prognathisme maxillaire;modéré, sévère, modéré;;?;6153.7
+Anb< 0° et enlever programmée immédiat différé ?;LIST;0;;;;;717.5
+mineures et prognathie maxillaire sévère bénin ?;LIST;3;Prognathisme maxillaire;sévère, modéré;Mineure, Mineure;benin ?;5893.1
+maxillaire proéminent modéré et openbite gauche bénigne latérale arrière marquée ?;LIST;2;Prognathisme maxillaire, béance;modéré, gauche, modéré, latéral, postérieur, sévère;;;6708.2
+classe ii squelettique et maxillaire en arrière important ?;LIST;2;classe II squelettique, rétrognathie maxillaire;sévère;;?;5142.7
+maxillaire en retrait et serrement ?;LIST;0;;;;;857.7
+classe 2 squelettique et mineures ?;LIST;0;;;;;750.8
+Classe III squelettique et feminin ?;LIST;2;classe iii squelettique;;Féminin;?;5430.4
+entre 10 et 10 ans et bruxomanie le jour ?;LIST;2;Bruxisme;diurne;Entre 10 et 10 ans;?;5286.7
+maxillaire proéminent et dédentement ?;LIST;2;Prognathisme maxillaire, édentation;;;?;4843.0
+femme et open bite droite latérale arrière légère marquée ?;LIST;2;béance;droit, latéral, postérieur, modéré, sévère;Féminin;droite laterale arriere legere marquee;6359.8
+mandibule en retrait modérée et jeunes adultes ?;LIST;2;rétrognathie mandibulaire;modéré;Jeune adulte;?;5110.5
+enlever programmé et maxillaire en retrait grave ?;LIST;2;avulsion, rétrognathie maxillaire;programmé, sévère;;?;5621.9
+enlever et béance dentaire droite grave modérée arrière latérale ?;LIST;1;béance;droit, sévère, modéré, postérieur, latéral;;enlever ?;5599.8
+19 piges et prognathie mandibulaire sévère ?;LIST;2;Prognathisme mandibulaire;sévère;19 ans;?;5474.5
+prognathie maxillaire important léger et h ?;LIST;0;;;;;752.9
+maxillaire en retrait important et Anb> 4° ?;LIST;2;rétrognathie maxillaire, classe ii squelettique;sévère;;?;5282.1
+Anb=4°, 14 piges et Anb >4° div1 div2 ?;LIST;3;classe i squelettique, classe ii squelettique;division 1, division 2;14 ans;?;7231.2
+maxillaire avancé important modéré, prognathie mandibulaire et gones ?;LIST;3;Prognathisme maxillaire, Prognathisme mandibulaire;sévère, modéré;Enfant;?;6455.2
+17 ans, Anb= 2° et béance ?;LIST;3;classe i squelettique, béance;;17 ans;?;5410.4
+adolescentes, écartement droite latérale bénigne et maxillaire en avant bénin important ?;LIST;0;;;;;751.4
+pas encore 16 ans, mandibule proéminente bénin et béance dentaire avant droite ?;LIST;3;Prognathisme mandibulaire, béance;modéré, antérieur, droit;Moins de 16 ans;?;6555.3
+serrement modéré, Anb< 0° et Prognathisme mandibulaire ?;LIST;3;bruxisme, classe iii squelettique, prognathisme mandibulaire;modéré;;?;6389.5
+béance sévère arrière bénigne gauche latérale, m et grincements marqué ?;LIST;0;;;;;742.6
+m, grincent des dents la nuit diurne des dents marqué et Prognathisme mandibulaire ?;LIST;3;Bruxisme, Prognathisme mandibulaire;nocturne, diurne, sévère;Masculin;dents marque ?;8271.3
+rétrognathie maxillaire modéré, Classe II squelettique div2 div 1 et maxillaire avancé bénin ?;LIST;3;rétrognathie maxillaire, Classe II squelettique, Prognathisme maxillaire;modéré, division 1, division 2, modéré;;?;7226.7
+Classe II squelettique div 1 div2, generation z et extraire immédiat différée ?;LIST;3;classe II squelettique, avulsion;division 1, division 2, immédiat, différé;Génération Z;?;6716.5
+Anb = 4°, maxillaire en avant grave léger et maxillaire reculé sévère bénin ?;LIST;0;;;;;614.2
+Anb =3°, dédentement programmé différé immédiate et maxillaire en retrait important léger ?;LIST;3;classe i squelettique, avulsion, rétrognathie maxillaire;programmé, différé, sévère;;immediate leger ?;6916.2
+openbite importante, maxillaire en retrait modéré grave et usure dentaire ?;LIST;3;béance, rétrognathie maxillaire, usure dentaire;sévère, sévère;;?;6169.9
+rétromandibulaire légère sévère, Prognathisme maxillaire et avant 25 ans ?;LIST;3;rétrognathie mandibulaire, Prognathisme maxillaire;sévère;Moins de 25 ans;?;5992.5
+prognathie mandibulaire, Anb >4° division 1 div 2 et mineurs ?;LIST;0;;;;;655.7
+usure dentaire diurne, Anb= 2° parfaite et maxillaire en arrière modéré majeur ?;LIST;3;Bruxisme, classe i squelettique, rétrognathie maxillaire;diurne, idéal, modéré, sévère;;?;7378.0
+mandibule en retrait majeure bénigne, rétromaxillaire important léger et grinding nocturne dentaire grave diurne léger ?;LIST;3;rétrognathie mandibulaire, rétrognathie maxillaire, bruxisme;sévère, modéré, sévère, modéré, nocturne, sévère, diurne, modéré;;?;8405.5
+avulsion, espace entre les dents bénigne gauche arrière sévère latérale et Anb = 1° harmonieuse ?;LIST;3;avulsion, béance, classe i squelettique;modéré, gauche, postérieur, sévère, latéral, idéal;;?;7675.4
+m, tous et maxillaire en arrière modéré marqué ?;LIST;3;rétrognathie maxillaire;modéré, sévère;Masculin, Tous;marque ?;5548.0
+Prognathisme mandibulaire, grince des dents grave dentaires modéré et etudiant ?;LIST;4;Prognathisme mandibulaire, Bruxisme, Bruxisme;sévère, modéré;étudiant;?;7010.4
+de sexe feminin, majeurs et Anb < 0° ?;LIST;0;;;;;661.2
+mandibule proéminente grave, mandibule en retrait et jeune adulte ?;LIST;3;Prognathisme mandibulaire, rétrognathie mandibulaire;sévère;Jeune adulte;?;5953.4
+Prognathisme mandibulaire marqué modéré, maxillaire en retrait léger majeur et Anb> 4° div2 ?;LIST;3;Prognathisme mandibulaire, rétrognathie maxillaire, classe II squelettique;sévère, modéré, modéré, sévère, division 2;;?;7719.7
+rétrognathie maxillaire modéré, classe 1 squelettique harmonieuse et Anb < 0° ?;LIST;0;;;;;733.7
+rétromandibulaire marquée, feminine et Anb =1° harmonieuse ?;LIST;0;;;;;684.6
+grincent des dents des dents, de sexe feminin, classe 2 squelettique division 1 division 2 et des 9 ans ?;LIST;4;bruxisme, classe II squelettique;division 1, division 2;Féminin, 9 ans;dents, ?;7255.1
+mandibule en retrait modérée, feminin, béance droite arrière latérale et serrement ?;LIST;4;rétrognathie mandibulaire, béance, bruxisme;modéré, droit, postérieur, latéral;Féminin;?;7603.9
+classe ii squelettique, mandibule en retrait marquée modérée, Classe I squelettique parfaite et jeunes hommes ?;LIST;5;classe ii squelettique, rétrognathie mandibulaire, classe i squelettique;sévère, modéré, idéal;jeunes hommes, Masculin;?;9523.8
+mandibule en arrière, Anb >4° division 1, arracher et vingtaine ?;LIST;4;rétrognathie mandibulaire, classe ii squelettique, avulsion;division 1;Vingtaine;?;6849.5
+maxillaire proéminent bénin marqué, maxillaire en arrière marqué, Anb <0° et rétrognathie mandibulaire majeure ?;LIST;4;Prognathisme maxillaire, rétrognathie maxillaire, classe iii squelettique, rétrognathie mandibulaire;modéré, sévère, sévère;;marque ?;8283.9
+openbite postérieure bénigne droite, de sexe masculin, rétrognathie mandibulaire bénigne et grincements bénin la nuit des dents ?;LIST;4;béance, rétrognathie mandibulaire, bruxisme;postérieur, modéré, droit, modéré, modéré, nocturne;Masculin;?;8747.5
+morsure ouverte, clenching dentaires modéré, de sexe masculin et Anb=3° idéale ?;LIST;0;;;;;597.8
+rétromaxillaire bénin majeur, morsure béante latérale arrière bénigne complexe droite, toutes et Rétromandibulisme grave ?;LIST;4;rétrognathie maxillaire, béance, rétrognathie mandibulaire;modéré, latéral, postérieur, modéré, sévère, droit, sévère;Toutes;majeur morsure grave;8835.0
+bruxomanie dents léger, Anb > 4° div 2 division 1, prognathie maxillaire bénin et maxillaire en arrière ?;LIST;4;bruxisme, classe II squelettique, prognathisme maxillaire, rétrognathie maxillaire;modéré, division 1, division 2, modéré;;dents leger ?;8190.8
+Anb> 4°, enlever immédiat différé programmé, Anb = 4° et mandibule en arrière grave bénigne ?;LIST;4;classe ii squelettique, avulsion, classe i squelettique, rétrognathie mandibulaire;immédiat, différé, programmé, sévère, modéré;;?;8465.1
+maxillaire en arrière bénin, classe ii squelettique div 1, 24 ans ou moins et toutes ?;COUNT;4;rétrognathie maxillaire, classe II squelettique;modéré, division 1;24 ans et moins, Toutes;?;6889.7
+etudiantes, arrachage dentaire, beance droite latérale bénigne frontale complexe et Anb= 3° ?;LIST;5;avulsion, béance, classe i squelettique;droit, latéral, modéré, antérieur, sévère;étudiante, étudiante;?;8808.7
+rétrognathie maxillaire léger, mineur, classe 2 squelettique et Anb < 0° ?;LIST;4;rétrognathie maxillaire, classe II squelettique, classe III squelettique;modéré;Mineur;?;6619.1
+maxillaire proéminent, teenager, usure dentaire sévère dents le jour la nuit bénin et classe ii squelettique ?;LIST;5;Prognathisme maxillaire, Bruxisme, Bruxisme, classe II squelettique;sévère, diurne, nocturne, modéré;Adolescent;?;9192.8
+Anb =2°, avulsion, Anb < 0° et grincent des dents léger nuitamment dents ?;LIST;4;classe i squelettique, avulsion, classe iii squelettique, bruxisme;modéré, nocturne;;dents ?;7147.3
+classe 3 squelettique, Classe II squelettique div1 division 2, Rétromandibulisme bénigne et tout petits ?;LIST;0;;;;;619.4
+Bruxisme diurne marqué modéré, m, Anb<0° et classe ii squelettique ?;LIST;4;Bruxisme, classe iii squelettique, classe ii squelettique;diurne, sévère, modéré;Masculin;?;7455.8
+z generation, Anb >4°, rétromaxillaire et Anb =0° idéale ?;LIST;4;classe ii squelettique, rétrognathie maxillaire, classe i squelettique;idéal;Génération Z;?;7250.2
+maxillaire reculé majeur léger, mandibule proéminente bénin, classe 1 squelettique idéale et de sexe masculin ?;LIST;4;rétrognathie maxillaire, Prognathisme mandibulaire, classe i squelettique;sévère, modéré, modéré, idéal;Masculin;?;8006.2
+maxillaire avancé majeur, rétromandibulaire importante modérée, moins de 20 ans et grinding léger nuitamment ?;LIST;4;Prognathisme maxillaire, rétrognathie mandibulaire, Bruxisme;sévère, modéré, modéré, nocturne;Moins de 20 ans;?;7808.0
+Anb<0°, mandibule en arrière modérée grave, femmes et Anb=0° ?;LIST;4;classe iii squelettique, rétrognathie mandibulaire, classe i squelettique;modéré, sévère;Femmes;?;7272.4
+preadolescent, Classe II squelettique div1 div2, avulsion immédiate différé et espace entre les dents bénigne frontale gauche ?;LIST;4;classe II squelettique, avulsion, béance;division 1, division 2, immédiat, différé, modéré, antérieur, gauche;Pré adolescent;?;8568.2
+mandibule reculée importante modérée, mandibule proéminente marqué, feminin et Classe II squelettique ?;LIST;4;rétrognathie mandibulaire, Prognathisme mandibulaire, classe II squelettique;sévère, modéré, sévère;Féminin;?;7754.5
+tout, classe i squelettique harmonieuse, extraction dentaire programmée immédiat différé et Prognathisme mandibulaire grave léger ?;LIST;4;classe i squelettique, avulsion, Prognathisme mandibulaire;idéal, programmé, immédiat, différé, sévère, modéré;Tous;?;8388.5
+prognathie mandibulaire bénin, clenching dentaires, mandibule en retrait bénigne et jeunes adultes ?;LIST;4;Prognathisme mandibulaire, Bruxisme, rétrognathie mandibulaire;modéré, modéré;Jeune adulte;?;7273.3

@@ -1,0 +1,7 @@
+﻿# Tests Quentin;;
+question;résultat;commentaire
+patients en classe 2 agés de plus de 20 ans et de moins de 23 ans;trop de patients;Pas de détection de plus de 20 ans
+Patient compris entre 13 et 16 avec une classe d'angle de 1 uniquement;aucun filtre;Il ne voit même pas que 16 et 13 sont des ages
+Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3;312 patients au lieu de 12;là c'est la classe 3 qui a l'air de poser problème 
+Patient enfant avec rétrognathie et ou classe 2 ;tous les enfants retournés;rétrognatie non prise en compte
+Patient metal compris entre 20 e 24 ans ;pas d'âge pris en compte;le e à la place du et a tout foiré.

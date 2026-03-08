@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<!--
+ * simple31.html V0.0.0 - 01/01/1970 00:00
+ * Kitview Search - VERSION SIMPLIFIÉE
+ * Basé sur simple30.html avec ajout :
+ *   - Icône caméra (📷) dans le header pour accéder à photofit31
+ * Header : ☰ Logo Search [base] [langue] [détection] ? 📷 🌙
+ * Fichiers 100% dédiés (aucun partage avec chat29)
+ -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitview Search</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.kitview.com/favicon.ico">
+    <link rel="stylesheet" href="css/simple30.css">
+    
+    <!-- Style inline pour le jaune stabilo (override CSS) -->
+    <style>
+        .patient-card.reference-patient,
+        .patient-card-chat.reference-patient,
+        .patient-item.reference-patient {
+            background: linear-gradient(135deg, #ffff00 0%, #ffeb3b 100%) !important;
+            border: 3px solid #ffc107 !important;
+            box-shadow: 0 4px 15px rgba(255, 235, 59, 0.5) !important;
+        }
+        
+        [data-theme="dark"] .patient-card.reference-patient,
+        [data-theme="dark"] .patient-card-chat.reference-patient,
+        [data-theme="dark"] .patient-item.reference-patient {
+            background: linear-gradient(135deg, #ffff00 0%, #fdd835 100%) !important;
+            border: 3px solid #ffb300 !important;
+        }
+        
+        /* Bouton modification patient ✏️ */
+        .edit-patient-btn {
+            cursor: pointer;
+            font-size: 18px;
+            padding: 2px 4px;
+            border-radius: 4px;
+            transition: transform 0.15s ease, background 0.15s ease;
+            user-select: none;
+            line-height: 1;
+        }
+        .edit-patient-btn:hover {
+            transform: scale(1.25);
+            background: rgba(0, 0, 0, 0.08);
+        }
+        [data-theme="dark"] .edit-patient-btn:hover {
+            background: rgba(255, 255, 255, 0.12);
+        }
+    
+        /* ── Bouton Manuel avec dropdown ─────────────── */
+        .manuel-dropdown { position: relative; display: inline-block; }
+        .manuel-dropdown-menu {
+            display: none; position: absolute; right: 0; top: calc(100% + 4px);
+            background: var(--bg-secondary, #fff); border: 1px solid var(--border-color, #ddd);
+            border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.15);
+            min-width: 180px; z-index: 1000; overflow: hidden;
+        }
+        .manuel-dropdown:hover .manuel-dropdown-menu { display: block; }
+        .manuel-dropdown-menu a {
+            display: block; padding: 9px 14px; text-decoration: none;
+            color: var(--text-primary, #333); font-size: 13px; white-space: nowrap;
+        }
+        .manuel-dropdown-menu a:hover { background: var(--bg-hover, #f0f4ff); }
+        .manuel-dropdown-menu hr { margin: 3px 0; border: none; border-top: 1px solid var(--border-color, #eee); }
+        </style>
+</head>
+<body>
+    <!-- Header simplifié : ☰ Logo Search [base] [langue] [détection] 🌙 -->
+    <header class="header" role="banner">
+        <div class="header-left">
+            <button class="icon-button" id="sidebarToggle" title="Masquer/Afficher la sidebar" aria-label="Ouvrir/fermer le menu" style="margin-right: 10px;">
+                ☰
+            </button>
+            <img src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png" alt="Logo Kitview" class="logo" id="logo">
+            
+            <div class="title-container">
+                <div class="title status-loading" id="searchTitle" role="status">Search</div>
+                <div class="base-subtitle" id="baseSubtitle"></div>
+                <div class="version-subtitle" id="versionSubtitle">V1.0.0</div>
+            </div>
+        </div>
+        
+        <!-- Centre : base + langue + détection - TOUJOURS VISIBLE -->
+        <div class="header-center">
+            <select class="base-selector" id="baseSelector" aria-label="Sélectionner une base de données">
+                <option value="">Chargement...</option>
+            </select>
+            
+            <!-- LABEL LANGUE (masqué) -->
+            <div class="patient-lang-label" id="patientLangLabel" style="display: none;">
+                <span class="lang-word" id="langWord"></span>
+                <img class="lang-flag" id="langFlagSmall" src="" alt="">
+            </div>
+            
+            <!-- BOUTON LANGUE + POPUP CHIPS -->
+            <div class="lang-button-container">
+                <button class="lang-button" id="langButton" title="Langue de la question" aria-label="Changer la langue" aria-haspopup="true">
+                    <img class="flag-img" id="langFlag" src="" alt="Drapeau langue">
+                    <span class="lang-text" id="langText">FR</span>
+                    <span class="dropdown-arrow" aria-hidden="true">▼</span>
+                </button>
+                
+                <div class="lang-popup" id="langPopup" style="display: none;" role="dialog" aria-label="Sélection de langue">
+                    <div class="lang-popup-header">
+                        <span>🌐</span> Langue de la question
+                    </div>
+                    <div class="lang-popup-section">
+                        <div class="chips-container" id="chipsContainer"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- CHECKBOX FR : Force la réponse en français -->
+            <div class="response-fr-container">
+                <label class="response-fr-label" title="Forcer les résultats en français">
+                    <input type="checkbox" class="response-fr-checkbox" id="responseFrCheckbox" checked>
+                    <span class="response-fr-text">→fr</span>
+                </label>
+            </div>
+            
+            <!-- Mode SC (masqué) -->
+            <select class="base-selector" id="searchModeSelector" title="Mode de recherche backend" style="display: none;">
+                <option value="sc" selected>SC</option>
+            </select>
+            
+            <!-- MODE DE DÉTECTION -->
+            <div class="detection-mode-controls" id="detectionModeControls">
+                <select class="base-selector" id="detectionModeSelector" title="Mode de détection" disabled>
+                    <option value="">⏳ Chargement...</option>
+                </select>
+            </div>
+        </div>
+        
+        <!-- Droite : aide + caméra + toggle jour/nuit -->
+        <div class="header-right">
+            <button class="icon-button" id="helpButton" title="Mode d'emploi" onclick="window.open('modesimple30.html', '_blank')">
+                ❓
+            </button>
+            <a href="photofit31.html" class="icon-button" id="cameraButton" title="Recherche par portrait">
+                📷
+            </a>
+            <div class="manuel-dropdown">
+                <button class="icon-button manuel-main-btn" id="manuelButton" title="Manuel Kitview" aria-label="Ouvrir le manuel Kitview">
+                    📖
+                </button>
+                <div class="manuel-dropdown-menu" id="manuelMenu">
+                    <a href="../kvm/ihm/kvms.html" target="_blank">🇫🇷 Standard FR</a>
+                    <a href="../kvm/ihm/kvm_en.html" target="_blank">🇬🇧 English</a>
+                    <hr>
+                    <a href="../kvm/ihm/kvmd.html" target="_blank">🟢 Débutant</a>
+                    <a href="../kvm/ihm/kvmi.html" target="_blank">🟡 Intermédiaire</a>
+                    <a href="../kvm/ihm/kvme.html" target="_blank">🔴 Expert</a>
+                </div>
+            </div>
+            <button class="icon-button" id="themeToggle" title="Changer le thème">
+                🌙
+            </button>
+        </div>
+    </header>
+
+    <!-- Container principal -->
+    <div class="main-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-resize-handle" id="sidebarResizeHandle"></div>
+            
+            <div style="padding: 20px;">
+                <button class="new-search-btn" id="newSearchBtn">
+                    ✨ Nouvelle recherche
+                </button>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="sidebar-title">Conversations récentes</div>
+                <div id="recentConversations"></div>
+            </div>
+            
+            <div class="sidebar-section">
+                <div class="sidebar-title">Exemples</div>
+                <div id="examplesList"></div>
+            </div>
+            
+            <div id="versionDisplay" style="padding: 16px; margin-top: auto; border-top: 1px solid var(--border-color); font-size: 12px; color: var(--text-secondary); text-align: left;">
+                F1.0.0/S...
+            </div>
+        </div>
+
+        <!-- Zone de contenu -->
+        <div class="content">
+            <!-- Zone de bienvenue (initial) -->
+            <div class="welcome-container" id="welcomeContainer">
+                <div class="filigrane-ghost" id="filigraneGhost"></div>
+                
+                <div class="welcome-message">
+                    Bienvenue <span class="user-name" id="welcomeUserName"></span> 👋
+                </div>
+                
+                <div class="search-container-center">
+                    <div class="search-box" role="search">
+                        <input 
+                            type="search" 
+                            class="search-input" 
+                            id="searchInputCenter"
+                            placeholder="Rechercher un patient (ex: béance, classe 2, diabète...)"
+                            autocomplete="off"
+                            aria-label="Rechercher un patient"
+                            list="searchSuggestions"
+                        >
+                        <button class="voice-btn" id="voiceBtnCenter" title="Recherche vocale" aria-label="Activer la recherche vocale">
+                            🎤
+                        </button>
+                        <button class="search-button" id="searchButtonCenter" disabled title="Saisir du texte pour rechercher" aria-label="Lancer la recherche">
+                            ⬆️
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <datalist id="searchSuggestions"></datalist>
+
+            <!-- Zone de recherche en haut (mode Classique) -->
+            <div class="search-container-top" id="searchContainerTop">
+                <div class="search-box" role="search">
+                    <input 
+                        type="search" 
+                        class="search-input" 
+                        id="searchInputTop"
+                        placeholder="Rechercher un patient..."
+                        autocomplete="off"
+                        aria-label="Rechercher un patient"
+                        list="searchSuggestions"
+                    >
+                    <button class="voice-btn" id="voiceBtnTop" title="Recherche vocale" aria-label="Activer la recherche vocale">
+                        🎤
+                    </button>
+                    <button class="search-button" id="searchButtonTop" disabled title="Saisir du texte pour rechercher" aria-label="Lancer la recherche">
+                        ⬆️
+                    </button>
+                </div>
+            </div>
+
+            <!-- Zone de résultats -->
+            <main class="results-container" id="resultsContainer" role="main" aria-live="polite" aria-label="Résultats de recherche">
+            </main>
+
+            <!-- Loading -->
+            <div class="loading" id="loading" role="status" aria-live="assertive">
+                <div class="bandeau-loading" id="bandeauLoading">
+                    <div class="illustration" id="loadingIllustration"></div>
+                    <div class="bandeau-content">
+                        <div class="message-principal" id="loadingMessagePrincipal">
+                            <span class="loading-spinner-inline" aria-hidden="true"></span>
+                            <span id="loadingText">Recherche en cours...</span>
+                        </div>
+                        <div class="message-secondaire" id="loadingQuery"></div>
+                        <div class="message-tertiaire" id="loadingMeta"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Zone de recherche en bas (mode IA) -->
+            <div class="search-container-bottom" id="searchContainerBottom">
+                <div class="search-box" role="search">
+                    <input 
+                        type="search" 
+                        class="search-input" 
+                        id="searchInputBottom"
+                        placeholder="Poser une autre question..."
+                        autocomplete="off"
+                        aria-label="Poser une question"
+                        list="searchSuggestions"
+                    >
+                    <button class="voice-btn" id="voiceBtnBottom" title="Recherche vocale" aria-label="Activer la recherche vocale">
+                        🎤
+                    </button>
+                    <button class="search-button" id="searchButtonBottom" disabled title="Saisir du texte pour rechercher" aria-label="Lancer la recherche">
+                        ⬆️
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         SCRIPTS DÉDIÉS simple30 - Aucun fichier commun avec chat29
+         1. simple30_utils.js : Utilitaires (debounce, addDebugLog, DEBUG)
+         2. simple30_voice.js : Reconnaissance vocale
+         3. simple30_illustrations.js : Gestion images et filigrane  
+         4. simple30_search.js : Module recherche API
+         5. simple30_i18n.js : Internationalisation
+         6. simple30_meme.js : Logique "même que"
+         7. simple30_main.js : Code principal simplifié
+         ═══════════════════════════════════════════════════════════════════ -->
+    <script src="js/simple30_utils.js"></script>
+    <script src="js/simple30_voice.js"></script>
+    <script src="js/simple30_illustrations.js"></script>
+    <script src="js/simple30_search.js"></script>
+    <script src="js/simple30_i18n.js"></script>
+    <script src="js/simple30_meme.js"></script>
+    <script src="js/simple30_main.js"></script>
+</body>
+</html>

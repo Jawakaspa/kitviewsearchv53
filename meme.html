@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recherche par Similarité</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+    
+    <style>
+        .reveal h1, .reveal h2, .reveal h3 {
+            text-transform: none;
+        }
+        .reveal pre {
+            width: 100%;
+            font-size: 0.55em;
+        }
+        .reveal pre code {
+            max-height: 500px;
+            padding: 15px;
+        }
+        .reveal table {
+            font-size: 0.7em;
+            margin: 20px auto;
+        }
+        .reveal table th {
+            background: rgba(255,255,255,0.1);
+            font-weight: bold;
+        }
+        .reveal table td, .reveal table th {
+            padding: 8px 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .reveal blockquote.question {
+            background: rgba(255,193,7,0.15);
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            font-style: normal;
+            font-size: 0.9em;
+            margin: 20px 0;
+        }
+        .reveal ul, .reveal ol {
+            display: block;
+            text-align: left;
+            margin-left: 1em;
+        }
+        .reveal li {
+            margin: 0.5em 0;
+        }
+        .reveal code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        .reveal .slides section {
+            height: 100%;
+        }
+        /* Template 2 colonnes */
+        .two-columns {
+            display: flex;
+            gap: 40px;
+        }
+        .two-columns > div {
+            flex: 1;
+        }
+        /* Notes de l'orateur */
+        .reveal .notes {
+            font-size: 1.2em;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+<section data-background-color="#1a1a2e">
+<h1>🔍 Recherche par Similarité</h1>
+<h3>Fonctionnalité 'Même X que Patient' - Documentation technique V5</h3>
+<p style="margin-top: 2em; font-size: 0.8em; opacity: 0.8;">
+⏱️ Durée : 25min
+ | 
+👥 Développeurs backend/frontend, architectes
+</p>
+</section>
+<section id="vue-ensemble" data-background-color="inherit" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+<h1>🎯 Vue d'ensemble fonctionnelle</h1>
+<h3>Objectif de la fonctionnalité</h3>
+
+<p>La fonctionnalité <strong>"Même X que Patient"</strong> permet aux praticiens de rechercher des patients présentant des caractéristiques identiques ou similaires à un patient de référence. C'est un outil puissant pour :</p>
+
+<ul>
+<li><strong>Études comparatives</strong> : Comparer des cas cliniques similaires</li>
+<li><strong>Recherche de cas analogues</strong> : Trouver des patients avec le même profil pathologique</li>
+<li><strong>Constitution de cohortes</strong> : Regrouper des patients par caractéristiques communes</li>
+</ul>
+<h3>Cas d'usage typiques en orthodontie</h3>
+
+<p>1. <strong>Recherche par pathologie</strong> : "Même béance antérieure que Guillaume Moulin" → Tous les patients avec la même pathologie</p>
+<p>2. <strong>Recherche par profil</strong> : "Même sexe et même âge que Marie Durand" → Patients du même groupe démographique</p>
+<p>3. <strong>Recherche par portrait</strong> : "Même portrait que id 123" → Patients avec la même photo de profil/classification</p>
+
+<h3>Expérience utilisateur cible</h3>
+
+<p>L'utilisateur peut :</p>
+<ul>
+<li><strong>Cliquer directement</strong> sur les attributs d'une fiche patient pour construire une recherche</li>
+<li><strong>Taper en langage naturel</strong> une requête de similarité</li>
+<li><strong>Combiner plusieurs critères</strong> pour affiner la recherche</li>
+<li>Le <strong>patient de référence</strong> est mis en évidence visuellement (fond jaune)</li>
+<li>Les <strong>critères actifs</strong> sont signalés en rouge</li>
+</ul>
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> La recherche par similarité permet de trouver des patients partageant des caractéristiques communes avec un patient de référence
+<br><strong>⏱️ Timing :</strong> 3min
+</aside>
+</section>
+<section id="syntaxes-supportees">
+<h2>📝 Syntaxes de requêtes</h2>
+<blockquote class="question">💬 Quelle syntaxe préférez-vous pour vos recherches quotidiennes ?</blockquote>
+<p>Le module <code>detmeme.py</code> (V1.0.3) analyse les requêtes en langage naturel et reconnaît les formats suivants :</p>
+
+<p><!-- TABLE</p>
+<p>titre: "Formats de requêtes supportés"</p>
+<p>colonnes_cles: "Format,Exemple"</p>
+<p>style: "large"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Format</th>
+<th>Exemple</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Critère simple</td>
+<td><code>même portrait que Guillaume Moulin</code></td>
+<td>Un seul critère, référence par nom</td>
+</tr>
+<tr>
+<td>Critères avec "et"</td>
+<td><code>même portrait et même prénom que Guillaume Moulin</code></td>
+<td>Plusieurs critères liés par "et même"</td>
+</tr>
+<tr>
+<td>Critères sans "et"</td>
+<td><code>même portrait même prénom que Guillaume Moulin</code></td>
+<td>Variante sans connecteur explicite</td>
+</tr>
+<tr>
+<td>Liste avec virgules</td>
+<td><code>même portrait, prénom, nom que Guillaume Moulin</code></td>
+<td>Liste de critères séparés par virgules</td>
+</tr>
+<tr>
+<td>Pluriel français</td>
+<td><code>mêmes portrait, prénom et nom que Guillaume Moulin</code></td>
+<td>Support du pluriel "mêmes"</td>
+</tr>
+<tr>
+<td>Référence par ID</td>
+<td><code>même portrait que id 123</code></td>
+<td>Référence par identifiant numérique</td>
+</tr>
+<tr>
+<td>Critère spécifique</td>
+<td><code>même béance antérieure gauche que id 123</code></td>
+<td>Pathologie complète comme critère</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h3>Synonymes reconnus</h3>
+
+<p>Le fichier <code>commun.csv</code> définit les synonymes acceptés :</p>
+
+<ul>
+<li><strong>Pour "même"</strong> : <code>identique</code>, <code>similaire</code>, <code>commun</code>, <code>semblable</code>, <code>pareil</code>...</li>
+<li><strong>Pour "que"</strong> : <code>comme</code>, <code>de</code>, <code>du</code>...</li>
+</ul>
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> Le parser accepte de nombreuses variantes syntaxiques en langage naturel français
+<br><strong>⏱️ Timing :</strong> 3min
+</aside>
+</section>
+<section id="criteres-similarite">
+<h2>📊 Critères de similarité</h2>
+<p><!-- TABLE</p>
+<p>titre: "Mapping critères → colonnes SQL"</p>
+<p>colonnes_cles: "Critère,Cible,Comportement"</p>
+<p>style: "large"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Critère</th>
+<th>Cible SQL</th>
+<th>Comportement</th>
+<th>Exemple SQL généré</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>portrait</code></td>
+<td><code>idportrait</code></td>
+<td>Correspondance exacte</td>
+<td><code>WHERE p.idportrait = '12'</code></td>
+</tr>
+<tr>
+<td><code>sexe</code></td>
+<td><code>sexe</code></td>
+<td>Correspondance exacte</td>
+<td><code>WHERE p.sexe = 'M'</code></td>
+</tr>
+<tr>
+<td><code>age</code></td>
+<td><code>age</code></td>
+<td>Tolérance ±3 ans</td>
+<td><code>WHERE p.age BETWEEN 32 AND 38</code></td>
+</tr>
+<tr>
+<td><code>nom</code></td>
+<td><code>nom</code></td>
+<td>Insensible à la casse</td>
+<td><code>WHERE LOWER(p.nom) = LOWER('Dupont')</code></td>
+</tr>
+<tr>
+<td><code>prenom</code></td>
+<td><code>prenom</code></td>
+<td>Insensible à la casse</td>
+<td><code>WHERE LOWER(p.prenom) = LOWER('Jean')</code></td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td><code>pathologies</code></td>
+<td>1 mot = tag seul</td>
+<td><code>JOIN ... WHERE pa.pathologie LIKE 'beance%'</code></td>
+</tr>
+<tr>
+<td><code>pathologie</code></td>
+<td><code>pathologies</code></td>
+<td>Multi-mots = pathologie complète</td>
+<td><code>JOIN ... WHERE pa.pathologie = 'beance anterieure gauche'</code></td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h3>Distinction tag vs pathologie</h3>
+
+<p>La distinction est automatique basée sur le nombre de mots :</p>
+
+<p><!-- CODE</p>
+<p>langage: "python"</p>
+<p>titre: "Logique de distinction tag/pathologie"</p>
+<p>executable: "false"</p>
+<p>--></p>
+
+<pre><code class="language-python"># Dans detmeme.py, ligne 428-433
+mots = elem_norm.split()
+if len(mots) == 1:
+    cible_code = &#x27;tag&#x27;      # Ex: &quot;béance&quot; → tag
+    label = f&#x27;Même {elem_norm}&#x27;
+else:
+    cible_code = &#x27;pathologie&#x27;  # Ex: &quot;béance antérieure&quot; → pathologie
+    label = f&#x27;Même {elem_norm}&#x27;</code></pre>
+
+
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> 7 critères de similarité : portrait, sexe, age (±3 ans), nom, prénom, tag (1 mot), pathologie (plusieurs mots)
+<br><strong>⏱️ Timing :</strong> 4min
+</aside>
+</section>
+<section id="architecture-technique" data-background-color="inherit" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+<h1>🏗️ Architecture technique</h1>
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> Pipeline en 6 étapes : Question → detmeme → trouveid → jsonsql → lancesql → Résultats
+<br><strong>⏱️ Timing :</strong> 2min
+</aside>
+</section>
+<section id="interface-utilisateur" data-background-color="inherit" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+<h1>🖥️ Interface utilisateur</h1>
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> L&#x27;interface permet de construire visuellement une recherche par clics successifs sur les attributs patients
+<br><strong>⏱️ Timing :</strong> 2min
+</aside>
+</section>
+<section id="fichiers-impliques">
+<h2>📁 Fichiers impliqués</h2>
+<p><!-- TABLE</p>
+<p>titre: "Récapitulatif des fichiers"</p>
+<p>colonnes_cles: "Fichier,Version,Rôle"</p>
+<p>style: "large"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Fichier</th>
+<th>Version</th>
+<th>Rôle</th>
+<th>Lignes clés</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>detmeme.py</code></td>
+<td>V1.0.3</td>
+<td>Parser syntaxe "même X que"</td>
+<td><code>detecter_meme()</code> L272-541</td>
+</tr>
+<tr>
+<td><code>trouveid.py</code></td>
+<td>V1.0.1</td>
+<td>Résolution nom → ID + données patient</td>
+<td><code>enrichir_avec_reference()</code> L127-185</td>
+</tr>
+<tr>
+<td><code>jsonsql.py</code></td>
+<td>V1.0.7</td>
+<td>Génération SQL avec critères "meme"</td>
+<td><code>_generer_clause_meme()</code> L179-343</td>
+</tr>
+<tr>
+<td><code>web24.html</code></td>
+<td>V1.1.1</td>
+<td>Interface utilisateur + JS interactif</td>
+<td><code>memeState</code> L4490-4552, <code>handleMemeClick</code> L4598-4666</td>
+</tr>
+<tr>
+<td><code>web24.css</code></td>
+<td>V1.0.0</td>
+<td>Styles visuels "même"</td>
+<td><code>.meme-*</code> L3247-3375, <code>.meme-reference-card</code> L1336-1345</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h3>Dépendances</h3>
+
+<pre><code>commun.csv (refs/)
+    └── Synonymes &quot;même&quot; et &quot;que&quot;
+    
+standardise.py
+    └── Normalisation texte (accents, casse)</code></pre>
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> 5 fichiers principaux : 2 backend (parsing, SQL), 2 frontend (HTML, CSS), 1 résolution d&#x27;identité
+<br><strong>⏱️ Timing :</strong> 2min
+</aside>
+</section>
+<section id="tests-validation" data-background-color="inherit" style="background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);">
+<h3>Fichiers de test</h3>
+
+<p>Le module <code>detmeme.py</code> supporte l'exécution batch :</p>
+
+<pre><code class="language-bash">python detmeme.py tests/testsmemein.csv --verbose</code></pre>
+
+<p>Génère automatiquement <code>tests/testsmemeout.csv</code> avec les colonnes :</p>
+<ul>
+<li><code>question</code> : Question d'entrée</li>
+<li><code>nb_criteres</code> : Nombre de critères détectés</li>
+<li><code>cibles</code> : Liste des cibles (portrait, sexe, age...)</li>
+<li><code>valeurs</code> : Valeurs spécifiques (tags/pathologies)</li>
+<li><code>labels</code> : Labels affichables</li>
+<li><code>reference</code> : Référence extraite (nom ou id:N)</li>
+<li><code>residu</code> : Texte non parsé</li>
+</ul>
+<h3>Cas de tests critiques</h3>
+
+<p><!-- TABLE</p>
+<p>titre: "Cas de tests essentiels"</p>
+<p>colonnes_cles: "Cas,Question,Attendu"</p>
+<p>style: "compact"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>#</th>
+<th>Question test</th>
+<th>Résultat attendu</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><code>même portrait que Guillaume Moulin</code></td>
+<td>cible=portrait, ref=Guillaume Moulin</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>même âge et même sexe que id 123</code></td>
+<td>cibles=[age,sexe], ref=id:123</td>
+</tr>
+<tr>
+<td>3</td>
+<td><code>mêmes portrait, nom, prénom que Jean Dupont</code></td>
+<td>cibles=[portrait,nom,prenom]</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>même béance antérieure que Marie</code></td>
+<td>cible=pathologie, valeur=béance antérieure</td>
+</tr>
+<tr>
+<td>5</td>
+<td><code>même bruxisme que Paul</code></td>
+<td>cible=tag, valeur=bruxisme</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> Tests batch via fichiers testsmemein.csv → testsmemeout.csv, validation manuelle de l&#x27;interface
+<br><strong>⏱️ Timing :</strong> 3min
+</aside>
+</section>
+<section id="limitations-evolutions">
+<h3>Limitations actuelles (V5.1)</h3>
+
+<ul>
+<li><strong>Patient de référence unique</strong> : Impossible de comparer à plusieurs patients simultanément</li>
+<li><strong>Critères en AND</strong> : Tous les critères sont combinés en ET logique (pas de OU)</li>
+<li><strong>Première pathologie</strong> : Pour "même pathologie", seule la première pathologie du patient de référence est utilisée</li>
+<li><strong>Recherche séquentielle</strong> : La résolution du nom parcourt tous les patients</li>
+</ul>
+<h3>Évolutions prévues (V5.2+)</h3>
+
+<table>
+<thead><tr>
+<th>Version</th>
+<th>Fonctionnalité</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>V5.2</td>
+<td>Multiple références</td>
+<td>"Même X que Patient1 ou Patient2"</td>
+</tr>
+<tr>
+<td>V5.2</td>
+<td>API authentifiée</td>
+<td>Token JWT pour accès externe</td>
+</tr>
+<tr>
+<td>V5.3</td>
+<td>Critères OR</td>
+<td>"Même âge ou même sexe que..."</td>
+</tr>
+<tr>
+<td>V5.3</td>
+<td>Historique de recherche</td>
+<td>Mémorisation des dernières recherches "même"</td>
+</tr>
+</tbody>
+</table>
+
+<h3>Améliorations UX envisagées</h3>
+
+<ul>
+<li><strong>Auto-complétion</strong> des noms de patients dans la barre de recherche</li>
+<li><strong>Preview</strong> du patient de référence au survol</li>
+<li><strong>Raccourcis clavier</strong> pour les critères fréquents</li>
+<li><strong>Export</strong> de la cohorte trouvée en CSV</li>
+</ul>
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> Limitations actuelles : 1 seul patient de référence, pas de combinaisons OR, pas d&#x27;authentification API
+<br><strong>⏱️ Timing :</strong> 3min
+</aside>
+</section>
+<section id="annexes" data-background-color="inherit" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+<h1>📎 Annexes techniques</h1>
+<hr>
+
+<p><strong>Document généré le 21/01/2026</strong> | KITVIEW Search V5 | Fonctionnalité "Même X"</p>
+</section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            showNotes: false,
+            transition: 'slide',
+            plugins: [ RevealNotes, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>

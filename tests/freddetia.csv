@@ -1,0 +1,12 @@
+﻿# Généré par detia.py V1.0.30 avec gpt41mini;;;;;;;;
+# Tests Fred;;;;;;;;
+question;résultat;commentaire;L1;L2;L3;L4;L5;L6
+patientes souffrant de béance antérieure et avec classe II;;;[tag] béance [antérieur];[tag] classe ii d'angle;[sexe] Féminin;Résidu: 'souffrant de et avec';2879ms;
+patientes souffrant de béance antérieure et avec classe II adultes;adultes non pris en compte et béance non détectée;adultes non pris en compte et béance non détectée;[tag] béance [antérieur];[tag] classe ii d'angle;[age] Âge >= 18;[sexe] Féminin;Résidu: 'souffrant de et avec';2888ms
+patientes souffrant de béance antérieure et avec classe II adulte;adulte non pris en compte et béance non détectée;adulte non pris en compte et béance non détectée;[tag] béance [antérieur];[tag] classe ii d'angle;[age] Âge >= 18;[sexe] Féminin;Résidu: 'souffrant de et avec';5083ms
+patientes souffrant de béance antérieure et avec classe II adulte > 18 ans;;;[tag] béance [antérieur];[tag] classe ii d'angle;[age] Âge > 18;[sexe] Féminin;Résidu: '';3563ms
+patientes souffrant de béance antérieure et avec classe II de plus de 18 ans;pas d'âge pris en compte;pas d'âge pris en compte;[tag] béance [antérieur];[tag] classe ii d'angle;[age] Âge > 18;[sexe] Féminin;Résidu: '';2957ms
+patientes adultes souffrant de béance antérieure et avec classe II;adulte pris en compte mais ni béance ni classe 2;adulte pris en compte mais ni béance ni classe 2;[sexe] Féminin;[age] Âge >= 18;[tag] béance [antérieur];[tag] classe ii d'angle;Résidu: 'souffrant de et avec';3569ms
+patientes souffrant de béance antérieure et avec classe II adultes;Ok : âge et sexe détectés par detages;Ok : âge et sexe détectés par detages;[tag] béance [antérieur];[tag] classe ii d'angle;[age] Âge >= 18;[sexe] Féminin;Résidu: 'souffrant de et avec';2811ms
+patientes souffrant de béance antérieure et avec classe II > 18 ans;âge et sexe détectés par detages mais âge trouvé par erreur entre 18 et 19 au lieu de > 18;âge et sexe détectés par detages mais âge trouvé par erreur entre 18 et 19 au lieu de > 18;[tag] béance [antérieur];[tag] classe ii d'angle;[age] Âge > 18;[sexe] Féminin;Résidu: 'souffrant de et avec';2751ms
+patientes souffrant de béance antérieure et avec classe II plus de 18 ans;Ok : âge et sexe détectés par detages;Ok : âge et sexe détectés par detages;[tag] béance [antérieur];[tag] classe ii d'angle;[age] Âge > 18;[sexe] Féminin;Résidu: 'souffrant de et avec';3349ms

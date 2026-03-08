@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta class="notranslate" content="notranslate" name="google"/>
+<title>Kitview Manual' manual</title>
+<link href="https://www.kitview.com/favicon.ico" rel="icon" type="image/png"/>
+<link href="https://www.kitview.com/favicon.ico" rel="apple-touch-icon"/>
+<link rel="stylesheet" href="css/kvm.css">
+<link rel="stylesheet" href="css/themes.css">
+<style>
+/* Styles spécifiques à la page d'aide */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a5a7a 100%);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.feature-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.feature-card .try-it {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+}
+
+.feature-card .try-it:hover {
+    gap: 0.75rem;
+}
+
+.demo-box {
+    background: var(--bg-subtle);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.demo-box.interactive {
+    border-style: solid;
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.05) 0%, rgba(39, 174, 96, 0.1) 100%);
+}
+
+.shortcut-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.shortcut-table th,
+.shortcut-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.shortcut-table th {
+    background: var(--bg-subtle);
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.shortcut-table tr:hover {
+    background: var(--bg-subtle);
+}
+
+.kbd {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 0 var(--border-color);
+}
+
+.tip-highlight {
+    background: linear-gradient(90deg, #fff3cd 0%, #ffeaa7 100%);
+    border-left: 4px solid #f39c12;
+    padding: 1rem 1.5rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    margin: 1.5rem 0;
+}
+
+[data-theme="dark"] .tip-highlight {
+    background: linear-gradient(90deg, rgba(243, 156, 18, 0.2) 0%, rgba(243, 156, 18, 0.1) 100%);
+}
+
+.tip-highlight strong {
+    color: #d68910;
+}
+
+.version-comparison {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.version-card {
+    flex: 1;
+    min-width: 200px;
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.version-card:hover {
+    transform: scale(1.02);
+}
+
+.version-card.standard {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+}
+
+.version-card.debutant {
+    background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+    color: white;
+}
+
+.version-card.intermediaire {
+    background: linear-gradient(135deg, #f1c40f 0%, #d4ac0d 100%);
+    color: #333;
+}
+
+.version-card.expert {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+}
+
+.version-card .version-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.version-card h4 {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.version-card p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.chatbot-demo {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    margin: 1rem 0;
+}
+
+.chatbot-demo .avatar {
+    font-size: 2rem;
+    background: var(--primary-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbot-demo .bubble {
+    flex: 1;
+    background: var(--bg-subtle);
+    padding: 1rem;
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+    position: relative;
+}
+
+.chatbot-demo .bubble::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    border: 5px solid transparent;
+    border-right-color: var(--bg-subtle);
+}
+
+.example-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.example-questions .question {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.example-questions .question:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.back-to-manual {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+}
+
+.back-to-manual:hover {
+    background: var(--primary-hover);
+    transform: translateX(-4px);
+}
+
+.nav-mini {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--bg-subtle);
+    border-radius: var(--border-radius);
+}
+
+.nav-mini a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.nav-mini a:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .version-comparison {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<header class="help-header">
+<div class="header-left">
+<img alt="Kitview Logo" class="logo" src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png"/>
+<h1><span class="icon">❓</span> <span>Manual Guide</span></h1>
+</div>
+<div class="header-center notranslate">
+<!-- Empty for this page -->
+</div>
+<div class="header-right">
+<!-- Language selector -->
+<div class="lang-button-container">
+<button class="lang-button" id="langButton" onclick="toggleLangPopup()">
+<img alt="EN" class="flag-img" id="currentFlag" src="https://flagcdn.com/w40/gb.png"/>
+<span id="currentLangCode">EN</span>
+<span class="dropdown-arrow">▼</span>
+</button>
+<div class="lang-popup" id="langPopup" style="display: none;">
+<div class="lang-popup-header">
+<span>🌐</span> Manual language
+</div>
+<div class="lang-popup-section">
+<div class="lang-popup-label">Select a language</div>
+<div class="chips-container">
+<div class="lang-chip" data-flag="fr" data-lang="fr" onclick="selectLanguage('fr', 'FR', 'fr')">
+<img alt="FR" class="chip-flag" src="https://flagcdn.com/w40/fr.png"/> FR
+</div>
+<div class="lang-chip selected" data-flag="gb" data-lang="en" onclick="selectLanguage('en', 'EN', 'gb')">
+<img alt="EN" class="chip-flag" src="https://flagcdn.com/w40/gb.png"/> EN
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Theme -->
+<button class="icon-button" id="themeToggle" title="Toggle theme">🌙</button>
+<!-- Back to manual -->
+<a href="kvms_en.html" class="back-button notranslate">← Manual</a>
+</div>
+</header>
+
+<!-- Main container -->
+<div class="help-container">
+<!-- Main content (no sidebar) -->
+<main class="help-content" style="max-width: 1000px; margin: 0 auto;">
+<div class="content-card">
+
+<!-- Hero Section -->
+<div class="hero-section">
+<h1>🎯 Welcome to the Manual Guide</h1>
+<p>Discover all the features of this interactive manual and learn how to use it effectively to master Kitview.</p>
+</div>
+
+<!-- Quick navigation -->
+<nav class="nav-mini">
+<a href="#fonctionnalites"><span>✨</span> <span>Features</span></a>
+<a href="#recherche"><span>🔍</span> <span>Search</span></a>
+<a href="#chatbot"><span>🤖</span> <span>AI Assistant</span></a>
+<a href="#versions"><span>📚</span> <span>Versions</span></a>
+<a href="#raccourcis"><span>⌨️</span> <span>Shortcuts</span></a>
+</nav>
+
+<!-- Section 1: Features -->
+<section class="help-section" id="fonctionnalites">
+<h2>✨ Manual Features</h2>
+<p>This manual is not a simple PDF document. It's an interactive web application designed to help you quickly find the information you need.</p>
+
+<div class="feature-grid">
+<div class="feature-card">
+<span class="icon">🔍</span>
+<h3>Instant Search</h3>
+<p>Type any word and instantly find all occurrences in the manual. Results are highlighted in yellow.</p>
+<a href="#recherche" class="try-it">Learn more →</a>
+</div>
+
+<div class="feature-card">
+<span class="icon">🤖</span>
+<h3>Integrated AI Assistant</h3>
+<p>Ask your questions in natural language and get contextual answers based on the manual content.</p>
+<a href="#chatbot" class="try-it">Learn more →</a>
+</div>
+
+<div class="feature-card">
+<span class="icon">📚</span>
+<h3>4 Detail Levels</h3>
+<p>Choose the version adapted to your level: Standard, Beginner (detailed explanations), Intermediate or Expert (essentials only).</p>
+<a href="#versions" class="try-it">Learn more →</a>
+</div>
+
+<div class="feature-card">
+<span class="icon">🌍</span>
+<h3>Multilingual</h3>
+<p>The manual is available in French and English. Other languages are accessible via automatic translation.</p>
+<a href="#langues" class="try-it">Learn more →</a>
+</div>
+
+<div class="feature-card">
+<span class="icon">🌙</span>
+<h3>Dark Mode</h3>
+<p>Switch between light and dark themes according to your preferences or lighting conditions. Click 🌙 in the top right.</p>
+</div>
+
+<div class="feature-card">
+<span class="icon">📱</span>
+<h3>Responsive</h3>
+<p>The manual adapts to all screens: computer, tablet or smartphone. Consult it wherever you are.</p>
+</div>
+</div>
+</section>
+
+<!-- Section 2: Search -->
+<section class="help-section" id="recherche">
+<h2>🔍 Searching the Manual</h2>
+
+<p>The search bar at the top of the screen allows you to instantly find any information in the manual.</p>
+
+<h3>How to search?</h3>
+<ol class="step-list">
+<li>Click in the search bar or press <span class="kbd">Ctrl</span> + <span class="kbd">F</span></li>
+<li>Type your search (e.g., "import photos")</li>
+<li>Results appear instantly, highlighted in yellow</li>
+<li>Use the ◀ Prev and Next ▶ buttons to navigate between results</li>
+</ol>
+
+<div class="tip-highlight">
+<strong>💡 Tip:</strong> Use the section filter to limit the search to a specific chapter of the manual.
+</div>
+
+<h3>Keyboard shortcuts for search</h3>
+<table class="shortcut-table">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="kbd">F3</span></td>
+<td>Next result</td>
+</tr>
+<tr>
+<td><span class="kbd">Shift</span> + <span class="kbd">F3</span></td>
+<td>Previous result</td>
+</tr>
+<tr>
+<td><span class="kbd">Esc</span></td>
+<td>Close search</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- Section 3: Chatbot -->
+<section class="help-section" id="chatbot">
+<h2>🤖 The AI Assistant</h2>
+
+<p>The AI assistant is your personal guide to navigate the manual. Ask it your questions in natural language!</p>
+
+<div class="chatbot-demo">
+<div class="avatar">🤖</div>
+<div class="bubble">
+<p><strong>Kitview Assistant</strong></p>
+<p>Hello! I'm here to help you use Kitview. Ask me your questions, for example:</p>
+<div class="example-questions">
+<span class="question">How do I import photos?</span>
+<span class="question">Create a new patient</span>
+<span class="question">Export to PDF</span>
+</div>
+</div>
+</div>
+
+<h3>How to use the assistant?</h3>
+<ol class="step-list">
+<li>Click the 💬 button at the bottom right of the screen</li>
+<li>Type your question in the text area</li>
+<li>The assistant analyzes the manual and responds with links to relevant sections</li>
+<li>Click the links to go directly to the documentation</li>
+</ol>
+
+<div class="note-box tip">
+<strong>💡 Tip</strong>
+The assistant responds in the manual's language. If you're viewing the English version, ask your questions in English for better results.
+</div>
+
+<h3>Example questions</h3>
+<ul>
+<li>"How do I create a new patient in Kitview?"</li>
+<li>"What's the difference between the viewers?"</li>
+<li>"How do I export photos to my computer?"</li>
+<li>"How do I customize the interface colors?"</li>
+</ul>
+</section>
+
+<!-- Section 4: Versions -->
+<section class="help-section" id="versions">
+<h2>📚 Manual Versions</h2>
+
+<p>The manual exists in 4 versions to adapt to your level of expertise. Use the colored chips at the top of the screen to switch between versions.</p>
+
+<div class="version-comparison">
+<div class="version-card standard">
+<div class="version-icon">📘</div>
+<h4>Standard</h4>
+<p>Complete version with all information</p>
+</div>
+<div class="version-card debutant">
+<div class="version-icon">🟢</div>
+<h4>Beginner</h4>
+<p>Detailed explanations, simple analogies, step by step</p>
+</div>
+<div class="version-card intermediaire">
+<div class="version-icon">🟡</div>
+<h4>Intermediate</h4>
+<p>For users who have the basics</p>
+</div>
+<div class="version-card expert">
+<div class="version-icon">🔴</div>
+<h4>Expert</h4>
+<p>Essentials only, for advanced users</p>
+</div>
+</div>
+
+<div class="tip-highlight">
+<strong>💡 Tip:</strong> Start with the Standard version. If you find the explanations too technical, switch to the Beginner version. If you already master Kitview, the Expert version will save you time.
+</div>
+</section>
+
+<!-- Section 5: Languages -->
+<section class="help-section" id="langues">
+<h2>🌍 Available Languages</h2>
+
+<p>The manual is natively available in French and English. These translations have been carefully made to ensure content quality.</p>
+
+<h3>Native languages</h3>
+<ul>
+<li>🇫🇷 <strong>French</strong> - Original version</li>
+<li>🇬🇧 <strong>English</strong> - Professional translation</li>
+</ul>
+
+<h3>Automatic translation</h3>
+<p>On the web server, other languages are available via Google Translate: German, Spanish, Italian, Portuguese, Polish, Romanian, Thai, Arabic and Chinese.</p>
+
+<div class="note-box warning">
+<strong>⚠️ Note</strong>
+Automatic translation may sometimes produce approximate results. If in doubt, refer to the French or English version.
+</div>
+</section>
+
+<!-- Section 6: Shortcuts -->
+<section class="help-section" id="raccourcis">
+<h2>⌨️ All Keyboard Shortcuts</h2>
+
+<table class="shortcut-table">
+<thead>
+<tr>
+<th>Shortcut</th>
+<th>Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="kbd">Ctrl</span> + <span class="kbd">F</span></td>
+<td>Open search</td>
+</tr>
+<tr>
+<td><span class="kbd">F3</span></td>
+<td>Next result</td>
+</tr>
+<tr>
+<td><span class="kbd">Shift</span> + <span class="kbd">F3</span></td>
+<td>Previous result</td>
+</tr>
+<tr>
+<td><span class="kbd">Esc</span></td>
+<td>Close search / chatbot</td>
+</tr>
+<tr>
+<td><span class="kbd">↑</span> <span class="kbd">↓</span></td>
+<td>Navigate table of contents</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- Back to manual -->
+<div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+<p>Ready to explore the manual?</p>
+<a href="kvms_en.html" class="back-to-manual">← Back to Kitview Manual</a>
+</div>
+
+</div>
+</main>
+</div>
+
+<!-- Footer -->
+<footer class="help-footer">
+Kitview Manual Guide v1.0 - January 2026
+</footer>
+
+<!-- Scripts -->
+<script src="js/kvm.js"></script>
+<script src="js/themes.js"></script>
+<script>
+// Simplified language handling for this page
+function toggleLangPopup() {
+    const popup = document.getElementById('langPopup');
+    popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+}
+
+function selectLanguage(lang, code, flag) {
+    // Redirect to appropriate version
+    if (lang === 'fr') {
+        window.location.href = 'aide.html';
+    } else {
+        window.location.href = 'aide_en.html';
+    }
+}
+
+// Close popup on click outside
+document.addEventListener('click', function(e) {
+    const popup = document.getElementById('langPopup');
+    const button = document.getElementById('langButton');
+    if (!popup.contains(e.target) && !button.contains(e.target)) {
+        popup.style.display = 'none';
+    }
+});
+</script>
+
+</body>
+</html>

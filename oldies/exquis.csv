@@ -1,0 +1,96 @@
+﻿# exquis.csv V1.0.0 - 08/12/2025 00:15:57
+# -*- coding: utf-8-sig -*-
+# exquis.csv V1.0.0 - 07/12/2025 18:45
+# Fichier de bribes pour gÃ©nÃ©ration de phrases "cadavres exquis"
+# Convention : {T1} Ã  {T4} = placeholders pour tags (pathologies qualifiÃ©es)
+# Convention : {G1} Ã  {G3} = accord en genre avec le tag prÃ©cÃ©dent (e si fÃ©minin)
+# Convention : Colonnes vides aprÃ¨s un tag = fin de phrase (moins de 4 tags)
+# SÃ©parateur : ; | Encodage : UTF-8-BOM
+#
+A;B;C;D;E;F;G;H;I
+# ============================================================================
+# PATTERNS Ã€ 1 TAG (colonnes C Ã  H vides)
+# ============================================================================
+Quels patients ont;{T1};;;;;;;?
+Quels patients prÃ©sentent;{T1};;;;;;;?
+Quels patients souffrent de;{T1};;;;;;;?
+Combien de patients ont;{T1};;;;;;;?
+Combien de patients prÃ©sentent;{T1};;;;;;;?
+Combien de patients souffrent de;{T1};;;;;;;?
+Montre-moi les patients ayant;{T1};;;;;;;
+Montre-moi les patients avec;{T1};;;;;;;
+Trouve les patients ayant;{T1};;;;;;;
+Trouve les patients prÃ©sentant;{T1};;;;;;;
+Recherche les patients avec;{T1};;;;;;;
+Affiche les patients souffrant de;{T1};;;;;;;
+Je cherche les patients ayant;{T1};;;;;;;
+Je veux les patients avec;{T1};;;;;;;
+Donne-moi les patients prÃ©sentant;{T1};;;;;;;
+# ============================================================================
+# PATTERNS Ã€ 2 TAGS (colonnes E Ã  H vides)
+# ============================================================================
+Quels patients ont;{T1};et;{T2};;;;;?
+Quels patients ont;{T1};avec;{T2};;;;;?
+Quels patients ont;{T1};associÃ©{G1} Ã ;{T2};;;;;?
+Quels patients ont;{T1};combinÃ©{G1} avec;{T2};;;;;?
+Quels patients prÃ©sentent;{T1};et;{T2};;;;;?
+Quels patients prÃ©sentent;{T1};avec;{T2};;;;;?
+Quels patients prÃ©sentent;{T1};associÃ©{G1} Ã ;{T2};;;;;?
+Quels patients souffrent de;{T1};et de;{T2};;;;;?
+Quels patients souffrent de;{T1};ainsi que de;{T2};;;;;?
+Combien de patients ont;{T1};et;{T2};;;;;?
+Combien de patients ont;{T1};avec;{T2};;;;;?
+Combien de patients ont;{T1};associÃ©{G1} Ã ;{T2};;;;;?
+Combien de patients prÃ©sentent;{T1};et;{T2};;;;;?
+Combien de patients prÃ©sentent;{T1};combinÃ©{G1} avec;{T2};;;;;?
+Combien de patients souffrent de;{T1};et de;{T2};;;;;?
+Montre-moi les patients ayant;{T1};et;{T2};;;;;
+Montre-moi les patients ayant;{T1};avec;{T2};;;;;
+Montre-moi les patients ayant;{T1};associÃ©{G1} Ã ;{T2};;;;;
+Trouve les patients avec;{T1};et;{T2};;;;;
+Trouve les patients avec;{T1};combinÃ©{G1} avec;{T2};;;;;
+Trouve les patients prÃ©sentant;{T1};ainsi que;{T2};;;;;
+Recherche les patients ayant;{T1};et;{T2};;;;;
+Recherche les patients ayant;{T1};avec;{T2};;;;;
+Affiche les patients souffrant de;{T1};et de;{T2};;;;;
+Je cherche les patients ayant;{T1};et;{T2};;;;;
+Je cherche les patients ayant;{T1};associÃ©{G1} Ã ;{T2};;;;;
+Je veux les patients avec;{T1};et;{T2};;;;;
+Je veux les patients prÃ©sentant;{T1};combinÃ©{G1} avec;{T2};;;;;
+# ============================================================================
+# PATTERNS Ã€ 3 TAGS (colonnes G et H vides)
+# ============================================================================
+Quels patients ont;{T1};et;{T2};avec;{T3};;;?
+Quels patients ont;{T1};associÃ©{G1} Ã ;{T2};et;{T3};;;?
+Quels patients ont;{T1};avec;{T2};et;{T3};;;?
+Quels patients prÃ©sentent;{T1};et;{T2};associÃ©{G2} Ã ;{T3};;;?
+Quels patients prÃ©sentent;{T1};combinÃ©{G1} avec;{T2};et;{T3};;;?
+Quels patients souffrent de;{T1};et de;{T2};avec;{T3};;;?
+Combien de patients ont;{T1};et;{T2};avec;{T3};;;?
+Combien de patients ont;{T1};associÃ©{G1} Ã ;{T2};et;{T3};;;?
+Combien de patients ont;{T1};avec;{T2};combinÃ©{G2} avec;{T3};;;?
+Combien de patients prÃ©sentent;{T1};et;{T2};et;{T3};;;?
+Combien de patients prÃ©sentent;{T1};avec;{T2};associÃ©{G2} Ã ;{T3};;;?
+Montre-moi les patients ayant;{T1};et;{T2};avec;{T3};;;
+Montre-moi les patients ayant;{T1};associÃ©{G1} Ã ;{T2};et;{T3};;;
+Trouve les patients avec;{T1};et;{T2};prÃ©sentant aussi;{T3};;;
+Trouve les patients prÃ©sentant;{T1};combinÃ©{G1} avec;{T2};et;{T3};;;
+Recherche les patients ayant;{T1};avec;{T2};et;{T3};;;
+Je cherche les patients ayant;{T1};et;{T2};associÃ©{G2} Ã ;{T3};;;
+Je veux les patients avec;{T1};combinÃ©{G1} avec;{T2};et;{T3};;;
+# ============================================================================
+# PATTERNS Ã€ 4 TAGS (structure complÃ¨te)
+# ============================================================================
+Quels patients ont;{T1};et;{T2};avec;{T3};et;{T4};?
+Quels patients ont;{T1};associÃ©{G1} Ã ;{T2};et;{T3};avec;{T4};?
+Quels patients ont;{T1};avec;{T2};combinÃ©{G2} avec;{T3};et;{T4};?
+Quels patients prÃ©sentent;{T1};et;{T2};associÃ©{G2} Ã ;{T3};et;{T4};?
+Quels patients prÃ©sentent;{T1};combinÃ©{G1} avec;{T2};et;{T3};prÃ©sentant aussi;{T4};?
+Combien de patients ont;{T1};et;{T2};avec;{T3};et;{T4};?
+Combien de patients ont;{T1};associÃ©{G1} Ã ;{T2};combinÃ©{G2} avec;{T3};et;{T4};?
+Combien de patients prÃ©sentent;{T1};et;{T2};et;{T3};associÃ©{G3} Ã ;{T4};?
+Montre-moi les patients ayant;{T1};et;{T2};avec;{T3};et;{T4};
+Montre-moi les patients ayant;{T1};associÃ©{G1} Ã ;{T2};et;{T3};combinÃ©{G3} avec;{T4};
+Trouve les patients avec;{T1};et;{T2};prÃ©sentant aussi;{T3};et;{T4};
+Trouve les patients prÃ©sentant;{T1};combinÃ©{G1} avec;{T2};associÃ©{G2} Ã ;{T3};et;{T4};
+Je cherche les patients ayant;{T1};et;{T2};avec;{T3};prÃ©sentant aussi;{T4};

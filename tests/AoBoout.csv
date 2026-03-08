@@ -1,0 +1,48 @@
+﻿# AoBoout.csv V1.0.1 - 14/01/2026 17:23:12
+# Fichier de test pour la détection AO-BO (Wits) et angles céphalo;;;;
+# OPTION A : Classification clinique via évaluation intelligente;;;;
+# Seuils AO-BO : Classe I (-1 à 1 mm), Classe II (> 1 mm), Classe III (< -1 mm);;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# CAS DU FICHIER JEU.TXT;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# TESTS ANB - Évaluation intelligente;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# TESTS SNA - Évaluation intelligente;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# TESTS SNB - Évaluation intelligente;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# TESTS AO-BO / WITS - Diverses formes;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+# TESTS COMBINÉS;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;
+question;nb_criteres;canoniques;labels;residu
+Les patients qui ont un angle SNA supérieur à 84 et qui ont une longueur Ao Bo de moins de 5 mm;2;classe ii squelettique, maxillaire normopositionné;Classe II squelettique (Wits) (AOBO < 5mm), Position maxillaire normale (SNA > 84°);les patients qui ont un angle et qui ont une mm
+Les filles entre 10 et 16 ans et qui ont été traitées avant 2014 et qui ont une longueur Ao Bo de moins de 3 mm;1;classe ii squelettique;Classe II squelettique (Wits) (AOBO < 3mm);les filles entre 10 et 16 ans et qui ont ete traitees avant 2014 et qui ont une mm
+Les filles entre 10 et 16 ans et qui ont été traitées avant 2014 et qui ont une longueur Ao Bo entre 0 et 5 mm;1;classe i squelettique;Classe I squelettique (Wits 0 à 5 mm);les filles 10 16 ans qui ont ete traitees avant 2014 qui ont une longueur mm
+Je voudrais les patients avec un angle ANB = 0°;1;classe iii squelettique;Classe III squelettique (ANB = 0°);je voudrais les patients avec un
+Les patients avec ANB > 5;1;classe ii squelettique;Classe II squelettique;les patients avec
+Les patients avec ANB < 1;1;classe iii squelettique;Classe III squelettique;les patients avec
+Les patients avec ANB entre 2 et 4;1;classe i squelettique;Classe I squelettique (ANB 2° à 4°);les patients avec
+Les patients avec SNA supérieur à 84;1;maxillaire normopositionné;Position maxillaire normale (SNA > 84°);les patients avec
+Les patients avec SNA > 88;1;prognathisme maxillaire;Prognathisme maxillaire;les patients avec
+Les patients avec SNA < 78;1;rétrognathie maxillaire;Rétrognathie maxillaire;les patients avec
+Les patients avec angle SNA = 83;1;maxillaire normopositionné;Position maxillaire normale;les patients avec
+Les patients avec SNB > 85;1;prognathie mandibulaire;Prognathie mandibulaire;les patients avec
+Les patients avec SNB < 75;1;rétrognathie mandibulaire;Rétrognathie mandibulaire;les patients avec
+Les patients avec SNB = 80;1;mandibule normopositionnée;Position mandibulaire normale;les patients avec
+Les patients avec ao bo = 0 mm;1;classe i squelettique;Classe I squelettique (Wits);les patients avec mm
+Les patients avec ao bo = 3 mm;1;classe ii squelettique;Classe II squelettique (Wits) (AOBO = 3mm);les patients avec mm
+Les patients avec ao bo = -3 mm;1;classe iii squelettique;Classe III squelettique (Wits) (AOBO = -3mm);les patients avec mm
+Les patients avec wits > 2 mm;1;classe ii squelettique;Classe II squelettique (Wits);les patients avec mm
+Les patients avec wits < -2 mm;1;classe iii squelettique;Classe III squelettique (Wits);les patients avec mm
+Les patients avec wits entre -1 et 1 mm;1;classe i squelettique;Classe I squelettique (Wits -1 à 1 mm);les patients avec mm
+Les patients avec longueur ao bo de plus de 4 mm;1;classe ii squelettique;Classe II squelettique (Wits);les patients avec mm
+Les patients avec longueur ao bo de moins de -2 mm;1;classe iii squelettique;Classe III squelettique (Wits);les patients avec mm
+Les patients avec SNA < 78 et wits > 2 mm;2;rétrognathie maxillaire, classe ii squelettique;Rétrognathie maxillaire, Classe II squelettique (Wits);les patients avec et mm
+Les patients avec SNB > 84 et ao bo = -3 mm;2;classe iii squelettique, prognathie mandibulaire;Classe III squelettique (Wits) (AOBO = -3mm), Prognathie mandibulaire;les patients avec et mm
+Les patients avec ANB > 5 et SNA > 87;1;classe ii squelettique;Classe II squelettique;les patients avec et sna 87

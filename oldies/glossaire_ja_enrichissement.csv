@@ -1,0 +1,63 @@
+﻿# glossaire_ja_enrichissement.csv V1.0.0 - 04/01/2026 18:27:53
+# Généré par Claude le 04/01/2026
+# 
+# INSTRUCTIONS :
+# 1. Vérifier chaque proposition avec un locuteur natif ou spécialiste
+# 2. Ajouter les termes validés dans glossaire.csv
+# 3. Format: soit remplacer le terme existant, soit ajouter en synonyme (virgule)
+#
+# LÉGENDE :
+# - type: t=tag, a=adjectif, pt=pattern tag
+# - action: REMPLACER = terme actuel incorrect, AJOUTER = synonyme à ajouter
+# - ja_actuel: ce qui est dans le glossaire actuellement
+# - ja_propose: terme japonais orthodontique correct
+# - note: explication
+#
+type;fr;ja_actuel;ja_propose;action;note
+# ═══════════════════════════════════════════════════════════════════════════
+# ERREURS CRITIQUES (traductions complètement fausses)
+# ═══════════════════════════════════════════════════════════════════════════
+t;canine;イヌ;犬歯;REMPLACER;イヌ = chien! 犬歯 (kenshi) = dent canine
+t;infraclusion;おとり捜査;開咬;REMPLACER;おとり捜査 = enquête sous couverture! 開咬 (kaiko) = open bite
+t;béance;がらんどう;開咬;REMPLACER;がらんどう = vide/creux. 開咬 (kaiko) = open bite orthodontique
+t;crowding;押し合い;叢生;REMPLACER;押し合い = bousculade. 叢生 (sosai) = encombrement dentaire
+t;inclusion;包含;埋伏;REMPLACER;包含 = inclusion abstraite. 埋伏 (maibuku) = dent incluse
+# ═══════════════════════════════════════════════════════════════════════════
+# TERMES À ENRICHIR (ajouter synonyme orthodontique)
+# ═══════════════════════════════════════════════════════════════════════════
+t;avulsion;剥離;抜歯;AJOUTER;剥離 = ablation générique. 抜歯 (basshi) = extraction dentaire
+t;supraclusion;上包接;過蓋咬合;AJOUTER;過蓋咬合 (kagaikōgō) = deep bite - terme standard
+t;extraction;抽出;抜歯;AJOUTER;抽出 = extraction abstraite. 抜歯 = extraction dentaire
+t;extraction dentaire;抜歯;-;OK;Correct
+t;prognathie;突顎;下顎前突;AJOUTER;下顎前突 (kagaku-zentotsu) = prognathie mandibulaire
+t;rétrognathie;顎退行症;下顎後退;AJOUTER;下顎後退 (kagaku-kōtai) = rétrognathie
+t;diastème;ジアステマ;正中離開;AJOUTER;正中離開 (seichū-rikai) = diastème médian
+# ═══════════════════════════════════════════════════════════════════════════
+# TERMES MANQUANTS (à ajouter au glossaire)
+# ═══════════════════════════════════════════════════════════════════════════
+t;overbite;(manquant);過蓋咬合;NOUVEAU;過蓋咬合 = supraclusion/overbite
+t;overjet;(manquant);上顎前突;NOUVEAU;上顎前突 (jōgaku-zentotsu) = overjet
+t;crossbite;(manquant);交叉咬合;NOUVEAU;交叉咬合 (kōsa-kōgō) = articulé croisé
+t;occlusion croisée;(manquant);交叉咬合;NOUVEAU;Même terme que crossbite
+t;prémolaire;(manquant);小臼歯;NOUVEAU;小臼歯 (shōkyūshi) = prémolaire
+t;molaire;大臼歯;-;OK;Correct: 大臼歯 (daikyūshi)
+# ═══════════════════════════════════════════════════════════════════════════
+# ADJECTIFS À VÉRIFIER
+# ═══════════════════════════════════════════════════════════════════════════
+a;droit;右;-;OK;右 (migi) = droite - correct
+a;gauche;左;-;OK;左 (hidari) = gauche - correct
+a;antérieur;前;前方;AJOUTER;前方 (zenpō) = antérieur (plus précis anatomiquement)
+a;postérieur;バック;後方;REMPLACER;バック = back (anglicisme). 後方 (kōhō) = postérieur
+a;modéré;控えめ;中等度;AJOUTER;中等度 (chūtōdo) = modéré (terme médical)
+a;sévère;(vérifier);重度;AJOUTER;重度 (jūdo) = sévère (terme médical)
+a;léger;(vérifier);軽度;AJOUTER;軽度 (keido) = léger (terme médical)
+# ═══════════════════════════════════════════════════════════════════════════
+# TERMES COMPOSÉS IMPORTANTS (patterns)
+# ═══════════════════════════════════════════════════════════════════════════
+pt;classe i d'angle;アングル・クラス I;-;OK;Correct (notation internationale)
+pt;classe ii d'angle;アングル・クラス II;-;OK;Correct
+pt;classe iii d'angle;アングル・クラスIII;-;OK;Correct
+pt;béance antérieure;(compose);前歯部開咬;NOUVEAU;前歯部開咬 = béance antérieure
+pt;béance latérale;(compose);側方開咬;NOUVEAU;側方開咬 = béance latérale
+pt;avulsion immédiate;(compose);即時抜歯;NOUVEAU;即時抜歯 = avulsion immédiate
+pt;avulsion différée;(compose);延期抜歯;NOUVEAU;延期抜歯 = avulsion différée

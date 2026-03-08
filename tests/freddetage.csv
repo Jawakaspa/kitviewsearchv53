@@ -1,0 +1,11 @@
+﻿# Tests Fred;;;;;
+question;résultat;commentaire;L1;L2;L3
+patientes souffrant de béance antérieure et avec classe II;;;[sexe] Féminin;Résidu: 'souffrant de beance anterieure et avec classe ii';
+patientes souffrant de béance antérieure et avec classe II adultes;adultes non pris en compte et béance non détectée;adultes non pris en compte et béance non détectée;[age] adultes;[sexe] Féminin;Résidu: 'souffrant de beance anterieure et avec classe ii'
+patientes souffrant de béance antérieure et avec classe II adulte;adulte non pris en compte et béance non détectée;adulte non pris en compte et béance non détectée;[age] adulte;[sexe] Féminin;Résidu: 'souffrant de beance anterieure et avec classe ii'
+patientes souffrant de béance antérieure et avec classe II adulte > 18 ans;;;[age] plus de 18 ans;[sexe] Féminin;Résidu: 'souffrant de beance anterieure et avec classe ii'
+patientes souffrant de béance antérieure et avec classe II de plus de 18 ans;pas d'âge pris en compte;pas d'âge pris en compte;[age] plus age que 18 ans;[sexe] Féminin;Résidu: 'souffrant de beance anterieure et avec classe ii de'
+patientes adultes souffrant de béance antérieure et avec classe II;adulte pris en compte mais ni béance ni classe 2;adulte pris en compte mais ni béance ni classe 2;[age] adultes;[sexe] Féminin;Résidu: 'souffrant de beance anterieure et avec classe ii'
+patientes souffrant de béance antérieure et avec classe II adultes;Ok : âge et sexe détectés par detages;Ok : âge et sexe détectés par detages;[age] adultes;[sexe] Féminin;Résidu: 'souffrant de beance anterieure et avec classe ii'
+patientes souffrant de béance antérieure et avec classe II > 18 ans;âge et sexe détectés par detages mais âge trouvé par erreur entre 18 et 19 au lieu de > 18;âge et sexe détectés par detages mais âge trouvé par erreur entre 18 et 19 au lieu de > 18;[age] plus de 18 ans;[sexe] Féminin;Résidu: 'souffrant de beance anterieure et avec classe ii'
+patientes souffrant de béance antérieure et avec classe II plus de 18 ans;Ok : âge et sexe détectés par detages;Ok : âge et sexe détectés par detages;[age] plus age que 18 ans;[sexe] Féminin;Résidu: 'souffrant de beance anterieure et avec classe ii'

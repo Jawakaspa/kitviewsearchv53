@@ -1,0 +1,11 @@
+﻿# associations_semantiques.csv V1.0.0 - 05/01/2026 08:42:13
+# Associations cliniques pertinentes identifiées par l'IA
+# Format: terme_source;tag_equivalent;justification
+terme_source;tag_equivalent;justification_clinique
+adultes;dentition permanente;Un adulte a par définition une dentition permanente
+enfants;dentition mixte;Souvent vrai mais pas toujours (bébés = temporaire)
+prognathisme mandibulaire;classe iii d'angle;Mandibule avancée = relation molaire classe III
+rétrusion;classe ii d'angle;Rétrusion = recul mandibulaire = classe II
+tong e;interposition linguale;tong e traite l'interposition linguale
+proalvéolie;bipro;Proalvéolie = biproalvéolie quand bilatéral
+spacing;diastème;Spacing = diastèmes multiples

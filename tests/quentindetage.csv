@@ -1,0 +1,7 @@
+﻿# Tests Quentin;;;
+question;L1;L2;L3
+patients en classe 2 agés de plus de 20 ans et de moins de 23 ans;[age] moins de 23 ans;[age] plus age que 20 ans;Résidu: 'patients en classe 2 ages de et de'
+Patient compris entre 13 et 16 avec une classe d'angle de 1 uniquement;[age] entre 13 et 16 ans;Résidu: 'patient avec une classe d angle de 1 uniquement';
+Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3;[age] moins de 23 ans;[age] plus age que 17 ans;Résidu: 'patients avec un age et de classe 3'
+Patient enfant avec rétrognathie et ou classe 2;[age] enfant;Résidu: 'patient avec retrognathie et ou classe 2';
+Patient metal compris entre 20 e 24 ans;[age] entre 20 et 24 ans;Résidu: 'patient metal compris';

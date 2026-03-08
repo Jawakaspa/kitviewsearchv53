@@ -1,0 +1,53 @@
+﻿# adjectifs.csv V2.1.0 - 06/02/2026
+# Ajout: chirurgical, ectopique, inférieur, invisible, labial, labio-palatin, palatin, retardé, supérieur
+# Corrigé: temporo (formes féminines/plurielles corrigées)
+# V2.1.0: Fusion supérieur→maxillaire, inférieur→mandibulaire (cross-patterns résolus)
+a;f;mp;fp;pas
+amovible;amovible;amovibles;amovibles;détachable,extractible,qui s'enlève
+antérieur;antérieure;antérieurs;antérieures;antérieure,antérieures,avant,avants,face,devant,incisive,vers l'avant,de l'avant
+atypique;atypique;atypiques;atypiques;anormal,anormale,anormales,anormaux
+bactérien;bactérienne;bactériens;bactériennes;
+bilatéral;bilatérale;bilatéraux;bilatérales;des deux côtés,deux côtés,de chaque côté,les deux côtés,bilateral
+bénin;bénigne;bénins;bénignes;pas grave
+central;centrale;centraux;centrales;milieu,milieux,au centre,du centre
+chirurgical;chirurgicale;chirurgicaux;chirurgicales;opératoire,de chirurgie
+complet;complète;complets;complètes;total,totale,totales,totaux
+différé;différée;différés;différées;plus tard,reporté,reportée
+digital;digitale;digitaux;digitales;doigt,du doigt
+diurne;diurne;diurnes;diurnes;du jour,du matin,du soir,jour,le jour,le matin,le soir,matin,soir,pendant la journée
+division 1;division 1;division 1;division 1;div 1,div1,d1
+division 2;division 2;division 2;division 2;div 2,div2,d2
+droit;droite;droits;droites;de droite,à droite,coté droit,côté droit
+ectopique;ectopique;ectopiques;ectopiques;mal placé,mal placée,hors arcade,en dehors
+encombré;encombrée;encombrés;encombrées;rempli,trop serré
+fixe;fixe;fixes;fixes;ancré,ancrée,ancrées,ancrés,permanent,collé
+frontal;frontale;frontaux;frontales;de face
+gauche;gauche;gauches;gauches;à gauche,de gauche,coté gauche,côté gauche
+idéal;idéale;idéaux;idéales;harmonieuse,harmonieuses,harmonieux,parfait,parfaite,parfaites,parfaits,optimal,optimale
+immédiat;immédiate;immédiats;immédiates;maintenant,tout de suite,de suite
+incisif;incisive;incisifs;incisives;dent du centre,dents centrales
+inclus;incluse;inclus;incluses;incluse,incluses,inclusse,intégré,intégrée,intégrées,intégrés,retenu,retenue
+infectieux;infectieuse;infectieux;infectieuses;infecté,infectée,infectées,infectés,avec infection
+invisible;invisible;invisibles;invisibles;transparent,transparente,transparents,transparentes,discret,discrète,esthétique
+labial;labiale;labiaux;labiales;de la lèvre,des lèvres,lèvre
+labio-palatin;labio-palatine;labio-palatins;labio-palatines;lèvre et palais,labiopalatin,labiopalatine
+latéral;latérale;latéraux;latérales;côté,côtés,sur le côté,de côté
+mandibulaire;mandibulaire;mandibulaires;mandibulaires;bas,en bas,du bas,mâchoire du bas,inférieur,inférieure,arcade inférieure,arc inférieur,sous
+maxillaire;maxillaire;maxillaires;maxillaires;en haut,haut,du haut,mâchoire du haut,supérieur,supérieure,arcade supérieure,arc supérieur,sus
+modéré;modérée;modérés;modérées;léger,légère,légere,légeres,légers,moyen,moyenne,pas trop grave,intermédiaire
+nocturne;nocturne;nocturnes;nocturnes;la nuit,pendant la nuit,de nuit
+palatin;palatine;palatins;palatines;du palais,palais,voûte palatine
+permanent;permanente;permanents;permanentes;définitif,définitive,définitives,définitifs,pour toujours,à vie
+post-traumatique;post-traumatique;post-traumatiques;post-traumatiques;après trauma,suite à un choc
+postérieur;postérieure;postérieurs;postérieures;arrière,arrières,derrière,derrières,postérieure,postérieures,du fond
+programmé;programmée;programmés;programmées;prévu,prévue,prévues,prévus,planifié,planifiée
+pubertaire;pubertaire;pubertaires;pubertaires;de la puberté
+retardé;retardée;retardés;retardées;en retard,tardif,tardive,tardifs,tardives,différé
+réductible;réductible;réductibles;réductibles;qui se réduit
+septique;septique;septiques;septiques;
+symétrique;symétrique;symétriques;symétriques;équilibré,équilibrée,équilibrées,équilibrés,égal,égale
+sévère;sévère;sévères;sévères;complexe,complexes,grave,graves,important,importante,importantes,importants,majeur,majeure,majeures,majeurs,marqué,marquée,marquées,marqués,prononcé,prononcée,prononcées,prononcés,très prononcé,très marqué,extrême,très important,accentué,accentuée
+temporo;temporo-mandibulaire;temporo-mandibulaires;temporo-mandibulaires;temporo mandibulaire,temporo mandibulaires,temporo-mandibulaire,temporo-mandibulaires
+total;totale;totaux;totales;entier,entière,entières,entiers,complet,complète
+traumatique;traumatique;traumatiques;traumatiques;blessure,blessures,lésion,lésions,plaie,plaies,trauma,traumas,suite à un choc
+unilatéral;unilatérale;unilatéraux;unilatérales;asymétrique,asymétriques,subdivision,unilatéraux,d'un seul côté,un seul côté

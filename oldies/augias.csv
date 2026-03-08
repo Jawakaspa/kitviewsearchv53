@@ -1,0 +1,244 @@
+﻿# pathoori.csv V1.0.9 - 04/12/2025 11:54:37;
+original;synonymes
+activateur;activateur,appareil fonctionnel,functional appliance,appareil amovible fonctionnel,appareil d'activation,activateur orthodontique,monobloc,activateur de classe II
+agénésie;agenesie,dent manquante,absence de dent,hypodontie,oligodontie,anodontie,dent absente
+alignement;alignement,redressement,correction,straightening,alignement dentaire,alignement des dents
+ANB;anb,angle ANB,relation intermaxillaire,décalage squelettique,mesure ANB,relation antéropostérieure,angle squelettique,relation maxillo-mandibulaire
+ankylose;ankylose,dent ankylosée,fusion osseuse,ankilose
+apnée du sommeil;apnee du sommeil,sleep apnea,OSA,obstructive sleep apnea,syndrome d'apnées obstructives du sommeil,SAOS,ronflement
+arc;arc,fil orthodontique,fil,wire,archwire,fil métallique,fil rond,fil rectangulaire,fil d'arc,arc orthodontique
+arcade;arcade,arcade dentaire,arc dentaire,dental arch,arcade maxillaire,arcade mandibulaire
+arthrite;arthrite,INFLAMMATION ARTICULAIRE,ARTHROPATHIE INFLAMMATOIRE
+arthrite infectieuse;arthrite infectieuse,ARTHRITE SEPTIQUE,ARTHRITE BACTERIENNE,PYARTHROSE
+arthrite traumatique;arthrite traumatique,ARTHRITE POST TRAUMATIQUE,ARTHROPATHIE TRAUMATIQUE,INFLAMMATION ARTICULAIRE TRAUMATIQUE
+arthrose;arthrose,OSTEOARTHRITE,ARTHROPATHIE DEGENERATIVE,MALADIE ARTICULAIRE DEGENERATIVE
+asymétrie faciale;asymetrie faciale,visage asymétrique,déviation faciale
+ATM;atm,articulation temporo-mandibulaire,troubles ATM,dysfonction temporo-mandibulaire,TMJ,TMD
+avulsion;avulsion,arrachage dentaire,arracher,dédentation,enlever,exodontie,extraction,extraction dentaire,extraire,tooth extraction
+avulsion immédiate;avulsion immediate,extraction immédiate,exodontie immédiate
+bagues;bagues,brackets,attaches,broches,braces,bracket,appareil orthodontique,appareil dentaire,appareil multi-attaches,attaches orthodontiques,boîtiers orthodontiques
+béance;beance,béance dentaire,espace entre les dents,morsure béante,morsure ouverte,trou,open bite,openbite, sous-occlusion
+béance antérieure;beance anterieure,anterior open bite,anterior openbite,ouverture antérieure,écart antérieur,béance face,béance antérieure face
+béance antérieure droite;beance anterieure droite,INFRACLUSION ANTERIEURE DROITE,OPEN BITE ANTERIEUR DROIT,OPENBITE ANTERIEUR DROIT,béance face droite
+béance antérieure gauche;beance anterieure gauche,INFRACLUSION ANTERIEURE GAUCHE,OPEN BITE ANTERIEUR GAUCHE,OPENBITE ANTERIEUR GAUCHE,béance face gauche
+béance latérale;beance laterale,INFRACLUSION LATERALE,OPEN BITE LATERAL,,OPENBITE LATERAL
+béance latérale droite;beance laterale droite,béance droite,open bite droite,openbite droite
+béance latérale gauche;beance laterale gauche,béance gauche,open bite gauche,openbite gauche
+béance postérieure;beance posterieure,ouverture postérieure,posterior open bite,posterior openbite,écart postérieur
+béance postérieure droite;beance posterieure droite
+béance postérieure gauche;beance posterieure gauche
+bielles;bielles,bielle,Forsus,PowerScope,système de bielles
+bruxisme;bruxisme,bruxisme nocturne,bruxomanie,clenching,grincement,grincement des dents,grincements nocturnes,grinding,serrement,usure dentaire,grince des dents,grince avec dents,grince dents,grince,grincent des dents
+canine;canine,canines,croc,cuspide,dent canine,dent de loup,canine incluse
+caries dentaires;caries dentaires,carie,cavité,tooth decay,dental caries,lésion carieuse,caries
+céphalométrie;cephalometrie,téléradiographie,téléradio,lateral ceph,profil,cephalo,radio de profil,télécrâne,radiographie de profil
+céramique;ceramique,ceramic,esthétique,transparent,brackets céramiques,attaches céramiques
+chirurgie;chirurgie,intervention,opération,surgery,opérer,chirurgie maxillaire,chirurgie mandibulaire,opération mâchoire,orthognathic surgery,chirurgie maxillo-faciale
+Propulsor;CI II Propulseur,CI 2 Propulseur,CIasse II Propulseur,Classe 2 Propulseur,propulseur classe II,Propulsor
+claquement articulaire droite;claquement articulaire droite,claquement ATM droite,clicking droite
+claquement articulaire face;claquement articulaire face,claquement ATM face,clicking face
+claquement articulaire gauche;claquement articulaire gauche,claquement ATM gauche,clicking gauche
+claquement articulaire léger gauche;claquement articulaire léger gauche
+classe I;neutro-occlusion,classe molaire I,class I malocclusion
+Classe I avec diastèmes;classe i avec diastemes,Classe I avec espaces,Normocclusion avec diastèmes,Classe I espacée
+Classe I avec encombrement;classe i avec encombrement,Classe I encombrée,Normocclusion avec chevauchement,Classe I avec malpositions
+classe I d'Angle;Neutrocclusion,Occlusion normale,Relation molaire de Classe I,Normocclusion,Classe 1 Dentaire,relation molaire neutre,classe I d'Angle,classe 1,classe I,classe  dentaire,classe 1 d'angle,dentaire de classe i,classe I dentaire,dentaire de Classe 1,dentaire  Classe 1,d'Angle de Classe 1,d'Angle  Classe 1
+classe I squelettique;classe i squelettique,Normognathie,Orthognathie,Relation basale normale,Équilibre squelettique,Classe 1 Squelettique,Relation squelettique normale,base osseuse équilibrée,classe i osseuse,harmonie squelettique,relation normale des bases osseuses,squelettique de Classe 1,squelettique  Classe 1
+classe II;rétrogénie mandibulaire,décalage classe 2,class II malocclusion,classe II molaire
+classe II d'Angle;Distocclusion,Rétrognathie dentaire,Surplomb horizontal augmenté,Overjet augmenté,Classe 2 Dentaire,surplomb horizontal accru,classe II d'Angle,distocclusion dentaire,classe 2,classe II,classe 2 d'angle,classe dentaire ii,classe molaire ii,disto-occlusion,rétrusion,rétrusion dentaire,dentaire de Classe 2,dentaire  Classe 2,d'Angle de Classe 2,d'Angle  Classe 2
+Classe II d'Angle modérée;classe ii dentaire moderee,Distocclusion modérée,Rétrognathie dentaire modérée,Surplomb horizontal augmenté modéré,Overjet augmenté modéré,Classe 2 Dentaire modérée,rétro-alvéolie modérée,surplomb horizontal accru modéré,classe II d'Angle modérée,distocclusion dentaire modérée,classe 2 modérée,classe II modérée,dentaire de Classe 2 modérée,dentaire  Classe 2 modérée,d'Angle de Classe 2 modérée,d'Angle  Classe 2 modérée
+Classe II d'Angle sévère;classe ii dentaire severe,Distocclusion sévère,Rétrognathie dentaire sévère,Surplomb horizontal augmenté sévère,Overjet augmenté sévère,Classe 2 Dentaire sévère,rétro-alvéolie sévère,surplomb horizontal accru sévère,classe II d'Angle sévère,distocclusion dentaire sévère,classe 2 sévère,classe II sévère,dentaire de Classe 2 sévère,dentaire  Classe 2 sévère,d'Angle de Classe 2 sévère,d'Angle  Classe 2 sévère
+classe II division 1;classe ii division 1,Classe II Div 1,CII/1,Incisives supérieures en proalvéolie,Classe II avec overjet augmenté,proalvéolie,incisives versées en avant
+classe II division 2;classe ii division 2,Classe II Div 2,CII/2,Incisives centrales en rétroalvéolie,Classe II avec overbite augmenté,incisives palatinées
+classe II squelettique;classe ii squelettique,Rétrognathie,Rétromandibulisme,Rétrusion mandibulaire,Décalage sagittal postérieur,Classe 2 Squelettique,prognathisme maxillaire,mandibule reculée,classe ii osseuse,prognathie maxillaire,rétrognathie mandibulaire squelettique,rétrognathie squelettique,squelettique de Classe II,squelettique  Classe II,squelettique de Classe 2,squelettique  Classe 2
+Classe II subdivision;classe ii subdivision,Classe II unilatérale,Hémi-Classe II,Classe II asymétrique
+classe III d'Angle;classe iii dentaire,Mésiocclusion,Prognathie dentaire,Occlusion inversée,Classe 3 Dentaire,sous-occlusion dentaire,classe III d'Angle,mésiocclusion dentaire,classe 3,classe III,classe 3 d'angle,classe dentaire iii,classe molaire iii,mandibule avancée,menton en avant,mésio-occlusion,position mandibulaire antérieure,prognathisme,protrusion,dentaire de Classe 3,dentaire  Classe 3,d'Angle de Classe 3,d'Angle  Classe 3
+classe III squelettique;classe iii squelettique,Prognathie,Promandibulie,Protrusion mandibulaire,Décalage sagittal antérieur,Classe 3 Squelettique,Prognathisme mandibulaire,rétrognathie maxillaire,mandibule prognathe,prognathie mandibulaire,classe iii osseuse,prognathie squelettiquesquelettique de Classe III,squelettique  Classe III,squelettique de Classe 3,squelettique Classe 3
+Classe III Squelettique modérée;classe iii squelettique moderee,Prognathie modérée,Promandibulie modérée,Décalage sagittal antérieur modéré,Classe 3 Squelettique modérée,Prognathisme mandibulaire modéré,rétrognathie maxillaire modérée,mandibule prognathe modérée,prognathie mandibulaire modérée
+Classe III Squelettique sévère;classe iii squelettique severe,Prognathie sévère,Promandibulie sévère,Protrusion mandibulaire sévère,Décalage sagittal antérieur sévère,Classe 3 Squelettique sévère,Prognathisme mandibulaire sévère,rétrognathie maxillaire sévère,mandibule prognathe sévère,prognathie mandibulaire sévère
+Classe III subdivision;classe iii subdivision,Classe III unilatérale,Hémi-Classe III,Classe III asymétrique
+composite;composite,résine composite,resin composite,restauration en composite
+consultation;consultation,rendez-vous,appointment,visite,consulter,examen orthodontique
+contention;contention,appareil de contention,fil de contention,hawley,maintenance,maintien,plaque de contention,retention,stabilisation
+contention fixe;contention fixe,contention collée,fil de contention collé,fil lingual
+contrôle;controle,suivi,follow-up,monitoring,surveiller,visite de contrôle
+croissance;croissance,développement,grandir,growth,maturation,pic de croissance pubertaire
+crossbite;inversé d'articulé,articulé en ciseaux,cross bite
+crowding;crowding,encombrement,chevauchement,manque de place,dents qui se chevauchent,entassement dentaire,crowding dentaire
+DDM;dysharmonie,ddd,discrepance,dysharmonie dentaire,dysmorphose
+débandage;debandage,bracket décollé,bague qui tombe,loose bracket,attache décollée
+déglutition;deglutition,avaler,swallowing,fonction de déglutition,avaleur,acte de déglutition
+déglutition atypique;déglutition atypique
+dent surnuméraire;dent surnumeraire,dent en trop,dent supplémentaire,hyperdontie,mésiodens,supernuméraire
+dentition mixte;dentition mixte,mixed dentition,denture mixte,dentition transitionnelle
+dentition permanente;dentition permanente,dents définitives,dents d'adulte,permanent dentition,denture permanente,dentition adulte
+dentition temporaire;dentition temporaire,dents de lait,dents de bébé,primary dentition,deciduous,dents lactéales,dents primaires,denture temporaire
+détartrage;detartrage,nettoyage dentaire,prophylaxie,scaling,surfaçage
+déviation;deviation,ASYMETRIE
+déviation mandibulaire;deviation mandibulaire,décalage mandibulaire,déviation de la mandibule
+déviation mandibulaire droite;décalage mandibulaire droite
+déviation mandibulaire gauche;décalage mandibulaire gauche
+déviation maxillaire;deviation maxillaire,décalage dentaire,déviation de la ligne médiane
+déviation maxillaire droite;décalage maxillaire droite
+déviation maxillaire gauche;décalage maxillaire gauche
+diastemata;diastemata,diastèmes,espaces multiples,dents espacées,espacement généralisé,espaces interdentaires
+diastème;diasteme,espace,gap,space,espacement,diastème central,dents écartées,écartement dentaire,espace interdentaire,dents du bonheur
+disjoncteur;disjoncteur,expansion,élargir,disjonction,disjoncteur palatin,quad helix,appareil d'expansion,appareil d'expansion palatine,ERP,expansion rapide du palais
+distalisation;distalisation,recul,déplacement distal,vers l'arrière,reculer,mouvement de distalisation
+douleur;douleur,mal,pain,faire mal,souffrir,inconfort,sensibilité,douleur dentaire
+dtm;dtm,ressaut,ressaut articulaire,ressaut articulaire droit,douleur ATM
+dysfonction linguale;dysfonction linguale,langue basse,position linguale basse,trouble de la déglutition,déglutition primaire,mauvaise position linguale
+dysharmonie dento-maxillaire;dysharmonie dento maxillaire,DDM,DISCORDANCE DENTO MAXILLAIRE,DISPROPORTION DENTO MAXILLAIRE
+dysharmonie dento-maxillaire ++;dysharmonie dento maxillaire ++,ddm sévère,ddm++
+dysplasie;dysplasie,dysmorphie,anomalie de développement,malformation,anomalie congénitale
+écarteur;ecarteur,séparateur,separator,élastique séparateur,anneau séparateur
+ectopie;dent en dehors de l'arcade,dent mal placée,ectopic tooth,ectopie,mal placée,position ectopique
+édentation;edentation,absence de dents,édentement,perte de dents,édenté
+égression;egression,extrusion,éruption,sortir,sortie dentaire,faire sortir,égression dentaire
+élastiques intermaxillaires;elastiques intermaxillaires,élastiques de classe,élastiques classe II,élastiques classe III,élastiques,rubber bands,IMU
+empreinte;empreinte,prise d'empreinte,moulage,impression,alginate,empreinte dentaire
+endoalvéolie;endoalvéolie,anomalie alvéolaire,anomalie basale
+endoalvéolie mandibulaire;endoalvéolie mandibulaire,anomalie alvéolaire mandibulaire,anomalie basale mandibulaire
+endoalvéolie maxillaire;endoalvéolie maxillaire,anomalie alvéolaire maxillaire,anomalie basale maxillaire
+fil qui pique;fil qui pique,fil qui blesse,wire poking,irritation,fil saillant,fil qui dépasse
+gingivite;gingivite,inflammation gingivale,gencives rouges,gencives,gingivitis,inflammation des gencives
+gouttière;invisalign,aligneur,aligneur invisible,appareil amovible transparent,clear aligner,gouttière,gouttière orthodontique,gouttière transparente,plaque
+gouttière Protraction;gouttiere protraction,gouttière de protraction maxillaire
+Herbst;herbst,appareil de Herbst,correction classe II,bielle de Herbst,vérin de Herbst
+hygiène;hygiene,nettoyage,brossage,nettoyer,brosser,cleaning,hygiène bucco-dentaire,hygiène dentaire
+incisive;incisive,incisives,dent de devant,dents de devant,centrale,latérale,incisive centrale,incisive latérale
+inclusion;inclusion,dent incluse,dent qui ne sort pas,impaction,impacted tooth,incluse,dents qui ne sortent pas,dent retenue,dent bloquée,dent qui ne pousse pas
+infraclusion;infraclusion,underbite,sous-occlusion antérieure
+infraposition;infraposition,infra-position,dent en infraposition,dent trop basse,sous-éruption
+ingression;ingression,intrusion,enfoncement,rentrer,faire rentrer,enfoncer la dent,intrusion dentaire,mouvement d'intrusion
+interposition labiale au repos;interposition labiale au repos,lèvre entre les dents,lip interposition,interposition de la langue
+interposition linguale;interposition linguale,langue entre les dents,tongue thrust,béance par interposition,poussée linguale
+Invisalign I7;invisalign i7,GOUTTIERE INVISALIGN I7,ALIGNEUR INVISALIGN I7
+Invisalign I7 Bimaxillaire;invisalign i7 bimaxillaire
+Invisalign I7 Mono;invisalign i7 mono,invisalign i7 mono-maxillaire
+latérodéviation;laterodeviation,décalage latéral,déviation latérale
+latérodéviation mandibulaire;laterodeviation mandibulaire,DEVIATION MANDIBULAIRE LATERALE,ASYMETRIE MANDIBULAIRE,DEVIATION LATERALE MANDIBULE
+latérodéviation mandibulaire droite;laterodeviation mandibulaire droite,déviation mandibulaire droite
+latérodéviation mandibulaire gauche;laterodeviation mandibulaire gauche,déviation mandibulaire gauche
+latérodéviation maxillaire;laterodeviation maxillaire,DEVIATION MAXILLAIRE LATERALE,ASYMETRIE MAXILLAIRE,DEVIATION LATERALE MAXILLAIRE
+latérodéviation maxillaire droite;laterodeviation maxillaire droite,DEVIATION MAXILLAIRE DROITE,ASYMETRIE MAXILLAIRE DROITE,DEVIATION LATERALE MAXILLAIRE DROITE
+latérodéviation maxillaire gauche;laterodeviation maxillaire gauche,DEVIATION MAXILLAIRE GAUCHE,ASYMETRIE MAXILLAIRE GAUCHE,DEVIATION LATERALE MAXILLAIRE GAUCHE
+ligature;ligature,ligatures,élastique,tie,attache,ligatures métalliques,ligatures élastiques,ligature colorée
+linguo-version;linguo version,linguoversion,versé en lingual,incliné vers la langue,inclinaison linguale
+luxation;luxation,LUXATION ATM,DEPLACEMENT ARTICULAIRE,DISLOCATION
+luxation méniscale;luxation meniscale,déplacement du ménisque,luxation discale,trouble de l'atm
+luxation méniscale réductible;luxation meniscale reductible,LUXATION DISCALE REDUCTIBLE,DEPLACEMENT MENISCAL REDUCTIBLE,DISLOCATION MENISCALE AVEC REDUCTION
+luxation méniscale réductible face;luxation meniscale reductible face,LUXATION DISCALE ANTERIEURE REDUCTIBLE,DEPLACEMENT MENISCAL ANTERIEUR REDUCTIBLE,DISLOCATION MENISCALE FACIALE REDUCTIBLE
+macrodontie;macrodontie,dents trop grandes,surdimensionnement dentaire,mégalodontie
+macrognathie;macrognathie,grande mâchoire,hyperplasie,grosse mâchoire,mâchoire trop grande,hyperplasie mandibulaire,hyperplasie maxillaire,excès mandibulaire,excès maxillaire
+mainteneur d'espace;mainteneur d espace,mainteneur d'espace,space maintainer,bague et anse,appareil mainteneur d'espace
+maladie parodontale;parodontite,déchaussement,maladie des gencives,maladie parodontale,parodontopathie,periodontal disease
+malocclusion;malocclusion,malocclusion dentaire,maloclusion,mauvaise occlusion,mauvais engrènement,problème d'occlusion
+malocclusion droite;malocclusion droite,crossbite droite
+malocclusion gauche;malocclusion gauche
+malposition dentaire;MALPOSITION,ECTOPIE DENTAIRE,DENT MAL POSITIONNEE
+malposition dentaire mandibulaire;malposition dentaire mandibulaire,malposition arcade inférieure
+malposition dentaire maxillaire;malposition dentaire maxillaire,malposition arcade supérieure
+mastication;mastication,mâcher,mastiquer,croquer,chewing,fonction masticatrice,fonction masticatoire
+mésialisation;mesialisation,avancement,déplacement mésial,vers l'avant,mouvement de mésialisation
+métal;metal,acier,steel,titanium,titane,métallique,métal inoxydable
+microdontie;microdontie,dents trop petites,nanisme dentaire,sous-dimensionnement dentaire
+micrognathie;micrognathie,petite mâchoire,hypoplasie,mâchoire trop petite,hypoplasie mandibulaire,déficit mandibulaire,déficit maxillaire
+minivis;minivis,mini-vis,mini implant,ancrage osseux,TADs,ancrage squelettique,vis d'ancrage,implant orthodontique temporaire
+molaire;molaire,molaires,grosse dent,grosses dents,dent du fond,dents du fond,première molaire,deuxième molaire,sixième,douzième,molaire de six ans,molaire de douze ans
+morsure;morsure,OCCLUSION,ENGRAINEMENT DENTAIRE,INTERCUSPIDATION
+morsure palatine;morsure palatine,contact palatin,incisives touchant palais
+multi-attaches TIM;multi attaches tim,système TIM,technique TIM
+nécrose pulpaire;necrose pulpaire,mort pulpaire,nécrose de la pulpe,pulpe nécrosée,dévitalisation nécessaire
+NiTi;niti,nitinol,nickel-titane,superélastique,fil NiTi,fil thermoactif
+occlusion croisée;occlusion croisee,crossbite,morsure croisée,articulé croisé
+occlusion inversée;morsure inversée,occlusion inverse,articulé inversé
+occlusion inversée antérieure;occlusion inversee anterieure,morsure inversée antérieure,occlusion inverse antérieure,articulé inversé antérieur
+occlusion inversée droite;occlusion inversee droite,crossbite droit,articulé inversé droit
+occlusion inversée gauche;occlusion inversee gauche,crossbite gauche,articulé inversé gauche
+occlusion inversée postérieure;occlusion inversee posterieure,morsure inversée postérieure,occlusion inverse postérieure,articulé inversé postérieur
+onychophagie;onychophagie,ronger les ongles,ronge ses ongles,ronger,rongeur,rongement,nail biting,se ronger les ongles
+ostéotomie;osteotomie,chirurgie des mâchoires,jaw surgery,chirurgie orthognathique,chirurgie bimaxillaire
+overbite;recouvrement vertical,recouvrement excessif,recouvrement incisif vertical
+overjet;décalage,décalage horizontal excessif
+palais;palais,voûte,palatine,voûte palatine,palais ogival
+panoramique;panoramique,radio panoramique,orthopantomogramme,OPG,panorex,radio,radiographie,panoramique dentaire,radiographie panoramique
+parodontite;inflammation,inflammation buccale,inflammation de la bouche
+parodontologie;parodontologie,periodontology,periodontics,parodonte,parodontie,science parodontale
+pédodontie;pedodontie,dentisterie pédiatrique,pediatric dentistry,dentiste pour enfants,odontologie pédiatrique
+pendulum;pendulum,distalisation molaire,reculer molaires,appareil pendulum
+phonation;phonation,parole,élocution,parler,speech,fonction phonatoire,articulation
+pic de croissance;pic de croissance,growth spurt,poussée de croissance,pic pubertaire,poussée pubertaire
+plaque;plaque dentaire,biofilm,tartre,calculus,dépôt,plaque bactérienne
+plaque à piste;plaque a piste,plan de morsure,plan articulé,plaque de surélévation,plan de surélévation
+plaque amovible;plaque amovible,appareil amovible,removable appliance,plaque orthodontique
+prémolaire;premolaire,prémolaires,bicuspide,bicuspides,première prémolaire,deuxième prémolaire,quatrième,cinquième,petite molaire
+proalvéolie;PROINCLINAISON,PROCHEILIE
+proalvéolie incisive;proalveolie incisive,VESTIBULOVERSION INCISIVE,PROINCLINAISON INCISIVE,PROCHEILIE INCISIVE
+proalvéolie incisive modérée;proalveolie incisive moferee,VESTIBULOVERSION INCISIVE MODEREE,PROINCLINAISON INCISIVE MODEREE,PROCHEILIE INCISIVE MODEREE
+proalvéolie incisive sévère;proalveolie incisive severe,VESTIBULOVERSION INCISIVE SEVERE,PROINCLINAISON INCISIVE SEVERE,PROCHEILIE INCISIVE SEVERE
+proalvéolie mandibulaire;proalveolie mandibulaire,VESTIBULOVERSION MANDIBULAIRE,PROINCLINAISON MANDIBULAIRE,PROCHEILIE INFERIEURE
+proalvéolie mandibulaire modérée;proalveolie mandibulaire moderee,protrusion mandibulaire modérée
+proalvéolie mandibulaire sévère;proalveolie mandibulaire severe,VESTIBULOVERSION MANDIBULAIRE SEVERE,PROINCLINAISON MANDIBULAIRE SEVERE,PROCHEILIE INFERIEURE SEVERE
+proalvéolie maxillaire;proalveolie maxillaire,VESTIBULOVERSION MAXILLAIRE,PROINCLINAISON MAXILLAIRE,PROCHEILIE SUPERIEURE
+proalvéolie maxillaire modérée;proalveolie maxillaire moferee,VESTIBULOVERSION MAXILLAIRE MODEREE,PROINCLINAISON MAXILLAIRE MODEREE,PROCHEILIE SUPERIEURE MODEREE
+proalvéolie maxillaire sévère;proalveolie maxillaire severe,protrusion maxillaire sévère
+proglissement mandibulaire;proglissement mandibulaire,proglissement,glissement mandibulaire,déviation mandibulaire fonctionnelle,proglissement fonctionnel
+prognathie;avancée,en avant,projection
+prognathie mandibulaire;classe III mandibulaire,mandibule protruse
+Prognathie maxillaire;Protrusion maxillaire,Maxillaire en protrusion,Excès maxillaire antéro-postérieur,Promandibulie maxillaire,Avancée maxillaire,Position avancée du maxillaire,Prognathie supérieure
+Prognathie maxillaire modérée;prognathie maxillaire moderee,Prognathie maxillaire légère,Protrusion maxillaire modérée,Prognathisme maxillaire mineur,Excès maxillaire modéré,Avancée maxillaire légère
+Prognathie maxillaire sévère;prognathie maxillaire severe,Prognathie maxillaire majeure,Protrusion maxillaire importante,Prognathisme maxillaire sévère,Excès maxillaire majeur,Avancée maxillaire marquée,Prognathie maxillaire importante
+protrusion;avancement excessif,projection en avant,proclusion
+quad helix;4 helix,quadri-hélix,expansion lente
+récession;recession,DENUDATION RADICULAIRE
+récession gingivale;recession gingivale,gingival recession,receding gums,récession parodontale,rétraction gingivale
+récidive;recidive,rechute,relapse,retour,revenir,récidive orthodontique
+résorption radiculaire;resorption radiculaire,résorption de la racine,racine qui se résorbe,rhizalyse,résorption apicale,raccourcissement radiculaire
+respiration buccale;ventilation orale,bouche ouverte,mouth breathing,respirateur buccal,respiration buccale,respiration orale,respiration par la bouche
+ressaut articulaire droite;ressaut articulaire droite,ressaut ATM droite,popping droite
+ressaut articulaire gauche;ressaut articulaire gauche,ressaut ATM gauche,popping gauche
+rétroalvéolie;retroalveolie,RETROINCLINAISON,RETROCHEILIE
+rétroalvéolie mandibulaire;retroalveolie mandibulaire,LINGUOVERSION MANDIBULAIRE,RETROINCLINAISON MANDIBULAIRE,RETROCHEILIE INFERIEURE
+rétroalvéolie mandibulaire modérée;retroalveolie mandibulaire moderee,rétroclusie mandibulaire modérée,LINGUOVERSION MANDIBULAIRE MODEREE,RETROINCLINAISON MANDIBULAIRE MODEREE,RETROCHEILIE INFERIEURE MODEREE
+rétroalvéolie mandibulaire sévère;retroalveolie mandibulaire severe,LINGUOVERSION MANDIBULAIRE SEVERE,RETROINCLINAISON MANDIBULAIRE SEVERE,RETROCHEILIE INFERIEURE SEVERE
+rétroalvéolie maxillaire;retroalveolie maxillaire,LINGUOVERSION MAXILLAIRE,PALATOVERSION,RETROINCLINAISON MAXILLAIRE
+rétroalvéolie maxillaire modérée;retroalveolie maxillaire moderee,rétroclusie maxillaire modérée,LINGUOVERSION MAXILLAIRE MODEREE,PALATOVERSION MODEREE,RETROINCLINAISON MAXILLAIRE MODEREE
+rétroalvéolie maxillaire sévère;retroalveolie maxillaire severe,rétroclusie maxillaire sévère
+rétrognathie;en arrière,reculée,rétrognathe,rétroposition
+rétrognathie mandibulaire;retrognathie mandibulaire,classe ii mandibulaire,mandibule rétruse
+rétrognathie mandibulaire modérée;retrognathie mandibulaire moferee,RETROMANDIBULISME MODERE,RETRUSION MANDIBULAIRE MODEREE,MICROGNATHIE MANDIBULAIRE MODEREE
+rétrognathie mandibulaire sévère;retrognathie mandibulaire severe,RETROMANDIBULISME SEVERE,RETRUSION MANDIBULAIRE SEVERE,MICROGNATHIE MANDIBULAIRE SEVERE
+rétrognathie maxillaire;hypoplasie maxillaire,maxillaire rétruse
+rétrognathie maxillaire modérée;retrognathie maxillaire moferee,RETROMAXILLISME MODERE,RETRUSION MAXILLAIRE MODEREE,MICROGNATHIE MAXILLAIRE MODEREE
+rétrognathie maxillaire sévère;RETROMAXILLISME SEVERE,RETRUSION MAXILLAIRE SEVERE,MICROGNATHIE MAXILLAIRE SEVERE
+rétrusion;
+rhizalyse;risque de rhizalyse,risque de résorption radiculaire
+rotation;rotation,dent tournée,dent rotée,twisted tooth,tourner,rotée,dent qui tourne,rotation axiale,dent pivotée,malposition rotationnelle,version axiale
+scanner;scanner,cone beam,CBCT,tomodensitométrie,cone beam CT,3D,imagerie 3D,scan 3D,tomographie
+scanner intra-oral;scanner intra oral,scanner intraoral,empreinte numérique,digital impression,scan numérique
+SNA;sna,angle SNA,position maxillaire,mesure SNA,position du maxillaire
+SNB;snb,angle SNB,position mandibulaire,mesure SNB,position de la mandibule
+sourire;sourire,smile,beauté,harmonie,esthétique du sourire
+spacing;spacing
+stabilité;stabilite,pérennité,durabilité,stability,stable,stabilité orthodontique
+stripping;stripping,IPR,réduction interproximale,polissage interproximal,meulage,limage,réduction amélaire,slicing
+succion;succion,habitude de succion,pacifier,pouce,suce le pouce,sucer,sucotement,sucoter,tututte,tétine
+succion digitale;succion digitale,succion du pouce,thumb sucking
+succion pouce;succion pouce,HABITUDE ORALE,PARAFONCTION DIGITALE
+supraclusion;supraclusion,deep bite,morsure profonde,overbite,recouvrement vertical excessif,supraocclusion
+supraclusion prononcée;supraclusion prononcee,morsure profonde prononcée,overbite prononcé
+supraclusion totale;supraclusion totale,overbite total,recouvrement complet
+supraposition;supraposition,supra-position,dent en supraposition,dent trop haute,supra-éruption,éruption excessive
+surplomb;surplomb,recouvrement horizontal,décalage horizontal,overjet,surjet
+torque;torque,torsion radiculaire,rotation radiculaire,inclinaison radiculaire,angulation radiculaire,couple
+traitement interceptif;traitement interceptif,traitement précoce,early treatment,interception orthodontique
+translation;translation,mouvement,déplacement corporel,bouger,mouvement corporel,déplacement en bloc,bodily movement,translation dentaire
+transposition;transposition,dents transposées,inversion de position,permutation dentaire,échange de position
+urgence;urgence,urgence orthodontique,emergency,problème,urgent,cas urgent
+ventilation;ventilation,RESPIRATION,FONCTION VENTILATOIRE
+ventilation nasale;ventilation nasale,respiration nasale,nasal breathing,respiration par le nez
+ventilation orale;ventilation buccale
+version;version,inclinaison,tipping,basculement,incliner,inclinaison dentaire,bascule,mouvement de version
+vestibulo-version;vestibulo version,vestibuloversion,versé en vestibulaire,incliné vers la joue,incliné vers l'extérieur,vestibulo-position
+Wits;wits,appraisal de Wits,analyse de Wits,AO-BO,Wits appraisal,analyse Wits,mesure de Wits

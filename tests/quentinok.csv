@@ -1,0 +1,7 @@
+﻿# Tests Quentin - Scénario OK : commentaires confirmant que la détection fonctionne;;;
+question;page;résultat;commentaire
+patients en classe 2 agés de plus de 20 ans et de moins de 23 ans;index;12 patients;L'âge de plus de 20 ans et de moins de 23 ans est bien détecté ainsi que la classe 2
+Patient compris entre 13 et 16 avec une classe d'angle de 1 uniquement;index;5 patients;Les âges 13 et 16 sont bien détectés comme bornes d'intervalle et la classe 1 est identifiée
+Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3;index;12 patients;La classe 3 est correctement détectée et la tranche d'âge 17-23 aussi
+Patient enfant avec rétrognathie et ou classe 2;index;3 patients;La rétrognathie est bien détectée comme pathologie et enfant déclenche un filtre âge
+Patient metal compris entre 20 e 24 ans;index;7 patients;Le tag metal est détecté et la tranche d'âge 20-24 est bien identifiée malgré le e au lieu de et

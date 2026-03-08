@@ -1,0 +1,163 @@
+frcanon;type;Xgn;synonymes;XX;fradjs;XY;m;f;mp;fp
+activateur;p;m;appareil fonctionnel,functional appliance,appareil amovible fonctionnel,appareil d'activation,activateur orthodontique,monobloc,activateur de classe ii;XX;;XY;;;;
+aéro;p;m;aérophonoscope;XX;;XY;;;;
+agénésie;p;f;agenesie,dent manquante,absence de dent,hypodontie,oligodontie,anodontie,dent absente;XX;;XY;;;;
+alignement;p;m;redressement,correction,straightening,alignement dentaire,alignement des dents;XX;;XY;;;;
+ankylose;p;f;dent ankylosée,fusion osseuse,ankilose;XX;;XY;;;;
+apnée du sommeil;p;f;sleep apnea,osa,obstructive sleep apnea,syndrome d'apnées obstructives du sommeil,saos,ronflement;XX;;XY;;;;
+arc;p;m;fil orthodontique,fil,wire,archwire,fil métallique,fil rond,fil rectangulaire,fil d'arc,arc orthodontique;XX;;XY;;;;
+arcade;p;f;arcade dentaire,arc dentaire,dental arch;XX;;XY;;;;
+arthrite;p;f;inflammation articulaire,arthropathie inflammatoire;XX;;XY;;;;
+arthrose;p;f;ostéoarthrite,arthropathie dégénérative,maladie articulaire dégénérative;XX;;XY;;;;
+asymétrie faciale;p;f;visage asymétrique,déviation faciale;XX;;XY;;;;
+atm;p;f;articulation temporo-mandibulaire,troubles atm,dysfonction temporo-mandibulaire,tmj,tmd;XX;;XY;;;;
+avulsion;p;f;arrachage dentaire,dédentation,exodontie,extraction,extraction dentaire, arracher, dent arrachée;XX;immédiat,différé,programmé,total;XY;;;;
+bagues;p;fp;brackets,attaches,broches,braces,bracket,appareil orthodontique,appareil dentaire,appareil multi-attaches,attaches orthodontiques,boîtiers orthodontiques;XX;;XY;;;;
+béance;p;f;beance,béance dentaire,espace entre les dents,espace interdentaire,morsure béante,morsure ouverte,open bite,openbite,écartement,écart,cavité;XX;antérieur,postérieur,latéral,gauche,droit,sévère,modéré;XY;;;;
+bielles;p;fp;bielle,forsus,powerscope,système de bielles;XX;;XY;;;;
+bipro;p;f;biproalvéolie, alvéolie;XX;;XY;;;;
+bruxisme;p;m;bruxomanie,clenching,grincement,grinding,serrement,usure dentaire,grince des dents, grincent des dents, dents qui grincent;XX;nocturne,diurne,sévère,modéré;XY;;;;
+canine;p;f;croc,cuspide,dent canine,dent de loup;XX;;XY;;;;
+caries dentaires;p;fp;carie,tooth decay,dental caries,lésion carieuse;XX;;XY;;;;
+céphalométrie;p;f;téléradiographie,téléradio,lateral ceph,profil,cephalo,radio de profil,télécrâne,radiographie de profil;XX;;XY;;;;
+céramique;p;f;ceramic,esthétique,transparent,brackets céramiques,attaches céramiques;XX;;XY;;;;
+chirurgie;p;f;intervention,opération,surgery,chirurgie maxillaire,chirurgie mandibulaire,opération mâchoire,orthognathic surgery,chirurgie maxillo-faciale;XX;traumatique;XY;;;;
+claquement articulaire;p;m;claquement atm,clicking;XX;;XY;;;;
+classe i d'angle;p;f;classe 1 d'angle,classe i d'angle,classe i dangle,classe 1 dangle,classe i d angle,classe 1 d angle,neutrocclusion,occlusion normale,relation molaire de classe i,normocclusion,classe 1 dentaire,relation molaire neutre,classe 1,classe i,classe dentaire;XX;encombré;XY;;;;
+classe i squelettique;p;f;classe 1 squelettique,classe i squelettique;XX;idéal, modéré;XY;;;;
+classe ii d'angle;p;f;classe 2 d'angle,classe ii d'angle,classe ii dangle,classe 2 dangle,classe ii d angle,classe 2 d angle,distocclusion,rétrognathie dentaire,surplomb horizontal augmenté,overjet augmenté,classe 2 dentaire,surplomb horizontal accru,distocclusion dentaire,classe 2,classe ii,disto-occlusion,rétrusion dentaire, rétromandibulisme,rétromandibulaire,mandibule en retrait, rétrognathie mandibulaire,rétrognathie, rétrognathe, rétroposition, mandibule en arrière, mandibule reculée;XX;sévère,modéré,division 1,division 2,unilatéral;XY;;;;
+classe ii squelettique;p;f;classe 2 squelettique,classe ii squelettique;XX;;XY;;;;
+classe iii d'angle;p;f;classe 3 d'angle,classe iii d'angle,classe iii dangle,classe 3 dangle,classe iii d angle,classe 3 d angle,mésiocclusion,prognathie dentaire,classe 3 dentaire,sous-occlusion dentaire,mésiocclusion dentaire,classe 3,classe iii,mésio-occlusion,rétrognathie maxillaire,rétromaxillaire,maxillaire en arrière,maxillaire reculé,maxillaire en retrait, masque de delaire, delaire, hypoplasie, hypoplasie maxillaire;XX;sévère,modéré,unilatéral;XY;;;;
+classe iii squelettique;p;f;classe 3 squelettique,classe iii squelettique;XX;sévère,modéré;XY;;;;
+composite;p;m;résine composite,resin composite,restauration en composite;XX;;XY;;;;
+consultation;p;f;rendez-vous,appointment,visite,consulter,examen orthodontique;XX;;XY;;;;
+contention;p;f;appareil de contention,fil de contention,hawley,maintenance,maintien,plaque de contention,retention,stabilisation;XX;fixe,amovible;XY;;;;
+contrôle;p;m;suivi,follow-up,monitoring,surveiller,visite de contrôle;XX;;XY;;;;
+croissance;p;f;développement,grandir,growth,maturation;XX;;XY;;;;
+crowding;p;m;encombrement,chevauchement,manque de place,dents qui se chevauchent,entassement dentaire,crowding dentaire;XX;;XY;;;;
+ddm;p;f;dysharmonie,discrepance,dysharmonie dentaire,dysmorphose,dysharmonie dento-maxillaire,dysharmonie dento maxillaire,dysharmonie-dento-maxillaire;XX;;XY;;;;
+débandage;p;m;bracket décollé,bague qui tombe,loose bracket,attache décollée;XX;;XY;;;;
+déglutition;p;f;avaler,swallowing,fonction de déglutition,acte de déglutition;XX;;XY;;;;
+dent surnuméraire;p;f;dent en trop,dent supplémentaire,hyperdontie,mésiodens,supernuméraire;XX;;XY;;;;
+dentition mixte;p;f;mixed dentition,denture mixte,dentition transitionnelle;XX;;XY;;;;
+dentition permanente;p;f;dents définitives,dents d'adulte,permanent dentition,denture permanente,dentition adulte;XX;;XY;;;;
+dentition temporaire;p;f;dents de lait,dents de bébé,primary dentition,deciduous,dents lactéales,dents primaires,denture temporaire;XX;inclus;XY;;;;
+détartrage;p;m;nettoyage dentaire,prophylaxie,scaling,surfaçage;XX;;XY;;;;
+déviation mandibulaire;p;f;décalage mandibulaire,déviation de la mandibule;XX;;XY;;;;
+déviation maxillaire;p;f;décalage dentaire,déviation de la ligne médiane;XX;;XY;;;;
+diastemata;p;mp;diastèmes,espaces multiples,dents espacées,espacement généralisé,espaces interdentaires,espaces;XX;central;XY;;;;
+diastème;p;m;espace,gap,space,espacement,diastème central,dents écartées,écartement dentaire,dents du bonheur,espacements;XX;central;XY;;;;
+distalisation;p;f;recul,déplacement distal,mouvement de distalisation;XX;;XY;;;;
+douleur;p;f;mal,pain,souffrir,inconfort,sensibilité,douleur dentaire;XX;infectieux;XY;;;;
+dysfonction linguale;p;f;langue basse,position linguale basse,trouble de la déglutition,déglutition primaire,mauvaise position linguale;XX;;XY;;;;
+dysplasie;p;f;dysmorphie,anomalie de développement,malformation,anomalie congénitale;XX;;XY;;;;
+écarteur;p;m;séparateur,separator,élastique séparateur,anneau séparateur;XX;;XY;;;;
+ectopie;p;f;dent en dehors de l'arcade,dent mal placée,ectopic tooth,mal placée,position ectopique,ec, dent ectopique;XX;;XY;;;;
+édentation;p;f;edentation,absence de dents,édentement,perte de dents,édenté;XX;;XY;;;;
+ef;p;f;tef, traitement rééducateur fonctionnel;XX;;XY;;;;
+égression;p;f;extrusion,éruption,sortie dentaire,égression dentaire;XX;;XY;;;;
+élastiques intermaxillaires;p;mp;élastiques de classe,élastiques classe ii,élastiques classe iii,rubber bands,imu;XX;;XY;;;;
+empreinte;p;f;prise d'empreinte,moulage,impression,alginate,empreinte dentaire;XX;;XY;;;;
+endoalvéolie;p;f;anomalie alvéolaire,anomalie basale;XX;mandibulaire,maxillaire,sévère,modéré;XY;;;;
+fil qui pique;p;m;fil qui blesse,wire poking,irritation,fil saillant,fil qui dépasse;XX;;XY;;;;
+gingivite;p;f;inflammation gingivale,gencives rouges,gingivitis,inflammation des gencives;XX;;XY;;;;
+gouttière;p;f;invisalign,aligneur,aligneur invisible,appareil amovible transparent,clear aligner,gouttière orthodontique,gouttière transparente, aligneur first, aligneurs first;XX;;XY;;;;
+herbst;p;m;appareil de herbst,correction classe ii,bielle de herbst,vérin de herbst;XX;;XY;;;;
+hygiène;p;f;nettoyage,brossage,cleaning,hygiène bucco-dentaire,hygiène dentaire;XX;;XY;;;;
+incisive;p;f;dent de devant,dents de devant;XX;central;XY;;;;
+inclusion;p;f;dent incluse,dent qui ne sort pas,impaction,impacted tooth,dent retenue,dent bloquée,dent qui ne pousse pas;XX;;XY;;;;
+infraclusion;p;f;underbite,sous-occlusion antérieure;XX;;XY;;;;
+infraposition;p;f;infra-position,dent en infraposition,dent trop basse,sous-éruption;XX;;XY;;;;
+ingression;p;f;intrusion,enfoncement,intrusion dentaire,mouvement d'intrusion;XX;;XY;;;;
+interposition linguale;p;f;langue entre les dents,tongue thrust,béance par interposition,poussée linguale;XX;;XY;;;;
+latérodéviation;p;f;déviation latérale,asymétrie;XX;droit,gauche,maxillaire,mandibulaire;XY;;;;
+ligature;p;f;élastique,tie,attache,ligatures métalliques,ligatures élastiques,ligature colorée;XX;fixe,amovible;XY;;;;
+linguo-version;p;f;linguoversion,versé en lingual,incliné vers la langue,inclinaison linguale;XX;;XY;;;;
+luxation;p;f;luxation atm,déplacement articulaire,dislocation;XX;;XY;;;;
+luxation méniscale;p;f;déplacement du ménisque,luxation discale,trouble de l'atm;XX;;XY;;;;
+macrodontie;p;f;dents trop grandes,surdimensionnement dentaire,mégalodontie;XX;;XY;;;;
+macrognathie;p;f;grande mâchoire,hyperplasie,grosse mâchoire,mâchoire trop grande,excès mandibulaire,excès maxillaire;XX;;XY;;;;
+mainteneur d'espace;p;m;space maintainer,bague et anse,appareil mainteneur d'espace;XX;;XY;;;;
+maladie parodontale;p;f;parodontite,déchaussement,maladie des gencives,parodontopathie,periodontal disease;XX;;XY;;;;
+malocclusion;p;f;malocclusion dentaire,maloclusion,mauvaise occlusion,mauvais engrènement,problème d'occlusion;XX;droit,gauche;XY;;;;
+malposition;p;f;malposition dentaire,dent mal positionnée;XX;mandibulaire,maxillaire;XY;;;;
+mastication;p;f;mâcher,mastiquer,croquer,chewing,fonction masticatrice,fonction masticatoire;XX;;XY;;;;
+mésialisation;p;f;avancement,déplacement mésial,mouvement de mésialisation;XX;;XY;;;;
+métal;p;m;acier,steel,titanium,titane,métallique,métal inoxydable;XX;;XY;;;;
+microdontie;p;f;dents trop petites,nanisme dentaire,sous-dimensionnement dentaire;XX;;XY;;;;
+micrognathie;p;f;petite mâchoire,mâchoire trop petite,déficit mandibulaire,déficit maxillaire;XX;;XY;;;;
+minivis;p;f;mini-vis,mini implant,ancrage osseux,tads,ancrage squelettique,vis d'ancrage,implant orthodontique temporaire;XX;;XY;;;;
+molaire;p;f;grosse dent,dent du fond,sixième,douzième,molaire de six ans,molaire de douze ans;XX;;XY;;;;
+nécrose pulpaire;p;f;mort pulpaire,nécrose de la pulpe,pulpe nécrosée,dévitalisation nécessaire;XX;;XY;;;;
+niti;p;m;nitinol,nickel-titane,superélastique,fil niti,fil thermoactif;XX;;XY;;;;
+occlusion croisée;p;f;crossbite,morsure croisée,articulé croisé;XX;;XY;;;;
+occlusion inversée;p;f;morsure inversée,occlusion inverse,articulé inversé;XX;;XY;;;;
+onychophagie;p;f;ronger les ongles,nail biting,se ronger les ongles;XX;;XY;;;;
+ostéotomie;p;f;chirurgie des mâchoires,jaw surgery,chirurgie orthognathique,chirurgie bimaxillaire;XX;;XY;;;;
+panoramique;p;m;radio panoramique,orthopantomogramme,opg,panorex,radio,radiographie,panoramique dentaire,radiographie panoramique;XX;;XY;;;;
+pendulum;p;m;distalisation molaire,appareil pendulum;XX;;XY;;;;
+phonation;p;f;parole,élocution,parler,speech,fonction phonatoire,articulation;XX;;XY;;;;
+plaque amovible;p;f;appareil amovible,removable appliance,plaque orthodontique;XX;;XY;;;;
+plaque éventail;p;f;éventail;XX;;XY;;;;
+plaque papillon;p;f;papillon;XX;;XY;;;;
+plaque y;p;f;en forme de y;XX;;XY;;;;
+prémolaire;p;f;premolaire,bicuspide,quatrième,cinquième,petite molaire;XX;;XY;;;;
+proalvéolie;p;f;proinclinaison,prochéilie;XX;incisif,mandibulaire,maxillaire,sévère,modéré;XY;;;;
+proglissement ;p;f;proglissement mandibulaire,glissement mandibulaire,déviation mandibulaire fonctionnelle,proglissement fonctionnel;XX;;XY;;;;
+prognathisme mandibulaire;p;m;prognathie mandibulaire,mandibule en avant,mandibule avancée,mandibule proéminente;XX;sévère,modéré;XY;;;;
+prognathisme maxillaire;p;m;prognathie maxillaire,maxillaire en avant,maxillaire avancé,maxillaire proéminent;XX;sévère,modéré;XY;;;;
+propulsor;p;m;ci ii propulseur,ci 2 propulseur,classe ii propulseur,classe 2 propulseur,propulseur classe ii;XX;;XY;;;;
+protrusion;p;f;avancement excessif,projection en avant,proclusion;XX;;XY;;;;
+quad helix;p;m;disjoncteur, expansion,disjonction,disjoncteur palatin,appareil d'expansion,appareil d'expansion palatine,erp,expansion rapide,4 helix,4helix,quadri-hélix,quadri hélix,expansion lente,quadhelix;XX;;XY;;;;
+récession gingivale;p;f;gingival recession,receding gums,récession parodontale,rétraction gingivale;XX;;XY;;;;
+récidive;p;f;recidive,rechute,relapse,retour,récidive orthodontique;XX;;XY;;;;
+résorption radiculaire;p;f;résorption de la racine,racine qui se résorbe,rhizalyse,résorption apicale,raccourcissement radiculaire;XX;;XY;;;;
+respiration buccale;p;f;ventilation orale,bouche ouverte,mouth breathing,respirateur buccal,respiration orale,respiration par la bouche;XX;;XY;;;;
+ressaut articulaire;p;m;ressaut atm,popping;XX;;XY;;;;
+rétroalvéolie;p;f;rétroinclinaison,rétrochéilie;XX;mandibulaire,maxillaire,sévère,modéré;XY;;;;
+rétrusion;p;f;rétroversion;XX;;XY;;;;
+rotation;p;f;dent tournée,dent rotée,twisted tooth,rotation axiale,dent pivotée,malposition rotationnelle,version axiale;XX;;XY;;;;
+scanner;p;m;cone beam,cbct,tomodensitométrie,cone beam ct,3d,imagerie 3d,scan 3d,tomographie;XX;;XY;;;;
+scanner intra-oral;p;m;empreinte numérique,digital impression,scan numérique;XX;;XY;;;;
+spacing;p;m;;XX;;XY;;;;
+stripping;p;m;ipr,réduction interproximale,polissage interproximal,meulage,limage,réduction amélaire,slicing;XX;;XY;;;;
+succion;p;f;habitude de sucer,pacifier,pouce,suce le pouce,sucer,sucotement,tétine;XX;digital;XY;;;;
+supraclusion;p;f;deep bite,morsure profonde,overbite,recouvrement vertical excessif,supraocclusion, supra, over bite;XX;;XY;;;;
+supraposition;p;f;supra-position,dent en supraposition,dent trop haute,supra-éruption,éruption excessive,over jet,overjet,surplomb,recouvrement horizontal,décalage horizontal,surjet,dépassement horizontal, horizontal;XX;;XY;;;;
+tong e;p;m;tong-e;XX;;XY;;;;
+torque;p;m;torsion radiculaire,rotation radiculaire,inclinaison radiculaire,angulation radiculaire,couple;XX;;XY;;;;
+traitement interceptif;p;m;traitement précoce,early treatment,interception orthodontique;XX;;XY;;;;
+translation;p;f;mouvement,déplacement corporel,mouvement corporel,déplacement en bloc,bodily movement,translation dentaire;XX;;XY;;;;
+transposition;p;f;dents transposées,inversion de position,permutation dentaire,échange de position;XX;;XY;;;;
+urgence;p;f;urgence orthodontique,emergency,problème,urgent,cas urgent;XX;;XY;;;;
+ventilation nasale;p;f;respiration nasale,nasal breathing,respiration par le nez;XX;;XY;;;;
+version;p;f;inclinaison,tipping,basculement,inclinaison dentaire,bascule,mouvement de version;XX;;XY;;;;
+vestibulo-version;p;f;vestibuloversion,versé en vestibulaire,incliné vers la joue,incliné vers l'extérieur,vestibulo-position;XX;;XY;;;;
+amovible;a;;détachable, extractible;XX;;XY;amovible;amovible;amovibles;amovibles
+antérieur;a;;avant,avants,face;XX;;XY;antérieur;antérieure;antérieurs;antérieures
+central;a;;milieu,milieux;XX;;XY;central;centrale;centraux;centrales
+différé;a;;plus tard;XX;;XY;différé;différée;différés;différées
+digital;a;;doigt;XX;;XY;digital;digitale;digitaux;digitales
+diurne;a;;le jour,le matin, le soir,du jour,du matin, du soir,jour,matin, soir;XX;;XY;diurne;diurne;diurnes;diurnes
+division 1;a;;div 1, div1;XX;;XY;division 1;division 1;division 1;division 1
+division 2;a;;div 2,div2;XX;;XY;division 2;division 2;division 2;division 2
+droit;a;;de droite;XX;;XY;droit;droite;droits;droites
+fixe;a;;ancré,ancrée, ancrés,ancrées;XX;;XY;fixe;fixe;fixes;fixes
+gauche;a;;à gauche, de gauche;XX;;XY;gauche;gauche;gauches;gauches
+idéal;a;;parfait,parfaite,parfaits,parfaites,harmonieux,harmonieuse,harmonieuses;XX;;XY;idéal;idéale;idéaux;idéales
+immédiat;a;;maintenant;XX;;XY;immédiat;immédiate;immédiats;immédiates
+incisif;a;;dents centrales, dent du centre;XX;;XY;incisif;incisive;incisifs;incisives
+inclus;a;;intégré,intégrée,intégrés,intégrées;XX;;XY;inclus;incluse;inclus;incluses
+infectieux;a;;infecté,infectée,infectés,infectées;XX;;XY;infectieux;infectieuse;infectieux;infectieuses
+latéral;a;;côté,côtés;XX;;XY;latéral;latérale;latéraux;latérales
+mandibulaire;a;;en bas,bas;XX;;XY;mandibulaire;mandibulaire;mandibulaires;mandibulaires
+maxillaire;a;;en haut,haut;XX;;XY;maxillaire;maxillaire;maxillaires;maxillaires
+modéré;a;;léger,légere,légers,légeres;XX;;XY;modéré;modérée;modérés;modérées
+nocturne;a;;la nuit;XX;;XY;nocturne;nocturne;nocturnes;nocturnes
+postérieur;a;;arrière,derrière,arrières,derrières;XX;;XY;postérieur;postérieure;postérieurs;postérieures
+programmé;a;;prévu,prévue,prévus,prévues;XX;;XY;programmé;programmée;programmés;programmées
+sévère;a;;grave,marqué,important,majeur,complexe,prononcé,marquée,importante,majeure,prononcée,graves,marqués,importants,majeurs,complexes,prononcés,marquées,importantes,majeures,prononcées;XX;;XY;sévère;sévère;sévères;sévères
+total;a;;entier,entière,entiers,entières;XX;;XY;total;totale;totaux;totales
+traumatique;a;;plaie, lésion, blessure, trauma,plaies, lésions, blessures, traumas;XX;;XY;traumatique;traumatique;traumatiques;traumatiques
+unilatéral;a;;subdivision,asymétrique;XX;;XY;unilatéral;unilatérale;unilatéral;unilatéral
+encombré;a;;rempli;XX;;XY;encombré;encombrée;encombrés;encombrées

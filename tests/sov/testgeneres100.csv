@@ -1,0 +1,52 @@
+﻿# questions_generees.csv V1.0.0 - 19/12/2025 17:56:06
+question;type;nb_criteres;nb_resultats;ids_10
+Montre-moi les cas avec Classe II squelettique division 2 plus Prognathisme maxillaire et qui ont ANB > 6.;LIST;3;1;12
+Retrouve les gens avec Classe III squelettique, et malposition dentaire ayant également ainsi que ANB < -2.;LIST;4;1;74
+Retrouve les patients avec SNB > 85.;LIST;1;5;20,31,32,55,70
+Je veux les cas de Prognathisme maxillaire et SNA > 86.;LIST;2;1;87
+Retrouve les patients avec SNB > 87.;LIST;1;5;20,31,32,55,70
+Retrouve les patients présentant Bruxisme combiné avec adultes.;LIST;2;1;85
+Je cherche les patients avec Bruxisme nocturne.;LIST;1;10;8,11,16,24,34,52,55,68,99,100
+Combien ai-je de patients avec Prognathisme maxillaire présentant aussi 13 ans ayant également ectopie?;COUNT;3;1;66
+Cherche les adolescents.;LIST;1;67;42,1,48,62,89,57,32,16,91,56
+Combien y a-t-il de patients avec ectopie.;COUNT;1;3;29,56,66
+Trouve moi les gens qui ont Bruxisme et qui ont entre 27 et 33 ans combiné avec microdontie.;LIST;3;1;85
+Montre moi les cas avec Bruxisme sévère, et rotation.;LIST;2;1;98
+Quels sont les gens avec microdontie, avec ingression et mineurs?;LIST;3;1;37
+Affiche les patients avec Classe III squelettique?;LIST;1;5;2,25,70,74,75
+Donne-moi les patients ayant jeunes adultes, et Bruxisme sévère?;LIST;2;6;8,35,55,27,100,98
+Donne-moi les personnes qui ont adolescents ainsi que béance plus infraclusion présentant aussi récidive?;LIST;4;1;28
+Affiche-moi les gens qui ont béance avec infraclusion?;LIST;2;3;17,28,72
+Combien ai-je de patients avec nécrose pulpaire.;COUNT;1;5;14,41,53,96,98
+Combien de patients souffrent de béance.;COUNT;1;37;3,4,10,11,14,15,17,18,19,27
+Trouve-moi les 19 ans.;LIST;1;52;88,24,12,59,86,76,30,5,92,8
+Affiche les patients qui ont 8 ans, et malocclusion ayant également rétrognathie mandibulaire?;LIST;3;1;89
+Donne-moi les patients ayant adolescents, et rotation?;LIST;2;1;66
+Cherche les patients avec malposition dentaire.;LIST;1;12;6,15,16,21,23,40,51,53,57,59
+J'aimerais voir les moins de 19 ans?;LIST;1;65;57,32,16,91,56,90,13,39,95,43
+Combien de patients présentent béance antérieure combiné avec nécrose pulpaire?;COUNT;2;2;14,53
+Quels sont les gens avec torque, avec crowding et entre 12 et 18 ans?;LIST;3;1;44
+Combien de patients présentent ankylose combiné avec malposition dentaire?;COUNT;2;1;80
+Trouve moi les cas de Classe III squelettique plus rétrognathie mandibulaire combiné avec Prognathisme mandibulaire combiné avec adultes?;LIST;4;1;70
+Dénombre les patients ayant adolescents?;COUNT;1;69;16,91,56,90,13,39,95,43,38,99
+Combien ai-je de patients avec Bruxisme ainsi que nécrose pulpaire ainsi que entre 20 et 26 ans?;COUNT;3;1;98
+J'aimerais voir les patients avec torque.;LIST;1;4;44,77,81,97
+Retrouve les patients avec béance.;LIST;1;37;3,4,10,11,14,15,17,18,19,27
+Cherche les enfants.;LIST;1;32;33,37,83,47,41,73,42,1,48,62
+Combien de patients souffrent de béance avec enfants?;COUNT;2;18;33,83,47,62,56,90,43,38,4,84
+Cherche les gens qui ont rétrognathie mandibulaire associé à béance?;LIST;2;2;15,90
+Combien de patients présentent béance combiné avec supraposition?;COUNT;2;3;10,38,62
+Affiche les cas de macrodontie, avec entre 21 et 27 ans.;LIST;2;3;14,49,54
+Montre-moi les patients présentant distalisation plus caries dentaires et Bruxisme, et inclusion?;LIST;4;1;35
+Combien de patients souffrent de béance antérieure avec jeunes adultes?;COUNT;2;7;86,87,3,53,14,72,10
+Retrouve les patients présentant rétroalvéolie combiné avec enfants.;LIST;2;1;73
+Compte les patients avec béance sévère?;COUNT;1;12;4,10,15,27,29,43,55,65,72,78
+Dénombre les patients ayant 16 ans?;COUNT;1;66;38,99,4,84,81,80,74,36,68,19
+Quels sont les gens avec béance, avec linguo-version et mineurs?;LIST;3;1;33
+Recherche les gens qui ont Classe III squelettique, avec adultes.;LIST;2;4;70,2,25,75
+Récupère les patients présentant torque et adolescents.;LIST;2;4;81,77,44,97
+Trouve-moi les patients qui ont mésialisation associé à rétroalvéolie.;LIST;2;1;73
+Trouve moi les gens qui ont plus de 19 ans combiné avec agénésie avec béance?;LIST;3;1;63
+J'aimerais voir les patients présentant supraposition et infraposition, et mineurs?;LIST;3;1;88
+Recherche les gens qui ont rétrognathie maxillaire modéré, avec adolescents.;LIST;2;2;24,46
+Compte les patients avec Classe III squelettique?;COUNT;1;5;2,25,70,74,75

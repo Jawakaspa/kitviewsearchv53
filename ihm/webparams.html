@@ -1,0 +1,2594 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitview Search - Paramètres</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.kitview.com/favicon.ico">
+    <style>
+/*
+ * webparams.html V1.0.21 - 01/02/2026 19:20:00
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3B9DD8;
+    --primary-light: #e3f2fd;
+    --primary-dark: #2d8bc7;
+    --accent-color: #27ae60;
+    --accent-hover: #219a52;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #e8e8e8;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --toc-bg: #fafafa;
+    --code-bg: #f4f4f4;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+}
+
+[data-theme="dark"] {
+    --primary-light: #1e3a5f;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888888;
+    --border-color: #404040;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --toc-bg: #252525;
+    --code-bg: #2a2a2a;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER avec boutons Enregistrer/Annuler
+   ═══════════════════════════════════════════════════════════════ */
+
+.params-header {
+    background: var(--bg-primary);
+    padding: 15px 25px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-left .logo {
+    height: 32px;
+}
+
+.header-left h1 {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left h1 .icon {
+    font-size: 24px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 18px;
+}
+
+.icon-button:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+/* Boutons Enregistrer/Annuler dans le header */
+.header-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-save {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--accent-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-save:hover:not(:disabled) {
+    background: var(--accent-hover);
+}
+
+.btn-save:disabled {
+    background: var(--text-muted);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.btn-cancel {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-cancel:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.btn-reset {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: transparent;
+    color: var(--warning-color);
+    border: 1px solid var(--warning-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-reset:hover {
+    background: var(--warning-color);
+    color: white;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BARRE DE RECHERCHE
+   ═══════════════════════════════════════════════════════════════ */
+
+.search-bar-container {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    padding: 8px 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.search-bar .search-icon {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-right: 12px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: transparent;
+    color: #333;
+}
+
+.search-bar input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-bar .clear-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 5px;
+    display: none;
+}
+
+.search-bar .clear-btn.visible {
+    display: block;
+}
+
+.search-results-count {
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.95);
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 500;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTAINER PRINCIPAL
+   ═══════════════════════════════════════════════════════════════ */
+
+.params-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 25px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SIDEBAR (Navigation hiérarchique)
+   ═══════════════════════════════════════════════════════════════ */
+
+.params-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 140px;
+    height: fit-content;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* Navigation rapide (Illustration/Analyse) */
+.quick-nav {
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.quick-nav-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.quick-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.quick-nav-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 6px 12px;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 500;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+}
+
+.quick-nav-link:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.quick-nav-link .link-icon {
+    font-size: 15px;
+}
+
+.quick-nav-link .link-arrow {
+    margin-left: auto;
+    opacity: 0.5;
+}
+
+.nav-card {
+    background: var(--toc-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.nav-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li {
+    margin-bottom: 2px;
+}
+
+/* Liens principaux (topics) */
+.nav-list > li > a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.nav-list > li > a:hover {
+    background: var(--bg-primary);
+    color: var(--primary-color);
+}
+
+.nav-list > li > a.active {
+    background: var(--primary-light);
+    color: var(--primary-color);
+}
+
+.nav-list > li > a .nav-icon {
+    font-size: 16px;
+}
+
+.nav-list > li > a .nav-chevron {
+    margin-left: auto;
+    font-size: 10px;
+    transition: transform 0.2s;
+}
+
+.nav-list > li.expanded > a .nav-chevron {
+    transform: rotate(90deg);
+}
+
+/* Sous-niveaux */
+.nav-sublist {
+    list-style: none;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    margin-left: 26px;
+    border-left: 2px solid var(--border-color);
+    padding-left: 10px;
+}
+
+.nav-list > li.expanded > .nav-sublist {
+    max-height: 500px;
+}
+
+.nav-sublist li a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+
+.nav-sublist li a:hover {
+    color: var(--primary-color);
+    background: var(--bg-primary);
+}
+
+.nav-sublist li a.active {
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.nav-sublist li a .sub-icon {
+    font-size: 14px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTENU PRINCIPAL
+   ═══════════════════════════════════════════════════════════════ */
+
+.params-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+/* Cartes de section */
+.content-card {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    padding: 25px;
+    border: 1px solid var(--border-color);
+    scroll-margin-top: 160px;
+}
+
+.content-card.hidden {
+    display: none;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 20px;
+}
+
+.section-icon {
+    font-size: 28px;
+}
+
+.section-header h2 {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.section-desc {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-left: auto;
+}
+
+/* Sous-sections */
+.subsection {
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--primary-color);
+    scroll-margin-top: 160px;
+}
+
+.subsection.hidden {
+    display: none;
+}
+
+.subsection.highlight {
+    animation: subsection-highlight 2s ease-out;
+}
+
+@keyframes subsection-highlight {
+    0% { background: var(--primary-light); border-left-color: var(--primary-dark); }
+    100% { background: var(--bg-secondary); border-left-color: var(--primary-color); }
+}
+
+.subsection-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.subsection-header .sub-icon {
+    font-size: 22px;
+}
+
+.subsection-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.subsection-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGNES DE PARAMÈTRES
+   ═══════════════════════════════════════════════════════════════ */
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.setting-row.hidden {
+    display: none;
+}
+
+.setting-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.setting-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.setting-description {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 3px;
+}
+
+.setting-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    flex-shrink: 0;
+}
+
+.setting-control {
+    padding: 8px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    min-width: 180px;
+}
+
+.setting-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 157, 216, 0.15);
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 15px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* Slider */
+.slider-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.slider-input {
+    width: 120px;
+    height: 6px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--bg-tertiary);
+    border-radius: 3px;
+    outline: none;
+}
+
+.slider-input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px;
+    height: 18px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.slider-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    min-width: 45px;
+    text-align: right;
+}
+
+/* Number input */
+.number-input {
+    width: 80px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    text-align: center;
+}
+
+.number-input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.input-suffix {
+    font-size: 13px;
+    color: var(--text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GRILLE TOOLBAR
+   ═══════════════════════════════════════════════════════════════ */
+
+.toggle-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.toggle-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 18px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+
+.toggle-item.hidden {
+    display: none;
+}
+
+.toggle-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(59, 157, 216, 0.1);
+}
+
+.toggle-item.highlight {
+    animation: item-highlight 2s ease-out;
+}
+
+@keyframes item-highlight {
+    0% { background: var(--primary-light); border-color: var(--primary-color); }
+    100% { background: var(--bg-secondary); border-color: var(--border-color); }
+}
+
+.toggle-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.toggle-item-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.toggle-item-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.toggle-checkboxes {
+    display: flex;
+    gap: 20px;
+}
+
+.mini-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+    cursor: pointer;
+}
+
+.mini-checkbox input {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.toggle-legend {
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GRILLE MOTEURS IA
+   ═══════════════════════════════════════════════════════════════ */
+
+.ia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 15px;
+}
+
+.ia-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+
+.ia-item.hidden {
+    display: none;
+}
+
+.ia-item.highlight {
+    animation: item-highlight 2s ease-out;
+}
+
+.ia-item:hover {
+    border-color: var(--primary-color);
+}
+
+.ia-item.inactive {
+    opacity: 0.5;
+}
+
+.ia-checkbox {
+    margin-right: 12px;
+}
+
+.ia-checkbox input {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.ia-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ia-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.ia-provider {
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.ia-cost {
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.ia-cost.free {
+    background: #d4edda;
+    color: #155724;
+}
+
+.ia-cost.low {
+    background: #fff3cd;
+    color: #856404;
+}
+
+.ia-cost.medium {
+    background: #ffe5d0;
+    color: #c45c00;
+}
+
+.ia-cost.high {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION DÉTECTION IA
+   ═══════════════════════════════════════════════════════════════ */
+
+.detiabrut-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.detiabrut-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+
+.detiabrut-item.hidden {
+    display: none;
+}
+
+.detiabrut-item.highlight {
+    animation: item-highlight 2s ease-out;
+}
+
+.detiabrut-item:hover {
+    border-color: var(--primary-color);
+}
+
+.detiabrut-item.disabled {
+    opacity: 0.5;
+}
+
+.detiabrut-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 12px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.detiabrut-item label {
+    font-size: 14px;
+    color: var(--text-primary);
+    cursor: pointer;
+}
+
+.detiabrut-buttons {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.detiabrut-btn {
+    padding: 8px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-secondary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.detiabrut-btn:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.detiabrut-command {
+    background: var(--code-bg);
+    border-radius: 8px;
+    padding: 15px;
+    font-family: 'Consolas', 'Monaco', monospace;
+}
+
+.detiabrut-command .cmd-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.detiabrut-command .cmd-value {
+    font-size: 14px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION EXEMPLES
+   ═══════════════════════════════════════════════════════════════ */
+
+.examples-textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+    transition: all 0.2s;
+}
+
+.examples-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 157, 216, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TOAST & FOOTER
+   ═══════════════════════════════════════════════════════════════ */
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.toast.active {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.params-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .params-container {
+        flex-direction: column;
+    }
+    
+    .params-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
+    
+    .nav-card {
+        padding: 15px;
+    }
+    
+    .nav-list > li.expanded > .nav-sublist {
+        max-height: 1000px;
+    }
+    
+    .toggle-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .ia-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .header-buttons {
+        flex-direction: column;
+        gap: 6px;
+    }
+    
+    .btn-save, .btn-cancel {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 768px) {
+    .params-header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+    
+    .header-left h1 {
+        font-size: 18px;
+    }
+    
+    .header-buttons {
+        flex-direction: row;
+        width: 100%;
+    }
+    
+    .btn-save, .btn-cancel {
+        flex: 1;
+        justify-content: center;
+    }
+    
+    .search-bar-container {
+        padding: 15px;
+    }
+    
+    .search-bar {
+        padding: 8px 15px;
+    }
+    
+    .setting-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .setting-controls {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .setting-control {
+        min-width: 100%;
+    }
+    
+    .section-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 8px;
+    }
+    
+    .section-desc {
+        margin-left: 0;
+    }
+    
+    .quick-nav-links {
+        flex-direction: row;
+    }
+    
+    .quick-nav-link {
+        flex: 1;
+        justify-content: center;
+        padding: 10px;
+    }
+    
+    .quick-nav-link .link-arrow {
+        display: none;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header avec boutons Enregistrer/Annuler -->
+    <header class="params-header">
+        <div class="header-left">
+            <img src="https://www.kitview.com/favicon.ico" alt="Kitview" class="logo">
+            <h1><span class="icon">⚙️</span> Paramètres détaillés</h1>
+        </div>
+        <div class="header-right">
+            <div class="header-buttons">
+                <button class="btn-reset" onclick="confirmResetAll()" title="Réinitialiser toutes les préférences aux valeurs par défaut">
+                    🔄 Réinitialiser
+                </button>
+                <button class="btn-save" id="btnSave" onclick="saveSettings()" disabled>
+                    💾 Enregistrer
+                </button>
+                <button class="btn-cancel" onclick="goBack()">
+                    ✕ Annuler
+                </button>
+            </div>
+            <button class="icon-button" id="themeToggle" title="Changer le thème">🌙</button>
+        </div>
+    </header>
+
+    <!-- Barre de recherche -->
+    <div class="search-bar-container">
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Rechercher un paramètre..." autocomplete="off">
+            <button class="clear-btn" id="clearSearch" onclick="clearSearch()">✕</button>
+        </div>
+        <div class="search-results-count" id="searchResultsCount"></div>
+    </div>
+
+    <div class="params-container">
+        <!-- Sidebar avec navigation -->
+        <aside class="params-sidebar">
+            <!-- Navigation rapide -->
+            <div class="quick-nav">
+                <div class="quick-nav-title">🚀 Navigation rapide</div>
+                <div class="quick-nav-links">
+                    <a href="chat29.html" class="quick-nav-link">
+                        <span class="link-icon">💬</span>
+                        Mode Chat
+                        <span class="link-arrow">→</span>
+                    </a>
+                    <a href="clas29.html" class="quick-nav-link">
+                        <span class="link-icon">📋</span>
+                        Mode Classique
+                        <span class="link-arrow">→</span>
+                    </a>
+                    <a href="illustration.html" class="quick-nav-link">
+                        <span class="link-icon">🖼️</span>
+                        Illustration
+                        <span class="link-arrow">→</span>
+                    </a>
+                    <a href="analyse.html" class="quick-nav-link">
+                        <span class="link-icon">📊</span>
+                        Analyse
+                        <span class="link-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Navigation des paramètres -->
+            <nav class="nav-card">
+                <div class="nav-title">📑 NAVIGATION</div>
+                <ul class="nav-list">
+                    <!-- Affichage -->
+                    <li class="expanded">
+                        <a href="#affichage" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">📺</span>
+                            Affichage
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#jour-nuit"><span class="sub-icon">🌓</span> Mode Jour / Nuit</a></li>
+                            <li><a href="#style-visuel"><span class="sub-icon">🎨</span> Style visuel</a></li>
+                            <li><a href="#filigrane"><span class="sub-icon">💧</span> Filigrane</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Utilisateur -->
+                    <li>
+                        <a href="#utilisateur" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">👤</span>
+                            Utilisateur
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#nom-utilisateur"><span class="sub-icon">👤</span> Nom d'utilisateur</a></li>
+                            <li><a href="#base-donnees"><span class="sub-icon">🗄️</span> Base de données</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Toolbar -->
+                    <li>
+                        <a href="#toolbar" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">🎛️</span>
+                            Barre d'outils
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#langue"><span class="sub-icon">🌐</span> Langue</a></li>
+                            <li><a href="#vocal"><span class="sub-icon">🎤</span> Recherche vocale</a></li>
+                            <li><a href="#demo"><span class="sub-icon">🎬</span> Mode Démo</a></li>
+                            <li><a href="#analyse"><span class="sub-icon">📊</span> Analyse</a></li>
+                            <li><a href="#moteur-selector"><span class="sub-icon">🤖</span> Moteur IA</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Panel -->
+                    <li>
+                        <a href="#panel" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">📋</span>
+                            Panneau latéral
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#panel-affichage"><span class="sub-icon">📋</span> Affichage</a></li>
+                            <li><a href="#historique"><span class="sub-icon">📜</span> Historique</a></li>
+                            <li><a href="#exemples-panel"><span class="sub-icon">💡</span> Exemples</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Comportement -->
+                    <li>
+                        <a href="#comportement" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">⚡</span>
+                            Comportement
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#duree-demo"><span class="sub-icon">⏱️</span> Durée démo</a></li>
+                            <li><a href="#mains-libres"><span class="sub-icon">🎤</span> Mains libres</a></li>
+                            <li><a href="#limite-resultats"><span class="sub-icon">📊</span> Limite résultats</a></li>
+                            <li><a href="#taille-page"><span class="sub-icon">📄</span> Taille page</a></li>
+                            <li><a href="#gestion-erreurs"><span class="sub-icon">⚠️</span> Gestion erreurs</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Moteurs IA -->
+                    <li>
+                        <a href="#moteurs" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">🤖</span>
+                            Moteurs IA
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#moteurs-liste"><span class="sub-icon">📋</span> Liste des moteurs</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Détection IA -->
+                    <li>
+                        <a href="#detection" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">🔬</span>
+                            Détection IA
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#detect-tags"><span class="sub-icon">🏷️</span> Pathologies</a></li>
+                            <li><a href="#detect-adjs"><span class="sub-icon">📝</span> Adjectifs</a></li>
+                            <li><a href="#detect-ages"><span class="sub-icon">📅</span> Âges</a></li>
+                            <li><a href="#detect-angles"><span class="sub-icon">📐</span> Angles</a></li>
+                            <li><a href="#detect-mapping"><span class="sub-icon">🔗</span> Mapping</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Exemples -->
+                    <li>
+                        <a href="#exemples" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">💡</span>
+                            Exemples
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#exemples-liste"><span class="sub-icon">📝</span> Liste personnalisée</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="params-content">
+            
+            <!-- Section Affichage -->
+            <section class="content-card" id="affichage">
+                <div class="section-header">
+                    <span class="section-icon">📺</span>
+                    <h2>Affichage</h2>
+                    <span class="section-desc">Personnalisez l'apparence de l'application</span>
+                </div>
+                
+                <!-- Jour/Nuit -->
+                <div class="subsection" id="jour-nuit" data-keywords="thème jour nuit sombre clair auto dark light theme">
+                    <div class="subsection-header">
+                        <span class="sub-icon">🌓</span>
+                        <h3>Mode Jour / Nuit (Thème de couleurs)</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Choisissez entre un affichage clair pour le jour, sombre pour réduire la fatigue oculaire la nuit, 
+                        ou automatique pour suivre les préférences de votre système d'exploitation.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Configuration du thème</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeTheme" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="bandeauTheme">
+                                    <span class="checkbox-label">Bandeau</span>
+                                </label>
+                            </div>
+                            <select id="themeSelect" class="setting-control">
+                                <option value="auto">Automatique (système)</option>
+                                <option value="light">Mode Jour (clair)</option>
+                                <option value="dark">Mode Nuit (sombre)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Style visuel -->
+                <div class="subsection" id="style-visuel" data-keywords="style visuel classique moderne minimal glass design interface">
+                    <div class="subsection-header">
+                        <span class="sub-icon">🎨</span>
+                        <h3>Style visuel de l'interface</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Définissez l'apparence générale de l'application : classique pour un look sobre et professionnel,
+                        moderne pour des bordures arrondies et des ombres élégantes.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Choix du style</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeStyle" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <select id="styleSelect" class="setting-control">
+                                <option value="classic">Classique</option>
+                                <option value="modern">Moderne</option>
+                                <option value="minimal">Minimal</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filigrane -->
+                <div class="subsection" id="filigrane" data-keywords="filigrane watermark opacité transparence logo fond arrière-plan">
+                    <div class="subsection-header">
+                        <span class="sub-icon">💧</span>
+                        <h3>Opacité du filigrane</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Ajustez la visibilité du filigrane Kitview affiché en arrière-plan. 
+                        Une valeur basse rend le filigrane presque invisible, une valeur haute le rend plus présent.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Opacité du fond</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="slider-container">
+                                <input type="range" id="filigraneSlider" class="slider-input" min="0" max="100" value="50">
+                                <span class="slider-value" id="filigraneValue">50%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Utilisateur -->
+            <section class="content-card" id="utilisateur">
+                <div class="section-header">
+                    <span class="section-icon">👤</span>
+                    <h2>Utilisateur</h2>
+                    <span class="section-desc">Vos informations personnelles et préférences</span>
+                </div>
+                
+                <!-- Nom utilisateur -->
+                <div class="subsection" id="nom-utilisateur" data-keywords="nom utilisateur user name prénom identifiant profil">
+                    <div class="subsection-header">
+                        <span class="sub-icon">👤</span>
+                        <h3>Votre nom d'utilisateur</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Personnalisez l'application en entrant votre nom. Il sera utilisé pour vous saluer 
+                        et personnaliser certains messages de l'interface.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Nom affiché</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeUsername" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <input type="text" id="userNameInput" class="setting-control" placeholder="Votre prénom...">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Base de données -->
+                <div class="subsection" id="base-donnees" data-keywords="base données database patients fichier source sélection">
+                    <div class="subsection-header">
+                        <span class="sub-icon">🗄️</span>
+                        <h3>Sélection de la base de données</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Choisissez la base de données patients à utiliser. Plusieurs bases peuvent être disponibles
+                        pour différents cabinets ou périodes.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Base active</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="bandeauBases">
+                                    <span class="checkbox-label">Bandeau</span>
+                                </label>
+                            </div>
+                            <select id="baseSelectorSettings" class="setting-control">
+                                <option value="">Chargement...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Toolbar -->
+            <section class="content-card" id="toolbar">
+                <div class="section-header">
+                    <span class="section-icon">🎛️</span>
+                    <h2>Barre d'outils & Fonctionnalités</h2>
+                    <span class="section-desc">Activez ou désactivez les éléments de l'interface</span>
+                </div>
+                
+                <div class="toggle-grid">
+                    <!-- Langue -->
+                    <div class="toggle-item" id="langue" data-keywords="langue language français anglais espagnol i18n traduction">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">🌐 Sélecteur de langue de l'interface</span>
+                            <span class="toggle-item-desc">Changez la langue d'affichage de l'application</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Activer cette fonctionnalité">
+                                <input type="checkbox" id="activeI18n" checked>
+                                Actif
+                            </label>
+                            <label class="mini-checkbox" title="Afficher dans le bandeau supérieur">
+                                <input type="checkbox" id="bandeauI18n" checked>
+                                Bandeau
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Micro -->
+                    <div class="toggle-item" id="vocal" data-keywords="micro voix vocal reconnaissance speech audio dictée">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">🎤 Recherche vocale par microphone</span>
+                            <span class="toggle-item-desc">Dictez vos recherches au lieu de les taper au clavier</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Activer cette fonctionnalité">
+                                <input type="checkbox" id="activeMicro" checked>
+                                Actif
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Demo -->
+                    <div class="toggle-item" id="demo" data-keywords="démo demo démonstration présentation automatique carousel">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">🎬 Mode Démonstration automatique</span>
+                            <span class="toggle-item-desc">Lance automatiquement des recherches pour illustrer les capacités</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Activer cette fonctionnalité">
+                                <input type="checkbox" id="activeSwitchDemo" checked>
+                                Actif
+                            </label>
+                            <label class="mini-checkbox" title="Afficher dans le bandeau supérieur">
+                                <input type="checkbox" id="bandeauSwitchDemo" checked>
+                                Bandeau
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Analyse -->
+                    <div class="toggle-item" id="analyse" data-keywords="analyse analytics statistiques graphiques tableau bord">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">📊 Accès à la page Analyse</span>
+                            <span class="toggle-item-desc">Bouton d'accès aux statistiques et tableaux de bord avancés</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Activer cette fonctionnalité">
+                                <input type="checkbox" id="activeAnalyse" checked>
+                                Actif
+                            </label>
+                            <label class="mini-checkbox" title="Afficher dans le bandeau supérieur">
+                                <input type="checkbox" id="bandeauAnalyse">
+                                Bandeau
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Moteur selector -->
+                    <div class="toggle-item" id="moteur-selector" data-keywords="moteur ia sélecteur modèle gpt gemini openai">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">🤖 Sélecteur de moteur IA</span>
+                            <span class="toggle-item-desc">Permet de choisir dynamiquement le modèle d'IA utilisé</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Toujours actif">
+                                <input type="checkbox" checked disabled>
+                                Actif
+                            </label>
+                            <label class="mini-checkbox" title="Afficher dans le bandeau supérieur">
+                                <input type="checkbox" id="bandeauMoteur">
+                                Bandeau
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="toggle-legend">
+                    <strong>Actif</strong> = Fonctionnalité disponible &nbsp;|&nbsp; <strong>Bandeau</strong> = Visible dans la barre supérieure
+                </div>
+            </section>
+
+            <!-- Section Panel -->
+            <section class="content-card" id="panel">
+                <div class="section-header">
+                    <span class="section-icon">📋</span>
+                    <h2>Panneau latéral gauche</h2>
+                    <span class="section-desc">Configurez le panneau de navigation et d'historique</span>
+                </div>
+                
+                <div class="toggle-grid">
+                    <div class="toggle-item" id="panel-affichage" data-keywords="panel panneau latéral sidebar gauche menu">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">📋 Affichage du panneau latéral</span>
+                            <span class="toggle-item-desc">Afficher ou masquer le panneau de navigation à gauche de l'écran</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox">
+                                <input type="checkbox" id="activePanel" checked>
+                                Actif
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="toggle-item" id="historique" data-keywords="historique history conversations récentes passées">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">📜 Historique des recherches passées</span>
+                            <span class="toggle-item-desc">Afficher vos recherches précédentes pour les relancer facilement</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox">
+                                <input type="checkbox" id="activeHistorique" checked>
+                                Actif
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="toggle-item" id="exemples-panel" data-keywords="exemples suggestions aide démarrage inspiration">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">💡 Exemples et suggestions</span>
+                            <span class="toggle-item-desc">Afficher des exemples de recherche pour vous inspirer</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox">
+                                <input type="checkbox" id="activeExemples" checked>
+                                Actif
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Comportement -->
+            <section class="content-card" id="comportement">
+                <div class="section-header">
+                    <span class="section-icon">⚡</span>
+                    <h2>Comportement</h2>
+                    <span class="section-desc">Paramètres de fonctionnement et limites</span>
+                </div>
+                
+                <!-- Durée démo -->
+                <div class="subsection" id="duree-demo" data-keywords="durée démo cycle temps intervalle automatique secondes">
+                    <div class="subsection-header">
+                        <span class="sub-icon">⏱️</span>
+                        <h3>Durée du cycle de démonstration</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Définissez l'intervalle en secondes entre chaque recherche automatique en mode démo.
+                        Une valeur plus élevée laisse plus de temps pour voir les résultats.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Intervalle entre les recherches</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeDemo" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <input type="number" id="demoDurationInput" class="number-input" value="20" min="5" max="120">
+                            <span class="input-suffix">secondes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mains libres -->
+                <div class="subsection" id="mains-libres" data-keywords="mains libres handsfree écoute continue voice activation kitview">
+                    <div class="subsection-header">
+                        <span class="sub-icon">🎤</span>
+                        <h3>Mode mains libres continu</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Le mode mains libres reste à l'écoute en permanence. Dites "Kitview" suivi de votre recherche 
+                        pour lancer une requête sans toucher le clavier - idéal pendant les manipulations.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Délai d'écoute après détection</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeHandsfree" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <input type="number" id="handsfreeDurationInput" class="number-input" value="5" min="2" max="30">
+                            <span class="input-suffix">secondes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Limite résultats -->
+                <div class="subsection" id="limite-resultats" data-keywords="limite résultats maximum patients affichage performance">
+                    <div class="subsection-header">
+                        <span class="sub-icon">📊</span>
+                        <h3>Nombre maximum de résultats</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Limitez le nombre de patients affichés pour améliorer les performances.
+                        Une limite plus basse accélère l'affichage des résultats.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Limite de patients affichés</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeLimit" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <input type="number" id="resultsLimitInput" class="number-input" value="100" min="10" max="1000">
+                            <span class="input-suffix">patients</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Taille page -->
+                <div class="subsection" id="taille-page" data-keywords="pagination taille page patients par page affichage">
+                    <div class="subsection-header">
+                        <span class="sub-icon">📄</span>
+                        <h3>Patients par page (pagination)</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Définissez combien de patients sont affichés par page avant de devoir paginer.
+                        Une valeur plus petite permet un chargement plus rapide de chaque page.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Nombre par page</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activePagesize" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <input type="number" id="pageSizeInput" class="number-input" value="10" min="5" max="50">
+                            <span class="input-suffix">patients</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Gestion des erreurs -->
+                <div class="subsection" id="gestion-erreurs" data-keywords="erreur erreurs crash bug debug débogage technique affichage message">
+                    <div class="subsection-header">
+                        <span class="sub-icon">⚠️</span>
+                        <h3>Gestion des erreurs</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Configurez l'affichage des erreurs techniques. Par défaut, les erreurs sont masquées 
+                        et l'application affiche simplement "0 patient trouvé". Activez ces options pour 
+                        voir les messages d'erreur en cas de problème.
+                    </div>
+                    <div class="setting-row" style="flex-direction: column; align-items: flex-start; gap: 15px;">
+                        <div class="setting-info" style="width: 100%;">
+                            <div class="setting-label">Options d'affichage des erreurs</div>
+                        </div>
+                        <div class="error-options" style="display: flex; flex-direction: column; gap: 12px; width: 100%;">
+                            <label class="checkbox-wrapper" style="padding: 12px; background: var(--bg-primary); border-radius: 8px; border: 1px solid var(--border-color);">
+                                <input type="checkbox" id="showErrors">
+                                <span class="checkbox-label">
+                                    <strong>Afficher les erreurs</strong><br>
+                                    <span style="font-size: 12px; color: var(--text-secondary);">
+                                        Affiche "Erreur technique" au lieu de "0 patient trouvé" (détails dans la console F12)
+                                    </span>
+                                </span>
+                            </label>
+                            <label class="checkbox-wrapper" style="padding: 12px; background: var(--bg-primary); border-radius: 8px; border: 1px solid var(--border-color); margin-left: 20px;">
+                                <input type="checkbox" id="showErrorDetails">
+                                <span class="checkbox-label">
+                                    <strong>Détail des erreurs</strong><br>
+                                    <span style="font-size: 12px; color: var(--text-secondary);">
+                                        Affiche le message d'erreur complet directement dans la page (nécessite "Afficher les erreurs")
+                                    </span>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="error-behavior-info" style="width: 100%; padding: 12px; background: var(--code-bg); border-radius: 8px; font-size: 13px;">
+                            <div style="margin-bottom: 8px; font-weight: 600;">📋 Comportement selon les options :</div>
+                            <div style="display: flex; flex-direction: column; gap: 6px; color: var(--text-secondary);">
+                                <div>• <strong>Aucune case</strong> → "0 patient trouvé" (silencieux)</div>
+                                <div>• <strong>Afficher erreurs</strong> → "Erreur technique" + détails en console F12</div>
+                                <div>• <strong>Les deux cases</strong> → Message d'erreur complet affiché dans la page</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Moteurs IA -->
+            <section class="content-card" id="moteurs">
+                <div class="section-header">
+                    <span class="section-icon">🤖</span>
+                    <h2>Moteurs IA disponibles</h2>
+                    <span class="section-desc">Activez ou désactivez les modèles d'intelligence artificielle</span>
+                </div>
+                
+                <div class="subsection" id="moteurs-liste" data-keywords="moteurs ia modèles gpt gemini openai google activation désactivation">
+                    <div class="subsection-header">
+                        <span class="sub-icon">📋</span>
+                        <h3>Liste des moteurs configurés</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Cochez les moteurs que vous souhaitez utiliser. Les moteurs désactivés n'apparaîtront pas 
+                        dans le sélecteur de la barre de recherche. Le coût est indicatif.
+                    </div>
+                    <div class="ia-grid" id="iaGrid">
+                        <div class="ia-item">
+                            <span style="color: var(--text-muted)">Chargement des moteurs...</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Détection IA -->
+            <section class="content-card" id="detection">
+                <div class="section-header">
+                    <span class="section-icon">🔬</span>
+                    <h2>Détection IA (detiabrut)</h2>
+                    <span class="section-desc">Configuration des options de détection automatique</span>
+                </div>
+                
+                <div class="subsection" id="detect-tags" data-keywords="détection tags pathologies maladies conditions diagnostics">
+                    <div class="subsection-description">
+                        Sélectionnez les types de données que l'IA doit détecter automatiquement dans vos questions.
+                        La commande CLI correspondante est générée automatiquement.
+                    </div>
+                    
+                    <div class="detiabrut-grid">
+                        <div class="detiabrut-item" id="detect-tags-item" data-keywords="tags pathologies">
+                            <input type="checkbox" id="detiabrut_tags" checked onchange="updateDetiabrut(); markDirty();">
+                            <label for="detiabrut_tags">🏷️ Pathologies (tags)</label>
+                        </div>
+                        <div class="detiabrut-item" id="detect-adjs" data-keywords="adjectifs qualificatifs descripteurs">
+                            <input type="checkbox" id="detiabrut_adjs" checked onchange="updateDetiabrut(); markDirty();">
+                            <label for="detiabrut_adjs">📝 Adjectifs (qualificatifs)</label>
+                        </div>
+                        <div class="detiabrut-item" id="detect-ages" data-keywords="âges fourchette enfants adultes seniors">
+                            <input type="checkbox" id="detiabrut_ages" checked onchange="updateDetiabrut(); markDirty();">
+                            <label for="detiabrut_ages">📅 Âges (fourchettes)</label>
+                        </div>
+                        <div class="detiabrut-item" id="detect-angles" data-keywords="angles mesures céphalométrie classe">
+                            <input type="checkbox" id="detiabrut_angles" checked onchange="updateDetiabrut(); markDirty();">
+                            <label for="detiabrut_angles">📐 Angles (mesures)</label>
+                        </div>
+                        <div class="detiabrut-item" id="detect-mapping" data-keywords="mapping correspondance synonymes équivalences">
+                            <input type="checkbox" id="detiabrut_mapping" checked onchange="updateDetiabrut(); markDirty();">
+                            <label for="detiabrut_mapping">🔗 Mapping (correspondances)</label>
+                        </div>
+                    </div>
+                    
+                    <div class="detiabrut-buttons">
+                        <button class="detiabrut-btn" onclick="setDetiabrut('all')">✓ Tout activer</button>
+                        <button class="detiabrut-btn" onclick="setDetiabrut('none')">✕ Tout désactiver</button>
+                    </div>
+                    
+                    <div class="detiabrut-command">
+                        <div class="cmd-label">Commande CLI équivalente :</div>
+                        <div class="cmd-value" id="detiabrut_cmd">python detiabrut.py "question" all</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Exemples -->
+            <section class="content-card" id="exemples">
+                <div class="section-header">
+                    <span class="section-icon">💡</span>
+                    <h2>Exemples de recherche</h2>
+                    <span class="section-desc">Personnalisez les exemples affichés dans l'interface</span>
+                </div>
+                
+                <div class="subsection" id="exemples-liste" data-keywords="exemples recherches suggestions personnalisation liste custom">
+                    <div class="subsection-header">
+                        <span class="sub-icon">📝</span>
+                        <h3>Liste des exemples personnalisés</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Entrez vos propres exemples de recherche (un par ligne). Ces exemples apparaîtront 
+                        dans le panneau latéral et en mode démonstration pour illustrer les possibilités.
+                    </div>
+                    <textarea id="examplesTextarea" class="examples-textarea" placeholder="Un exemple par ligne..."></textarea>
+                    <div style="margin-top: 15px;">
+                        <button class="detiabrut-btn" onclick="resetExamples()">🔄 Réinitialiser les exemples par défaut</button>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">✓ Paramètres enregistrés avec succès !</div>
+
+    <!-- Footer -->
+    <footer class="params-footer">
+        Kitview Search - Configuration des paramètres
+    </footer>
+
+    <script>
+// ═══════════════════════════════════════════════════════════════
+// CONFIGURATION & CONSTANTES
+// ═══════════════════════════════════════════════════════════════
+
+const API_BASE_URL = (() => {
+    const hostname = window.location.hostname;
+    const protocol = window.location.protocol;
+    
+    // Fichier local (file://) ou localhost
+    if (protocol === 'file:' || hostname === 'localhost' || hostname === '127.0.0.1') {
+        return 'http://localhost:8000';
+    }
+    
+    // Sur Render ou autre serveur : utiliser l'origine
+    return window.location.origin;
+})();
+
+const elements = {
+    searchInput: document.getElementById('searchInput'),
+    clearSearch: document.getElementById('clearSearch'),
+    searchResultsCount: document.getElementById('searchResultsCount'),
+    btnSave: document.getElementById('btnSave'),
+    themeSelect: document.getElementById('themeSelect'),
+    styleSelect: document.getElementById('styleSelect'),
+    filigraneSlider: document.getElementById('filigraneSlider'),
+    filigraneValue: document.getElementById('filigraneValue'),
+    userNameInput: document.getElementById('userNameInput'),
+    baseSelectorSettings: document.getElementById('baseSelectorSettings'),
+    demoDurationInput: document.getElementById('demoDurationInput'),
+    handsfreeDurationInput: document.getElementById('handsfreeDurationInput'),
+    resultsLimitInput: document.getElementById('resultsLimitInput'),
+    pageSizeInput: document.getElementById('pageSizeInput'),
+    examplesTextarea: document.getElementById('examplesTextarea'),
+    activeTheme: document.getElementById('activeTheme'),
+    activeStyle: document.getElementById('activeStyle'),
+    activeUsername: document.getElementById('activeUsername'),
+    activeI18n: document.getElementById('activeI18n'),
+    activeMicro: document.getElementById('activeMicro'),
+    activeSwitchDemo: document.getElementById('activeSwitchDemo'),
+    activeAnalyse: document.getElementById('activeAnalyse'),
+    activePanel: document.getElementById('activePanel'),
+    activeHistorique: document.getElementById('activeHistorique'),
+    activeExemples: document.getElementById('activeExemples'),
+    activeDemo: document.getElementById('activeDemo'),
+    activeHandsfree: document.getElementById('activeHandsfree'),
+    activeLimit: document.getElementById('activeLimit'),
+    activePagesize: document.getElementById('activePagesize'),
+    showErrors: document.getElementById('showErrors'),
+    showErrorDetails: document.getElementById('showErrorDetails'),
+    bandeauTheme: document.getElementById('bandeauTheme'),
+    bandeauBases: document.getElementById('bandeauBases'),
+    bandeauI18n: document.getElementById('bandeauI18n'),
+    bandeauSwitchDemo: document.getElementById('bandeauSwitchDemo'),
+    bandeauAnalyse: document.getElementById('bandeauAnalyse'),
+    bandeauMoteur: document.getElementById('bandeauMoteur'),
+    detiabrut_tags: document.getElementById('detiabrut_tags'),
+    detiabrut_adjs: document.getElementById('detiabrut_adjs'),
+    detiabrut_ages: document.getElementById('detiabrut_ages'),
+    detiabrut_angles: document.getElementById('detiabrut_angles'),
+    detiabrut_mapping: document.getElementById('detiabrut_mapping'),
+    detiabrut_cmd: document.getElementById('detiabrut_cmd'),
+    themeToggle: document.getElementById('themeToggle'),
+    toast: document.getElementById('toast')
+};
+
+// Exemples par défaut (fallback si API non disponible)
+let DEFAULT_EXAMPLES = [
+    "patients qui grincent des dents",
+    "歯ぎしり",
+    "Nombre de patients avec linguo-version avec déviation maxillaire ?",
+    "Number of patients with linguo-version with maxillary deviation?",
+    "Patientes souffrant de béance antérieure et avec classe II",
+    "Patientinnen mit Frontzahnlücke und Klasse II",
+    "Patientes de moins de 39 ans présentant un encombrement et une rotation dentaire antihoraire",
+    "Pazienti di età inferiore ai 39 anni con affollamento e rotazione dei denti in senso antiorario",
+    "ado diabétique avec problème de bruxisme",
+    "Adolescente diabético com problema de bruxismo",
+    "Patientes d'environ 14 ans avec malocclusion et bruxisme sévère",
+    "Pacientes de unos 14 años con maloclusión y bruxismo severo",
+    "Je voudrais les patients avec un angle ANB = 0°",
+    "patients qui zozottent des dents"
+];
+
+// Paramètres par défaut
+let DEFAULT_SETTINGS = {
+    // Theme
+    theme: 'auto',
+    visualStyle: 'classic',
+    filigraneOpacity: '50',
+    // Utilisateur
+    userName: '',
+    // Fonctionnalités
+    activeTheme: true, activeStyle: true, activeUsername: true, activeI18n: true,
+    activeMicro: true, activeSwitchDemo: true, activeAnalyse: true,
+    activePanel: true, activeHistorique: true, activeExemples: true, activeDemo: true,
+    activeHandsfree: true, activeLimit: true, activePagesize: true,
+    // Erreurs
+    showErrors: false, showErrorDetails: false,
+    // Bandeau
+    bandeauTheme: false, bandeauBases: false, bandeauI18n: true,
+    bandeauSwitchDemo: true, bandeauAnalyse: false, bandeauMoteur: false,
+    // Comportement
+    demoDuration: '20',
+    handsfreeDuration: '5',
+    resultsLimit: '100',
+    pageSize: '10',
+    // Detiabrut
+    detiabrut_tags: true, detiabrut_adjs: true, detiabrut_ages: true,
+    detiabrut_angles: true, detiabrut_mapping: true
+};
+
+// Flag pour savoir si des modifications ont été faites
+let isDirty = false;
+
+// ═══════════════════════════════════════════════════════════════
+// DIRTY FLAG (modifications non sauvegardées)
+// ═══════════════════════════════════════════════════════════════
+
+function markDirty() {
+    if (!isDirty) {
+        isDirty = true;
+        elements.btnSave.disabled = false;
+    }
+}
+
+function clearDirty() {
+    isDirty = false;
+    elements.btnSave.disabled = true;
+}
+
+// ═══════════════════════════════════════════════════════════════
+// NAVIGATION HIÉRARCHIQUE
+// ═══════════════════════════════════════════════════════════════
+
+function toggleSection(li) {
+    li.classList.toggle('expanded');
+}
+
+function initNavigation() {
+    const navLinks = document.querySelectorAll('.nav-list a, .nav-sublist a');
+    const sections = document.querySelectorAll('.content-card[id], .subsection[id]');
+    
+    // Observer pour le scroll
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                            // Ouvrir le parent si c'est un sous-niveau
+                            const parentLi = link.closest('.nav-list > li');
+                            if (parentLi) parentLi.classList.add('expanded');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '-140px 0px -50% 0px'
+        });
+        
+        sections.forEach(section => observer.observe(section));
+    }
+    
+    // Scroll smooth sur clic
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    targetSection.classList.add('highlight');
+                    setTimeout(() => targetSection.classList.remove('highlight'), 2000);
+                }
+            }
+        });
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// THÈME
+// ═══════════════════════════════════════════════════════════════
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        elements.themeToggle.textContent = '☀️';
+    } else if (savedTheme === 'light') {
+        document.body.removeAttribute('data-theme');
+        elements.themeToggle.textContent = '🌙';
+    } else {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.setAttribute('data-theme', 'dark');
+            elements.themeToggle.textContent = '☀️';
+        }
+    }
+}
+
+function toggleTheme() {
+    const isDark = document.body.hasAttribute('data-theme');
+    if (isDark) {
+        document.body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        elements.themeToggle.textContent = '🌙';
+    } else {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        elements.themeToggle.textContent = '☀️';
+    }
+}
+
+function applyTheme(theme) {
+    if (theme === 'auto') {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    } else {
+        document.documentElement.setAttribute('data-theme', theme);
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RECHERCHE AMÉLIORÉE
+// ═══════════════════════════════════════════════════════════════
+
+function performSearch(query) {
+    const normalizedQuery = query.toLowerCase().trim();
+    
+    // Éléments filtrables (subsections, toggle-items, ia-items, detiabrut-items)
+    const searchableItems = document.querySelectorAll('.subsection, .toggle-item, .ia-item, .detiabrut-item');
+    let visibleCount = 0;
+    
+    // D'abord filtrer les éléments individuels
+    searchableItems.forEach(item => {
+        const keywords = (item.dataset.keywords || '').toLowerCase();
+        const textContent = item.textContent.toLowerCase();
+        const searchText = keywords + ' ' + textContent;
+        
+        if (!normalizedQuery || searchText.includes(normalizedQuery)) {
+            item.classList.remove('hidden');
+            visibleCount++;
+            if (normalizedQuery && searchText.includes(normalizedQuery)) {
+                item.classList.add('highlight');
+                setTimeout(() => item.classList.remove('highlight'), 2000);
+            }
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+    
+    // Ensuite masquer les sections qui n'ont aucun contenu visible
+    const sections = document.querySelectorAll('.content-card');
+    sections.forEach(section => {
+        // Vérifier si au moins un élément est visible dans cette section
+        const visibleSubsections = section.querySelectorAll('.subsection:not(.hidden)');
+        const visibleToggleItems = section.querySelectorAll('.toggle-item:not(.hidden)');
+        const visibleIaItems = section.querySelectorAll('.ia-item:not(.hidden)');
+        const visibleDetiabrutItems = section.querySelectorAll('.detiabrut-item:not(.hidden)');
+        
+        const hasVisibleContent = 
+            visibleSubsections.length > 0 || 
+            visibleToggleItems.length > 0 || 
+            visibleIaItems.length > 0 ||
+            visibleDetiabrutItems.length > 0;
+        
+        if (normalizedQuery && !hasVisibleContent) {
+            section.classList.add('hidden');
+        } else {
+            section.classList.remove('hidden');
+        }
+    });
+    
+    // Mettre à jour le compteur et le bouton clear
+    elements.clearSearch.classList.toggle('visible', normalizedQuery.length > 0);
+    elements.searchResultsCount.textContent = normalizedQuery ? `${visibleCount} élément(s) trouvé(s)` : '';
+}
+
+function clearSearch() {
+    elements.searchInput.value = '';
+    performSearch('');
+    elements.searchInput.focus();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHARGEMENT / SAUVEGARDE
+// ═══════════════════════════════════════════════════════════════
+
+function loadSettings() {
+    elements.themeSelect.value = localStorage.getItem('theme') || 'auto';
+    elements.styleSelect.value = localStorage.getItem('visualStyle') || 'classic';
+    
+    const filigrane = localStorage.getItem('filigraneOpacity') || '50';
+    elements.filigraneSlider.value = filigrane;
+    elements.filigraneValue.textContent = filigrane + '%';
+    
+    elements.userNameInput.value = localStorage.getItem('userName') || '';
+    elements.demoDurationInput.value = localStorage.getItem('demoDuration') || '20';
+    elements.handsfreeDurationInput.value = localStorage.getItem('handsfreeDuration') || '5';
+    elements.resultsLimitInput.value = localStorage.getItem('resultsLimit') || '100';
+    elements.pageSizeInput.value = localStorage.getItem('pageSize') || '10';
+    
+    const checkboxDefaults = {
+        activeTheme: true, activeStyle: true, activeUsername: true, activeI18n: true,
+        activeMicro: true, activeSwitchDemo: true, activeAnalyse: true,
+        activePanel: true, activeHistorique: true, activeExemples: true, activeDemo: true,
+        activeHandsfree: true, activeLimit: true, activePagesize: true,
+        showErrors: false, showErrorDetails: false,
+        bandeauTheme: false, bandeauBases: false, bandeauI18n: true,
+        bandeauSwitchDemo: true, bandeauAnalyse: false, bandeauMoteur: false
+    };
+    
+    Object.entries(checkboxDefaults).forEach(([id, defaultVal]) => {
+        const saved = localStorage.getItem(id);
+        if (elements[id]) elements[id].checked = saved === null ? defaultVal : saved === 'true';
+    });
+    
+    elements.examplesTextarea.value = localStorage.getItem('searchExamples') || DEFAULT_EXAMPLES.join('\n');
+    loadDetiabrutSettings();
+    
+    // Après chargement, réinitialiser le dirty flag
+    clearDirty();
+}
+
+function saveSettings() {
+    localStorage.setItem('theme', elements.themeSelect.value);
+    localStorage.setItem('visualStyle', elements.styleSelect.value);
+    localStorage.setItem('filigraneOpacity', elements.filigraneSlider.value);
+    localStorage.setItem('userName', elements.userNameInput.value);
+    localStorage.setItem('demoDuration', elements.demoDurationInput.value);
+    localStorage.setItem('handsfreeDuration', elements.handsfreeDurationInput.value);
+    localStorage.setItem('resultsLimit', elements.resultsLimitInput.value);
+    localStorage.setItem('pageSize', elements.pageSizeInput.value);
+    
+    if (elements.baseSelectorSettings.value) {
+        localStorage.setItem('currentBase', elements.baseSelectorSettings.value);
+    }
+    
+    const checkboxIds = [
+        'activeTheme', 'activeStyle', 'activeUsername', 'activeI18n', 'activeMicro',
+        'activeSwitchDemo', 'activeAnalyse', 'activePanel',
+        'activeHistorique', 'activeExemples', 'activeDemo', 'activeHandsfree',
+        'activeLimit', 'activePagesize', 'showErrors', 'showErrorDetails',
+        'bandeauTheme', 'bandeauBases',
+        'bandeauI18n', 'bandeauSwitchDemo', 'bandeauAnalyse', 'bandeauMoteur'
+    ];
+    
+    checkboxIds.forEach(id => {
+        if (elements[id]) localStorage.setItem(id, elements[id].checked);
+    });
+    
+    localStorage.setItem('searchExamples', elements.examplesTextarea.value);
+    saveDetiabrutSettings();
+    applyTheme(elements.themeSelect.value);
+    
+    showToast();
+    clearDirty();
+    setTimeout(() => goBack(), 1500);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHARGEMENT DONNÉES DYNAMIQUES
+// ═══════════════════════════════════════════════════════════════
+
+async function loadAvailableBases() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/bases`);
+        if (!response.ok) throw new Error('API non disponible');
+        
+        const data = await response.json();
+        const allBases = data.bases || [];
+        
+        // V2.0.0 : Filtrer les bases - Garder uniquement base*.db
+        const bases = allBases.filter(base => /^base\d+\.db$/i.test(base));
+        console.log(`✓ Bases filtrées: ${bases.length}/${allBases.length}`);
+        
+        elements.baseSelectorSettings.innerHTML = '';
+        bases.forEach(base => {
+            const option = document.createElement('option');
+            option.value = base;
+            option.textContent = base;
+            elements.baseSelectorSettings.appendChild(option);
+        });
+        
+        const currentBase = localStorage.getItem('currentBase');
+        if (currentBase && bases.includes(currentBase)) {
+            elements.baseSelectorSettings.value = currentBase;
+        }
+    } catch (error) {
+        console.error('Erreur chargement bases:', error);
+        elements.baseSelectorSettings.innerHTML = '<option value="">Serveur non connecté</option>';
+    }
+}
+
+async function loadExamples() {
+    // Charger les exemples depuis localStorage ou utiliser les valeurs par défaut
+    const savedExamples = localStorage.getItem('searchExamples');
+    if (savedExamples) {
+        elements.examplesTextarea.value = savedExamples;
+    } else {
+        elements.examplesTextarea.value = DEFAULT_EXAMPLES.join('\n');
+    }
+    console.log('✓ Exemples chargés');
+}
+
+let ALL_IA_MODELS = [];
+
+async function loadIAModels() {
+    const iaGrid = document.getElementById('iaGrid');
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/ia`);
+        if (!response.ok) throw new Error('Erreur API');
+        
+        const data = await response.json();
+        ALL_IA_MODELS = data.moteurs || [];
+        
+        iaGrid.innerHTML = '';
+        
+        if (ALL_IA_MODELS.length === 0) {
+            iaGrid.innerHTML = '<div class="ia-item"><span style="color: var(--text-muted)">Aucun moteur configuré</span></div>';
+            return;
+        }
+        
+        ALL_IA_MODELS.forEach(m => {
+            const isActive = m.actif === 'O';
+            const costClass = getCostClass(m.cout);
+            const costLabel = getCostLabel(m.cout);
+            
+            const item = document.createElement('div');
+            item.className = `ia-item ${isActive ? '' : 'inactive'}`;
+            item.dataset.keywords = `${m.moteur} ${m.fournisseur} ia intelligence artificielle model`;
+            item.innerHTML = `
+                <label class="ia-checkbox">
+                    <input type="checkbox" id="ia_${m.moteur}" ${isActive ? 'checked' : ''} 
+                           onchange="toggleIA('${m.moteur}', this.checked)">
+                </label>
+                <div class="ia-info">
+                    <div class="ia-name">${m.moteur}</div>
+                    <div class="ia-provider">${m.fournisseur}</div>
+                </div>
+                <span class="ia-cost ${costClass}">${costLabel}</span>
+            `;
+            iaGrid.appendChild(item);
+        });
+    } catch (error) {
+        console.error('Erreur chargement moteurs IA:', error);
+        iaGrid.innerHTML = '<div class="ia-item"><span style="color: var(--text-muted)">Erreur de connexion au serveur</span></div>';
+    }
+}
+
+function getCostClass(cost) {
+    if (!cost || cost === 0) return 'free';
+    if (cost <= 0.5) return 'low';
+    if (cost <= 2) return 'medium';
+    return 'high';
+}
+
+function getCostLabel(cost) {
+    if (!cost || cost === 0) return 'Gratuit';
+    return `${cost}¢/req`;
+}
+
+async function toggleIA(moteur, isActive) {
+    try {
+        const response = await fetch(`${API_BASE_URL}/ia/${moteur}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ actif: isActive ? 'O' : 'N' })
+        });
+        
+        if (!response.ok) throw new Error('Erreur mise à jour');
+        
+        // Mettre à jour l'apparence
+        const item = document.getElementById(`ia_${moteur}`).closest('.ia-item');
+        item.classList.toggle('inactive', !isActive);
+        markDirty();
+    } catch (error) {
+        console.error(`Erreur modification ${moteur}:`, error);
+        const checkbox = document.getElementById(`ia_${moteur}`);
+        if (checkbox) checkbox.checked = !isActive;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// DÉTECTION IA
+// ═══════════════════════════════════════════════════════════════
+
+const DETIABRUT_OPTIONS = ['tags', 'adjs', 'ages', 'angles', 'mapping'];
+
+function updateDetiabrut() {
+    const enabledOptions = [];
+    const disabledOptions = [];
+    
+    DETIABRUT_OPTIONS.forEach(opt => {
+        const checkbox = elements[`detiabrut_${opt}`];
+        const item = checkbox.closest('.detiabrut-item');
+        
+        if (checkbox.checked) {
+            enabledOptions.push(opt);
+            item.classList.remove('disabled');
+        } else {
+            disabledOptions.push(opt);
+            item.classList.add('disabled');
+        }
+    });
+    
+    let cmdValue;
+    if (disabledOptions.length === 0) {
+        cmdValue = 'python detiabrut.py "question" all';
+    } else if (enabledOptions.length === 0) {
+        cmdValue = 'python detiabrut.py "question" none';
+    } else if (disabledOptions.length <= enabledOptions.length) {
+        cmdValue = `python detiabrut.py "question" ${disabledOptions.map(o => `-${o}`).join(' ')}`;
+    } else {
+        cmdValue = `python detiabrut.py "question" none ${enabledOptions.map(o => `+${o}`).join(' ')}`;
+    }
+    
+    elements.detiabrut_cmd.textContent = cmdValue;
+}
+
+function setDetiabrut(mode) {
+    DETIABRUT_OPTIONS.forEach(opt => {
+        elements[`detiabrut_${opt}`].checked = (mode === 'all');
+    });
+    updateDetiabrut();
+    markDirty();
+}
+
+function loadDetiabrutSettings() {
+    DETIABRUT_OPTIONS.forEach(opt => {
+        const saved = localStorage.getItem(`detiabrut_${opt}`);
+        elements[`detiabrut_${opt}`].checked = saved === null ? true : saved === 'true';
+    });
+    updateDetiabrut();
+}
+
+function saveDetiabrutSettings() {
+    DETIABRUT_OPTIONS.forEach(opt => {
+        localStorage.setItem(`detiabrut_${opt}`, elements[`detiabrut_${opt}`].checked);
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// UTILITAIRES
+// ═══════════════════════════════════════════════════════════════
+
+function resetExamples() {
+    elements.examplesTextarea.value = DEFAULT_EXAMPLES.join('\n');
+    markDirty();
+}
+
+function confirmResetAll() {
+    if (confirm('⚠️ Réinitialiser TOUTES les préférences aux valeurs par défaut ?\n\nCette action va :\n• Remettre tous les paramètres à leur valeur initiale\n• Réinitialiser les exemples\n• Effacer vos personnalisations\n\nContinuer ?')) {
+        resetAllSettings();
+    }
+}
+
+function resetAllSettings() {
+    // Réinitialiser les sélects
+    elements.themeSelect.value = DEFAULT_SETTINGS.theme || 'auto';
+    elements.styleSelect.value = DEFAULT_SETTINGS.visualStyle || 'classic';
+    
+    // Réinitialiser le slider filigrane
+    const filigrane = DEFAULT_SETTINGS.filigraneOpacity || '50';
+    elements.filigraneSlider.value = filigrane;
+    elements.filigraneValue.textContent = filigrane + '%';
+    
+    // Réinitialiser le nom utilisateur
+    elements.userNameInput.value = DEFAULT_SETTINGS.userName || '';
+    
+    // Réinitialiser les champs numériques
+    elements.demoDurationInput.value = DEFAULT_SETTINGS.demoDuration || '20';
+    elements.handsfreeDurationInput.value = DEFAULT_SETTINGS.handsfreeDuration || '5';
+    elements.resultsLimitInput.value = DEFAULT_SETTINGS.resultsLimit || '100';
+    elements.pageSizeInput.value = DEFAULT_SETTINGS.pageSize || '10';
+    
+    // Réinitialiser toutes les checkboxes
+    const booleanSettings = [
+        'activeTheme', 'activeStyle', 'activeUsername', 'activeI18n', 'activeMicro',
+        'activeSwitchDemo', 'activeAnalyse', 'activePanel',
+        'activeHistorique', 'activeExemples', 'activeDemo', 'activeHandsfree',
+        'activeLimit', 'activePagesize', 'showErrors', 'showErrorDetails',
+        'bandeauTheme', 'bandeauBases', 'bandeauI18n', 'bandeauSwitchDemo',
+        'bandeauAnalyse', 'bandeauMoteur'
+    ];
+    
+    booleanSettings.forEach(id => {
+        if (elements[id]) {
+            const defaultVal = DEFAULT_SETTINGS[id];
+            elements[id].checked = defaultVal !== undefined ? defaultVal : true;
+        }
+    });
+    
+    // Réinitialiser detiabrut
+    DETIABRUT_OPTIONS.forEach(opt => {
+        const key = `detiabrut_${opt}`;
+        if (elements[key]) {
+            const defaultVal = DEFAULT_SETTINGS[key];
+            elements[key].checked = defaultVal !== undefined ? defaultVal : true;
+        }
+    });
+    updateDetiabrut();
+    
+    // Réinitialiser les exemples
+    elements.examplesTextarea.value = DEFAULT_EXAMPLES.join('\n');
+    
+    // Appliquer le thème
+    applyTheme(elements.themeSelect.value);
+    
+    // Marquer comme modifié
+    markDirty();
+    
+    console.log('✓ Toutes les préférences ont été réinitialisées');
+}
+
+function showToast() {
+    elements.toast.classList.add('active');
+    setTimeout(() => elements.toast.classList.remove('active'), 2000);
+}
+
+function goBack() {
+    if (window.history.length > 1) window.history.back();
+    else window.location.href = '/';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// INITIALISATION
+// ═══════════════════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', async function() {
+    console.log('⚙️ Kitview Search - Paramètres V2.0 initialisés');
+    
+    initTheme();
+    elements.themeToggle.addEventListener('click', toggleTheme);
+    initNavigation();
+    
+    // Recherche
+    elements.searchInput.addEventListener('input', (e) => performSearch(e.target.value));
+    
+    // Charger les paramètres
+    loadSettings();
+    
+    // Logique de dépendance pour les erreurs : Détail nécessite Afficher
+    function updateErrorCheckboxes() {
+        if (!elements.showErrors.checked) {
+            elements.showErrorDetails.checked = false;
+            elements.showErrorDetails.disabled = true;
+            elements.showErrorDetails.parentElement.style.opacity = '0.5';
+        } else {
+            elements.showErrorDetails.disabled = false;
+            elements.showErrorDetails.parentElement.style.opacity = '1';
+        }
+    }
+    
+    elements.showErrors.addEventListener('change', () => {
+        updateErrorCheckboxes();
+        markDirty();
+    });
+    
+    // Appliquer l'état des checkboxes erreurs après chargement
+    updateErrorCheckboxes();
+    
+    // Slider filigrane
+    elements.filigraneSlider.addEventListener('input', () => {
+        elements.filigraneValue.textContent = elements.filigraneSlider.value + '%';
+        markDirty();
+    });
+    
+    // Changement thème
+    elements.themeSelect.addEventListener('change', () => {
+        applyTheme(elements.themeSelect.value);
+        markDirty();
+    });
+    
+    // Écouter les changements sur tous les inputs pour le dirty flag
+    document.querySelectorAll('input, select, textarea').forEach(el => {
+        el.addEventListener('change', markDirty);
+        el.addEventListener('input', markDirty);
+    });
+    
+    // Charger données dynamiques
+    await Promise.all([loadAvailableBases(), loadIAModels(), loadExamples()]);
+    
+    // Réinitialiser le dirty flag après chargement complet
+    clearDirty();
+    
+    console.log('✓ Paramètres chargés');
+});
+
+    </script>
+</body>
+</html>

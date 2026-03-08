@@ -1,0 +1,24 @@
+﻿# test_modes_detection.csv V1.0.1 - 05/01/2026 21:30:49
+# Créé par Claude - 05/01/2026
+# 
+# Ce fichier teste les 5 parcours de détection possibles :
+# 1. standard     : Recherche standard directe (terme français connu)
+# 2. ia           : Mode IA forcé (--mode=ia)
+# 3. standardia   : Standard échoue → fallback IA trouve
+# 4. standarddeepl: Standard échoue → traduction DeepL → standard trouve
+# 5. iadeepl      : IA forcé échoue → traduction DeepL → IA trouve
+#
+# Colonnes : question;lang;mode;attendu;description
+#
+question;lang;mode;attendu;description
+bruxisme;fr;standard;>6000;standard - Terme français direct, doit trouver ~6403 patients
+bruxisme;fr;ia;>6000;ia - Mode IA forcé sur terme connu
+deep bite;en;standard;>0;standarddeepl - Terme anglais, traduction puis standard
+open bite;en;standard;>0;standarddeepl - Terme anglais courant, traduction DeepL
+Tiefbiss;de;standard;>0;standarddeepl - Terme allemand (béance profonde)
+mordida abierta;es;standard;>0;standarddeepl - Terme espagnol (béance)
+歯軋り;ja;standard;>0;standarddeepl - Bruxisme en japonais
+磨牙症;cn;standard;>0;standarddeepl - Bruxisme en chinois
+classe ii squelettique;fr;standard;>0;standard - Expression française composée
+béance antérieure gauche;fr;standard;>0;standard - Expression française composée
+apnée du sommeil;fr;standard;>0;standard - Expression française composée

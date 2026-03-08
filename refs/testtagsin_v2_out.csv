@@ -1,0 +1,49 @@
+﻿# testtagsin_v2.csv - Tests de non-régression migration tags V2;;;;;
+# Date: 09/02/2026;;;;;
+# Usage: python dettags.py testtagsin_v2.csv -v;;;;;
+# Attendu: Tous les tags doivent être détectés correctement;;;;;
+# === TAGS EXISTANTS (doivent continuer à fonctionner) ===;;;;;
+# === NOUVEAUX TAGS V2 ===;;;;;
+# === TAGS FUSIONNÉS (enclavement → inclusion) ===;;;;;
+# === PATTERNS REDISTRIBUÉS (doivent matcher le bon tag) ===;;;;;
+# === ADJECTIFS V2 ===;;;;;
+# === MULTI-TAGS + ADJECTIFS ===;;;;;
+# === CAS LIMITES ===;;;;;
+question;nb_tags;tags;adjectifs;adjs_accordes;residu
+béance antérieure sévère;1;béance;antérieur, sévère;antérieure, sévère;
+classe i classe ii;2;classe ii d'angle, classe i d'angle;;;
+bruxisme nocturne;1;bruxisme;nocturne;nocturne;
+patients avec malocclusion modérée;1;malocclusion;modéré;modérée;patients avec
+crowding mandibulaire;1;crowding;mandibulaire;mandibulaire;
+classe ii d'angle division 1;1;classe ii d'angle;division 1;division 1;
+supraclusion;1;supraclusion;;;
+occlusion croisée gauche;1;occlusion croisée;gauche;gauche;
+rétrognathie mandibulaire sévère;1;rétrognathie mandibulaire;sévère;sévère;
+overjet sévère;1;overjet;sévère;sévère;
+endoalvéolie maxillaire;1;endoalvéolie;maxillaire;maxillaire;
+ancrage cortical;1;ancrage;;;
+force orthodontique modérée;1;force orthodontique;modéré;modérée;
+analyse de bolton;1;analyse de bolton;;;
+photographie clinique;1;photographie clinique;;;
+orthodontie linguale;1;orthodontie linguale;;;
+auxiliaire;1;auxiliaire;;;
+arc transpalatin;1;arc transpalatin;;;
+nivellement;1;nivellement;;;
+dent enclavée;1;inclusion;;;
+enclavement;1;inclusion;;;
+dent incluse;1;inclusion;;;
+dent coincée;1;inclusion;;;
+disjoncteur palatin;1;quad helix;;;
+appareil dentaire métallique;1;bagues;;;
+dent bloquée;1;inclusion;;;
+gouttière chirurgicale;1;gouttière;chirurgical;chirurgicale;
+gouttière invisible;1;gouttière;invisible;invisible;
+éruption ectopique;1;éruption ectopique;;;
+éruption retardée;1;éruption;retardé;retardée;
+fente labio-palatine;1;fente;;;
+procheilie supérieure;1;procheilie;maxillaire;maxillaire;
+rétrocheilie inférieure;1;rétrocheilie;mandibulaire;mandibulaire;
+béance antérieure sévère et crowding mandibulaire;2;crowding, béance;mandibulaire, antérieur, sévère;mandibulaire, antérieur, sévère;et
+classe ii sévère avec bruxisme nocturne;2;classe ii d'angle, bruxisme;sévère, nocturne;sévère, nocturne;avec
+patients de moins de 30 ans avec béance;1;béance;;;patients de moins de 30 ans avec
+combien de patients avec overjet modéré;1;overjet;modéré;modéré;combien de patients avec

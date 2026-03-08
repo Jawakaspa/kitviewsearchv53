@@ -1,0 +1,792 @@
+﻿# desyntags.csv généré par tags2syn.py V1.0.0
+# Date: 16/12/2025 19:18:38
+# Lignes: 788
+stdtag;canontag
+Zahn außerhalb des Zahnbogens;ectopie
+Zahn, der nicht wächst;inclusion
+Zahn, der nicht herauskommt;inclusion
+Umleitung der Mittellinie;déviation maxillaire
+molare Beziehung der Klasse i;classe I d'Angle
+obstruktives Schlafapnoe-Syndrom;apnée du sommeil
+Aktivator der Klasse ii;activateur
+Klasse 1 Winkel;classe I d'Angle
+Klasse 2 eckig;classe II d'Angle
+Klasse 3 eckig;classe III d'Angle
+klasse i d ecke;classe I d'Angle
+klasse ii ecke;classe II d'Angle
+Klasse iii eckig;classe III d'Angle
+überlappende Zähne;crowding
+Unterkieferabweichung;déviation mandibulaire
+y-förmig;plaque Y
+Zahnlücke;béance
+neigt zur Wange;vestibulo-version
+neigt zur Zunge;linguo-version
+Zunge zwischen den Zähnen;interposition linguale
+zwölfjähriger Backenzahn;molaire
+sechs Jahre alter Backenzahn;molaire
+Nekrose des Fruchtfleisches;nécrose pulpaire
+Wurzel, die sich resorbiert;résorption radiculaire
+Wurzelresorption;résorption radiculaire
+Mundatmung;respiration buccale
+Nasenatmung;ventilation nasale
+an den Fingernägeln kauen;onychophagie
+Schluckstörung;dysfonction linguale
+Zahnlosigkeit;agénésie
+Fehlen von Zähnen;édentation
+Schluckakt;déglutition
+Zahnausrichtung;alignement
+Entwicklungsanomalie;dysplasie
+Schlafapnoe;apnée du sommeil
+funktionierendes abnehmbares Gerät;activateur
+abnehmbares Gerät transparent;gouttière
+Gaumenexpansionsgerät;quad helix
+Fixierungsgerät;contention
+Herbstgerät;Herbst
+raumhaltendes Gerät;mainteneur d'espace
+Ring und Henkel;mainteneur d'espace
+Ring, der herunterfällt;débandage
+beance durch Interposition;interposition linguale
+Herbst-Pleuelstange;Herbst
+Kieferchirurgie;ostéotomie
+ci 2 triebwerk;Propulsor
+ci ii triebwerk;Propulsor
+Klasse 1 Ecke;classe I d'Angle
+Klasse 1 dangle;classe I d'Angle
+Klasse 1 zahnärztlich;classe I d'Angle
+Klasse 1 skelettartig;Classe I squelettique
+Klasse 2 Ecke;classe II d'Angle
+Klasse 2 dangle;classe II d'Angle
+Klasse 2 zahnärztlich;classe II d'Angle
+Klasse 2 Propeller;Propulsor
+Klasse 2 skelettartig;Classe II squelettique
+Klasse 3 Ecke;classe III d'Angle
+Klasse 3 dangle;classe III d'Angle
+Klasse 3 zahnärztlich;classe III d'Angle
+Klasse 3 skelettartig;Classe III squelettique
+eckige i-Klasse;classe I d'Angle
+Klasse i dangle;classe I d'Angle
+Klasse i Skelett;Classe I squelettique
+Klasse ii eckig;classe II d'Angle
+Klasse ii dangle;classe II d'Angle
+Klasse ii Triebwerk;Propulsor
+Klasse ii skelett;Classe II squelettique
+Klasse iii eckig;classe III d'Angle
+Klasse iii dangle;classe III d'Angle
+Klasse iii skelettartig;Classe III squelettique
+cone beam ct;scanner
+Korrektur Klasse ii;Herbst
+Vorderzahn;incisive
+Wolfszahn;canine
+Bodenzahn;molaire
+Zahn in Infraposition;infraposition
+Zahn in Supraposition;supraposition
+überzähliger Zahn;dent surnuméraire
+falscher Zahn;ectopie
+falsch positionierter Zahn;malposition
+Zahn zu niedrig;infraposition
+Zahn zu hoch;supraposition
+Babyzähne;dentition temporaire
+Vorderzähne;incisive
+Milchzähne;dentition temporaire
+Glückszähne;diastème
+knirschende Zähne;Bruxisme
+zu große Zähne;macrodontie
+zu kleine Zähne;microdontie
+meniskusverschiebung;luxation méniscale
+OP-Verschiebung;translation
+funktionelle mandibuläre Deviation;proglissement
+dento maxilläre Dysharmonie;DDM
+Positionswechsel;transposition
+elastische Bänder Klasse ii;élastiques intermaxillaires
+Gummibänder Klasse iii;élastiques intermaxillaires
+Klassengummis;élastiques intermaxillaires
+Kompressionsfaden;contention
+verletzender Faden;fil qui pique
+überstehender Faden;fil qui pique
+stechender Faden;fil qui pique
+Schluckfunktion;déglutition
+knirscht mit den Zähnen;Bruxisme
+knirschen mit den Zähnen;Bruxisme
+Sauggewohnheit;succion
+temporäres orthodontisches Implantat;minivis
+nach außen geneigt;vestibulo-version
+Zahnfleischentzündung;gingivite
+Positionsumkehr;transposition
+Kiefer zu groß;macrognathie
+Kiefer zu klein;micrognathie
+degenerative Gelenkerkrankung;arthrose
+Zahnfleischerkrankung;maladie parodontale
+Unterkiefer nach hinten;classe II d'Angle
+Unterkiefer nach vorne;Prognathisme mandibulaire
+zurückliegender Unterkiefer;classe II d'Angle
+Platzmangel;crowding
+delaire's mask;classe III d'Angle
+linguale Fehlstellung;dysfonction linguale
+Oberkiefer nach hinten;classe III d'Angle
+Oberkiefer nach vorne;Prognathisme maxillaire
+zurückliegender Oberkiefer;classe III d'Angle
+Distanzierungsbewegung;distalisation
+Mesialisierungsbewegung;mésialisation
+Versionsbewegung;version
+obstruktive Schlafapnoe;apnée du sommeil
+Zahnverlust;édentation
+Halteplatte;contention
+niedrige linguale Position;dysfonction linguale
+Vorwärtsprojektion;protrusion
+Klasse-II-Triebwerk;Propulsor
+Profilradio;céphalométrie
+Profilröntgenaufnahme;céphalométrie
+übermäßige vertikale Überlappung;supraclusion
+neutrale molare Beziehung;classe I d'Angle
+Kompositrestauration;composite
+Nägel kauen;onychophagie
+saugt am Daumen;succion
+erhöhter horizontaler Überhang;classe II d'Angle
+horizontaler Überhang erhöht;classe II d'Angle
+Pleuelstangensystem;bielles
+funktionelle reedukative Behandlung;EF
+Atmungsstörung;luxation méniscale
+Herbsteisenhut;Herbst
+lingual vergießen;linguo-version
+vestibulär vergießen;vestibulo-version
+Kontrollbesuch;contrôle
+4 Helix;quad helix
+orthodontischer Aktivator;activateur
+Zahnausrichtung;alignement
+aligneur first;gouttière
+unsichtbarer Aligner;gouttière
+Alignements first;gouttière
+Knochenverankerung;minivis
+Skelettverankerung;minivis
+Wurzelangulation;torque
+Trennring;écarteur
+Alveolaranomalie;endoalvéolie
+Basalanomalie;endoalvéolie
+angeborene Anomalie;dysplasie
+abnehmbares Gerät;plaque amovible
+Aktivierungsgerät;activateur
+Expansionsgerät;quad helix
+Zahnspange;bagues
+Funktionsgerät;activateur
+Multiattachment-Gerät;bagues
+orthodontische Apparatur;bagues
+Pendulumgerät;pendulum
+Zahnbogen;arcade
+orthodontischer Bogen;arc
+Zahnbogen;arcade
+Zahnziehen;avulsion
+degenerative Arthropathie;arthrose
+entzündliche Arthropathie;arthrite
+Kiefergelenk;ATM
+artikuliert kreuzt;occlusion croisée
+Umkehrgelenk;occlusion inversée
+Gesichtsasymmetrie;asymétrie faciale
+gelöste Befestigung;débandage
+Keramikbefestigungen;céramique
+orthodontische Klammern;bagues
+übermäßiges Vorrücken;protrusion
+Zahnbeance;béance
+Körperbewegung;translation
+orthodontische Boxen;bagues
+offener Mund;respiration buccale
+Bracket decollete;débandage
+Keramikbrackets;céramique
+Zahnkaries;caries dentaires
+dringender Fall;urgence
+bimaxilläre Chirurgie;ostéotomie
+Unterkieferchirurgie;chirurgie
+Kieferchirurgie;chirurgie
+Kiefer- und Gesichtschirurgie;chirurgie
+orthognatische Chirurgie;ostéotomie
+Gelenkschnalzen;claquement articulaire
+Knall atm;claquement articulaire
+Klasse 1;classe I d'Angle
+Klasse 2;classe II d'Angle
+Klasse 3;classe III d'Angle
+Zahnarztklasse;classe I d'Angle
+Klasse i;classe I d'Angle
+Klasse ii;classe II d'Angle
+Klasse iii;classe III d'Angle
+clear ausrichten;gouttière
+Kegelstrahl;scanner
+Dental Crowding;crowding
+Zahnverschiebung;déviation maxillaire
+Horizontalverschiebung;supraposition
+Unterkieferverschiebung;déviation mandibulaire
+Deep Bite;supraclusion
+Unterkieferdefizit;micrognathie
+Kieferdefizit;micrognathie
+primärer Schluckakt;dysfonction linguale
+fehlender Zahn;agénésie
+ankylosierter Zahn;ankylose
+gezogener Zahn;avulsion
+blockierter Zahn;inclusion
+Eckzahn;canine
+ektopischer Zahn;ectopie
+eingeschlossener Zahn;inclusion
+fehlender Zahn;agénésie
+Pfahlzahn;rotation
+zurückgehaltener Zahn;inclusion
+roter Zahn;rotation
+zusätzlicher Zahn;dent surnuméraire
+überzähliger Zahn;dent surnuméraire
+gedrehter Zahn;rotation
+dental arch;arcade
+Zahnkaries;caries dentaires
+Erwachsenengebiss;dentition permanente
+Wechselgebiss;dentition mixte
+Dauergebiss;dentition permanente
+temporäres Gebiss;dentition temporaire
+Übergangsgebiss;dentition mixte
+Erwachsenenzähne;dentition permanente
+definitive Zähne;dentition permanente
+gespreizte Zähne;diastème
+Lückenzähne;diastemata
+Milchzähne;dentition temporaire
+Primärzähne;dentition temporaire
+transponierte Zähne;transposition
+Mischgebiss;dentition mixte
+Dauergebiss;dentition permanente
+temporäre Verzahnung;dentition temporaire
+horizontale Überschreitung;supraposition
+Gelenkverschiebung;luxation
+Körperverschiebung;translation
+Distalverschiebung;distalisation
+Mesialverschiebung;mésialisation
+Gesichtsabweichung;asymétrie faciale
+Seitenabweichung;latérodéviation
+Unterkieferabweichung;déviation mandibulaire
+Kieferkrümmung;déviation maxillaire
+notwendige devitalization;nécrose pulpaire
+Zentraldiastema;diastème
+Digitaldruck;scanner intra-oral
+Pfalzschutzschalter;quad helix
+molare Distalisierung;pendulum
+Zahndistokklusion;classe II d'Angle
+Zahnschmerzen;douleur
+linguale Dysfunktion;dysfonction linguale
+temporomandibuläre Dysfunktion;ATM
+Zahndisharmonie;DDM
+dento-maxilläre Dysharmonie;DDM
+Frühbehandlung;traitement interceptif
+Zahnlücke;diastème
+ektopischer Zahn;ectopie
+Zahnregression;égression
+Trenngummi;écarteur
+intermaxilläre Gummibänder;élastiques intermaxillaires
+Zahnabdruck;empreinte
+digitaler Fingerabdruck;scanner intra-oral
+Zahnschmelze;crowding
+übermäßiger Ausbruch;supraposition
+Interdentalraum;béance
+generalisierter Abstand;diastemata
+Zahnzwischenräume;diastemata
+Mehrfachräume;diastemata
+kieferorthopädische Untersuchung;consultation
+Übermaß an Unterkiefer;macrognathie
+exzessive Maxilla;macrognathie
+langsame Expansion;quad helix
+schnelle Expansion;quad helix
+Zahnextraktion;avulsion
+Bogenfaden;arc
+Metalldraht;arc
+Faden niti;NiTi
+orthodontischer Draht;arc
+rechteckiger Faden;arc
+runder Faden;arc
+vorstehender Draht;fil qui pique
+thermoaktiver Faden;NiTi
+Kaufunktion;mastication
+Kaufunktion;mastication
+Phonatorfunktion;phonation
+Funktionsapparatur;activateur
+Knochenfusion;ankylose
+rotes Zahnfleisch;gingivite
+gingivale Rezession;récession gingivale
+Unterkiefergleiten;proglissement
+orthodontische Schiene;gouttière
+transparente Regenrinne;gouttière
+großer Kiefer;macrognathie
+großer Zahn;molaire
+großer Kiefer;macrognathie
+Mundhygiene;hygiène
+Zahnhygiene;hygiène
+Kieferhypoplasie;classe III d'Angle
+3D-Bildgebung;scanner
+impacted tooth;inclusion
+Zahnneigung;version
+linguale Neigung;linguo-version
+Wurzelneigung;torque
+Gelenkentzündung;arthrite
+Zahnfleischentzündung;gingivite
+orthodontisches Abfangen;traitement interceptif
+linguale Interposition;interposition linguale
+Zahnintrusion;ingression
+Kieferchirurgie;ostéotomie
+niedrige Sprache;dysfonction linguale
+lateral ceph;céphalométrie
+kariöse Läsion;caries dentaires
+farbige Ligatur;ligature
+elastische Ligaturen;ligature
+Metallbindungen;ligature
+loose bracket;débandage
+Atm-Luxation;luxation
+Bandscheibenluxation;luxation méniscale
+Meniskusluxation;luxation méniscale
+Platzhalter;mainteneur d'espace
+schlecht platziert;ectopie
+Parodontalerkrankung;maladie parodontale
+Zahnfehlstellung;malocclusion
+Zahnfehlstellung;malposition
+Rotationsfehlstellung;rotation
+vorgeschobener Unterkiefer;Prognathisme mandibulaire
+Unterkiefer proeminente;Prognathisme mandibulaire
+zurückgezogener Unterkiefer;classe II d'Angle
+schlechte Verzahnung;malocclusion
+schlechte Okklusion;malocclusion
+Oberkiefer vorwärts;Prognathisme maxillaire
+proeminenter Oberkiefer;Prognathisme maxillaire
+Oberkiefer zurück;classe III d'Angle
+Zahn-Mesiokklusion;classe III d'Angle
+rostfreies Metall;métal
+Mini-Implantat;minivis
+gemischtes Gebiss;dentition mixte
+stinkender Biss;béance
+Kreuzbiss;occlusion croisée
+umgekehrter Biss;occlusion inversée
+offener Biss;béance
+tiefer Biss;supraclusion
+Pulpentod;nécrose pulpaire
+Mundatmung;respiration buccale
+Körperbewegung;translation
+Eindringlingsbewegung;ingression
+Nailbiting;onychophagie
+Zahn-Zwergenwuchs;microdontie
+Nasenatmung;ventilation nasale
+Pulpanekrose;nécrose pulpaire
+Zahnreinigung;détartrage
+Kreuzbiss;occlusion croisée
+umgekehrte Okklusion;occlusion inversée
+umgekehrte Okklusion;occlusion inversée
+normale Okklusion;classe I d'Angle
+Open Bite;béance
+Kieferoperation;chirurgie
+orthognathische Chirurgie;chirurgie
+Überbiss;supraclusion
+over jet;supraposition
+Overjet erhöht;classe II d'Angle
+Zahnpanorama;panoramique
+Periodontalerkrankung;maladie parodontale
+permanentes Gebiss;dentition permanente
+Zahnwechsel;transposition
+kleiner Kiefer;micrognathie
+kleiner Backenzahn;prémolaire
+abnehmbare Platte;plaque amovible
+Fächerplatte;plaque éventail
+orthodontische Platte;plaque amovible
+Schmetterlingsplatte;plaque papillon
+Platte y;plaque Y
+interproximales Polieren;stripping
+ektopische Position;ectopie
+Zungenschub;interposition linguale
+Erstgebiss;dentition temporaire
+Abdrucknahme;empreinte
+Okklusionsproblem;malocclusion
+Funktionsproglomerat;proglissement
+Unterkieferprogression;proglissement
+Zahnprognathie;classe III d'Angle
+Unterkieferprognathie;Prognathisme mandibulaire
+Oberkieferprognathie;Prognathisme maxillaire
+Unterkieferprognathismus;Prognathisme mandibulaire
+Prognathismus des Oberkiefers;Prognathisme maxillaire
+nekrotisches Fruchtfleisch;nécrose pulpaire
+quad helix;quad helix
+quadri helix;quad helix
+Wurzelverkürzung;résorption radiculaire
+Panorama-Radio;panoramique
+Panoramaröntgenaufnahme;panoramique
+receding gums;récession gingivale
+gingivale Rezession;récession gingivale
+parodontale Rezession;récession gingivale
+orthodontischer Rückfall;récidive
+horizontale Überlappung;supraposition
+Mandelreduktion;stripping
+interproximale Reduktion;stripping
+abnehmbare Appliance;plaque amovible
+Harzverbundstoff;composite
+Kompositharz;composite
+apikale Resorption;résorption radiculaire
+Wurzelresorption;résorption radiculaire
+Mundbeatmungsgerät;respiration buccale
+Mundatmung;respiration buccale
+Nasenatmung;ventilation nasale
+Mundatmung;respiration buccale
+Gelenksprung;ressaut articulaire
+atm Vorsprung;ressaut articulaire
+Gingivarückzug;récession gingivale
+Zahnretrognathie;classe II d'Angle
+mandibuläre Retrognathie;classe II d'Angle
+Retrognathie des Oberkiefers;classe III d'Angle
+dentale Retrusion;classe II d'Angle
+axiale Rotation;rotation
+Wurzelrotation;torque
+Gummibänder;élastiques intermaxillaires
+3D-Scan;scanner
+Digitaler Scan;scanner intra-oral
+intraoraler Scanner;scanner intra-oral
+Schlafapnea;apnée du sommeil
+Zahnausgang;égression
+zahnärztliche Unterversorgung;microdontie
+anteriorer Unterbiss;infraclusion
+Zahnunterbiss;classe III d'Angle
+Space Maintainer;mainteneur d'espace
+Zahnübergröße;macrodontie
+tong e;tong E
+Tongue Thrust;interposition linguale
+tooth decay;caries dentaires
+Wurzeltorsion;torque
+interzeptive Behandlung;traitement interceptif
+Frühbehandlung;traitement interceptif
+Zahntranslation;translation
+Atmungsstörungen;ATM
+twisted tooth;rotation
+kieferorthopädischer Notfall;urgence
+Zahnabnutzung;Bruxisme
+nasale Ventilation;ventilation nasale
+orale Beatmung;respiration buccale
+Axialversion;rotation
+Ankerschraube;minivis
+asymmetrisches Gesicht;asymétrie faciale
+wire poking;fil qui pique
+3d;scanner
+4helix;quad helix
+Stahl;métal
+Aktivator;activateur
+aero;aéro
+aerophonoskop;aéro
+agenesie;agénésie
+Alginat;empreinte
+Ausrichtung;alignement
+Aligner;gouttière
+Alveole;bipro
+ankilose;ankylose
+Ankylose;ankylose
+Anodontie;agénésie
+appointment;consultation
+Bogen;arc
+Arkade;arcade
+archwire;arc
+abreißen;avulsion
+Arthritis;arthrite
+Osteoarthritis;arthrose
+Gelenk;phonation
+Asymmetrie;latérodéviation
+atm;ATM
+Klammer;ligature
+Klammern;bagues
+schlucken;déglutition
+Aufstieg;mésialisation
+Abtreibung;avulsion
+Ringe;bagues
+Wippe;version
+Kippen;version
+beance;béance
+bikuspidal;prémolaire
+Pleuelstange;bielles
+Pleuelstangen;bielles
+bipro;bipro
+Biproalveolie;bipro
+Braces;bagues
+bracket;bagues
+Brackets;bagues
+Stifte;bagues
+Bürsten;hygiène
+Bruxismus;Bruxisme
+Bruxomanie;Bruxisme
+canine;canine
+Karies;caries dentaires
+Höhle;béance
+cbct;scanner
+cephalo;céphalométrie
+Cephalometrie;céphalométrie
+ceramic;céramique
+Keramik;céramique
+Überlappung;crowding
+Kaugummi;mastication
+Chirurgie;chirurgie
+fünfte;prémolaire
+Reinigung;hygiène
+clenching;Bruxisme
+clicking;claquement articulaire
+Verbundstoff;composite
+Konsultation;consultation
+konsultieren;consultation
+contention;contention
+Kontrolle;contrôle
+Korrektur;alignement
+Paar;torque
+Croc;canine
+Wachstum;croissance
+knacken;mastication
+crossbite;occlusion croisée
+Crowding;crowding
+Höcker;canine
+ddm;DDM
+debandage;débandage
+Dechiffrierung;maladie parodontale
+deciduous;dentition temporaire
+dedentation;avulsion
+Schlucken;déglutition
+delaire;classe III d'Angle
+Entkalkung;détartrage
+Entwicklung;croissance
+diastemata;diastemata
+diasteme;diastème
+Diasteme;diastemata
+discrepance;DDM
+Leistungsschalter;quad helix
+Disjunktion;quad helix
+Verrenkung;luxation
+Distalisierung;distalisation
+disto-occlusion;classe II d'Angle
+Distocclusion;classe II d'Angle
+Schmerzen;douleur
+zwölfte;molaire
+Disharmonie;DDM
+dysharmonie-dento-maxillaire;DDM
+Dysmorphie;dysplasie
+Dysmorphose;DDM
+Dysplasie;dysplasie
+ec;ectopie
+Abstand;béance
+Abstand;béance
+Retraktor;écarteur
+Ektopie;ectopie
+zahnlos;édentation
+edente;édentation
+Zahnlücke;édentation
+ef;EF
+egression;égression
+Gummiband;ligature
+Ansprache;phonation
+emergency;urgence
+Fußabdruck;empreinte
+Platzbedarf;crowding
+Endoalveolie;endoalvéolie
+Vertiefung;ingression
+erp;quad helix
+eruption;égression
+Raum;diastème
+Abstand;diastème
+Abstände;diastème
+Räume;diastemata
+esthetique;céramique
+eventail;plaque éventail
+Exodontie;avulsion
+Expansion;quad helix
+Extraktion;avulsion
+Extrusion;égression
+Faden;arc
+follow-up;contrôle
+forsus;bielles
+gap;diastème
+Gingivitis;gingivite
+Gingivitis;gingivite
+Regenrinne;gouttière
+aufwachsen;croissance
+Knirschen;Bruxisme
+grinding;Bruxisme
+Wachstum;croissance
+hawley;contention
+herbst;Herbst
+horizontal;supraposition
+Hygiene;hygiène
+Hyperdontie;dent surnuméraire
+Hyperplasie;macrognathie
+Hypodontie;agénésie
+Hypoplasie;classe III d'Angle
+Impaktion;inclusion
+Druck;empreinte
+imu;élastiques intermaxillaires
+Schneidezahn;incisive
+Neigung;version
+Einschluss;inclusion
+Unbehagen;douleur
+infra-position;infraposition
+infraclusion;infraclusion
+infraposition;infraposition
+ingression;ingression
+Intervention;chirurgie
+Eindringen;ingression
+invisalign;gouttière
+ipr;stripping
+Reizung;fil qui pique
+laterodeviation;latérodéviation
+Ligatur;ligature
+Feilen;stripping
+linguo-version;linguo-version
+linguoversion;linguo-version
+Luxation;luxation
+macher;mastication
+Makrodontie;macrodontie
+Makrognathie;macrognathie
+Wartung;contention
+Aufrechterhaltung;contention
+schlecht;douleur
+Missbildung;dysplasie
+Malokklusion;malocclusion
+maloclusion;malocclusion
+Fehlstellung;malposition
+Kauen;mastication
+kauen;mastication
+Reifung;croissance
+Megalodontie;macrodontie
+Mesialisierung;mésialisation
+mesio-occlusion;classe III d'Angle
+mesiocclusion;classe III d'Angle
+mesiodens;dent surnuméraire
+metal;métal
+metallisch;métal
+Schleifen;stripping
+Mikrodontie;microdontie
+Mikrognathie;micrognathie
+Minischraube;minivis
+Minivis;minivis
+molar;molaire
+Monitoring;contrôle
+Monoblock;activateur
+Gießen;empreinte
+Bewegung;translation
+Reinigung;hygiène
+Neutrocclusion;classe I d'Angle
+Nickel-Titan;NiTi
+niti;NiTi
+nitinol;NiTi
+Normokklusion;classe I d'Angle
+Oligodontie;agénésie
+Onychophagie;onychophagie
+openbite;béance
+Operation;chirurgie
+opg;panoramique
+Orthopantomogramm;panoramique
+osa;apnée du sommeil
+Osteoarthritis;arthrose
+Osteotomie;ostéotomie
+overbite;supraclusion
+overjet;supraposition
+befrieden;succion
+Brot;douleur
+Panorama;panoramique
+panorex;panoramique
+Schmetterling;plaque papillon
+sprechen;phonation
+Parodontitis;maladie parodontale
+Parodontopathie;maladie parodontale
+Wort;phonation
+pendulum;pendulum
+Phonation;phonation
+popping;ressaut articulaire
+Daumen;succion
+powerscope;bielles
+Vormundschaft;prémolaire
+Proalveolie;proalvéolie
+Problem;urgence
+procheilie;proalvéolie
+Proklusion;protrusion
+Profil;céphalométrie
+Proglomerat;proglissement
+proinclination;proalvéolie
+Prophylaxe;détartrage
+propulsor;Propulsor
+Protrusion;protrusion
+quadhelix;quad helix
+quad-helix;quad helix
+vierte;prémolaire
+Radio;panoramique
+Röntgenaufnahme;panoramique
+Rückfall;récidive
+Rückfall;récidive
+Rückzug;distalisation
+Wiedergutmachung;alignement
+relapse;récidive
+Termin;consultation
+Zurückhaltung;contention
+zurück;récidive
+Retroalveolie;rétroalvéolie
+retrocheilie;rétroalvéolie
+retrognathe;classe II d'Angle
+Retrognathie;classe II d'Angle
+retroinklination;rétroalvéolie
+retromandibular;classe II d'Angle
+Retromandibulismus;classe II d'Angle
+retromaxillär;classe III d'Angle
+Retroposition;classe II d'Angle
+retroversion;rétrusion
+retrusion;rétrusion
+rhizalyse;résorption radiculaire
+Schnarchen;apnée du sommeil
+Rotation;rotation
+saos;apnée du sommeil
+scaling;détartrage
+Scanner;scanner
+Sensibilität;douleur
+Separator;écarteur
+Separator;écarteur
+Umklammerung;Bruxisme
+sechste;molaire
+slicing;stripping
+leiden;douleur
+Suberuption;infraposition
+space;diastème
+spacing;spacing
+speech;phonation
+Stabilisierung;contention
+steel;métal
+straightening;alignement
+stripping;stripping
+Saugen;succion
+saugen;succion
+Saugen;succion
+Nachbereitung;contrôle
+superelastisch;NiTi
+supernumeraire;dent surnuméraire
+supra;supraclusion
+Supraeruption;supraposition
+Überposition;supraposition
+supraclusion;supraclusion
+supraocclusion;supraclusion
+Supraposition;supraposition
+Surfacing;détartrage
+surgery;chirurgie
+Overlock;supraposition
+Überhang;supraposition
+überwachen;contrôle
+swallowing;déglutition
+tads;minivis
+tef;EF
+telecrane;céphalométrie
+teleradio;céphalométrie
+Teleradiographie;céphalométrie
+Tetine;succion
+tie;ligature
+tipping;version
+Titan;métal
+titanium;métal
+tmd;ATM
+tmj;ATM
+Computertomographie;scanner
+Tomographie;scanner
+tong-e;tong E
+torque;torque
+translation;translation
+transparent;céramique
+Transposition;transposition
+underbite;infraclusion
+Notfall;urgence
+dringend;urgence
+Version;version
+vestibulo-position;vestibulo-version
+vestibulo-version;vestibulo-version
+vestibuloversion;vestibulo-version
+Besuch;consultation
+wire;arc

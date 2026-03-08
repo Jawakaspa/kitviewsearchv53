@@ -1,0 +1,105 @@
+﻿# testsquestionsin.csv généré par pipeline.py V1.0.1
+# Date: 24/12/2025 19:19:19
+# Base: base1000.db
+# Questions: 100
+question;listcount;nb_criteres;tags;adjectifs;patient_id
+Combien de patients avec niti enfants ?;COUNT;3;niti;;64
+avec ddm ?;LIST;1;ddm;;31
+femmes ?;LIST;1;;;853
+Combien de patients hommes avec classe iii squelettique ?;COUNT;3;classe iii squelettique;;162
+femmes ?;LIST;1;;;169
+femmes ?;LIST;1;;;137
+avec empreinte ?;LIST;1;empreinte;;706
+avec dentition temporaire enfants ?;LIST;2;dentition temporaire;;277
+Nombre de patients enfants ?;COUNT;2;;;904
+de plus de 3.4689999999999994 ans avec béance hommes ?;LIST;3;béance;;232
+Combien de patients avec ressaut articulaire avec spacing enfants ?;COUNT;4;ressaut articulaire, spacing;;596
+femmes ?;LIST;1;;;384
+hommes avec luxation ?;LIST;2;luxation;;566
+enfants ?;LIST;1;;;190
+avec béance femmes enfants ?;LIST;3;béance;;347
+Combien de patients avec arthrose nocturne ?;COUNT;2;arthrose;nocturne;836
+de plus de 14.780000000000001 ans hommes ?;LIST;2;;;457
+avec urgence ?;LIST;1;urgence;;54
+de moins de 22.224 ans femmes avec plaque papillon ?;LIST;3;plaque papillon;;191
+avec béance de moins de 21.44 ans hommes ?;LIST;3;béance;;6
+femmes avec bruxisme ?;LIST;2;bruxisme;;143
+de moins de 14.425 ans avec empreinte hommes avec béance ?;LIST;4;empreinte, béance;;708
+Combien de patients avec transposition modéré|diurne adultes avec bruxisme femmes ?;COUNT;5;transposition, bruxisme;modéré|diurne;581
+de moins de 17.583 ans avec translation hommes ?;LIST;3;translation;;988
+Nombre de patients avec plaque amovible ?;COUNT;2;plaque amovible;;177
+Nombre de patients de moins de 14.459 ans femmes avec stripping ?;COUNT;4;stripping;;386
+hommes avec bruxisme ?;LIST;2;bruxisme;;812
+Combien de patients avec bruxisme de plus de 5.414999999999999 ans ?;COUNT;3;bruxisme;;934
+de plus de 9.273 ans ?;LIST;1;;;670
+enfants ?;LIST;1;;;213
+de moins de 22.168 ans hommes avec débandage ?;LIST;3;débandage;;680
+de moins de 27.613 ans femmes ?;LIST;2;;;897
+Nombre de patients avec plaque éventail avec classe ii squelettique enfants ?;COUNT;4;plaque éventail, classe ii squelettique;;401
+adultes avec infraclusion ?;LIST;2;infraclusion;;445
+femmes de moins de 16.488 ans ?;LIST;2;;;789
+avec caries dentaires enfants ?;LIST;2;caries dentaires;;497
+Nombre de patients femmes de plus de 5.4079999999999995 ans avec occlusion inversée ?;COUNT;4;occlusion inversée;;198
+hommes ?;LIST;1;;;537
+avec bruxisme avec pendulum de moins de 21.723 ans ?;LIST;3;bruxisme, pendulum;;624
+avec latérodéviation avec protrusion gauche|mandibulaire enfants ?;LIST;3;latérodéviation, protrusion;gauche|mandibulaire;473
+avec nécrose pulpaire unilatérale de plus de 7.651999999999999 ans ?;LIST;2;nécrose pulpaire;unilatérale;979
+Combien de patients hommes avec déviation mandibulaire ?;COUNT;3;déviation mandibulaire;;61
+femmes avec distalisation ?;LIST;2;distalisation;;485
+de moins de 16.147 ans ?;LIST;1;;;220
+avec fil qui pique avec ectopie avec version ?;LIST;3;fil qui pique, ectopie, version;;276
+Nombre de patients de moins de 13.803 ans avec mastication modéré|nocturne avec bruxisme ?;COUNT;4;mastication, bruxisme;modéré|nocturne;514
+avec céramique femmes de plus de 11.728000000000002 ans ?;LIST;3;céramique;;844
+Combien de patients de moins de 20.787 ans ?;COUNT;2;;;873
+femmes ?;LIST;1;;;980
+Combien de patients de plus de 14.603000000000002 ans ?;COUNT;2;;;637
+avec béance hommes ?;LIST;2;béance;;59
+de moins de 19.417 ans avec classe i squelettique ?;LIST;2;classe i squelettique;;704
+avec occlusion inversée hommes ?;LIST;2;occlusion inversée;;859
+avec gingivite hommes ?;LIST;2;gingivite;;87
+Nombre de patients femmes avec béance gauche ?;COUNT;3;béance;gauche;462
+Combien de patients avec ressaut articulaire ?;COUNT;2;ressaut articulaire;;925
+Nombre de patients avec béance femmes ?;COUNT;3;béance;;784
+hommes ?;LIST;1;;;950
+de moins de 20.788 ans avec micrognathie avec béance latérale|gauche|modérée ?;LIST;3;micrognathie, béance;latérale|gauche|modérée;325
+de plus de 16.614 ans hommes avec béance ?;LIST;3;béance;;597
+femmes avec béance ?;LIST;2;béance;;353
+Nombre de patients avec ostéotomie unilatérale|modérée avec classe iii d'angle enfants avec molaire ?;COUNT;5;ostéotomie, classe iii d'angle, molaire;unilatérale|modérée;673
+de plus de 5.109999999999999 ans femmes avec béance avec interposition linguale ?;LIST;4;béance, interposition linguale;;330
+femmes ?;LIST;1;;;424
+hommes avec bruxisme diurne avec interposition linguale enfants ?;LIST;4;bruxisme, interposition linguale;diurne;381
+Nombre de patients avec bruxisme hommes de plus de 10.195 ans ?;COUNT;4;bruxisme;;474
+avec infraclusion adultes avec béance avec classe i d'angle ?;LIST;4;infraclusion, béance, classe i d'angle;;18
+avec ef de plus de 10.405 ans ?;LIST;2;ef;;149
+hommes ?;LIST;1;;;837
+Nombre de patients avec béance sévère ?;COUNT;2;béance;sévère;244
+Nombre de patients avec ankylose femmes de plus de 4.558 ans ?;COUNT;4;ankylose;;733
+de moins de 22.191 ans avec béance avec bielles ?;LIST;3;béance, bielles;;233
+Combien de patients avec douleur infectieuse enfants ?;COUNT;3;douleur;infectieuse;299
+avec traitement interceptif avec déviation mandibulaire hommes de moins de 20.380000000000003 ans ?;LIST;4;traitement interceptif, déviation mandibulaire;;96
+Combien de patients avec bruxisme de moins de 10 ans ?;COUNT;3;bruxisme;;944
+avec luxation méniscale hommes ?;LIST;2;luxation méniscale;;650
+femmes avec béance ?;LIST;2;béance;;627
+Nombre de patients de plus de 12.959 ans avec béance hommes ?;COUNT;4;béance;;949
+Nombre de patients avec béance avec caries dentaires ?;COUNT;3;béance, caries dentaires;;856
+avec élastiques intermaxillaires femmes ?;LIST;2;élastiques intermaxillaires;;83
+hommes avec bruxisme ?;LIST;2;bruxisme;;698
+Nombre de patients avec plaque papillon ?;COUNT;2;plaque papillon;;93
+avec bruxisme femmes ?;LIST;2;bruxisme;;304
+avec occlusion inversée femmes ?;LIST;2;occlusion inversée;;602
+Combien de patients avec claquement articulaire avec béance de plus de 8.561 ans ?;COUNT;4;claquement articulaire, béance;;902
+de plus de 10.845 ans ?;LIST;1;;;253
+adultes ?;LIST;1;;;218
+avec infraclusion postérieure|sévère ?;LIST;1;infraclusion;postérieure|sévère;743
+avec bruxisme sévère|antérieure de moins de 19.523 ans ?;LIST;2;bruxisme;sévère|antérieure;712
+avec débandage femmes ?;LIST;2;débandage;;349
+Nombre de patients de moins de 18.164 ans ?;COUNT;2;;;545
+adultes hommes ?;LIST;2;;;607
+Nombre de patients enfants avec céphalométrie ?;COUNT;3;céphalométrie;;668
+enfants ?;LIST;1;;;44
+avec béance latérale|postérieure avec dentition mixte ?;LIST;2;béance, dentition mixte;latérale|postérieure;316
+femmes de plus de 1 ans ?;LIST;2;;;591
+adultes avec bruxisme avec béance modéré|diurne ?;LIST;3;bruxisme, béance;modéré|diurne;180
+avec bruxisme modéré femmes ?;LIST;2;bruxisme;modéré;360
+avec déglutition de plus de 13.489 ans ?;LIST;2;déglutition;;590
+Nombre de patients hommes ?;COUNT;2;;;728

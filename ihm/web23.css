@@ -1,0 +1,3199 @@
+/*
+ * web23.css V1.2.0 - 20/01/2026
+ * Styles pour Kitview Search
+ * 
+ * CHANGEMENTS V1.2.0 :
+ *   - BOUTON EXPAND : Styles pour chevron en bas de carte (.expand-card-btn)
+ *   - SUPPRESSION LOUPE : Retrait des ::before et ::after sur .patient-photo-container
+ *   - CRITÈRES ACTIFS : Styles .meme-active pour indicateur visuel
+ *
+ * CHANGEMENTS V1.0.0 :
+ *   - Séparation CSS depuis web22.html
+ *   - Renommage "IA" → "Chat" (classes mode-ia → mode-chat)
+ *   - Ajout styles pour éléments cliquables "même X"
+ */
+
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3B9DD8;
+            --primary-light: #e3f2fd;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f5f5f5;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --border-color: #e0e0e0;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            --button-hover: #2d8bc7;
+            /* Variables Glass (utilisées uniquement en mode glass) */
+            --glass-bg: rgba(255, 255, 255, 0.65);
+            --glass-border: rgba(255, 255, 255, 0.4);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+            --glass-blur: 20px;
+            --glow-color: rgba(59, 157, 216, 0.25);
+            --card-radius: 20px;
+            --button-radius: 14px;
+        }
+
+        [data-theme="dark"] {
+            --bg-primary: #1a1a1a;
+            --bg-secondary: #2d2d2d;
+            --text-primary: #e0e0e0;
+            --text-secondary: #b0b0b0;
+            --border-color: #404040;
+            --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            /* Variables Glass mode sombre */
+            --glass-bg: rgba(28, 28, 30, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --glass-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+            --glow-color: rgba(59, 157, 216, 0.4);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           SEARCH TOGGLE & ANIMATION v1.0.0
+           Checkbox entre logo et Search + Animation couleur
+           ═══════════════════════════════════════════════════════════════ */
+        
+        .header-left-with-toggle {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .search-toggle-container {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            margin-left: 5px;
+        }
+        
+        .search-toggle-checkbox {
+            position: absolute;
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .search-toggle-visual {
+            width: 18px;
+            height: 18px;
+            border: 2px solid var(--border-color);
+            border-radius: 4px;
+            background-color: var(--bg-primary);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .search-toggle-checkbox:checked + .search-toggle-visual {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+        }
+        
+        .search-toggle-visual::after {
+            content: '';
+            display: none;
+        }
+        
+        .search-toggle-checkbox:checked + .search-toggle-visual::after {
+            display: block;
+            width: 5px;
+            height: 9px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-bottom: 2px;
+        }
+        
+        .search-toggle-container:hover .search-toggle-visual {
+            border-color: var(--primary-color);
+        }
+        
+        /* Animation couleur du titre Search */
+        .title {
+            font-size: 24px;
+            font-weight: 700;
+            transition: color 0.5s ease;
+        }
+        
+        /* Conteneur pour titre + sous-titre base */
+        .title-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1.2;
+        }
+        
+        .base-subtitle {
+            font-size: 11px;
+            color: var(--text-muted, #6c757d);
+            font-weight: 400;
+            margin-top: -2px;
+        }
+        
+        /* v1.1.0 : Version affichée sous la base */
+        .version-subtitle {
+            font-size: 9px;
+            color: var(--text-muted, #9ca3af);
+            font-weight: 300;
+            margin-top: -1px;
+            opacity: 0.7;
+        }
+        
+        .title.status-loading {
+            color: #e74c3c; /* Rouge */
+        }
+        
+        .title.status-connecting {
+            color: #f39c12; /* Orange */
+        }
+        
+        .title.status-ready {
+            color: #27ae60; /* Vert */
+        }
+        
+        .title.status-error {
+            color: #e74c3c; /* Rouge */
+        }
+        
+        /* Container pour header-center et header-right (masquable) */
+        .header-toolbar {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            flex: 1;
+            justify-content: space-between;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+        
+        .header-toolbar.hidden {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            width: 0;
+            overflow: hidden;
+        }
+        
+        /* Message d'erreur serveur */
+        .server-error-banner {
+            position: fixed;
+            top: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(231, 76, 60, 0.4);
+            z-index: 10000;
+            text-align: center;
+            max-width: 90%;
+            animation: slideDown 0.5s ease;
+        }
+        
+        .server-error-banner h3 {
+            margin: 0 0 10px 0;
+            font-size: 18px;
+        }
+        
+        .server-error-banner p {
+            margin: 5px 0;
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        .server-error-banner code {
+            display: inline-block;
+            background: rgba(0,0,0,0.2);
+            padding: 8px 16px;
+            border-radius: 6px;
+            margin-top: 10px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        
+        @keyframes slideDown {
+            from { transform: translateX(-50%) translateY(-100%); opacity: 0; }
+            to { transform: translateX(-50%) translateY(0); opacity: 1; }
+        }
+        
+        /* ═══════════════════════════════════════════════════════════════
+           FIN SEARCH TOGGLE & ANIMATION v1.0.0
+           ═══════════════════════════════════════════════════════════════ */
+
+        /* ╔═══════════════════════════════════════════════════════════════
+           ║ STYLE LIQUID GLASS - Surcharges CSS
+           ║ Activé via data-style="glass" sur <html>
+           ╚═══════════════════════════════════════════════════════════════ */
+        
+        /* Fond gradient pour le mode glass */
+        [data-style="glass"] body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%) !important;
+            background-attachment: fixed !important;
+        }
+        
+        [data-style="glass"][data-theme="dark"] body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f23 100%) !important;
+        }
+        
+        /* Header glassmorphism */
+        [data-style="glass"] .header {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-bottom: 1px solid var(--glass-border) !important;
+            box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+        }
+        
+        /* Sidebar glassmorphism */
+        [data-style="glass"] .sidebar {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border-right: 1px solid var(--glass-border) !important;
+            box-shadow: inset -1px 0 0 rgba(255, 255, 255, 0.2) !important;
+        }
+        
+        /* Cartes patients glassmorphism */
+        [data-style="glass"] .patient-card-chat {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border) !important;
+            border-radius: var(--card-radius) !important;
+            box-shadow: var(--glass-shadow), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        }
+        
+        [data-style="glass"] .patient-card-chat::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+            pointer-events: none;
+        }
+        
+        [data-style="glass"] .patient-card-chat:hover:not(.expanded) {
+            transform: translateY(-4px) scale(1.01) !important;
+            box-shadow: var(--glass-shadow), 0 12px 40px rgba(0, 0, 0, 0.12), 0 0 20px var(--glow-color) !important;
+            border-color: rgba(59, 157, 216, 0.3) !important;
+        }
+        
+        /* Zone de recherche glassmorphism */
+        [data-style="glass"] .search-input {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border) !important;
+            border-radius: var(--button-radius) !important;
+        }
+        
+        [data-style="glass"] .search-input:focus {
+            box-shadow: 0 0 0 4px var(--glow-color) !important;
+        }
+        
+        [data-style="glass"] .search-button {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #5856d6 100%) !important;
+            border-radius: var(--button-radius) !important;
+            box-shadow: 0 4px 15px rgba(59, 157, 216, 0.3) !important;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        [data-style="glass"] .search-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 50%;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+            pointer-events: none;
+        }
+        
+        [data-style="glass"] .search-button:hover:not(:disabled) {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 25px rgba(59, 157, 216, 0.4) !important;
+        }
+        
+        /* Modal glassmorphism */
+        [data-style="glass"] .modal {
+            background: rgba(0, 0, 0, 0.3) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+        
+        [data-style="glass"] .modal-content {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--glass-border) !important;
+            border-radius: var(--card-radius) !important;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.4) !important;
+        }
+        
+        /* Tags glassmorphism */
+        [data-style="glass"] .patient-tag,
+        [data-style="glass"] .tag-badge {
+            background: rgba(59, 157, 216, 0.12) !important;
+            border: 1px solid rgba(59, 157, 216, 0.2) !important;
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border-radius: 8px !important;
+        }
+        
+        /* SUPPRIMÉ v1.0.0 : Debug panel glassmorphism supprimé */
+        
+        /* Welcome message pour glass */
+        [data-style="glass"] .welcome-message {
+            color: white !important;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Bandeaux résultats glassmorphism */
+        [data-style="glass"] .bandeau-count,
+        [data-style="glass"] .bandeau-zero {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border) !important;
+            border-radius: var(--card-radius) !important;
+        }
+        
+        /* Chips de langue glassmorphism */
+        [data-style="glass"] .lang-chip {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border) !important;
+        }
+        
+        [data-style="glass"] .lang-chip.active {
+            background: linear-gradient(135deg, var(--primary-color), #5856d6) !important;
+            box-shadow: 0 4px 15px var(--glow-color) !important;
+        }
+        
+        /* Sidebar resize handle glassmorphism */
+        [data-style="glass"] .sidebar-resize-handle:hover,
+        [data-style="glass"] .sidebar-resize-handle.dragging {
+            background: linear-gradient(180deg, transparent, var(--primary-color), transparent) !important;
+        }
+        
+        /* Response container glassmorphism */
+        [data-style="glass"] .response-container {
+            background: transparent !important;
+        }
+        
+        [data-style="glass"] .response-bubble {
+            background: var(--glass-bg) !important;
+            backdrop-filter: blur(var(--glass-blur));
+            -webkit-backdrop-filter: blur(var(--glass-blur));
+            border: 1px solid var(--glass-border) !important;
+            border-radius: var(--card-radius) !important;
+        }
+        
+        /* ╔═══════════════════════════════════════════════════════════════
+           ║ FIN STYLE LIQUID GLASS
+           ╚═══════════════════════════════════════════════════════════════ */
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Fonds différents selon le mode */
+        body.mode-chat {
+            background-color: var(--bg-secondary);
+        }
+
+        body.mode-classique {
+            background-color: var(--bg-primary);
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo {
+            height: 40px;
+        }
+
+        .title {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        /* BOUTON AIDE v1.0.0 */
+        .help-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            border: 1px solid var(--border-color);
+            background-color: var(--bg-secondary);
+            color: var(--text-secondary);
+            font-size: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            margin-left: -8px;
+        }
+        
+        .help-button:hover {
+            background-color: var(--accent-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+
+        .header-center {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .base-selector {
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           MODE DE DÉTECTION v1.2 - Contrôles
+           ═══════════════════════════════════════════════════════════════ */
+        
+        .detection-mode-controls {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-left: 10px;
+        }
+        
+        .detection-options {
+            display: flex;
+            gap: 4px;
+        }
+        
+        .detection-checkbox {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: var(--bg-primary);
+            transition: all 0.2s ease;
+        }
+        
+        .detection-checkbox:hover {
+            background-color: var(--bg-secondary);
+        }
+        
+        .detection-checkbox input {
+            display: none;
+        }
+        
+        .detection-checkbox input:checked + span {
+            filter: none;
+        }
+        
+        .detection-checkbox span {
+            font-size: 16px;
+            filter: grayscale(100%);
+            opacity: 0.5;
+            transition: all 0.2s ease;
+        }
+        
+        .detection-checkbox:has(input:checked) {
+            background-color: var(--primary-light);
+            border-color: var(--primary-color);
+        }
+        
+        .detection-checkbox:has(input:checked) span {
+            filter: none;
+            opacity: 1;
+        }
+        
+        .detection-mode2-container {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        .mode2-label {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-secondary);
+        }
+        
+        /* Cards du 2ème mode (union) - fond bleu foncé */
+        .patient-card-chat.union-mode-2 {
+            background: linear-gradient(135deg, #1e3a5f 0%, #2c5282 100%);
+            border-color: #3182ce;
+        }
+        
+        .patient-card-chat.union-mode-2 .patient-name,
+        .patient-card-chat.union-mode-2 .patient-info,
+        .patient-card-chat.union-mode-2 .patient-tag {
+            color: #e2e8f0;
+        }
+        
+        [data-theme="dark"] .patient-card-chat.union-mode-2 {
+            background: linear-gradient(135deg, #1a365d 0%, #2a4365 100%);
+        }
+        
+        /* Responsive: masquer les contrôles sur petits écrans */
+        @media (max-width: 768px) {
+            .detection-mode-controls {
+                display: none;
+            }
+        }
+        
+        /* ═══════════════════════════════════════════════════════════════
+           FIN MODE DE DÉTECTION v1.2
+           ═══════════════════════════════════════════════════════════════ */
+
+        .patient-count {
+            font-size: 16px;
+            font-weight: 500;
+            color: var(--text-secondary);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           LABEL LANGUE DÉTECTÉE v1.0
+           ═══════════════════════════════════════════════════════════════ */
+        .patient-lang-label {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            padding: 4px 10px;
+            background-color: var(--bg-secondary);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+        }
+
+        .patient-lang-label .lang-word {
+            font-weight: 500;
+        }
+
+        .patient-lang-label .lang-flag {
+            width: 20px;
+            height: auto;
+            border-radius: 2px;
+        }
+        /* ═══════════════════════════════════════════════════════════════
+           FIN LABEL LANGUE DÉTECTÉE v1.0
+           ═══════════════════════════════════════════════════════════════ */
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .mode-switch {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            background-color: var(--bg-secondary);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           MODE DÉMO v1.0 - Switch et disque de progression
+           ═══════════════════════════════════════════════════════════════ */
+
+        .demo-switch {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            background-color: var(--bg-secondary);
+        }
+
+        .demo-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .demo-progress-ring {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            background: conic-gradient(
+                var(--primary-color) calc(var(--progress, 0) * 3.6deg),
+                var(--bg-secondary) calc(var(--progress, 0) * 3.6deg)
+            );
+            position: relative;
+            transition: background 0.3s ease;
+        }
+
+        .demo-progress-ring::after {
+            content: '';
+            position: absolute;
+            top: 4px;
+            left: 4px;
+            right: 4px;
+            bottom: 4px;
+            border-radius: 50%;
+            background-color: var(--bg-secondary);
+        }
+
+        .demo-progress-ring.active {
+            animation: pulse-ring 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-ring {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(59, 157, 216, 0.4); }
+            50% { box-shadow: 0 0 0 4px rgba(59, 157, 216, 0); }
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           FIN MODE DÉMO v1.0
+           ═══════════════════════════════════════════════════════════════ */
+
+        .mode-label {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .switch {
+            position: relative;
+            width: 50px;
+            height: 26px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: 0.4s;
+            border-radius: 26px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 20px;
+            width: 20px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: 0.4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--primary-color);
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(24px);
+        }
+
+        .icon-button {
+            width: 36px;
+            height: 36px;
+            border: none;
+            border-radius: 50%;
+            background-color: transparent;
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s;
+            font-size: 20px;
+        }
+
+        .icon-button:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        /* Layout principal */
+        .main-container {
+            display: flex;
+            height: calc(100vh - 70px);
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 280px;
+            min-width: 200px;
+            max-width: 500px;
+            background-color: var(--bg-primary);
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        
+        /* Poignée de redimensionnement */
+        .sidebar-resize-handle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 6px;
+            height: 100%;
+            cursor: ew-resize;
+            background: transparent;
+            transition: background-color 0.2s;
+            z-index: 10;
+        }
+        
+        .sidebar-resize-handle:hover,
+        .sidebar-resize-handle.dragging {
+            background-color: var(--primary-color);
+        }
+        
+        .sidebar.collapsed {
+            width: 0;
+            min-width: 0;
+            transform: translateX(-280px);
+            overflow: hidden;
+        }
+
+        .sidebar-section {
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .sidebar-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        .sidebar-item {
+            padding: 10px;
+            margin-bottom: 5px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-size: 14px;
+            color: var(--text-primary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .sidebar-item:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        .new-search-btn {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .new-search-btn:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* Zone de contenu */
+        .content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* Mode bienvenue */
+        .welcome-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            padding: 40px;
+        }
+
+        .welcome-message {
+            font-size: 32px;
+            font-weight: 300;
+            color: var(--text-primary);
+            margin-bottom: 40px;
+        }
+
+        .welcome-message .user-name {
+            font-weight: 500;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           FILIGRANE FANTOMATIQUE v1.1
+           Fond décoratif aléatoire pendant la saisie
+           L'opacité et les filtres sont gérés dynamiquement par JS
+           ═══════════════════════════════════════════════════════════════ */
+
+        .welcome-container {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .filigrane-ghost {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: 50%;
+            background-position: center 35%;
+            background-repeat: no-repeat;
+            pointer-events: none;
+            z-index: 0;
+            transition: opacity 0.3s ease, filter 0.3s ease, background-image 0.5s ease;
+            /* Valeurs par défaut (écrasées par JS via applyFiligraneIntensity) */
+            opacity: 0.04;
+            filter: grayscale(100%) contrast(1.2);
+        }
+
+        /* Contenu au-dessus du filigrane */
+        .welcome-container .welcome-message,
+        .welcome-container .search-container-center {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           FIN FILIGRANE FANTOMATIQUE v1.1
+           ═══════════════════════════════════════════════════════════════ */
+
+        /* ═══════════════════════════════════════════════════════════════
+           SLIDER FILIGRANE v1.0
+           ═══════════════════════════════════════════════════════════════ */
+        
+        .slider-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .slider-range {
+            flex: 1;
+            -webkit-appearance: none;
+            appearance: none;
+            height: 8px;
+            border-radius: 4px;
+            background: var(--bg-secondary);
+            outline: none;
+        }
+        
+        .slider-range::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        
+        .slider-range::-webkit-slider-thumb:hover {
+            transform: scale(1.1);
+        }
+        
+        .slider-range::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: var(--primary-color);
+            cursor: pointer;
+            border: none;
+        }
+        
+        .slider-value {
+            min-width: 45px;
+            text-align: right;
+            font-weight: 500;
+            color: var(--text-primary);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           FIN SLIDER FILIGRANE v1.0
+           ═══════════════════════════════════════════════════════════════ */
+
+        /* Zone de recherche initiale (centrée) */
+        .search-container-center {
+            width: 100%;
+            max-width: 700px;
+        }
+
+        /* Zone de résultats avec scroll */
+        .results-container {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px 40px;
+            display: none;
+        }
+
+        .results-container.active {
+            display: block;
+        }
+
+        /* Padding spécifique selon le mode - AUGMENTÉ pour zone de recherche */
+        .results-container.mode-chat {
+            padding-bottom: 200px; /* Espace pour la zone de recherche en bas */
+        }
+
+        .results-container.mode-classique {
+            padding-bottom: 20px;
+        }
+
+        /* Message de réponse */
+        .response-item {
+            margin-bottom: 30px;
+            animation: fadeIn 0.3s;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .query-text {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 16px 24px;
+            border-radius: 12px;
+            border: 3px solid var(--primary-color);
+            box-shadow: 0 4px 12px rgba(59, 157, 216, 0.3);
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .response-text {
+            padding: 15px 20px;
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .response-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .response-meta {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        .response-actions {
+            display: flex;
+            gap: 10px;
+        }
+
+        .action-btn {
+            padding: 6px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            background-color: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 12px;
+            transition: all 0.2s;
+        }
+
+        .action-btn:hover {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+        }
+
+        /* GRILLE PATIENTS - MODE IA (cards) */
+        .patients-grid-chat {
+            display: grid;
+            gap: 15px;
+            max-width: none; /* Supprimé pour utiliser toute la largeur */
+        }
+        
+        /* Responsive grid : 5/10/15 patients selon largeur */
+        @media (min-width: 1920px) and (max-width: 3839px) {
+            .patients-grid-chat {
+                grid-template-columns: repeat(5, 1fr); /* 5 pour 1 écran */
+            }
+        }
+        
+        @media (min-width: 3840px) and (max-width: 5759px) {
+            .patients-grid-chat {
+                grid-template-columns: repeat(10, 1fr); /* 10 pour 2 écrans */
+            }
+        }
+        
+        @media (min-width: 5760px) {
+            .patients-grid-chat {
+                grid-template-columns: repeat(15, 1fr); /* 15 pour 3 écrans */
+            }
+        }
+        
+        @media (max-width: 1919px) {
+            .patients-grid-chat {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Responsive pour < 1920px */
+            }
+        }
+
+        /* LISTE PATIENTS - MODE CLASSIQUE (liste) */
+        .patients-list-classique {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            max-width: 900px;
+        }
+
+        /* CARTE PATIENT - MODE IA */
+        .patient-card-chat {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 12px; /* Réduit de 16px */
+            padding: 12px; /* Réduit de 20px */
+            transition: transform 0.2s, box-shadow 0.2s, all 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+
+        .patient-card-chat:hover:not(.expanded) {
+            transform: translateY(-2px); /* Réduit de -4px */
+            box-shadow: 0 2px 8px rgba(0,0,0,0.15); /* Réduit */
+        }
+
+        /* Carte agrandie - EXTENSION VERTICALE */
+        .patient-card-chat.expanded {
+            grid-column: span 1; /* Reste dans sa colonne, s'étend en hauteur */
+            box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+            border: 2px solid var(--primary-color);
+            background-color: #e8f5e9; /* Vert très clair */
+            z-index: 10;
+            min-height: 600px; /* Hauteur augmentée */
+        }
+
+        .patient-card-chat.expanded .patient-card-details {
+            display: block;
+        }
+
+        .patient-card-details {
+            display: none;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .patient-card-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .patient-card-photo-container {
+            flex-shrink: 0;
+        }
+
+        .patient-card-main-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .patient-card-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+            word-wrap: break-word;
+            text-transform: capitalize;
+        }
+
+        .patient-card-gender-age {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 4px;
+        }
+
+        .patient-card-birth {
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .patient-card-section {
+            margin-top: 8px; /* Réduit de 12px */
+            padding-top: 8px; /* Réduit de 12px */
+            border-top: none; /* Plus de bordure comme demandé */
+        }
+
+        .patient-card-section-title {
+            font-size: 11px; /* Réduit de 12px */
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 4px; /* Réduit de 8px */
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .patient-card-tags,
+        .patient-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .patient-tag,
+        .tag-badge {
+            display: inline-block;
+            padding: 4px 10px;
+            background-color: #e3f2fd;
+            color: #1976d2;
+            border-radius: 10px;
+            font-size: 11px;
+            font-weight: 500;
+            text-transform: capitalize;
+        }
+
+        .pathology-tag {
+            text-transform: capitalize;
+        }
+
+        /* ITEM PATIENT - MODE CLASSIQUE */
+        .patient-item-classique {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 15px 20px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            transition: background-color 0.2s, all 0.3s;
+        }
+
+        .patient-item-classique:hover:not(.expanded) {
+            background-color: var(--bg-secondary);
+        }
+
+        .patient-item-classique.expanded {
+            flex-direction: column;
+            align-items: flex-start;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+            border: 2px solid var(--primary-color);
+        }
+
+        .patient-item-classique.expanded .patient-info-classique {
+            width: 100%;
+        }
+
+        /* Bouton fermeture pour carte agrandie - CROIX ROUGE */
+        .close-card-button {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background-color: white;
+            color: #d32f2f; /* Rouge */
+            border: 2px solid #d32f2f;
+            cursor: pointer;
+            display: none; /* Caché par défaut */
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-weight: bold;
+            transition: transform 0.2s, background-color 0.2s;
+            z-index: 20;
+        }
+
+        .patient-card-chat.expanded .close-card-button {
+            display: flex;
+        }
+
+        .close-card-button:hover {
+            transform: scale(1.1);
+            background-color: #d32f2f;
+            color: white;
+        }
+
+        /* Photo patient */
+        .patient-photo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            cursor: pointer; /* Indique que c'est cliquable */
+            transition: transform 0.2s;
+        }
+
+        .patient-photo:hover {
+            transform: scale(1.05);
+        }
+
+        /* Container photo patient - SANS loupe (v1.2.0) */
+        .patient-photo-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        /* SUPPRIMÉ v1.2.0 : Loupe visuelle remplacée par bouton expand en bas de carte */
+        /* .patient-photo-container::after et ::before supprimés */
+
+        .patient-photo-small {
+            width: 60px;
+            height: 60px;
+        }
+
+        .patient-photo-placeholder {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: var(--bg-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            color: var(--text-secondary);
+            border: 3px solid var(--primary-color);
+            font-weight: 600;
+        }
+
+        .patient-photo-placeholder-small {
+            width: 60px;
+            height: 60px;
+            font-size: 22px;
+        }
+
+        /* Info patient - MODE IA */
+        .patient-info-ia {
+            text-align: center;
+            margin-top: 10px; /* Réduit de 15px */
+            width: 100%;
+        }
+
+        .patient-name-ia {
+            font-size: 16px; /* Réduit de 18px */
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px; /* Réduit de 6px */
+        }
+
+        .patient-age-ia {
+            font-size: 13px; /* Réduit de 14px */
+            color: var(--text-secondary);
+            margin-bottom: 8px; /* Réduit de 12px */
+        }
+
+        /* Info patient - MODE CLASSIQUE */
+        .patient-info-classique {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .patient-main-info {
+            display: flex;
+            align-items: baseline;
+            gap: 12px;
+        }
+
+        .patient-name-classique {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .patient-age-classique {
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+
+        /* Pathologies */
+        .patient-pathologies {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+            justify-content: center;
+        }
+
+        .patient-pathologies.align-left {
+            justify-content: flex-start;
+        }
+
+        .pathology-tag {
+            display: inline-block;
+            padding: 5px 12px;
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            border-radius: 12px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+
+        /* Zone de saisie en haut (mode Classique) */
+        .search-container-top {
+            padding: 20px 40px;
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+            display: none;
+            z-index: 40;
+        }
+
+        .search-container-top.active {
+            display: block;
+        }
+
+        /* Zone de saisie en bas (mode IA) */
+        .search-container-bottom {
+            position: fixed;
+            bottom: 0;
+            left: 280px;
+            right: 0;
+            background-color: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            padding: 20px 40px;
+            box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+            z-index: 70; /* Au-dessus du debug panel (60) - Renaissance v1.1 */
+            display: none;
+            transition: left 0.3s ease;
+        }
+        
+        .sidebar.collapsed ~ .content .search-container-bottom {
+            left: 0;
+        }
+        
+        /* Quand la sidebar est masquée via display:none, ajuster aussi */
+        .sidebar[style*="display: none"] ~ .content .search-container-bottom,
+        .sidebar[style*="display:none"] ~ .content .search-container-bottom {
+            left: 0;
+        }
+
+        .search-container-bottom.active {
+            display: block;
+        }
+
+        /* Champ de recherche */
+        .search-box {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .search-input {
+            flex: 1;
+            padding: 14px 20px;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            font-size: 16px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            transition: border-color 0.3s;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .search-input::placeholder {
+            color: var(--text-secondary);
+        }
+
+        .search-button {
+            padding: 14px 32px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 24px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            white-space: nowrap;
+        }
+
+        .search-button:hover:not(:disabled) {
+            background-color: var(--button-hover);
+        }
+
+        .search-button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* Modal des paramètres */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background-color: var(--bg-primary);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 600px;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .modal-title {
+            font-size: 20px;
+            font-weight: 600;
+        }
+
+        .close-button {
+            width: 32px;
+            height: 32px;
+            border: none;
+            background-color: transparent;
+            color: var(--text-primary);
+            cursor: pointer;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+        }
+
+        .close-button:hover {
+            background-color: var(--bg-secondary);
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .setting-group {
+            margin-bottom: 25px;
+        }
+
+        .setting-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+        }
+
+        .setting-input {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+        }
+
+        .setting-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+
+        .setting-select {
+            width: 100%;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            cursor: pointer;
+        }
+
+        .setting-textarea {
+            width: 100%;
+            min-height: 150px;
+            padding: 10px 15px;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            font-size: 14px;
+            font-family: inherit;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            resize: vertical;
+        }
+
+        .setting-description {
+            font-size: 12px;
+            color: var(--text-secondary);
+            margin-top: 4px;
+        }
+
+        .save-button {
+            width: 100%;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .save-button:hover {
+            background-color: var(--button-hover);
+        }
+
+        /* SUPPRIMÉ v1.0.0 : CSS debug panel supprimé */
+
+        /* Loading spinner */
+        /* Loading v1.2.0 : Container pour le bandeau loading */
+        .loading {
+            display: none;
+            padding: 15px 0;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        /* Spinner (conservé pour compatibilité) */
+        .spinner {
+            border: 3px solid var(--border-color);
+            border-top: 3px solid var(--primary-color);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Message d'erreur */
+        .error-message {
+            display: none;
+            padding: 15px 20px;
+            background-color: #ffebee;
+            border: 1px solid #ef5350;
+            border-radius: 8px;
+            color: #c62828;
+            margin: 20px 0;
+        }
+
+        .error-message.active {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                display: none;
+            }
+
+            .search-container-bottom {
+                left: 0;
+            }
+
+            .header {
+                padding: 10px 15px;
+            }
+
+            .header-left {
+                gap: 10px;
+            }
+
+            .logo {
+                height: 30px;
+            }
+
+            .title {
+                font-size: 16px;
+            }
+
+            .patient-count {
+                display: none;
+            }
+
+            .results-container {
+                padding: 15px;
+            }
+
+            .results-container.mode-chat {
+                padding-bottom: 160px;
+            }
+
+            .search-container-bottom,
+            .search-container-top {
+                padding: 15px;
+            }
+
+            .patients-grid-chat {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome-message {
+                font-size: 24px;
+            }
+        }
+
+        /* Utilitaires */
+        .hidden {
+            display: none !important;
+        }
+
+/* ═══════════════════════════════════════════════════════════════
+   STYLES BOUTON LANGUE + POPUP SIMPLIFIÉ (Renaissance v1.1)
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ╔════════════════════════════════════════════════════════════════
+   ║ Conteneur du bouton langue
+   ╚════════════════════════════════════════════════════════════════ */
+
+.lang-button-container {
+    position: relative;
+}
+
+.lang-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.lang-button:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--primary-color);
+}
+
+.lang-button .flag-img {
+    width: 24px;
+    height: 18px;
+    border-radius: 3px;
+    object-fit: cover;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.lang-button .lang-text {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.lang-button .lang-text .arrow-fr {
+    font-weight: 400;
+    color: var(--text-secondary);
+}
+
+.lang-button .dropdown-arrow {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-left: 2px;
+}
+
+/* ╔════════════════════════════════════════════════════════════════
+   ║ Popup de sélection de langue avec CHIPS (v1.7.0)
+   ╚════════════════════════════════════════════════════════════════ */
+
+.lang-popup {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 8px;
+    background-color: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    min-width: 340px;
+    z-index: 200;
+    overflow: hidden;
+}
+
+.lang-popup-header {
+    padding: 14px 18px;
+    font-weight: 600;
+    font-size: 15px;
+    border-bottom: 1px solid var(--border-color);
+    background-color: var(--bg-secondary);
+    border-radius: 12px 12px 0 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.lang-popup-section {
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.lang-popup-section:last-of-type {
+    border-bottom: none;
+}
+
+.lang-popup-label {
+    display: block;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Chips de langue */
+.chips-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.lang-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 13px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.lang-chip:hover {
+    background-color: var(--bg-secondary);
+    border-color: var(--primary-color);
+}
+
+.lang-chip.selected {
+    background-color: var(--primary-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Chip Auto spécial - rouge et en gras */
+.lang-chip.auto-chip {
+    grid-column: 1 / -1;
+    background-color: rgba(231, 76, 60, 0.1);
+    border-color: #e74c3c;
+    color: #e74c3c;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+.lang-chip.auto-chip:hover {
+    background-color: rgba(231, 76, 60, 0.2);
+}
+
+.lang-chip.auto-chip.selected {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.lang-chip .chip-flag {
+    width: 20px;
+    height: 15px;
+    border-radius: 2px;
+    object-fit: cover;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+.lang-chip .chip-name {
+    white-space: nowrap;
+}
+
+/* Switch Origine/FR pour la réponse */
+.response-switch-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.response-switch-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: color 0.2s;
+}
+
+.response-switch-label.active {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.lang-popup-footer {
+    padding: 12px 18px;
+    background-color: var(--bg-secondary);
+    text-align: center;
+}
+
+.lang-popup-close {
+    padding: 10px 30px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.lang-popup-close:hover {
+    background-color: var(--button-hover);
+}
+
+/* ╔════════════════════════════════════════════════════════════════
+   ║ Boutons de recherche avec flèches (3 états)
+   ╚════════════════════════════════════════════════════════════════ */
+
+.search-button {
+    padding: 14px 32px;
+    background-color: var(--primary-color); /* Bleu #3B9DD8 */
+    color: white;
+    border: none;
+    border-radius: 24px;
+    font-size: 24px; /* Plus grand pour l'emoji flèche */
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    white-space: nowrap;
+    min-width: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* État 1 : DISABLED (grisé) - Input vide */
+.search-button:disabled {
+    background-color: #cccccc;
+    color: #999999;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+[data-theme="dark"] .search-button:disabled {
+    background-color: #444444;
+    color: #666666;
+}
+
+/* État 2 : NORMAL (bleu) - Input rempli */
+.search-button:not(:disabled):not(.loading) {
+    background-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.search-button:not(:disabled):not(.loading):hover {
+    background-color: var(--button-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(59, 157, 216, 0.4);
+}
+
+/* État 3 : LOADING (horloge tournante) - Recherche en cours */
+.search-button.loading {
+    background-color: var(--primary-color);
+    cursor: wait;
+    position: relative;
+}
+
+.search-button.loading::before {
+    content: '⏳';
+    display: inline-block;
+    animation: spin 1.5s linear infinite;
+    font-size: 24px;
+}
+
+/* Animation horloge tournante */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Masquer le contenu du bouton pendant le loading */
+.search-button.loading {
+    color: transparent;
+}
+
+/* ╔════════════════════════════════════════════════════════════════
+   ║ MODIFIÉ v1.0.7 : Codes internationaux dans searchModeSelector
+   ╚════════════════════════════════════════════════════════════════ */
+
+.base-selector {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    cursor: pointer;
+    font-weight: 600; /* Plus gras pour codes SC/SP/SE */
+}
+
+/* ╔════════════════════════════════════════════════════════════════
+   ║ Ajustements responsive
+   ╚════════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1200px) {
+    .language-selector {
+        min-width: 150px;
+    }
+    
+    .header-center {
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .language-mode-switch,
+    .language-selector-container,
+    .detected-language {
+        display: none !important;
+    }
+    
+    .search-button {
+        padding: 12px 24px;
+        font-size: 20px;
+        min-width: 60px;
+    }
+}
+
+/* ╔════════════════════════════════════════════════════════════════
+   ║ Tooltips améliorés
+   ╚════════════════════════════════════════════════════════════════ */
+
+.language-selector option {
+    padding: 8px;
+    font-size: 14px;
+}
+
+/* Style pour les drapeaux dans les options */
+.language-selector option::before {
+    content: attr(data-flag);
+    margin-right: 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   ILLUSTRATIONS v1.0 - CSS BANDEAUX DE RÉSULTATS
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* Bandeau "0 patients" */
+.bandeau-zero {
+    width: 100%;
+    height: 150px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    box-shadow: 0 4px 20px rgba(102, 126, 234, 0.3);
+    margin: 15px 0;
+}
+
+.bandeau-zero .illustration {
+    width: 180px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+.bandeau-zero .illustration img {
+    max-width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    border-radius: 8px;
+}
+
+.bandeau-zero .illustration svg {
+    width: 100px;
+    height: 100px;
+}
+
+.bandeau-zero .bandeau-content {
+    flex: 1;
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bandeau-zero .message-principal {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 6px;
+}
+
+.bandeau-zero .message-secondaire {
+    font-size: 14px;
+    color: rgba(255,255,255,0.85);
+}
+
+/* Bandeau "X patients" - Structure identique à bandeau-zero */
+.bandeau-count {
+    width: 100%;
+    height: 150px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #43cea2 0%, #4facfe 100%);
+    box-shadow: 0 4px 20px rgba(67, 206, 162, 0.3);
+    margin: 15px 0;
+}
+
+.bandeau-count .illustration {
+    width: 180px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+.bandeau-count .illustration img {
+    max-width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    border-radius: 8px;
+}
+
+.bandeau-count .bandeau-content {
+    flex: 1;
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bandeau-count .message-principal {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 6px;
+}
+
+.bandeau-count .message-secondaire {
+    font-size: 14px;
+    color: rgba(255,255,255,0.9);
+}
+
+.bandeau-count .btn-voir {
+    margin-right: 25px;
+    padding: 10px 20px;
+    background: white;
+    color: #43cea2;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+    flex-shrink: 0;
+}
+
+.bandeau-count .btn-voir:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Bandeau "Recherche en cours" v1.2.0 - Structure identique à bandeau-zero mais gris */
+.bandeau-loading {
+    width: 100%;
+    height: 150px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+    box-shadow: 0 4px 20px rgba(107, 114, 128, 0.3);
+    margin: 15px 0;
+}
+
+.bandeau-loading .illustration {
+    width: 180px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+    flex-shrink: 0;
+}
+
+.bandeau-loading .illustration img {
+    max-width: 100%;
+    max-height: 120px;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    border-radius: 8px;
+}
+
+.bandeau-loading .illustration svg {
+    width: 80px;
+    height: 80px;
+}
+
+.bandeau-loading .bandeau-content {
+    flex: 1;
+    padding: 15px 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.bandeau-loading .message-principal {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    margin-bottom: 6px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.bandeau-loading .message-secondaire {
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    margin-bottom: 4px;
+}
+
+.bandeau-loading .message-tertiaire {
+    font-size: 13px;
+    color: rgba(255,255,255,0.7);
+    font-style: italic;
+}
+
+/* Spinner inline dans le message principal */
+.loading-spinner-inline {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top-color: white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Responsive bandeaux */
+@media (max-width: 768px) {
+    .bandeau-zero,
+    .bandeau-count,
+    .bandeau-loading {
+        height: auto;
+        min-height: 120px;
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .bandeau-zero .illustration,
+    .bandeau-loading .illustration {
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+    
+    .bandeau-zero .illustration img,
+    .bandeau-zero .illustration svg,
+    .bandeau-loading .illustration img,
+    .bandeau-loading .illustration svg {
+        max-height: 80px;
+    }
+    
+    .bandeau-zero .bandeau-content,
+    .bandeau-count .bandeau-content,
+    .bandeau-loading .bandeau-content {
+        padding: 10px;
+    }
+    
+    .bandeau-zero .message-principal,
+    .bandeau-count .message-principal,
+    .bandeau-loading .message-principal {
+        font-size: 18px;
+    }
+    
+    .bandeau-count .quote-mark {
+        display: none;
+    }
+    
+    .bandeau-count .btn-voir {
+        margin: 10px auto 0;
+    }
+}
+
+/* Thème sombre - bandeaux */
+[data-theme="dark"] .bandeau-zero {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .bandeau-count {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+}
+
+[data-theme="dark"] .bandeau-loading {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FIN ILLUSTRATIONS v1.0
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════════════
+   PARAMÈTRES v5.0 - Style tableau Excel minimaliste
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.settings-excel {
+    max-width: 700px;
+}
+
+.settings-excel .modal-body {
+    padding: 10px;
+}
+
+.settings-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+.settings-table th,
+.settings-table td {
+    border: 1px solid var(--border-color);
+    padding: 6px 8px;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.settings-table th {
+    background: var(--bg-secondary);
+    font-weight: 600;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+.settings-table th.col-label { width: 35%; }
+.settings-table th.col-actif { width: 10%; text-align: center; }
+.settings-table th.col-bandeau { width: 12%; text-align: center; }
+.settings-table th.col-valeur { width: 43%; }
+
+.settings-table td.center { text-align: center; }
+.settings-table td.indent { padding-left: 20px; color: var(--text-secondary); }
+
+.settings-table tr.section-header td:first-child { font-weight: 600; }
+.settings-table tr.sub-item { background: var(--bg-secondary); }
+
+.settings-table .locked {
+    color: var(--text-secondary);
+    font-weight: bold;
+}
+
+.settings-table .info-text {
+    font-size: 11px;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.settings-table input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.settings-table .setting-control {
+    width: 100%;
+    padding: 4px 6px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 12px;
+}
+
+.settings-table .setting-control.small {
+    width: 70px;
+}
+
+.settings-table .slider-inline {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.settings-table .slider-inline input[type="range"] {
+    flex: 1;
+    height: 4px;
+}
+
+.settings-table .slider-inline span {
+    min-width: 35px;
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.examples-section {
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-color);
+}
+
+.examples-section label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-secondary);
+}
+
+.examples-section textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 12px;
+    resize: vertical;
+}
+
+.settings-actions {
+    margin-top: 15px;
+    text-align: right;
+}
+
+.settings-actions .save-button {
+    padding: 8px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.settings-actions .save-button:hover {
+    background: var(--button-hover);
+}
+
+/* Mode sombre ajustements */
+[data-theme="dark"] .settings-table th {
+    background: #333;
+}
+
+[data-theme="dark"] .settings-table tr.sub-item {
+    background: #2a2a2a;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RATING SYSTEM v2.0.0 - Feedback utilisateur avec modales (👍/👎)
+   ═══════════════════════════════════════════════════════════════ */
+
+.rating-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 15px;
+    padding: 12px 16px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.rating-label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-right: 5px;
+}
+
+.rating-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.rating-btn {
+    width: 40px;
+    height: 40px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-primary);
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.rating-btn:hover {
+    transform: scale(1.1);
+    border-color: var(--primary-color);
+}
+
+.rating-btn.selected {
+    transform: scale(1.15);
+    box-shadow: 0 0 12px var(--glow-color);
+}
+
+.rating-btn.thumbs-up.selected {
+    background: #27ae60;
+    border-color: #27ae60;
+    color: white;
+}
+
+.rating-btn.thumbs-down.selected {
+    background: #e74c3c;
+    border-color: #e74c3c;
+    color: white;
+}
+
+/* Message de confirmation */
+.rating-sent {
+    display: none;
+    align-items: center;
+    gap: 8px;
+    color: #27ae60;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.rating-sent.active {
+    display: flex;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RATING MODAL v2.0.0 - Style Anthropic
+   ═══════════════════════════════════════════════════════════════ */
+
+.rating-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10000;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.rating-modal-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.rating-modal {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 420px;
+    padding: 24px;
+    transform: scale(0.95);
+    transition: transform 0.2s ease;
+}
+
+.rating-modal-overlay.active .rating-modal {
+    transform: scale(1);
+}
+
+.rating-modal-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+.rating-modal-field {
+    margin-bottom: 16px;
+}
+
+.rating-modal-field label {
+    display: block;
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.rating-modal-field select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23666' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+}
+
+.rating-modal-field select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.rating-modal-field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    resize: vertical;
+    min-height: 100px;
+    font-family: inherit;
+}
+
+.rating-modal-field textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.rating-modal-field textarea::placeholder {
+    color: var(--text-secondary);
+}
+
+.rating-modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+.rating-modal-btn {
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.rating-modal-btn.cancel {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.rating-modal-btn.cancel:hover {
+    background: var(--border-color);
+}
+
+.rating-modal-btn.submit {
+    background: #1a1a1a;
+    border: none;
+    color: white;
+}
+
+.rating-modal-btn.submit:hover {
+    background: #333;
+}
+
+/* Mode sombre pour la modale */
+[data-theme="dark"] .rating-modal-btn.submit {
+    background: #e0e0e0;
+    color: #1a1a1a;
+}
+
+[data-theme="dark"] .rating-modal-btn.submit:hover {
+    background: #ffffff;
+}
+
+/* Mode glass pour rating */
+[data-style="glass"] .rating-container {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+}
+
+[data-style="glass"] .rating-modal {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    border: 1px solid var(--glass-border);
+}
+
+        .sidebar-item.sidebar-item-with-run {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 10px;
+        }
+        
+        /* Zone texte cliquable (copie) */
+        .sidebar-item-text {
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            cursor: pointer;
+            padding: 4px 0;
+            border-radius: 4px;
+            transition: background-color 0.15s ease;
+        }
+        
+        .sidebar-item-text:hover {
+            background-color: var(--bg-tertiary, rgba(0, 0, 0, 0.05));
+        }
+        
+        /* Bouton Run (exécution directe) */
+        .sidebar-run-btn {
+            flex-shrink: 0;
+            width: 28px;
+            height: 28px;
+            border: none;
+            border-radius: 6px;
+            background-color: var(--primary-color, #3b82f6);
+            color: white;
+            font-size: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease;
+            opacity: 0.7;
+        }
+        
+        .sidebar-run-btn:hover {
+            opacity: 1;
+            transform: scale(1.05);
+            box-shadow: 0 2px 8px rgba(59, 130, 246, 0.4);
+        }
+        
+        .sidebar-run-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* Mode sombre - ajustements */
+        [data-theme="dark"] .sidebar-item-text:hover {
+            background-color: rgba(255, 255, 255, 0.08);
+        }
+        
+        [data-theme="dark"] .sidebar-run-btn {
+            background-color: var(--primary-color, #60a5fa);
+        }
+        
+        /* Glass mode - ajustements */
+        [data-style="glass"] .sidebar-run-btn {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.8), rgba(37, 99, 235, 0.9));
+            backdrop-filter: blur(4px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           STYLES SPÉCIFIQUES WEB12 : Voice Search (microphone)
+           ═══════════════════════════════════════════════════════════════ */
+        
+        /* ═══════════════════════════════════════════════════════════════
+           VOICE SEARCH v2.0.0 : Bouton micro + Mode mains libres
+           - Cercle progressif qui se remplit pendant le mode mains libres
+           - Mot-clé "kitview" pour déclencher la recherche
+           ═══════════════════════════════════════════════════════════════ */
+        
+        .voice-btn {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+            background-color: var(--bg-tertiary, #f0f0f0);
+            color: var(--text-secondary);
+            font-size: 18px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            position: relative;
+        }
+        
+        .voice-btn:hover {
+            background-color: var(--bg-secondary);
+            color: var(--text-primary);
+            transform: scale(1.05);
+        }
+        
+        .voice-btn:active {
+            transform: scale(0.95);
+        }
+        
+        /* État écoute simple (recherche unique) */
+        .voice-btn.listening {
+            background-color: #ef4444;
+            color: white;
+            animation: voice-pulse 1.5s infinite;
+        }
+        
+        /* État mode mains libres (écoute prolongée) */
+        .voice-btn.handsfree {
+            background-color: transparent;
+            color: white;
+            animation: none;
+        }
+        
+        /* Cercle progressif pour le mode mains libres */
+        .voice-btn .progress-ring {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .voice-btn .progress-ring circle {
+            fill: none;
+            stroke-width: 3;
+            transform: rotate(-90deg);
+            transform-origin: 50% 50%;
+        }
+        
+        .voice-btn .progress-ring .bg {
+            stroke: rgba(239, 68, 68, 0.3);
+        }
+        
+        .voice-btn .progress-ring .progress {
+            stroke: #ef4444;
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.3s ease;
+        }
+        
+        /* Icône micro au centre en mode mains libres */
+        .voice-btn.handsfree .mic-icon {
+            position: relative;
+            z-index: 1;
+            color: #ef4444;
+        }
+        
+        @keyframes voice-pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+            }
+            50% {
+                box-shadow: 0 0 0 10px rgba(239, 68, 68, 0);
+            }
+        }
+        
+        /* Masqué si non supporté */
+        .voice-btn.unsupported {
+            display: none;
+        }
+        
+        /* Mode sombre */
+        [data-theme="dark"] .voice-btn {
+            background-color: var(--bg-tertiary, #374151);
+        }
+        
+        [data-theme="dark"] .voice-btn:hover {
+            background-color: var(--bg-secondary);
+        }
+        
+        [data-theme="dark"] .voice-btn.listening {
+            background-color: #dc2626;
+        }
+        
+        [data-theme="dark"] .voice-btn.handsfree {
+            background-color: transparent;
+        }
+        
+        [data-theme="dark"] .voice-btn .progress-ring .progress {
+            stroke: #f87171;
+        }
+        
+        /* Glass mode */
+        [data-style="glass"] .voice-btn {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(8px);
+        }
+        
+        [data-style="glass"] .voice-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+        
+        [data-style="glass"] .voice-btn.listening {
+            background: rgba(239, 68, 68, 0.8);
+        }
+        
+        [data-style="glass"] .voice-btn.handsfree {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        /* Dark mode pour bouton aide */
+        [data-theme="dark"] .help-button {
+            background-color: var(--bg-secondary);
+            border-color: var(--border-color);
+        }
+        
+        [data-style="glass"] .help-button {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+        }
+
+        /* ═══════════════════════════════════════════════════════════════
+           STYLES SPÉCIFIQUES : Bouton Analyser Cohorte
+           ═══════════════════════════════════════════════════════════════ */
+        /* Bouton Analyser cohorte */
+        .analyze-cohorte-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(135deg, #8b5cf6, #6366f1);
+            color: white;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+        }
+        
+        .analyze-cohorte-btn:hover:not(:disabled) {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+        }
+        
+        .analyze-cohorte-btn:disabled {
+            opacity: 0.7;
+            cursor: wait;
+        }
+        
+        /* Mode sombre */
+        [data-theme="dark"] .analyze-cohorte-btn {
+            background: linear-gradient(135deg, #a78bfa, #818cf8);
+        }
+
+/* ═══════════════════════════════════════════════════════════════
+   ÉLÉMENTS CLIQUABLES "MÊME" v1.0.0
+   Style fond arrondi similaire au bouton "?" d'aide
+   Permet de cliquer sur les attributs d'un patient pour rechercher
+   des patients avec les mêmes caractéristiques
+   ═══════════════════════════════════════════════════════════════ */
+
+/* Élément cliquable avec fond arrondi (style bouton "?") */
+.meme-clickable {
+    cursor: pointer;
+    background-color: rgba(59, 157, 216, 0.12);
+    border-radius: 12px;
+    padding: 2px 8px;
+    margin: -2px -4px;
+    transition: all 0.2s ease;
+    display: inline-block;
+    position: relative;
+}
+
+.meme-clickable:hover {
+    background-color: rgba(59, 157, 216, 0.28);
+    transform: scale(1.03);
+}
+
+.meme-clickable:active {
+    transform: scale(0.97);
+    background-color: rgba(59, 157, 216, 0.4);
+}
+
+/* Élément désactivé (critère déjà utilisé pour la recherche) */
+.meme-clickable.meme-disabled {
+    cursor: default;
+    background-color: transparent;
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.meme-clickable.meme-disabled:hover {
+    background-color: transparent;
+    transform: none;
+}
+
+/* Photo portrait cliquable - bordure spéciale au survol */
+.patient-photo-container.meme-portrait-clickable {
+    cursor: pointer;
+}
+
+.patient-photo-container.meme-portrait-clickable .patient-photo,
+.patient-photo-container.meme-portrait-clickable .patient-photo-placeholder {
+    transition: all 0.2s ease;
+}
+
+.patient-photo-container.meme-portrait-clickable:hover .patient-photo,
+.patient-photo-container.meme-portrait-clickable:hover .patient-photo-placeholder {
+    border-color: #f39c12;
+    box-shadow: 0 0 15px rgba(243, 156, 18, 0.5);
+}
+
+/* Portrait du patient de référence (bordure orange permanente) */
+.patient-photo-container.meme-portrait-reference .patient-photo,
+.patient-photo-container.meme-portrait-reference .patient-photo-placeholder {
+    border-color: #e74c3c !important;
+    box-shadow: 0 0 10px rgba(231, 76, 60, 0.4) !important;
+}
+
+/* Portrait désactivé (même portrait déjà utilisé) */
+.patient-photo-container.meme-portrait-disabled {
+    cursor: default;
+}
+
+.patient-photo-container.meme-portrait-disabled:hover .patient-photo,
+.patient-photo-container.meme-portrait-disabled:hover .patient-photo-placeholder {
+    border-color: var(--primary-color);
+    box-shadow: none;
+    transform: none;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BOUTON EXPAND v1.0.0 - Chevron en bas de carte pour agrandir
+   Remplace la loupe à côté du portrait
+   ═══════════════════════════════════════════════════════════════ */
+
+.expand-card-btn {
+    width: 100%;
+    height: 12px;
+    border: none;
+    background: linear-gradient(to bottom, transparent, var(--border-color));
+    border-radius: 0 0 10px 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 8px;
+    padding: 0;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.expand-card-btn::after {
+    content: '⌄';
+    font-size: 14px;
+    line-height: 1;
+    color: var(--text-secondary);
+    opacity: 0.6;
+    transition: all 0.2s ease;
+}
+
+.expand-card-btn:hover {
+    background: linear-gradient(to bottom, transparent, var(--primary-light));
+    height: 16px;
+}
+
+.expand-card-btn:hover::after {
+    opacity: 1;
+    color: var(--primary-color);
+}
+
+/* Quand la carte est agrandie, le chevron pointe vers le haut */
+.patient-card-chat.expanded .expand-card-btn::after {
+    content: '⌃';
+}
+
+.patient-card-chat.expanded .expand-card-btn {
+    background: linear-gradient(to top, transparent, var(--border-color));
+    border-radius: 10px 10px 0 0;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+/* Mode sombre */
+[data-theme="dark"] .expand-card-btn {
+    background: linear-gradient(to bottom, transparent, var(--border-color));
+}
+
+[data-theme="dark"] .expand-card-btn:hover {
+    background: linear-gradient(to bottom, transparent, rgba(59, 157, 216, 0.3));
+}
+
+[data-theme="dark"] .patient-card-chat.expanded .expand-card-btn {
+    background: linear-gradient(to top, transparent, var(--border-color));
+}
+
+/* Mot cliquable dans une pathologie (tag ou adjectif) */
+.pathology-word {
+    display: inline;
+}
+
+.pathology-word.meme-word-clickable {
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 1px 4px;
+    margin: -1px -2px;
+    transition: all 0.15s ease;
+    background-color: rgba(59, 157, 216, 0.08);
+}
+
+.pathology-word.meme-word-clickable:hover {
+    background-color: rgba(59, 157, 216, 0.25);
+}
+
+.pathology-word.meme-word-clickable.meme-disabled {
+    cursor: default;
+    background-color: transparent;
+    pointer-events: none;
+}
+
+/* Mode sombre - ajustements des couleurs */
+[data-theme="dark"] .meme-clickable {
+    background-color: rgba(59, 157, 216, 0.18);
+}
+
+[data-theme="dark"] .meme-clickable:hover {
+    background-color: rgba(59, 157, 216, 0.35);
+}
+
+[data-theme="dark"] .pathology-word.meme-word-clickable {
+    background-color: rgba(59, 157, 216, 0.12);
+}
+
+[data-theme="dark"] .pathology-word.meme-word-clickable:hover {
+    background-color: rgba(59, 157, 216, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CRITÈRES ACTIFS v1.2.0 - Indicateur visuel des critères sélectionnés
+   ═══════════════════════════════════════════════════════════════ */
+
+.meme-active,
+.pathology-word.meme-word-clickable.meme-active {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    box-shadow: 0 2px 4px rgba(59, 157, 216, 0.4);
+}
+
+.meme-active:hover,
+.pathology-word.meme-word-clickable.meme-active:hover {
+    background-color: var(--button-hover) !important;
+    box-shadow: 0 2px 6px rgba(59, 157, 216, 0.6);
+}
+
+[data-theme="dark"] .meme-active,
+[data-theme="dark"] .pathology-word.meme-word-clickable.meme-active {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Tooltip pour les éléments cliquables (FR uniquement) */
+.meme-clickable[title],
+.meme-portrait-clickable[title],
+.meme-word-clickable[title] {
+    position: relative;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FIN ÉLÉMENTS CLIQUABLES "MÊME" v1.2.0
+   ═══════════════════════════════════════════════════════════════ */

@@ -1,0 +1,16 @@
+﻿# batch_EXEMPLE.exec.csv V1.0.0 - 10/01/2026 07:48:58
+# Nom : [nom].exec.csv
+# À déposer dans c:\cerberetests\, c:\cerbereprod\ ou c:\cerbereall\
+#
+# Format : commande;arguments
+# - Seules les commandes "python" sont autorisées (sécurité)
+# - Les arguments peuvent contenir des espaces
+#
+# Après exécution :
+# - Ce fichier sera renommé en [nom].exec.done.csv
+# - Les colonnes statut, resultat et duree_sec seront ajoutées
+#
+commande;arguments
+python;search.py --query "bruxisme" --limit 10
+python;pipeline.py --rebuild
+python;analyse.py -v --output rapport.csv

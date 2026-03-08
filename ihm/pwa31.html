@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!--
+ * pwa31.html V0.0.0 - 01/01/1970 00:00
+ * Kitview Portrait Search - Version PWA installable
+ *
+ * Identique à photofit31.html SAUF :
+ *   - Manifest PWA inclus (manifest_pwa31.json)
+ *   - Service worker activé (sw_photofit.js)
+ *   - Bouton caméra toujours visible
+ *   - apple-mobile-web-app-capable activé
+ *
+ * À installer sur mobile via "Ajouter à l'écran d'accueil"
+ *
+ * FICHIERS COMMUNS :
+ *   css/com_photofit.css  — Styles partagés
+ *   js/com_photofit.js    — Logique partagée
+ -->
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitview Portrait Search</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.kitview.com/favicon.ico">
+    <link rel="manifest" href="manifest_pwa31.json">
+    <meta name="theme-color" content="#3B9DD8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="stylesheet" href="css/com_photofit.css">
+    <style>
+        /* Bouton caméra toujours visible en mode PWA */
+        #cameraBtnLabel { display: inline-flex !important; }
+    </style>
+</head>
+<body>
+    <!--═══════════════════════════════════════════════════════════
+         HEADER
+        ═══════════════════════════════════════════════════════════-->
+    <header class="header" role="banner">
+        <div class="header-left">
+            <img src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png"
+                 alt="Logo Kitview" class="logo"
+                 onclick="window.location.href='simple31.html'"
+                 style="cursor:pointer" title="Retour à Search">
+            <div class="title-container">
+                <div class="title">Portrait Search</div>
+                <div class="version-subtitle" id="versionSubtitle">V0.0.0 PWA</div>
+            </div>
+        </div>
+
+        <div class="header-center">
+            <select class="base-selector" id="baseSelector" aria-label="Sélectionner une base de données">
+                <option value="">Chargement...</option>
+            </select>
+        </div>
+
+        <div class="header-right">
+            <button class="icon-button icon-button-relative" id="prospectListBtn"
+                    title="Liste des prospects">
+                📋<span class="badge" id="prospectBadge" style="display:none">0</span>
+            </button>
+            <a href="simple31.html" class="icon-button" title="Retour à Search">🔍</a>
+            <button class="icon-button" id="themeToggle" title="Changer le thème">🌙</button>
+        </div>
+    </header>
+
+    <!--═══════════════════════════════════════════════════════════
+         ZONE PRINCIPALE
+        ═══════════════════════════════════════════════════════════-->
+    <main class="main-content">
+
+        <!-- ZONE UPLOAD -->
+        <div class="upload-zone" id="uploadZone">
+            <div class="upload-icon">📸</div>
+            <div class="upload-title">Recherche par portrait</div>
+            <div class="upload-subtitle">
+                Prenez ou uploadez une photo pour trouver les patients similaires
+            </div>
+
+            <div class="upload-buttons">
+                <label class="upload-btn upload-btn-camera" for="cameraInput" id="cameraBtnLabel">
+                    📷 Prendre une photo
+                </label>
+                <label class="upload-btn upload-btn-primary" for="fileInput">
+                    📁 Choisir une photo
+                </label>
+            </div>
+
+            <input type="file" id="fileInput" accept="image/jpeg,image/png,image/webp,image/bmp" hidden>
+            <input type="file" id="cameraInput" accept="image/*" capture="user" hidden>
+
+            <div class="upload-drop-text">
+                ou glissez-déposez une image ici
+            </div>
+        </div>
+
+        <!-- ZONE LOADING -->
+        <div class="loading-zone" id="loadingZone" style="display:none;">
+            <div class="loading-spinner"></div>
+            <div class="loading-text" id="loadingText">Analyse du portrait en cours...</div>
+            <div class="loading-detail" id="loadingDetail">Extraction des caractéristiques faciales</div>
+        </div>
+
+        <!-- ZONE RÉSULTATS -->
+        <div class="results-zone" id="resultsZone" style="display:none;">
+
+            <!-- Photo référence -->
+            <div class="reference-section">
+                <div class="reference-card">
+                    <img class="reference-photo" id="referencePhoto" src="" alt="Photo référence">
+                    <div class="reference-info">
+                        <span class="reference-label" id="referenceLabel">Photo uploadée</span>
+                        <span class="reference-time" id="referenceTime"></span>
+                    </div>
+                </div>
+
+                <!-- Checkbox sauver prospect -->
+                <div class="prospect-toggle" id="prospectToggle">
+                    <label class="prospect-checkbox-label">
+                        <input type="checkbox" id="saveProspectCheck">
+                        <span>💾 Ajouter ce prospect à la base</span>
+                    </label>
+                </div>
+
+                <!-- Formulaire prospect -->
+                <div class="prospect-form" id="prospectForm" style="display:none;">
+                    <div class="prospect-form-row">
+                        <input type="text" id="prospectPrenom" placeholder="Prénom *" class="prospect-input" required>
+                        <input type="text" id="prospectNom" placeholder="Nom *" class="prospect-input" required>
+                    </div>
+                    <div class="prospect-form-row">
+                        <select id="prospectSexe" class="prospect-input prospect-select">
+                            <option value="">Sexe</option>
+                            <option value="M">Masculin</option>
+                            <option value="F">Féminin</option>
+                        </select>
+                        <input type="number" id="prospectAge" placeholder="Âge" class="prospect-input" min="0" max="120" step="1">
+                        <input type="text" id="prospectTags" placeholder="Tags (prospect)" class="prospect-input" value="prospect">
+                    </div>
+                    <button class="prospect-save-btn" id="prospectSaveBtn">
+                        💾 Sauvegarder le prospect
+                    </button>
+                    <div class="prospect-save-status" id="prospectSaveStatus"></div>
+                </div>
+            </div>
+
+            <!-- Message résultats -->
+            <div class="results-header" id="resultsHeader"></div>
+
+            <!-- Grille de cards -->
+            <div class="results-grid" id="resultsGrid"></div>
+
+            <!-- Bouton nouvelle recherche -->
+            <div class="new-search-container">
+                <button class="new-search-btn" id="newSearchBtn">
+                    ✨ Nouvelle recherche
+                </button>
+            </div>
+        </div>
+
+    </main>
+
+    <!--═══════════════════════════════════════════════════════════
+         PANNEAU LISTE PROSPECTS
+        ═══════════════════════════════════════════════════════════-->
+    <div class="prospect-panel-overlay" id="prospectPanelOverlay"></div>
+    <div class="prospect-panel" id="prospectPanel">
+        <div class="prospect-panel-header">
+            <span class="prospect-panel-title">📋 Prospects</span>
+            <button class="prospect-panel-close" id="prospectPanelClose">✕</button>
+        </div>
+        <div class="prospect-panel-body" id="prospectPanelBody">
+            <div class="prospect-panel-empty">Cliquez sur 📋 pour charger</div>
+        </div>
+    </div>
+
+    <!--═══════════════════════════════════════════════════════════
+         MODAL PHOTO PLEIN ÉCRAN
+        ═══════════════════════════════════════════════════════════-->
+    <div class="photo-modal" id="photoModal" style="display:none;" role="dialog" aria-label="Photo agrandie">
+        <div class="photo-modal-overlay" id="photoModalOverlay"></div>
+        <div class="photo-modal-content">
+            <img id="photoModalImg" src="" alt="Photo agrandie">
+            <button class="photo-modal-close" id="photoModalClose">✕</button>
+        </div>
+    </div>
+
+    <!-- SCRIPTS — PWA activé -->
+    <script>window.PHOTOFIT_PWA = true;</script>
+    <script src="js/com_photofit.js"></script>
+</body>
+</html>

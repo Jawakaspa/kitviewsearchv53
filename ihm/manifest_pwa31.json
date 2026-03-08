@@ -1,0 +1,17 @@
+{
+    "name": "Kitview Portrait Search",
+    "short_name": "Portrait",
+    "description": "Recherche de patients par portrait photo",
+    "start_url": "/ihm/pwa31.html",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#3B9DD8",
+    "orientation": "any",
+    "icons": [
+        {
+            "src": "https://www.kitview.com/favicon.ico",
+            "sizes": "32x32",
+            "type": "image/x-icon"
+        }
+    ]
+}

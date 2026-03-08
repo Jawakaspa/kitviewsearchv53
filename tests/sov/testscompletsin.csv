@@ -1,0 +1,10 @@
+﻿question;type;nb_criteres;nb_resultats;ids_10
+Montre-moi les cas avec Classe II squelettique division 2 plus Prognathisme maxillaire et qui ont ANB > 6.;LIST;3;1;12
+Retrouve les gens avec Classe III squelettique, et malposition dentaire ayant également ainsi que ANB < -2.;LIST;4;1;74
+Retrouve les patients avec SNB > 85.;LIST;1;5;20,31,32,55,70
+Je veux les cas de Prognathisme maxillaire et SNA > 86.;LIST;2;1;87
+Retrouve les patients avec SNB > 87.;LIST;1;5;20,31,32,55,70
+Retrouve les patients présentant Bruxisme combiné avec adultes.;LIST;2;1;85
+Je cherche les patients avec Bruxisme nocturne.;LIST;1;10;8,11,16,24,34,52,55,68,99,100
+Combien ai-je de patients avec Prognathisme maxillaire présentant aussi 13 ans ayant également ectopie?;COUNT;3;1;66
+Cherche les adolescents.;LIST;1;67;42,1,48,62,89,57,32,16,91,56

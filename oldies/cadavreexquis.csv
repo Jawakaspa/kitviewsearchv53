@@ -1,0 +1,79 @@
+﻿# cadavreexquis.csv V1.0.0 - 19/12/2025 16:45:04
+# Composants pour la génération de templates de questions style "cadavre exquis"
+# categorie : type de composant
+# texte : le texte à utiliser
+# variante : variante grammaticale (neutre, masc, fem, plur)
+# article : article à utiliser devant le critère suivant (un, une, des, du, de la, d', de l')
+categorie;texte;variante;article
+# ═══════════════════════════════════════════════════════════════════════════════
+# DÉBUTS DE PHRASE - TYPE LIST
+# ═══════════════════════════════════════════════════════════════════════════════
+debut_list;Trouve les;neutre;
+debut_list;Trouve-moi les;neutre;
+debut_list;Trouve moi les;neutre;
+debut_list;Je cherche les;neutre;
+debut_list;Cherche les;neutre;
+debut_list;Montre-moi les;neutre;
+debut_list;Montre moi les;neutre;
+debut_list;Affiche les;neutre;
+debut_list;Affiche-moi les;neutre;
+debut_list;Récupère les;neutre;
+debut_list;Donne-moi les;neutre;
+debut_list;Liste les;neutre;
+debut_list;Quels sont les;neutre;
+debut_list;Je veux les;neutre;
+debut_list;J'aimerais voir les;neutre;
+debut_list;Retrouve les;neutre;
+debut_list;Recherche les;neutre;
+debut_list;Je voudrais les;neutre;
+# ═══════════════════════════════════════════════════════════════════════════════
+# DÉBUTS DE PHRASE - TYPE COUNT
+# ═══════════════════════════════════════════════════════════════════════════════
+debut_count;Combien de patients ont;neutre;
+debut_count;Combien de patients présentent;neutre;
+debut_count;Combien y a-t-il de patients avec;neutre;
+debut_count;Quel est le nombre de patients avec;neutre;
+debut_count;Combien de patients souffrent de;neutre;du
+debut_count;Combien ai-je de patients avec;neutre;
+debut_count;Compte les patients avec;neutre;
+debut_count;Dénombre les patients ayant;neutre;
+# ═══════════════════════════════════════════════════════════════════════════════
+# LIAISONS - Mots entre le début et le premier critère (neutres)
+# ═══════════════════════════════════════════════════════════════════════════════
+liaison;patients qui ont;neutre;
+liaison;patients avec;neutre;
+liaison;patients ayant;neutre;
+liaison;patients présentant;neutre;
+liaison;personnes qui ont;neutre;
+liaison;personnes avec;neutre;
+liaison;personnes ayant;neutre;
+liaison;cas de;neutre;
+liaison;cas avec;neutre;
+liaison;gens qui ont;neutre;
+liaison;gens avec;neutre;
+# ═══════════════════════════════════════════════════════════════════════════════
+# LIAISONS GENRÉES - Incluent déjà le critère âge/sexe
+# ═══════════════════════════════════════════════════════════════════════════════
+liaison_age;{AGE} qui ont;neutre;
+liaison_age;{AGE} avec;neutre;
+liaison_age;{AGE} ayant;neutre;
+liaison_age;{AGE} présentant;neutre;
+# ═══════════════════════════════════════════════════════════════════════════════
+# CONNECTEURS - Entre les critères
+# ═══════════════════════════════════════════════════════════════════════════════
+connecteur;et;neutre;
+connecteur;et qui ont;neutre;
+connecteur;avec;neutre;
+connecteur;ayant également;neutre;
+connecteur;présentant aussi;neutre;
+connecteur;ainsi que;neutre;
+connecteur;associé à;neutre;
+connecteur;combiné avec;neutre;
+connecteur;plus;neutre;
+connecteur;, avec;neutre;
+connecteur;, et;neutre;
+# ═══════════════════════════════════════════════════════════════════════════════
+# FINS DE PHRASE
+# ═══════════════════════════════════════════════════════════════════════════════
+fin;?;neutre;
+fin;.;neutre;

@@ -1,0 +1,113 @@
+﻿# communb.csv V1.0.0 - 20/01/2026 14:35:31;;;
+# Format Architecture B : section;parametre;valeur;description
+# Fichier de configuration centralisé pour KITVIEW Search;;;
+# Séparateur de colonnes: ; | Séparateur de multivaleurs: ,;;
+section;parametre;valeur;description
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION SYNONYMES - Expressions équivalentes pour l'analyse;;;
+# ═══════════════════════════════════════════════════════════════;;;
+synonymes;combien;combien,denombre,compte,l'effectif,total,nombre,l'effectif de,l'effectif des,nombre de,combien de,compte les;Expressions pour compter les patients
+synonymes;devant;sévère;Mots-clés contextuels
+synonymes;meme;commun,semblable,similaire,identique,ressemblant,sosie,memes,communs,semblables,similaires,identiques,ressemblants,sosies,;Synonymes de même pour recherche similaire
+synonymes;que;pareil,pareil a,pareil au,pareil a la,pareil aux,identique a,identique au,identique a la,identique aux,ressemblant a,ressemblant au,ressemblant a la,ressemblant aux,sosie de;Synonymes de que pour recherche similaire
+synonymes;incompatibles;gauche,droit,droite,maxillaire,mandibulaire,sévère,modéré,léger,bénin,majeur,important,marqué,grave,complexe,modérée,marquée,bégnine,antérieur,postérieur,antérieure,postérieure,nocturne,diurne,immédiat,différé,programmé,division 1,division 2;Mots incompatibles à filtrer
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION LANGUES - Configuration multilingue;;;
+# ═══════════════════════════════════════════════════════════════;;;
+langues;langues;fr,en,de,es,it,ja,pt,pl,ro,th,ar,cn;Codes des langues sources supportées
+langues;languescibles;fr,en,de,es,it,ja,pt,pl,ro,th,ar,cn;Codes des langues cibles supportées
+langues;ecartlang;2;Écart de langue pour la détection automatique
+langues;seuillang;5;Seuil de langue pour la détection automatique
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION THEME - Apparence de l'interface;;;
+# ═══════════════════════════════════════════════════════════════;;;
+theme;theme;auto;Mode couleur: auto, light, dark
+theme;visualStyle;classic;Style visuel: classic, modern, minimal
+theme;filigraneOpacity;50;Opacité du filigrane en pourcentage (0-100)
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION UTILISATEUR - Préférences personnelles;;;
+# ═══════════════════════════════════════════════════════════════;;;
+utilisateur;userName;;Nom d'utilisateur affiché
+utilisateur;currentBase;;Base de données sélectionnée
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION FONCTIONNALITES - Activation des fonctionnalités (true/false);;;
+# ═══════════════════════════════════════════════════════════════;;;
+fonctionnalites;activeTheme;true;Sélecteur de thème actif
+fonctionnalites;activeStyle;true;Sélecteur de style actif
+fonctionnalites;activeUsername;true;Affichage nom utilisateur actif
+fonctionnalites;activeI18n;true;Sélecteur de langue actif
+fonctionnalites;activeMicro;true;Recherche vocale active
+fonctionnalites;activeSwitchDemo;true;Mode démonstration actif
+fonctionnalites;activeSwitchIA;true;Bascule IA/Classique active
+fonctionnalites;activeAnalyse;true;Accès page Analyse actif
+fonctionnalites;activePanel;true;Panneau latéral actif
+fonctionnalites;activeHistorique;true;Historique des recherches actif
+fonctionnalites;activeExemples;true;Exemples et suggestions actifs
+fonctionnalites;activeDemo;true;Durée démo configurable
+fonctionnalites;activeHandsfree;true;Mode mains libres actif
+fonctionnalites;activeLimit;true;Limite résultats configurable
+fonctionnalites;activePagesize;true;Taille de page configurable
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION ERREURS - Gestion des erreurs;;;
+# ═══════════════════════════════════════════════════════════════;;;
+erreurs;showErrors;false;Afficher les erreurs à l'utilisateur
+erreurs;showErrorDetails;false;Afficher les détails techniques des erreurs
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION BANDEAU - Éléments visibles dans le bandeau supérieur;;;
+# ═══════════════════════════════════════════════════════════════;;;
+bandeau;bandeauTheme;false;Thème visible dans le bandeau
+bandeau;bandeauBases;false;Sélecteur base visible dans le bandeau
+bandeau;bandeauI18n;true;Langue visible dans le bandeau
+bandeau;bandeauSwitchDemo;true;Demo visible dans le bandeau
+bandeau;bandeauSwitchIA;true;IA/Classique visible dans le bandeau
+bandeau;bandeauAnalyse;false;Analyse visible dans le bandeau
+bandeau;bandeauMoteur;false;Moteur IA visible dans le bandeau
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION COMPORTEMENT - Paramètres numériques de fonctionnement;;;
+# ═══════════════════════════════════════════════════════════════;;;
+comportement;demoDuration;20;Durée du cycle de démonstration en secondes
+comportement;handsfreeDuration;5;Durée d'écoute mains libres en secondes
+comportement;resultsLimit;100;Nombre maximum de résultats affichés
+comportement;pageSize;10;Nombre de patients par page
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION DETIABRUT - Options de détection IA;;;
+# ═══════════════════════════════════════════════════════════════;;;
+detiabrut;detiabrut_tags;true;Détecter les pathologies (tags)
+detiabrut;detiabrut_adjs;true;Détecter les adjectifs qualificatifs
+detiabrut;detiabrut_ages;true;Détecter les fourchettes d'âges
+detiabrut;detiabrut_angles;true;Détecter les angles et mesures
+detiabrut;detiabrut_mapping;true;Utiliser le mapping de correspondances
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION DETFULL - Configuration des tests complets;;;
+# ═══════════════════════════════════════════════════════════════;;;
+detfull;modules;detage,detall,detangles,detcount,detid,detmeme,dettags,detia,detiabrut,trouve,trouveid,search;Modules à exécuter (ordre alphabétique)
+detfull;modules_db;trouve,trouveid,search;Modules nécessitant une base de données
+detfull;rapport;true;Générer un rapport DOCX à la fin
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION EXEMPLES - Exemples de recherche pour la démonstration;;;
+# Un exemple par ligne, numérotés séquentiellement;;;
+# ═══════════════════════════════════════════════════════════════;;;
+exemples;exemple01;patients qui grincent des dents;Exemple français bruxisme
+exemples;exemple02;歯ぎしり;Exemple japonais bruxisme
+exemples;exemple03;Nombre de patients avec linguo-version avec déviation maxillaire ?;Question complexe FR
+exemples;exemple04;Number of patients with linguo-version with maxillary deviation?;Question complexe EN
+exemples;exemple05;Patientes souffrant de béance antérieure et avec classe II;Pathologie multiple FR
+exemples;exemple06;Patientinnen mit Frontzahnlücke und Klasse II;Pathologie multiple DE
+exemples;exemple07;Patientes de moins de 39 ans présentant un encombrement et une rotation dentaire antihoraire;Âge + pathologie FR
+exemples;exemple08;Pazienti di età inferiore ai 39 anni con affollamento e rotazione dei denti in senso antiorario;Âge + pathologie IT
+exemples;exemple09;ado diabétique avec problème de bruxisme;Exemple familier FR
+exemples;exemple10;Adolescente diabético com problema de bruxismo;Exemple familier PT
+exemples;exemple11;Patientes d'environ 14 ans avec malocclusion et bruxisme sévère;Âge approximatif FR
+exemples;exemple12;Pacientes de unos 14 años con maloclusión y bruxismo severo;Âge approximatif ES
+exemples;exemple13;Je voudrais les patients avec un angle ANB = 0°;Recherche angle FR
+exemples;exemple14;patients qui zozottent des dents;Langage familier FR
+# ═══════════════════════════════════════════════════════════════;;;
+# SECTION BASES - Chemins des bases de données et Photofit;;;
+# ═══════════════════════════════════════════════════════════════;;;
+bases;photofit;bases/photofit.db;Base des embeddings faciaux Photofit
+bases;photofit_max_results;20;Nombre max de portraits similaires (référent compris)
+bases;photofit_weight_hair;0.3;Poids du hair_embedding
+bases;photofit_weight_face;0.7;Poids du face_embedding
+bases;photofit_seuil;1000;Seuil idportrait pour recherche par similarité
+bases;photofit_distance_max;1;Distance max pour conversion score 0-100
+bases;photofit_score_min;50;Score minimum pour inclure un portrait

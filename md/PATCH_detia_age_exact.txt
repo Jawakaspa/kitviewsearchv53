@@ -1,0 +1,84 @@
+# PATCH pour detia.py V1.0.27 → V1.0.28
+# Correction du bug : l'IA ignore les âges exacts comme "14 ans"
+#
+# Fichier : detia.py
+# Localisation : fonction _construire_prompt_systeme(), lignes 417-423
+#
+# PROBLÈME :
+# Le prompt ne donne que des exemples avec < et > :
+#   - "moins de 30 ans" → age < 30
+#   - "plus de 30 ans" → age > 30
+# Mais pas d'exemple pour un âge exact !
+#
+# SOLUTION :
+# Ajouter les exemples d'âges exacts dans le prompt.
+
+# ============================================================================
+# ANCIEN CODE (lignes 417-423)
+# ============================================================================
+
+=== CRITÈRES D'ÂGE ET SEXE ===
+- "moins de 30 ans", "de moins de 30 ans" → age < 30
+- "plus de 30 ans", "de plus de 30 ans" → age > 30
+- "enfants" → age < 12
+- "adultes" → age >= 18
+- femme/fille/femmes → "F", homme/garçon/hommes → "M"
+
+# ============================================================================
+# NOUVEAU CODE (à remplacer)
+# ============================================================================
+
+=== CRITÈRES D'ÂGE ET SEXE ===
+- "14 ans", "de 14 ans", "âgé de 14 ans" → age = 14 (âge EXACT)
+- "moins de 30 ans", "de moins de 30 ans" → age < 30
+- "plus de 30 ans", "de plus de 30 ans" → age > 30
+- "entre 10 et 15 ans", "de 10 à 15 ans" → age BETWEEN 10 AND 15
+- "enfants" → age < 12
+- "adolescents" → age BETWEEN 12 AND 18
+- "adultes" → age >= 18
+- femme/fille/femmes/patiente/patientes → "F"
+- homme/garçon/hommes/patient → "M"
+
+IMPORTANT pour l'âge :
+- Si l'utilisateur dit juste "{n} ans" ou "de {n} ans" sans < ou >, c'est un âge EXACT (=)
+- Si l'utilisateur dit "moins de" ou "de moins de", c'est <
+- Si l'utilisateur dit "plus de" ou "de plus de", c'est >
+
+# ============================================================================
+# FORMAT DE SORTIE À AJOUTER (lignes 434-436)
+# ============================================================================
+
+# ANCIEN :
+        {{"type": "age", "detecte": "...", "operateur": "<", "valeur": 30}},
+
+# NOUVEAU (ajouter les exemples) :
+        {{"type": "age", "detecte": "14 ans", "operateur": "=", "valeur": 14}},
+        {{"type": "age", "detecte": "moins de 30 ans", "operateur": "<", "valeur": 30}},
+        {{"type": "age", "detecte": "entre 10 et 15 ans", "operateur": "BETWEEN", "valeur": 10, "valeur2": 15}},
+
+# ============================================================================
+# EXEMPLE DE TEST
+# ============================================================================
+
+# Question : "Patientes de 14 ans présentant une malocclusion avec bruxisme"
+#
+# AVANT (bug) - L'IA retourne :
+# {
+#     "criteres": [
+#         {"type": "sexe", "detecte": "patientes", "valeur": "F"},
+#         {"type": "tag", "detecte": "malocclusion", "adjectifs": []},
+#         {"type": "tag", "detecte": "bruxisme", "adjectifs": []}
+#     ]
+# }
+# → L'âge "14 ans" est IGNORÉ !
+#
+# APRÈS (corrigé) - L'IA retourne :
+# {
+#     "criteres": [
+#         {"type": "sexe", "detecte": "patientes", "valeur": "F"},
+#         {"type": "age", "detecte": "14 ans", "operateur": "=", "valeur": 14},
+#         {"type": "tag", "detecte": "malocclusion", "adjectifs": []},
+#         {"type": "tag", "detecte": "bruxisme", "adjectifs": []}
+#     ]
+# }
+# → Résultat : 1 patiente (Sabine Navarro, F, 14 ans)

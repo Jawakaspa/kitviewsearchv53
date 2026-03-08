@@ -1,0 +1,55 @@
+﻿# angles.csv V1.0.8 - 14/01/2026 17:23:12
+# Fichier de référence pour la détection des angles céphalométriques
+# Format : expression;operateur;seuil;tag_canonique;adjectifs_possibles;label
+# Note : Les patterns textuels (classe 2 squelettique, etc.) sont dans tags.csv
+# Valeurs corrigées selon cours de céphalométrie DR H.CHIBANI
+# V1.1.1 : Ajout patterns "de moins de", "de plus de", "longueur ao bo" pour AO-BO
+# V1.1.0 : Ajout de la mesure AO-BO (Wits Appraisal) - Jacobson 1975
+# V1.0.6 : Ajout patterns "anb {n}", "anb valant {n}", "anb egal a {n}" pour ANB/SNA/SNB
+expression;operateur;seuil;tag_canonique;adjectifs_possibles;label
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANGLE ANB - Relation maxillo-mandibulaire
+# Valeur moyenne : 3° ± 1°
+# ═══════════════════════════════════════════════════════════════════════════════
+# Classe I squelettique (ANB entre 2 et 4°)
+anb = {n}|anb={n}|anb ={n}|anb= {n}|anb de {n}|anb a {n}|anb {n}|anb valant {n}|anb egal a {n}|anb egale a {n}|angle anb {n}|angle anb de {n}|angle anb = {n};BETWEEN;2,4;classe i squelettique;idéale,parfaite,harmonieuse,normale;Classe I squelettique
+anb entre {n} et {n}|anb de {n} a {n}|anb {n} a {n}|anb {n}/{n};BETWEEN;{1},{2};classe i squelettique;normale;Classe I squelettique (ANB {1}° à {2}°)
+# Classe II squelettique (ANB > 4°)
+anb > {n}|anb>{n}|anb >{n}|anb> {n}|anb superieur a {n}|anb plus de {n}|anb au dessus de {n}|anb au dela de {n};>;4;classe ii squelettique;division 1,division 2,div 1,div 2,sévère;Classe II squelettique
+# Classe III squelettique (ANB < 2°)
+anb < {n}|anb<{n}|anb <{n}|anb< {n}|anb inferieur a {n}|anb moins de {n}|anb en dessous de {n}|anb negatif;<;2;classe iii squelettique;sévère,vraie,fausse;Classe III squelettique
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANGLE SNA - Position du maxillaire par rapport à la base du crâne
+# Valeur moyenne : 83° ± 3°
+# ═══════════════════════════════════════════════════════════════════════════════
+# Position maxillaire normale (SNA entre 80 et 86°)
+sna = {n}|sna={n}|sna de {n}|sna {n}|sna valant {n}|sna egal a {n}|sna egale a {n}|angle sna {n}|angle sna de {n}|angle sna = {n};BETWEEN;80,86;maxillaire normopositionné;;Position maxillaire normale
+sna entre {n} et {n}|sna de {n} a {n}|sna {n}/{n};BETWEEN;{1},{2};maxillaire normopositionné;;Position maxillaire normale (SNA {1}° à {2}°)
+# Prognathisme maxillaire (SNA > 86°)
+sna > {n}|sna>{n}|sna superieur a {n}|sna plus de {n}|sna au dessus de {n};>;86;prognathisme maxillaire;sévère,modéré,léger;Prognathisme maxillaire
+# Rétrognathie maxillaire (SNA < 80°)
+sna < {n}|sna<{n}|sna inferieur a {n}|sna moins de {n}|sna en dessous de {n};<;80;rétrognathie maxillaire;sévère,modéré,léger;Rétrognathie maxillaire
+# ═══════════════════════════════════════════════════════════════════════════════
+# ANGLE SNB - Position de la mandibule par rapport à la base du crâne
+# Valeur moyenne : 80° ± 3°
+# ═══════════════════════════════════════════════════════════════════════════════
+# Position mandibulaire normale (SNB entre 77 et 83°)
+snb = {n}|snb={n}|snb de {n}|snb {n}|snb valant {n}|snb egal a {n}|snb egale a {n}|angle snb {n}|angle snb de {n}|angle snb = {n};BETWEEN;77,83;mandibule normopositionnée;;Position mandibulaire normale
+snb entre {n} et {n}|snb de {n} a {n}|snb {n}/{n};BETWEEN;{1},{2};mandibule normopositionnée;;Position mandibulaire normale (SNB {1}° à {2}°)
+# Prognathie mandibulaire (SNB > 83°)
+snb > {n}|snb>{n}|snb superieur a {n}|snb plus de {n};>;83;prognathie mandibulaire;sévère,modéré,léger;Prognathie mandibulaire
+# Rétrognathie mandibulaire (SNB < 77°)
+snb < {n}|snb<{n}|snb inferieur a {n}|snb moins de {n};<;77;rétrognathie mandibulaire;sévère,modéré,léger;Rétrognathie mandibulaire
+# ═══════════════════════════════════════════════════════════════════════════════
+# MESURE AO-BO (WITS APPRAISAL) - Jacobson 1975
+# Relation antéro-postérieure des bases osseuses sur le plan occlusal
+# Valeur moyenne : Femmes -1 à 0 mm / Hommes 0 à +1 mm
+# Unité : millimètres (mm) - C'est une LONGUEUR, pas un angle
+# ═══════════════════════════════════════════════════════════════════════════════
+# Classe I (Wits entre -1 et 1 mm) - Relation normale
+aobo = {n}|aobo={n}|aobo de {n}|ao bo = {n}|ao bo={n}|ao bo de {n}|ao bo {n}|wits = {n}|wits={n}|wits de {n}|wits {n};BETWEEN;-1,1;classe i squelettique;;Classe I squelettique (Wits)
+aobo entre {n} et {n}|ao bo entre {n} et {n}|wits entre {n} et {n}|ao bo de {n} a {n}|wits de {n} a {n};BETWEEN;{1},{2};classe i squelettique;;Classe I squelettique (Wits {1} à {2} mm)
+# Classe II (Wits > 1 mm) - Maxillaire en avant
+aobo > {n}|aobo>{n}|ao bo > {n}|ao bo>{n}|wits > {n}|wits>{n}|wits superieur a {n}|ao bo superieur a {n}|aobo superieur a {n}|wits plus de {n}|ao bo plus de {n}|aobo plus de {n}|ao bo de plus de {n}|aobo de plus de {n}|wits de plus de {n}|longueur ao bo plus de {n}|longueur ao bo de plus de {n}|longueur aobo plus de {n}|longueur aobo de plus de {n};>;1;classe ii squelettique;;Classe II squelettique (Wits)
+# Classe III (Wits < -1 mm) - Mandibule en avant
+aobo < {n}|aobo<{n}|ao bo < {n}|ao bo<{n}|wits < {n}|wits<{n}|wits inferieur a {n}|ao bo inferieur a {n}|aobo inferieur a {n}|wits moins de {n}|ao bo moins de {n}|aobo moins de {n}|ao bo de moins de {n}|aobo de moins de {n}|wits de moins de {n}|longueur ao bo moins de {n}|longueur ao bo de moins de {n}|longueur aobo moins de {n}|longueur aobo de moins de {n};<;-1;classe iii squelettique;;Classe III squelettique (Wits)

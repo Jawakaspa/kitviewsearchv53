@@ -1,0 +1,34 @@
+﻿# sexeorigine.csv V1.0.1 - 07/12/2025 22:30:55
+sexe;origine;nom;poidsnom;prenom;poidsprenom
+M;maghreb;Ben Ali;70;Mohamed;85
+F;maghreb;Benali;65;Fatima;75
+M;maghreb;Hassani;55;Ahmed;70
+F;maghreb;El Amrani;50;Aïcha;65
+M;maghreb;Boukhris;45;Karim;60
+F;maghreb;Mansouri;50;Samira;55
+M;maghreb;Khaled;50;Rachid;55
+F;maghreb;Mahmoud;45;Nadia;50
+M;maghreb;Slimani;45;Malik;50
+F;maghreb;Bouzid;45;Leila;55
+M;maghreb;Kadri;40;Samir;50
+F;maghreb;Amrani;45;Soraya;45
+M;maghreb;Hamdi;40;Youssef;55
+F;maghreb;Bakri;40;Amina;50
+M;africain;Diallo;35;Mamadou;35
+F;africain;Traoré;35;Aminata;30
+M;africain;Touré;30;Ibrahim;30
+F;africain;Diop;30;Fatoumata;30
+M;africain;Sow;25;Moussa;25
+F;africain;Camara;25;Mariama;25
+M;africain;Keita;25;Ousmane;25
+F;africain;Cissé;25;Aissatou;25
+M;asiatique;Nguyen;30;Tuan;20
+F;asiatique;Tran;25;Linh;25
+F;asiatique;Le;20;Mai;25
+F;asiatique;Pham;20;Anh;20
+M;asiatique;Hoang;25;Minh;20
+F;asiatique;Vo;20;Lan;20
+M;europeen;Da Silva;20;Dimitri;20
+F;europeen;Fernandez;20;Maria;25
+M;europeen;Rodriguez;15;Antonio;15
+F;europeen;Pereira;15;Sofia;20

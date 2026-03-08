@@ -1,0 +1,2206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitview Search - Paramètres détaillés</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.kitview.com/favicon.ico">
+    <style>
+/*
+ * webparamD.html V1.0.0 - 14/01/2026 15:47:08
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3B9DD8;
+    --primary-light: #e3f2fd;
+    --primary-dark: #2d8bc7;
+    --accent-color: #27ae60;
+    --accent-hover: #219a52;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #e8e8e8;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --toc-bg: #fafafa;
+    --code-bg: #f4f4f4;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+}
+
+[data-theme="dark"] {
+    --primary-light: #1e3a5f;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888888;
+    --border-color: #404040;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --toc-bg: #252525;
+    --code-bg: #2a2a2a;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════════════════════════ */
+
+.params-header {
+    background: var(--bg-primary);
+    padding: 15px 25px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-left .logo {
+    height: 32px;
+}
+
+.header-left h1 {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left h1 .icon {
+    font-size: 24px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 18px;
+}
+
+.icon-button:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.back-button:hover {
+    background: var(--primary-dark);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BARRE DE RECHERCHE
+   ═══════════════════════════════════════════════════════════════ */
+
+.search-bar-container {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    padding: 20px 25px;
+    display: flex;
+    justify-content: center;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 30px;
+    padding: 8px 20px;
+    width: 100%;
+    max-width: 600px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.search-bar .search-icon {
+    font-size: 18px;
+    color: var(--text-muted);
+    margin-right: 12px;
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    background: transparent;
+    color: var(--text-primary);
+}
+
+.search-bar input::placeholder {
+    color: var(--text-muted);
+}
+
+.search-bar .clear-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: var(--text-muted);
+    cursor: pointer;
+    padding: 5px;
+    display: none;
+}
+
+.search-bar .clear-btn.visible {
+    display: block;
+}
+
+.search-results-count {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTAINER PRINCIPAL
+   ═══════════════════════════════════════════════════════════════ */
+
+.params-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 25px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SIDEBAR (Navigation hiérarchique)
+   ═══════════════════════════════════════════════════════════════ */
+
+.params-sidebar {
+    width: 300px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 140px;
+    height: fit-content;
+    max-height: calc(100vh - 160px);
+    overflow-y: auto;
+}
+
+.nav-card {
+    background: var(--toc-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.nav-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-list {
+    list-style: none;
+}
+
+.nav-list li {
+    margin-bottom: 2px;
+}
+
+/* Liens principaux (topics) */
+.nav-list > li > a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    color: var(--text-primary);
+    text-decoration: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+}
+
+.nav-list > li > a:hover {
+    background: var(--bg-primary);
+    color: var(--primary-color);
+}
+
+.nav-list > li > a.active {
+    background: var(--primary-light);
+    color: var(--primary-color);
+}
+
+.nav-list > li > a .nav-icon {
+    font-size: 16px;
+}
+
+.nav-list > li > a .nav-chevron {
+    margin-left: auto;
+    font-size: 10px;
+    transition: transform 0.2s;
+}
+
+.nav-list > li.expanded > a .nav-chevron {
+    transform: rotate(90deg);
+}
+
+/* Sous-niveaux */
+.nav-sublist {
+    list-style: none;
+    margin-left: 28px;
+    margin-top: 4px;
+    padding-left: 12px;
+    border-left: 2px solid var(--border-color);
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+
+.nav-list > li.expanded .nav-sublist {
+    max-height: 500px;
+}
+
+.nav-sublist li {
+    margin-bottom: 2px;
+}
+
+.nav-sublist a {
+    display: block;
+    padding: 6px 10px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.nav-sublist a:hover {
+    background: var(--bg-primary);
+    color: var(--primary-color);
+}
+
+.nav-sublist a.active {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.nav-sublist a .sub-icon {
+    margin-right: 6px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTENU PRINCIPAL
+   ═══════════════════════════════════════════════════════════════ */
+
+.params-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.content-card {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 30px 35px;
+    margin-bottom: 20px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid var(--border-color);
+}
+
+.section-header .section-icon {
+    font-size: 28px;
+}
+
+.section-header h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.section-header .section-desc {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-left: auto;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SOUS-SECTIONS (items individuels)
+   ═══════════════════════════════════════════════════════════════ */
+
+.subsection {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border-radius: 10px;
+    border-left: 4px solid var(--primary-color);
+    scroll-margin-top: 160px;
+}
+
+.subsection.hidden {
+    display: none;
+}
+
+.subsection.highlight {
+    animation: subsection-highlight 2s ease-out;
+}
+
+@keyframes subsection-highlight {
+    0% { background: var(--primary-light); border-left-color: var(--primary-dark); }
+    100% { background: var(--bg-secondary); border-left-color: var(--primary-color); }
+}
+
+.subsection-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.subsection-header .sub-icon {
+    font-size: 22px;
+}
+
+.subsection-header h3 {
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.subsection-description {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGNES DE PARAMÈTRES
+   ═══════════════════════════════════════════════════════════════ */
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+}
+
+.setting-row.hidden {
+    display: none;
+}
+
+.setting-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.setting-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.setting-description {
+    font-size: 12px;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+.setting-controls {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+}
+
+/* Contrôles */
+.setting-control {
+    padding: 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.setting-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 157, 216, 0.15);
+}
+
+select.setting-control {
+    cursor: pointer;
+    min-width: 150px;
+}
+
+input[type="text"].setting-control {
+    min-width: 200px;
+}
+
+input[type="number"].setting-control {
+    width: 90px;
+    text-align: center;
+}
+
+/* Checkboxes */
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg-secondary);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.checkbox-wrapper:hover {
+    background: var(--bg-tertiary);
+}
+
+.checkbox-wrapper input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.checkbox-label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+/* Slider */
+.slider-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.slider-wrapper input[type="range"] {
+    width: 120px;
+    height: 6px;
+    accent-color: var(--primary-color);
+    cursor: pointer;
+}
+
+.slider-value {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-color);
+    min-width: 45px;
+    text-align: center;
+}
+
+.info-unit {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.locked-badge {
+    font-size: 11px;
+    padding: 3px 8px;
+    background: var(--bg-tertiary);
+    border-radius: 4px;
+    color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GRILLE DE TOGGLES (Toolbar)
+   ═══════════════════════════════════════════════════════════════ */
+
+.toggle-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.toggle-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 16px;
+    background: var(--bg-primary);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    transition: all 0.2s;
+}
+
+.toggle-item:hover {
+    border-color: var(--primary-color);
+}
+
+.toggle-item.hidden {
+    display: none;
+}
+
+.toggle-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+.toggle-item-label {
+    font-size: 13px;
+    color: var(--text-primary);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toggle-item-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.toggle-checkboxes {
+    display: flex;
+    gap: 10px;
+}
+
+.mini-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    padding: 4px 8px;
+    background: var(--bg-secondary);
+    border-radius: 4px;
+}
+
+.mini-checkbox input {
+    width: 14px;
+    height: 14px;
+    accent-color: var(--primary-color);
+}
+
+.toggle-legend {
+    margin-top: 15px;
+    font-size: 12px;
+    color: var(--text-muted);
+    text-align: center;
+    padding-top: 15px;
+    border-top: 1px solid var(--border-color);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   GRILLE MOTEURS IA
+   ═══════════════════════════════════════════════════════════════ */
+
+.ia-intro {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    line-height: 1.6;
+    padding: 15px;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+}
+
+.ia-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 14px;
+}
+
+.ia-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.ia-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow);
+}
+
+.ia-item.inactive {
+    opacity: 0.5;
+}
+
+.ia-item.hidden {
+    display: none;
+}
+
+.ia-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.ia-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.ia-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.ia-item-provider {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.ia-item-cost {
+    font-size: 12px;
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.ia-loading {
+    text-align: center;
+    padding: 40px;
+    color: var(--text-secondary);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   OPTIONS DÉTECTION IA
+   ═══════════════════════════════════════════════════════════════ */
+
+.detiabrut-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.detiabrut-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    transition: all 0.2s;
+}
+
+.detiabrut-item:hover {
+    border-color: var(--primary-color);
+}
+
+.detiabrut-item.disabled {
+    opacity: 0.5;
+    background: #ffebee;
+}
+
+[data-theme="dark"] .detiabrut-item.disabled {
+    background: #3d2828;
+}
+
+.detiabrut-item.hidden {
+    display: none;
+}
+
+.detiabrut-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+    accent-color: var(--primary-color);
+}
+
+.detiabrut-item-info {
+    flex: 1;
+}
+
+.detiabrut-item-name {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.detiabrut-item-desc {
+    font-size: 11px;
+    color: var(--text-secondary);
+}
+
+.detiabrut-actions {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.detiabrut-actions button {
+    padding: 10px 20px;
+    font-size: 13px;
+    font-weight: 500;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.detiabrut-actions button:hover {
+    border-color: var(--primary-color);
+    background: var(--primary-light);
+}
+
+.detiabrut-command {
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 16px 20px;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+.detiabrut-command .cmd-label {
+    font-size: 11px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+}
+
+.detiabrut-command .cmd-value {
+    font-size: 14px;
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SECTION EXEMPLES
+   ═══════════════════════════════════════════════════════════════ */
+
+.examples-textarea {
+    width: 100%;
+    padding: 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+    resize: vertical;
+    min-height: 140px;
+    line-height: 1.6;
+    transition: all 0.2s;
+}
+
+.examples-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(59, 157, 216, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BOUTON ENREGISTRER
+   ═══════════════════════════════════════════════════════════════ */
+
+.save-section {
+    display: flex;
+    justify-content: center;
+    padding: 30px 0;
+}
+
+.save-button {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 50px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: all 0.2s;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+}
+
+.save-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TOAST & FOOTER
+   ═══════════════════════════════════════════════════════════════ */
+
+.toast {
+    position: fixed;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100px);
+    background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-hover) 100%);
+    color: white;
+    padding: 16px 32px;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 500;
+    box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1000;
+}
+
+.toast.active {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+.params-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .params-container {
+        flex-direction: column;
+    }
+    
+    .params-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
+    
+    .nav-card {
+        padding: 15px;
+    }
+    
+    .nav-list > li > a {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    
+    .nav-sublist {
+        margin-left: 20px;
+    }
+    
+    .toggle-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .params-header {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+    
+    .search-bar-container {
+        padding: 15px;
+    }
+    
+    .params-container {
+        padding: 15px;
+    }
+    
+    .content-card {
+        padding: 20px;
+    }
+    
+    .subsection {
+        padding: 15px;
+    }
+    
+    .setting-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+    }
+    
+    .setting-controls {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .ia-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .detiabrut-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="params-header">
+        <div class="header-left">
+            <img src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png" alt="Logo Kitview" class="logo">
+            <h1><span class="icon">⚙️</span> Paramètres détaillés</h1>
+        </div>
+        
+        <div class="header-right">
+            <button class="icon-button" id="themeToggle" title="Changer le thème jour/nuit">🌙</button>
+            <button class="back-button" onclick="goBack()">← Retour</button>
+        </div>
+    </header>
+
+    <!-- Barre de recherche -->
+    <div class="search-bar-container">
+        <div class="search-bar">
+            <span class="search-icon">🔍</span>
+            <input type="text" id="searchInput" placeholder="Rechercher un paramètre (ex: thème, langue, limite...)">
+            <button class="clear-btn" id="clearSearch" onclick="clearSearch()">✕</button>
+        </div>
+        <div class="search-results-count" id="searchResultsCount"></div>
+    </div>
+
+    <!-- Container principal -->
+    <div class="params-container">
+        <!-- Sidebar Navigation avec sous-niveaux -->
+        <aside class="params-sidebar">
+            <nav class="nav-card">
+                <div class="nav-title">📋 Navigation</div>
+                <ul class="nav-list">
+                    <!-- Affichage -->
+                    <li class="expanded">
+                        <a href="#affichage" class="active" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">📺</span>
+                            Affichage
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#jour-nuit"><span class="sub-icon">🌓</span> Mode Jour / Nuit</a></li>
+                            <li><a href="#style-visuel"><span class="sub-icon">🎨</span> Style visuel</a></li>
+                            <li><a href="#filigrane"><span class="sub-icon">💧</span> Filigrane</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Utilisateur -->
+                    <li>
+                        <a href="#utilisateur" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">👤</span>
+                            Utilisateur
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#nom-utilisateur"><span class="sub-icon">👤</span> Nom d'utilisateur</a></li>
+                            <li><a href="#base-donnees"><span class="sub-icon">🗄️</span> Base de données</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Toolbar -->
+                    <li>
+                        <a href="#toolbar" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">🎛️</span>
+                            Barre d'outils
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#langue"><span class="sub-icon">🌐</span> Langue</a></li>
+                            <li><a href="#vocal"><span class="sub-icon">🎤</span> Recherche vocale</a></li>
+                            <li><a href="#demo"><span class="sub-icon">🎬</span> Mode Démo</a></li>
+                            <li><a href="#switch-ia"><span class="sub-icon">🤖</span> Bascule IA</a></li>
+                            <li><a href="#analyse"><span class="sub-icon">📊</span> Analyse</a></li>
+                            <li><a href="#moteur-selector"><span class="sub-icon">🤖</span> Moteur IA</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Panel -->
+                    <li>
+                        <a href="#panel" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">📋</span>
+                            Panneau latéral
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#panel-affichage"><span class="sub-icon">📋</span> Affichage</a></li>
+                            <li><a href="#historique"><span class="sub-icon">📜</span> Historique</a></li>
+                            <li><a href="#exemples-panel"><span class="sub-icon">💡</span> Exemples</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Comportement -->
+                    <li>
+                        <a href="#comportement" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">⚡</span>
+                            Comportement
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#duree-demo"><span class="sub-icon">⏱️</span> Durée démo</a></li>
+                            <li><a href="#mains-libres"><span class="sub-icon">🎤</span> Mains libres</a></li>
+                            <li><a href="#limite-resultats"><span class="sub-icon">📊</span> Limite résultats</a></li>
+                            <li><a href="#taille-page"><span class="sub-icon">📄</span> Taille page</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Moteurs IA -->
+                    <li>
+                        <a href="#moteurs" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">🤖</span>
+                            Moteurs IA
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#moteurs-liste"><span class="sub-icon">📋</span> Liste des moteurs</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Détection IA -->
+                    <li>
+                        <a href="#detection" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">🔬</span>
+                            Détection IA
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#detect-tags"><span class="sub-icon">🏷️</span> Pathologies</a></li>
+                            <li><a href="#detect-adjs"><span class="sub-icon">📝</span> Adjectifs</a></li>
+                            <li><a href="#detect-ages"><span class="sub-icon">📅</span> Âges</a></li>
+                            <li><a href="#detect-angles"><span class="sub-icon">📐</span> Angles</a></li>
+                            <li><a href="#detect-mapping"><span class="sub-icon">🔗</span> Mapping</a></li>
+                        </ul>
+                    </li>
+                    
+                    <!-- Exemples -->
+                    <li>
+                        <a href="#exemples" onclick="toggleSection(this.parentElement)">
+                            <span class="nav-icon">💡</span>
+                            Exemples
+                            <span class="nav-chevron">▶</span>
+                        </a>
+                        <ul class="nav-sublist">
+                            <li><a href="#exemples-liste"><span class="sub-icon">📝</span> Liste personnalisée</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu principal -->
+        <main class="params-content">
+            
+            <!-- Section Affichage -->
+            <section class="content-card" id="affichage">
+                <div class="section-header">
+                    <span class="section-icon">📺</span>
+                    <h2>Affichage</h2>
+                    <span class="section-desc">Personnalisez l'apparence de l'application</span>
+                </div>
+                
+                <!-- Jour/Nuit -->
+                <div class="subsection" id="jour-nuit" data-keywords="thème jour nuit sombre clair auto dark light theme">
+                    <div class="subsection-header">
+                        <span class="sub-icon">🌓</span>
+                        <h3>Mode Jour / Nuit (Thème de couleurs)</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Choisissez entre un affichage clair pour le jour, sombre pour réduire la fatigue oculaire la nuit, 
+                        ou automatique pour suivre les préférences de votre système d'exploitation.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Configuration du thème</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeTheme" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="bandeauTheme">
+                                    <span class="checkbox-label">Bandeau</span>
+                                </label>
+                            </div>
+                            <select id="themeSelect" class="setting-control">
+                                <option value="auto">Automatique (système)</option>
+                                <option value="light">Mode Jour (clair)</option>
+                                <option value="dark">Mode Nuit (sombre)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Style visuel -->
+                <div class="subsection" id="style-visuel" data-keywords="style visuel windows glass liquidglass design apparence">
+                    <div class="subsection-header">
+                        <span class="sub-icon">🎨</span>
+                        <h3>Style visuel de l'interface</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Le style Windows offre une apparence classique et épurée. Le style LiquidGlass apporte des effets 
+                        de transparence et de profondeur modernes inspirés des dernières tendances UI.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Design global de l'application</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeStyle" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <select id="styleSelect" class="setting-control">
+                                <option value="classic">Windows (classique)</option>
+                                <option value="glass">LiquidGlass (moderne)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Filigrane -->
+                <div class="subsection" id="filigrane" data-keywords="filigrane watermark opacité transparence logo fond">
+                    <div class="subsection-header">
+                        <span class="sub-icon">💧</span>
+                        <h3>Opacité du filigrane (logo en arrière-plan)</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Le logo Kitview s'affiche en arrière-plan de la zone de résultats. Ajustez son intensité 
+                        pour qu'il soit discret ou plus visible selon vos préférences.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Intensité du filigrane</div>
+                        </div>
+                        <div class="setting-controls">
+                            <span class="locked-badge">Toujours visible</span>
+                            <div class="slider-wrapper">
+                                <input type="range" id="filigraneSlider" min="0" max="100" value="50">
+                                <span class="slider-value" id="filigraneValue">50%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Utilisateur -->
+            <section class="content-card" id="utilisateur">
+                <div class="section-header">
+                    <span class="section-icon">👤</span>
+                    <h2>Utilisateur</h2>
+                    <span class="section-desc">Vos informations personnelles et préférences</span>
+                </div>
+                
+                <!-- Nom d'utilisateur -->
+                <div class="subsection" id="nom-utilisateur" data-keywords="nom utilisateur user name pseudo identifiant">
+                    <div class="subsection-header">
+                        <span class="sub-icon">👤</span>
+                        <h3>Nom d'utilisateur affiché</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Votre nom ou pseudonyme qui apparaît dans les messages de bienvenue et personnalise votre expérience.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Votre identifiant</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeUsername" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <input type="text" id="userNameInput" placeholder="Votre nom..." class="setting-control">
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Base de données -->
+                <div class="subsection" id="base-donnees" data-keywords="base données database db patients sélection">
+                    <div class="subsection-header">
+                        <span class="sub-icon">🗄️</span>
+                        <h3>Base de données patients active</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Sélectionnez la base de données à interroger. Plusieurs bases peuvent être disponibles : 
+                        production, test, ou bases spécifiques à différentes périodes.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Base sélectionnée</div>
+                        </div>
+                        <div class="setting-controls">
+                            <span class="locked-badge">Toujours visible</span>
+                            <label class="checkbox-wrapper">
+                                <input type="checkbox" id="bandeauBases">
+                                <span class="checkbox-label">Bandeau</span>
+                            </label>
+                            <select id="baseSelectorSettings" class="setting-control">
+                                <option value="">Chargement...</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Toolbar -->
+            <section class="content-card" id="toolbar">
+                <div class="section-header">
+                    <span class="section-icon">🎛️</span>
+                    <h2>Barre d'outils & Fonctionnalités</h2>
+                    <span class="section-desc">Activez ou désactivez les éléments de l'interface</span>
+                </div>
+                
+                <div class="toggle-grid">
+                    <!-- Langue -->
+                    <div class="toggle-item" id="langue" data-keywords="langue language i18n traduction français anglais">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">🌐 Sélecteur de langue d'interface</span>
+                            <span class="toggle-item-desc">Permet de changer la langue de l'interface et des recherches multilingues</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Activer cette fonctionnalité">
+                                <input type="checkbox" id="activeI18n" checked>
+                                Actif
+                            </label>
+                            <label class="mini-checkbox" title="Afficher dans le bandeau supérieur">
+                                <input type="checkbox" id="bandeauI18n" checked>
+                                Bandeau
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Vocal -->
+                    <div class="toggle-item" id="vocal" data-keywords="micro microphone vocal voix speech recherche vocale dictée">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">🎤 Recherche vocale (dictée)</span>
+                            <span class="toggle-item-desc">Dictez vos recherches au lieu de les taper au clavier</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Activer cette fonctionnalité">
+                                <input type="checkbox" id="activeMicro" checked>
+                                Actif
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Demo -->
+                    <div class="toggle-item" id="demo" data-keywords="démo demo démonstration présentation automatique carousel">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">🎬 Mode Démonstration automatique</span>
+                            <span class="toggle-item-desc">Lance automatiquement des recherches pour illustrer les capacités</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Activer cette fonctionnalité">
+                                <input type="checkbox" id="activeSwitchDemo" checked>
+                                Actif
+                            </label>
+                            <label class="mini-checkbox" title="Afficher dans le bandeau supérieur">
+                                <input type="checkbox" id="bandeauSwitchDemo" checked>
+                                Bandeau
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Switch IA -->
+                    <div class="toggle-item" id="switch-ia" data-keywords="ia intelligence artificielle classique mode recherche moteur">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">🤖 Bascule mode IA / Classique</span>
+                            <span class="toggle-item-desc">Choisissez entre recherche assistée par IA ou classique par mots-clés</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Activer cette fonctionnalité">
+                                <input type="checkbox" id="activeSwitchIA" checked>
+                                Actif
+                            </label>
+                            <label class="mini-checkbox" title="Afficher dans le bandeau supérieur">
+                                <input type="checkbox" id="bandeauSwitchIA" checked>
+                                Bandeau
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Analyse -->
+                    <div class="toggle-item" id="analyse" data-keywords="analyse analytics statistiques graphiques tableau bord">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">📊 Accès à la page Analyse</span>
+                            <span class="toggle-item-desc">Bouton d'accès aux statistiques et tableaux de bord avancés</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Activer cette fonctionnalité">
+                                <input type="checkbox" id="activeAnalyse" checked>
+                                Actif
+                            </label>
+                            <label class="mini-checkbox" title="Afficher dans le bandeau supérieur">
+                                <input type="checkbox" id="bandeauAnalyse">
+                                Bandeau
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <!-- Moteur selector -->
+                    <div class="toggle-item" id="moteur-selector" data-keywords="moteur ia sélecteur modèle gpt gemini openai">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">🤖 Sélecteur de moteur IA</span>
+                            <span class="toggle-item-desc">Permet de choisir dynamiquement le modèle d'IA utilisé</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox" title="Toujours actif">
+                                <input type="checkbox" checked disabled>
+                                Actif
+                            </label>
+                            <label class="mini-checkbox" title="Afficher dans le bandeau supérieur">
+                                <input type="checkbox" id="bandeauMoteur">
+                                Bandeau
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="toggle-legend">
+                    <strong>Actif</strong> = Fonctionnalité disponible &nbsp;|&nbsp; <strong>Bandeau</strong> = Visible dans la barre supérieure
+                </div>
+            </section>
+
+            <!-- Section Panel -->
+            <section class="content-card" id="panel">
+                <div class="section-header">
+                    <span class="section-icon">📋</span>
+                    <h2>Panneau latéral gauche</h2>
+                    <span class="section-desc">Configurez le panneau de navigation et d'historique</span>
+                </div>
+                
+                <div class="toggle-grid">
+                    <div class="toggle-item" id="panel-affichage" data-keywords="panel panneau latéral sidebar gauche menu">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">📋 Affichage du panneau latéral</span>
+                            <span class="toggle-item-desc">Afficher ou masquer le panneau de navigation à gauche de l'écran</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox">
+                                <input type="checkbox" id="activePanel" checked>
+                                Actif
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="toggle-item" id="historique" data-keywords="historique history conversations récentes passées">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">📜 Historique des recherches passées</span>
+                            <span class="toggle-item-desc">Afficher vos recherches précédentes pour les relancer facilement</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox">
+                                <input type="checkbox" id="activeHistorique" checked>
+                                Actif
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="toggle-item" id="exemples-panel" data-keywords="exemples suggestions aide démarrage inspiration">
+                        <div class="toggle-item-info">
+                            <span class="toggle-item-label">💡 Exemples et suggestions</span>
+                            <span class="toggle-item-desc">Afficher des exemples de recherche pour vous inspirer</span>
+                        </div>
+                        <div class="toggle-checkboxes">
+                            <label class="mini-checkbox">
+                                <input type="checkbox" id="activeExemples" checked>
+                                Actif
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Comportement -->
+            <section class="content-card" id="comportement">
+                <div class="section-header">
+                    <span class="section-icon">⚡</span>
+                    <h2>Comportement</h2>
+                    <span class="section-desc">Paramètres de fonctionnement et limites</span>
+                </div>
+                
+                <!-- Durée démo -->
+                <div class="subsection" id="duree-demo" data-keywords="durée démo cycle temps intervalle automatique secondes">
+                    <div class="subsection-header">
+                        <span class="sub-icon">⏱️</span>
+                        <h3>Durée du cycle de démonstration</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Temps d'attente entre chaque exemple en mode démonstration automatique. 
+                        Une durée plus longue laisse le temps de lire les résultats.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Intervalle entre les exemples</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeDemo" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <input type="number" id="demoDurationInput" min="10" max="120" value="20" class="setting-control">
+                            <span class="info-unit">secondes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Mains libres -->
+                <div class="subsection" id="mains-libres" data-keywords="mains libres handsfree vocal continu écoute permanente gants">
+                    <div class="subsection-header">
+                        <span class="sub-icon">🎤</span>
+                        <h3>Durée du mode mains libres</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Durée pendant laquelle l'écoute vocale reste active automatiquement après le mot-clé "Kitview". 
+                        Idéal pour les praticiens portant des gants lors des procédures médicales.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Durée d'écoute continue</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeHandsfree" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <input type="number" id="handsfreeDurationInput" min="1" max="10" value="5" class="setting-control">
+                            <span class="info-unit">minutes</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Limite résultats -->
+                <div class="subsection" id="limite-resultats" data-keywords="limite résultats maximum patients affichés nombre">
+                    <div class="subsection-header">
+                        <span class="sub-icon">📊</span>
+                        <h3>Nombre maximum de résultats</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Limite le nombre total de patients retournés par une recherche pour optimiser les performances. 
+                        Au-delà de cette limite, affinez votre recherche.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Limite de patients affichés</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activeLimit" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <input type="number" id="resultsLimitInput" min="10" max="200" value="100" class="setting-control">
+                            <span class="info-unit">patients max</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Taille de page -->
+                <div class="subsection" id="taille-page" data-keywords="page taille pagination résultats par page défilement">
+                    <div class="subsection-header">
+                        <span class="sub-icon">📄</span>
+                        <h3>Nombre de résultats par page</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Combien de patients afficher simultanément avant de devoir faire défiler ou paginer. 
+                        Une valeur plus petite améliore la lisibilité.
+                    </div>
+                    <div class="setting-row">
+                        <div class="setting-info">
+                            <div class="setting-label">Patients par page</div>
+                        </div>
+                        <div class="setting-controls">
+                            <div class="checkbox-group">
+                                <label class="checkbox-wrapper">
+                                    <input type="checkbox" id="activePagesize" checked>
+                                    <span class="checkbox-label">Actif</span>
+                                </label>
+                            </div>
+                            <input type="number" id="pageSizeInput" min="5" max="50" value="10" class="setting-control">
+                            <span class="info-unit">par page</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Moteurs IA -->
+            <section class="content-card" id="moteurs">
+                <div class="section-header">
+                    <span class="section-icon">🤖</span>
+                    <h2>Moteurs d'Intelligence Artificielle</h2>
+                    <span class="section-desc">Activez ou désactivez les modèles disponibles</span>
+                </div>
+                
+                <div class="subsection" id="moteurs-liste">
+                    <div class="ia-intro">
+                        <strong>💡 Information :</strong> Sélectionnez les moteurs IA disponibles pour les recherches. 
+                        Le moteur "Standard" (sans IA) est toujours disponible et gratuit. 
+                        Les modèles payants sont indiqués par un coût estimé par requête.
+                    </div>
+                    
+                    <div class="ia-grid" id="iaGrid">
+                        <div class="ia-loading">⏳ Chargement des moteurs IA disponibles...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Section Détection IA -->
+            <section class="content-card" id="detection">
+                <div class="section-header">
+                    <span class="section-icon">🔬</span>
+                    <h2>Options de détection IA</h2>
+                    <span class="section-desc">Configurez les modules d'analyse des requêtes</span>
+                </div>
+                
+                <div class="detiabrut-grid">
+                    <div class="detiabrut-item" id="detect-tags" data-option="tags" data-keywords="tags pathologies maladies détection extraction">
+                        <input type="checkbox" id="detiabrut_tags" checked onchange="updateDetiabrut()">
+                        <div class="detiabrut-item-info">
+                            <div class="detiabrut-item-name">Pathologies (Tags)</div>
+                            <div class="detiabrut-item-desc">Détection automatique des termes orthodontiques</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detiabrut-item" id="detect-adjs" data-option="adjs" data-keywords="adjectifs qualificatifs descripteurs sévère léger">
+                        <input type="checkbox" id="detiabrut_adjs" checked onchange="updateDetiabrut()">
+                        <div class="detiabrut-item-info">
+                            <div class="detiabrut-item-name">Adjectifs qualificatifs</div>
+                            <div class="detiabrut-item-desc">Reconnaissance: sévère, léger, bilatéral...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detiabrut-item" id="detect-ages" data-option="ages" data-keywords="âge age années enfant adolescent adulte senior">
+                        <input type="checkbox" id="detiabrut_ages" checked onchange="updateDetiabrut()">
+                        <div class="detiabrut-item-info">
+                            <div class="detiabrut-item-name">Tranches d'âge</div>
+                            <div class="detiabrut-item-desc">Interprétation: enfant, ado, adulte...</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detiabrut-item" id="detect-angles" data-option="angles" data-keywords="angles anb sna snb céphalométrie mesures">
+                        <input type="checkbox" id="detiabrut_angles" checked onchange="updateDetiabrut()">
+                        <div class="detiabrut-item-info">
+                            <div class="detiabrut-item-name">Angles céphalométriques</div>
+                            <div class="detiabrut-item-desc">Analyse des seuils ANB, SNA, SNB</div>
+                        </div>
+                    </div>
+                    
+                    <div class="detiabrut-item" id="detect-mapping" data-option="mapping" data-keywords="mapping correspondance synonymes canonique normalisation">
+                        <input type="checkbox" id="detiabrut_mapping" checked onchange="updateDetiabrut()">
+                        <div class="detiabrut-item-info">
+                            <div class="detiabrut-item-name">Mapping terminologique</div>
+                            <div class="detiabrut-item-desc">Conversion vers la forme canonique</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="detiabrut-actions">
+                    <button onclick="setDetiabrut('all')">✓ Tout activer</button>
+                    <button onclick="setDetiabrut('none')">✗ Tout désactiver</button>
+                </div>
+                
+                <div class="detiabrut-command">
+                    <div class="cmd-label">Commande CLI équivalente :</div>
+                    <div class="cmd-value" id="detiabrut_cmd">python detiabrut.py "question" all</div>
+                </div>
+            </section>
+
+            <!-- Section Exemples -->
+            <section class="content-card" id="exemples">
+                <div class="section-header">
+                    <span class="section-icon">💡</span>
+                    <h2>Exemples de recherche personnalisés</h2>
+                    <span class="section-desc">Personnalisez les exemples affichés en démonstration</span>
+                </div>
+                
+                <div class="subsection" id="exemples-liste" data-keywords="exemples recherche démo suggestions personnalisés liste">
+                    <div class="subsection-header">
+                        <span class="sub-icon">📝</span>
+                        <h3>Liste des exemples (un par ligne)</h3>
+                    </div>
+                    <div class="subsection-description">
+                        Ces exemples s'affichent dans le panneau latéral gauche comme suggestions et sont également 
+                        utilisés pour le mode démonstration automatique. Personnalisez-les selon vos besoins les plus fréquents.
+                    </div>
+                    <textarea id="examplesTextarea" class="examples-textarea" rows="6" placeholder="Saisissez un exemple de recherche par ligne..."></textarea>
+                </div>
+            </section>
+
+            <!-- Bouton Enregistrer -->
+            <div class="save-section">
+                <button class="save-button" onclick="saveSettings()">
+                    💾 Enregistrer les paramètres et retourner
+                </button>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="params-footer">
+        Kitview Search - Paramètres v2.0 (Navigation hiérarchique détaillée)
+    </footer>
+
+    <!-- Toast notification -->
+    <div class="toast" id="toast">✓ Paramètres enregistrés avec succès</div>
+
+    <script>
+/*
+ * webparamD.html V1.0.0 - JavaScript
+ * Gestion des paramètres avec navigation hiérarchique et sous-niveaux
+ */
+
+// ═══════════════════════════════════════════════════════════════
+// CONFIGURATION API
+// ═══════════════════════════════════════════════════════════════
+
+const API_BASE_URL = (function() {
+    const hostname = window.location.hostname;
+    const protocol = window.location.protocol;
+    
+    if (protocol === 'file:') return 'http://localhost:8000';
+    if (hostname.includes('onrender.com')) return window.location.origin;
+    if (hostname === 'localhost' || hostname === '127.0.0.1') return 'http://localhost:8000';
+    return window.location.origin;
+})();
+
+// ═══════════════════════════════════════════════════════════════
+// ÉLÉMENTS DOM
+// ═══════════════════════════════════════════════════════════════
+
+const elements = {
+    searchInput: document.getElementById('searchInput'),
+    clearSearch: document.getElementById('clearSearch'),
+    searchResultsCount: document.getElementById('searchResultsCount'),
+    themeSelect: document.getElementById('themeSelect'),
+    styleSelect: document.getElementById('styleSelect'),
+    filigraneSlider: document.getElementById('filigraneSlider'),
+    filigraneValue: document.getElementById('filigraneValue'),
+    userNameInput: document.getElementById('userNameInput'),
+    baseSelectorSettings: document.getElementById('baseSelectorSettings'),
+    demoDurationInput: document.getElementById('demoDurationInput'),
+    handsfreeDurationInput: document.getElementById('handsfreeDurationInput'),
+    resultsLimitInput: document.getElementById('resultsLimitInput'),
+    pageSizeInput: document.getElementById('pageSizeInput'),
+    examplesTextarea: document.getElementById('examplesTextarea'),
+    activeTheme: document.getElementById('activeTheme'),
+    activeStyle: document.getElementById('activeStyle'),
+    activeUsername: document.getElementById('activeUsername'),
+    activeI18n: document.getElementById('activeI18n'),
+    activeMicro: document.getElementById('activeMicro'),
+    activeSwitchDemo: document.getElementById('activeSwitchDemo'),
+    activeSwitchIA: document.getElementById('activeSwitchIA'),
+    activeAnalyse: document.getElementById('activeAnalyse'),
+    activePanel: document.getElementById('activePanel'),
+    activeHistorique: document.getElementById('activeHistorique'),
+    activeExemples: document.getElementById('activeExemples'),
+    activeDemo: document.getElementById('activeDemo'),
+    activeHandsfree: document.getElementById('activeHandsfree'),
+    activeLimit: document.getElementById('activeLimit'),
+    activePagesize: document.getElementById('activePagesize'),
+    bandeauTheme: document.getElementById('bandeauTheme'),
+    bandeauBases: document.getElementById('bandeauBases'),
+    bandeauI18n: document.getElementById('bandeauI18n'),
+    bandeauSwitchDemo: document.getElementById('bandeauSwitchDemo'),
+    bandeauSwitchIA: document.getElementById('bandeauSwitchIA'),
+    bandeauAnalyse: document.getElementById('bandeauAnalyse'),
+    bandeauMoteur: document.getElementById('bandeauMoteur'),
+    detiabrut_tags: document.getElementById('detiabrut_tags'),
+    detiabrut_adjs: document.getElementById('detiabrut_adjs'),
+    detiabrut_ages: document.getElementById('detiabrut_ages'),
+    detiabrut_angles: document.getElementById('detiabrut_angles'),
+    detiabrut_mapping: document.getElementById('detiabrut_mapping'),
+    detiabrut_cmd: document.getElementById('detiabrut_cmd'),
+    themeToggle: document.getElementById('themeToggle'),
+    toast: document.getElementById('toast')
+};
+
+const DEFAULT_EXAMPLES = [
+    "patients qui grincent des dents",
+    "Patientes souffrant de béance antérieure et avec classe II",
+    "Patientes de moins de 39 ans présentant un encombrement",
+    "ado diabétique avec problème de bruxisme"
+];
+
+// ═══════════════════════════════════════════════════════════════
+// NAVIGATION HIÉRARCHIQUE
+// ═══════════════════════════════════════════════════════════════
+
+function toggleSection(li) {
+    li.classList.toggle('expanded');
+}
+
+function initNavigation() {
+    const navLinks = document.querySelectorAll('.nav-list a, .nav-sublist a');
+    const sections = document.querySelectorAll('.content-card[id], .subsection[id]');
+    
+    // Observer pour le scroll
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const id = entry.target.getAttribute('id');
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === '#' + id) {
+                            link.classList.add('active');
+                            // Ouvrir le parent si c'est un sous-niveau
+                            const parentLi = link.closest('.nav-list > li');
+                            if (parentLi) parentLi.classList.add('expanded');
+                        }
+                    });
+                }
+            });
+        }, {
+            threshold: 0.3,
+            rootMargin: '-140px 0px -50% 0px'
+        });
+        
+        sections.forEach(section => observer.observe(section));
+    }
+    
+    // Scroll smooth sur clic
+    navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            const href = link.getAttribute('href');
+            if (href && href.startsWith('#')) {
+                e.preventDefault();
+                const targetId = href.substring(1);
+                const targetSection = document.getElementById(targetId);
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    targetSection.classList.add('highlight');
+                    setTimeout(() => targetSection.classList.remove('highlight'), 2000);
+                }
+            }
+        });
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// THÈME
+// ═══════════════════════════════════════════════════════════════
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        elements.themeToggle.textContent = '☀️';
+    } else if (savedTheme === 'light') {
+        document.body.removeAttribute('data-theme');
+        elements.themeToggle.textContent = '🌙';
+    } else {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.setAttribute('data-theme', 'dark');
+            elements.themeToggle.textContent = '☀️';
+        }
+    }
+}
+
+function toggleTheme() {
+    const isDark = document.body.hasAttribute('data-theme');
+    if (isDark) {
+        document.body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        elements.themeToggle.textContent = '🌙';
+    } else {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        elements.themeToggle.textContent = '☀️';
+    }
+}
+
+function applyTheme(theme) {
+    if (theme === 'auto') {
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+    } else {
+        document.documentElement.setAttribute('data-theme', theme);
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// RECHERCHE
+// ═══════════════════════════════════════════════════════════════
+
+function performSearch(query) {
+    const normalizedQuery = query.toLowerCase().trim();
+    const searchableItems = document.querySelectorAll('.subsection, .toggle-item, .ia-item, .detiabrut-item');
+    let visibleCount = 0;
+    
+    searchableItems.forEach(item => {
+        const keywords = (item.dataset.keywords || '').toLowerCase();
+        const textContent = item.textContent.toLowerCase();
+        const searchText = keywords + ' ' + textContent;
+        
+        if (!normalizedQuery || searchText.includes(normalizedQuery)) {
+            item.classList.remove('hidden');
+            visibleCount++;
+            if (normalizedQuery && searchText.includes(normalizedQuery)) {
+                item.classList.add('highlight');
+                setTimeout(() => item.classList.remove('highlight'), 2000);
+            }
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+    
+    elements.clearSearch.classList.toggle('visible', normalizedQuery.length > 0);
+    elements.searchResultsCount.textContent = normalizedQuery ? `${visibleCount} élément(s) trouvé(s)` : '';
+}
+
+function clearSearch() {
+    elements.searchInput.value = '';
+    performSearch('');
+    elements.searchInput.focus();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHARGEMENT / SAUVEGARDE
+// ═══════════════════════════════════════════════════════════════
+
+function loadSettings() {
+    elements.themeSelect.value = localStorage.getItem('theme') || 'auto';
+    elements.styleSelect.value = localStorage.getItem('visualStyle') || 'classic';
+    
+    const filigrane = localStorage.getItem('filigraneOpacity') || '50';
+    elements.filigraneSlider.value = filigrane;
+    elements.filigraneValue.textContent = filigrane + '%';
+    
+    elements.userNameInput.value = localStorage.getItem('userName') || '';
+    elements.demoDurationInput.value = localStorage.getItem('demoDuration') || '20';
+    elements.handsfreeDurationInput.value = localStorage.getItem('handsfreeDuration') || '5';
+    elements.resultsLimitInput.value = localStorage.getItem('resultsLimit') || '100';
+    elements.pageSizeInput.value = localStorage.getItem('pageSize') || '10';
+    
+    const checkboxDefaults = {
+        activeTheme: true, activeStyle: true, activeUsername: true, activeI18n: true,
+        activeMicro: true, activeSwitchDemo: true, activeSwitchIA: true, activeAnalyse: true,
+        activePanel: true, activeHistorique: true, activeExemples: true, activeDemo: true,
+        activeHandsfree: true, activeLimit: true, activePagesize: true,
+        bandeauTheme: false, bandeauBases: false, bandeauI18n: true,
+        bandeauSwitchDemo: true, bandeauSwitchIA: true, bandeauAnalyse: false, bandeauMoteur: false
+    };
+    
+    Object.entries(checkboxDefaults).forEach(([id, defaultVal]) => {
+        const saved = localStorage.getItem(id);
+        if (elements[id]) elements[id].checked = saved === null ? defaultVal : saved === 'true';
+    });
+    
+    elements.examplesTextarea.value = localStorage.getItem('searchExamples') || DEFAULT_EXAMPLES.join('\n');
+    loadDetiabrutSettings();
+}
+
+function saveSettings() {
+    localStorage.setItem('theme', elements.themeSelect.value);
+    localStorage.setItem('visualStyle', elements.styleSelect.value);
+    localStorage.setItem('filigraneOpacity', elements.filigraneSlider.value);
+    localStorage.setItem('userName', elements.userNameInput.value);
+    localStorage.setItem('demoDuration', elements.demoDurationInput.value);
+    localStorage.setItem('handsfreeDuration', elements.handsfreeDurationInput.value);
+    localStorage.setItem('resultsLimit', elements.resultsLimitInput.value);
+    localStorage.setItem('pageSize', elements.pageSizeInput.value);
+    
+    if (elements.baseSelectorSettings.value) {
+        localStorage.setItem('currentBase', elements.baseSelectorSettings.value);
+    }
+    
+    const checkboxIds = [
+        'activeTheme', 'activeStyle', 'activeUsername', 'activeI18n', 'activeMicro',
+        'activeSwitchDemo', 'activeSwitchIA', 'activeAnalyse', 'activePanel',
+        'activeHistorique', 'activeExemples', 'activeDemo', 'activeHandsfree',
+        'activeLimit', 'activePagesize', 'bandeauTheme', 'bandeauBases',
+        'bandeauI18n', 'bandeauSwitchDemo', 'bandeauSwitchIA', 'bandeauAnalyse', 'bandeauMoteur'
+    ];
+    
+    checkboxIds.forEach(id => {
+        if (elements[id]) localStorage.setItem(id, elements[id].checked);
+    });
+    
+    localStorage.setItem('searchExamples', elements.examplesTextarea.value);
+    saveDetiabrutSettings();
+    applyTheme(elements.themeSelect.value);
+    
+    showToast();
+    setTimeout(() => goBack(), 1500);
+}
+
+// ═══════════════════════════════════════════════════════════════
+// CHARGEMENT DONNÉES DYNAMIQUES
+// ═══════════════════════════════════════════════════════════════
+
+async function loadAvailableBases() {
+    try {
+        const response = await fetch(`${API_BASE_URL}/bases`);
+        if (!response.ok) throw new Error('API non disponible');
+        
+        const data = await response.json();
+        const bases = data.bases || [];
+        
+        elements.baseSelectorSettings.innerHTML = '';
+        bases.forEach(base => {
+            const option = document.createElement('option');
+            option.value = base;
+            option.textContent = base;
+            elements.baseSelectorSettings.appendChild(option);
+        });
+        
+        const currentBase = localStorage.getItem('currentBase');
+        if (currentBase && bases.includes(currentBase)) {
+            elements.baseSelectorSettings.value = currentBase;
+        }
+    } catch (error) {
+        console.error('Erreur chargement bases:', error);
+        elements.baseSelectorSettings.innerHTML = '<option value="">Serveur non connecté</option>';
+    }
+}
+
+let ALL_IA_MODELS = [];
+
+async function loadIAModels() {
+    const iaGrid = document.getElementById('iaGrid');
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/ia`);
+        if (!response.ok) throw new Error('Erreur API');
+        
+        const data = await response.json();
+        ALL_IA_MODELS = data.moteurs || [];
+        
+        iaGrid.innerHTML = '';
+        
+        ALL_IA_MODELS.forEach(moteur => {
+            const isActive = moteur.actif === 'O';
+            const isStandard = moteur.moteur === 'standard';
+            
+            const item = document.createElement('div');
+            item.className = `ia-item ${isActive ? '' : 'inactive'}`;
+            item.dataset.moteur = moteur.moteur;
+            item.dataset.keywords = `${moteur.moteur} ${moteur.notes || ''} ${moteur.via || ''}`.toLowerCase();
+            
+            let provider = 'Local';
+            if (moteur.via === 'openai') provider = 'OpenAI';
+            else if (moteur.via === 'eden') provider = 'Eden AI';
+            else if (!moteur.via && isStandard) provider = 'Sans IA';
+            
+            item.innerHTML = `
+                <input type="checkbox" 
+                       id="ia_${moteur.moteur}" 
+                       ${isActive ? 'checked' : ''} 
+                       ${isStandard ? 'disabled title="Standard toujours actif"' : ''}
+                       onchange="toggleIA('${moteur.moteur}', this.checked)">
+                <div class="ia-item-info">
+                    <div class="ia-item-name">${moteur.notes || moteur.moteur}</div>
+                    <div class="ia-item-provider">${provider}</div>
+                </div>
+                <div class="ia-item-cost">${moteur.cout > 0 ? '$' + moteur.cout : 'Gratuit'}</div>
+            `;
+            
+            iaGrid.appendChild(item);
+        });
+        
+    } catch (error) {
+        console.error('Erreur chargement moteurs IA:', error);
+        iaGrid.innerHTML = '<div class="ia-loading" style="color: #e74c3c;">❌ Erreur de chargement</div>';
+    }
+}
+
+async function toggleIA(moteur, isActive) {
+    const item = document.querySelector(`.ia-item[data-moteur="${moteur}"]`);
+    
+    try {
+        const response = await fetch(`${API_BASE_URL}/ia/${moteur}`, {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ actif: isActive ? 'O' : 'N' })
+        });
+        
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        if (item) item.classList.toggle('inactive', !isActive);
+        
+    } catch (error) {
+        console.error(`Erreur modification ${moteur}:`, error);
+        const checkbox = document.getElementById(`ia_${moteur}`);
+        if (checkbox) checkbox.checked = !isActive;
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// DÉTECTION IA
+// ═══════════════════════════════════════════════════════════════
+
+const DETIABRUT_OPTIONS = ['tags', 'adjs', 'ages', 'angles', 'mapping'];
+
+function updateDetiabrut() {
+    const enabledOptions = [];
+    const disabledOptions = [];
+    
+    DETIABRUT_OPTIONS.forEach(opt => {
+        const checkbox = elements[`detiabrut_${opt}`];
+        const item = checkbox.closest('.detiabrut-item');
+        
+        if (checkbox.checked) {
+            enabledOptions.push(opt);
+            item.classList.remove('disabled');
+        } else {
+            disabledOptions.push(opt);
+            item.classList.add('disabled');
+        }
+    });
+    
+    let cmdValue;
+    if (disabledOptions.length === 0) {
+        cmdValue = 'python detiabrut.py "question" all';
+    } else if (enabledOptions.length === 0) {
+        cmdValue = 'python detiabrut.py "question" none';
+    } else if (disabledOptions.length <= enabledOptions.length) {
+        cmdValue = `python detiabrut.py "question" ${disabledOptions.map(o => `-${o}`).join(' ')}`;
+    } else {
+        cmdValue = `python detiabrut.py "question" none ${enabledOptions.map(o => `+${o}`).join(' ')}`;
+    }
+    
+    elements.detiabrut_cmd.textContent = cmdValue;
+}
+
+function setDetiabrut(mode) {
+    DETIABRUT_OPTIONS.forEach(opt => {
+        elements[`detiabrut_${opt}`].checked = (mode === 'all');
+    });
+    updateDetiabrut();
+}
+
+function loadDetiabrutSettings() {
+    DETIABRUT_OPTIONS.forEach(opt => {
+        const saved = localStorage.getItem(`detiabrut_${opt}`);
+        elements[`detiabrut_${opt}`].checked = saved === null ? true : saved === 'true';
+    });
+    updateDetiabrut();
+}
+
+function saveDetiabrutSettings() {
+    DETIABRUT_OPTIONS.forEach(opt => {
+        localStorage.setItem(`detiabrut_${opt}`, elements[`detiabrut_${opt}`].checked);
+    });
+}
+
+// ═══════════════════════════════════════════════════════════════
+// UTILITAIRES
+// ═══════════════════════════════════════════════════════════════
+
+function showToast() {
+    elements.toast.classList.add('active');
+    setTimeout(() => elements.toast.classList.remove('active'), 2000);
+}
+
+function goBack() {
+    if (window.history.length > 1) window.history.back();
+    else window.location.href = '/';
+}
+
+// ═══════════════════════════════════════════════════════════════
+// INITIALISATION
+// ═══════════════════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', async function() {
+    console.log('⚙️ Kitview Search - Paramètres détaillés initialisés');
+    
+    initTheme();
+    elements.themeToggle.addEventListener('click', toggleTheme);
+    initNavigation();
+    
+    elements.searchInput.addEventListener('input', (e) => performSearch(e.target.value));
+    
+    loadSettings();
+    
+    elements.filigraneSlider.addEventListener('input', () => {
+        elements.filigraneValue.textContent = elements.filigraneSlider.value + '%';
+    });
+    
+    elements.themeSelect.addEventListener('change', () => applyTheme(elements.themeSelect.value));
+    
+    await Promise.all([loadAvailableBases(), loadIAModels()]);
+    
+    console.log('✓ Paramètres chargés');
+});
+
+    </script>
+</body>
+</html>

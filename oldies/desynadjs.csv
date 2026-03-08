@@ -1,0 +1,543 @@
+﻿# desynadjs.csv généré par tags2syn.py V1.0.0
+# Date: 16/12/2025 19:18:38
+# Lignes: 539
+stdadj;canonadj;canontag
+Mittelzahn;incisif;proalvéolie
+links;gauche;béance
+links;gauche;latérodéviation
+links;gauche;malocclusion
+von rechts;droit;béance
+von rechts;droit;latérodéviation
+von rechts;droit;malocclusion
+von links;gauche;béance
+von links;gauche;latérodéviation
+von links;gauche;malocclusion
+Mittelzähne;incisif;proalvéolie
+div 1;division 1;classe II d'Angle
+div 2;division 2;classe II d'Angle
+Division 1;division 1;classe II d'Angle
+Abteilung 2;division 2;classe II d'Angle
+des Tages;diurne;Bruxisme
+des Morgens;diurne;Bruxisme
+des Abends;diurne;Bruxisme
+nach unten;mandibulaire;endoalvéolie
+nach unten;mandibulaire;latérodéviation
+nach unten;mandibulaire;malposition
+nach unten;mandibulaire;proalvéolie
+nach unten;mandibulaire;rétroalvéolie
+nach oben;maxillaire;endoalvéolie
+nach oben;maxillaire;latérodéviation
+nach oben;maxillaire;malposition
+nach oben;maxillaire;proalvéolie
+nach oben;maxillaire;rétroalvéolie
+die Nacht;nocturne;Bruxisme
+der Tag;diurne;Bruxisme
+am Morgen;diurne;Bruxisme
+am Abend;diurne;Bruxisme
+später;différé;avulsion
+abnehmbar;amovible;contention
+abnehmbar;amovible;ligature
+abnehmbar;amovible;contention
+abnehmbar;amovible;ligature
+Anker;fixe;contention
+Anker;fixe;ligature
+verankert;fixe;contention
+verankert;fixe;ligature
+anker;fixe;contention
+anker;fixe;ligature
+Anker;fixe;contention
+Anker;fixe;ligature
+anterior;antérieur;béance
+anterior;antérieur;béance
+anterior;antérieur;béance
+anterior;antérieur;béance
+hinten;postérieur;béance
+Hintergründe;postérieur;béance
+asymmetrisch;unilatéral;classe II d'Angle
+asymmetrisch;unilatéral;classe III d'Angle
+vor;antérieur;béance
+Vorderseiten;antérieur;béance
+niedrig;mandibulaire;endoalvéolie
+niedrig;mandibulaire;latérodéviation
+niedrig;mandibulaire;malposition
+niedrig;mandibulaire;proalvéolie
+niedrig;mandibulaire;rétroalvéolie
+Verletzung;traumatique;chirurgie
+Verletzungen;traumatique;chirurgie
+central;central;diastemata
+central;central;diastème
+central;central;incisive
+Zentrale;central;diastemata
+Zentrale;central;diastème
+Zentrale;central;incisive
+Kraftwerke;central;diastemata
+Kraftwerke;central;diastème
+Kraftwerke;central;incisive
+Zentralen;central;diastemata
+Zentralen;central;diastème
+Zentralen;central;incisive
+Komplex;sévère;Bruxisme
+Komplex;sévère;Classe III squelettique
+Komplex;sévère;Prognathisme mandibulaire
+Komplex;sévère;Prognathisme maxillaire
+Komplex;sévère;béance
+Komplex;sévère;classe II d'Angle
+Komplex;sévère;classe III d'Angle
+Komplex;sévère;endoalvéolie
+Komplex;sévère;proalvéolie
+Komplex;sévère;rétroalvéolie
+Komplexe;sévère;Bruxisme
+Komplexe;sévère;Classe III squelettique
+Komplexe;sévère;Prognathisme mandibulaire
+Komplexe;sévère;Prognathisme maxillaire
+Komplexe;sévère;béance
+Komplexe;sévère;classe II d'Angle
+Komplexe;sévère;classe III d'Angle
+Komplexe;sévère;endoalvéolie
+Komplexe;sévère;proalvéolie
+Komplexe;sévère;rétroalvéolie
+cote;latéral;béance
+Bemaßungen;latéral;béance
+hinter;postérieur;béance
+derrieres;postérieur;béance
+abnehmbar;amovible;contention
+abnehmbar;amovible;ligature
+aufgeschoben;différé;avulsion
+aufgeschoben;différé;avulsion
+verschiedene;différé;avulsion
+verschiedene;différé;avulsion
+digital;digital;succion
+digital;digital;succion
+digital;digital;succion
+digital;digital;succion
+tagsüber;diurne;Bruxisme
+tagsüber;diurne;Bruxisme
+div1;division 1;classe II d'Angle
+div2;division 2;classe II d'Angle
+Finger;digital;succion
+Recht;droit;béance
+Recht;droit;latérodéviation
+Recht;droit;malocclusion
+rechts;droit;béance
+rechts;droit;latérodéviation
+rechts;droit;malocclusion
+Geraden;droit;béance
+Geraden;droit;latérodéviation
+Geraden;droit;malocclusion
+Rechte;droit;béance
+Rechte;droit;latérodéviation
+Rechte;droit;malocclusion
+umständlich;encombré;classe I d'Angle
+überfüllt;encombré;classe I d'Angle
+überfüllt;encombré;classe I d'Angle
+Sperrmüll;encombré;classe I d'Angle
+ganze Zahl;total;avulsion
+ganz;total;avulsion
+Ganzsachen;total;avulsion
+ganze Zahlen;total;avulsion
+ausziehbar;amovible;contention
+ausziehbar;amovible;ligature
+face;antérieur;béance
+fest;fixe;contention
+fest;fixe;ligature
+fest;fixe;contention
+fest;fixe;ligature
+links;gauche;béance
+links;gauche;latérodéviation
+links;gauche;malocclusion
+links;gauche;béance
+links;gauche;latérodéviation
+links;gauche;malocclusion
+ernst;sévère;Bruxisme
+ernst;sévère;Classe III squelettique
+ernst;sévère;Prognathisme mandibulaire
+ernst;sévère;Prognathisme maxillaire
+ernst;sévère;béance
+ernst;sévère;classe II d'Angle
+ernst;sévère;classe III d'Angle
+ernst;sévère;endoalvéolie
+ernst;sévère;proalvéolie
+ernst;sévère;rétroalvéolie
+ernst;sévère;Bruxisme
+ernst;sévère;Classe III squelettique
+ernst;sévère;Prognathisme mandibulaire
+ernst;sévère;Prognathisme maxillaire
+ernst;sévère;béance
+ernst;sévère;classe II d'Angle
+ernst;sévère;classe III d'Angle
+ernst;sévère;endoalvéolie
+ernst;sévère;proalvéolie
+ernst;sévère;rétroalvéolie
+harmonisch;idéal;Classe I squelettique
+harmonische;idéal;Classe I squelettique
+harmonisch;idéal;Classe I squelettique
+hoch;maxillaire;endoalvéolie
+hoch;maxillaire;latérodéviation
+hoch;maxillaire;malposition
+hoch;maxillaire;proalvéolie
+hoch;maxillaire;rétroalvéolie
+ideal;idéal;Classe I squelettique
+ideal;idéal;Classe I squelettique
+ideales;idéal;Classe I squelettique
+ideen;idéal;Classe I squelettique
+sofort;immédiat;avulsion
+sofort;immédiat;avulsion
+sofort;immédiat;avulsion
+sofort;immédiat;avulsion
+wichtig;sévère;Bruxisme
+wichtig;sévère;Classe III squelettique
+wichtig;sévère;Prognathisme mandibulaire
+wichtig;sévère;Prognathisme maxillaire
+wichtig;sévère;béance
+wichtig;sévère;classe II d'Angle
+wichtig;sévère;classe III d'Angle
+wichtig;sévère;endoalvéolie
+wichtig;sévère;proalvéolie
+wichtig;sévère;rétroalvéolie
+wichtig;sévère;Bruxisme
+wichtig;sévère;Classe III squelettique
+wichtig;sévère;Prognathisme mandibulaire
+wichtig;sévère;Prognathisme maxillaire
+wichtig;sévère;béance
+wichtig;sévère;classe II d'Angle
+wichtig;sévère;classe III d'Angle
+wichtig;sévère;endoalvéolie
+wichtig;sévère;proalvéolie
+wichtig;sévère;rétroalvéolie
+wichtige;sévère;Bruxisme
+wichtige;sévère;Classe III squelettique
+wichtige;sévère;Prognathisme mandibulaire
+wichtige;sévère;Prognathisme maxillaire
+wichtige;sévère;béance
+wichtige;sévère;classe II d'Angle
+wichtige;sévère;classe III d'Angle
+wichtige;sévère;endoalvéolie
+wichtige;sévère;proalvéolie
+wichtige;sévère;rétroalvéolie
+wichtige;sévère;Bruxisme
+wichtige;sévère;Classe III squelettique
+wichtige;sévère;Prognathisme mandibulaire
+wichtige;sévère;Prognathisme maxillaire
+wichtige;sévère;béance
+wichtige;sévère;classe II d'Angle
+wichtige;sévère;classe III d'Angle
+wichtige;sévère;endoalvéolie
+wichtige;sévère;proalvéolie
+wichtige;sévère;rétroalvéolie
+einschneidend;incisif;proalvéolie
+prägnant;incisif;proalvéolie
+Schneidezahn;incisif;proalvéolie
+Schneidezähne;incisif;proalvéolie
+enthalten;inclus;dentition temporaire
+eingeschlossen;inclus;dentition temporaire
+eingeschlossen;inclus;dentition temporaire
+infiziert;infectieux;douleur
+infiziert;infectieux;douleur
+infiziert;infectieux;douleur
+infiziert;infectieux;douleur
+infektiös;infectieux;douleur
+infektiös;infectieux;douleur
+infektiös;infectieux;douleur
+integriert;inclus;dentition temporaire
+integriert;inclus;dentition temporaire
+integriert;inclus;dentition temporaire
+integres;inclus;dentition temporaire
+Tag;diurne;Bruxisme
+lateral;latéral;béance
+lateral;latéral;béance
+lateral;latéral;béance
+lateral;latéral;béance
+leger;modéré;Bruxisme
+leger;modéré;Classe I squelettique
+leger;modéré;Classe III squelettique
+leger;modéré;Prognathisme mandibulaire
+leger;modéré;Prognathisme maxillaire
+leger;modéré;béance
+leger;modéré;classe II d'Angle
+leger;modéré;classe III d'Angle
+leger;modéré;endoalvéolie
+leger;modéré;proalvéolie
+leger;modéré;rétroalvéolie
+legere;modéré;Bruxisme
+legere;modéré;Classe I squelettique
+legere;modéré;Classe III squelettique
+legere;modéré;Prognathisme mandibulaire
+legere;modéré;Prognathisme maxillaire
+legere;modéré;béance
+legere;modéré;classe II d'Angle
+legere;modéré;classe III d'Angle
+legere;modéré;endoalvéolie
+legere;modéré;proalvéolie
+legere;modéré;rétroalvéolie
+leichte;modéré;Bruxisme
+leichte;modéré;Classe I squelettique
+leichte;modéré;Classe III squelettique
+leichte;modéré;Prognathisme mandibulaire
+leichte;modéré;Prognathisme maxillaire
+leichte;modéré;béance
+leichte;modéré;classe II d'Angle
+leichte;modéré;classe III d'Angle
+leichte;modéré;endoalvéolie
+leichte;modéré;proalvéolie
+leichte;modéré;rétroalvéolie
+leicht;modéré;Bruxisme
+leicht;modéré;Classe I squelettique
+leicht;modéré;Classe III squelettique
+leicht;modéré;Prognathisme mandibulaire
+leicht;modéré;Prognathisme maxillaire
+leicht;modéré;béance
+leicht;modéré;classe II d'Angle
+leicht;modéré;classe III d'Angle
+leicht;modéré;endoalvéolie
+leicht;modéré;proalvéolie
+leicht;modéré;rétroalvéolie
+lesion;traumatique;chirurgie
+Verletzungen;traumatique;chirurgie
+jetzt;immédiat;avulsion
+volljährig;sévère;Bruxisme
+volljährig;sévère;Classe III squelettique
+volljährig;sévère;Prognathisme mandibulaire
+volljährig;sévère;Prognathisme maxillaire
+volljährig;sévère;béance
+volljährig;sévère;classe II d'Angle
+volljährig;sévère;classe III d'Angle
+volljährig;sévère;endoalvéolie
+volljährig;sévère;proalvéolie
+volljährig;sévère;rétroalvéolie
+Major;sévère;Bruxisme
+Major;sévère;Classe III squelettique
+Major;sévère;Prognathisme mandibulaire
+Major;sévère;Prognathisme maxillaire
+Major;sévère;béance
+Major;sévère;classe II d'Angle
+Major;sévère;classe III d'Angle
+Major;sévère;endoalvéolie
+Major;sévère;proalvéolie
+Major;sévère;rétroalvéolie
+größere;sévère;Bruxisme
+größere;sévère;Classe III squelettique
+größere;sévère;Prognathisme mandibulaire
+größere;sévère;Prognathisme maxillaire
+größere;sévère;béance
+größere;sévère;classe II d'Angle
+größere;sévère;classe III d'Angle
+größere;sévère;endoalvéolie
+größere;sévère;proalvéolie
+größere;sévère;rétroalvéolie
+Volljährige;sévère;Bruxisme
+Volljährige;sévère;Classe III squelettique
+Volljährige;sévère;Prognathisme mandibulaire
+Volljährige;sévère;Prognathisme maxillaire
+Volljährige;sévère;béance
+Volljährige;sévère;classe II d'Angle
+Volljährige;sévère;classe III d'Angle
+Volljährige;sévère;endoalvéolie
+Volljährige;sévère;proalvéolie
+Volljährige;sévère;rétroalvéolie
+Unterkiefer;mandibulaire;endoalvéolie
+Unterkiefer;mandibulaire;latérodéviation
+Unterkiefer;mandibulaire;malposition
+Unterkiefer;mandibulaire;proalvéolie
+Unterkiefer;mandibulaire;rétroalvéolie
+Unterkiefer;mandibulaire;endoalvéolie
+Unterkiefer;mandibulaire;latérodéviation
+Unterkiefer;mandibulaire;malposition
+Unterkiefer;mandibulaire;proalvéolie
+Unterkiefer;mandibulaire;rétroalvéolie
+Marke;sévère;Bruxisme
+Marke;sévère;Classe III squelettique
+Marke;sévère;Prognathisme mandibulaire
+Marke;sévère;Prognathisme maxillaire
+Marke;sévère;béance
+Marke;sévère;classe II d'Angle
+Marke;sévère;classe III d'Angle
+Marke;sévère;endoalvéolie
+Marke;sévère;proalvéolie
+Marke;sévère;rétroalvéolie
+Marke;sévère;Bruxisme
+Marke;sévère;Classe III squelettique
+Marke;sévère;Prognathisme mandibulaire
+Marke;sévère;Prognathisme maxillaire
+Marke;sévère;béance
+Marke;sévère;classe II d'Angle
+Marke;sévère;classe III d'Angle
+Marke;sévère;endoalvéolie
+Marke;sévère;proalvéolie
+Marke;sévère;rétroalvéolie
+marken;sévère;Bruxisme
+marken;sévère;Classe III squelettique
+marken;sévère;Prognathisme mandibulaire
+marken;sévère;Prognathisme maxillaire
+marken;sévère;béance
+marken;sévère;classe II d'Angle
+marken;sévère;classe III d'Angle
+marken;sévère;endoalvéolie
+marken;sévère;proalvéolie
+marken;sévère;rétroalvéolie
+Marken;sévère;Bruxisme
+Marken;sévère;Classe III squelettique
+Marken;sévère;Prognathisme mandibulaire
+Marken;sévère;Prognathisme maxillaire
+Marken;sévère;béance
+Marken;sévère;classe II d'Angle
+Marken;sévère;classe III d'Angle
+Marken;sévère;endoalvéolie
+Marken;sévère;proalvéolie
+Marken;sévère;rétroalvéolie
+morgens;diurne;Bruxisme
+Oberkiefer;maxillaire;endoalvéolie
+Oberkiefer;maxillaire;latérodéviation
+Oberkiefer;maxillaire;malposition
+Oberkiefer;maxillaire;proalvéolie
+Oberkiefer;maxillaire;rétroalvéolie
+Kieferknochen;maxillaire;endoalvéolie
+Kieferknochen;maxillaire;latérodéviation
+Kieferknochen;maxillaire;malposition
+Kieferknochen;maxillaire;proalvéolie
+Kieferknochen;maxillaire;rétroalvéolie
+Umgebung;central;diastemata
+Umgebung;central;diastème
+Umgebung;central;incisive
+Milieus;central;diastemata
+Milieus;central;diastème
+Milieus;central;incisive
+modere;modéré;Bruxisme
+modere;modéré;Classe I squelettique
+modere;modéré;Classe III squelettique
+modere;modéré;Prognathisme mandibulaire
+modere;modéré;Prognathisme maxillaire
+modere;modéré;béance
+modere;modéré;classe II d'Angle
+modere;modéré;classe III d'Angle
+modere;modéré;endoalvéolie
+modere;modéré;proalvéolie
+modere;modéré;rétroalvéolie
+moderee;modéré;Bruxisme
+moderee;modéré;Classe I squelettique
+moderee;modéré;Classe III squelettique
+moderee;modéré;Prognathisme mandibulaire
+moderee;modéré;Prognathisme maxillaire
+moderee;modéré;béance
+moderee;modéré;classe II d'Angle
+moderee;modéré;classe III d'Angle
+moderee;modéré;endoalvéolie
+moderee;modéré;proalvéolie
+moderee;modéré;rétroalvéolie
+moderees;modéré;Bruxisme
+moderees;modéré;Classe I squelettique
+moderees;modéré;Classe III squelettique
+moderees;modéré;Prognathisme mandibulaire
+moderees;modéré;Prognathisme maxillaire
+moderees;modéré;béance
+moderees;modéré;classe II d'Angle
+moderees;modéré;classe III d'Angle
+moderees;modéré;endoalvéolie
+moderees;modéré;proalvéolie
+moderees;modéré;rétroalvéolie
+moderes;modéré;Bruxisme
+moderes;modéré;Classe I squelettique
+moderes;modéré;Classe III squelettique
+moderes;modéré;Prognathisme mandibulaire
+moderes;modéré;Prognathisme maxillaire
+moderes;modéré;béance
+moderes;modéré;classe II d'Angle
+moderes;modéré;classe III d'Angle
+moderes;modéré;endoalvéolie
+moderes;modéré;proalvéolie
+moderes;modéré;rétroalvéolie
+nächtlich;nocturne;Bruxisme
+nächtlich;nocturne;Bruxisme
+perfekt;idéal;Classe I squelettique
+perfekt;idéal;Classe I squelettique
+perfekte;idéal;Classe I squelettique
+perfekt;idéal;Classe I squelettique
+Wunde;traumatique;chirurgie
+Wunden;traumatique;chirurgie
+posterior;postérieur;béance
+posterior;postérieur;béance
+posterior;postérieur;béance
+Poster;postérieur;béance
+geplant;programmé;avulsion
+geplant;programmé;avulsion
+geplant;programmé;avulsion
+geplant;programmé;avulsion
+Programm;programmé;avulsion
+programmiert;programmé;avulsion
+programmiert;programmé;avulsion
+Programme;programmé;avulsion
+spricht;sévère;Bruxisme
+spricht;sévère;Classe III squelettique
+spricht;sévère;Prognathisme mandibulaire
+spricht;sévère;Prognathisme maxillaire
+spricht;sévère;béance
+spricht;sévère;classe II d'Angle
+spricht;sévère;classe III d'Angle
+spricht;sévère;endoalvéolie
+spricht;sévère;proalvéolie
+spricht;sévère;rétroalvéolie
+ausgesprochen;sévère;Bruxisme
+ausgesprochen;sévère;Classe III squelettique
+ausgesprochen;sévère;Prognathisme mandibulaire
+ausgesprochen;sévère;Prognathisme maxillaire
+ausgesprochen;sévère;béance
+ausgesprochen;sévère;classe II d'Angle
+ausgesprochen;sévère;classe III d'Angle
+ausgesprochen;sévère;endoalvéolie
+ausgesprochen;sévère;proalvéolie
+ausgesprochen;sévère;rétroalvéolie
+ausgesprochen;sévère;Bruxisme
+ausgesprochen;sévère;Classe III squelettique
+ausgesprochen;sévère;Prognathisme mandibulaire
+ausgesprochen;sévère;Prognathisme maxillaire
+ausgesprochen;sévère;béance
+ausgesprochen;sévère;classe II d'Angle
+ausgesprochen;sévère;classe III d'Angle
+ausgesprochen;sévère;endoalvéolie
+ausgesprochen;sévère;proalvéolie
+ausgesprochen;sévère;rétroalvéolie
+ausgesprochen;sévère;Bruxisme
+ausgesprochen;sévère;Classe III squelettique
+ausgesprochen;sévère;Prognathisme mandibulaire
+ausgesprochen;sévère;Prognathisme maxillaire
+ausgesprochen;sévère;béance
+ausgesprochen;sévère;classe II d'Angle
+ausgesprochen;sévère;classe III d'Angle
+ausgesprochen;sévère;endoalvéolie
+ausgesprochen;sévère;proalvéolie
+ausgesprochen;sévère;rétroalvéolie
+gefüllt;encombré;classe I d'Angle
+severe;sévère;Bruxisme
+severe;sévère;Classe III squelettique
+severe;sévère;Prognathisme mandibulaire
+severe;sévère;Prognathisme maxillaire
+severe;sévère;béance
+severe;sévère;classe II d'Angle
+severe;sévère;classe III d'Angle
+severe;sévère;endoalvéolie
+severe;sévère;proalvéolie
+severe;sévère;rétroalvéolie
+severes;sévère;Bruxisme
+severes;sévère;Classe III squelettique
+severes;sévère;Prognathisme mandibulaire
+severes;sévère;Prognathisme maxillaire
+severes;sévère;béance
+severes;sévère;classe II d'Angle
+severes;sévère;classe III d'Angle
+severes;sévère;endoalvéolie
+severes;sévère;proalvéolie
+severes;sévère;rétroalvéolie
+Abend;diurne;Bruxisme
+Unterabteilung;unilatéral;classe II d'Angle
+Unterabteilung;unilatéral;classe III d'Angle
+insgesamt;total;avulsion
+gesamt;total;avulsion
+gesamt;total;avulsion
+Gesamtwerte;total;avulsion
+Trauma;traumatique;chirurgie
+Traumata;traumatique;chirurgie
+traumatisch;traumatique;chirurgie
+traumatisch;traumatique;chirurgie
+unilateral;unilatéral;classe II d'Angle
+unilateral;unilatéral;classe III d'Angle
+unilateral;unilatéral;classe II d'Angle
+unilateral;unilatéral;classe III d'Angle

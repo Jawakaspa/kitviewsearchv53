@@ -1,0 +1,319 @@
+﻿# glossaire_ajouts.csv V1.0.0 - 05/01/2026 08:39:13
+# Nouvelles entrées à ajouter au glossaire.csv
+# Colonnes de traduction vides à compléter
+type;fr;en;de;es;it;ja;pt;pl;ro;th;ar;cn
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOUVEAUX ADJECTIFS CANONIQUES (a)
+# ═══════════════════════════════════════════════════════════════════════════════
+a;bilatéral;bilateral;;;;;;;;;;
+a;bilatérale;bilateral;;;;;;;;;;
+a;bilatéraux;bilateral;;;;;;;;;;
+a;bilatérales;bilateral;;;;;;;;;;
+a;symétrique;symmetrical;;;;;;;;;;
+a;symétriques;symmetrical;;;;;;;;;;
+a;permanent;permanent;;;;;;;;;;
+a;permanente;permanent;;;;;;;;;;
+a;permanents;permanent;;;;;;;;;;
+a;permanentes;permanent;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOUVEAUX PATTERNS ADJECTIFS (pa)
+# ═══════════════════════════════════════════════════════════════════════════════
+# bilatéral
+pa;des deux côtés;on both sides;;;;;;;;;;
+pa;deux côtés;both sides;;;;;;;;;;
+pa;de chaque côté;on each side;;;;;;;;;;
+pa;les deux côtés;both sides;;;;;;;;;;
+pa;bilateral;bilateral;;;;;;;;;;
+# symétrique
+pa;équilibré;balanced;;;;;;;;;;
+pa;équilibrée;balanced;;;;;;;;;;
+pa;équilibrées;balanced;;;;;;;;;;
+pa;équilibrés;balanced;;;;;;;;;;
+pa;égal;equal;;;;;;;;;;
+pa;égale;equal;;;;;;;;;;
+# permanent
+pa;définitif;definitive;;;;;;;;;;
+pa;définitive;definitive;;;;;;;;;;
+pa;définitives;definitive;;;;;;;;;;
+pa;définitifs;definitive;;;;;;;;;;
+pa;pour toujours;forever;;;;;;;;;;
+pa;à vie;for life;;;;;;;;;;
+# amovible
+pa;qui s'enlève;removable;;;;;;;;;;
+# antérieur
+pa;devant;in front;;;;;;;;;;
+# atypique
+pa;anormal;abnormal;;;;;;;;;;
+pa;anormale;abnormal;;;;;;;;;;
+pa;anormales;abnormal;;;;;;;;;;
+pa;anormaux;abnormal;;;;;;;;;;
+# droit
+pa;coté droit;right side;;;;;;;;;;
+pa;à droite;on the right;;;;;;;;;;
+# encombré
+pa;trop serré;too tight;;;;;;;;;;
+# fixe
+pa;collé;glued;;;;;;;;;;
+# frontal
+pa;de face;from the front;;;;;;;;;;
+# gauche
+pa;coté gauche;left side;;;;;;;;;;
+# idéal
+pa;optimal;optimal;;;;;;;;;;
+pa;optimale;optimal;;;;;;;;;;
+# immédiat
+pa;tout de suite;right away;;;;;;;;;;
+pa;de suite;immediately;;;;;;;;;;
+# inclus
+pa;retenu;retained;;;;;;;;;;
+pa;retenue;retained;;;;;;;;;;
+# infectieux
+pa;avec infection;with infection;;;;;;;;;;
+# latéral
+pa;sur le côté;on the side;;;;;;;;;;
+pa;de côté;sideways;;;;;;;;;;
+# mandibulaire
+pa;mâchoire du bas;lower jaw;;;;;;;;;;
+pa;inférieur;lower;;;;;;;;;;
+pa;inférieure;lower;;;;;;;;;;
+# maxillaire
+pa;mâchoire du haut;upper jaw;;;;;;;;;;
+pa;supérieur;upper;;;;;;;;;;
+pa;supérieure;upper;;;;;;;;;;
+# modéré
+pa;moyen;medium;;;;;;;;;;
+pa;moyenne;medium;;;;;;;;;;
+pa;pas trop grave;not too severe;;;;;;;;;;
+pa;intermédiaire;intermediate;;;;;;;;;;
+# nocturne
+pa;pendant la nuit;at night;;;;;;;;;;
+pa;de nuit;nighttime;;;;;;;;;;
+# post-traumatique
+pa;après trauma;after trauma;;;;;;;;;;
+pa;suite à un choc;following an impact;;;;;;;;;;
+# postérieur
+pa;du fond;at the back;;;;;;;;;;
+# programmé
+pa;planifié;planned;;;;;;;;;;
+pa;planifiée;planned;;;;;;;;;;
+# pubertaire
+pa;de la puberté;of puberty;;;;;;;;;;
+# réductible
+pa;qui se réduit;reducible;;;;;;;;;;
+# sévère
+pa;très prononcé;very pronounced;;;;;;;;;;
+pa;très marqué;very marked;;;;;;;;;;
+pa;extrême;extreme;;;;;;;;;;
+pa;très important;very significant;;;;;;;;;;
+pa;accentué;accentuated;;;;;;;;;;
+pa;accentuée;accentuated;;;;;;;;;;
+# traumatique
+pa;suite à un choc;following shock;;;;;;;;;;
+# unilatéral
+pa;d'un seul côté;on one side only;;;;;;;;;;
+pa;un seul côté;one side only;;;;;;;;;;
+# division 1/2
+pa;d1;d1;;;;;;;;;;
+pa;d2;d2;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOUVEAUX PATTERNS TAGS (pt) - Orthographes phonétiques
+# ═══════════════════════════════════════════════════════════════════════════════
+pt;bruksisme;bruxism;;;;;;;;;;
+pt;bruckisme;bruxism;;;;;;;;;;
+pt;bruxissme;bruxism;;;;;;;;;;
+pt;beense;open bite;;;;;;;;;;
+pt;béense;open bite;;;;;;;;;;
+pt;ankyllose;ankylosis;;;;;;;;;;
+pt;suracclusion;deep bite;;;;;;;;;;
+pt;sur-occlusion;deep bite;;;;;;;;;;
+pt;suroclusion;deep bite;;;;;;;;;;
+pt;occlusion croisee;crossbite;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOUVEAUX PATTERNS TAGS (pt) - Abréviations
+# ═══════════════════════════════════════════════════════════════════════════════
+pt;cl1;class i;;;;;;;;;;
+pt;cl i;class i;;;;;;;;;;
+pt;cl.i;class i;;;;;;;;;;
+pt;cl. i;class i;;;;;;;;;;
+pt;cli;class i;;;;;;;;;;
+pt;cl2;class ii;;;;;;;;;;
+pt;cl ii;class ii;;;;;;;;;;
+pt;cl.ii;class ii;;;;;;;;;;
+pt;cl. ii;class ii;;;;;;;;;;
+pt;clii;class ii;;;;;;;;;;
+pt;malocclusion classe 2;class ii malocclusion;;;;;;;;;;
+pt;malocclusion de classe 2;class ii malocclusion;;;;;;;;;;
+pt;cl3;class iii;;;;;;;;;;
+pt;cl iii;class iii;;;;;;;;;;
+pt;cl.iii;class iii;;;;;;;;;;
+pt;cl. iii;class iii;;;;;;;;;;
+pt;cliii;class iii;;;;;;;;;;
+pt;malocclusion classe 3;class iii malocclusion;;;;;;;;;;
+pt;malocclusion de classe 3;class iii malocclusion;;;;;;;;;;
+pt;rdv;appointment;;;;;;;;;;
+pt;pano;panoramic;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOUVEAUX PATTERNS TAGS (pt) - Expressions patients
+# ═══════════════════════════════════════════════════════════════════════════════
+# bruxisme
+pt;il grince des dents;teeth grinding;;;;;;;;;;
+pt;elle grince des dents;teeth grinding;;;;;;;;;;
+pt;grince la nuit;grinds at night;;;;;;;;;;
+# béance
+pt;béance verticale;vertical open bite;;;;;;;;;;
+pt;bouche ouverte au repos;mouth open at rest;;;;;;;;;;
+pt;dents qui ne se touchent pas;teeth that don't touch;;;;;;;;;;
+pt;trou entre les dents quand je mords;gap between teeth when biting;;;;;;;;;;
+# crowding
+pt;surencombrement;overcrowding;;;;;;;;;;
+pt;dents serrées;crowded teeth;;;;;;;;;;
+pt;manque d'espace;lack of space;;;;;;;;;;
+pt;dents entassées;crowded teeth;;;;;;;;;;
+pt;dents trop serrées;teeth too tight;;;;;;;;;;
+# prognathisme mandibulaire
+pt;mâchoire du bas en avant;lower jaw forward;;;;;;;;;;
+pt;menton en avant;chin forward;;;;;;;;;;
+pt;menton proéminent;prominent chin;;;;;;;;;;
+pt;machoire qui avance;jaw that protrudes;;;;;;;;;;
+# respiration buccale
+pt;respire par la bouche;breathes through mouth;;;;;;;;;;
+pt;dort la bouche ouverte;sleeps with mouth open;;;;;;;;;;
+# succion
+pt;suce son pouce;sucks thumb;;;;;;;;;;
+pt;tétouille;suckles;;;;;;;;;;
+pt;tète son pouce;sucks thumb;;;;;;;;;;
+# gouttière
+pt;plaquette invisible;invisible retainer;;;;;;;;;;
+pt;aligneur transparent;clear aligner;;;;;;;;;;
+pt;appareil transparent;transparent appliance;;;;;;;;;;
+pt;appareil invisible;invisible appliance;;;;;;;;;;
+# bagues
+pt;train de bagues;braces;;;;;;;;;;
+pt;appareil dentaire métallique;metal braces;;;;;;;;;;
+pt;appareil metallique;metal appliance;;;;;;;;;;
+# diastème
+pt;ecart entre les dents;gap between teeth;;;;;;;;;;
+pt;dents de la chance;lucky gap teeth;;;;;;;;;;
+# agénésie
+pt;dent qui manque;missing tooth;;;;;;;;;;
+pt;il lui manque une dent;missing a tooth;;;;;;;;;;
+pt;il manque une dent;missing a tooth;;;;;;;;;;
+# onychophagie
+pt;il se ronge les ongles;bites nails;;;;;;;;;;
+# atm
+pt;machoire qui craque;jaw that cracks;;;;;;;;;;
+pt;mâchoire qui claque;clicking jaw;;;;;;;;;;
+# récidive
+pt;dents qui rebougent;teeth that shift back;;;;;;;;;;
+# récession gingivale
+pt;gencive qui remonte;receding gums;;;;;;;;;;
+# rotation
+pt;dent qui tourne;rotating tooth;;;;;;;;;;
+# ectopie
+pt;dent qui pousse ailleurs;tooth growing elsewhere;;;;;;;;;;
+# apnée du sommeil
+pt;apnee du sommeil;sleep apnea;;;;;;;;;;
+pt;dort mal;sleeps poorly;;;;;;;;;;
+pt;arrête de respirer la nuit;stops breathing at night;;;;;;;;;;
+# asymétrie faciale
+pt;visage de travers;crooked face;;;;;;;;;;
+pt;face asymetrique;asymmetric face;;;;;;;;;;
+# avulsion
+pt;dent à enlever;tooth to extract;;;;;;;;;;
+# gingivite
+pt;gencives qui saignent;bleeding gums;;;;;;;;;;
+# maladie parodontale
+pt;dents qui se déchaussent;loose teeth;;;;;;;;;;
+# malocclusion
+pt;mors mal;bites poorly;;;;;;;;;;
+pt;mord mal;bites poorly;;;;;;;;;;
+# macrodontie
+pt;grosses dents;large teeth;;;;;;;;;;
+# microdontie
+pt;petites dents;small teeth;;;;;;;;;;
+# dent surnuméraire
+pt;dent en plus;extra tooth;;;;;;;;;;
+# édentation
+pt;plus de dents;no more teeth;;;;;;;;;;
+# douleur
+pt;ça fait mal;it hurts;;;;;;;;;;
+pt;mal aux dents;toothache;;;;;;;;;;
+# dysfonction linguale
+pt;deglutition atypique;atypical swallowing;;;;;;;;;;
+pt;avale mal;swallows poorly;;;;;;;;;;
+# supraclusion
+pt;dents du haut qui recouvrent;upper teeth overlapping;;;;;;;;;;
+# protrusion
+pt;dents en avant;teeth forward;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════
+# NOUVEAUX PATTERNS ÂGE/GENRE (g)
+# ═══════════════════════════════════════════════════════════════════════════════
+# bébé (nouvelle tranche)
+g;bébé;baby;;;;;;;;;;
+g;bébés;babies;;;;;;;;;;
+g;nourrisson;infant;;;;;;;;;;
+g;nourrissons;infants;;;;;;;;;;
+g;nouveau-né;newborn;;;;;;;;;;
+g;nouveaux-nés;newborns;;;;;;;;;;
+# pré-adolescent
+g;pré-ado;pre-teen;;;;;;;;;;
+g;pré-ados;pre-teens;;;;;;;;;;
+g;preado;pre-teen;;;;;;;;;;
+g;preados;pre-teens;;;;;;;;;;
+# adolescent
+g;ado;teen;;;;;;;;;;
+g;ados;teens;;;;;;;;;;
+# génération z
+g;gen z;gen z;;;;;;;;;;
+g;genz;gen z;;;;;;;;;;
+# génération y
+g;gen y;gen y;;;;;;;;;;
+g;geny;gen y;;;;;;;;;;
+g;millennial;millennial;;;;;;;;;;
+g;millennials;millennials;;;;;;;;;;
+# génération x
+g;gen x;gen x;;;;;;;;;;
+g;genx;gen x;;;;;;;;;;
+# quadra/quinqua
+g;quadras;forties;;;;;;;;;;
+g;quinquas;fifties;;;;;;;;;;
+# expressions années
+g;berges;years;;;;;;;;;;
+g;balais;years;;;;;;;;;;
+# enfant - expressions familières
+g;gamin;kid;;;;;;;;;;
+g;gamins;kids;;;;;;;;;;
+g;môme;kid;;;;;;;;;;
+g;mômes;kids;;;;;;;;;;
+g;mome;kid;;;;;;;;;;
+g;momes;kids;;;;;;;;;;
+g;pitchoun;little one;;;;;;;;;;
+g;pitchouns;little ones;;;;;;;;;;
+g;loulou;sweetie;;;;;;;;;;
+g;louloute;sweetie;;;;;;;;;;
+g;petit;little one;;;;;;;;;;
+g;petite;little one;;;;;;;;;;
+g;petits;little ones;;;;;;;;;;
+g;petites;little ones;;;;;;;;;;
+# filles
+g;fillette;little girl;;;;;;;;;;
+g;fillettes;little girls;;;;;;;;;;
+# senior - expressions
+g;personne agee;elderly person;;;;;;;;;;
+g;personne âgée;elderly person;;;;;;;;;;
+g;personnes agees;elderly people;;;;;;;;;;
+g;personnes âgées;elderly people;;;;;;;;;;
+g;vieux;old;;;;;;;;;;
+g;vieille;old;;;;;;;;;;
+g;troisieme age;third age;;;;;;;;;;
+g;troisième âge;third age;;;;;;;;;;
+g;3eme age;third age;;;;;;;;;;
+g;3ème âge;third age;;;;;;;;;;
+g;papy;grandpa;;;;;;;;;;
+g;papi;grandpa;;;;;;;;;;
+g;mamie;grandma;;;;;;;;;;
+g;mamy;grandma;;;;;;;;;;
+# patterns âge
+g;n'a pas;doesn't have;;;;;;;;;;
+g;a depasse;has passed;;;;;;;;;;
+g;dépasse;exceeds;;;;;;;;;;

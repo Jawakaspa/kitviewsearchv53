@@ -1,0 +1,47 @@
+﻿# glossaire_ui_entries.csv V1.0.0 - 29/12/2025 00:08:40
+type;fr;en;de;es;it;ja;pt;pl;ro;th;ar;cn;
+# ══════════════════════════════════════════════════════════════════
+# TEXTES UI - Interface utilisateur web9.html
+# Ajoutés le 28/12/2025 - À fusionner avec glossaire.csv
+# ══════════════════════════════════════════════════════════════════
+# --- Navigation & Actions ---
+ui;Nouvelle recherche;;;;;;;;;;;;;
+ui;Conversations récentes;;;;;;;;;;;;;
+ui;Exemples;;;;;;;;;;;;;
+ui;Copier;;;;;;;;;;;;;
+ui;Page suivante;;;;;;;;;;;;;
+ui;Page précédente;;;;;;;;;;;;;
+ui;Fermer;;;;;;;;;;;;;
+# --- Placeholders de recherche ---
+ui;Rechercher un patient (ex: béance, classe 2, diabète...);;;;;;;;;;;;;
+ui;Rechercher un patient...;;;;;;;;;;;;;
+ui;Poser une autre question...;;;;;;;;;;;;;
+ui;Saisir du texte pour rechercher;;;;;;;;;;;;;
+# --- Messages de résultats ---
+ui;patient;;;;;;;;;;;;;
+ui;patients;;;;;;;;;;;;;
+ui;trouvé;;;;;;;;;;;;;
+ui;trouvés;;;;;;;;;;;;;
+ui;avec;;;;;;;;;;;;;
+ui;Aucun patient trouvé;;;;;;;;;;;;;
+ui;affichés;;;;;;;;;;;;;
+ui;tous;;;;;;;;;;;;;
+ui;ans;;;;;;;;;;;;;
+# --- Accueil & Loading ---
+ui;Bienvenue;;;;;;;;;;;;;
+ui;Recherche en cours...;;;;;;;;;;;;;
+# --- Feedback utilisateur ---
+ui;Cette recherche vous a-t-elle aidé ?;;;;;;;;;;;;;
+# --- Card patient détail ---
+ui;Pathologies;;;;;;;;;;;;;
+ui;COMMENTAIRES CLINIQUES;;;;;;;;;;;;;
+# --- Zone IA (future) ---
+ui;Votre question pour l'IA...;;;;;;;;;;;;;
+ui;Demander à l'IA;;;;;;;;;;;;;
+ui;Réponse IA;;;;;;;;;;;;;
+# --- Tooltips & Titles ---
+ui;Masquer/Afficher la sidebar;;;;;;;;;;;;;
+ui;Paramètres linguistiques;;;;;;;;;;;;;
+ui;Changer le thème;;;;;;;;;;;;;
+ui;Paramètres;;;;;;;;;;;;;
+ui;Afficher/masquer la barre d'outils;;;;;;;;;;;;;

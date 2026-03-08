@@ -1,0 +1,297 @@
+﻿type;fr;en;de;es;it;ja;pt;pl;ro;th;ar;cn
+# glossaire_ajouts.csv V1.0.0 - 05/01/2026 08:39:13;;;;;;;;;;;;
+# Nouvelles entrées à ajouter au glossaire.csv;;;;;;;;;;;;
+# Colonnes de traduction vides à compléter;;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# NOUVEAUX ADJECTIFS CANONIQUES (a);;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# NOUVEAUX PATTERNS ADJECTIFS (pa);;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# bilatéral;;;;;;;;;;;;
+# symétrique;;;;;;;;;;;;
+# permanent;;;;;;;;;;;;
+# amovible;;;;;;;;;;;;
+# antérieur;;;;;;;;;;;;
+# atypique;;;;;;;;;;;;
+# droit;;;;;;;;;;;;
+# encombré;;;;;;;;;;;;
+# fixe;;;;;;;;;;;;
+# frontal;;;;;;;;;;;;
+# gauche;;;;;;;;;;;;
+# idéal;;;;;;;;;;;;
+# immédiat;;;;;;;;;;;;
+# inclus;;;;;;;;;;;;
+# infectieux;;;;;;;;;;;;
+# latéral;;;;;;;;;;;;
+# mandibulaire;;;;;;;;;;;;
+# maxillaire;;;;;;;;;;;;
+# modéré;;;;;;;;;;;;
+# nocturne;;;;;;;;;;;;
+# post-traumatique;;;;;;;;;;;;
+# postérieur;;;;;;;;;;;;
+# programmé;;;;;;;;;;;;
+# pubertaire;;;;;;;;;;;;
+# réductible;;;;;;;;;;;;
+# sévère;;;;;;;;;;;;
+# traumatique;;;;;;;;;;;;
+# unilatéral;;;;;;;;;;;;
+# division 1/2;;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# NOUVEAUX PATTERNS TAGS (pt) - Orthographes phonétiques;;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# NOUVEAUX PATTERNS TAGS (pt) - Abréviations;;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# NOUVEAUX PATTERNS TAGS (pt) - Expressions patients;;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# bruxisme;;;;;;;;;;;;
+# béance;;;;;;;;;;;;
+# crowding;;;;;;;;;;;;
+# prognathisme mandibulaire;;;;;;;;;;;;
+# respiration buccale;;;;;;;;;;;;
+# succion;;;;;;;;;;;;
+# gouttière;;;;;;;;;;;;
+# bagues;;;;;;;;;;;;
+# diastème;;;;;;;;;;;;
+# agénésie;;;;;;;;;;;;
+# onychophagie;;;;;;;;;;;;
+# atm;;;;;;;;;;;;
+# récidive;;;;;;;;;;;;
+# récession gingivale;;;;;;;;;;;;
+# rotation;;;;;;;;;;;;
+# ectopie;;;;;;;;;;;;
+# apnée du sommeil;;;;;;;;;;;;
+# asymétrie faciale;;;;;;;;;;;;
+# avulsion;;;;;;;;;;;;
+# gingivite;;;;;;;;;;;;
+# maladie parodontale;;;;;;;;;;;;
+# malocclusion;;;;;;;;;;;;
+# macrodontie;;;;;;;;;;;;
+# microdontie;;;;;;;;;;;;
+# dent surnuméraire;;;;;;;;;;;;
+# édentation;;;;;;;;;;;;
+# douleur;;;;;;;;;;;;
+# dysfonction linguale;;;;;;;;;;;;
+# supraclusion;;;;;;;;;;;;
+# protrusion;;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# NOUVEAUX PATTERNS ÂGE/GENRE (g);;;;;;;;;;;;
+# ═══════════════════════════════════════════════════════════════════════════════;;;;;;;;;;;;
+# pré-adolescent;;;;;;;;;;;;
+# adolescent;;;;;;;;;;;;
+# génération z;;;;;;;;;;;;
+# génération y;;;;;;;;;;;;
+# génération x;;;;;;;;;;;;
+# quadra/quinqua;;;;;;;;;;;;
+# expressions années;;;;;;;;;;;;
+# enfant - expressions familières;;;;;;;;;;;;
+# filles;;;;;;;;;;;;
+# patterns âge;;;;;;;;;;;;
+a;bilatéral;bilateral;bilateral;bilateral;bilaterale;二国間;bilateral;dwustronny;bilateral;สองฝ่าย;ثنائية;双边
+a;bilatérale;bilateral;bilateral;bilateral;bilaterale;二国間;bilateral;dwustronny;bilateral;สองฝ่าย;ثنائية;双边
+a;bilatéraux;bilateral;bilaterale;bilateral;bilaterale;二国間;bilateral;dwustronny;bilateral;สองฝ่าย;ثنائية;双边
+a;bilatérales;bilateral;bilaterale;bilateral;bilaterale;二国間;bilateral;dwustronny;bilateral;สองฝ่าย;ثنائية;双边
+a;symétrique;symmetrical;symmetrisch;simétrico;simmetrico;対称的;simétrico;symetryczny;simetrice;สมมาตร;متماثل;对称
+a;symétriques;symmetrical;symmetrisch;simétrico;simmetrico;対称的;simétrico;symetryczny;simetrice;สมมาตร;متماثل;对称
+a;permanent;permanent;;permanente;permanente;パーマネント;permanente;stały;;ถาวร;دائم;常驻
+a;permanente;permanent;dauerhaft;;;パーマネント;;stały;permanent;ถาวร;دائم;常驻
+a;permanents;permanent;dauerhaft;permanente;permanente;パーマネント;permanente;stały;permanent;ถาวร;دائم;常驻
+a;permanentes;permanent;dauerhaft;permanente;permanente;パーマネント;permanente;stały;permanent;ถาวร;دائم;常驻
+pa;des deux côtés;on both sides;auf beiden Seiten;en ambos lados;su entrambi i lati;両側;em ambos os lados;po obu stronach;pe ambele părți;ทั้งสองด้าน;على كلا الجانبين;两侧
+pa;deux côtés;both sides;zwei Seiten;ambos lados;entrambi i lati;両側;ambos os lados;obie strony;ambele părți;ทั้งสองฝ่าย;كلا الجانبين;两侧
+pa;de chaque côté;on each side;auf jeder Seite;a cada lado;su ogni lato;両側;de cada lado;po każdej stronie;pe fiecare parte;แต่ละด้าน;على كل جانب;两边
+pa;les deux côtés;both sides;beide Seiten;ambos lados;entrambi i lati;両側;ambos os lados;obie strony;ambele părți;ทั้งสองฝ่าย;كلا الجانبين;两侧
+pa;bilateral;bilateral;;;bilaterale;二国間;;dwustronny;;สองฝ่าย;ثنائية;双边
+pa;équilibré;balanced;ausgeglichen;equilibrado;equilibrato;バランスの取れた;equilibrado;zrównoważony;echilibrat;สมดุล;متوازن;平衡
+pa;équilibrée;balanced;ausgeglichen;equilibrado;equilibrato;バランスの取れた;equilibrado;zrównoważony;echilibrat;สมดุล;متوازن;平衡
+pa;équilibrées;balanced;ausgeglichen;equilibrado;equilibrato;バランスの取れた;equilibrado;zrównoważony;echilibrat;สมดุล;متوازن;平衡
+pa;équilibrés;balanced;ausgeglichen;equilibrado;equilibrato;バランスの取れた;equilibrado;zrównoważony;echilibrat;สมดุล;متوازن;平衡
+pa;égal;equal;gleich;igual;uguale;同等;igual;równy;egal;เท่าเทียม;متساوية;与...相当
+pa;égale;equal;gleich;es igual a;uguale;イコール;iguais;równi;egali;เท่าเทียม;يساوي;等于
+pa;définitif;definitive;endgültig;final;finale;最終;final;finał;final;สุดท้าย;نهائي;终局
+pa;définitive;definitive;endgültig;definitivo;definitivo;決定的;definitivo;ostateczny;definitiv;สุดท้าย;نهائي;断然
+pa;définitives;definitive;endgültig;final;finale;最終;final;finał;final;สุดท้าย;نهائي;终局
+pa;définitifs;definitive;endgültig;final;finale;最終;final;finał;final;สุดท้าย;نهائي;终局
+pa;pour toujours;forever;für immer;para siempre;per sempre;永遠に;para sempre;na zawsze;pentru totdeauna;ตลอดไป;إلى الأبد;永远
+pa;à vie;for life;lebenslang;de por vida;per la vita;一生;para toda a vida;na całe życie;pentru viață;ตลอดชีวิต;مدى الحياة;终身
+pa;qui s'enlève;removable;der sich entfernt;que se desprende;che si stacca;取れる;que sai;który odpada;care se desprinde;ถอดออกได้;التي تنفصل;脱落
+pa;devant;in front;vor;a;a;への;para;do;pentru;หน้า;إلى;至
+pa;anormal;abnormal;abnormal;;anormale;アブノーマル;;nienormalny;anormale;ผิดปกติ;غير طبيعي;不正常
+pa;anormale;abnormal;abnormal;anormal;;アブノーマル;anormal;nienormalny;;ผิดปกติ;غير طبيعي;不正常
+pa;anormales;abnormal;abnormal;anormal;anormale;アブノーマル;anormal;nienormalny;anormale;ผิดปกติ;غير طبيعي;不正常
+pa;anormaux;abnormal;abnormal;anormal;anormale;アブノーマル;anormal;nienormalny;anormale;ผิดปกติ;غير طبيعي;不正常
+pa;coté droit;right side;rechte Seite;lado derecho;lato destro;右側;lado direito;prawa strona;partea dreaptă;ด้านขวา;الجانب الأيمن;右侧
+pa;à droite;on the right;rechts;a la derecha;a destra;右側;à direita;po prawej;pe dreapta;ทางขวา;على اليمين;右边
+pa;trop serré;too tight;zu fest;demasiado apretado;troppo stretto;きつすぎる;demasiado apertado;zbyt ciasny;prea strâns;แน่นเกินไป;ضيقة جداً;太紧
+pa;collé;glued;geklebt;pegado;incollato;接着剤付き;colado;przyklejony;lipite;ติดกาว;لاصق;粘着的
+pa;de face;from the front;von vorne;de frente;dal fronte;正面から;a partir da frente;od przodu;din față;หน้า;من الأمام;从正面
+pa;coté gauche;left side;linke Seite;lado izquierdo;lato sinistro;左側;lado esquerdo;lewa strona;partea stângă;ด้านซ้าย;الجانب الأيسر;左侧
+pa;optimal;optimal;;óptimo;ottimale;最適;ótimo;optymalny;optim;เหมาะสมที่สุด;مثالية;最佳
+pa;optimale;optimal;optimal;óptimo;ottimale;最適;ótimo;optymalny;optim;เหมาะสมที่สุด;مثالية;最佳
+pa;tout de suite;right away;sofort;de inmediato;subito;即座に;imediatamente;od razu;imediat;ทันที;على الفور;立时
+pa;de suite;immediately;;ahora mismo;in questo momento;只今;agora mesmo;teraz;chiar acum;ทันที;الآن;马上
+pa;retenu;retained;zurückgehalten;retenido;mantenuto;保持;retido;zachowany;reținută;คงไว้;محتفظ بها;保留的
+pa;retenue;retained;Zurückhaltung;retención;trattenuta;留保;retenção;wstrzymanie;reținere la sursă;การยับยั้งชั่งใจ;الاحتجاز;预扣
+pa;avec infection;with infection;mit Infektion;con infección;con infezione;感染を伴う;com infeção;z infekcją;cu infecție;ติดเชื้อ;بالعدوى;感染
+pa;sur le côté;on the side;an der Seite;en el lateral;sul lato;横に;ao lado;z boku;pe lateral;ด้านข้าง;على الجانب;一旁
+pa;de côté;sideways;von der Seite;de lado;lateralmente;横に;de lado;na boki;lateral;นอกเรื่อง;جانبية;侧面
+pa;mâchoire du bas;lower jaw;Unterkiefer;mandíbula inferior;mascella inferiore;下顎;maxilar inferior;dolna szczęka;maxilarul inferior;ขากรรไกรล่าง;الفك السفلي;下颚
+pa;inférieur;lower;niedriger;inferior;inferiore;下げる;inferior;niższy;inferior;ต่ำลง;أقل;降低
+pa;inférieure;lower;untere;inferior;inferiore;下げる;inferior;niższy;inferior;ต่ำลง;أقل;降低
+pa;mâchoire du haut;upper jaw;Oberkiefer;maxilar superior;mascella superiore;上顎;maxilar superior;górna szczęka;maxilarul superior;ขากรรไกรบน;الفك العلوي;上颚
+pa;supérieur;upper;Vorgesetzter;superior;superiore;より良い;superior;przełożony;superior;เหนือกว่า;متفوقة;优异
+pa;supérieure;upper;höher;superior;superiore;より良い;superior;przełożony;superior;สูงขึ้น;متفوقة;优异
+pa;moyen;medium;mittel;medio;medio;ミディアム;médio;średni;mediu;เฉลี่ย;متوسط;中等
+pa;moyenne;medium;durchschnittlich;media;media;平均;média;średnia;medie;เฉลี่ย;المتوسط;平均数
+pa;pas trop grave;not too severe;nicht zu schlimm;no demasiado serio;non troppo serio;あまり深刻ではない;não demasiado grave;niezbyt poważny;nu prea serios;ไม่ซีเรียสมาก;ليست خطيرة للغاية;不要紧
+pa;intermédiaire;intermediate;Intermediär;intermedio;intermedio;中間;intermediário;pośredni;intermediar;ตัวกลาง;وسيط;中间体
+pa;pendant la nuit;at night;während der Nacht;durante la noche;durante la notte;夜中;durante a noite;w nocy;în timpul nopții;ในระหว่างกลางคืน;أثناء الليل;夜里
+pa;de nuit;nighttime;in der Nacht;de noche;di notte;夜に;à noite;nocą;de noapte;ตอนกลางคืน;ليلاً;晚上
+pa;après trauma;after trauma;nach Trauma;después de un traumatismo;dopo un trauma;外傷後;após um traumatismo;po urazie;după traumă;หลังการบาดเจ็บทางจิตใจ;بعد الصدمة;创伤后
+pa;suite à un choc;following an impact;nach einem Schock;tras un impacto;a seguito di un impatto;衝撃の後;na sequência de um impacto;po uderzeniu;în urma unui impact;หลังจากเกิดการกระแทก;بعد الاصطدام;冲击后
+pa;du fond;at the back;vom Boden;fondo;fondo;下;fundo;dno;fund;จากก้นบึ้ง;القاع;底层
+pa;planifié;planned;geplant;previsto;previsto;予定;planeado;planowany;planificate;วางแผนไว้แล้ว;مخطط لها;计划
+pa;planifiée;planned;geplant;previsto;previsto;予定;planeado;planowany;planificate;วางแผนไว้แล้ว;مخطط لها;计划
+pa;de la puberté;of puberty;der Pubertät;pubertad;pubertà;思春期;puberdade;dojrzewanie;pubertate;ของการเข้าสู่วัยเจริญพันธุ์;سن البلوغ;发育期
+pa;qui se réduit;reducible;die sich reduziert;que se está reduciendo;che si sta riducendo;縮小傾向にある;que está a diminuir;która się kurczy;care este în scădere;ซึ่งถูกลดลง;التي تتقلص;正在缩小
+pa;très prononcé;very pronounced;sehr ausgeprägt;muy pronunciado;molto pronunciato;非常に顕著;muito pronunciado;bardzo wyraźny;foarte pronunțată;เด่นชัดมาก;واضح جداً;很明显
+pa;très marqué;very marked;stark ausgeprägt;muy marcado;molto marcato;著しい;muito marcado;bardzo wyraźny;foarte marcată;เด่นชัดมาก;ملحوظة للغاية;非常显著
+pa;extrême;extreme;extrem;extremo;estremo;エクストリーム;extremo;ekstremalny;extreme;สุดขีด;متطرف;极致
+pa;très important;very significant;sehr wichtig;muy importante;molto importante;超重要;muito importante;bardzo ważny;foarte important;สำคัญมาก;مهم جداً;非常重要
+pa;accentué;accentuated;betont;acentuado;accentuato;強調;acentuado;zaakcentowany;accentuat;เน้น;بارز;加重
+pa;accentuée;accentuated;betont;acentuado;accentuato;強調;acentuado;zaakcentowany;accentuat;เน้น;بارز;加重
+pa;suite à un choc;following shock;nach einem Schock;tras un impacto;a seguito di un impatto;衝撃の後;na sequência de um impacto;po uderzeniu;în urma unui impact;หลังจากเกิดการกระแทก;بعد الاصطدام;冲击后
+pa;d'un seul côté;on one side only;von einer Seite;unilateral;unilaterale;一方的;unilateral;jednostronny;unilateral;ฝ่ายเดียว;من جانب واحد;片面的
+pa;un seul côté;one side only;eine Seite;un solo lado;solo un lato;片側のみ;apenas um lado;tylko jedna strona;o singură parte;ด้านเดียว;جانب واحد فقط;仅一面
+pa;d1;d1;;;;;;;;;;
+pa;d2;d2;;;;;;;;;;
+pt;bruksisme;bruxism;Bruksismus;bruksismo;bruksismo;打撲症;bruxismo;bruksizm;bruxism;ภาวะนอนกัดฟัน;البروكسيسم;瘀伤
+pt;bruckisme;bruxism;Bruckismus;bruckismo;bruckismo;ブルッキズム;bruckismo;bruksizm;bruckism;บรัคกิสม์;البروكية;白日梦
+pt;bruxissme;bruxism;;;;ブルキシスム;;;;ภาวะนอนกัดฟัน;بروكسيسمي;磨牙
+pt;beense;open bite;;;;ベッセ;;;;เคยไป;بيس;(三)......
+pt;béense;open bite;;beense;beense;ベッセ;beense;beense;beense;เบอนส์;بيس;(三)......
+pt;ankyllose;ankylosis;Ankylosis;anquilosis;anchilosi;無気肺;anquilose;ankyloza;ankyllosis;การติดยึดติดแข็ง;أنكيلوسيس;昏迷
+pt;suracclusion;deep bite;overacclusion;sobrecompensación;sovracompensazione;ちょうかいふく;sobrecompensação;nadmierna rekompensata;supracompensare;ฟันบนยื่น;التعويض الزائد;超额补偿
+pt;sur-occlusion;deep bite;Überokklusion;sobremordida;overbite;出っ歯;sobremordida;nadgryz;supra mușcătură;ฟันบนยื่น;عضة زائدة;龅牙
+pt;suroclusion;deep bite;Überklusion;sobreinclusión;sovrainclusione;過剰包摂;sobre-inclusão;nadmierne włączenie;supraincludere;ฟันบนยื่น;التضمين الزائد;过度包容
+pt;occlusion croisee;crossbite;Kreuzbiss;mordida cruzada;morso incrociato;クロスバイト;mordida cruzada;ugryzienie krzyżowe;mușcătură încrucișată;ครอสไบต์;عضة متقاطعة;咬伤
+pt;cl1;class i;kl1;;;クリン;;;;;س1;
+pt;cl i;class i;;;;;;;;คลิ;س ط;
+pt;cl.i;class i;kl.i;;;;;kl.i;;;س.ط;
+pt;cl. i;class i;Kl. i;;;;;kl. i;;คล. i;ط. ط;i
+pt;cli;class i;;;;クリ;;;;;كلي;挛
+pt;cl2;class ii;kl2;;;;;;;คลอไรด์;س2;
+pt;cl ii;class ii;;;;第二部;;kl ii;;คลี่;الفصل الثاني;第ii条
+pt;cl.ii;class ii;kl.ii;;;;;kl.ii;;ข้อ ii;الفصل الثاني;第ii项
+pt;cl. ii;class ii;Kl. ii;;;;;kl. ii;;ข้อ ii;الفصل الثاني;ii
+pt;clii;class ii;;;;クリイ;;;;;كلي;小时
+pt;malocclusion classe 2;class ii malocclusion;Malokklusion Klasse 2;maloclusión clase 2;Malocclusione di classe 2;不正咬合クラス2;má oclusão classe 2;wada zgryzu klasy 2;malocluzie clasa 2;การสบฟันผิดปกติประเภทที่ 2;سوء الإطباق من الدرجة 2;错颌畸形 2 级
+pt;malocclusion de classe 2;class ii malocclusion;Malokklusion der Klasse 2;Maloclusión de clase 2;Malocclusione di classe 2;クラス2の不正咬合;Má oclusão de classe 2;Wada zgryzu klasy 2;Malocluzie clasa 2;การสบฟันผิดปกติประเภทที่ 2;سوء الإطباق من الفئة 2;第二类错合畸形
+pt;cl3;class iii;kl3;;;;;;;;س3;
+pt;cl iii;class iii;kl iii;;;クラ;;kl. iii;;ซีไอ 3;الفصل الثالث;第iii条
+pt;cl.iii;class iii;Kl.iii;;;;;kl.iii;;;الفصل الثالث;第iii项
+pt;cl. iii;class iii;Kl. iii;;;iii;;kl. iii;;ข้อที่ 3;الفصل الثالث;iii
+pt;cliii;class iii;;;;クリイ;;;;คลีอี;كليي;ciii
+pt;malocclusion classe 3;class iii malocclusion;Malokklusion Klasse 3;maloclusión de clase 3;malocclusione di classe 3;クラス3の不正咬合;má oclusão de classe 3;Wada zgryzu klasy 3;clasa 3 malocluzie;การสบฟันผิดปกติระดับที่ 3;سوء الإطباق من الفئة 3;第三类错牙合畸形
+pt;malocclusion de classe 3;class iii malocclusion;Malokklusion der Klasse 3;maloclusión de clase 3;malocclusione di classe 3;クラス3の不正咬合;má oclusão de classe 3;Wada zgryzu klasy 3;clasa 3 malocluzie;การสบฟันผิดปกติระดับที่ 3;سوء الإطباق من الفئة 3;第三类错牙合畸形
+pt;rdv;appointment;;cita;appuntamento;アポイントメント;nomeação;nominacja;numire;การนัดหมาย;التعيين;职位
+pt;pano;panoramic;;;;パノ;;;;พาโน;بانو;全景图
+pt;il grince des dents;teeth grinding;er knirscht mit den Zähnen;rechina los dientes;digrigna i denti;歯を食いしばる;ele range os dentes;zgrzyta zębami;el își scrâșnește dinții;เขากัดฟันแน่น;يطحن أسنانه;他磨牙
+pt;elle grince des dents;teeth grinding;sie knirscht mit den Zähnen;rechina los dientes;digrigna i denti;歯を食いしばる;ela range os dentes;zgrzyta zębami;ea își scrâșnește dinții;เธอขบฟันแน่น;تطحن أسنانها;她咬牙切齿
+pt;grince la nuit;grinds at night;knirscht in der Nacht;cruje por la noche;scricchiola di notte;夜泣き;rangidos noturnos;skrzypienie w nocy;scârțâie noaptea;เสียงเอี๊ยดอ๊าดในตอนกลางคืน;صرير في الليل;吱嘎
+pt;béance verticale;vertical open bite;vertikale Lücke;hueco vertical;gap verticale;垂直落差;fosso vertical;szczelina pionowa;decalaj vertical;ช่องว่างแนวตั้ง;الفجوة الرأسية;垂直间隙
+pt;bouche ouverte au repos;mouth open at rest;offener Mund in Ruhe;boca abierta en reposo;bocca aperta a riposo;安静時;boca aberta em repouso;otwarte usta w spoczynku;gura deschisă în repaus;ปากเปิดเมื่ออยู่นิ่ง;فم مفتوح عند السكون;张口
+pt;dents qui ne se touchent pas;teeth that don't touch;Zähne, die sich nicht berühren;dientes que no se tocan;denti che non si toccano;触れない歯;dentes que não se tocam;zęby, które się nie stykają;dinți care nu se ating;ฟันที่ไม่สัมผัสกัน;الأسنان التي لا تتلامس;牙齿不接触
+pt;trou entre les dents quand je mords;gap between teeth when biting;Loch zwischen den Zähnen, wenn ich zubeiße;agujero entre los dientes cuando muerdo;buco tra i denti quando mordo;噛むと歯と歯の間に穴が開く;buraco entre os meus dentes quando mordo;dziura między zębami, kiedy gryzę;gaură între dinți când mușc;ช่องว่างระหว่างฟันของฉันเมื่อกัดลง;ثقب بين أسناني عندما أعض;咬牙时牙缝
+pt;surencombrement;overcrowding;Überfüllung;hacinamiento;sovraffollamento;過密;sobrelotação;przeludnienie;supraaglomerare;ความแออัด;الاكتظاظ;过度拥挤
+pt;dents serrées;crowded teeth;enge Zähne;dientes apretados;denti stretti;歯ぎしり;dentes cerrados;zaciśnięte zęby;dinți strânși;กัดฟันแน่น;الأسنان المشدودة;咬紧牙关
+pt;manque d'espace;lack of space;Platzmangel;falta de espacio;mancanza di spazio;スペース不足;falta de espaço;brak miejsca;lipsa de spațiu;ขาดพื้นที่;ضيق المساحة;无空间
+pt;dents entassées;crowded teeth;aufgetürmte Zähne;dientes apiñados;denti affollati;叢生;dentes apinhados;stłoczone zęby;dinți înghesuiți;ฟันซ้อนหรือฟันเก;الأسنان المزدحمة;龉
+pt;dents trop serrées;teeth too tight;zu eng stehende Zähne;dientes demasiado apretados;denti troppo stretti;歯がきつい;dentes demasiado apertados;zbyt ciasne zęby;dinți prea strânși;ฟันชิดกันเกินไป;أسنان ضيقة جداً;牙齿太紧
+pt;mâchoire du bas en avant;lower jaw forward;Unterkiefer nach vorne;mandíbula inferior hacia delante;mascella inferiore in avanti;下顎を前に出す;maxilar inferior para a frente;dolna szczęka do przodu;maxilarul inferior înainte;ขากรรไกรล่างยื่นไปข้างหน้า;الفك السفلي للأمام;下颌前移
+pt;menton en avant;chin forward;Kinn nach vorne;barbilla hacia delante;mento in avanti;顎が前に出る;queixo para a frente;podbródek do przodu;bărbia înainte;คางยื่น;الذقن إلى الأمام;下巴向前
+pt;menton proéminent;prominent chin;vorstehendes Kinn;mentón prominente;mento prominente;頤;queixo proeminente;wydatny podbródek;bărbie proeminentă;คางที่เด่นชัด;ذقن بارزة;突出的下巴
+pt;machoire qui avance;jaw that protrudes;vorrückender Kiefer;mandíbula avanzada;mascella avanzante;前歯;avanço da mandíbula;postępująca szczęka;avansarea fălcii;ขากรรไกรยื่น;تقدم الفك المتقدم;推进式下颌
+pt;respire par la bouche;breathes through mouth;atmet durch den Mund;respira por la boca;respira con la bocca;口呼吸;respira pela boca;oddycha przez usta;respiră prin gură;หายใจทางปาก;يتنفس من الفم;用嘴呼吸
+pt;dort la bouche ouverte;sleeps with mouth open;schläft mit offenem Mund;duerme con la boca abierta;dorme con la bocca aperta;口を開けて眠る;dorme com a boca aberta;śpi z otwartymi ustami;doarme cu gura deschisă;นอนหลับปากอ้า;ينام وفمه مفتوح;张着嘴睡觉
+pt;suce son pouce;sucks thumb;saugt am Daumen;se chupa el dedo;si succhia il pollice;親指をしゃぶる;chupa o polegar;ssie kciuk;își suge degetul mare;ดูดนิ้วโป้ง;يمص إبهامه;吮吸拇指
+pt;tétouille;suckles;Tétouille;tetouille;tetouille;テトゥイユ;tetouille;tetouille;tetouille;กัดเบา ๆ;تيتوي;圆锥形
+pt;tète son pouce;sucks thumb;nuckelt am Daumen;se chupa el dedo;si succhia il pollice;親指をしゃぶる;chupa o polegar;ssie kciuk;își suge degetul mare;ยกนิ้วโป้ง;يمص إبهامه;吮吸拇指
+pt;plaquette invisible;invisible retainer;unsichtbare Plakette;inserto invisible;inserto invisibile;インビジブル・インサート;inserção invisível;niewidoczna wkładka;inserție invizibilă;แผ่นที่มองไม่เห็น;إدراج غير مرئي;隐形插页
+pt;aligneur transparent;clear aligner;transparenter Aligner;alineador transparente;allineatore trasparente;透明アライナー;alinhador transparente;przezroczysty aligner;Aligner transparent;อุปกรณ์จัดฟันแบบใส;مصفف شفاف;透明牙齿矫正器
+pt;appareil transparent;transparent appliance;transparentes Gerät;dispositivo transparente;dispositivo trasparente;透過装置;dispositivo transparente;przezroczyste urządzenie;dispozitiv transparent;อุปกรณ์โปร่งใส;جهاز شفاف;透明装置
+pt;appareil invisible;invisible appliance;unsichtbares Gerät;dispositivo invisible;dispositivo invisibile;不可視装置;dispositivo invisível;niewidzialne urządzenie;dispozitiv invizibil;อุปกรณ์ที่มองไม่เห็น;جهاز غير مرئي;隐形装置
+pt;train de bagues;braces;Ringzug;tren de anillos;treno di anelli;輪列;comboio de anéis;pociąg pierścieni;tren de inele;รถไฟวงแหวน;قطار الخواتم;环形列车
+pt;appareil dentaire métallique;metal braces;Metallzahnspange;aparatos metálicos;apparecchi metallici;金属製歯列矯正器;aparelhos metálicos;metalowy aparat ortodontyczny;aparat dentar metalic;เหล็กดัดฟัน;دعامات معدنية;金属牙套
+pt;appareil metallique;metal appliance;Metallgerät;dispositivo metálico;dispositivo metallico;メタルデバイス;dispositivo metálico;urządzenie metalowe;dispozitiv metalic;เครื่องมือโลหะ;جهاز معدني;金属装置
+pt;ecart entre les dents;gap between teeth;Zahnlücke;espacio entre los dientes;spazio tra i denti;歯と歯の隙間;espaço entre os dentes;przerwa między zębami;spațiu între dinți;ช่องว่างระหว่างฟัน;الفجوة بين الأسنان;牙缝
+pt;dents de la chance;lucky gap teeth;Glückszähne;dientes de la suerte;denti fortunati;福歯;dentes da sorte;szczęśliwe zęby;dinți norocoși;เครื่องรางนำโชค;أسنان محظوظة;吉齿
+pt;dent qui manque;missing tooth;fehlender Zahn;diente perdido;dente mancante;欠損歯;dente em falta;brakujący ząb;dinte lipsă;ฟันหายไป;الأسنان المفقودة;缺牙
+pt;il lui manque une dent;missing a tooth;ihm fehlt ein Zahn;le falta un diente;gli manca un dente;歯がない;falta-lhe um dente;brakuje mu zęba;îi lipsește un dinte;เขาไม่มีฟัน;فقد أحد أسنانه;他少了一颗牙
+pt;il manque une dent;missing a tooth;es fehlt ein Zahn;falta un diente;manca un dente;歯がない;falta um dente;brak zęba;lipsește un dinte;เขาไม่มีฟัน;سن مفقود;缺牙
+pt;il se ronge les ongles;bites nails;er kaut an seinen Fingernägeln;se muerde las uñas;si mangia le unghie;爪を噛む;ele rói as unhas;obgryza paznokcie;își mușcă unghiile;เขา กัดเล็บ;يقضم أظافره;他咬指甲
+pt;machoire qui craque;jaw that cracks;knackender Kiefer;mandíbula quebradiza;mascella incrinata;クラッキングジョー;mandíbula fissurada;pękająca szczęka;fisurarea maxilarului;ขากรรไกรที่ดังกึก;تكسير الفك;爆牙
+pt;mâchoire qui claque;clicking jaw;klappernder Kiefer;golpe de mandíbula;mascella che sbatte;ガクガク;mandíbula batendo;trzaskająca szczęka;maxilar trântit;ขบกรามแน่น;صفع الفك;猛击下巴
+pt;dents qui rebougent;teeth that shift back;Zähne, die sich stopfen;empastar los dientes;riempimento dei denti;詰め物;obturação de dentes;wypełnianie zębów;plombarea dinților;ฟันที่งอกขึ้นมาใหม่;حشو الأسنان;补牙
+pt;gencive qui remonte;receding gums;aufsteigendes Zahnfleisch;encías ascendentes;gengive in aumento;盛り上がる歯茎;gengivas em crescimento;rosnące dziąsła;gingii în creștere;เหงือกร่น;انحسار اللثة;牙龈肿胀
+pt;dent qui tourne;rotating tooth;rotierender Zahn;diente giratorio;dente che gira;回転歯;dente giratório;wirujący ząb;dinte rotativ;ปวดฟัน;الأسنان الدوارة;旋转齿
+pt;dent qui pousse ailleurs;tooth growing elsewhere;Zahn, der an anderer Stelle wächst;diente que crece en otra parte;dente che cresce altrove;他の場所に生えている歯;dente que cresce noutro sítio;ząb rosnący w innym miejscu;dinte care crește în altă parte;ฟันงอกในที่อื่น;الأسنان التي تنمو في مكان آخر;牙齿长在别处
+pt;apnee du sommeil;sleep apnea;Schlafapnoe;apnea del sueño;apnea del sonno;睡眠時無呼吸症候群;apneia do sono;bezdech senny;apnee în somn;ภาวะหยุดหายใจขณะหลับ;انقطاع التنفس أثناء النوم;睡眠呼吸暂停
+pt;dort mal;sleeps poorly;schläft schlecht;duerme mal;dorme male;寝つきが悪い;dorme mal;źle śpi;doarme prost;นอนไม่หลับ;ينام بشكل سيء;睡不好
+pt;arrête de respirer la nuit;stops breathing at night;hört nachts auf zu atmen;deja de respirar por la noche;smette di respirare di notte;夜間に呼吸が止まる;pára de respirar durante a noite;przestaje oddychać w nocy;nu mai respiră noaptea;หยุดหายใจตอนกลางคืน;توقف التنفس ليلاً;夜间停止呼吸
+pt;visage de travers;crooked face;schiefes Gesicht;cara torcida;faccia storta;歪んだ顔;rosto torto;wykrzywiona twarz;față strâmbă;หน้าเบี้ยว;وجه معوج;歪脸
+pt;face asymetrique;asymmetric face;asymmetrische Seite;rostro asimétrico;viso asimmetrico;非対称顔;rosto assimétrico;asymetryczna twarz;față asimetrică;ใบหน้าไม่สมมาตร;وجه غير متناسق;不对称脸
+pt;dent à enlever;tooth to extract;zu entfernender Zahn;diente a extraer;dente da rimuovere;除去する歯;dente a ser removido;ząb do usunięcia;dinte care urmează să fie îndepărtat;ฟันที่ต้องถอน;السن المراد إزالته;要拔除的牙齿
+pt;gencives qui saignent;bleeding gums;blutendes Zahnfleisch;encías sangrantes;gengive sanguinanti;歯茎からの出血;sangramento das gengivas;krwawiące dziąsła;gingii sângerânde;เหงือกมีเลือดออก;نزيف اللثة;牙龈出血
+pt;dents qui se déchaussent;loose teeth;Zähne, die sich lockern;dientes flojos;denti allentati;乱杭歯;dentes soltos;luźne zęby;dinți slăbiți;ฟันโยก;الأسنان المرتخية;牙齿松动
+pt;mors mal;bites poorly;Gebiss schlecht;mala suerte;parte negativa;バッドビット;parte má;zły bit;bit rău;นิดหน่อย;جزء سيء;坏处
+pt;mord mal;bites poorly;beißt schlecht;malas mordeduras;morsi cattivi;悪い噛み合わせ;mordidas más;złe ukąszenia;mușcături rele;กัดแรง;لدغات سيئة;劣势
+pt;grosses dents;large teeth;große Zähne;dientes grandes;denti grandi;大きな歯;dentes grandes;duże zęby;dinți mari;ฟันใหญ่;أسنان كبيرة;大牙
+pt;petites dents;small teeth;kleine Zähne;dientes pequeños;denti piccoli;小歯;dentes pequenos;małe zęby;dinți mici;ฟันเล็ก;أسنان صغيرة;龋齿
+pt;dent en plus;extra tooth;Zahn mehr;diente extra;dente extra;余分な歯;dente extra;dodatkowy ząb;dinte suplimentar;ฟันเพิ่มเติม;الأسنان الإضافية;额外齿
+pt;plus de dents;no more teeth;mehr Zähne;más dientes;più denti;より多くの歯;mais dentes;więcej zębów;mai mulți dinți;ฟันมากขึ้น;المزيد من الأسنان;更多牙齿
+pt;ça fait mal;it hurts;das tut weh;duele;fa male;痛い;dói;to boli;doare;มันเจ็บ;يؤلم;疼
+pt;mal aux dents;toothache;Zahnschmerzen;dolor de muelas;mal di denti;歯痛;dor de dentes;ból zęba;durere de dinți;ปวดฟัน;ألم الأسنان;牙痛
+pt;deglutition atypique;atypical swallowing;atypisches Schlucken;deglución atípica;deglutizione atipica;非定型嚥下;deglutição atípica;nietypowe połykanie;înghițire atipică;การกลืนผิดปกติ;البلع غير النمطي;非典型吞咽
+pt;avale mal;swallows poorly;schluckt schlecht;traga mal;deglutisce male;飲み込みが悪い;engole mal;źle połyka;înghite prost;กลืนลำบาก;يبتلع بشدة;吞咽困难
+pt;dents du haut qui recouvrent;upper teeth overlapping;obere Zähne, die überdecken;dientes superiores que cubren;denti superiori che coprono;上の歯;dentes superiores que cobrem;górne zęby, które zakrywają;dinții de sus care acoperă;ฟันบนที่ครอบ;الأسنان العلوية التي تغطي;上齿
+pt;dents en avant;teeth forward;Frontzähne;dientes anteriores;denti anteriori;前歯;dentes para a frente;przednie zęby;dinți înainte;ฟันยื่น;أسنان أمامية;前齿
+g;pré-ado;pre-teen;Pre-Teen;preadolescente;preadolescente;プレティーン;pré-adolescente;nastolatek;preadolescent;วัยก่อนวัยรุ่น;ما قبل المراهقة;十三岁前
+g;pré-ados;pre-teens;Pre-Teens;preadolescentes;preadolescenti;プレティーン;pré-adolescentes;nastolatki;preadolescenți;เด็กก่อนวัยรุ่น;ما قبل المراهقة;青少年
+g;preado;pre-teen;;;;プリード;;;;พรีโด;بريادو;前门
+g;preados;pre-teens;;;;プレアドス;;;;พรีโดส;بريادوس;前言
+g;ado;teen;Teenager;adolescente;adolescente;ティーンエイジャー;adolescente;nastolatek;adolescent;วัยรุ่น;مراهق;小将
+g;ados;teens;Teens;adolescentes;adolescenti;ティーンエイジャー;adolescentes;nastolatki;adolescenți;วัยรุ่น;المراهقون;青少年
+g;gen z;gen z;;;;ゼンゼン;;;;เจเนอเรชั่น Z;الجيل z;
+g;genz;gen z;;;;ゲンツ;;;;เจนซ์;جينز;基因
+g;gen y;gen y;;;;ジェンイー;;;;เจเนอเรชั่นวาย;العام ذ;
+g;geny;gen y;;;genia;ジェニー;;;;ยีน;جيني;基因
+g;millennial;millennial;;milenario;millenario;ミレニアル;milenar;milenials;milenar;มิลเลนเนียล;جيل الألفية;千禧一代
+g;millennials;millennials;Millennials;;;ミレニアルズ;;milenialsi;;มิลเลนเนียล;جيل الألفية;千禧一代
+g;gen x;gen x;;;;ジェネックス;;;;เจเนอเรชั่นเอ็กซ์;الجين س;
+g;genx;gen x;;;;ジェンクス;;;;เจนเอ็กซ์;جينكس;基因
+g;quadras;forties;Quadras;cuadras;quadrupedi;クアドラス;;;;สี่สิบปี;كوادراس;四叶草
+g;quinquas;fifties;Quinquas;;;クィンクス;;;;ยุคห้าสิบ;كوينكواس;五个
+g;berges;years;Flussufer;bancos;banche;銀行;bancos;banki;bănci;ธนาคาร;البنوك;银行
+g;balais;years;Besen;escobas;scope;ほうき;vassouras;miotły;mături;ไม้กวาด;المكانس;扫帚
+g;gamin;kid;Kind;chico;bambino;キッド;miúdo;dziecko;copil;เด็ก;طفل;孩子
+g;gamins;kids;Kinder;niños;bambini;キッズ;crianças;dzieci;copii;เด็ก;الأطفال;孩子们
+g;môme;kid;;;;ムーム;;;;เด็ก;موم;
+g;mômes;kids;;niños;bambini;キッズ;crianças;dzieci;copii;เด็ก;الأطفال;孩子们
+g;mome;kid;;;;モーム;;;;เด็ก;موم;妈妈
+g;momes;kids;Mumien;mamás;mamme;ママ;mães;mamy;mame;เด็ก;الأمهات;妈妈
+g;pitchoun;little one;Pitchoun;;;ピッチウン;;boisko;;เด็กน้อย;الملعب;沥青
+g;pitchouns;little ones;;;suoni della pece;ピッチャー;;rzeczowniki;;เด็กเล็ก;الملعبون;沥青
+g;loulou;sweetie;;;;ルールー;;;;ลูลู;لولو;楼兰
+g;louloute;sweetie;;;;ルルート;;;;ลูลูเต้;لولوت;
+g;petit;little one;klein;pequeño;piccolo;小さい;pequeno;mały;mic;เล็ก;صغيرة;小
+g;petite;little one;kleine;pequeño;piccolo;小さい;pequeno;mały;mic;เล็ก;صغيرة;小
+g;petits;little ones;kleine;pequeño;piccolo;小さい;pequeno;mały;mic;เล็ก;صغيرة;小
+g;petites;little ones;kleine;pequeño;piccolo;小さい;pequeno;mały;mic;เล็ก;صغيرة;小
+g;fillette;little girl;Mädchen;niña pequeña;bambina;少女;menina;mała dziewczynka;fetiță;เด็กผู้หญิง;فتاة صغيرة;丫头片子
+g;fillettes;little girls;Mädchen;chicas;ragazze;女子;raparigas;dziewczyny;fete;เด็กผู้หญิง;الفتيات;女孩
+g;n'a pas;doesn't have;hat nicht;no ha;non ha;はない;não tem;nie;nu a;ไม่มี;لم;没有
+g;a depasse;has passed;hat überholt;ha superado;ha superato;を超えた;excedeu;przekroczył;a depășit;เกินกว่า;قد تجاوز;已超过
+g;dépasse;exceeds;überschreitet;supera;supera;を超える;excede;przekracza;depășește;เกินกว่า;يتجاوز;超出

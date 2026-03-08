@@ -1,0 +1,11 @@
+﻿# Généré par detia.py avec gemini-2.5-flash
+question;listcount;nb_criteres;tags;adjectifs;ages;residu;latency_ms
+Montre-moi les cas avec Classe II squelettique division 2 plus Prognathisme maxillaire et qui ont ANB > 6.;LIST;0;;;;;868.0
+Retrouve les gens avec Classe III squelettique, et malposition dentaire ayant également ainsi que ANB < -2.;LIST;0;;;;;939.5
+Retrouve les patients avec SNB > 85.;LIST;0;;;;;876.1
+Je veux les cas de Prognathisme maxillaire et SNA > 86.;LIST;0;;;;;903.2
+Retrouve les patients avec SNB > 87.;LIST;0;;;;Retrouve les patients avec SNB > 87.;7781.6
+Retrouve les patients présentant Bruxisme combiné avec adultes.;LIST;2;Bruxisme;;Adultes;;4604.4
+Je cherche les patients avec Bruxisme nocturne.;LIST;0;;;;;11133.0
+Combien ai-je de patients avec Prognathisme maxillaire présentant aussi 13 ans ayant également ectopie?;LIST;0;;;;;11720.8
+Cherche les adolescents.;LIST;1;;;Adolescent;cherche les;4224.9

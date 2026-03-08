@@ -1,0 +1,44 @@
+﻿# adjectifs_enrichi.csv V1.0.1 - 04/01/2026 18:35:54;;;;
+# Enrichi avec patterns courants, intensificateurs et adjectifs manquants (bilatéral, symétrique, permanent);;;;
+a;f;mp;fp;pas
+amovible;amovible;amovibles;amovibles;détachable,extractible,qui s'enlève
+antérieur;antérieure;antérieurs;antérieures;antérieure,antérieures,avant,avants,face,devant, incisive, vers l'avant, de l'avant
+atypique;atypique;atypiques;atypiques;anormal,anormale,anormales,anormaux
+bactérien;bactérienne;bactériens;bactériennes;
+bénin;bénigne;bénins;bénignes;pas grave
+bilatéral;bilatérale;bilatéraux;bilatérales;des deux côtés,deux côtés,de chaque côté,les deux côtés,bilateral
+central;centrale;centraux;centrales;milieu,milieux,au centre,du centre
+complet;complète;complets;complètes;total,totale,totales,totaux
+différé;différée;différés;différées;plus tard,reporté,reportée
+digital;digitale;digitaux;digitales;doigt,du doigt
+diurne;diurne;diurnes;diurnes;du jour,du matin,du soir,jour,le jour,le matin,le soir,matin,soir,pendant la journée
+division 1;division 1;division 1;division 1;div 1,div1,d1
+division 2;division 2;division 2;division 2;div 2,div2,d2
+droit;droite;droits;droites;de droite,à droite,coté droit,côté droit
+encombré;encombrée;encombrés;encombrées;rempli,trop serré
+fixe;fixe;fixes;fixes;ancré,ancrée,ancrées,ancrés,permanent,collé
+frontal;frontale;frontaux;frontales;de face
+gauche;gauche;gauches;gauches;à gauche,de gauche,coté gauche,côté gauche
+idéal;idéale;idéaux;idéales;harmonieuse,harmonieuses,harmonieux,parfait,parfaite,parfaites,parfaits,optimal,optimale
+immédiat;immédiate;immédiats;immédiates;maintenant,tout de suite,de suite
+incisif;incisive;incisifs;incisives;dent du centre,dents centrales
+inclus;incluse;inclus;incluses;incluse,incluses,inclusse,intégré,intégrée,intégrées,intégrés,retenu,retenue
+infectieux;infectieuse;infectieux;infectieuses;infecté,infectée,infectées,infectés,avec infection
+latéral;latérale;latéraux;latérales;côté,côtés,sur le côté,de côté
+mandibulaire;mandibulaire;mandibulaires;mandibulaires;bas,en bas,du bas,mâchoire du bas,inférieur,inférieure, arcade inférieure, arc inférieur
+maxillaire;maxillaire;maxillaires;maxillaires;en haut,haut,du haut,mâchoire du haut,supérieur,supérieure, arcade supérieure,arc supérieur
+modéré;modérée;modérés;modérées;léger,légère,légere,légeres,légers,moyen,moyenne,pas trop grave,intermédiaire
+nocturne;nocturne;nocturnes;nocturnes;la nuit,pendant la nuit,de nuit
+permanent;permanente;permanents;permanentes;définitif,définitive,définitives,définitifs,pour toujours,à vie
+post-traumatique;post-traumatique;post-traumatiques;post-traumatiques;après trauma,suite à un choc
+postérieur;postérieure;postérieurs;postérieures;arrière,arrières,derrière,derrières,postérieure,postérieures,du fond
+programmé;programmée;programmés;programmées;prévu,prévue,prévues,prévus,planifié,planifiée
+pubertaire;pubertaire;pubertaires;pubertaires;de la puberté
+réductible;réductible;réductibles;réductibles;qui se réduit
+septique;septique;septiques;septiques;
+sévère;sévère;sévères;sévères;complexe,complexes,grave,graves,important,importante,importantes,importants,majeur,majeure,majeures,majeurs,marqué,marquée,marquées,marqués,prononcé,prononcée,prononcées,prononcés,très prononcé,très marqué,extrême,très important,accentué,accentuée
+symétrique;symétrique;symétriques;symétriques;équilibré,équilibrée,équilibrées,équilibrés,égal,égale
+temporo;dysfonctionnement;dysfonctionnements;dysfonctionnements;temporo-mandibulaires,temporo-mandibulaire, temporo mandibulaire, temporo mandibulaire
+total;totale;totaux;totales;entier,entière,entières,entiers,complet,complète
+traumatique;traumatique;traumatiques;traumatiques;blessure,blessures,lésion,lésions,plaie,plaies,trauma,traumas,suite à un choc
+unilatéral;unilatérale;unilatéraux;unilatérales;asymétrique,asymétriques,subdivision,unilatéraux,d'un seul côté,un seul côté

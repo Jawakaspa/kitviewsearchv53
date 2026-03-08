@@ -1,0 +1,70 @@
+﻿# cerbere_config_prod_EXEMPLE.csv V1.0.0 - 10/01/2026 07:48:58
+# cerbere_config.csv - c:\cerbereprod\
+# Version 1.0.0 - 09/01/2026
+#
+# Ce fichier définit la cible et les règles de dispatch
+# pour les fichiers déposés dans c:\cerbereprod\
+#
+# ═══════════════════════════════════════════════════════════
+# SECTION CIBLE
+# Définit où vont les fichiers de ce point d'entrée
+# ═══════════════════════════════════════════════════════════
+type;parametre;valeur
+cible;nom;prod
+cible;chemin;c:\kitviewsearchV5
+cible;sauve;c:\kitviewsearchV5sauve
+cible;archives;c:\kitviewsearchV5archives
+cible;actif;oui
+#
+# ═══════════════════════════════════════════════════════════
+# SECTION REGLES DE DISPATCH
+# ═══════════════════════════════════════════════════════════
+# Format : regle;pattern;extension;destination;commentaire
+#
+# - pattern : glob pattern (* = tout, *pat* = contient pat, data* = commence par)
+# - extension : .py, .csv, .md, .html, etc. (avec le point)
+# - destination : sous-répertoire cible (vide = racine de la cible)
+# - commentaire : description de la règle
+#
+# IMPORTANT : Les règles sont évaluées dans l'ordre
+# La PREMIERE règle qui matche gagne
+# Donc mettre les règles spécifiques AVANT les règles générales !
+#
+# ═══════════════════════════════════════════════════════════
+# REGLES MARKDOWN (.md)
+# Note : En production, on ne veut peut-être pas les conversations
+# ═══════════════════════════════════════════════════════════
+regle;Prompt_*;.md;prompts;Prompts de projet
+regle;prompt_*;.md;prompts;Prompts de projet (minuscules)
+regle;*;.md;doc;Markdown par défaut vers doc
+#
+# ═══════════════════════════════════════════════════════════
+# REGLES CSV (.csv)
+# ═══════════════════════════════════════════════════════════
+regle;logrecherche*;.csv;logs;Logs de recherche spécifiques
+regle;data*;.csv;data;Données commençant par data
+regle;*pat*;.csv;data;Fichiers patients (contient pat)
+regle;logs*;.csv;logs;Autres logs
+regle;*;.csv;refs;CSV par défaut vers refs
+#
+# ═══════════════════════════════════════════════════════════
+# REGLES CODE ET WEB
+# ═══════════════════════════════════════════════════════════
+regle;*;.py;;Scripts Python à la racine
+regle;*;.html;ihm;Pages web HTML
+regle;*;.css;ihm;Feuilles de style CSS
+regle;*;.js;ihm;Scripts JavaScript
+#
+# ═══════════════════════════════════════════════════════════
+# REGLES BASES ET DOCUMENTS
+# ═══════════════════════════════════════════════════════════
+regle;*;.db;db;Bases de données SQLite
+regle;*;.xlsx;doc;Documents Excel
+regle;*;.docx;doc;Documents Word
+regle;*;.txt;doc;Documents texte
+regle;*;.pdf;doc;Documents PDF
+#
+# ═══════════════════════════════════════════════════════════
+# REGLE PAR DEFAUT (toujours en dernier !)
+# ═══════════════════════════════════════════════════════════
+regle;*;*;ztri;Fichiers non reconnus vers ztri

@@ -1,0 +1,12 @@
+﻿question;listcount;nb_criteres;tags;adjectifs;ages;residu
+fr;LIST;0;;;;fr
+Bruxisme;LIST;1;bruxisme;;;
+Nombre de patients avec linguo-version avec déviation maxillaire ?;COUNT;3;déviation maxillaire, linguo-version;;;patients avec avec
+Patientes souffrant de béance antérieure et avec classe II;LIST;3;classe ii d'angle, béance;antérieur;Féminin;souffrant de et avec
+Patientes de moins de 39 ans présentant un encombrement et une rotation dentaire antihoraire;LIST;4;crowding, rotation;;moins de 39 ans, Féminin;presentant un et une dentaire antihoraire
+Patient diabétique avec problème de bruxisme;LIST;3;diabète, bruxisme, urgence;;;patient avec de
+Patientes présentant une malocclusion avec bruxisme;LIST;3;malocclusion, bruxisme;;Féminin;presentant une avec
+Adulte présentant une malocclusion;LIST;2;malocclusion;;adulte;presentant une
+ado diabétique avec problème de bruxisme;LIST;4;diabète, bruxisme, urgence;;adolescent;avec de
+patiente d'environ 15 ans avec Cas complexe avec classe II squelettique et béance latérale gauche;LIST;4;classe ii squelettique, béance;latéral, gauche;environ 15 ans, Féminin;avec cas complexe avec et
+Patientes d'environ 14 ans avec malocclusion et bruxisme sévère;LIST;4;malocclusion, bruxisme;sévère;environ 14 ans, Féminin;avec et

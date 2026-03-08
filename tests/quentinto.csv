@@ -1,0 +1,109 @@
+﻿# Tests Quentin base1964.db - Scénario OK : commentaires confirmant que la détection fonctionne;;;;
+question;page;résultat;commentaire;
+patients en classe 2 agés de plus de 20 ans et de moins de 23 ans;index;0 patient;L'âge de plus de 20 ans et de moins de 23 ans est bien détecté ainsi que la classe 2. Il y avait un bug sur le fallback IA qui trouvait 2 patients parce qu'il interprétait la classe 2 en squelettique et non en dentaire. 0 patient est le bon résultat;
+Patient compris entre 13 et 16 avec une classe d'angle de 1 uniquement;index;9 patients;"Les âges 13 et 16 sont bien détectés comme bornes d'intervalle malgré l'absence du mot ""ans"" et la classe 1 est identifiée";
+Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3;index;0 patient;La classe 3 est correctement détectée et la tranche d'âge 17-23 aussi mais aucun patient : ;"JSON COMPLET
+══════════════════════════════════════════════════════════════════════
+{
+  ""auteur"": ""cx"",
+  ""langue"": ""fr"",
+  ""listcount"": ""LIST"",
+  ""criteres"": [
+    {
+      ""type"": ""tag"",
+      ""detecte"": ""classe 3"",
+      ""canonique"": ""classe iii d'angle"",
+      ""label"": ""classe iii d'angle"",
+      ""gn"": ""f"",
+      ""cat"": ""pathologie"",
+      ""sql"": {
+        ""colonne"": ""canontags"",
+        ""operateur"": ""="",
+        ""valeur"": ""classe iii d'angle""
+      }
+    },
+    {
+      ""type"": ""age"",
+      ""detecte"": ""inferieur a 23 ans"",
+      ""label"": ""moins de 23 ans"",
+      ""sql"": {
+        ""colonne"": ""age"",
+        ""operateur"": ""<"",
+        ""valeur"": 23
+      }
+    },
+    {
+      ""type"": ""age"",
+      ""detecte"": ""superieur a 17 ans"",
+      ""label"": ""plus age que 17 ans"",
+      ""sql"": {
+        ""colonne"": ""age"",
+        ""operateur"": "">"",
+        ""valeur"": 17
+      }
+    }
+  ],
+  ""residu"": ""patients avec un age et de"",
+  ""question_originale"": ""Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3"",
+  ""question_standardisee"": ""patients avec un age superieur a 17 ans et inferieur a 23 ans de classe 3""
+}
+
+C:\cx>python trouve.py ""Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3"" base1964.db
+╔════════════════════════════════════════════════════════════════
+║ trouve.py V1.0.20 - 28/01/2026 18:15:00
+║ Recherche de patients en langage naturel
+║ V5.1 : Support des similarités (même X que patient)
+╚════════════════════════════════════════════════════════════════
+
+Modules du pipeline:
+  jsonsql:   ✓
+  lancesql:  ✓
+  trouveid:  ✓ (V5.1)
+  gardefou:  ✓
+
+
+══════════════════════════════════════════════════════════════════════
+RÉSULTAT
+══════════════════════════════════════════════════════════════════════
+Nombre de résultats: 0
+Mode: standard
+Temps total: 50.0ms
+
+Critères détectés:
+  - [tag] classe iii d'angle
+  - [age] moins de 23 ans
+  - [age] plus age que 17 ans
+
+C:\cx>python search.py ""Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3"" base1964.db
+╔════════════════════════════════════════════════════════════════
+║ search.py V1.0.29 - 28/01/2026 18:50:00
+║ Recherche multilingue avec routage intelligent
+║ Fallback: standard → IA 🤖 → traduction DeepL 🌐
+╚════════════════════════════════════════════════════════════════
+
+Base: C:\cx\bases\base1964.db
+Question: Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3
+Mode détection: standard
+
+
+══════════════════════════════════════════════════════════════════════
+Question affichée  : Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3 🤖
+Parcours détection : standard:0→ia:0
+Routage            : 🤖
+Question originale : Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3
+Question tech FR   : Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3
+Auteur             : openai/gpt-4.1-mini
+Mode effectif      : ia (standardia)
+Langue question    : fr
+Langue réponse     : fr
+══════════════════════════════════════════════════════════════════════
+Message: 0 patients trouvés
+Description:
+
+
+⏱️  Temps: 3925ms
+📝 Log: C:\cx\logs\logrecherche.csv
+
+C:\cx>"
+Patient enfant avec rétrognathie et ou classe 2;index;1 patient;La rétrognathie est bien détectée ainsi que la classe 2 et enfant déclenche un filtre âge;
+Patient metal compris entre 20 e 24 ans;index;0 patient;Le tag metal est détecté et la tranche d'âge 20-24 est bien identifiée malgré le e au lieu de et. 1 Seule patiente = Josette Pinto;

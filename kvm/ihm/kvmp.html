@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta class="notranslate" content="notranslate" name="google"/>
+<title data-txt="txt_0001">Kitview - Manuel d'utilisation (Standard)</title>
+<link href="https://www.kitview.com/favicon.ico" rel="icon" type="image/png"/>
+<link href="https://www.kitview.com/favicon.ico" rel="apple-touch-icon"/>
+<link href="css/kvm.css" rel="stylesheet"/>
+<link href="css/themes.css" rel="stylesheet"/>
+<link href="css/chatbot.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Header -->
+<header class="help-header">
+<div class="header-left">
+<img alt="Logo Kitview" class="logo" data-alt-txt="txt_0486" src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png"/>
+<h1><span class="icon">📖</span> <span class="" data-txt="txt_0002">Manuel d'utilisation</span></h1>
+</div>
+<!-- Zone de recherche -->
+<div class="header-center notranslate">
+<div class="search-box" id="searchBox">
+<span class="search-icon">🔍</span>
+<input data-placeholder-txt="txt_0558" id="searchInput" placeholder="Rechercher dans le manuel..." type="text"/>
+<button class="clear-search" id="clearSearch" title="Effacer">✕</button>
+</div>
+<select class="section-filter" id="sectionFilter">
+<option data-txt="txt_0563" value="all">📑 Toutes les sections</option>
+<option data-txt="txt_0564" value="presentation">1. Présentation</option>
+<option data-txt="txt_0565" value="gestion-patients">2. Gestion patients</option>
+<option data-txt="txt_0566" value="personnalisation">3. Personnalisation</option>
+<option data-txt="txt_0567" value="import-export">4. Import/Export</option>
+<option data-txt="txt_0568" value="seances">5. Séances photos</option>
+<option data-txt="txt_0569" value="gabarits">6. Gabarits</option>
+<option data-txt="txt_0570" value="viewers">7. Viewers</option>
+<option data-txt="txt_0571" value="modification-photos">8. Modification photos</option>
+<option data-txt="txt_0572" value="presentations">9. Présentations fixes</option>
+<option data-txt="txt_0573" value="docking">10. Docking</option>
+<option data-txt="txt_0574" value="creer-presentation">11. Créer présentation</option>
+<option data-txt="txt_0575" value="diaporama">12. Diaporama</option>
+<option data-txt="txt_0576" value="comparateur">13. Comparateur</option>
+<option data-txt="txt_0577" value="courrier">14. Courrier</option>
+<option data-txt="txt_0578" value="portfolio">15. Portfolio</option>
+<option data-txt="txt_0579" value="filtre-population">16. Filtre population</option>
+<option data-txt="txt_0580" value="recherche-date">17. Recherche date</option>
+<option data-txt="txt_0581" value="formulaires">18. Formulaires</option>
+<option data-txt="txt_0582" value="support-formation">19. Support formation</option>
+</select>
+<!-- Navigation des résultats inline -->
+<div class="search-nav-inline" id="searchNavInline">
+<span class="search-results-count-inline" id="searchResultsCount">0</span>
+<button class="search-nav-btn" data-txt="txt_0559" id="prevResult" title="Précédent (Shift+F3)">Préc.</button>
+<span class="search-nav-index" id="currentResultIndex">0/0</span>
+<button class="search-nav-btn" data-txt="txt_0560" id="nextResult" title="Suivant (F3)">Suiv.</button>
+<button class="search-close-btn" id="closeSearchResults" title="Fermer">✕</button>
+</div>
+<!-- Chips de niveau -->
+<div class="level-chips-container notranslate">
+<a class="level-chip standard active" href="kvms.html" title="Version Standard">📘 <span class="chip-label" data-txt="txt_0585">Standard</span></a>
+<a class="level-chip debutant" href="kvmd.html" title="Version Débutant">🟢 <span class="chip-label" data-txt="txt_0586">Débutant</span></a>
+<a class="level-chip intermediaire" href="kvmi.html" title="Version Intermédiaire">🟡 <span class="chip-label" data-txt="txt_0587">Inter.</span></a>
+<a class="level-chip expert" href="kvme.html" title="Version Expert">🔴 <span class="chip-label" data-txt="txt_0588">Expert</span></a>
+</div>
+</div>
+<div class="header-right">
+<!-- Bouton d'aide -->
+<a class="icon-button help-button" data-title-txt="txt_0607" href="aide.html" id="helpButton" title="Guide du manuel">❓</a>
+<!-- Sélecteur de langue custom -->
+<div class="lang-button-container">
+<button class="lang-button" data-txt="txt_0561" id="langButton" onclick="toggleLangPopup()">FR▼
+<img alt="FR" class="flag-img" id="currentFlag" src="https://flagcdn.com/w40/fr.png"/>
+<span id="currentLangCode">FR</span>
+<span class="dropdown-arrow">▼</span>
+</button>
+<div class="lang-popup" id="langPopup" style="display: none;">
+<div class="lang-popup-header" data-txt="txt_0584">
+<span>🌐</span>Langue du manuel</div>
+<div class="lang-popup-section">
+<div class="lang-popup-label" data-txt="txt_0583">Sélectionnez une langue</div>
+<div class="chips-container">
+<div class="lang-chip selected" data-flag="fr" data-lang="fr" onclick="selectLanguage('fr', 'FR', 'fr')">
+<img alt="FR" class="chip-flag" src="https://flagcdn.com/w40/fr.png"/> FR
+                            </div>
+<div class="lang-chip" data-flag="gb" data-lang="en" onclick="selectLanguage('en', 'EN', 'gb')">
+<img alt="EN" class="chip-flag" src="https://flagcdn.com/w40/gb.png"/> EN
+                            </div>
+<div class="lang-chip" data-flag="de" data-lang="de" onclick="selectLanguage('de', 'DE', 'de')">
+<img alt="DE" class="chip-flag" src="https://flagcdn.com/w40/de.png"/> DE
+                            </div>
+<div class="lang-chip" data-flag="es" data-lang="es" onclick="selectLanguage('es', 'ES', 'es')">
+<img alt="ES" class="chip-flag" src="https://flagcdn.com/w40/es.png"/> ES
+                            </div>
+<div class="lang-chip" data-flag="it" data-lang="it" onclick="selectLanguage('it', 'IT', 'it')">
+<img alt="IT" class="chip-flag" src="https://flagcdn.com/w40/it.png"/> IT
+                            </div>
+<div class="lang-chip" data-flag="pt" data-lang="pt" onclick="selectLanguage('pt', 'PT', 'pt')">
+<img alt="PT" class="chip-flag" src="https://flagcdn.com/w40/pt.png"/> PT
+                            </div>
+<div class="lang-chip" data-flag="pl" data-lang="pl" onclick="selectLanguage('pl', 'PL', 'pl')">
+<img alt="PL" class="chip-flag" src="https://flagcdn.com/w40/pl.png"/> PL
+                            </div>
+<div class="lang-chip" data-flag="ro" data-lang="ro" onclick="selectLanguage('ro', 'RO', 'ro')">
+<img alt="RO" class="chip-flag" src="https://flagcdn.com/w40/ro.png"/> RO
+                            </div>
+<div class="lang-chip" data-flag="th" data-lang="th" onclick="selectLanguage('th', 'TH', 'th')">
+<img alt="TH" class="chip-flag" src="https://flagcdn.com/w40/th.png"/> TH
+                            </div>
+<div class="lang-chip" data-flag="sa" data-lang="ar" onclick="selectLanguage('ar', 'AR', 'sa')">
+<img alt="AR" class="chip-flag" src="https://flagcdn.com/w40/sa.png"/> AR
+                            </div>
+<div class="lang-chip" data-flag="cn" data-lang="zh-CN" onclick="selectLanguage('zh-CN', 'CN', 'cn')">
+<img alt="CN" class="chip-flag" src="https://flagcdn.com/w40/cn.png"/> CN
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Google Translate Widget (invisible via CSS) -->
+<div id="google_translate_element"></div>
+<!-- Thème -->
+<button class="icon-button" id="themeToggle" title="Changer le thème">
+                🌙
+            </button>
+<!-- Retour -->
+<button class="back-button notranslate" data-txt="txt_0562" onclick="goBack()">Retour</button>
+</div>
+</header>
+<!-- Container principal -->
+<div class="help-container">
+<!-- Table des matières -->
+<aside class="toc-sidebar">
+<nav class="toc-card">
+<div class="toc-title" data-txt="txt_0446">Sommaire</div>
+<ul class="toc-list">
+<li><a data-txt="txt_0158" href="#presentation">1. Présentation générale</a></li>
+<li><a data-txt="txt_0159" href="#gestion-patients">2. Gestion des patients</a></li>
+<li class="toc-sub"><a data-txt="txt_0160" href="#creer-patient">Créer un patient</a></li>
+<li class="toc-sub"><a data-txt="txt_0161" href="#supprimer-patient">Supprimer un patient</a></li>
+<li class="toc-sub"><a data-txt="txt_0162" href="#photo-identite">Photo d'identité</a></li>
+<li><a data-txt="txt_0163" href="#personnalisation">3. Personnalisation</a></li>
+<li class="toc-sub"><a data-txt="txt_0164" href="#onglets-style">Onglets et style</a></li>
+<li class="toc-sub"><a data-txt="txt_0165" href="#couleurs">Couleurs du bureau</a></li>
+<li class="toc-sub"><a data-txt="txt_0166" href="#vignettes">Taille des vignettes</a></li>
+<li><a data-txt="txt_0167" href="#import-export">4. Import / Export</a></li>
+<li class="toc-sub"><a data-txt="txt_0168" href="#import-photos">Importer des photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0169" href="#export-photos">Exporter des photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0170" href="#drag-drop">Glisser-déposer</a></li>
+<li><a data-txt="txt_0171" href="#seances">5. Séances photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0172" href="#protocole">Protocole</a></li>
+<li class="toc-sub"><a data-txt="txt_0173" href="#wifi">WiFi</a></li>
+<li><a data-txt="txt_0174" href="#gabarits">6. Gabarits et mots-clés</a></li>
+<li class="toc-sub"><a data-txt="txt_0175" href="#creer-motcle">Créer un mot-clé</a></li>
+<li class="toc-sub"><a data-txt="txt_0176" href="#creer-gabarit">Créer un gabarit</a></li>
+<li class="toc-sub"><a data-txt="txt_0177" href="#creer-filtre">Créer un filtre</a></li>
+<li><a data-txt="txt_0178" href="#viewers">7. Viewers</a></li>
+<li class="toc-sub"><a data-txt="txt_0179" href="#presentation-viewers">Présentation</a></li>
+<li class="toc-sub"><a data-txt="txt_0180" href="#personnaliser-viewers">Personnaliser</a></li>
+<li class="toc-sub"><a data-txt="txt_0181" href="#ajouter-viewers">Ajouter des viewers</a></li>
+<li><a data-txt="txt_0182" href="#modification-photos">8. Modification de photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0183" href="#copier-coller">Copier-coller</a></li>
+<li class="toc-sub"><a data-txt="txt_0184" href="#luminosite">Luminosité</a></li>
+<li class="toc-sub"><a data-txt="txt_0185" href="#recadrer">Recadrer</a></li>
+<li><a data-txt="txt_0186" href="#presentations">9. Présentations fixes</a></li>
+<li><a data-txt="txt_0187" href="#docking">10. Le Docking</a></li>
+<li><a data-txt="txt_0188" href="#creer-presentation">11. Créer une présentation</a></li>
+<li><a data-txt="txt_0189" href="#diaporama">12. Diaporama</a></li>
+<li><a data-txt="txt_0190" href="#comparateur">13. Comparer des photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0191" href="#comparer-2vues">Mode 2 Vues</a></li>
+<li class="toc-sub"><a data-txt="txt_0192" href="#comparateur-colonne-ligne">Colonne / Ligne</a></li>
+<li class="toc-sub"><a data-txt="txt_0193" href="#comparateur-protocole">Par séances</a></li>
+<li><a data-txt="txt_0194" href="#courrier">14. Modèles de courrier</a></li>
+<li class="toc-sub"><a data-txt="txt_0195" href="#creer-courrier">Créer un courrier</a></li>
+<li><a data-txt="txt_0196" href="#portfolio">15. Portfolio / PowerPoint</a></li>
+<li><a data-txt="txt_0197" href="#filtre-population">16. Filtre de population</a></li>
+<li><a data-txt="txt_0198" href="#recherche-date">17. Recherche par date</a></li>
+<li class="toc-sub"><a data-txt="txt_0199" href="#date-precise">Date précise</a></li>
+<li class="toc-sub"><a data-txt="txt_0200" href="#plage-dates">Plage de dates</a></li>
+<li><a data-txt="txt_0201" href="#formulaires">18. Formulaires</a></li>
+<li class="toc-sub"><a data-txt="txt_0202" href="#completer-formulaire">Compléter un formulaire</a></li>
+<li class="toc-sub"><a data-txt="txt_0203" href="#recherche-formulaires">Recherche de cas</a></li>
+<li><a data-txt="txt_0204" href="#support-formation">19. Support de formation</a></li>
+</ul>
+</nav>
+</aside>
+<!-- Contenu principal -->
+<main class="help-content">
+<div class="content-card">
+<h1 class="main-title"><span data-txt="txt_0004">📖 Manuel d'utilisation Kitview</span><span class="version-badge" data-txt="txt_0589">v1.5</span>
+</h1>
+<p class="subtitle" data-txt="txt_0005">Guide complet pour la gestion de vos fichiers multimédia patients</p>
+<!-- SECTION 1: PRÉSENTATION GÉNÉRALE -->
+<section class="help-section" id="presentation">
+<h2 data-txt="txt_0006">1. Présentation générale</h2>
+<p data-txt="txt_0093">Kitview est une médiathèque numérique conçue pour les cabinets d'orthodontie. Elle permet de gérer tous types de fichiers multimédia associés aux dossiers patients :</p>
+<ul>
+<li data-txt="txt_0205"><strong>Photos</strong>Photos: portraits, photos intra-buccales, photos de face/profil</li>
+<li data-txt="txt_0206"><strong>Radios</strong>Radios: panoramiques, téléradiographies</li>
+<li data-txt="txt_0207"><strong>Scans 3D</strong>Scans 3D: modèles numériques</li>
+<li data-txt="txt_0208"><strong>Documents</strong>Documents: PDF, courriers, compte-rendus</li>
+<li data-txt="txt_0209">Vidéos et audio</li>
+</ul>
+<img alt="Interface principale Kitview" data-alt-txt="txt_0487" src="https://placehold.co/400x300/e0e0e0/666?text=page05_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0094">Interface principale de Kitview avec la liste des patients et les vignettes</p>
+<div class="note-box tip" data-note-content-txt="txt_0448">
+<strong data-txt="txt_0447">Conseil</strong>
+                        Kitview s'intègre avec votre logiciel de gestion de cabinet pour synchroniser automatiquement la liste des patients.
+                    </div>
+</section>
+<!-- SECTION 2: GESTION DES PATIENTS -->
+<section class="help-section" id="gestion-patients">
+<h2 data-txt="txt_0007">2. Gestion des patients</h2>
+<h3 data-txt="txt_0025" id="creer-patient">Créer un nouveau patient</h3>
+<p data-txt="txt_0095">Pour créer une nouvelle fiche patient dans Kitview :</p>
+<ol class="step-list">
+<li data-txt="txt_0210">Cliquez sur l'onglet« Patient »<strong>« Patient »</strong></li>
+<li data-txt="txt_0211">Une fenêtre s'ouvre : remplissez les informations (Nom, Prénom, Date de naissance, Sexe)</li>
+<li data-txt="txt_0212">Cliquez sur« Valider »<strong>« Valider »</strong></li>
+</ol>
+<img alt="Création d'un patient" data-alt-txt="txt_0488" src="https://placehold.co/400x300/e0e0e0/666?text=page06_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0096">Fenêtre de création d'un nouveau patient</p>
+<h3 data-txt="txt_0026" id="supprimer-patient">Supprimer une fiche patient</h3>
+<div class="note-box warning" data-note-content-txt="txt_0450">
+<strong data-txt="txt_0449">️ Attention</strong>
+                        La suppression d'une fiche patient est définitive et supprime également toutes les photos et documents associés. Cette action nécessite le mode Administration.
+                    </div>
+<ol class="step-list">
+<li data-txt="txt_0213">Cliquez sur« Paramètres »<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0214">Cliquez sur« Administration »puis« Général »<strong>« Administration »</strong> puis <strong>« Général »</strong></li>
+<li data-txt="txt_0215">Cochez« Passer en mode administration »<strong>« Passer en mode administration »</strong></li>
+<li data-txt="txt_0216">Sélectionnez le patient à supprimer</li>
+<li data-txt="txt_0217">Cliquez sur« Patient »→« Supprimer le patient sélectionné »<strong>« Patient »</strong> → <strong>« Supprimer le patient sélectionné »</strong></li>
+</ol>
+<img alt="Suppression d'un patient" data-alt-txt="txt_0489" src="https://placehold.co/400x300/e0e0e0/666?text=page07_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0027" id="photo-identite">Photo d'identité</h3>
+<p data-txt="txt_0097">Pour définir ou modifier la photo d'identité d'un patient :</p>
+<ol class="step-list">
+<li data-txt="txt_0218">Sélectionnez le patient dans la liste</li>
+<li data-txt="txt_0219">Cliquez sur la photo que vous souhaitez utiliser comme photo d'identité</li>
+<li data-txt="txt_0220">Faites unclic droitsur la photo<strong>clic droit</strong> sur la photo</li>
+<li data-txt="txt_0221">Sélectionnez« Patient »→« Photo d'identité »<strong>« Patient »</strong> → <strong>« Photo d'identité »</strong></li>
+</ol>
+<img alt="Définir photo d'identité" data-alt-txt="txt_0490" src="https://placehold.co/400x300/e0e0e0/666?text=page08_img02.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0098">Menu contextuel pour définir la photo d'identité</p>
+</section>
+<!-- SECTION 3: PERSONNALISATION -->
+<section class="help-section" id="personnalisation">
+<h2 data-txt="txt_0008">3. Personnalisation de l'interface</h2>
+<h3 data-txt="txt_0028" id="onglets-style">Onglets et style de présentation</h3>
+<p data-txt="txt_0099">Kitview propose différents modes d'affichage de l'interface que vous pouvez personnaliser selon vos préférences.</p>
+<h4 data-txt="txt_0065">Ajouter/Supprimer des onglets</h4>
+<ol class="step-list">
+<li data-txt="txt_0222">Cliquez sur« Paramètres »<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0223">Sélectionnez« Affichage »→« Apparence »<strong>« Affichage »</strong> → <strong>« Apparence »</strong></li>
+<li data-txt="txt_0224">Cochez ou décochez les onglets souhaités</li>
+</ol>
+<img alt="Configuration des onglets" data-alt-txt="txt_0491" src="https://placehold.co/400x300/e0e0e0/666?text=page09_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0029" id="couleurs">Couleurs du bureau</h3>
+<p data-txt="txt_0100">Pour personnaliser les couleurs de l'interface :</p>
+<ol class="step-list">
+<li data-txt="txt_0225">Cliquez sur« Bureaux »<strong>« Bureaux »</strong></li>
+<li data-txt="txt_0226">Sélectionnez« Couleurs du bureau »<strong>« Couleurs du bureau »</strong></li>
+<li data-txt="txt_0227">Choisissez les couleurs souhaitées pour chaque élément</li>
+<li data-txt="txt_0228">Cliquez sur« OK »pour valider<strong>« OK »</strong> pour valider</li>
+</ol>
+<img alt="Couleurs du bureau" data-alt-txt="txt_0492" src="https://placehold.co/400x300/e0e0e0/666?text=page09_img02.png" style=";border: 2px dashed #999;"/>
+<img alt="Exemples de couleurs" data-alt-txt="txt_0493" src="https://placehold.co/400x300/e0e0e0/666?text=page09_img03.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0030" id="vignettes">Taille des vignettes</h3>
+<p data-txt="txt_0101">Vous pouvez ajuster la taille des miniatures affichées :</p>
+<ol class="step-list">
+<li data-txt="txt_0229">Cliquez sur« Paramètres »<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0230">Sélectionnez« Affichage »→« Résultats »<strong>« Affichage »</strong> → <strong>« Résultats »</strong></li>
+<li data-txt="txt_0231">Ajustez la valeur de« Taille des vignettes »<strong>« Taille des vignettes »</strong></li>
+</ol>
+<img alt="Configuration taille vignettes" data-alt-txt="txt_0494" src="https://placehold.co/400x300/e0e0e0/666?text=page09_img04.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0066">Personnaliser la couleur de sélection des photos</h4>
+<ol class="step-list">
+<li data-txt="txt_0232">Cliquez sur« Paramètres »<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0233">Sélectionnez« Affichage »→« Résultats »<strong>« Affichage »</strong> → <strong>« Résultats »</strong></li>
+<li data-txt="txt_0234">Modifiez la« Couleur de sélection »<strong>« Couleur de sélection »</strong></li>
+</ol>
+<div class="note-box tip" data-note-content-txt="txt_0452">
+<strong data-txt="txt_0451">Conseil</strong>
+                        Pensez à enregistrer votre bureau une fois les modifications effectuées : <strong>Bureaux → Enregistrer le bureau courant</strong>
+</div>
+</section>
+<!-- SECTION 4: IMPORT / EXPORT -->
+<section class="help-section" id="import-export">
+<h2 data-txt="txt_0009">4. Import / Export de documents</h2>
+<h3 data-txt="txt_0031" id="import-photos">Importer des photos</h3>
+<p data-txt="txt_0102">Plusieurs méthodes sont disponibles pour importer des documents dans un dossier patient :</p>
+<h4 data-txt="txt_0067">Méthode 1 : Glisser-déposer depuis Windows</h4>
+<ol class="step-list">
+<li data-txt="txt_0235">Sélectionnez le patient concerné</li>
+<li data-txt="txt_0236">Ouvrez l'explorateur Windows avec vos photos</li>
+<li data-txt="txt_0237">Sélectionnez les photos à importer</li>
+<li data-txt="txt_0238">Glissez-déposez les photos dans la zone des vignettes de Kitview</li>
+</ol>
+<img alt="Import par glisser-déposer" data-alt-txt="txt_0495" src="https://placehold.co/400x300/e0e0e0/666?text=page11_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0068">Méthode 2 : Import depuis Outlook</h4>
+<p data-txt="txt_0103">Vous pouvez importer directement les pièces jointes d'un email :</p>
+<ol class="step-list">
+<li data-txt="txt_0239">Ouvrez l'email dans Outlook</li>
+<li data-txt="txt_0240">Sélectionnez la ou les pièces jointes</li>
+<li data-txt="txt_0241">Glissez-déposez dans Kitview</li>
+</ol>
+<img alt="Import depuis Outlook" data-alt-txt="txt_0496" src="https://placehold.co/400x300/e0e0e0/666?text=page11_img02.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0032" id="export-photos">Exporter des photos</h3>
+<p data-txt="txt_0104">Pour exporter des photos vers Windows ou une clé USB :</p>
+<ol class="step-list">
+<li data-txt="txt_0242">Sélectionnez la ou les photos à exporter</li>
+<li data-txt="txt_0243">Faites unclic droit<strong>clic droit</strong></li>
+<li data-txt="txt_0244">Sélectionnez« Exporter »→« Export rapide »<strong>« Exporter »</strong> → <strong>« Export rapide »</strong></li>
+<li data-txt="txt_0245">Choisissez le dossier de destination</li>
+</ol>
+<img alt="Export de photos" data-alt-txt="txt_0497" src="https://placehold.co/400x300/e0e0e0/666?text=page12_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0033" id="drag-drop">Glisser-déposer avancé</h3>
+<p data-txt="txt_0105">Le glisser-déposer fonctionne dans les deux sens :</p>
+<ul>
+<li data-txt="txt_0246"><strong>Vers Kitview</strong>Vers Kitview: pour importer des fichiers</li>
+<li data-txt="txt_0247"><strong>Depuis Kitview</strong>Depuis Kitview: pour exporter vers Windows, email, etc.</li>
+</ul>
+<img alt="Glisser-déposer bidirectionnel" data-alt-txt="txt_0498" src="https://placehold.co/400x300/e0e0e0/666?text=page12_img02.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0069">Configuration du format de nom des pièces jointes</h4>
+<p data-txt="txt_0106">Pour personnaliser le nom des fichiers lors de l'export :</p>
+<ol class="step-list">
+<li data-txt="txt_0248">Cliquez sur« Paramètres »<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0249">Sélectionnez« Courrier »<strong>« Courrier »</strong></li>
+<li data-txt="txt_0250">Configurez le format souhaité avec les variables disponibles (%n = nom, %p = prénom, etc.)</li>
+</ol>
+<img alt="Configuration export" data-alt-txt="txt_0499" src="https://placehold.co/400x300/e0e0e0/666?text=page13_img01.png" style=";border: 2px dashed #999;"/>
+</section>
+<!-- SECTION 5: SÉANCES PHOTOS -->
+<section class="help-section" id="seances">
+<h2 data-txt="txt_0010">5. Séances photos</h2>
+<h3 data-txt="txt_0034" id="protocole">Protocole de séance</h3>
+<p data-txt="txt_0107">Le protocole permet de guider la prise de photos selon un ordre prédéfini avec des gabarits.</p>
+<ol class="step-list">
+<li data-txt="txt_0251">Sélectionnez le patient</li>
+<li data-txt="txt_0252">Cliquez sur« Séance »<strong>« Séance »</strong></li>
+<li data-txt="txt_0253">Cliquez sur« Commencer la séance »<strong>« Commencer la séance »</strong></li>
+<li data-txt="txt_0254">Suivez les gabarits affichés pour prendre les photos dans l'ordre</li>
+</ol>
+<img alt="Mode séance" data-alt-txt="txt_0500" src="https://placehold.co/400x300/e0e0e0/666?text=page14_img01.png" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0108">Interface du mode séance avec les gabarits</p>
+<h3 data-txt="txt_0035" id="wifi">Acquisition WiFi</h3>
+<p data-txt="txt_0109">Kitview permet de recevoir les photos directement depuis un appareil photo WiFi :</p>
+<ol class="step-list">
+<li data-txt="txt_0255">Configurez votre appareil photo en mode WiFi</li>
+<li data-txt="txt_0256">Dans Kitview, cliquez sur« Acquisition »<strong>« Acquisition »</strong></li>
+<li data-txt="txt_0257">Sélectionnez« WiFi »<strong>« WiFi »</strong></li>
+<li data-txt="txt_0258">Les photos sont reçues automatiquement</li>
+</ol>
+<img alt="Acquisition WiFi" data-alt-txt="txt_0501" src="https://placehold.co/400x300/e0e0e0/666?text=page15_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box info" data-note-content-txt="txt_0454">
+<strong data-txt="txt_0453">️ Information</strong>
+                        L'appareil photo et l'ordinateur doivent être connectés au même réseau WiFi.
+                    </div>
+</section>
+<!-- SECTION 6: GABARITS ET MOTS-CLÉS -->
+<section class="help-section" id="gabarits">
+<h2 data-txt="txt_0011">6. Gabarits et mots-clés</h2>
+<p data-txt="txt_0110">Les gabarits permettent de classer automatiquement vos photos grâce aux mots-clés associés. La création d'un gabarit personnalisé se fait en 3 étapes :</p>
+<h3 data-txt="txt_0036" id="creer-motcle">Étape 1 : Créer le mot-clé dans le dictionnaire</h3>
+<ol class="step-list">
+<li data-txt="txt_0259">Cliquez sur« Paramètres »<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0260">Sélectionnez« Dictionnaire »→« Thésaurus de votre domaine »<strong>« Dictionnaire »</strong> → <strong>« Thésaurus de votre domaine »</strong></li>
+<li data-txt="txt_0261">Cliquez sur« Tout développer »pour voir toutes les familles<strong>« Tout développer »</strong> pour voir toutes les familles</li>
+<li data-txt="txt_0262">Positionnez-vous sur la famille appropriée</li>
+<li data-txt="txt_0263">Cliquez sur« Créer une nouvelle étiquette »<strong>« Créer une nouvelle étiquette »</strong></li>
+</ol>
+<img alt="Création mot-clé" data-alt-txt="txt_0502" src="https://placehold.co/400x300/e0e0e0/666?text=page31_img01.png" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0111">Interface de gestion du thésaurus</p>
+<h3 data-txt="txt_0037" id="creer-gabarit">Étape 2 : Créer le gabarit</h3>
+<ol class="step-list">
+<li data-txt="txt_0264">Cliquez sur« Paramètres »<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0265">Sélectionnez« Gabarits »→« Boîte à outils »<strong>« Gabarits »</strong> → <strong>« Boîte à outils »</strong></li>
+<li data-txt="txt_0266">Faites un clic droit sur une famille →« Ajouter »pour créer une nouvelle famille<strong>« Ajouter »</strong> pour créer une nouvelle famille</li>
+<li data-txt="txt_0267">Cliquez sur« Créer un nouveau gabarit »<strong>« Créer un nouveau gabarit »</strong></li>
+<li data-txt="txt_0268">Cliquez sur« Charger une image »pour ajouter une image au gabarit<strong>« Charger une image »</strong> pour ajouter une image au gabarit</li>
+<li data-txt="txt_0269">Remplissez le champ« Désignation »<strong>« Désignation »</strong></li>
+<li data-txt="txt_0270">Double-cliquez sur la famille créée pour associer le mot-clé</li>
+<li data-txt="txt_0271">Cliquez sur« Valider »<strong>« Valider »</strong></li>
+</ol>
+<img alt="Création gabarit" data-alt-txt="txt_0503" src="https://placehold.co/400x300/e0e0e0/666?text=page32_img01.png" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0112">Fenêtre de création d'un gabarit</p>
+<h3 data-txt="txt_0038" id="creer-filtre">Étape 3 : Créer le filtre (collection)</h3>
+<ol class="step-list">
+<li data-txt="txt_0272">Faites un clic droit sur« Tous »dans l'arborescence<strong>« Tous »</strong> dans l'arborescence</li>
+<li data-txt="txt_0273">Sélectionnez« Ajouter une collection à la racine »<strong>« Ajouter une collection à la racine »</strong></li>
+<li data-txt="txt_0274">Donnez un nom à la collection (identique au mot-clé)</li>
+<li data-txt="txt_0275">Cliquez sur« Ajouter une condition »<strong>« Ajouter une condition »</strong></li>
+<li data-txt="txt_0276">Sélectionnez le mot-clé créé précédemment</li>
+<li data-txt="txt_0277">Cliquez sur« Valider »<strong>« Valider »</strong></li>
+</ol>
+<img alt="Création filtre" data-alt-txt="txt_0504" src="https://placehold.co/400x300/e0e0e0/666?text=page34_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0456">
+<strong data-txt="txt_0455">Conseil</strong>
+                        Une fois vos gabarits créés, allez dans l'onglet « Gabarit » et cliquez sur le bouton « Rafraîchir » pour voir apparaître vos nouvelles créations.
+                    </div>
+<h4 data-txt="txt_0070">Modifier l'image d'un gabarit existant</h4>
+<ol class="step-list">
+<li data-txt="txt_0278">Cliquez sur« Paramètres »→« Gabarits »→« Boîte à outils »<strong>« Paramètres »</strong> → <strong>« Gabarits »</strong> → <strong>« Boîte à outils »</strong></li>
+<li data-txt="txt_0279">Sélectionnez le gabarit à modifier</li>
+<li data-txt="txt_0280">Cliquez sur« Modifier le gabarit sélectionné »<strong>« Modifier le gabarit sélectionné »</strong></li>
+<li data-txt="txt_0281">Cliquez sur« Charger une image »<strong>« Charger une image »</strong></li>
+<li data-txt="txt_0282">Sélectionnez la nouvelle image</li>
+<li data-txt="txt_0283">Cliquez sur« Valider »<strong>« Valider »</strong></li>
+</ol>
+<img alt="Modifier gabarit" data-alt-txt="txt_0505" src="https://placehold.co/400x300/e0e0e0/666?text=page37_img01.jpeg" style=";border: 2px dashed #999;"/>
+</section>
+<!-- SECTION 7: VIEWERS -->
+<section class="help-section" id="viewers">
+<h2 data-txt="txt_0012">7. Viewers</h2>
+<h3 data-txt="txt_0039" id="presentation-viewers">Présentation des viewers</h3>
+<p data-txt="txt_0113">Les viewers sont des zones d'affichage personnalisables qui permettent de visualiser les photos en grand format. Vous pouvez en avoir autant que vous le souhaitez.</p>
+<p data-txt="txt_0114">Kitview propose plusieurs modes d'affichage :</p>
+<ul>
+<li data-txt="txt_0284"><strong>1 Vue</strong>1 Vue: une seule photo en grand</li>
+<li data-txt="txt_0285"><strong>2 Vues</strong>2 Vues: deux photos côte à côte pour comparaison</li>
+<li data-txt="txt_0286"><strong>4 Vues</strong>4 Vues: quatre photos pour vue d'ensemble</li>
+<li data-txt="txt_0287"><strong>Gabarits</strong>Gabarits: affichage selon les templates</li>
+<li data-txt="txt_0288"><strong>Portfolio</strong>Portfolio: vue en galerie</li>
+</ul>
+<img alt="Viewer 1 vue" data-alt-txt="txt_0506" src="https://placehold.co/400x300/e0e0e0/666?text=page42_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0115">Mode 1 Vue</p>
+<img alt="Viewer 2 vues" data-alt-txt="txt_0507" src="https://placehold.co/400x300/e0e0e0/666?text=page43_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0116">Mode 2 Vues</p>
+<img alt="Viewer 4 vues" data-alt-txt="txt_0508" src="https://placehold.co/400x300/e0e0e0/666?text=page43_img02.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0117">Mode 4 Vues</p>
+<h4 data-txt="txt_0071">Sélectionner les photos à afficher</h4>
+<ol class="step-list">
+<li data-txt="txt_0289">Positionnez-vous dans l'onglet« 1 Vue »,« 2 Vues »ou« 4 Vues »<strong>« 1 Vue »</strong>, <strong>« 2 Vues »</strong> ou <strong>« 4 Vues »</strong></li>
+<li data-txt="txt_0290">Cliquez sur la photo souhaitée ou faites un glisser-déposer</li>
+</ol>
+<div class="note-box tip" data-note-content-txt="txt_0458">
+<strong data-txt="txt_0457">Rappel glisser-déposer</strong>
+                        Sélectionnez la photo, maintenez le clic gauche appuyé, puis relâchez au bon endroit.
+                    </div>
+<h3 data-txt="txt_0040" id="personnaliser-viewers">Personnaliser les viewers</h3>
+<h4 data-txt="txt_0072">Mettre les viewers à la même taille</h4>
+<ol class="step-list">
+<li data-txt="txt_0291">En mode 4 vues, cliquez sur l'icône« Réorganiser les fenêtres sœurs »en haut à droite<strong>« Réorganiser les fenêtres sœurs »</strong> en haut à droite</li>
+<li data-txt="txt_0292">Pour ajuster manuellement : positionnez-vous sur la ligne de séparation (une double flèche apparaît)</li>
+<li data-txt="txt_0293">Maintenez le clic gauche et ajustez</li>
+</ol>
+<img alt="Réorganiser viewers" data-alt-txt="txt_0509" src="https://placehold.co/400x300/e0e0e0/666?text=page45_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0073">Personnaliser la barre d'outils des viewers</h4>
+<ol class="step-list">
+<li data-txt="txt_0294">Faites un clic droit dans l'espace du viewer</li>
+<li data-txt="txt_0295">Cliquez sur« Personnaliser les menus »<strong>« Personnaliser les menus »</strong></li>
+<li data-txt="txt_0296">Sélectionnez les barres d'outils souhaitées</li>
+<li data-txt="txt_0297">Pour appliquer à tous les viewers : clic droit →« Appliquer ce menu aux autres viewers »<strong>« Appliquer ce menu aux autres viewers »</strong></li>
+</ol>
+<img alt="Personnaliser barre d'outils" data-alt-txt="txt_0510" src="https://placehold.co/400x300/e0e0e0/666?text=page47_img01.png" style=";border: 2px dashed #999;"/>
+<img alt="Sélection barres d'outils" data-alt-txt="txt_0511" src="https://placehold.co/400x300/e0e0e0/666?text=page48_img01.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0074">Modifier l'incrustation des informations</h4>
+<p data-txt="txt_0118">Pour modifier les informations affichées sur les photos (date, nom, etc.) :</p>
+<ol class="step-list">
+<li data-txt="txt_0298">Cliquez sur« Paramètres »<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0299">Sélectionnez« Affichage »→« Divers »<strong>« Affichage »</strong> → <strong>« Divers »</strong></li>
+<li data-txt="txt_0300">Double-cliquez sur« Viewers »<strong>« Viewers »</strong></li>
+<li data-txt="txt_0301">Modifiez la taille, la couleur et les informations affichées</li>
+<li data-txt="txt_0302">Utilisez le« ? »pour voir les codes disponibles (%c = date, %n = nom, etc.)<strong>« ? »</strong> pour voir les codes disponibles (%c = date, %n = nom, etc.)</li>
+</ol>
+<img alt="Incrustation viewers" data-alt-txt="txt_0512" src="https://placehold.co/400x300/e0e0e0/666?text=page50_img01.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="Configuration incrustation" data-alt-txt="txt_0513" src="https://placehold.co/400x300/e0e0e0/666?text=page51_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0041" id="ajouter-viewers">Ajouter des viewers</h3>
+<ol class="step-list">
+<li data-txt="txt_0303">Cliquez sur« Paramètres »→« Administration »→« Général »<strong>« Paramètres »</strong> → <strong>« Administration »</strong> → <strong>« Général »</strong></li>
+<li data-txt="txt_0304">Cochez« Mode Expert »<strong>« Mode Expert »</strong></li>
+<li data-txt="txt_0305">Cliquez sur« Bureaux »→« Réorganiser le bureau »<strong>« Bureaux »</strong> → <strong>« Réorganiser le bureau »</strong></li>
+<li data-txt="txt_0306">Des icônes apparaissent sur l'interface</li>
+<li data-txt="txt_0307">Dans l'onglet« Viewer », cliquez sur« Ajouter un viewer »<strong>« Viewer »</strong>, cliquez sur <strong>« Ajouter un viewer »</strong></li>
+<li data-txt="txt_0308">Une fenêtre viewer s'ouvre : déplacez-la à l'emplacement souhaité en utilisant les flèches directionnelles</li>
+<li data-txt="txt_0309">Pour renommer l'onglet : clic droit →« Rename »<strong>« Rename »</strong></li>
+</ol>
+<img alt="Mode expert" data-alt-txt="txt_0514" src="https://placehold.co/400x300/e0e0e0/666?text=page52_img01.png" style=";border: 2px dashed #999;"/>
+<img alt="Ajouter viewer" data-alt-txt="txt_0515" src="https://placehold.co/400x300/e0e0e0/666?text=page53_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box warning" data-note-content-txt="txt_0460">
+<strong data-txt="txt_0459">️ Important</strong>
+                        N'oubliez pas d'enregistrer votre bureau après les modifications : <strong>Bureaux → Enregistrer le bureau courant</strong>
+</div>
+</section>
+<!-- SECTION 8: MODIFICATION DE PHOTOS -->
+<section class="help-section" id="modification-photos">
+<h2 data-txt="txt_0013">8. Modification de photos</h2>
+<h3 data-txt="txt_0042" id="copier-coller">Copier-coller une photo</h3>
+<p data-txt="txt_0119">Pour dupliquer une photo dans le dossier patient :</p>
+<h4 data-txt="txt_0075">Méthode 1 : Menu contextuel</h4>
+<ol class="step-list">
+<li data-txt="txt_0310">Faites un clic droit sur la photo à dupliquer</li>
+<li data-txt="txt_0311">Cliquez sur« Edition »<strong>« Edition »</strong></li>
+<li data-txt="txt_0312">Cliquez sur« Copier »<strong>« Copier »</strong></li>
+<li data-txt="txt_0313">Cliquez sur« Coller »<strong>« Coller »</strong></li>
+</ol>
+<img alt="Copier-coller photo" data-alt-txt="txt_0516" src="https://placehold.co/400x300/e0e0e0/666?text=page58_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0076">Méthode 2 : Menu Edition</h4>
+<ol class="step-list">
+<li data-txt="txt_0314">Sélectionnez la photo</li>
+<li data-txt="txt_0315">Cliquez sur le menu« Edition »en haut<strong>« Edition »</strong> en haut</li>
+<li data-txt="txt_0316">Cliquez sur« Copier »puis« Coller »<strong>« Copier »</strong> puis <strong>« Coller »</strong></li>
+</ol>
+<img alt="Menu Edition" data-alt-txt="txt_0517" src="https://placehold.co/400x300/e0e0e0/666?text=page59_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0043" id="luminosite">Modifier la luminosité</h3>
+<ol class="step-list">
+<li data-txt="txt_0317">Positionnez-vous sur l'onglet« 1 Vue »<strong>« 1 Vue »</strong></li>
+<li data-txt="txt_0318">Sélectionnez la photo à modifier</li>
+<li data-txt="txt_0319">Cliquez sur l'icônepalettedans la barre d'outils du viewer<strong>palette</strong> dans la barre d'outils du viewer</li>
+<li data-txt="txt_0320">Ajustez la luminosité et le contraste avec les curseurs</li>
+<li data-txt="txt_0321">La photo de gauche montre le résultat, celle de droite l'original</li>
+<li data-txt="txt_0322">Cliquez sur« OK »<strong>« OK »</strong></li>
+</ol>
+<img alt="Réglage luminosité" data-alt-txt="txt_0518" src="https://placehold.co/400x300/e0e0e0/666?text=page60_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0120">Interface de réglage luminosité/contraste</p>
+<h4 data-txt="txt_0077">Revenir à la photo d'origine</h4>
+<p data-txt="txt_0121">Si vous avez modifié une photo et souhaitez revenir à l'original :</p>
+<ol class="step-list">
+<li data-txt="txt_0323">Faites un clic droit sur la photo modifiée</li>
+<li data-txt="txt_0324">Sélectionnez« Image »<strong>« Image »</strong></li>
+<li data-txt="txt_0325">Cliquez sur« Revenir à l'original »<strong>« Revenir à l'original »</strong></li>
+<li data-txt="txt_0326">Rafraîchissez si nécessaire</li>
+</ol>
+<img alt="Revenir à l'original" data-alt-txt="txt_0519" src="https://placehold.co/400x300/e0e0e0/666?text=page61_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0462">
+<strong data-txt="txt_0461">Conseil</strong>
+                        Si vous souhaitez effectuer des modifications sur une photo, dupliquez-la avant pour conserver l'original.
+                    </div>
+<h4 data-txt="txt_0078">Modifier avec Paint</h4>
+<p data-txt="txt_0122">Pour des retouches plus avancées avec un éditeur externe :</p>
+<ol class="step-list">
+<li data-txt="txt_0327">Faites un clic droit sur la photo</li>
+<li data-txt="txt_0328">Sélectionnez« Menu Explorateur »<strong>« Menu Explorateur »</strong></li>
+<li data-txt="txt_0329">Cliquez sur« Ouvrir avec »→« Paint »<strong>« Ouvrir avec »</strong> → <strong>« Paint »</strong></li>
+<li data-txt="txt_0330">Effectuez vos modifications</li>
+<li data-txt="txt_0331">Enregistrez avec la disquette pour que les modifications apparaissent dans Kitview</li>
+</ol>
+<img alt="Ouvrir avec Paint" data-alt-txt="txt_0520" src="https://placehold.co/400x300/e0e0e0/666?text=page62_img01.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="Édition dans Paint" data-alt-txt="txt_0521" src="https://placehold.co/400x300/e0e0e0/666?text=page63_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0044" id="recadrer">Recadrer une photo</h3>
+<p data-txt="txt_0123">Pour sélectionner et conserver uniquement une zone de la photo :</p>
+<ol class="step-list">
+<li data-txt="txt_0332">Sélectionnez la photo</li>
+<li data-txt="txt_0333">Cliquez sur l'onglet« 1 Vue »<strong>« 1 Vue »</strong></li>
+<li data-txt="txt_0334">Dans la barre d'outils, utilisez l'outil« Sélection rectangle »<strong>« Sélection rectangle »</strong></li>
+<li data-txt="txt_0335">Dessinez un rectangle autour de la zone à conserver</li>
+<li data-txt="txt_0336">Cliquez sur l'outil« Massicot »pour recadrer<strong>« Massicot »</strong> pour recadrer</li>
+<li data-txt="txt_0337">Cliquez sur ladisquettepour enregistrer<strong>disquette</strong> pour enregistrer</li>
+</ol>
+<img alt="Recadrage photo" data-alt-txt="txt_0522" src="https://placehold.co/400x300/e0e0e0/666?text=page66_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0079">Outils de la barre viewers</h4>
+<ul>
+<li data-txt="txt_0338"><strong>Rotation droite/gauche</strong>Rotation droite/gauche: faire pivoter la photo</li>
+<li data-txt="txt_0339"><strong>Symétrie horizontale/verticale</strong>Symétrie horizontale/verticale: effet miroir</li>
+<li data-txt="txt_0340"><strong>Ajuster la couleur</strong>Ajuster la couleur: luminosité, contraste</li>
+<li data-txt="txt_0341"><strong>Ajouter du texte</strong>Ajouter du texte: annotations sur la photo</li>
+</ul>
+<img alt="Barre d'outils viewers" data-alt-txt="txt_0523" src="https://placehold.co/400x300/e0e0e0/666?text=page65_img01.png" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0124">Barre d'outils complète des viewers</p>
+</section>
+<!-- SECTION 9: PRÉSENTATIONS FIXES -->
+<section class="help-section" id="presentations">
+<h2 data-txt="txt_0014">9. Présentations fixes</h2>
+<p data-txt="txt_0125">Les présentations fixes permettent de générer automatiquement des vues comparatives à partir des mots-clés associés aux photos. Elles sont idéales pour montrer l'évolution d'un traitement aux patients ou confrères.</p>
+<div class="note-box info" data-note-content-txt="txt_0464">
+<strong data-txt="txt_0463">️ Prérequis</strong>
+                        Pour que les présentations fonctionnent correctement, vos photos doivent avoir les bons mots-clés associés.
+                    </div>
+<h3 data-txt="txt_0045">Accéder aux présentations</h3>
+<ol class="step-list">
+<li data-txt="txt_0342">Sélectionnez un patient</li>
+<li data-txt="txt_0343">Cliquez sur l'onglet« Présentation »<strong>« Présentation »</strong></li>
+<li data-txt="txt_0344">Choisissez parmi les présentations disponibles en bas de l'écran</li>
+</ol>
+<img alt="Présentations fixes" data-alt-txt="txt_0524" src="https://placehold.co/400x300/e0e0e0/666?text=page68_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0126">Interface des présentations fixes</p>
+<h3 data-txt="txt_0046">Types de présentations disponibles</h3>
+<h4 data-txt="txt_0080">Séquence complète</h4>
+<p data-txt="txt_0127">Vue d'ensemble avec portrait, photos intra-buccales et panoramique.</p>
+<h4 data-txt="txt_0081">Début Fin ¾</h4>
+<p data-txt="txt_0128">Comparaison avant/après en vue trois-quarts.</p>
+<img alt="Présentation Début Fin" data-alt-txt="txt_0525" src="https://placehold.co/400x300/e0e0e0/666?text=page69_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0082">Séquence complète 2</h4>
+<p data-txt="txt_0129">Vue complète incluant profil et téléradiographie.</p>
+<img alt="Séquence complète 2" data-alt-txt="txt_0526" src="https://placehold.co/400x300/e0e0e0/666?text=page69_img02.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0083">Moulages</h4>
+<p data-txt="txt_0130">Présentation des photos de moulages dentaires.</p>
+<img alt="Présentation Moulages" data-alt-txt="txt_0527" src="https://placehold.co/400x300/e0e0e0/666?text=page70_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0084">Début En cours Fin</h4>
+<p data-txt="txt_0131">Comparaison en trois temps pour suivre l'évolution du traitement.</p>
+<img alt="Début En cours Fin" data-alt-txt="txt_0528" src="https://placehold.co/400x300/e0e0e0/666?text=page70_img02.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0085">Comparateur</h4>
+<p data-txt="txt_0132">Outil de comparaison côte à côte personnalisable.</p>
+</section>
+<!-- SECTION 10: DOCKING (Le Bureau) -->
+<section class="help-section" id="docking">
+<h2 data-txt="txt_0015">10. Le Docking (personnalisation du bureau)</h2>
+<p data-txt="txt_0133">Chaque bureau est entièrement personnalisable. Vous pouvez ajouter, supprimer ou déplacer des éléments selon vos besoins.</p>
+<h3 data-txt="txt_0047">Activer le mode de personnalisation</h3>
+<ol class="step-list">
+<li data-txt="txt_0345">Cliquez sur« Paramètres »<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0346">Sélectionnez« Administration »→« Général »<strong>« Administration »</strong> → <strong>« Général »</strong></li>
+<li data-txt="txt_0347">Cochez« Mode Expert »<strong>« Mode Expert »</strong></li>
+<li data-txt="txt_0348">Cliquez sur« Bureaux »<strong>« Bureaux »</strong></li>
+<li data-txt="txt_0349">Sélectionnez« Réorganiser le bureau »<strong>« Réorganiser le bureau »</strong></li>
+</ol>
+<img alt="Mode docking" data-alt-txt="txt_0529" src="https://placehold.co/400x300/e0e0e0/666?text=page38_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0048">Actions disponibles</h3>
+<ul>
+<li data-txt="txt_0350"><strong>Agrandir/Rétrécir une zone</strong>Agrandir/Rétrécir une zone: positionnez-vous entre deux zones (une flèche apparaît), puis glissez</li>
+<li data-txt="txt_0351"><strong>Supprimer une zone</strong>Supprimer une zone: cliquez sur la croix de la zone</li>
+<li data-txt="txt_0352"><strong>Déplacer une zone</strong>Déplacer une zone: maintenez le clic sur le titre de la zone et déplacez vers les flèches directionnelles</li>
+</ul>
+<img alt="Personnalisation bureau" data-alt-txt="txt_0530" src="https://placehold.co/400x300/e0e0e0/666?text=page39_img01.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="Résultat personnalisation" data-alt-txt="txt_0531" src="https://placehold.co/400x300/e0e0e0/666?text=page40_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0134">Exemple de bureau personnalisé</p>
+<div class="note-box warning" data-note-content-txt="txt_0466">
+<strong data-txt="txt_0465">️ Important</strong>
+                        Pensez toujours à enregistrer votre bureau après modifications : <strong>Bureaux → Enregistrer le bureau courant</strong>
+</div>
+</section>
+<!-- SECTION 11: CRÉER UNE PRÉSENTATION FIXE -->
+<section class="help-section" id="creer-presentation">
+<h2 data-txt="txt_0016">11. Créer une présentation fixe personnalisée</h2>
+<p data-txt="txt_0135">Vous pouvez créer vos propres présentations fixes avec les vignettes et mots-clés de votre choix.</p>
+<h3 data-txt="txt_0049">Étapes de création</h3>
+<ol class="step-list">
+<li data-txt="txt_0353">Cliquez sur l'onglet« Paramètres »<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0354">Cliquez sur« Administration »<strong>« Administration »</strong></li>
+<li data-txt="txt_0355">Cliquez sur« Général »<strong>« Général »</strong></li>
+<li data-txt="txt_0356">Cochez« Mode expert »<strong>« Mode expert »</strong></li>
+<li data-txt="txt_0357">Cliquez sur l'onglet« Présentation »<strong>« Présentation »</strong></li>
+<li data-txt="txt_0358">Une fenêtre s'ouvre : cliquez sur« Présentations libres »<strong>« Présentations libres »</strong></li>
+<li data-txt="txt_0359">Cliquez sur« Créer une présentation libre »<strong>« Créer une présentation libre »</strong></li>
+<li data-txt="txt_0360">Nommez votre présentation</li>
+</ol>
+<img alt="Créer présentation fixe" data-alt-txt="txt_0532" src="https://placehold.co/400x300/e0e0e0/666?text=page71_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0050">Ajouter des vignettes à la présentation</h3>
+<ol class="step-list">
+<li data-txt="txt_0361">Cliquez sur le petit+<strong>+</strong></li>
+<li data-txt="txt_0362">Une fenêtre s'ouvre : cliquez sur« Vignette avec attributs »<strong>« Vignette avec attributs »</strong></li>
+<li data-txt="txt_0363">Maintenez le clic gauche et dessinez un carré ou rectangle, puis double-cliquez dans la vignette créée</li>
+<li data-txt="txt_0364">Une fenêtre s'ouvre : recherchez le mot-clé souhaité, puis double-cliquez dessus</li>
+<li data-txt="txt_0365">Le mot-clé s'affiche dans le tableau à droite</li>
+<li data-txt="txt_0366">Cliquez sur« Valider »- Recommencez pour chaque vignette<strong>« Valider »</strong> - Recommencez pour chaque vignette</li>
+</ol>
+<img alt="Ajouter vignettes" data-alt-txt="txt_0533" src="https://placehold.co/400x300/e0e0e0/666?text=page72_img01.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0086">Redimensionner et aligner les vignettes</h4>
+<p data-txt="txt_0136">Pour une sélection multiple, maintenezCtrlet cliquez sur chaque vignette, puis utilisez les outils d'alignement :<kbd>Ctrl</kbd> et cliquez sur chaque vignette, puis utilisez les outils d'alignement :</p>
+<ul>
+<li data-txt="txt_0367"><strong>Même largeur</strong>Même largeur: uniformise la largeur</li>
+<li data-txt="txt_0368"><strong>Aligné en bas/haut</strong>Aligné en bas/haut: aligne verticalement</li>
+<li data-txt="txt_0369"><strong>Aligné à gauche/droite</strong>Aligné à gauche/droite: aligne horizontalement</li>
+</ul>
+<img alt="Outils alignement" data-alt-txt="txt_0534" src="https://placehold.co/400x300/e0e0e0/666?text=page73_img01.png" style=";border: 2px dashed #999;"/>
+<p data-txt="txt_0137">Cliquez sur ladisquettepour enregistrer votre présentation.<strong>disquette</strong> pour enregistrer votre présentation.</p>
+</section>
+<!-- SECTION 12: DIAPORAMA -->
+<section class="help-section" id="diaporama">
+<h2 data-txt="txt_0017">12. Diaporama</h2>
+<p data-txt="txt_0138">Le diaporama permet d'afficher toutes les photos d'un dossier patient en plein écran.</p>
+<h3 data-txt="txt_0051">Lancer un diaporama</h3>
+<ol class="step-list">
+<li data-txt="txt_0370">Sélectionnez le patient</li>
+<li data-txt="txt_0371">Cliquez sur« Affichage »<strong>« Affichage »</strong></li>
+<li data-txt="txt_0372">Cliquez sur« Diaporama »<strong>« Diaporama »</strong></li>
+<li data-txt="txt_0373">Utilisez les flèches pour faire défiler les photos</li>
+</ol>
+<img alt="Mode diaporama" data-alt-txt="txt_0535" src="https://placehold.co/400x300/e0e0e0/666?text=page74_img01.png" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0468">
+<strong data-txt="txt_0467">Conseil</strong>
+                        Pour quitter le diaporama, appuyez sur la touche <kbd>Échap</kbd> de votre clavier.
+                    </div>
+<p data-txt="txt_0139">Si vous souhaitez n'afficher que certaines photos, sélectionnez-les d'abord puis cliquez sur « Diaporama ».</p>
+</section>
+<!-- SECTION 13: COMPARER DES PHOTOS -->
+<section class="help-section" id="comparateur">
+<h2 data-txt="txt_0018">13. Comparer des photos</h2>
+<p data-txt="txt_0140">Kitview offre plusieurs outils pour comparer des photos et montrer l'évolution d'un traitement.</p>
+<h3 data-txt="txt_0052" id="comparer-2vues">Comparer deux photos (mode 2 Vues)</h3>
+<ol class="step-list">
+<li data-txt="txt_0374">Cliquez sur l'onglet« 2 Vues »<strong>« 2 Vues »</strong></li>
+<li data-txt="txt_0375">Sélectionnez les deux photos à comparer</li>
+<li data-txt="txt_0376">Pour verrouiller une photo, cliquez sur lepetit cadenas<strong>petit cadenas</strong></li>
+<li data-txt="txt_0377">La photo verrouillée reste fixe tandis que l'autre peut défiler</li>
+</ol>
+<img alt="Comparer 2 vues" data-alt-txt="txt_0536" src="https://placehold.co/400x300/e0e0e0/666?text=page75_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0053" id="comparateur-colonne-ligne">Comparateur en colonne ou ligne</h3>
+<p data-txt="txt_0141">Le comparateur permet de comparer plusieurs photos sélectionnées :</p>
+<ol class="step-list">
+<li data-txt="txt_0378">Sélectionnez les photos à comparer</li>
+<li data-txt="txt_0379">Cliquez sur l'icône du comparateur souhaité :Comparateur en colonne(manuel ou automatique)Comparateur en ligne(manuel ou automatique)<ul>
+<li data-txt="txt_0380"><strong>Comparateur en colonne</strong>Comparateur en colonne(manuel ou automatique)</li>
+<li data-txt="txt_0381"><strong>Comparateur en ligne</strong>Comparateur en ligne(manuel ou automatique)</li>
+</ul>
+</li>
+</ol>
+<img alt="Sélection comparateur" data-alt-txt="txt_0537" src="https://placehold.co/400x300/e0e0e0/666?text=page76_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0087">Mode manuel</h4>
+<p data-txt="txt_0142">Utilisez les flèches pour faire défiler les photos. La photo de référence (gauche ou haut) reste figée.</p>
+<img alt="Comparateur colonne manuel" data-alt-txt="txt_0538" src="https://placehold.co/400x300/e0e0e0/666?text=page77_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0088">Mode automatique</h4>
+<p data-txt="txt_0143">Les photos défilent automatiquement par date de prise de vue.</p>
+<img alt="Comparateur colonne automatique" data-alt-txt="txt_0539" src="https://placehold.co/400x300/e0e0e0/666?text=page78_img01.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="Comparateur ligne automatique" data-alt-txt="txt_0540" src="https://placehold.co/400x300/e0e0e0/666?text=page78_img02.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0470">
+<strong data-txt="txt_0469">Conseil</strong>
+                        Pour quitter le comparateur, appuyez sur <kbd>Échap</kbd>.
+                    </div>
+<h3 data-txt="txt_0054" id="comparateur-protocole">Comparateur par séances protocole</h3>
+<p data-txt="txt_0144">Si vous respectez un protocole précis lors des prises de photos, cette fonctionnalité permet de comparer les séances dans le temps.</p>
+<ol class="step-list">
+<li data-txt="txt_0382">Cliquez sur l'onglet« Présentation »<strong>« Présentation »</strong></li>
+<li data-txt="txt_0383">Cliquez sur l'onglet« Comparateur »<strong>« Comparateur »</strong></li>
+<li data-txt="txt_0384">Sélectionnez les photos à présenter (ex: les 3 intrabuccales)</li>
+<li data-txt="txt_0385">Choisissez le mode : Horizontal/Vertical, Manuel/Automatique</li>
+</ol>
+<img alt="Comparateur par séances" data-alt-txt="txt_0541" src="https://placehold.co/400x300/e0e0e0/666?text=page79_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p data-txt="txt_0145">Les photos du premier RDV restent statiques (en haut ou à gauche) et celles des RDV suivants défilent par date.</p>
+<img alt="Résultat comparateur séances" data-alt-txt="txt_0542" src="https://placehold.co/400x300/e0e0e0/666?text=page80_img03.jpeg" style=";border: 2px dashed #999;"/>
+</section>
+<!-- SECTION 14: MODÈLES DE COURRIER -->
+<section class="help-section" id="courrier">
+<h2 data-txt="txt_0019">14. Modèles de courrier</h2>
+<p data-txt="txt_0146">Kitview permet d'utiliser des modèles de courrier avec des champs de fusion qui reprennent automatiquement les informations des patients (nom, prénom, adresse, photos...).</p>
+<div class="note-box info" data-note-content-txt="txt_0472">
+<strong data-txt="txt_0471">️ Prérequis</strong>
+                        Les photos doivent être bien identifiées (mots-clés) pour que les champs de fusion fonctionnent correctement.
+                    </div>
+<h3 data-txt="txt_0055">Utiliser un modèle existant</h3>
+<ol class="step-list">
+<li data-txt="txt_0386">Sélectionnez le patient</li>
+<li data-txt="txt_0387">Cliquez sur l'onglet« Courrier »<strong>« Courrier »</strong></li>
+<li data-txt="txt_0388">Sélectionnez le modèle souhaité dans la liste</li>
+<li data-txt="txt_0389">Le courrier s'ouvre avec les informations du patient pré-remplies</li>
+</ol>
+<img alt="Liste modèles courrier" data-alt-txt="txt_0543" src="https://placehold.co/400x300/e0e0e0/666?text=page83_img02.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="Courrier avec fusion" data-alt-txt="txt_0544" src="https://placehold.co/400x300/e0e0e0/666?text=page84_img01.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0089">Voir les champs de fusion</h4>
+<p data-txt="txt_0147">Passez en mode« Création »pour voir et modifier les champs de fusion (ex: &lt;Prenom&gt;, &lt;Nom&gt;, &lt;Date du jour&gt;...).<strong>« Création »</strong> pour voir et modifier les champs de fusion (ex: &lt;Prenom&gt;, &lt;Nom&gt;, &lt;Date du jour&gt;...).</p>
+<img alt="Mode création courrier" data-alt-txt="txt_0545" src="https://placehold.co/400x300/e0e0e0/666?text=page85_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0056" id="creer-courrier">Créer un nouveau modèle de courrier</h3>
+<ol class="step-list">
+<li data-txt="txt_0390">Cliquez sur l'onglet« Courrier »<strong>« Courrier »</strong></li>
+<li data-txt="txt_0391">Sélectionnez un modèle existant comme base</li>
+<li data-txt="txt_0392">Cliquez sur« Création »<strong>« Création »</strong></li>
+<li data-txt="txt_0393">Cliquez sur« Nouveau »pour un document vierge<strong>« Nouveau »</strong> pour un document vierge</li>
+<li data-txt="txt_0394">Dans« Propriétés Page », cochez« Paysage »si besoin<strong>« Propriétés Page »</strong>, cochez <strong>« Paysage »</strong> si besoin</li>
+</ol>
+<img alt="Création courrier" data-alt-txt="txt_0546" src="https://placehold.co/400x300/e0e0e0/666?text=page86_img01.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="Document vierge" data-alt-txt="txt_0547" src="https://placehold.co/400x300/e0e0e0/666?text=page87_img01.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0090">Ajouter des éléments</h4>
+<ul>
+<li data-txt="txt_0395"><strong>Ajouter du texte</strong>Ajouter du texte: Cliquez sur « Ajouter » → « Ajouter texte », dessinez une zone, double-cliquez pour saisir</li>
+<li data-txt="txt_0396"><strong>Ajouter une image (champ fusion)</strong>Ajouter une image (champ fusion): Cliquez sur « Ajouter » → « Champ image », dessinez une zone, double-cliquez et sélectionnez le champ souhaité</li>
+</ul>
+<img alt="Ajouter éléments courrier" data-alt-txt="txt_0548" src="https://placehold.co/400x300/e0e0e0/666?text=page88_img01.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0091">Enregistrer le modèle</h4>
+<ol class="step-list">
+<li data-txt="txt_0397">Cliquez sur« Aperçu »pour vérifier le résultat<strong>« Aperçu »</strong> pour vérifier le résultat</li>
+<li data-txt="txt_0398">Cliquez sur« Enregistrer »<strong>« Enregistrer »</strong></li>
+<li data-txt="txt_0399">Sélectionnez le dossier« Letters »<strong>« Letters »</strong></li>
+<li data-txt="txt_0400">Nommez votre fichier et cliquez sur« Enregistrer »<strong>« Enregistrer »</strong></li>
+</ol>
+</section>
+<!-- SECTION 15: PORTFOLIO ET POWERPOINT -->
+<section class="help-section" id="portfolio">
+<h2 data-txt="txt_0020">15. Portfolio et présentation PowerPoint</h2>
+<p data-txt="txt_0148">Le Portfolio permet de regrouper des photos de plusieurs patients et de générer automatiquement une présentation PowerPoint.</p>
+<h3 data-txt="txt_0057">Exemple : Toutes les intrabuccales de tous les patients</h3>
+<ol class="step-list">
+<li data-txt="txt_0401">Cliquez sur l'onglet« Tous »dans l'arborescence<strong>« Tous »</strong> dans l'arborescence</li>
+<li data-txt="txt_0402">Sélectionnez la catégorie souhaitée (ex:« Intrabuccales »)<strong>« Intrabuccales »</strong>)</li>
+<li data-txt="txt_0403">Cliquez sur« Filtrer la population selon la collection »<strong>« Filtrer la population selon la collection »</strong></li>
+<li data-txt="txt_0404">Cliquez sur« Sélectionner tous les patients »<strong>« Sélectionner tous les patients »</strong></li>
+<li data-txt="txt_0405">Cliquez sur l'onglet« Portfolio »<strong>« Portfolio »</strong></li>
+<li data-txt="txt_0406">Toutes les photos correspondantes s'affichent</li>
+<li data-txt="txt_0407">Sélectionnez les photos à intégrer et glissez-déposez dans la zone de droite</li>
+<li data-txt="txt_0408">Cliquez sur l'icône PowerPoint et choisissez le nombre d'images par diapositive</li>
+</ol>
+<img alt="Portfolio intrabuccales" data-alt-txt="txt_0549" src="https://placehold.co/400x300/e0e0e0/666?text=page89_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0092">Résultat dans PowerPoint</h4>
+<p data-txt="txt_0149">La présentation s'ouvre automatiquement dans PowerPoint. Vous pouvez alors ajouter du texte, modifier la mise en page, etc.</p>
+<img alt="Présentation PowerPoint" data-alt-txt="txt_0550" src="https://placehold.co/400x300/e0e0e0/666?text=page90_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box warning" data-note-content-txt="txt_0474">
+<strong data-txt="txt_0473">️ Important</strong>
+                        Pensez à enregistrer votre présentation PowerPoint après les modifications.
+                    </div>
+</section>
+<!-- SECTION 16: FILTRE DE POPULATION -->
+<section class="help-section" id="filtre-population">
+<h2 data-txt="txt_0021">16. Filtre de population</h2>
+<p data-txt="txt_0150">Les filtres de population permettent de faire des recherches par type d'objet ou de photos pour un ou plusieurs patients. Les filtres sont organisés par catégorie.</p>
+<h3 data-txt="txt_0058">Exemple : Afficher toutes les radios panoramiques</h3>
+<ol class="step-list">
+<li data-txt="txt_0409">Cliquez dans l'onglet« Tous »<strong>« Tous »</strong></li>
+<li data-txt="txt_0410">Cliquez sur« Radio »puis« Panoramique »(ou une autre catégorie)<strong>« Radio »</strong> puis <strong>« Panoramique »</strong> (ou une autre catégorie)</li>
+<li data-txt="txt_0411">Cliquez sur« Filtrer la population selon la collection »<strong>« Filtrer la population selon la collection »</strong></li>
+<li data-txt="txt_0412">Cliquez sur« Sélectionner tous les patients »<strong>« Sélectionner tous les patients »</strong></li>
+<li data-txt="txt_0413">Résultat : toutes les radios panoramiques de tous vos patients s'affichent</li>
+<li data-txt="txt_0414">Vous pouvez aller dans chaque dossier patient pour retrouver la radio correspondante</li>
+</ol>
+<img alt="Filtre de population - Interface" data-alt-txt="txt_0551" src="https://placehold.co/400x300/e0e0e0/666?text=page91_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0476">
+<strong data-txt="txt_0475">Astuce</strong>
+                        Pensez à revenir à votre base complète après une recherche : retournez dans les filtres de population, cliquez sur l'onglet « Tous » puis « Rafraîchir ».
+                    </div>
+</section>
+<!-- SECTION 17: RECHERCHE PAR DATE -->
+<section class="help-section" id="recherche-date">
+<h2 data-txt="txt_0022">17. Retrouver des photos par date</h2>
+<p data-txt="txt_0151">Les filtres de population permettent également de rechercher des photos prises à une date précise ou dans une plage de dates.</p>
+<h3 data-txt="txt_0059" id="date-precise">Recherche à une date précise</h3>
+<p data-txt="txt_0152"><strong>Exemple :</strong>Exemple :Rechercher toutes les photos prises le 24/11/2017</p>
+<ol class="step-list">
+<li data-txt="txt_0415">Cliquez sur« Quoi »<strong>« Quoi »</strong></li>
+<li data-txt="txt_0416">Cliquez sur« Ajouter une condition à la racine »<strong>« Ajouter une condition à la racine »</strong></li>
+<li data-txt="txt_0417">Une fenêtre s'ouvre – Écrivez le mot« Création »– Il s'affiche dans la liste<strong>« Création »</strong> – Il s'affiche dans la liste</li>
+<li data-txt="txt_0418">Double-cliquez sur le mot« Création »pour qu'il s'affiche dans le tableau à droite<strong>« Création »</strong> pour qu'il s'affiche dans le tableau à droite</li>
+<li data-txt="txt_0419">Cliquez sur« Valider »<strong>« Valider »</strong></li>
+<li data-txt="txt_0420">Changez la condition en« Égale à »puis modifiez la date<strong>« Égale à »</strong> puis modifiez la date</li>
+<li data-txt="txt_0421">Tous les patients ayant des photos prises à cette date s'affichent</li>
+<li data-txt="txt_0422">Toutes les photos prises à cette date s'affichent</li>
+</ol>
+<img alt="Recherche par date précise" data-alt-txt="txt_0552" src="https://placehold.co/400x300/e0e0e0/666?text=page92_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p data-txt="txt_0153">Pour afficher les photos de chaque patient, cliquez sur chaque dossier patient.</p>
+<div class="note-box tip" data-note-content-txt="txt_0478">
+<strong data-txt="txt_0477">Rappel</strong>
+                        N'oubliez pas de revenir à votre base complète après la recherche : onglet « Tous » puis « Rafraîchir ».
+                    </div>
+<h3 data-txt="txt_0060" id="plage-dates">Recherche dans une plage de dates</h3>
+<p data-txt="txt_0154"><strong>Exemple :</strong>Exemple :Rechercher toutes les photos prises entre le 13/09/2017 et le 13/09/2018</p>
+<ol class="step-list">
+<li data-txt="txt_0423">Cliquez sur« Quoi »<strong>« Quoi »</strong></li>
+<li data-txt="txt_0424">Cliquez sur« Ajouter une condition à la racine »<strong>« Ajouter une condition à la racine »</strong></li>
+<li data-txt="txt_0425">Écrivez« Création »et double-cliquez pour l'ajouter<strong>« Création »</strong> et double-cliquez pour l'ajouter</li>
+<li data-txt="txt_0426">Cliquez sur« Valider »<strong>« Valider »</strong></li>
+<li data-txt="txt_0427">Répétez l'opération pour ajouter une seconde condition</li>
+<li data-txt="txt_0428">Pour la première condition, sélectionnez« Antérieure à »et indiquez la date de fin<strong>« Antérieure à »</strong> et indiquez la date de fin</li>
+<li data-txt="txt_0429">Pour la seconde condition, sélectionnez« Postérieure à »et indiquez la date de début<strong>« Postérieure à »</strong> et indiquez la date de début</li>
+<li data-txt="txt_0430">Tous les patients ayant des photos dans cette plage s'affichent</li>
+</ol>
+<img alt="Recherche par plage de dates" data-alt-txt="txt_0553" src="https://placehold.co/400x300/e0e0e0/666?text=page94_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box info" data-note-content-txt="txt_0480">
+<strong data-txt="txt_0479">️ Note</strong>
+                        Les deux conditions sont combinées avec un ET logique : les photos affichées sont à la fois antérieures à la date de fin ET postérieures à la date de début.
+                    </div>
+</section>
+<!-- SECTION 18: FORMULAIRES -->
+<section class="help-section" id="formulaires">
+<h2 data-txt="txt_0023">18. Formulaires</h2>
+<p data-txt="txt_0155">Les formulaires permettent de conserver toutes les informations liées à un patient, d'avoir un accès rapide à l'information, et de présenter et exploiter les données renseignées.</p>
+<h3 data-txt="txt_0061" id="completer-formulaire">Compléter un formulaire</h3>
+<ol class="step-list">
+<li data-txt="txt_0431">Cliquez dans l'onglet« Formulaire »<strong>« Formulaire »</strong></li>
+<li data-txt="txt_0432">Sélectionnez le formulaire dont vous avez besoin</li>
+<li data-txt="txt_0433">Complétez les informations</li>
+<li data-txt="txt_0434">Enregistrez le formulaire en cliquant sur ladisquette<strong>disquette</strong></li>
+<li data-txt="txt_0435">Le résumé du formulaire est généré. Pour le consulter entièrement, cliquez sur le petit dossier</li>
+</ol>
+<img alt="Compléter un formulaire" data-alt-txt="txt_0554" src="https://placehold.co/400x300/e0e0e0/666?text=page96_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0062" id="recherche-formulaires">Recherche de cas similaires</h3>
+<p data-txt="txt_0156"><strong>Exemple :</strong>Exemple :Rechercher les formulaires des patients présentant une gingivite</p>
+<ol class="step-list">
+<li data-txt="txt_0436">Cliquez sur un dossier patient</li>
+<li data-txt="txt_0437">Cliquez sur l'onglet« Formulaire »<strong>« Formulaire »</strong></li>
+<li data-txt="txt_0438">Ouvrez le résumé des formulaires en cliquant sur le petit dossier</li>
+<li data-txt="txt_0439">Cliquez sur la loupe« Mode recherche »<strong>« Mode recherche »</strong></li>
+<li data-txt="txt_0440">Cliquez sur les critères que vous souhaitez retrouver (ex: « gingivite »)</li>
+<li data-txt="txt_0441">Cliquez à nouveau sur la loupe« Mode recherche »puis« Recherche »<strong>« Mode recherche »</strong> puis <strong>« Recherche »</strong></li>
+<li data-txt="txt_0442">Les dossiers patients correspondants s'affichent</li>
+</ol>
+<img alt="Recherche de cas similaires" data-alt-txt="txt_0555" src="https://placehold.co/400x300/e0e0e0/666?text=page97_img01.png" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0482">
+<strong data-txt="txt_0481">Astuce</strong>
+                        Pour consulter chaque formulaire, allez dans le dossier patient et cliquez sur l'onglet « Formulaire ».
+                    </div>
+</section>
+<!-- SECTION 19: SUPPORT DE FORMATION -->
+<section class="help-section" id="support-formation">
+<h2 data-txt="txt_0024">19. Support de formation</h2>
+<p data-txt="txt_0157">Un site support de formation est disponible pour vous accompagner dans l'utilisation de Kitview. Vous y trouverez de nombreuses vidéos explicatives ainsi que des modèles de formulaires.</p>
+<h3 data-txt="txt_0063">Accéder au site support</h3>
+<ol class="step-list">
+<li data-txt="txt_0443">Cliquez dans l'onglet« Aide »<strong>« Aide »</strong></li>
+<li data-txt="txt_0444">Sélectionnez« Support formation »<strong>« Support formation »</strong></li>
+<li data-txt="txt_0445">Vous êtes redirigé vers le site :www.kitview-support.fr<strong>www.kitview-support.fr</strong></li>
+</ol>
+<img alt="Accès au support de formation" data-alt-txt="txt_0556" src="https://placehold.co/400x300/e0e0e0/666?text=page98_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0064">Identifiants de connexion</h3>
+<div class="note-box info">
+<strong data-txt="txt_0483">🔐 Connexion au site support</strong><br/> </div>
+<img alt="Page de connexion support" data-alt-txt="txt_0557" src="https://placehold.co/400x300/e0e0e0/666?text=page98_img02.png" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0485">
+<strong data-txt="txt_0484">Ressources disponibles</strong>
+                        Le site support contient des tutoriels vidéo, des guides pratiques et des modèles de formulaires téléchargeables pour optimiser votre utilisation de Kitview.
+                    </div>
+</section>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="help-footer" data-txt="txt_0590">Kitview - Manuel d'utilisation v1.5 (Standard) - Janvier 2026</footer>
+<!-- Google Translate Script -->
+<script src="js/kvm.js"></script>
+<!-- Google Translate API -->
+<script>
+// Google Translate - Chargement conditionnel (uniquement sur serveur)
+(function() {
+    // Détecter si on est en local (file://) ou sur un serveur
+    if (window.location.protocol === 'file:') {
+        console.log('[KVM] Mode local détecté - Google Translate désactivé');
+        // Masquer les options de langues autres que FR/EN
+        document.addEventListener('DOMContentLoaded', function() {
+            var chips = document.querySelectorAll('.lang-chip[data-lang]');
+            chips.forEach(function(chip) {
+                var lang = chip.getAttribute('data-lang');
+                if (lang !== 'fr' && lang !== 'en') {
+                    chip.style.opacity = '0.4';
+                    chip.style.pointerEvents = 'none';
+                    chip.title = 'Disponible uniquement sur serveur web';
+                }
+            });
+        });
+    } else {
+        // On est sur un serveur, charger Google Translate
+        var script = document.createElement('script');
+        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.head.appendChild(script);
+    }
+})();
+</script>
+<!-- ========================================
+     CHATBOT ASSISTANT IA
+     ======================================== -->
+<!-- Bouton flottant -->
+<button aria-label="Ouvrir l'assistant" id="chatbot-toggle" title="Assistant IA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"></path>
+<circle cx="8" cy="10" r="1.5"></circle>
+<circle cx="12" cy="10" r="1.5"></circle>
+<circle cx="16" cy="10" r="1.5"></circle>
+</svg>
+</button>
+<!-- Modale de chat -->
+<div aria-labelledby="chatbot-title" id="chatbot-modal" role="dialog">
+<div id="chatbot-header">
+<div class="avatar">🤖</div>
+<div class="title">
+<h4 data-txt="txt_0601" id="chatbot-title">Annuler</h4>
+<span data-txt="txt_0602">La clé est stockée uniquement dans votre navigateur.</span>
+</div>
+<button aria-label="Fermer" id="chatbot-close">×</button>
+</div>
+<div id="chatbot-toolbar">
+<button data-txt="txt_0603" id="chatbot-suggestions-btn">Bienvenue ! Je suis votre assistant.</button>
+<button data-txt="txt_0604" id="chatbot-clear-btn">📋 Copier</button>
+<button aria-label="Paramètres" id="chatbot-settings-btn" title="Paramètres">⚙️</button>
+</div>
+<div id="chatbot-suggestions-panel">
+<h5 data-txt="txt_0605">🎨 Thème visuel</h5>
+<div class="suggestions-list"></div>
+</div>
+<div aria-live="polite" id="chatbot-messages" role="log"></div>
+<div id="chatbot-input-area">
+<input aria-label="Votre question" autocomplete="off" data-placeholder-txt="txt_0606" id="chatbot-input" placeholder="Crédit API épuisé" type="text"/>
+<button aria-label="Envoyer" id="chatbot-send">
+<svg viewbox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+</button>
+</div>
+</div>
+<!-- Modal de configuration API -->
+<div aria-labelledby="chatbot-config-title" id="chatbot-config-modal" role="dialog">
+<div class="config-overlay"></div>
+<div class="config-content">
+<h3 data-txt="txt_0607" id="chatbot-config-title">Manuel du manuel</h3>
+<p data-txt="txt_0608">Guide du manuel</p>
+<p><a data-txt="txt_0609" href="https://console.anthropic.com" rel="noopener" target="_blank">← Manuel</a></p>
+<input id="chatbot-api-key-input" placeholder="sk-ant-api03-..." type="password"/>
+<div class="config-buttons">
+<button data-txt="txt_0610" id="chatbot-config-save">🎯 Bienvenue dans le guide du manuel</button>
+<button data-txt="txt_0611" id="chatbot-config-cancel">Découvrez toutes les fonctionnalités de ce manuel interactif et apprenez à l'utiliser efficacement pour maîtriser Kitview.</button>
+</div>
+<p class="config-note" data-txt="txt_0612">Fonctionnalités</p>
+</div>
+</div>
+<!-- Scripts -->
+<script src="/kvm/js/env-config.js"></script>
+<script src="js/chatbot-config.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/themes.js"></script>
+</body>
+</html>

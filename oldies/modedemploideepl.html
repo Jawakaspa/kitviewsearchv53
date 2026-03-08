@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="help-version" content="1.1.0">
+    <title>Kitview Search - Mode d'emploi</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.kitview.com/favicon.ico">
+    <style>
+/*
+ * modedemploi.html V1.0.5 - 12/01/2026 19:06:39
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3B9DD8;
+    --primary-light: #e3f2fd;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #e8e8e8;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --button-hover: #2d8bc7;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+    --code-bg: #f4f4f4;
+    --toc-bg: #fafafa;
+}
+
+[data-theme="dark"] {
+    --primary-light: #1e3a5f;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888888;
+    --border-color: #404040;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --code-bg: #2a2a2a;
+    --toc-bg: #252525;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADER
+   ═══════════════════════════════════════════════════════════════ */
+
+.help-header {
+    background: var(--bg-primary);
+    padding: 15px 25px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-left .logo {
+    height: 32px;
+}
+
+.header-left h1 {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-left h1 .icon {
+    font-size: 24px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   BOUTONS
+   ═══════════════════════════════════════════════════════════════ */
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 18px;
+}
+
+.icon-button:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+}
+
+.back-button:hover {
+    background: var(--button-hover);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   SÉLECTEUR DE LANGUE (style web17)
+   ═══════════════════════════════════════════════════════════════ */
+
+.lang-button-container {
+    position: relative;
+}
+
+.lang-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.lang-button:hover {
+    border-color: var(--primary-color);
+    background: var(--bg-secondary);
+}
+
+.lang-button .flag-img {
+    width: 22px;
+    height: 16px;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+.lang-button .dropdown-arrow {
+    font-size: 10px;
+    color: var(--text-secondary);
+    margin-left: 4px;
+}
+
+/* Popup langue */
+.lang-popup {
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    min-width: 280px;
+    z-index: 1000;
+    overflow: hidden;
+}
+
+.lang-popup-header {
+    padding: 12px 18px;
+    background: var(--bg-secondary);
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.lang-popup-section {
+    padding: 12px 18px;
+}
+
+.lang-popup-label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.chips-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+}
+
+.lang-chip {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    user-select: none;
+}
+
+.lang-chip:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary-color);
+}
+
+.lang-chip.selected {
+    background: var(--primary-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+.lang-chip .chip-flag {
+    width: 18px;
+    height: 13px;
+    border-radius: 2px;
+    object-fit: cover;
+}
+
+.lang-popup-footer {
+    padding: 12px 18px;
+    background: var(--bg-secondary);
+    text-align: center;
+    border-top: 1px solid var(--border-color);
+}
+
+.lang-popup-close {
+    padding: 10px 30px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.lang-popup-close:hover {
+    background: var(--button-hover);
+}
+
+/* Info traduction */
+.translation-info {
+    font-size: 11px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: 8px;
+    background: var(--bg-tertiary);
+    border-radius: 6px;
+    margin-top: 10px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTAINER PRINCIPAL
+   ═══════════════════════════════════════════════════════════════ */
+
+.help-container {
+    display: flex;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 25px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   TABLE DES MATIÈRES (sidebar)
+   ═══════════════════════════════════════════════════════════════ */
+
+.toc-sidebar {
+    width: 280px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 90px;
+    height: fit-content;
+    max-height: calc(100vh - 110px);
+    overflow-y: auto;
+}
+
+.toc-card {
+    background: var(--toc-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.toc-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.toc-list {
+    list-style: none;
+}
+
+.toc-list li {
+    margin-bottom: 8px;
+}
+
+.toc-list a {
+    display: block;
+    padding: 8px 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 13px;
+    transition: all 0.2s;
+}
+
+.toc-list a:hover {
+    background: var(--bg-primary);
+    color: var(--primary-color);
+}
+
+.toc-list a.active {
+    background: var(--primary-light);
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+.toc-list .toc-sub {
+    margin-left: 15px;
+    font-size: 12px;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   CONTENU PRINCIPAL
+   ═══════════════════════════════════════════════════════════════ */
+
+.help-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.content-card {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 35px 40px;
+}
+
+/* Titre principal */
+.help-content h1.main-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.version-badge {
+    font-size: 12px;
+    font-weight: 500;
+    padding: 4px 10px;
+    background: var(--primary-light);
+    color: var(--primary-color);
+    border-radius: 12px;
+}
+
+.help-content .subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+}
+
+/* Sections */
+.help-section {
+    margin-bottom: 40px;
+    scroll-margin-top: 100px;
+}
+
+.help-section h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.help-section h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 25px 0 12px 0;
+}
+
+.help-section h4 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    margin: 20px 0 10px 0;
+}
+
+.help-section p {
+    margin-bottom: 12px;
+    color: var(--text-primary);
+}
+
+/* Listes */
+.help-section ul, .help-section ol {
+    margin: 12px 0 12px 25px;
+}
+
+.help-section li {
+    margin-bottom: 6px;
+}
+
+/* Tableaux */
+.help-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.help-table th,
+.help-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+}
+
+.help-table th {
+    background: var(--bg-secondary);
+    font-weight: 600;
+    color: var(--text-secondary);
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.help-table tr:hover {
+    background: var(--bg-secondary);
+}
+
+.help-table code {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+/* Code blocks */
+.code-block {
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 15px 20px;
+    margin: 15px 0;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.5;
+}
+
+/* Schéma ASCII */
+.ascii-schema {
+    background: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+    font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+    font-size: 12px;
+    overflow-x: auto;
+    white-space: pre;
+    line-height: 1.4;
+    color: var(--text-secondary);
+}
+
+/* Notes et alertes */
+.note-box {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.note-box.info {
+    background: #e3f2fd;
+    border-left: 4px solid var(--primary-color);
+}
+
+.note-box.tip {
+    background: #e8f5e9;
+    border-left: 4px solid var(--success-color);
+}
+
+.note-box.warning {
+    background: #fff3e0;
+    border-left: 4px solid var(--warning-color);
+}
+
+[data-theme="dark"] .note-box.info { background: #1e3a5f; }
+[data-theme="dark"] .note-box.tip { background: #1b3d2f; }
+[data-theme="dark"] .note-box.warning { background: #3d3020; }
+
+.note-box strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Indicateurs colorés */
+.color-indicator {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+}
+
+.color-indicator.red { background: #e74c3c; }
+.color-indicator.orange { background: #f39c12; }
+.color-indicator.green { background: #27ae60; }
+
+/* Raccourcis clavier */
+kbd {
+    display: inline-block;
+    padding: 3px 8px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RESPONSIVE
+   ═══════════════════════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+    .help-container {
+        flex-direction: column;
+    }
+    
+    .toc-sidebar {
+        width: 100%;
+        position: relative;
+        top: 0;
+        max-height: none;
+    }
+    
+    .toc-card {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        align-items: center;
+    }
+    
+    .toc-title {
+        margin-bottom: 0;
+        margin-right: 15px;
+    }
+    
+    .toc-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 5px;
+    }
+    
+    .toc-list li {
+        margin-bottom: 0;
+    }
+    
+    .toc-list .toc-sub {
+        display: none;
+    }
+    
+    .content-card {
+        padding: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .help-header {
+        padding: 12px 15px;
+    }
+    
+    .header-left h1 {
+        font-size: 16px;
+    }
+    
+    .header-left h1 span:not(.icon) {
+        display: none;
+    }
+    
+    .help-container {
+        padding: 15px;
+    }
+    
+    .content-card {
+        padding: 20px;
+    }
+    
+    .help-content h1.main-title {
+        font-size: 24px;
+    }
+    
+    .help-section h2 {
+        font-size: 18px;
+    }
+    
+    .help-table {
+        font-size: 12px;
+    }
+    
+    .help-table th,
+    .help-table td {
+        padding: 8px 10px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════════════════════════════ */
+
+.help-footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="help-header">
+        <div class="header-left">
+            <img src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png" alt="Logo Kitview" class="logo">
+            <h1><span class="icon">❓</span> <span>Mode d'emploi</span></h1>
+        </div>
+        
+        <div class="header-right">
+            <!-- Sélecteur de langue -->
+            <div class="lang-button-container">
+                <button class="lang-button" id="langButton" title="Changer la langue du mode d'emploi">
+                    <img class="flag-img" id="langFlag" src="https://flagcdn.com/w40/fr.png" alt="Français">
+                    <span id="langText">FR</span>
+                    <span class="dropdown-arrow">▼</span>
+                </button>
+                
+                <div class="lang-popup" id="langPopup" style="display: none;">
+                    <div class="lang-popup-header">
+                        <span>🌐</span> Langue du mode d'emploi
+                    </div>
+                    
+                    <div class="lang-popup-section">
+                        <div class="lang-popup-label">Sélectionnez une langue</div>
+                        <div class="chips-container" id="chipsContainer">
+                            <!-- Chips générés par JS -->
+                        </div>
+                        <div class="translation-info" id="translationInfo">
+                            💡 Disponible : Français et Anglais
+                        </div>
+                    </div>
+                    
+                    <div class="lang-popup-footer">
+                        <button class="lang-popup-close" id="langPopupClose">✓ OK</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Thème -->
+            <button class="icon-button" id="themeToggle" title="Changer le thème">
+                🌙
+            </button>
+            
+            <!-- Retour -->
+            <button class="back-button" onclick="goBack()">
+                ← Retour
+            </button>
+        </div>
+    </header>
+
+    <!-- Container principal -->
+    <div class="help-container">
+        <!-- Table des matières -->
+        <aside class="toc-sidebar">
+            <nav class="toc-card">
+                <div class="toc-title">📑 Sommaire</div>
+                <ul class="toc-list">
+                    <li><a href="#presentation">1. Présentation</a></li>
+                    <li><a href="#premier-demarrage">2. Premier démarrage</a></li>
+                    <li class="toc-sub"><a href="#ecran-accueil">Écran d'accueil</a></li>
+                    <li class="toc-sub"><a href="#indicateur-etat">Indicateur d'état</a></li>
+                    <li><a href="#utilisation-base">3. Utilisation de base</a></li>
+                    <li class="toc-sub"><a href="#recherche-texte">Recherche texte</a></li>
+                    <li class="toc-sub"><a href="#recherche-vocale">Recherche vocale</a></li>
+                    <li class="toc-sub"><a href="#panneau-lateral">Panneau latéral</a></li>
+                    <li><a href="#mode-avance">4. Mode avancé</a></li>
+                    <li class="toc-sub"><a href="#barre-outils">Barre d'outils</a></li>
+                    <li class="toc-sub"><a href="#selection-langue">Sélection langue</a></li>
+                    <li><a href="#page-parametres">5. Page Paramètres</a></li>
+                    <li class="toc-sub"><a href="#page-illustrations">Illustrations</a></li>
+                    <li><a href="#page-analyse">6. Page Analyse</a></li>
+                    <li><a href="#raccourcis">7. Raccourcis</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Contenu -->
+        <main class="help-content">
+            <div class="content-card">
+                
+                <h1 class="main-title">
+                    Kitview Search
+                    <span class="version-badge">v1.0</span>
+                </h1>
+                <p class="subtitle">Guide d'utilisation complet de l'application de recherche multilingue</p>
+
+                <!-- Section 1 : Présentation -->
+                <section class="help-section" id="presentation">
+                    <h2>📋 1. Présentation</h2>
+                    <p><strong>Kitview Search</strong> est une application web de recherche multilingue permettant d'interroger une base de données de patients orthodontiques. L'interface s'adapte à tous les écrans (PC, tablette, mobile) et propose deux niveaux d'utilisation :</p>
+                    <ul>
+                        <li><strong>Mode simplifié</strong> : interface épurée pour une prise en main immédiate</li>
+                        <li><strong>Mode avancé</strong> : accès complet aux outils de configuration et d'analyse</li>
+                    </ul>
+                </section>
+
+                <!-- Section 2 : Premier démarrage -->
+                <section class="help-section" id="premier-demarrage">
+                    <h2>🚀 2. Premier démarrage - Interface simplifiée</h2>
+                    
+                    <h3 id="ecran-accueil">2.1 Écran d'accueil</h3>
+                    <p>Au lancement, vous êtes accueilli par une interface minimaliste :</p>
+                    
+                    <div class="ascii-schema">┌─────────────────────────────────────────────────────────────┐
+│  ☰  [logo Kitview] ☐ Search                             ? 🌙 │
+├─────────────────────────────────────────────────────────────┤
+│                                                             │
+│  ┌─────────────┐                                            │
+│  │ ✨ Nouvelle │     Bienvenue 👋                           │
+│  │  recherche  │                                            │
+│  └─────────────┘     ┌─────────────────────────────────┐   │
+│                      │ Rechercher un patient...     🎤 ⬆️ │   │
+│  Conversations       └─────────────────────────────────┘   │
+│  récentes                                                   │
+│  ─────────────                                              │
+│  Exemples                                                   │
+│  ─────────────                                              │
+│                                                             │
+│  F1.1.0/S...                                                │
+└─────────────────────────────────────────────────────────────┘</div>
+
+                    <h3>2.2 Éléments visibles par défaut</h3>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Élément</th>
+                                <th>Position</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>☰ (Menu)</td>
+                                <td>En-tête gauche</td>
+                                <td>Afficher/masquer le panneau latéral</td>
+                            </tr>
+                            <tr>
+                                <td>Logo Kitview</td>
+                                <td>En-tête gauche</td>
+                                <td>Logo de l'application</td>
+                            </tr>
+                            <tr>
+                                <td>☐ (Checkbox)</td>
+                                <td>Entre logo et "Search"</td>
+                                <td>Active le mode avancé</td>
+                            </tr>
+                            <tr>
+                                <td>"Search"</td>
+                                <td>En-tête</td>
+                                <td>Indicateur d'état (couleur variable)</td>
+                            </tr>
+                            <tr>
+                                <td>❓ (Aide)</td>
+                                <td>En-tête droite</td>
+                                <td>Ouvre ce mode d'emploi</td>
+                            </tr>
+                            <tr>
+                                <td>🌙 (Thème)</td>
+                                <td>En-tête droite</td>
+                                <td>Bascule jour/nuit</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="indicateur-etat">2.3 Indicateur d'état "Search"</h3>
+                    <p>Le mot "Search" change de couleur selon l'état du système :</p>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Couleur</th>
+                                <th>Signification</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="color-indicator red"></span> Rouge</td>
+                                <td>Chargement en cours</td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-indicator orange"></span> Orange</td>
+                                <td>Connexion au serveur</td>
+                            </tr>
+                            <tr>
+                                <td><span class="color-indicator green"></span> Vert</td>
+                                <td>Prêt à l'emploi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Section 3 : Utilisation de base -->
+                <section class="help-section" id="utilisation-base">
+                    <h2>🔍 3. Utilisation de base</h2>
+                    
+                    <h3 id="recherche-texte">3.1 Effectuer une recherche</h3>
+                    <ol>
+                        <li><strong>Cliquez dans la zone de recherche</strong> au centre de l'écran</li>
+                        <li><strong>Saisissez votre requête</strong> en langage naturel</li>
+                        <li><strong>Lancez la recherche</strong> en cliquant sur ⬆️ ou en appuyant sur <kbd>Entrée</kbd></li>
+                    </ol>
+                    
+                    <div class="note-box tip">
+                        <strong>💡 Exemples de requêtes</strong>
+                        <code>patients avec béance</code> • <code>classe II division 1</code> • <code>adultes avec encombrement</code> • <code>enfants de moins de 12 ans</code>
+                    </div>
+
+                    <h3 id="recherche-vocale">3.2 Recherche vocale 🎤</h3>
+                    <p>Le bouton microphone permet deux modes :</p>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Mode</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Clic simple</td>
+                                <td>Normal</td>
+                                <td>Écoute unique, recherche après 5 sec de silence</td>
+                            </tr>
+                            <tr>
+                                <td>Clic long</td>
+                                <td>Mains libres</td>
+                                <td>Écoute prolongée, dites "Kitview" + votre recherche</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    
+                    <div class="note-box info">
+                        <strong>Mode mains libres</strong>
+                        Dites "Kitview patients avec bruxisme de moins de 30 ans" pour lancer automatiquement la recherche.
+                    </div>
+
+                    <h3 id="panneau-lateral">3.3 Panneau latéral</h3>
+                    <p>Le panneau gauche propose :</p>
+                    <ul>
+                        <li><strong>✨ Nouvelle recherche</strong> : Réinitialise l'interface</li>
+                        <li><strong>Conversations récentes</strong> : Historique des recherches (cliquez pour copier, ▶ pour relancer)</li>
+                        <li><strong>Exemples</strong> : Suggestions de recherches prédéfinies</li>
+                    </ul>
+                    
+                    <div class="note-box tip">
+                        <strong>💡 Astuce</strong>
+                        La bordure droite du panneau est redimensionnable par glisser-déposer.
+                    </div>
+
+                    <h3>3.4 Affichage des résultats</h3>
+                    <p>Les résultats s'affichent sous forme de cartes patient contenant :</p>
+                    <ul>
+                        <li>Nom et prénom</li>
+                        <li>Âge et sexe</li>
+                        <li>Date de naissance</li>
+                        <li>Pathologies (tags colorés)</li>
+                    </ul>
+                    <p><strong>Cliquez sur une carte</strong> pour voir les détails complets du patient.</p>
+                </section>
+
+                <!-- Section 4 : Mode avancé -->
+                <section class="help-section" id="mode-avance">
+                    <h2>⚡ 4. Mode avancé - Barre d'outils</h2>
+                    
+                    <h3 id="barre-outils">4.1 Activer la barre d'outils</h3>
+                    <p>Pour accéder aux fonctionnalités avancées :</p>
+                    <ol>
+                        <li><strong>Localisez la checkbox</strong> entre le logo Kitview et le mot "Search"</li>
+                        <li><strong>Cochez la case</strong> pour faire apparaître la barre d'outils complète</li>
+                    </ol>
+                    
+                    <div class="ascii-schema">┌────────────────────────────────────────────────────────────────────────────┐
+│  ☰  [logo] ☑ Search  │ [Base ▼] │ 🌐FR │ [IA ▼] │ Démo ○ │ IA ○ │ 📊 ? 🌙 ⚙️ │
+└────────────────────────────────────────────────────────────────────────────┘</div>
+
+                    <h3>4.2 Éléments de la barre d'outils</h3>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Élément</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>[Base ▼]</strong></td><td>Sélecteur de base de données</td></tr>
+                            <tr><td><strong>🌐 FR</strong></td><td>Bouton langue (popup de sélection)</td></tr>
+                            <tr><td><strong>[Mode IA ▼]</strong></td><td>Sélecteur du moteur de détection</td></tr>
+                            <tr><td><strong>Démo ○</strong></td><td>Active/désactive le mode démonstration</td></tr>
+                            <tr><td><strong>IA ○</strong></td><td>Bascule entre mode IA (cartes) et Classique (liste)</td></tr>
+                            <tr><td><strong>📊</strong></td><td>Accès à la page d'analyse</td></tr>
+                            <tr><td><strong>❓</strong></td><td>Ce mode d'emploi</td></tr>
+                            <tr><td><strong>🌙</strong></td><td>Bascule mode jour/nuit</td></tr>
+                            <tr><td><strong>⚙️</strong></td><td>Accès aux paramètres</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3 id="selection-langue">4.3 Sélection de la langue 🌐</h3>
+                    <p>Cliquez sur le bouton langue pour ouvrir le panneau de sélection :</p>
+                    
+                    <h4>Question (langue de la requête)</h4>
+                    <ul>
+                        <li><strong>AUTO</strong> (détection automatique - en rouge)</li>
+                        <li>FR 🇫🇷, EN 🇬🇧, DE 🇩🇪, ES 🇪🇸, IT 🇮🇹, PT 🇵🇹, PL 🇵🇱, RO 🇷🇴, TH 🇹🇭, AR 🇸🇦, CN 🇨🇳</li>
+                    </ul>
+                    
+                    <h4>Réponse (format des résultats)</h4>
+                    <ul>
+                        <li><strong>Origine</strong> : Affiche les données dans leur langue d'origine</li>
+                        <li><strong>FR</strong> : Traduit les résultats en français</li>
+                    </ul>
+
+                    <h3>4.4 Mode Démo</h3>
+                    <p>Le switch "Démo" lance un cycle automatique de recherches exemples. Un disque de progression indique l'avancement du cycle.</p>
+
+                    <h3>4.5 Mode IA vs Classique</h3>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Mode</th>
+                                <th>Affichage</th>
+                                <th>Zone de recherche</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>IA</strong></td>
+                                <td>Grille de cartes</td>
+                                <td>En bas de l'écran</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Classique</strong></td>
+                                <td>Liste verticale</td>
+                                <td>En haut de l'écran</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+
+                <!-- Section 5 : Page Paramètres -->
+                <section class="help-section" id="page-parametres">
+                    <h2>⚙️ 5. Page Paramètres</h2>
+                    <p>Accès : cliquez sur ⚙️ dans la barre d'outils</p>
+
+                    <h3>5.1 Nouvelle interface en cartes</h3>
+                    <p>La page Paramètres a été redessinée avec une interface moderne en cartes thématiques. Chaque carte regroupe des paramètres de même nature pour une configuration plus intuitive.</p>
+
+                    <h3>5.2 Navigation rapide</h3>
+                    <p>En haut de la page, une barre de navigation sur fond bleu dégradé permet d'accéder directement aux différentes sections :</p>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Bouton</th>
+                                <th>Destination</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>🖼️ <strong>Illustrations</strong></td><td>Page de gestion des images</td></tr>
+                            <tr><td>📊 <strong>Analytics</strong></td><td>Page d'analyse des logs</td></tr>
+                            <tr><td>🔍 <strong>Recherche</strong></td><td>Retour à la page principale</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>5.3 Cartes de configuration</h3>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Carte</th>
+                                <th>Paramètres</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🎨 <strong>Apparence</strong></td>
+                                <td>
+                                    • Thème : Auto / Clair / Sombre<br>
+                                    • Style : Windows / LiquidGlass<br>
+                                    • Filigrane : 0-100% (slider)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>⏱️ <strong>Durées</strong></td>
+                                <td>
+                                    • Timeout toast (notifications)<br>
+                                    • Durée session<br>
+                                    • Délai microphone
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>📊 <strong>Limites</strong></td>
+                                <td>
+                                    • Max patients affichés<br>
+                                    • Lignes conversations récentes<br>
+                                    • Limite suggestions
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>🧠 <strong>Moteurs IA</strong></td>
+                                <td>
+                                    Liste des modèles disponibles avec :<br>
+                                    • Checkbox actif/inactif<br>
+                                    • Fournisseur (OpenAI, Eden AI...)<br>
+                                    • Indicateur de coût
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>🔍 <strong>Détection</strong></td>
+                                <td>
+                                    Référentiels pour l'IA :<br>
+                                    • Tags (pathologies)<br>
+                                    • Adjectifs (sévère, léger...)<br>
+                                    • Âges et sexe<br>
+                                    • Angles céphalométriques<br>
+                                    • Mapping synonymes
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <div class="note-box tip">
+                        <strong>💡 Astuce</strong><br>
+                        Les cartes sont interactives : survolez-les pour un léger effet d'élévation qui facilite la navigation visuelle.
+                    </div>
+                </section>
+
+                <!-- Section 5bis : Page Illustrations -->
+                <section class="help-section" id="page-illustrations">
+                    <h2>🖼️ 5bis. Page Illustrations</h2>
+                    <p>Accès : depuis la page Paramètres, cliquez sur 🖼️ <strong>Illustrations</strong></p>
+
+                    <h3>Interface de gestion</h3>
+                    <p>Cette page permet de gérer les images décoratives affichées dans l'application (bandeaux de résultats, illustrations médicales, etc.).</p>
+
+                    <h3>Types d'illustrations</h3>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Type</th>
+                                <th>Badge</th>
+                                <th>Usage</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><strong>medical</strong></td><td style="color:#3B9DD8;">●</td><td>Images médicales générales</td></tr>
+                            <tr><td><strong>rmedical</strong></td><td style="color:#2ecc71;">●</td><td>Images médicales (réserve)</td></tr>
+                            <tr><td><strong>search</strong></td><td style="color:#9b59b6;">●</td><td>Icônes de recherche</td></tr>
+                            <tr><td><strong>rsearch</strong></td><td style="color:#e67e22;">●</td><td>Icônes de recherche (réserve)</td></tr>
+                            <tr><td><strong>zero</strong></td><td style="color:#e74c3c;">●</td><td>Images "aucun résultat"</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Fonctionnalités</h3>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Action</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>🔍 <strong>Recherche</strong></td><td>Filtrer par mot-clé dans les commentaires</td></tr>
+                            <tr><td>📋 <strong>Filtre type</strong></td><td>Afficher un seul type d'illustration</td></tr>
+                            <tr><td>➕ <strong>Ajouter</strong></td><td>Créer une nouvelle illustration</td></tr>
+                            <tr><td>✏️ <strong>Éditer</strong></td><td>Modifier URL, type ou commentaire</td></tr>
+                            <tr><td>📋 <strong>Copier</strong></td><td>Copier l'URL dans le presse-papier</td></tr>
+                            <tr><td>🗑️ <strong>Supprimer</strong></td><td>Retirer une illustration</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>Statistiques</h3>
+                    <p>En haut de la page, des compteurs affichent en temps réel le nombre d'illustrations par type (Total, Medical, Search, Zero...).</p>
+                </section>
+
+                <!-- Section 6 : Page Analyse -->
+                <section class="help-section" id="page-analyse">
+                    <h2>📊 6. Page Analyse</h2>
+                    <p>Accès : cliquez sur 📊 dans la barre d'outils ou depuis les paramètres</p>
+
+                    <h3>6.1 Cartes de statistiques</h3>
+                    <p>En haut de page, des cartes affichent les indicateurs clés : total des recherches, temps de réponse moyen, taux de succès, répartition par mode.</p>
+
+                    <h3>6.2 Filtres</h3>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Filtre</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Période</td><td>Date de début et fin</td></tr>
+                            <tr><td>Mode</td><td>rapide, ia, compare, union</td></tr>
+                            <tr><td>Moteur</td><td>Filtre par moteur IA</td></tr>
+                            <tr><td>Recherche</td><td>Filtrage textuel</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>6.3 Vues disponibles</h3>
+                    <h4>Vue "Récap IA"</h4>
+                    <p>Synthèse globale avec statistiques générales, recommandations d'optimisation et top des termes recherchés.</p>
+                    
+                    <h4>Vue "Cards"</h4>
+                    <p>Affichage en grille des recherches effectuées. Chaque carte montre la question, le nombre de résultats, le temps de réponse, et un bouton ▶ pour relancer.</p>
+                    
+                    <h4>Vue "Stats"</h4>
+                    <p>Graphiques détaillés :</p>
+                    <ul>
+                        <li>Recherches par jour (barres)</li>
+                        <li>Résultats avec/sans patients (donut)</li>
+                        <li>Répartition par mode (barres horizontales)</li>
+                        <li>Temps de réponse moyen par jour (courbe)</li>
+                        <li>Top 10 des termes recherchés (barres)</li>
+                        <li>Répartition par moteur IA (donut)</li>
+                    </ul>
+                </section>
+
+                <!-- Section 7 : Raccourcis -->
+                <section class="help-section" id="raccourcis">
+                    <h2>⌨️ 7. Raccourcis et astuces</h2>
+
+                    <h3>7.1 Raccourcis clavier</h3>
+                    <table class="help-table">
+                        <thead>
+                            <tr>
+                                <th>Raccourci</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td><kbd>Entrée</kbd></td><td>Lancer la recherche</td></tr>
+                            <tr><td><kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd></td><td>Recherche vocale (mode normal)</td></tr>
+                            <tr><td><kbd>Ctrl</kbd>+<kbd>Alt</kbd>+<kbd>Shift</kbd>+<kbd>M</kbd></td><td>Mode mains libres</td></tr>
+                            <tr><td><kbd>Escape</kbd></td><td>Fermer modale / arrêter écoute vocale</td></tr>
+                        </tbody>
+                    </table>
+
+                    <h3>7.2 Astuces</h3>
+                    <ul>
+                        <li><strong>Autocomplétion</strong> : Le champ de recherche propose des suggestions basées sur l'historique</li>
+                        <li><strong>Panneau redimensionnable</strong> : Glissez la bordure droite du panneau latéral</li>
+                        <li><strong>Cartes patients</strong> : Cliquez pour développer, cliquez à nouveau pour réduire</li>
+                        <li><strong>Thème automatique</strong> : Le mode "Auto" suit les préférences système</li>
+                    </ul>
+
+                    <h3>7.3 Exemples de requêtes</h3>
+                    <div class="code-block">patients avec béance
+classe II division 1
+adultes avec encombrement
+enfants de moins de 12 ans
+patients traités par invisalign
+bruxisme et classe 3
+femmes de plus de 40 ans avec supraclusion</div>
+                </section>
+
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="help-footer">
+        Kitview Search - Mode d'emploi v1.0 - Janvier 2026
+    </footer>
+
+    <script>
+/*
+ * modedemploi.html V1.0.0 - 06/01/2026 15:00
+ * JavaScript pour le mode d'emploi
+ */
+
+// ═══════════════════════════════════════════════════════════════
+// CONFIGURATION DES LANGUES
+// ═══════════════════════════════════════════════════════════════
+
+const LANGUAGES = [
+    { code: 'fr', name: 'Français', flag: 'fr' },
+    { code: 'en', name: 'English', flag: 'gb' },
+    { code: 'de', name: 'Deutsch', flag: 'de' },
+    { code: 'es', name: 'Español', flag: 'es' },
+    { code: 'it', name: 'Italiano', flag: 'it' },
+    { code: 'pt', name: 'Português', flag: 'pt' },
+    { code: 'pl', name: 'Polski', flag: 'pl' },
+    { code: 'ro', name: 'Română', flag: 'ro' },
+    { code: 'th', name: 'ไทย', flag: 'th' },
+    { code: 'ar', name: 'العربية', flag: 'sa' },
+    { code: 'cn', name: '中文', flag: 'cn' }
+];
+
+// URL de base de l'API - détection automatique du mode fichier local
+// Si ouvert depuis file://, utiliser le serveur local
+const API_BASE = window.location.protocol === 'file:' 
+    ? 'http://localhost:8000' 
+    : '';
+
+// URL de base pour les redirections (pour /help/{lang})
+const HELP_BASE = window.location.protocol === 'file:'
+    ? 'http://localhost:8000/help'
+    : '/help';
+
+// Langue courante (par défaut français)
+let currentLang = localStorage.getItem('helpLang') || 'fr';
+
+// ═══════════════════════════════════════════════════════════════
+// ÉLÉMENTS DOM
+// ═══════════════════════════════════════════════════════════════
+
+const elements = {
+    langButton: document.getElementById('langButton'),
+    langFlag: document.getElementById('langFlag'),
+    langText: document.getElementById('langText'),
+    langPopup: document.getElementById('langPopup'),
+    langPopupClose: document.getElementById('langPopupClose'),
+    chipsContainer: document.getElementById('chipsContainer'),
+    translationInfo: document.getElementById('translationInfo'),
+    themeToggle: document.getElementById('themeToggle')
+};
+
+// ═══════════════════════════════════════════════════════════════
+// GESTION DU THÈME
+// ═══════════════════════════════════════════════════════════════
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        elements.themeToggle.textContent = '☀️';
+    } else if (savedTheme === 'light') {
+        document.body.removeAttribute('data-theme');
+        elements.themeToggle.textContent = '🌙';
+    } else {
+        // Auto : suivre le système
+        if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.setAttribute('data-theme', 'dark');
+            elements.themeToggle.textContent = '☀️';
+        }
+    }
+}
+
+function toggleTheme() {
+    const isDark = document.body.getAttribute('data-theme') === 'dark';
+    if (isDark) {
+        document.body.removeAttribute('data-theme');
+        elements.themeToggle.textContent = '🌙';
+        localStorage.setItem('theme', 'light');
+    } else {
+        document.body.setAttribute('data-theme', 'dark');
+        elements.themeToggle.textContent = '☀️';
+        localStorage.setItem('theme', 'dark');
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// GESTION DE LA LANGUE (préparation pour lazy loading)
+// ═══════════════════════════════════════════════════════════════
+
+/**
+ * Génère les chips de langue dans le popup
+ */
+function renderLanguageChips() {
+    elements.chipsContainer.innerHTML = '';
+    
+    LANGUAGES.forEach(lang => {
+        const chip = document.createElement('div');
+        chip.className = `lang-chip ${lang.code === currentLang ? 'selected' : ''}`;
+        chip.dataset.lang = lang.code;
+        chip.innerHTML = `
+            <img class="chip-flag" src="https://flagcdn.com/w40/${lang.flag}.png" alt="${lang.name}">
+            <span>${lang.code.toUpperCase()}</span>
+        `;
+        chip.addEventListener('click', () => selectLanguage(lang.code));
+        elements.chipsContainer.appendChild(chip);
+    });
+}
+
+/**
+ * Sélectionne une langue
+ * @param {string} langCode - Code de la langue (fr, en, de, etc.)
+ */
+function selectLanguage(langCode) {
+    // Mettre à jour la sélection visuelle
+    document.querySelectorAll('.lang-chip').forEach(chip => {
+        chip.classList.toggle('selected', chip.dataset.lang === langCode);
+    });
+    
+    currentLang = langCode;
+    localStorage.setItem('helpLang', langCode);
+    
+    // Mettre à jour le bouton
+    const lang = LANGUAGES.find(l => l.code === langCode);
+    if (lang) {
+        elements.langFlag.src = `https://flagcdn.com/w40/${lang.flag}.png`;
+        elements.langText.textContent = lang.code.toUpperCase();
+    }
+    
+    // Si ce n'est pas le français, charger la traduction (lazy loading)
+    if (langCode !== 'fr') {
+        loadTranslation(langCode);
+    } else {
+        // Recharger la page en français (version originale)
+        window.location.href = 'modedemploi.html';
+    }
+}
+
+/**
+ * Charge la traduction - Version française
+ * FR → déjà sur cette version
+ * Autres langues → redirige vers la version anglaise
+ * @param {string} langCode - Code de la langue
+ */
+async function loadTranslation(langCode) {
+    // Français → déjà sur cette version
+    if (langCode === 'fr') {
+        elements.translationInfo.innerHTML = '✓ Vous consultez la version française';
+        elements.translationInfo.style.background = '#e8f5e9';
+        setTimeout(() => { toggleLangPopup(); }, 1000);
+        return;
+    }
+    
+    // Toute autre langue → redirige vers la version anglaise
+    const langNames = {
+        'en': 'English', 'de': 'Deutsch', 'es': 'Español',
+        'it': 'Italiano', 'pt': 'Português', 'pl': 'Polski',
+        'ro': 'Română', 'th': 'ไทย', 'ar': 'العربية', 'cn': '中文'
+    };
+    const langName = langNames[langCode] || langCode.toUpperCase();
+    
+    elements.translationInfo.innerHTML = `✓ Redirection vers la version anglaise...`;
+    elements.translationInfo.style.background = '#e8f5e9';
+    
+    setTimeout(() => {
+        // Rediriger vers la version anglaise
+        const currentPath = window.location.pathname;
+        if (currentPath.includes('modedemploi.html')) {
+            window.location.href = currentPath.replace('modedemploi.html', 'modedemploi_en.html');
+        } else {
+            window.location.href = '/help/en';
+        }
+    }, 500);
+}
+
+/**
+ * Affiche/masque le popup de langue
+ */
+function toggleLangPopup() {
+    const isVisible = elements.langPopup.style.display !== 'none';
+    elements.langPopup.style.display = isVisible ? 'none' : 'block';
+}
+
+/**
+ * Ferme le popup si on clique en dehors
+ */
+function handleClickOutside(event) {
+    if (!elements.langButton.contains(event.target) && 
+        !elements.langPopup.contains(event.target)) {
+        elements.langPopup.style.display = 'none';
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// NAVIGATION
+// ═══════════════════════════════════════════════════════════════
+
+function goBack() {
+    // Utiliser history.back() qui retourne toujours à la page précédente
+    // Si pas d'historique (accès direct), fermer l'onglet ou aller à l'accueil
+    if (window.history.length > 1) {
+        window.history.back();
+    } else {
+        // Accès direct sans historique - fermer ou rediriger
+        window.close();
+        // Si window.close() ne fonctionne pas (page pas ouverte par script)
+        // Rediriger vers la racine après un court délai
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 100);
+    }
+}
+
+// ═══════════════════════════════════════════════════════════════
+// TABLE DES MATIÈRES - Surlignage actif
+// ═══════════════════════════════════════════════════════════════
+
+function initTocHighlight() {
+    const sections = document.querySelectorAll('.help-section');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.id;
+                tocLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
+                });
+            }
+        });
+    }, { threshold: 0.3, rootMargin: '-100px 0px -50% 0px' });
+    
+    sections.forEach(section => observer.observe(section));
+}
+
+// ═══════════════════════════════════════════════════════════════
+// INITIALISATION
+// ═══════════════════════════════════════════════════════════════
+
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('📖 Mode d\'emploi Kitview Search v1.0.0');
+    
+    // Initialiser le thème
+    initTheme();
+    
+    // Initialiser les chips de langue
+    renderLanguageChips();
+    
+    // Mettre à jour le bouton langue avec la langue courante
+    const lang = LANGUAGES.find(l => l.code === currentLang);
+    if (lang) {
+        elements.langFlag.src = `https://flagcdn.com/w40/${lang.flag}.png`;
+        elements.langText.textContent = lang.code.toUpperCase();
+    }
+    
+    // Initialiser le surlignage de la table des matières
+    initTocHighlight();
+    
+    // Event listeners
+    elements.langButton.addEventListener('click', toggleLangPopup);
+    elements.langPopupClose.addEventListener('click', () => {
+        elements.langPopup.style.display = 'none';
+    });
+    elements.themeToggle.addEventListener('click', toggleTheme);
+    document.addEventListener('click', handleClickOutside);
+});
+
+    </script>
+</body>
+</html>

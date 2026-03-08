@@ -1,0 +1,161 @@
+﻿# tags.csv V2.2.0 - 21/02/2026;;;;
+# Audit complet : doublons résolus, espaces nettoyés, casse normalisée;;;;
+# Fusion enclavement→inclusion, scission supraposition→overjet+égression;;;;
+# Ajout catégories, tags manquants (biomécanique, diagnostic, appareillage);;;;
+# Nettoyage malocclusion, correction adjectifs masculins;;;;
+# V2.1.0: Retrait patterns croisés bipro/rétroalvéolie, ajout as manquants (37 tags);;;;
+# V2.1.0: Fusion supérieur→maxillaire, inférieur→mandibulaire dans as;;;;
+# V2.1.0: Genre diabète corrigé;;;;
+t;gn;as;pts;cat
+activateur;m;;activateur de classe ii,activateur orthodontique,appareil amovible fonctionnel,appareil d'activation,appareil fonctionnel,functional appliance,monobloc,monoblocs;traitement
+agénésie;f;maxillaire,mandibulaire,latéral,bilatéral,unilatéral;absence de dent,agenesie,agenesies,anodontie,anodonties,dent absente,dent manquante,hypodontie,hypodonties,oligodontie,oligodonties,dent qui manque,il manque une dent;pathologie
+alignement;m;;alignement dentaire,alignement des dents,correction,corrections,redressement,redressements,straightening,straightenings;biomécanique
+analyse de bolton;f;;bolton,discrepance de bolton,rapport bolton,analyse bolton,ratio de bolton;diagnostic
+ancrage;m;maxillaire,mandibulaire;ancrage dentaire,ancrage orthodontique,ancrage cortical,ancrage direct,ancrage indirect,ancrage molaire;traitement
+ankylose;f;maxillaire,mandibulaire;ankilose,ankiloses,dent ankylosée,fusion osseuse,ankyllose;pathologie
+apnée du sommeil;f;sévère,modéré;obstructive sleep apnea,osa,osas,ronflement,ronflements,saos,sleep apnea,syndrome d'apnées obstructives du sommeil,apnee du sommeil,dort mal,arrête de respirer la nuit;pathologie
+arc orthodontique;m;;archwire,fil,fil d'arc,fil métallique,fil orthodontique,fil rectangulaire,fil rond,fils,wire,arc dentaire,arcade dentaire,dental arch;biomécanique
+arc transpalatin;m;;transpalatin,atp,barre transpalatine,barre palatine,arc palatin;traitement
+arthrite;f;;arthropathie inflammatoire,inflammation articulaire;pathologie
+arthrose;f;;arthropathie dégénérative,maladie articulaire dégénérative,ostéoarthrite,ostéoarthrites;pathologie
+asymétrie faciale;f;sévère,modéré,droit,gauche;déviation faciale,visage asymétrique,visage de travers,face asymetrique;pathologie
+atm;f;;articulation temporo-mandibulaire,dysfonction temporo-mandibulaire,tmd,tmds,tmj,tmjs,troubles atm,troubles atms,machoire qui craque,mâchoire qui claque;anatomie
+auxiliaire;m;;ressort ouvert,ressort fermé,chaînette élastique,chaînette,power chain,ressort,ressorts,chaînettes,open coil,closed coil;traitement
+avulsion;f;immédiat,différé,programmé,total;arrachage dentaire,arracher,dédentation,dédentations,dent arrachée,exodontie,exodonties,extraction,extraction dentaire,extractions,dent à enlever;traitement
+aéro;m;;aérophonoscope,fonction ventilatoire,ventilatoire,fonction respiratoire,respiratoire;fonction
+bagues;fp;;appareil dentaire,appareil multi-attaches,appareil orthodontique,attaches,attaches orthodontiques,attachesse,attachesses,bagues ets anses,bagues quis tombes,boîtier,brackets orthodontiques,braces,bracesse,bracesses,bracket,brackets,bracketsse,bracketsses,broches,brochesse,brochesses,train de bagues,appareil dentaire métallique,appareil metallique,ligature,ligature dentaire,ligature dents;traitement
+bielles;fp;;bielle,bielles des herbsts,forsus,forsusse,forsusses,powerscope,système de bielles,systèmes des bielles,vérin de herbst,vérin,herbst;traitement
+bipro;f;maxillaire,incisif,sévère;alvéolie,biproalvéolie,proalvéolie,proinclinaison,proinclinaisons,pro inclinaison;pathologie
+bruxisme;m;nocturne,diurne,sévère,modéré;bruxomanie,bruxomanies,clenching,dents qui grincent,grince des dents,grincement,grincements,grincent des dents,grinding,serrement,serrements,usure dentaire,bruksisme,bruckisme,bruxissme,il grince des dents,elle grince des dents,grince la nuit;pathologie
+béance;f;antérieur,postérieur,latéral,gauche,droit,sévère,modéré;beance,béance dentaire,beances,cavité,cavités,écart,écartement,écartements,écarts,espace entre les dents,espace interdentaire,morsure béante,morsure ouverte,occlusion ouverte,open bite,openbite,béance verticale,bouche ouverte au repos,dents qui ne se touchent pas,beense,béense,offener biss,frontzahnlucke,frontzahnluecke,sous-occlusion,sous occlusion;pathologie
+canine;f;maxillaire,mandibulaire,inclus,ectopique;croc,crocs,cuspide,cuspides,dent canine,dent de loup;anatomie
+caries dentaires;fp;;carie,caries,dental caries,lésion carieuse,tooth decay;pathologie
+chirurgie;f;traumatique;chirurgie mandibulaire,chirurgie maxillaire,chirurgie maxillo-faciale,intervention,interventions,opération,opération mâchoire,opérations,orthognathic surgery,surgery,surgerys;traitement
+claquement articulaire;m;;claquement atm,clicking,clickings,machoire qui claque;pathologie
+classe i d'angle;f;encombré;classe 1,classe 1 d angle,classe 1 d'angle,classe 1 dangle,classe 1 dentaire,classe dentaire,classe i,classe i d angle,classe i d'angle,classe i dangle,neutrocclusion,neutrocclusions,normocclusion,normocclusions,occlusion normale,relation molaire de classe i,relation molaire neutre,cl1,cl i,cl.i,cl. i,cli,classe d angle de 1,classe angle de 1,classe angle 1,classe dentaire de 1,classe dentaire 1;pathologie
+classe i squelettique;f;idéal,modéré;classe 1 squelettique,classe i squelettique;pathologie
+classe ii d'angle;f;sévère,modéré,division 1,division 2,unilatéral;classe 2,classe 2 d angle,classe 2 d'angle,classe 2 dangle,classe 2 dentaire,classe ii,classe ii d angle,classe ii d'angle,classe ii dangle,disto-occlusion,disto-occlusions,distocclusion,distocclusion dentaire,distocclusions,overjet augmenté,rétrusion dentaire,surplomb horizontal accru,surplomb horizontal augmenté,cl2,cl ii,cl.ii,cl. ii,clii,malocclusion classe 2,malocclusion de classe 2,rétroversion,rétrusion mandibulaire,rétrusion maxillaire,rétrusion,,classe d angle de 2,classe angle de 2,classe angle 2,classe dentaire de 2,classe dentaire 2;pathologie
+classe ii squelettique;f;sévère,modéré;classe 2 squelettique,classe ii squelettique;pathologie
+classe iii d'angle;f;sévère,modéré,unilatéral;classe 3,classe 3 d angle,classe 3 d'angle,classe 3 dangle,classe 3 dentaire,classe iii,classe iii d angle,classe iii d'angle,classe iii dangle,delaire,masque de delaire,mésio-occlusion,mésio-occlusions,mésiocclusion,mésiocclusion dentaire,mésiocclusions,prognathie dentaire,sous-occlusion dentaire,cl3,cl iii,cl.iii,cl. iii,cliii,malocclusion classe 3,malocclusion de classe 3,underbite,,classe d angle de 3,classe angle de 3,classe angle 3,classe dentaire de 3,classe dentaire 3;pathologie
+classe iii squelettique;f;sévère,modéré;classe 3 squelettique,classe iii squelettique;pathologie
+composite;m;;resin composite,résine composite,restauration en composite;matériau
+consultation;f;;appointment,appointments,consulter,consulters,examen orthodontique,rendez-vous,rendez-vousse,rendez-vousses,visite,visites,rdv;diagnostic
+contention;f;fixe,amovible;appareil de contention,fil de contention,hawley,maintenance,maintenances,maintien,maintiens,plaque de contention,retention,retentions,stabilisation,stabilisations,contention collée;traitement
+contrôle;m;;follow-up,monitoring,monitorings,suivi,suivis,surveiller,surveillers,visite de contrôle;diagnostic
+croissance;f;;développement,développements,grandir,grandirs,growth,maturation,maturations;fonction
+crowding;m;maxillaire,mandibulaire,antérieur,sévère,modéré;chevauchement,chevauchements,crowding dentaire,dents qui se chevauchent,encombrement,encombrements,entassement dentaire,manque de place,surencombrement,dents serrées,manque d'espace,dents entassées,dents trop serrées,plaque a piste;pathologie
+céphalométrie;f;;cephalo,cephalos,lateral ceph,profil,profils,radio de profil,radiographie de profil,télécrâne,télécrânes,téléradio,téléradiographie,téléradiographies,téléradios;diagnostic
+céramique;f;;attaches céramiques,brackets céramiques,ceramic,ceramics,ceramique,ceramiques,esthétique,esthétiques,transparent,transparents;matériau
+ddm;f;maxillaire,mandibulaire,sévère,modéré;discrepance,discrepances,dysharmonie,dysharmonie dentaire,dysharmonie dento maxillaire,dysharmonie dento-maxillaire,dysharmonie-dento-maxillaire,dysharmonies,dysmorphose,dysmorphoses;pathologie
+dent surnuméraire;f;maxillaire,mandibulaire;dent en trop,dent supplémentaire,hyperdontie,hyperdonties,mésiodens,mésiodensse,mésiodensses,supernuméraire,supernuméraires,dent en plus;pathologie
+dentition mixte;f;;dentition transitionnelle,denture mixte,mixed dentition;fonction
+dentition permanente;f;;dentition adulte,dents d'adulte,dents d'adultes,dents définitives,denture permanente,permanent dentition;fonction
+dentition temporaire;f;inclus;deciduous,deciduousse,deciduousses,dents de bébé,dents de lait,dents lactéales,dents primaires,denture temporaire,primary dentition;fonction
+diabète;m;;diabétique,diabétiques;pathologie
+diastemata;mp;central;dents espacées,diastemes,diastèmes,diastèmesse,diastèmesses,espacement généralisé,espaces,espacés,espaces interdentaires,espaces multiples;pathologie
+diastème;m;central;dents du bonheur,dents écartées,diasteme,diastème central,écartement dentaire,espacé,espace,espacement,espacements,gap,gaps,space,spaces,ecart entre les dents,dents de la chance,spacing;pathologie
+distalisation;f;;déplacement distal,mouvement de distalisation,recul,reculs;traitement
+douleur;f;infectieux;douleur dentaire,inconfort,inconforts,mal,maux,pain,pains,sensibilité,sensibilités,souffrir,souffrirs,ça fait mal,mal aux dents;pathologie
+dtm;m;sévère,modéré,droit,gauche,bilatéral;dysfonctionnement temporo-mandibulaire,dysfonctionnements temporo-mandibulaires,dysfonctionnement,dysfonctionnements,trouble temporo-mandibulaire,troubles temporo-mandibulaires,désordre temporo-mandibulaire;pathologie
+dysfonction linguale;f;sévère,modéré;déglutition primaire,langue basse,mauvaise position linguale,position linguale basse,trouble de la déglutition,deglutition atypique,avale mal,tong e,tong-e;pathologie
+dysplasie;f;sévère,modéré;anomalie congénitale,anomalie de développement,dysmorphie,dysmorphies,malformation,malformations;pathologie
+débandage;m;;attache décollée,bague qui tombe,bracket décollé,loose bracket;traitement
+déglutition;f;;acte de déglutition,avaler,avalers,fonction de déglutition,swallowing;fonction
+détartrage;m;;nettoyage dentaire,prophylaxie,prophylaxies,scaling,scalings,surfaçage,surfaçages;traitement
+déviation mandibulaire;f;droit,gauche,sévère,modéré;décalage mandibulaire,déviation de la mandibule,déviation mandibulaire latérale;pathologie
+déviation maxillaire;f;droit,gauche,antérieur;décalage dentaire,déviation de la ligne médiane,déviation maxillaire latérale;pathologie
+ectopie;f;maxillaire,mandibulaire;dent ectopique,dent en dehors de l'arcade,dent mal placée,ec,ectopic tooth,ectopie dentaire,mal placée,position ectopique,dent qui pousse ailleurs;pathologie
+ef;f;;tef,traitement rééducateur fonctionnel;gestion
+empreinte;f;;alginate,alginates,empreinte dentaire,empreintes,moulage,moulages,prise d'empreinte;diagnostic
+endoalvéolie;f;maxillaire,mandibulaire,sévère,modéré;endoalvéolie,endo-alvéolie,arcade étroite,palais étroit,voûte palatine étroite,palais ogival;pathologie
+engrènement;m;;engrènement dentaire,interdigitation,rapport molaire;fonction
+facette;f;;facette céramique,facette dentaire,veneer,veneers;traitement
+favori;m;;choisi,préféré,favoris,préférés,choisis;gestion
+fente;f;labiale,palatine,labio-palatine;bec de lièvre,cleft,clefts,fente labio-palatine,fentes,malformation faciale;pathologie
+fluorose;f;;fluorose dentaire,taches blanches;pathologie
+force orthodontique;f;modéré,sévère;force légère,force continue,force intermittente,force de traction,forces orthodontiques;biomécanique
+fracture;f;maxillaire,mandibulaire;dent cassée,dent fracturée,fracture de racine,fracture dentaire;pathologie
+gingivite;f;sévère,modéré;inflammation gencive,inflammation gencives,gencive,gencives;pathologie
+gouttière;f;chirurgical,invisible;aligners,aligneurs,gouttières,gouttières transparentes,invisible aligner,invisalign;traitement
+implant;m;;implant dentaire,implants,vis,vis dentaire;traitement
+incisives latérales;fp;maxillaire,mandibulaire;incisive latérale;anatomie
+incisives palatinées;fp;;incisive palatinée;anatomie
+inclusion;f;maxillaire,mandibulaire;dent bloquée,dent incluse,dent retenue,impaction,impactions,inclusion dentaire,rétention dentaire,dent qui ne sort pas,dent coincée,dent enclavée,blocage,enclavement,enclavée;pathologie
+ingression;f;;ingression dentaire,intrusion,intrusions,mouvement d'ingression;biomécanique
+interposition linguale;f;;langue entre les dents,langue interposée;pathologie
+latérodéviation;f;droit,gauche,sévère,modéré;déviation latérale,latéro-déviation,mandibule déviée;pathologie
+linguo-version;f;;inclinaison linguale,incliné vers la langue,linguoversion,versé en lingual;biomécanique
+luxation;f;;déplacement articulaire,dislocation,dislocations,luxation atm;pathologie
+luxation méniscale;f;réductible,bilatéral,unilatéral,droit,gauche;déplacement du ménisque,luxation discale,trouble de l'atm,luxation méniscale réductible,luxation méniscale réductible face;pathologie
+macrodontie;f;maxillaire,mandibulaire;dents trop grandes,mégalodontie,mégalodonties,surdimensionnement dentaire,grosses dents;pathologie
+macrognathie;f;maxillaire,mandibulaire;excès mandibulaire,excès mandibulaires,excès maxillaire,excès maxillaires,grande mâchoire,grosse mâchoire,hyperplasie,hyperplasies,mâchoire trop grande;pathologie
+mainteneur d'espace;m;;appareil mainteneur d'espace,bague et anse,space maintainer;traitement
+maladie parodontale;f;sévère,modéré;déchaussement,déchaussements,maladie des gencives,parodontite,parodontites,parodontopathie,parodontopathies,periodontal disease,dents qui se déchaussent,parodontie,parodontologie,parodonte;pathologie
+malocclusion;f;droit,gauche,maxillaire,mandibulaire,modéré,sévère;malocclusion dentaire,maloclusion,maloclusions,mauvais engrènement,mauvais engrènements,mauvaise occlusion,problème d'occlusion,mors mal,mord mal;pathologie
+malposition;f;mandibulaire,maxillaire,modéré,sévère;dent mal positionnée,malposition dentaire,malpositions,anomalie alvéolaire,anomalie alvéolaire mandibulaire,alvéolaire mandibulaire;pathologie
+mandibule normopositionnée;f;;mandibule normale,position mandibulaire normale,snb normal;anatomie
+mastication;f;;chewing,croquer,croquers,fonction masticatoire,fonction masticatrice,mâcher,mâchers,mastiquer,mastiquers;fonction
+maxillaire normopositionné;m;;maxillaire normal,position maxillaire normale,sna normal;anatomie
+microdontie;f;maxillaire,mandibulaire;dents trop petites,nanisme dentaire,sous-dimensionnement dentaire,petites dents;pathologie
+micrognathie;f;maxillaire,mandibulaire;déficit mandibulaire,déficit maxillaire,mâchoire trop petite,petite mâchoire;pathologie
+minivis;f;;ancrage osseux,ancrage squelettique,implant orthodontique temporaire,mini implant,mini-vis,mini-visse,mini-visses,tads,vis d'ancrage,vis d'ancrages;traitement
+molaire;f;maxillaire,mandibulaire;dent du fond,douzième,douzièmes,grosse dent,molaire de douze ans,molaire de six ans,sixième,sixièmes;anatomie
+mésialisation;f;;avancement,avancements,déplacement mésial,mouvement de mésialisation;traitement
+métal;m;;acier,aciers,métal inoxydable,métallique,métalliques,steel,steels,titane,titanes,titanium,titaniums;matériau
+niti;m;;fil niti,fil thermoactif,nickel-titane,nickel-titanes,nitinol,nitinols,superélastique,superélastiques;matériau
+nivellement;m;;leveling,mise à niveau,niveler,alignement vertical,courbe de spee;biomécanique
+nécrose pulpaire;f;;dévitalisation nécessaire,mort pulpaire,nécrose de la pulpe,pulpe nécrosée;pathologie
+occlusion croisée;f;antérieur,postérieur,latéral,gauche,droit,unilatéral,bilatéral,sévère,modéré;articulé croisé,crossbite,morsure croisée,occlusion croisee;pathologie
+occlusion inversée;f;antérieur,postérieur,latéral,sévère,modéré;articulé inversé,morsure inversée,occlusion inverse;pathologie
+onychophagie;f;;nail biting,ronger les ongles,se ronger les ongles,il se ronge les ongles;pathologie
+orthodontie linguale;f;;lingual,bagues linguales,appareil lingual,incognito,orthodontie invisible,technique linguale,brackets linguaux;traitement
+ostéotomie;f;maxillaire,mandibulaire;chirurgie bimaxillaire,chirurgie des mâchoires,chirurgie orthognathique,jaw surgery;traitement
+overjet;m;sévère,modéré;over jet,overjet,surplomb,surjet,surjets,décalage horizontal,dépassement horizontal,recouvrement horizontal,surplomb horizontal,protrusion incisive,jet dentaire;pathologie
+panoramique;m;;opg,opgs,orthopantomogramme,orthopantomogrammes,panoramique dentaire,panorex,radio,radio panoramique,radiographie,radiographie panoramique,radiographies,radios,pano;diagnostic
+pendulum;m;;appareil pendulum,distalisation molaire;traitement
+phonation;f;;articulation,articulations,élocution,élocutions,fonction phonatoire,parler,parlers,parole,paroles,speech,speechs;fonction
+photographie clinique;f;;photo intra-orale,photo extra-orale,photo de face,photo de profil,photographie dentaire,photos cliniques,bilan photographique;diagnostic
+plaque amovible;f;;appareil amovible,plaque orthodontique,removable appliance;traitement
+plaque papillon;f;;papillon;traitement
+plaque y;f;;en forme de y;traitement
+plaque éventail;f;;éventail;traitement
+procheilie;f;maxillaire,mandibulaire,sévère,modéré;position avancée d'une lèvre,avancée d'une lèvre;pathologie
+proglissement;f;droit,gauche;déviation mandibulaire fonctionnelle,glissement mandibulaire,proglissement fonctionnel,proglissement mandibulaire,proglissements,déviation;pathologie
+prognathie mandibulaire;f;sévère,modéré;mandibule avancée,mandibule en avant,mandibule proéminente,prognathisme mandibulaire,mâchoire du bas en avant,menton en avant,menton proéminent,machoire qui avance,prognathe,prognathes,promandibulie;pathologie
+prognathisme maxillaire;m;sévère,modéré;maxillaire avancé,maxillaire en avant,maxillaire proéminent,prognathie maxillaire;pathologie
+propulsor;m;;ci 2 propulseur,ci ii propulseur,classe 2 propulseur,classe ii propulseur,propulseur classe ii;traitement
+protrusion;f;maxillaire,mandibulaire,sévère,modéré;avancement excessif,proclusion,proclusions,projection en avant,protrusions,dents en avant;pathologie
+prospect;m;;visiteur;diagnostic
+prémolaire;f;;bicuspide,bicuspides,cinquième,cinquièmes,petite molaire,premolaire,premolaires,quatrième,quatrièmes;anatomie
+quad helix;m;;4 helix,4helix,appareil d'expansion,appareil d'expansion palatine,disjoncteur,disjoncteur palatin,disjonction,disjonctions,erp,erps,expansion,expansion lente,expansion rapide,expansions,quadhelix,quadri hélix,quadri-hélix,palatoversion,expansion palatine;traitement
+respiration buccale;f;sévère,modéré;bouche ouverte,mouth breathing,respirateur buccal,respiration orale,respiration par la bouche,ventilation orale,respire par la bouche,dort la bouche ouverte;pathologie
+ressaut articulaire;m;;popping,poppings,ressaut atm;pathologie
+rotation;f;;dent pivotée,dent rotée,dent tournée,malposition rotationnelle,rotation axiale,twisted tooth,version axiale,dent qui tourne;biomécanique
+récession gingivale;f;sévère,modéré,maxillaire,mandibulaire;gingival recession,receding gums,récession parodontale,rétraction gingivale,gencive qui remonte,dénudation radiculaire,dénudation,récession;pathologie
+récidive;f;sévère,modéré;rechute,rechutes,recidive,récidive orthodontique,relapse,relapses,retour,retours,dents qui rebougent;pathologie
+résorption radiculaire;f;sévère,modéré;raccourcissement radiculaire,racine qui se résorbe,résorption apicale,résorption de la racine,rhizalyse,rhizalyses;pathologie
+rétroalvéolie;f;mandibulaire,maxillaire,sévère,modéré;rétroinclinaison,rétroinclinaisons;pathologie
+rétrocheilie;f;maxillaire,mandibulaire,sévère,modéré;position reculée d'une lèvre,reculée d'une lèvre;pathologie
+rétrognathie mandibulaire;f;sévère,modéré;mandibule en arrière,mandibule en retrait,mandibule reculée,rétrognathe,rétrognathes,rétrognathie,rétromandibulaire,rétromandibulaires,rétromandibulisme,rétromandibulismes,rétroposition mandibulaire,menton en retrait,menton reculé,rétromandibulie,petit menton,rétroposition;pathologie
+rétrognathie maxillaire;f;sévère,modéré;maxillaire en arrière,maxillaire en retrait,maxillaire reculé,rétromaxillaire,rétromaxillaires,hypoplasie maxillaire,hypoplasie,hypoplasies,déficit maxillaire antérieur,face plate,reculer,reculé;pathologie
+scanner;m;;3d,cbct,cbcts,cone beam,cone beam ct,imagerie 3d,scan 3d,tomodensitométrie,tomodensitométries,tomographie,tomographies;diagnostic
+scanner intra-oral;m;;digital impression,empreinte numérique,scan numérique;diagnostic
+stripping;m;;ipr,iprs,limage,limages,meulage,meulages,polissage interproximal,réduction amélaire,réduction interproximale,slicing,slicings;traitement
+succion;f;digital;habitude de succion,habitude de sucer,pacifier,pacifiers,pouce,pouces,suce le pouce,sucer,sucers,sucotement,sucotements,tétine,tétines,suce son pouce,tétouille,tète son pouce,thumb sucking;fonction
+supraclusion;f;antérieur,sévère,modéré;deep bite,morsure profonde,over bite,overbite,recouvrement vertical excessif,supra,supraocclusion,supraocclusions,suracclusion,sur-occlusion,suroclusion,dents du haut qui recouvrent,morsure palatine;pathologie
+torque;m;;angulation radiculaire,couple,couples,inclinaison radiculaire,rotation radiculaire,torsion radiculaire;biomécanique
+traitement interceptif;m;;early treatment,interception orthodontique,traitement précoce;traitement
+translation;f;;bodily movement,déplacement corporel,déplacement en bloc,mouvement,mouvement corporel,mouvements,translation dentaire;biomécanique
+transposition;f;;dents transposées,échange de position,inversion de position,permutation dentaire;biomécanique
+urgence;f;;cas urgent,cas urgents,emergency,emergencys,urgence orthodontique,urgent,urgents;gestion
+ventilation nasale;f;;nasal breathing,respiration nasale,respiration par le nez;fonction
+version;f;;bascule,basculement,basculements,bascules,inclinaison,inclinaison dentaire,inclinaisons,mouvement de version,tipping,tippings;biomécanique
+vestibulo-version;f;;incliné vers l'extérieur,incliné vers la joue,versé en vestibulaire,vestibulo-position,vestibulo-positions,vestibuloversion;biomécanique
+wits;m;;dysharmonie maxillo-mandibulaire,dysharmonie maxillo mandibulaire,dysharmonie mandibulaire,dysharmonie maxillaire,analyse witz,analyse wits,witz;pathologie
+écarteur;m;maxillaire,modéré,sévère;anneau séparateur,élastique séparateur,séparateur,séparateurs,separator,separators,protraction;traitement
+édentation;f;maxillaire,mandibulaire,total,complet;absence de dents,edentation,edentations,édenté,édentement,édentements,édentés,perte de dents,plus de dents;pathologie
+égression;f;;égression dentaire,extrusion,extrusions,mouvement d'égression,supra-éruption,supra-éruptions,éruption excessive,dent trop haute,dent en supraposition;biomécanique
+élastiques intermaxillaires;mp;;élastiques classe ii,élastiques classe iii,élastiques de classe,imu,imus,rubber bands,elastiques;traitement
+érosion;f;;érosion acide,érosion chimique,érosion dentaire;pathologie
+éruption;f;ectopique,retardé;dentition,dents qui poussent,dents qui sortent,émergence,émergences,eruption,eruptions,percée,percées,poussée dentaire;fonction
+éruption ectopique;f;;dent qui pousse mal,éruption mal positionnée,malposition éruptive;pathologie

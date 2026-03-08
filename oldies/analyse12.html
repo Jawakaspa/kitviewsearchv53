@@ -1,0 +1,1666 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitview Search - Analyse</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <style>
+/*
+ * analyse12.html V1.0.8 - 04/01/2026 17:20:50
+ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --primary-color: #3B9DD8;
+    --primary-light: #e3f2fd;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --button-hover: #2d8bc7;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --danger-color: #e74c3c;
+}
+
+[data-theme="dark"] {
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --border-color: #404040;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --primary-light: #1e3a5f;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+.analyse-header {
+    background: var(--bg-primary);
+    padding: 15px 20px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.analyse-header h1 { font-size: 20px; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+
+.header-actions { display: flex; gap: 10px; }
+
+.header-actions button {
+    padding: 10px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.header-actions button:hover { background: var(--bg-secondary); }
+.header-actions button.primary { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+.header-actions button.primary:hover { background: var(--button-hover); }
+
+/* Contenu principal */
+.analyse-content {
+    flex: 1;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+/* Stats cards */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.stat-card {
+    background: var(--bg-primary);
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+.stat-card .value { font-size: 28px; font-weight: 700; color: var(--primary-color); }
+.stat-card .label { font-size: 12px; color: var(--text-secondary); margin-top: 5px; }
+.stat-card.positive .value { color: var(--success-color); }
+.stat-card.negative .value { color: var(--danger-color); }
+.stat-card.warning .value { color: var(--warning-color); }
+
+/* Stats cliquables */
+.stat-card.clickable {
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.stat-card.clickable:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+.stat-card.clickable .value { text-decoration: underline; text-decoration-style: dotted; text-underline-offset: 4px; }
+
+/* Filtres */
+.filters-panel {
+    background: var(--bg-primary);
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.filters-panel h3 { font-size: 14px; color: var(--text-secondary); margin-bottom: 12px; }
+
+.filters-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: flex-end;
+}
+
+.filter-group { display: flex; flex-direction: column; gap: 4px; }
+.filter-group label { font-size: 11px; color: var(--text-secondary); }
+.filter-group input, .filter-group select {
+    padding: 8px 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 13px;
+}
+
+.filter-group.large input { min-width: 200px; }
+
+.filter-actions { display: flex; gap: 8px; }
+.filter-actions button {
+    padding: 8px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    cursor: pointer;
+    font-size: 13px;
+}
+.filter-actions button.apply { background: var(--primary-color); color: white; border-color: var(--primary-color); }
+
+/* Vue Toggle - 3 onglets */
+.view-toggle {
+    display: flex;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 4px;
+    margin-bottom: 20px;
+}
+
+.view-toggle button {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 6px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.view-toggle button.active {
+    background: var(--bg-primary);
+    color: var(--primary-color);
+    font-weight: 600;
+    box-shadow: var(--shadow);
+}
+
+.view-container { display: none; }
+.view-container.active { display: block; }
+
+/* Vue Récap IA */
+.recap-view {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 25px;
+}
+
+.recap-section {
+    margin-bottom: 25px;
+}
+
+.recap-section h2 {
+    font-size: 16px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.recap-item {
+    padding: 8px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+}
+
+.recap-item:last-child { border-bottom: none; }
+.recap-item .label { color: var(--text-secondary); }
+.recap-item .value { font-weight: 500; }
+.recap-item .value.good { color: var(--success-color); }
+.recap-item .value.bad { color: var(--danger-color); }
+.recap-item .value.warning { color: var(--warning-color); }
+
+.recap-list { list-style: none; }
+.recap-list li { padding: 6px 0; color: var(--text-secondary); }
+.recap-list li span { color: var(--text-primary); }
+
+.recommendations {
+    background: var(--primary-light);
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+}
+
+.recommendations h3 { font-size: 14px; margin-bottom: 10px; color: var(--primary-color); }
+.recommendations ul { list-style: decimal; margin-left: 20px; }
+.recommendations li { padding: 5px 0; font-size: 13px; }
+
+/* Vue Cards */
+.cards-view {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 15px;
+}
+
+.search-card {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 15px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+}
+
+.search-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+}
+
+.search-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+}
+
+.search-card-rating { font-size: 24px; }
+
+.search-card-meta {
+    font-size: 11px;
+    color: var(--text-secondary);
+    display: flex;
+    gap: 10px;
+}
+
+.search-card-question {
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+}
+
+.search-card-stats {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+.search-card-stats span {
+    background: var(--bg-secondary);
+    padding: 4px 8px;
+    border-radius: 4px;
+}
+
+.search-card-comment {
+    margin-top: 10px;
+    padding: 10px;
+    background: #fff3e0;
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--text-secondary);
+}
+
+[data-theme="dark"] .search-card-comment { background: #4a3000; }
+
+.search-card-actions {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    gap: 5px;
+}
+
+.btn-play {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+}
+
+.btn-play:hover { background: var(--button-hover); }
+
+/* Vue Classique */
+.classic-view {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.recherches-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.recherches-table th, .recherches-table td {
+    padding: 12px 10px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.recherches-table th {
+    background: var(--bg-secondary);
+    font-size: 11px;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+}
+
+/* Colonnes triables - Style amélioré */
+.recherches-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+}
+.recherches-table th.sortable:hover { color: var(--primary-color); }
+.recherches-table th .sort-arrows {
+    display: inline-flex;
+    flex-direction: column;
+    margin-left: 6px;
+    vertical-align: middle;
+    line-height: 0.6;
+    font-size: 10px;
+    color: #ccc;
+}
+.recherches-table th .sort-arrows .arrow-up,
+.recherches-table th .sort-arrows .arrow-down {
+    transition: color 0.2s;
+}
+.recherches-table th.sorted-asc {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.recherches-table th.sorted-asc .sort-arrows .arrow-up { color: var(--primary-color); }
+.recherches-table th.sorted-desc {
+    font-weight: 700;
+    color: var(--primary-color);
+}
+.recherches-table th.sorted-desc .sort-arrows .arrow-down { color: var(--primary-color); }
+
+/* Barre de tri pour vue Cards */
+.sort-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 15px;
+    background: var(--bg-primary);
+    border-radius: 8px;
+    margin-bottom: 15px;
+    box-shadow: var(--shadow);
+}
+.sort-bar label {
+    font-size: 12px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+.sort-bar .sort-buttons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.sort-bar .sort-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s;
+}
+.sort-bar .sort-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+.sort-bar .sort-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+    font-weight: 600;
+}
+.sort-bar .sort-btn .sort-dir {
+    font-size: 10px;
+    opacity: 0.7;
+}
+
+.recherches-table tbody tr { cursor: pointer; }
+.recherches-table tbody tr:hover { background: var(--bg-secondary); }
+.recherches-table .rating { font-size: 18px; }
+.recherches-table .mode {
+    background: var(--primary-light);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+}
+
+.recherches-table .btn-play-small {
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.recherches-table .btn-play-small:hover { background: var(--button-hover); }
+
+/* Pagination */
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    padding: 15px;
+    background: var(--bg-secondary);
+}
+
+.pagination button {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-primary);
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.pagination button:disabled { opacity: 0.5; cursor: not-allowed; }
+.pagination button.active { background: var(--primary-color); color: white; }
+.pagination .page-info { font-size: 12px; color: var(--text-secondary); }
+
+/* Modal */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-overlay.visible { display: flex; }
+
+.modal-content {
+    background: var(--bg-primary);
+    border-radius: 16px;
+    width: 90%;
+    max-width: 800px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: var(--bg-primary);
+}
+
+.modal-close {
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.modal-body { padding: 20px; }
+
+.detail-grid {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 10px;
+}
+
+.detail-label { color: var(--text-secondary); font-size: 13px; }
+.detail-value { font-size: 14px; }
+.detail-value.highlight { background: var(--primary-light); padding: 8px 12px; border-radius: 6px; }
+
+.modal-actions {
+    padding: 15px 20px;
+    border-top: 1px solid var(--border-color);
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.modal-actions button {
+    padding: 10px 20px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background: var(--bg-primary);
+    cursor: pointer;
+}
+
+.modal-actions button.primary { background: var(--primary-color); color: white; }
+
+/* Spinner */
+.ia-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: var(--text-secondary);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 15px;
+}
+
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ═══════════════════════════════════════════════════════════════
+   GRAPHIQUES
+   ═══════════════════════════════════════════════════════════════ */
+.charts-view {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.chart-card {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+}
+
+.chart-card.full-width {
+    grid-column: 1 / -1;
+}
+
+.chart-card h3 {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chart-container {
+    position: relative;
+    height: 250px;
+}
+
+.chart-container.tall {
+    height: 300px;
+}
+
+.chart-card.full-width .chart-container {
+    height: 280px;
+}
+
+/* Période sélecteur pour graphiques */
+.charts-period {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 20px;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.charts-period label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    font-weight: 500;
+}
+
+.charts-period input[type="date"] {
+    padding: 8px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-size: 13px;
+}
+
+.charts-period .period-presets {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+}
+
+.charts-period .preset-btn {
+    padding: 6px 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    font-size: 12px;
+    transition: all 0.2s;
+}
+
+.charts-period .preset-btn:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.charts-period .preset-btn.active {
+    background: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.chart-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: var(--text-secondary);
+    font-size: 13px;
+}
+
+.chart-empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .stats-grid { grid-template-columns: repeat(3, 1fr); }
+    .filters-row { flex-direction: column; }
+    .filter-group { width: 100%; }
+    .cards-view { grid-template-columns: 1fr; }
+    .detail-grid { grid-template-columns: 1fr; }
+    .view-toggle button { font-size: 12px; padding: 8px 10px; }
+    .charts-view { grid-template-columns: 1fr; }
+    .charts-period { flex-direction: column; align-items: stretch; }
+    .charts-period .period-presets { margin-left: 0; justify-content: center; }
+}
+    </style>
+</head>
+<body>
+    <header class="analyse-header">
+        <h1>📊 Analyse des recherches</h1>
+        <div class="header-actions">
+            <button onclick="exportCSV()">📥 Export</button>
+            <button class="primary" onclick="goToSearch()">🔍 Recherche</button>
+        </div>
+    </header>
+
+    <main class="analyse-content">
+        <!-- Stats -->
+        <div class="stats-grid">
+            <div class="stat-card clickable" onclick="filterByAll()" title="Voir toutes les recherches"><div class="value" id="statTotal">-</div><div class="label">Recherches</div></div>
+            <div class="stat-card positive clickable" onclick="filterByRating('👍')" title="Filtrer les positifs"><div class="value" id="statPositif">-</div><div class="label">👍 Positifs</div></div>
+            <div class="stat-card negative clickable" onclick="filterByRating('👎')" title="Filtrer les négatifs"><div class="value" id="statNegatif">-</div><div class="label">👎 Négatifs</div></div>
+            <div class="stat-card"><div class="value" id="statSatisfaction">-</div><div class="label">Satisfaction</div></div>
+            <div class="stat-card warning clickable" onclick="filterByErreur()" title="Filtrer les erreurs"><div class="value" id="statErreurs">-</div><div class="label">Erreurs</div></div>
+            <div class="stat-card"><div class="value" id="statTempsMoyen">-</div><div class="label">Temps moy.</div></div>
+        </div>
+
+        <!-- Filtres avec recherche commentaires -->
+        <div class="filters-panel">
+            <h3>🔧 Filtres</h3>
+            <div class="filters-row">
+                <div class="filter-group large"><label>Recherche question</label><input type="text" id="filterQ" placeholder="Dans la question..."></div>
+                <div class="filter-group large"><label>🔍 Recherche commentaires</label><input type="text" id="filterComment" placeholder="Dans les commentaires..."></div>
+                <div class="filter-group"><label>Rating</label><select id="filterRating"><option value="">Tous</option><option value="👍">👍</option><option value="👎">👎</option><option value="null">Sans</option></select></div>
+                <div class="filter-group"><label>Mode</label><select id="filterMode"><option value="">Tous</option><option value="rapide">Rapide</option><option value="ia">IA</option><option value="compare">Compare</option><option value="union">Union</option></select></div>
+                <div class="filter-group"><label>Du</label><input type="date" id="filterDateDebut"></div>
+                <div class="filter-group"><label>Au</label><input type="date" id="filterDateFin"></div>
+                <div class="filter-group"><label>Problème</label><select id="filterProbleme"><option value="">Tous</option><option value="Bug IHM">Bug IHM</option><option value="Trop de patients">Trop</option><option value="Pas assez de patients">Pas assez</option><option value="Autre">Autre</option></select></div>
+                <div class="filter-actions"><button onclick="resetFilters()">↺</button><button class="apply" onclick="applyFilters()">Filtrer</button></div>
+            </div>
+        </div>
+
+        <!-- Toggle 4 vues -->
+        <div class="view-toggle">
+            <button id="btnViewRecap" class="active" onclick="switchView('recap')">📈 Récapitulatif</button>
+            <button id="btnViewCharts" onclick="switchView('charts')">📊 Graphiques</button>
+            <button id="btnViewCards" onclick="switchView('cards')">🃏 Vue Cards</button>
+            <button id="btnViewClassic" onclick="switchView('classic')">📋 Vue Classique</button>
+        </div>
+
+        <!-- Vue Récap IA -->
+        <div class="view-container active" id="viewRecap">
+            <div class="recap-view" id="recapContent">
+                <div class="ia-loading"><div class="spinner"></div><span>Chargement...</span></div>
+            </div>
+        </div>
+
+        <!-- Vue Graphiques -->
+        <div class="view-container" id="viewCharts">
+            <!-- Sélecteur de période -->
+            <div class="charts-period">
+                <label>📅 Période :</label>
+                <input type="date" id="chartDateDebut" onchange="loadCharts()">
+                <span>→</span>
+                <input type="date" id="chartDateFin" onchange="loadCharts()">
+                <div class="period-presets">
+                    <button class="preset-btn" onclick="setChartPeriod(7)">7j</button>
+                    <button class="preset-btn active" onclick="setChartPeriod(30)">30j</button>
+                    <button class="preset-btn" onclick="setChartPeriod(90)">90j</button>
+                    <button class="preset-btn" onclick="setChartPeriod(365)">1 an</button>
+                    <button class="preset-btn" onclick="setChartPeriod(0)">Tout</button>
+                </div>
+            </div>
+            
+            <!-- Grille des graphiques -->
+            <div class="charts-view">
+                <!-- 1. Évolution journalière (pleine largeur) -->
+                <div class="chart-card full-width">
+                    <h3>📈 Évolution journalière des recherches</h3>
+                    <div class="chart-container tall">
+                        <canvas id="chartEvolution"></canvas>
+                    </div>
+                </div>
+                
+                <!-- 2. Répartition des ratings -->
+                <div class="chart-card">
+                    <h3>🥧 Répartition des ratings</h3>
+                    <div class="chart-container">
+                        <canvas id="chartRatings"></canvas>
+                    </div>
+                </div>
+                
+                <!-- 3. Répartition par mode -->
+                <div class="chart-card">
+                    <h3>📊 Répartition par mode</h3>
+                    <div class="chart-container">
+                        <canvas id="chartModes"></canvas>
+                    </div>
+                </div>
+                
+                <!-- 4. Temps de réponse moyen -->
+                <div class="chart-card full-width">
+                    <h3>⏱️ Temps de réponse moyen par jour</h3>
+                    <div class="chart-container">
+                        <canvas id="chartTemps"></canvas>
+                    </div>
+                </div>
+                
+                <!-- 5. Top 10 termes recherchés -->
+                <div class="chart-card">
+                    <h3>🔥 Top 10 des termes recherchés</h3>
+                    <div class="chart-container">
+                        <canvas id="chartTermes"></canvas>
+                    </div>
+                </div>
+                
+                <!-- 6. Répartition par moteur IA -->
+                <div class="chart-card">
+                    <h3>🤖 Répartition par moteur IA</h3>
+                    <div class="chart-container">
+                        <canvas id="chartMoteurs"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Vue Cards -->
+        <div class="view-container" id="viewCards">
+            <div class="sort-bar">
+                <label>Trier par :</label>
+                <div class="sort-buttons">
+                    <button class="sort-btn active" data-sort="timestamp" onclick="sortTable('timestamp')">Date <span class="sort-dir">▼</span></button>
+                    <button class="sort-btn" data-sort="questionoriginale" onclick="sortTable('questionoriginale')">Question</button>
+                    <button class="sort-btn" data-sort="nb_patients" onclick="sortTable('nb_patients')">Patients</button>
+                    <button class="sort-btn" data-sort="rating" onclick="sortTable('rating')">Rating</button>
+                    <button class="sort-btn" data-sort="mode" onclick="sortTable('mode')">Mode</button>
+                </div>
+            </div>
+            <div class="cards-view" id="cardsContainer"></div>
+            <div class="pagination" id="paginationCards"></div>
+        </div>
+
+        <!-- Vue Classique -->
+        <div class="view-container" id="viewClassic">
+            <div class="classic-view">
+                <table class="recherches-table">
+                    <thead><tr>
+                        <th class="sortable" data-sort="timestamp" onclick="sortTable('timestamp')">Date <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                        <th class="sortable" data-sort="questionoriginale" onclick="sortTable('questionoriginale')">Question <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                        <th class="sortable" data-sort="mode" onclick="sortTable('mode')">Mode <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                        <th class="sortable" data-sort="nb_patients" onclick="sortTable('nb_patients')">Patients <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                        <th class="sortable" data-sort="rating" onclick="sortTable('rating')">Rating <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                        <th class="sortable" data-sort="type_probleme" onclick="sortTable('type_probleme')">Problème <span class="sort-arrows"><span class="arrow-up">▲</span><span class="arrow-down">▼</span></span></th>
+                        <th></th>
+                    </tr></thead>
+                    <tbody id="recherchesBody"></tbody>
+                </table>
+                <div class="pagination" id="paginationClassic"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal détail -->
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <div class="modal-header"><h2>Détail</h2><button class="modal-close" onclick="closeModal()">×</button></div>
+            <div class="modal-body" id="modalBody"></div>
+            <div class="modal-actions">
+                <button onclick="closeModal()">Fermer</button>
+                <button class="primary" onclick="relancerRecherche()">▶ Relancer</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+const API_BASE_URL = (function() {
+    const h = window.location.hostname, p = window.location.protocol;
+    if (p === 'file:') return 'http://localhost:8000';
+    if (h.includes('onrender.com')) return window.location.origin;
+    if (h === 'localhost' || h === '127.0.0.1') return 'http://localhost:8000';
+    return window.location.origin;
+})();
+
+let currentOffset = 0, currentLimit = 20, totalRecherches = 0, currentFilters = {}, currentRecherche = null;
+let allRecherches = []; // Cache pour filtrage commentaires côté client
+
+document.addEventListener('DOMContentLoaded', function() {
+    applyTheme(); loadStats(); loadRecap(); loadRecherches();
+});
+
+function applyTheme() {
+    const t = localStorage.getItem('theme') || 'auto';
+    if (t === 'dark' || (t === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches))
+        document.documentElement.setAttribute('data-theme', 'dark');
+}
+
+// Stats
+async function loadStats() {
+    try {
+        const r = await fetch(`${API_BASE_URL}/analyse/stats`);
+        const s = await r.json();
+        document.getElementById('statTotal').textContent = s.total_recherches || 0;
+        document.getElementById('statPositif').textContent = s.ratings?.positif || 0;
+        document.getElementById('statNegatif').textContent = s.ratings?.negatif || 0;
+        document.getElementById('statSatisfaction').textContent = (s.taux_satisfaction?.toFixed(1) || 0) + '%';
+        document.getElementById('statErreurs').textContent = s.erreurs || 0;
+        document.getElementById('statTempsMoyen').textContent = (s.temps_moyen_ms || 0) + 'ms';
+        totalRecherches = s.total_recherches || 0;
+    } catch (e) { console.error(e); }
+}
+
+// Récap IA
+async function loadRecap() {
+    const container = document.getElementById('recapContent');
+    try {
+        const [statsRes, iaRes] = await Promise.all([
+            fetch(`${API_BASE_URL}/analyse/stats`),
+            fetch(`${API_BASE_URL}/analyse/ia-summary`)
+        ]);
+        const stats = await statsRes.json();
+        const ia = await iaRes.json();
+        
+        const satisfactionClass = stats.taux_satisfaction > 70 ? 'good' : stats.taux_satisfaction > 50 ? 'warning' : 'bad';
+        
+        container.innerHTML = `
+            <div class="recap-section">
+                <h2>📊 Analyse des logs de recherche</h2>
+                <div class="recap-item">
+                    <span class="label">Satisfaction globale</span>
+                    <span class="value ${satisfactionClass}">${stats.taux_satisfaction?.toFixed(1) || 0}% ${stats.taux_satisfaction > 70 ? '- Bon' : stats.taux_satisfaction > 50 ? '- Moyen' : '- Nécessite attention'}</span>
+                </div>
+                <div class="recap-item">
+                    <span class="label">Erreurs</span>
+                    <span class="value ${stats.erreurs > 0 ? 'warning' : ''}">${stats.erreurs || 0} (${((stats.erreurs || 0) / (stats.total_recherches || 1) * 100).toFixed(1)}%)</span>
+                </div>
+            </div>
+            
+            <div class="recap-section">
+                <h2>🔴 Problèmes les plus fréquents</h2>
+                <ul class="recap-list">
+                    ${(stats.types_problemes || []).map(p => `<li>- ${p.type} : <span>${p.count} occurrences</span></li>`).join('') || '<li>Aucun problème signalé</li>'}
+                </ul>
+            </div>
+            
+            <div class="recap-section">
+                <h2>📝 Termes non reconnus fréquents</h2>
+                <p style="color: var(--text-secondary); font-size: 13px; margin-bottom: 10px;">Ces termes pourraient nécessiter l'ajout de synonymes :</p>
+                <ul class="recap-list">
+                    ${(stats.termes_non_reconnus || []).slice(0, 10).map(t => `<li>- "${t.terme}" : <span>${t.count} fois</span></li>`).join('') || '<li>Aucun terme non reconnu</li>'}
+                </ul>
+            </div>
+            
+            <div class="recap-section">
+                <h2>💡 Recommandations</h2>
+                <div class="recommendations">
+                    <ul>
+                        ${stats.taux_satisfaction < 70 ? '<li>Analyser les recherches avec 👎 pour identifier les patterns</li>' : ''}
+                        ${(stats.termes_non_reconnus || []).length > 0 ? '<li>Enrichir le glossaire avec les termes non reconnus</li>' : ''}
+                        ${stats.erreurs > 0 ? '<li>Investiguer les erreurs techniques récurrentes</li>' : ''}
+                        ${stats.taux_satisfaction >= 70 && stats.erreurs === 0 ? '<li>Le système fonctionne bien ! Continuer à monitorer.</li>' : ''}
+                    </ul>
+                </div>
+            </div>
+        `;
+    } catch (e) {
+        console.error(e);
+        container.innerHTML = '<p style="color: var(--danger-color); padding: 20px;">Erreur chargement récap</p>';
+    }
+}
+
+// Liste des recherches
+async function loadRecherches() {
+    try {
+        let url = `${API_BASE_URL}/analyse/recherches?offset=${currentOffset}&limit=${currentLimit}`;
+        if (currentFilters.q) url += `&q=${encodeURIComponent(currentFilters.q)}`;
+        if (currentFilters.rating) url += `&rating=${encodeURIComponent(currentFilters.rating)}`;
+        if (currentFilters.mode) url += `&mode=${encodeURIComponent(currentFilters.mode)}`;
+        if (currentFilters.date_debut) url += `&date_debut=${currentFilters.date_debut}`;
+        if (currentFilters.date_fin) url += `&date_fin=${currentFilters.date_fin}`;
+        if (currentFilters.type_probleme) url += `&type_probleme=${encodeURIComponent(currentFilters.type_probleme)}`;
+        if (currentFilters.erreur) url += `&erreur=true`;
+        
+        const r = await fetch(url), d = await r.json();
+        let recherches = d.recherches || [];
+        
+        // Filtrage commentaires côté client (insensible casse/accents)
+        if (currentFilters.comment) {
+            const searchNorm = normalizeText(currentFilters.comment);
+            recherches = recherches.filter(r => {
+                const comm = normalizeText(r.commentaire || '');
+                return comm.includes(searchNorm);
+            });
+        }
+        
+        allRecherches = recherches;
+        totalRecherches = currentFilters.comment ? recherches.length : (d.total || 0);
+        
+        // Appliquer le tri et rendre
+        sortAndRenderTable();
+        updatePagination();
+        updateSortIcons();
+    } catch (e) {
+        console.error(e);
+        document.getElementById('cardsContainer').innerHTML = '<p style="color: var(--danger-color);">Erreur</p>';
+    }
+}
+
+function normalizeText(text) {
+    if (!text) return '';
+    return text.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+}
+
+function renderCards(recherches) {
+    const container = document.getElementById('cardsContainer');
+    if (!recherches.length) {
+        container.innerHTML = '<p style="padding: 40px; text-align: center; color: var(--text-secondary);">Aucune recherche</p>';
+        return;
+    }
+    
+    container.innerHTML = recherches.map(r => `
+        <div class="search-card" onclick="openDetail('${r.session_id}')">
+            <div class="search-card-actions">
+                <button class="btn-play" onclick="event.stopPropagation(); relancer('${esc(r.questionoriginale || '')}', '${esc(r.base || '')}', '${esc(r.languesaisie || '')}')" title="Relancer">▶</button>
+            </div>
+            <div class="search-card-header">
+                <div class="search-card-rating">${r.rating || '➖'}</div>
+                <div class="search-card-meta">
+                    <span>${r.timestamp?.substring(0, 16) || ''}</span>
+                    <span>${r.mode || ''}</span>
+                </div>
+            </div>
+            <div class="search-card-question">${esc((r.questionoriginale || '').substring(0, 100))}</div>
+            <div class="search-card-stats">
+                <span>${r.nb_patients || 0} patients</span>
+                <span>${r.temps_ms || 0}ms</span>
+                ${r.type_probleme ? `<span style="color: var(--warning-color)">${r.type_probleme}</span>` : ''}
+            </div>
+            ${r.commentaire ? `<div class="search-card-comment">${esc(r.commentaire.substring(0, 100))}</div>` : ''}
+        </div>
+    `).join('');
+}
+
+function renderTable(recherches) {
+    const tbody = document.getElementById('recherchesBody');
+    if (!recherches.length) {
+        tbody.innerHTML = '<tr><td colspan="7" style="text-align: center; padding: 40px;">Aucune recherche</td></tr>';
+        return;
+    }
+    
+    tbody.innerHTML = recherches.map(r => `
+        <tr onclick="openDetail('${r.session_id}')">
+            <td>${r.timestamp?.substring(0, 16) || ''}</td>
+            <td>${esc((r.questionoriginale || '').substring(0, 50))}</td>
+            <td><span class="mode">${r.mode || ''}</span></td>
+            <td>${r.nb_patients || 0}</td>
+            <td class="rating">${r.rating || '➖'}</td>
+            <td>${r.type_probleme || ''}</td>
+            <td><button class="btn-play-small" onclick="event.stopPropagation(); relancer('${esc(r.questionoriginale || '')}', '${esc(r.base || '')}', '${esc(r.languesaisie || '')}')" title="Relancer">▶</button></td>
+        </tr>
+    `).join('');
+}
+
+function esc(t) { return t ? t.replace(/'/g, "\\'").replace(/"/g, '&quot;').replace(/</g, '&lt;') : ''; }
+
+function updatePagination() {
+    const html = createPaginationHtml();
+    document.getElementById('paginationCards').innerHTML = html;
+    document.getElementById('paginationClassic').innerHTML = html;
+}
+
+function createPaginationHtml() {
+    const tp = Math.ceil(totalRecherches / currentLimit), cp = Math.floor(currentOffset / currentLimit) + 1;
+    if (tp <= 1) return `<span class="page-info">${totalRecherches} résultat(s)</span>`;
+    
+    let h = `<button onclick="goToPage(${cp-1})" ${cp===1?'disabled':''}>←</button>`;
+    const sp = Math.max(1, cp-2), ep = Math.min(tp, cp+2);
+    if (sp > 1) { h += `<button onclick="goToPage(1)">1</button>`; if (sp > 2) h += `<span>...</span>`; }
+    for (let i = sp; i <= ep; i++) h += `<button class="${i===cp?'active':''}" onclick="goToPage(${i})">${i}</button>`;
+    if (ep < tp) { if (ep < tp-1) h += `<span>...</span>`; h += `<button onclick="goToPage(${tp})">${tp}</button>`; }
+    h += `<button onclick="goToPage(${cp+1})" ${cp>=tp?'disabled':''}>→</button>`;
+    h += `<span class="page-info">${totalRecherches}</span>`;
+    return h;
+}
+
+function goToPage(p) {
+    const tp = Math.ceil(totalRecherches / currentLimit);
+    if (p < 1 || p > tp) return;
+    currentOffset = (p - 1) * currentLimit;
+    loadRecherches();
+}
+
+// Filtres
+function applyFilters() {
+    currentFilters = {
+        q: document.getElementById('filterQ').value.trim(),
+        comment: document.getElementById('filterComment').value.trim(),
+        rating: document.getElementById('filterRating').value,
+        mode: document.getElementById('filterMode').value,
+        date_debut: document.getElementById('filterDateDebut').value,
+        date_fin: document.getElementById('filterDateFin').value,
+        type_probleme: document.getElementById('filterProbleme').value
+    };
+    currentOffset = 0;
+    loadRecherches();
+}
+
+function resetFilters() {
+    ['filterQ', 'filterComment', 'filterRating', 'filterMode', 'filterDateDebut', 'filterDateFin', 'filterProbleme'].forEach(id => document.getElementById(id).value = '');
+    currentFilters = {};
+    currentSort = { column: 'timestamp', direction: 'desc' };
+    currentOffset = 0;
+    updateSortIcons();
+    loadRecherches();
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Filtrage par stats (clic sur les cards)
+// ═══════════════════════════════════════════════════════════════
+function filterByAll() {
+    resetFilters();
+    switchView('classic');
+}
+
+function filterByRating(rating) {
+    resetFiltersQuiet();
+    document.getElementById('filterRating').value = rating;
+    currentFilters = { rating: rating };
+    currentOffset = 0;
+    loadRecherches();
+    switchView('classic');
+}
+
+function filterByErreur() {
+    resetFiltersQuiet();
+    currentFilters = { erreur: true };
+    currentOffset = 0;
+    loadRecherches();
+    switchView('classic');
+}
+
+function resetFiltersQuiet() {
+    ['filterQ', 'filterComment', 'filterRating', 'filterMode', 'filterDateDebut', 'filterDateFin', 'filterProbleme'].forEach(id => document.getElementById(id).value = '');
+}
+
+// ═══════════════════════════════════════════════════════════════
+// Tri bidirectionnel des colonnes
+// ═══════════════════════════════════════════════════════════════
+let currentSort = { column: 'timestamp', direction: 'desc' };
+
+function sortTable(column) {
+    // Basculer la direction si même colonne
+    if (currentSort.column === column) {
+        currentSort.direction = currentSort.direction === 'asc' ? 'desc' : 'asc';
+    } else {
+        currentSort.column = column;
+        currentSort.direction = 'asc';
+    }
+    
+    updateSortIcons();
+    sortAndRenderTable();
+}
+
+function updateSortIcons() {
+    // Réinitialiser toutes les colonnes du tableau
+    document.querySelectorAll('.recherches-table th.sortable').forEach(th => {
+        th.classList.remove('sorted-asc', 'sorted-desc');
+    });
+    
+    // Appliquer le tri actuel sur le tableau
+    const activeHeader = document.querySelector(`.recherches-table th[data-sort="${currentSort.column}"]`);
+    if (activeHeader) {
+        activeHeader.classList.add(`sorted-${currentSort.direction}`);
+    }
+    
+    // Mettre à jour la barre de tri des cards
+    document.querySelectorAll('.sort-bar .sort-btn').forEach(btn => {
+        btn.classList.remove('active');
+        const dir = btn.querySelector('.sort-dir');
+        if (dir) dir.remove();
+    });
+    
+    const activeBtn = document.querySelector(`.sort-bar .sort-btn[data-sort="${currentSort.column}"]`);
+    if (activeBtn) {
+        activeBtn.classList.add('active');
+        const dirSpan = document.createElement('span');
+        dirSpan.className = 'sort-dir';
+        dirSpan.textContent = currentSort.direction === 'asc' ? '▲' : '▼';
+        activeBtn.appendChild(dirSpan);
+    }
+}
+
+function sortAndRenderTable() {
+    if (!allRecherches.length) return;
+    
+    const sorted = [...allRecherches].sort((a, b) => {
+        let valA = a[currentSort.column] || '';
+        let valB = b[currentSort.column] || '';
+        
+        // Tri numérique pour certaines colonnes
+        if (currentSort.column === 'nb_patients' || currentSort.column === 'temps_ms') {
+            valA = parseInt(valA) || 0;
+            valB = parseInt(valB) || 0;
+        } else {
+            valA = String(valA).toLowerCase();
+            valB = String(valB).toLowerCase();
+        }
+        
+        let result = 0;
+        if (valA < valB) result = -1;
+        else if (valA > valB) result = 1;
+        
+        return currentSort.direction === 'asc' ? result : -result;
+    });
+    
+    renderTable(sorted);
+    renderCards(sorted);
+}
+
+// Switch vues
+function switchView(view) {
+    document.getElementById('btnViewRecap').classList.toggle('active', view === 'recap');
+    document.getElementById('btnViewCharts').classList.toggle('active', view === 'charts');
+    document.getElementById('btnViewCards').classList.toggle('active', view === 'cards');
+    document.getElementById('btnViewClassic').classList.toggle('active', view === 'classic');
+    document.getElementById('viewRecap').classList.toggle('active', view === 'recap');
+    document.getElementById('viewCharts').classList.toggle('active', view === 'charts');
+    document.getElementById('viewCards').classList.toggle('active', view === 'cards');
+    document.getElementById('viewClassic').classList.toggle('active', view === 'classic');
+    
+    // Charger les graphiques si on passe sur cet onglet
+    if (view === 'charts' && !chartsLoaded) {
+        initCharts();
+    }
+}
+
+// Modal détail
+async function openDetail(sid) {
+    const modal = document.getElementById('modalOverlay'), body = document.getElementById('modalBody');
+    modal.classList.add('visible');
+    body.innerHTML = '<div class="ia-loading"><div class="spinner"></div></div>';
+    try {
+        const r = await fetch(`${API_BASE_URL}/analyse/recherche/${sid}`), rech = await r.json();
+        currentRecherche = rech;
+        body.innerHTML = `<div class="detail-grid">
+            <div class="detail-label">Session ID</div><div class="detail-value" style="font-family:monospace;font-size:10px">${rech.session_id||''}</div>
+            <div class="detail-label">Date/Heure</div><div class="detail-value">${rech.timestamp||''}</div>
+            <div class="detail-label">Question</div><div class="detail-value highlight">${rech.questionoriginale||''}</div>
+            <div class="detail-label">Mode</div><div class="detail-value"><span class="mode">${rech.mode||''}</span></div>
+            <div class="detail-label">Nb patients</div><div class="detail-value">${rech.nb_patients||0}</div>
+            <div class="detail-label">Temps</div><div class="detail-value">${rech.temps_ms||0} ms</div>
+            <div class="detail-label">Rating</div><div class="detail-value" style="font-size:24px">${rech.rating||'➖'}</div>
+            ${rech.type_probleme?`<div class="detail-label">Problème</div><div class="detail-value">${rech.type_probleme}</div>`:''}
+            ${rech.commentaire?`<div class="detail-label">Commentaire</div><div class="detail-value" style="background:#fff3e0;padding:10px;border-radius:6px">${rech.commentaire}</div>`:''}
+            <div class="detail-label">Pathologies</div><div class="detail-value">${rech.pathologies||'-'}</div>
+            <div class="detail-label">Base</div><div class="detail-value">${rech.base||''}</div>
+            <div class="detail-label">IP</div><div class="detail-value" style="font-family:monospace">${rech.ip_utilisateur||''}</div>
+            ${rech.erreur?`<div class="detail-label">Erreur</div><div class="detail-value" style="color:var(--danger-color)">${rech.erreur}</div>`:''}
+        </div>`;
+    } catch (e) { body.innerHTML = '<p style="color:var(--danger-color);padding:20px">Erreur</p>'; }
+}
+
+function closeModal(e) { if (e && e.target !== document.getElementById('modalOverlay')) return; document.getElementById('modalOverlay').classList.remove('visible'); currentRecherche = null; }
+
+function relancerRecherche() {
+    if (!currentRecherche?.questionoriginale) return;
+    relancer(currentRecherche.questionoriginale, currentRecherche.base, currentRecherche.languesaisie);
+}
+
+function relancer(question, base, lang) {
+    if (!question) return;
+    let url = `web12.html?q=${encodeURIComponent(question)}`;
+    if (base) url += `&base=${encodeURIComponent(base)}`;
+    if (lang) url += `&lang=${encodeURIComponent(lang)}`;
+    window.location.href = url;
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// Export et navigation
+function exportCSV() {
+    let url = `${API_BASE_URL}/analyse/export?`;
+    if (currentFilters.q) url += `&q=${encodeURIComponent(currentFilters.q)}`;
+    if (currentFilters.rating) url += `&rating=${encodeURIComponent(currentFilters.rating)}`;
+    if (currentFilters.mode) url += `&mode=${encodeURIComponent(currentFilters.mode)}`;
+    if (currentFilters.date_debut) url += `&date_debut=${currentFilters.date_debut}`;
+    if (currentFilters.date_fin) url += `&date_fin=${currentFilters.date_fin}`;
+    if (currentFilters.type_probleme) url += `&type_probleme=${encodeURIComponent(currentFilters.type_probleme)}`;
+    window.location.href = url;
+}
+
+function goToSearch() { window.location.href = 'web12.html'; }
+
+// ═══════════════════════════════════════════════════════════════
+// GRAPHIQUES - Chart.js
+// ═══════════════════════════════════════════════════════════════
+let chartsLoaded = false;
+let chartInstances = {};
+
+function initCharts() {
+    // Définir la période par défaut (30 jours)
+    setChartPeriod(30);
+    chartsLoaded = true;
+}
+
+function setChartPeriod(days) {
+    const dateDebut = document.getElementById('chartDateDebut');
+    const dateFin = document.getElementById('chartDateFin');
+    const today = new Date();
+    
+    // Mettre à jour les boutons preset
+    document.querySelectorAll('.period-presets .preset-btn').forEach(btn => btn.classList.remove('active'));
+    const activeBtn = document.querySelector(`.period-presets .preset-btn[onclick="setChartPeriod(${days})"]`);
+    if (activeBtn) activeBtn.classList.add('active');
+    
+    dateFin.value = today.toISOString().split('T')[0];
+    
+    if (days === 0) {
+        // Tout : pas de date de début
+        dateDebut.value = '';
+    } else {
+        const startDate = new Date(today);
+        startDate.setDate(startDate.getDate() - days);
+        dateDebut.value = startDate.toISOString().split('T')[0];
+    }
+    
+    loadCharts();
+}
+
+async function loadCharts() {
+    const dateDebut = document.getElementById('chartDateDebut').value;
+    const dateFin = document.getElementById('chartDateFin').value;
+    
+    // Construire les paramètres
+    let params = new URLSearchParams();
+    if (dateDebut) params.append('date_debut', dateDebut);
+    if (dateFin) params.append('date_fin', dateFin);
+    
+    try {
+        // Charger les stats pour les graphiques
+        const statsRes = await fetch(`${API_BASE_URL}/analyse/stats?${params}`);
+        const stats = await statsRes.json();
+        
+        // Charger toutes les recherches pour les agrégations
+        const rechRes = await fetch(`${API_BASE_URL}/analyse/recherches?limit=10000&${params}`);
+        const rechData = await rechRes.json();
+        const recherches = rechData.recherches || [];
+        
+        // Générer les graphiques
+        renderChartEvolution(recherches);
+        renderChartRatings(stats);
+        renderChartModes(recherches);
+        renderChartTemps(recherches);
+        renderChartTermes(recherches);
+        renderChartMoteurs(recherches);
+        
+    } catch (e) {
+        console.error('Erreur chargement graphiques:', e);
+    }
+}
+
+// 1. Évolution journalière
+function renderChartEvolution(recherches) {
+    const ctx = document.getElementById('chartEvolution');
+    if (chartInstances.evolution) chartInstances.evolution.destroy();
+    
+    // Agrégation par jour avec distinction positif/négatif/autre
+    const parJour = {};
+    recherches.forEach(r => {
+        const date = r.timestamp?.substring(0, 10);
+        if (!date) return;
+        if (!parJour[date]) parJour[date] = { total: 0, positif: 0, negatif: 0, autre: 0 };
+        parJour[date].total++;
+        if (r.rating === '👍') parJour[date].positif++;
+        else if (r.rating === '👎') parJour[date].negatif++;
+        else parJour[date].autre++;
+    });
+    
+    const dates = Object.keys(parJour).sort();
+    const dataTotal = dates.map(d => parJour[d].total);
+    const dataPositif = dates.map(d => parJour[d].positif);
+    const dataNegatif = dates.map(d => parJour[d].negatif);
+    
+    chartInstances.evolution = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: dates.map(d => formatDateShort(d)),
+            datasets: [
+                { label: '👍 Positifs', data: dataPositif, backgroundColor: 'rgba(39, 174, 96, 0.8)', stack: 'stack' },
+                { label: '👎 Négatifs', data: dataNegatif, backgroundColor: 'rgba(231, 76, 60, 0.8)', stack: 'stack' },
+                { label: 'Sans rating', data: dates.map(d => parJour[d].autre), backgroundColor: 'rgba(189, 195, 199, 0.8)', stack: 'stack' }
+            ]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { position: 'top' } },
+            scales: {
+                x: { stacked: true, ticks: { maxRotation: 45, minRotation: 45 } },
+                y: { stacked: true, beginAtZero: true }
+            }
+        }
+    });
+}
+
+// 2. Répartition des ratings (Donut)
+function renderChartRatings(stats) {
+    const ctx = document.getElementById('chartRatings');
+    if (chartInstances.ratings) chartInstances.ratings.destroy();
+    
+    const positif = stats.ratings?.positif || 0;
+    const negatif = stats.ratings?.negatif || 0;
+    const sansRating = (stats.total_recherches || 0) - positif - negatif;
+    
+    chartInstances.ratings = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['👍 Positifs', '👎 Négatifs', 'Sans rating'],
+            datasets: [{
+                data: [positif, negatif, sansRating],
+                backgroundColor: ['#27ae60', '#e74c3c', '#bdc3c7'],
+                borderWidth: 2,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom' },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => {
+                            const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+                            const pct = total > 0 ? ((ctx.raw / total) * 100).toFixed(1) : 0;
+                            return `${ctx.label}: ${ctx.raw} (${pct}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// 3. Répartition par mode (Barres horizontales)
+function renderChartModes(recherches) {
+    const ctx = document.getElementById('chartModes');
+    if (chartInstances.modes) chartInstances.modes.destroy();
+    
+    const parMode = {};
+    recherches.forEach(r => {
+        const mode = r.mode || 'inconnu';
+        parMode[mode] = (parMode[mode] || 0) + 1;
+    });
+    
+    const modes = Object.keys(parMode).sort((a, b) => parMode[b] - parMode[a]);
+    const counts = modes.map(m => parMode[m]);
+    
+    const colors = {
+        'rapide': '#3B9DD8',
+        'ia': '#9b59b6',
+        'compare': '#f39c12',
+        'union': '#1abc9c',
+        'inconnu': '#95a5a6'
+    };
+    
+    chartInstances.modes = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: modes.map(m => m.charAt(0).toUpperCase() + m.slice(1)),
+            datasets: [{
+                label: 'Recherches',
+                data: counts,
+                backgroundColor: modes.map(m => colors[m] || '#3B9DD8'),
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: { legend: { display: false } },
+            scales: { x: { beginAtZero: true } }
+        }
+    });
+}
+
+// 4. Temps de réponse moyen par jour
+function renderChartTemps(recherches) {
+    const ctx = document.getElementById('chartTemps');
+    if (chartInstances.temps) chartInstances.temps.destroy();
+    
+    const parJour = {};
+    recherches.forEach(r => {
+        const date = r.timestamp?.substring(0, 10);
+        const temps = parseInt(r.temps_ms) || 0;
+        if (!date || temps === 0) return;
+        if (!parJour[date]) parJour[date] = { total: 0, count: 0 };
+        parJour[date].total += temps;
+        parJour[date].count++;
+    });
+    
+    const dates = Object.keys(parJour).sort();
+    const moyennes = dates.map(d => Math.round(parJour[d].total / parJour[d].count));
+    
+    chartInstances.temps = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: dates.map(d => formatDateShort(d)),
+            datasets: [{
+                label: 'Temps moyen (ms)',
+                data: moyennes,
+                borderColor: '#f39c12',
+                backgroundColor: 'rgba(243, 156, 18, 0.1)',
+                fill: true,
+                tension: 0.3,
+                pointRadius: 3
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: { legend: { display: false } },
+            scales: {
+                x: { ticks: { maxRotation: 45, minRotation: 45 } },
+                y: { beginAtZero: true, title: { display: true, text: 'ms' } }
+            }
+        }
+    });
+}
+
+// 5. Top 10 des termes recherchés
+function renderChartTermes(recherches) {
+    const ctx = document.getElementById('chartTermes');
+    if (chartInstances.termes) chartInstances.termes.destroy();
+    
+    // Extraire les pathologies
+    const compteur = {};
+    recherches.forEach(r => {
+        const pathos = (r.pathologies || '').split(',').map(p => p.trim().toLowerCase()).filter(p => p && p.length > 2);
+        pathos.forEach(p => {
+            compteur[p] = (compteur[p] || 0) + 1;
+        });
+    });
+    
+    // Top 10
+    const sorted = Object.entries(compteur).sort((a, b) => b[1] - a[1]).slice(0, 10);
+    const termes = sorted.map(s => s[0]);
+    const counts = sorted.map(s => s[1]);
+    
+    chartInstances.termes = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: termes.map(t => t.length > 15 ? t.substring(0, 15) + '...' : t),
+            datasets: [{
+                label: 'Occurrences',
+                data: counts,
+                backgroundColor: '#e74c3c',
+                borderRadius: 4
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            indexAxis: 'y',
+            plugins: { legend: { display: false } },
+            scales: { x: { beginAtZero: true } }
+        }
+    });
+}
+
+// 6. Répartition par moteur IA (Donut)
+function renderChartMoteurs(recherches) {
+    const ctx = document.getElementById('chartMoteurs');
+    if (chartInstances.moteurs) chartInstances.moteurs.destroy();
+    
+    // Filtrer seulement les recherches IA
+    const iaRecherches = recherches.filter(r => r.mode === 'ia' && r.moteur);
+    
+    const parMoteur = {};
+    iaRecherches.forEach(r => {
+        const moteur = r.moteur || 'inconnu';
+        parMoteur[moteur] = (parMoteur[moteur] || 0) + 1;
+    });
+    
+    const moteurs = Object.keys(parMoteur).sort((a, b) => parMoteur[b] - parMoteur[a]);
+    const counts = moteurs.map(m => parMoteur[m]);
+    
+    // Couleurs par moteur
+    const colorMap = {
+        'gpt4o': '#10a37f',
+        'gpt4omini': '#10a37f',
+        'sonnet': '#d97706',
+        'haiku': '#d97706',
+        'opus': '#d97706',
+        'gemini25flash': '#4285f4',
+        'gemini15pro': '#4285f4',
+        'mistrallarge': '#ff7000',
+        'mistralsmall': '#ff7000',
+        'deepseekr1': '#0066ff',
+        'deepseekv3': '#0066ff',
+        'llama33': '#0668E1'
+    };
+    
+    const colors = moteurs.map(m => colorMap[m] || '#95a5a6');
+    
+    if (moteurs.length === 0) {
+        chartInstances.moteurs = new Chart(ctx, {
+            type: 'doughnut',
+            data: { labels: ['Aucune donnée'], datasets: [{ data: [1], backgroundColor: ['#bdc3c7'] }] },
+            options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } } }
+        });
+        return;
+    }
+    
+    chartInstances.moteurs = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: moteurs,
+            datasets: [{
+                data: counts,
+                backgroundColor: colors,
+                borderWidth: 2,
+                borderColor: '#fff'
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: { position: 'bottom', labels: { boxWidth: 12, font: { size: 10 } } },
+                tooltip: {
+                    callbacks: {
+                        label: (ctx) => {
+                            const total = ctx.dataset.data.reduce((a, b) => a + b, 0);
+                            const pct = total > 0 ? ((ctx.raw / total) * 100).toFixed(1) : 0;
+                            return `${ctx.label}: ${ctx.raw} (${pct}%)`;
+                        }
+                    }
+                }
+            }
+        }
+    });
+}
+
+// Utilitaire : formater date courte
+function formatDateShort(dateStr) {
+    const d = new Date(dateStr);
+    return d.toLocaleDateString('fr-FR', { day: '2-digit', month: '2-digit' });
+}
+    </script>
+</body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Présentation</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/black.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+    
+    <style>
+        .reveal h1, .reveal h2, .reveal h3 {
+            text-transform: none;
+        }
+        .reveal pre {
+            width: 100%;
+            font-size: 0.55em;
+        }
+        .reveal pre code {
+            max-height: 500px;
+            padding: 15px;
+        }
+        .reveal table {
+            font-size: 0.7em;
+            margin: 20px auto;
+        }
+        .reveal table th {
+            background: rgba(255,255,255,0.1);
+            font-weight: bold;
+        }
+        .reveal table td, .reveal table th {
+            padding: 8px 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .reveal blockquote.question {
+            background: rgba(255,193,7,0.15);
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            font-style: normal;
+            font-size: 0.9em;
+            margin: 20px 0;
+        }
+        .reveal ul, .reveal ol {
+            display: block;
+            text-align: left;
+            margin-left: 1em;
+        }
+        .reveal li {
+            margin: 0.5em 0;
+        }
+        .reveal code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        .reveal .slides section {
+            height: 100%;
+        }
+        /* Template 2 colonnes */
+        .two-columns {
+            display: flex;
+            gap: 40px;
+        }
+        .two-columns > div {
+            flex: 1;
+        }
+        /* Notes de l'orateur */
+        .reveal .notes {
+            font-size: 1.2em;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+<section data-background-color="#1a1a2e">
+<h1>Présentation</h1>
+</section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            showNotes: false,
+            transition: 'slide',
+            plugins: [ RevealNotes, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>

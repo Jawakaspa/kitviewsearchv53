@@ -1,0 +1,102 @@
+﻿# templatequestion.csv V1.0.0 - 19/12/2025 16:45:04
+id;nb_criteres;type;has_angle;template
+1;1;LIST;NON;Affiche les patients avec {T1}?
+2;1;LIST;NON;Récupère les patients avec {T1} {A1}?
+3;1;LIST;NON;Montre-moi les patients avec {T1} {A1}?
+4;1;COUNT;NON;Combien de patients souffrent de {T1} {A1}?
+5;1;COUNT;NON;Dénombre les patients ayant {T1}.
+6;1;LIST;OUI;Retrouve les patients avec {ANG}.
+7;1;LIST;NON;Trouve-moi les {AGE}.
+8;1;LIST;NON;Retrouve les patients avec {T1}.
+9;1;LIST;NON;Cherche les patients avec {T1}.
+10;1;LIST;NON;Affiche-moi les patients avec {T1}.
+11;1;LIST;NON;Je cherche les patients avec {T1} {A1}.
+12;1;LIST;NON;J'aimerais voir les patients avec {T1}.
+13;1;LIST;NON;Cherche les {AGE}.
+14;1;COUNT;NON;Combien de patients ont {T1}.
+15;1;LIST;NON;Cherche les patients avec {T1} {A1}?
+16;1;COUNT;NON;Combien ai-je de patients avec {T1} {A1}.
+17;1;COUNT;NON;Compte les patients avec {T1} {A1}?
+18;1;COUNT;NON;Combien de patients présentent {T1}?
+19;1;LIST;OUI;Cherche les patients avec {ANG}?
+20;1;LIST;NON;J'aimerais voir les patients avec {T1}.
+21;1;LIST;NON;Trouve-moi les {AGE}.
+22;1;COUNT;NON;Combien de patients souffrent de {T1} {A1}.
+23;1;COUNT;NON;Dénombre les patients ayant {AGE}?
+24;1;COUNT;NON;Combien y a-t-il de patients avec {T1}.
+25;1;LIST;NON;J'aimerais voir les {AGE}?
+26;2;COUNT;NON;Combien de patients souffrent de {T1} {A1} ayant également {T2} {A2}?
+27;2;LIST;NON;Trouve moi les gens avec {T1} {A1}, et {AGE}.
+28;2;LIST;NON;Montre moi les cas avec {T1} {A1}, et {T2}.
+29;2;LIST;NON;Retrouve les patients présentant {T1} {A1} combiné avec {AGE}.
+30;2;COUNT;NON;Combien de patients ont {AGE} et qui ont {T1} {A1}?
+31;2;LIST;NON;Montre moi les cas de {T1} {A1} plus {T2} {A2}?
+32;2;LIST;NON;Cherche les gens qui ont {T1} {A1} associé à {T2}?
+33;2;LIST;NON;Recherche les gens qui ont {T1} {A1}, avec {AGE}.
+34;2;LIST;NON;Trouve moi les cas de {T1} {A1} ainsi que {T2}.
+35;2;COUNT;NON;Combien de patients présentent {T1} {A1} combiné avec {T2}?
+36;2;LIST;NON;Récupère les patients présentant {T1} {A1} et {AGE}.
+37;2;LIST;NON;Donne-moi les patients ayant {AGE}, et {T1} {A1}?
+38;2;LIST;NON;Cherche les patients avec {T1} {A1}, avec {T2}.
+39;2;LIST;OUI;Je veux les cas de {T1} {A1} et {ANG}.
+40;2;COUNT;NON;Quel est le nombre de patients avec {T1} {A1} associé à {T2}.
+41;2;COUNT;NON;Quel est le nombre de patients avec {T1} {A1} associé à {T2}?
+42;2;LIST;NON;Cherche les patients avec {AGE} ainsi que {T1} {A1}.
+43;2;COUNT;NON;Combien de patients souffrent de {T1} {A1} avec {AGE}?
+44;2;COUNT;NON;Combien y a-t-il de patients avec {T1} {A1} combiné avec {T2} {A2}?
+45;2;COUNT;NON;Quel est le nombre de patients avec {T1} {A1} combiné avec {AGE}?
+46;2;LIST;NON;Affiche-moi les gens qui ont {T1} {A1} avec {T2}?
+47;2;LIST;NON;J'aimerais voir les personnes avec {AGE}, avec {T1} {A1}?
+48;2;LIST;NON;Trouve-moi les patients qui ont {T1} {A1} associé à {T2} {A2}.
+49;2;LIST;NON;Affiche les cas de {T1} {A1}, avec {AGE}.
+50;2;COUNT;NON;Combien de patients présentent {T1} {A1} combiné avec {T2} {A2}?
+51;3;LIST;OUI;Montre-moi les cas avec {T1} {A1} plus {T2} et qui ont {ANG}.
+52;3;LIST;NON;Trouve moi les personnes avec {T1} {A1} et qui ont {T2} avec {AGE}.
+53;3;LIST;NON;Affiche les personnes qui ont {T1} {A1}, et {T2}, avec {AGE}?
+54;3;COUNT;NON;Combien ai-je de patients avec {T1} {A1} présentant aussi {AGE} ayant également {T2}?
+55;3;LIST;OUI;Je voudrais les cas de {T1} {A1} associé à {ANG} ainsi que {AGE}?
+56;3;COUNT;NON;Combien ai-je de patients avec {T1} {A1} ainsi que {T2} ainsi que {AGE}?
+57;3;COUNT;NON;Quel est le nombre de patients avec {AGE} combiné avec {T1} {A1} et {T2}.
+58;3;LIST;OUI;Montre-moi les patients avec {T1} {A1}, avec {ANG} combiné avec {AGE}.
+59;3;COUNT;NON;Dénombre les patients ayant {T1} {A1} avec {T2} combiné avec {AGE}?
+60;3;LIST;NON;Je voudrais les patients présentant {T1} {A1} plus {AGE} avec {T2}.
+61;3;LIST;NON;Trouve moi les gens qui ont {T1} {A1} et qui ont {AGE} combiné avec {T2}.
+62;3;LIST;NON;Montre moi les patients qui ont {T1} et {T2} {A2}, et {T3}?
+63;3;LIST;NON;J'aimerais voir les patients présentant {T1} {A1} et {T2}, et {AGE}?
+64;3;LIST;NON;Quels sont les gens avec {T1} {A1}, avec {T2} et {AGE}?
+65;3;LIST;OUI;Je voudrais les cas de {T1} {A1} et {T2} ayant également {ANG}.
+66;3;COUNT;NON;Dénombre les patients ayant {T1} {A1} et {T2} présentant aussi {AGE}.
+67;3;LIST;OUI;Je veux les patients ayant {ANG} associé à {T1} {A1} et qui ont {T2}.
+68;3;LIST;NON;Donne-moi les patients avec {T1} {A1} associé à {T2} combiné avec {AGE}.
+69;3;LIST;NON;Trouve moi les gens qui ont {AGE} combiné avec {T1} {A1} avec {T2}?
+70;3;LIST;NON;Retrouve les patients ayant {T1} {A1} et qui ont {T2} {A2} plus {T3}.
+71;3;LIST;NON;Cherche les patients avec {T1} {A1} plus {AGE}, et {T2}.
+72;3;LIST;NON;Affiche les patients qui ont {AGE}, et {T1} {A1} ayant également {T2}?
+73;3;LIST;NON;Cherche les personnes qui ont {T1} {A1} ayant également {AGE} et {T2}.
+74;3;COUNT;NON;Dénombre les patients ayant {AGE} ainsi que {T1} {A1} ainsi que {T2}?
+75;3;LIST;NON;Je cherche les patients ayant {T1} {A1} et {T2} plus {AGE}.
+76;4;COUNT;NON;Combien de patients ont {T1} {A1} et qui ont {T2} ayant également {T3}, avec {AGE}.
+77;4;LIST;NON;J'aimerais voir les patients qui ont {T1} {A1} plus {T2} {A2} associé à {T3}, et {T4}?
+78;4;LIST;NON;Affiche les personnes avec {T1} {A1} et {T2} {A2} ainsi que {T3} ayant également {T4}?
+79;4;LIST;NON;Donne-moi les personnes qui ont {AGE} ainsi que {T1} {A1} plus {T2} présentant aussi {T3}?
+80;4;LIST;NON;Quels sont les cas avec {T1} ayant également {T2} {A2}, avec {AGE} avec {T3}?
+81;4;LIST;NON;Cherche les patients ayant {T1} {A1}, et {T2} plus {T3}, et {AGE}?
+82;4;LIST;OUI;Retrouve les gens avec {T1} {A1}, et {T2} ayant également {T3} ainsi que {ANG}.
+83;4;COUNT;NON;Dénombre les patients ayant {AGE} ayant également {T1} {A1} plus {T2}, avec {T3}?
+84;4;LIST;OUI;Récupère les cas de {ANG} associé à {T1} {A1} et {T2} associé à {T3}.
+85;4;LIST;NON;Trouve moi les gens qui ont {T1} {A1}, avec {T2} avec {T3} présentant aussi {AGE}?
+86;4;LIST;NON;Retrouve les patients avec {T1} {A1} et qui ont {T2} et qui ont {T3} {A3} associé à {AGE}?
+87;4;COUNT;NON;Combien de patients présentent {AGE} combiné avec {T1} {A1} et {T2} et {T3}.
+88;4;COUNT;NON;Combien ai-je de patients avec {AGE} plus {T1} {A1}, et {T2} avec {T3}.
+89;4;LIST;NON;J'aimerais voir les patients ayant {T1} {A1}, et {T2} associé à {T3}, avec {AGE}.
+90;4;LIST;NON;Je cherche les patients ayant {T1} {A1} combiné avec {T2} {A2} ayant également {T3} plus {T4}?
+91;4;LIST;NON;Montre-moi les patients présentant {T1} {A1} plus {T2} {A2} et {T3}, et {T4}?
+92;4;LIST;NON;Je cherche les patients ayant {T1} {A1} présentant aussi {T2} combiné avec {T3} {A3} combiné avec {AGE}?
+93;4;LIST;NON;Liste les patients avec {AGE} et {T1} {A1} ayant également {T2} et {T3}?
+94;4;LIST;NON;Je voudrais les patients qui ont {T1} {A1} associé à {T2} {A2} présentant aussi {T3} ayant également {T4}?
+95;4;COUNT;NON;Combien de patients ont {T1} {A1} et {T2} et {T3} présentant aussi {AGE}?
+96;4;LIST;NON;Montre-moi les patients ayant {AGE} ayant également {T1} {A1} et {T2} ayant également {T3}?
+97;4;LIST;NON;Quels sont les patients présentant {T1} et qui ont {T2} {A2}, et {AGE} associé à {T3}?
+98;4;LIST;NON;Trouve moi les cas de {T1} {A1} plus {T2} combiné avec {T3} combiné avec {AGE}?
+99;4;COUNT;NON;Quel est le nombre de patients avec {T1} {A1}, avec {T2} {A2} plus {T3}, avec {T4}?
+100;4;LIST;NON;Trouve-moi les patients qui ont {AGE} avec {T1} {A1} et {T2} combiné avec {T3}?

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitview Search - Aide Traduction</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <link rel="apple-touch-icon" href="https://www.kitview.com/favicon.ico">
+    <style>
+/*
+ * aide_traduction.html V1.0.0 - 12/01/2026 19:54:40
+ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #3B9DD8;
+    --primary-light: #e3f2fd;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #e8e8e8;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --button-hover: #2d8bc7;
+    --success-color: #27ae60;
+    --warning-color: #f39c12;
+    --code-bg: #f4f4f4;
+}
+
+[data-theme="dark"] {
+    --primary-light: #1e3a5f;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888888;
+    --border-color: #404040;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --code-bg: #2a2a2a;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/* Header */
+.help-header {
+    background: var(--bg-primary);
+    padding: 15px 25px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-left .logo {
+    height: 32px;
+}
+
+.header-left h1 {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    font-size: 18px;
+}
+
+.icon-button:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.back-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background 0.2s;
+    text-decoration: none;
+}
+
+.back-button:hover {
+    background: var(--button-hover);
+}
+
+/* Contenu principal */
+.main-content {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.content-card {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: var(--shadow);
+}
+
+.main-title {
+    font-size: 28px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.subtitle {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+/* Sections */
+.browser-section {
+    margin: 30px 0;
+    padding: 25px;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.browser-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.browser-section h3 {
+    font-size: 16px;
+    margin: 20px 0 10px 0;
+    color: var(--text-secondary);
+}
+
+.browser-section ol {
+    margin-left: 20px;
+    line-height: 2;
+}
+
+.browser-section li {
+    margin: 8px 0;
+}
+
+.browser-section strong {
+    color: var(--primary-color);
+}
+
+/* Images d'illustration */
+.browser-icon {
+    width: 28px;
+    height: 28px;
+    vertical-align: middle;
+}
+
+/* Raccourcis clavier */
+kbd {
+    display: inline-block;
+    padding: 3px 8px;
+    font-family: 'Consolas', 'Monaco', monospace;
+    font-size: 12px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+}
+
+/* Note importante */
+.note-box {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-size: 14px;
+    background: #e8f5e9;
+    border-left: 4px solid var(--success-color);
+}
+
+[data-theme="dark"] .note-box {
+    background: #1b3d2f;
+}
+
+.note-box strong {
+    display: block;
+    margin-bottom: 5px;
+}
+
+/* Alternative */
+.alternative-box {
+    padding: 15px 20px;
+    border-radius: 8px;
+    margin: 20px 0;
+    font-size: 14px;
+    background: #fff3e0;
+    border-left: 4px solid var(--warning-color);
+}
+
+[data-theme="dark"] .alternative-box {
+    background: #3d3020;
+}
+
+/* Footer */
+.help-footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-muted);
+    font-size: 13px;
+    margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .content-card {
+        padding: 25px;
+    }
+    
+    .browser-section {
+        padding: 20px;
+    }
+    
+    .main-title {
+        font-size: 22px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="help-header">
+        <div class="header-left">
+            <img src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png" alt="Logo Kitview" class="logo">
+            <h1><span>🌐</span> Aide Traduction</h1>
+        </div>
+        
+        <div class="header-right">
+            <!-- Thème -->
+            <button class="icon-button" id="themeToggle" title="Changer le thème">
+                🌙
+            </button>
+            
+            <!-- Retour -->
+            <a href="modedemploi.html" class="back-button">
+                ← Retour au guide
+            </a>
+        </div>
+    </header>
+
+    <!-- Contenu principal -->
+    <main class="main-content">
+        <div class="content-card">
+            <h1 class="main-title">🌐 Comment traduire le guide</h1>
+            <p class="subtitle">Utilisez la traduction automatique de votre navigateur pour lire le guide dans votre langue.</p>
+
+            <div class="note-box">
+                <strong>💡 Le guide est rédigé en français</strong>
+                Tous les navigateurs modernes proposent une traduction automatique intégrée. Cette page vous explique comment l'activer selon votre navigateur.
+            </div>
+
+            <!-- Chrome -->
+            <section class="browser-section">
+                <h2>
+                    <img src="https://www.google.com/chrome/static/images/chrome-logo-m100.svg" alt="Chrome" class="browser-icon">
+                    Google Chrome
+                </h2>
+                
+                <h3>Méthode 1 : Clic droit</h3>
+                <ol>
+                    <li>Faites un <strong>clic droit</strong> n'importe où sur la page</li>
+                    <li>Sélectionnez <strong>"Traduire en [votre langue]"</strong></li>
+                    <li>La page sera automatiquement traduite</li>
+                </ol>
+                
+                <h3>Méthode 2 : Barre d'adresse</h3>
+                <ol>
+                    <li>Cliquez sur l'<strong>icône de traduction</strong> 🌐 dans la barre d'adresse (à droite)</li>
+                    <li>Choisissez votre langue dans le menu déroulant</li>
+                    <li>Cliquez sur <strong>"Traduire"</strong></li>
+                </ol>
+                
+                <h3>Méthode 3 : Menu</h3>
+                <ol>
+                    <li>Cliquez sur les <strong>trois points verticaux</strong> (⋮) en haut à droite</li>
+                    <li>Sélectionnez <strong>"Traduire"</strong></li>
+                </ol>
+            </section>
+
+            <!-- Edge -->
+            <section class="browser-section">
+                <h2>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/9/98/Microsoft_Edge_logo_%282019%29.svg" alt="Edge" class="browser-icon">
+                    Microsoft Edge
+                </h2>
+                
+                <h3>Méthode 1 : Clic droit</h3>
+                <ol>
+                    <li>Faites un <strong>clic droit</strong> n'importe où sur la page</li>
+                    <li>Sélectionnez <strong>"Traduire en [votre langue]"</strong></li>
+                </ol>
+                
+                <h3>Méthode 2 : Barre d'adresse</h3>
+                <ol>
+                    <li>Cliquez sur l'<strong>icône de traduction</strong> dans la barre d'adresse</li>
+                    <li>Sélectionnez la langue souhaitée</li>
+                    <li>Cliquez sur <strong>"Traduire"</strong></li>
+                </ol>
+                
+                <h3>Méthode 3 : Menu</h3>
+                <ol>
+                    <li>Cliquez sur les <strong>trois points horizontaux</strong> (⋯) en haut à droite</li>
+                    <li>Allez dans <strong>"Plus d'outils"</strong></li>
+                    <li>Sélectionnez <strong>"Traduire la page"</strong></li>
+                </ol>
+            </section>
+
+            <!-- Firefox -->
+            <section class="browser-section">
+                <h2>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/Firefox_logo%2C_2019.svg" alt="Firefox" class="browser-icon">
+                    Mozilla Firefox
+                </h2>
+                
+                <div class="alternative-box">
+                    <strong>⚠️ Firefox n'a pas de traduction intégrée par défaut</strong>
+                    Vous devez installer une extension comme "Google Translate" ou "To Google Translate" depuis le magasin d'extensions Firefox.
+                </div>
+                
+                <h3>Avec l'extension Google Translate :</h3>
+                <ol>
+                    <li>Installez l'extension depuis <strong>addons.mozilla.org</strong></li>
+                    <li>Faites un <strong>clic droit</strong> sur la page</li>
+                    <li>Sélectionnez <strong>"Traduire cette page"</strong></li>
+                </ol>
+            </section>
+
+            <!-- Safari -->
+            <section class="browser-section">
+                <h2>
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/5/52/Safari_browser_logo.svg" alt="Safari" class="browser-icon">
+                    Safari (Mac / iPhone / iPad)
+                </h2>
+                
+                <h3>Sur Mac :</h3>
+                <ol>
+                    <li>Cliquez sur l'<strong>icône de traduction</strong> (aA) dans la barre d'adresse</li>
+                    <li>Sélectionnez <strong>"Traduire en [votre langue]"</strong></li>
+                </ol>
+                
+                <h3>Sur iPhone / iPad :</h3>
+                <ol>
+                    <li>Appuyez sur le bouton <strong>aA</strong> dans la barre d'adresse</li>
+                    <li>Sélectionnez <strong>"Traduire en [votre langue]"</strong></li>
+                </ol>
+            </section>
+
+            <!-- Alternative universelle -->
+            <section class="browser-section">
+                <h2>🔄 Alternative universelle : Google Translate</h2>
+                
+                <ol>
+                    <li>Allez sur <strong>translate.google.com</strong></li>
+                    <li>Cliquez sur l'onglet <strong>"Sites Web"</strong></li>
+                    <li>Collez l'adresse de la page du guide</li>
+                    <li>Sélectionnez votre langue cible</li>
+                    <li>Cliquez sur le lien généré</li>
+                </ol>
+            </section>
+
+            <div class="note-box">
+                <strong>✅ Astuce</strong>
+                Une fois traduite, la page reste en mémoire. Si vous naviguez dans le guide, les nouvelles sections seront également traduites automatiquement.
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="help-footer">
+        Kitview Search - Aide Traduction v5.0 - Janvier 2026
+    </footer>
+
+    <script>
+/*
+ * aide_traduction.html V5.0.0 - 12/01/2026 13:55
+ * Gestion du thème
+ */
+
+const themeToggle = document.getElementById('themeToggle');
+
+function initTheme() {
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.setAttribute('data-theme', 'dark');
+        themeToggle.textContent = '☀️';
+    } else if (savedTheme === 'light') {
+        document.body.removeAttribute('data-theme');
+        themeToggle.textContent = '🌙';
+    } else {
+        if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            document.body.setAttribute('data-theme', 'dark');
+            themeToggle.textContent = '☀️';
+        }
+    }
+}
+
+function toggleTheme() {
+    const isDark = document.body.hasAttribute('data-theme');
+    if (isDark) {
+        document.body.removeAttribute('data-theme');
+        localStorage.setItem('theme', 'light');
+        themeToggle.textContent = '🌙';
+    } else {
+        document.body.setAttribute('data-theme', 'dark');
+        localStorage.setItem('theme', 'dark');
+        themeToggle.textContent = '☀️';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+    initTheme();
+    themeToggle.addEventListener('click', toggleTheme);
+});
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+﻿# ia.csv V1.0.15 - 15/01/2026 20:34:25;;;;;;
+# Configuration des modèles IA pour la détection orthodontique;;;;;;
+# court : nom court unique utilisé partout (CLI, API, logs);;;;;;
+# via : openai (direct), eden (Eden AI gateway), ou vide pour mode standard;;;;;;
+# actif : O (actif) ou N (inactif) - filtré dans l'interface;;;;;;
+# complet : identifiant complet pour l'API;;;;;;
+# cout : coût indicatif en $/1M tokens (entrée);;;;;;
+# notes : commentaires affichés dans l'interface;;;;;;
+# image : URL du logo pour le filigrane (Wikimedia Commons);;;;;;
+moteur;via;actif;complet;cout;notes;image
+standard;;O;standard avec ia;0.10;Recherche standard avec fallback IA si 0 résultat;https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/4LAVG3igh0DlHNfHDptQ/pub/OKmUj2WipwJFc6rhBwcK.jpg
+purstandard;;O;purstandard;0;Recherche standard SANS fallback (tests/debug);https://storage.googleapis.com/glide-prod.appspot.com/uploads-v2/4LAVG3igh0DlHNfHDptQ/pub/OKmUj2WipwJFc6rhBwcK.jpg
+ia;;O;gpt-4.1-mini par défaut;0.40;Recherche IA avec fallback DeepL si 0 résultat;https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/ChatGPT-Logo.svg/512px-ChatGPT-Logo.svg.png
+puria;;O;gpt-4.1-mini dans deepl;0.40;Recherche IA SANS fallback DeepL (tests/debug);https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/ChatGPT-Logo.svg/512px-ChatGPT-Logo.svg.png
+gpt41mini;openai;O;gpt-4.1-mini;0.40;GPT-4.1 Mini - 200K TPM, 2M TPD (RECOMMANDÉ);https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/ChatGPT-Logo.svg/512px-ChatGPT-Logo.svg.png
+gpt4o;openai;N;gpt-4o;2.50;GPT-4o - 30K TPM, 90K TPD (limité);https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/ChatGPT-Logo.svg/512px-ChatGPT-Logo.svg.png
+gpt4omini;openai;N;gpt-4o-mini;0.15;GPT-4o Mini - Économique OpenAI;https://upload.wikimedia.org/wikipedia/commons/thumb/e/ef/ChatGPT-Logo.svg/512px-ChatGPT-Logo.svg.png
+sonnet;eden;O;anthropic/claude-3-7-sonnet-20250219;3.00;Claude Sonnet - Équilibre qualité/coût;https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg
+opus;eden;N;anthropic/claude-3-opus-latest;15.00;Claude Opus - Plus puissant Anthropic;https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg
+haiku;eden;N;anthropic/claude-3-5-haiku-latest;0.25;Claude Haiku - Rapide et économique;https://upload.wikimedia.org/wikipedia/commons/8/8a/Claude_AI_logo.svg
+gemini25flash;eden;N;google/gemini-2.5-flash;0.075;Gemini 2.5 Flash - Ultra rapide Google;https://upload.wikimedia.org/wikipedia/commons/d/d9/Google_Gemini_logo_2025.svg
+gemini15pro;eden;O;google/gemini-1.5-pro;1.25;Gemini 1.5 Pro - Puissant Google;https://upload.wikimedia.org/wikipedia/commons/d/d9/Google_Gemini_logo_2025.svg
+mistrallarge;eden;N;mistral/mistral-large-latest;2.00;Mistral Large 🇫🇷 - Modèle phare français;https://upload.wikimedia.org/wikipedia/commons/e/e6/Mistral_AI_logo_%282025%E2%80%93%29.svg
+mistralsmall;eden;O;mistral/mistral-small-latest;0.20;Mistral Small 🇫🇷 - Économique et rapide;https://upload.wikimedia.org/wikipedia/commons/e/e6/Mistral_AI_logo_%282025%E2%80%93%29.svg
+mistralmedium;eden;N;mistral/mistral-medium-latest;0.70;Mistral Medium 🇫🇷 - Équilibre;https://upload.wikimedia.org/wikipedia/commons/e/e6/Mistral_AI_logo_%282025%E2%80%93%29.svg
+deepseekr1;eden;O;deepseek/deepseek-r1;0.55;DeepSeek R1 🇨🇳 - Raisonnement avancé;https://upload.wikimedia.org/wikipedia/commons/e/ec/DeepSeek_logo.svg
+deepseekv3;eden;N;deepseek/deepseek-v3;0.27;DeepSeek V3 🇨🇳 - Génération contexte;https://upload.wikimedia.org/wikipedia/commons/e/ec/DeepSeek_logo.svg
+llama33;eden;N;meta/llama-3.3-70b-instruct;0.88;Llama 3.3 70B - Open source Meta;https://static.xx.fbcdn.net/rsrc.php/y9/r/tL_v571NdZ0.svg
+commandr;eden;N;cohere/command-r;0.50;Command R - Spécialisé RAG Cohere;https://cohere.com/logo.svg
+qwen25;eden;N;qwen/qwen-2.5-72b-instruct;0.90;Qwen 2.5 72B - Alibaba multilangue;https://img.alicdn.com/imgextra/i4/O1CN01a6pmNi24dfWQwmMp3_!!6000000007414-2-tps-270-90.png

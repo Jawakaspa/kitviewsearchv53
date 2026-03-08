@@ -1,0 +1,49 @@
+﻿# testtagsin_v2.csv - Tests de non-régression migration tags V2
+# Date: 09/02/2026
+# Usage: python dettags.py testtagsin_v2.csv -v
+# Attendu: Tous les tags doivent être détectés correctement
+question
+# === TAGS EXISTANTS (doivent continuer à fonctionner) ===
+béance antérieure sévère
+classe i classe ii
+bruxisme nocturne
+patients avec malocclusion modérée
+crowding mandibulaire
+classe ii d'angle division 1
+supraclusion
+occlusion croisée gauche
+rétrognathie mandibulaire sévère
+# === NOUVEAUX TAGS V2 ===
+overjet sévère
+endoalvéolie maxillaire
+ancrage cortical
+force orthodontique modérée
+analyse de bolton
+photographie clinique
+orthodontie linguale
+auxiliaire
+arc transpalatin
+nivellement
+# === TAGS FUSIONNÉS (enclavement → inclusion) ===
+dent enclavée
+enclavement
+dent incluse
+dent coincée
+# === PATTERNS REDISTRIBUÉS (doivent matcher le bon tag) ===
+disjoncteur palatin
+appareil dentaire métallique
+dent bloquée
+# === ADJECTIFS V2 ===
+gouttière chirurgicale
+gouttière invisible
+éruption ectopique
+éruption retardée
+fente labio-palatine
+procheilie supérieure
+rétrocheilie inférieure
+# === MULTI-TAGS + ADJECTIFS ===
+béance antérieure sévère et crowding mandibulaire
+classe ii sévère avec bruxisme nocturne
+# === CAS LIMITES ===
+patients de moins de 30 ans avec béance
+combien de patients avec overjet modéré

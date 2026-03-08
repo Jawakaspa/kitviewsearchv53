@@ -1,0 +1,124 @@
+# ═══════════════════════════════════════════════════════════════════════════════
+# MODIFICATIONS À APPORTER À web12params.html
+# Version cible : web12params.html V1.0.2
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MODIFICATION 1 : CSS - Modifier .settings-actions
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# REMPLACER (lignes ~217-222) :
+"""
+/* Actions */
+.settings-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+"""
+
+# PAR :
+"""
+/* Actions */
+.settings-actions {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+}
+
+.settings-actions-left {
+    display: flex;
+    gap: 10px;
+}
+
+.settings-actions-right {
+    display: flex;
+    gap: 10px;
+}
+
+.analyse-button {
+    padding: 12px 20px;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.analyse-button:hover {
+    background: var(--primary-light);
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+"""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MODIFICATION 2 : HTML - Modifier les boutons d'action
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# REMPLACER (lignes ~519-522) :
+"""
+        <!-- Boutons d'action -->
+        <div class="settings-actions">
+            <button class="save-button" onclick="saveSettings()">💾 Enregistrer et retourner</button>
+        </div>
+"""
+
+# PAR :
+"""
+        <!-- Boutons d'action -->
+        <div class="settings-actions">
+            <div class="settings-actions-left">
+                <button class="analyse-button" onclick="goToAnalyse()">📊 Analyse</button>
+            </div>
+            <div class="settings-actions-right">
+                <button class="save-button" onclick="saveSettings()">💾 Enregistrer et retourner</button>
+            </div>
+        </div>
+"""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MODIFICATION 3 : JavaScript - Ajouter la fonction goToAnalyse()
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# AJOUTER après la fonction goBack() (ligne ~958) :
+"""
+function goToAnalyse() {
+    // Aller à la page d'analyse
+    window.location.href = 'analyse12.html';
+}
+"""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# MODIFICATION 4 : Mettre à jour la version
+# ═══════════════════════════════════════════════════════════════════════════════
+
+# REMPLACER (ligne ~11) :
+"""
+ * web12params.html V1.0.1 - 31/12/2025 18:11:23
+"""
+
+# PAR :
+"""
+ * web12params.html V1.0.2 - 31/12/2025 15:45:00
+"""
+
+# ET REMPLACER (ligne ~526) :
+"""
+            Kitview Search - Page Paramètres v1.0.0 (web12)
+"""
+
+# PAR :
+"""
+            Kitview Search - Page Paramètres v1.0.2 (web12)
+"""
+
+# ═══════════════════════════════════════════════════════════════════════════════
+# FIN DES MODIFICATIONS
+# ═══════════════════════════════════════════════════════════════════════════════

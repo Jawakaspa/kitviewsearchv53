@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
+
+# Bases de données - exclure seulement les très grosses
+# base25000.db est OK (10 Mo)
+
+# Logs
+*.log
+logrecherche.csv
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+Thumbs.db
+.DS_Store

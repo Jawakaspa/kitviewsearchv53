@@ -1,0 +1,7 @@
+﻿# Tests Quentin - Scénario ACTION : commentaires nécessitant une vérification manuelle;;;
+question;page;résultat;commentaire
+patients en classe 2 agés de plus de 20 ans et de moins de 23 ans;index;12 patients;Vérifier manuellement dans la base SQL que le compte de 12 patients classe 2 entre 20 et 23 ans est exact
+Patient compris entre 13 et 16 avec une classe d'angle de 1 uniquement;index;5 patients;Comparer ce résultat avec celui de la version 4.0 pour vérifier qu'il n'y a pas de régression
+Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3;index;8 patients;Demander au Dr Martin si 8 patients classe 3 entre 17 et 23 ans est un chiffre plausible cliniquement
+Patient enfant avec rétrognathie et ou classe 2;index;3 patients;Exporter la liste des 3 patients et vérifier visuellement dans leurs dossiers que la rétrognathie est documentée
+Patient metal compris entre 20 e 24 ans;index;7 patients;Tester la même requête sur la base de production pour confirmer la cohérence des résultats

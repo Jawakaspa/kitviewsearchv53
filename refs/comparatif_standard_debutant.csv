@@ -1,0 +1,52 @@
+﻿# comparatif_standard_debutant.csv V1.0.0 - 22/01/2026 14:19:50
+# Fichier généré le 22/01/2026
+# Colonnes : Section;Element;Texte_Standard;Texte_Debutant;Action
+# Action : CONSERVE = texte identique, MODIFIE = texte adapté, AJOUTE = nouveau contenu, SUPPRIME = contenu retiré
+Section;Element;Texte_Standard;Texte_Debutant;Action
+1;Titre;📋 1. Présentation générale;📋 1. Présentation générale;CONSERVE
+1;Intro;"Kitview est une médiathèque numérique conçue pour les cabinets d'orthodontie. Elle permet de gérer tous types de fichiers multimédia associés aux dossiers patients :";"Imaginez une grande armoire numérique où vous rangez toutes les photos et documents de vos patients. C'est exactement ce que fait Kitview !";MODIFIE
+1;Note_objectif;;🎯 Objectif de cette section : Comprendre ce qu'est Kitview et à quoi il sert dans votre quotidien au cabinet.;AJOUTE
+1;Sous-titre;;Qu'est-ce que Kitview ?;AJOUTE
+1;Liste_Photos;"Photos : portraits, photos intra-buccales, photos de face/profil";📸 Stocker les photos des patients (portraits, photos de la bouche...);MODIFIE
+1;Liste_Radios;"Radios : panoramiques, téléradiographies";🩻 Conserver les radios (panoramiques et autres);MODIFIE
+1;Liste_Scans;"Scans 3D : modèles numériques";;SUPPRIME
+1;Liste_Documents;"Documents : PDF, courriers, compte-rendus";📄 Archiver les documents (courriers, comptes-rendus...);MODIFIE
+1;Liste_Videos;Vidéos et audio;🎬 Garder les vidéos si nécessaire;MODIFIE
+1;Note_analogie;;💡 Analogie simple : Pensez à Kitview comme à l'application "Photos" de votre téléphone, mais spécialement conçue pour un cabinet dentaire, avec un dossier par patient.;AJOUTE
+1;Sous-titre2;;L'interface en un coup d'œil;AJOUTE
+1;Explication_zones;;"L'écran est divisé en 3 zones principales : À gauche : La liste de tous vos patients (comme un carnet d'adresses). Au centre : Les photos et documents du patient sélectionné. En haut : Les menus et boutons pour effectuer des actions.";AJOUTE
+1;Image_caption;Interface principale de Kitview avec la liste des patients et les vignettes;L'écran principal de Kitview - Ne vous inquiétez pas, on va tout expliquer !;MODIFIE
+1;Note_reflexe;;⚠️ Premier réflexe : Avant toute action, vérifiez toujours que vous avez sélectionné le bon patient dans la liste de gauche !;AJOUTE
+1;Sous-titre3;;Pourquoi utiliser Kitview ?;AJOUTE
+1;Liste_avantages;;"✅ Toutes les photos d'un patient sont au même endroit. ✅ Vous pouvez retrouver rapidement n'importe quelle photo. ✅ Les données sont sauvegardées en sécurité. ✅ Vous pouvez montrer l'évolution au patient (avant/après).";AJOUTE
+1;Note_conseil;💡 Conseil : Kitview s'intègre avec votre logiciel de gestion de cabinet pour synchroniser automatiquement la liste des patients.;;SUPPRIME
+2;Titre;👥 2. Gestion des patients;👥 2. Gestion des patients;CONSERVE
+2;Note_objectif;;🎯 Objectif de cette section : Apprendre à créer, modifier et supprimer des fiches patients dans Kitview.;AJOUTE
+2;H3_creer;Créer un nouveau patient;Créer un nouveau patient;CONSERVE
+2;Intro_creer;Pour créer une nouvelle fiche patient dans Kitview :;Quand un nouveau patient arrive au cabinet et n'existe pas encore dans Kitview, voici comment créer sa fiche :;MODIFIE
+2;Note_synchro;;💡 Bon à savoir : Si votre cabinet utilise un logiciel de gestion (comme Logos ou Julie), les patients sont souvent créés automatiquement. Vérifiez d'abord si le patient n'existe pas déjà !;AJOUTE
+2;Sous-titre_etapes;;Étape par étape :;AJOUTE
+2;Etape1;"Cliquez sur l'onglet « Patient »";"Repérez le bouton ""Patient"" dans la barre du haut - C'est une icône avec une silhouette de personne";MODIFIE
+2;Etape2;"Une fenêtre s'ouvre : remplissez les informations (Nom, Prénom, Date de naissance, Sexe)";"Cliquez dessus - Une fenêtre va s'ouvrir avec un formulaire à remplir";MODIFIE
+2;Etape3;"Cliquez sur « Valider »";"Remplissez les informations obligatoires : 📝 Nom, 📝 Prénom, 📅 Date de naissance, 👤 Sexe";MODIFIE
+2;Etape4;;"Cliquez sur ""Valider"" - Le patient apparaît maintenant dans la liste de gauche !";AJOUTE
+2;Image1_caption;Fenêtre de création d'un nouveau patient;La fenêtre de création - Remplissez les champs entourés en rouge;MODIFIE
+2;Note_erreur;;⚠️ Erreur fréquente : Vérifiez l'orthographe du nom ! Une faute créera un doublon difficile à retrouver.;AJOUTE
+2;H3_supprimer;Supprimer une fiche patient;Supprimer une fiche patient;CONSERVE
+2;Warning_suppr;"⚠️ Attention : La suppression d'une fiche patient est définitive et supprime également toutes les photos et documents associés. Cette action nécessite le mode Administration.";"🚨 ATTENTION - Action irréversible ! Supprimer un patient efface TOUTES ses photos et documents. Cette action ne peut pas être annulée. En cas de doute, demandez à votre responsable.";MODIFIE
+2;Intro_suppr;;"La suppression est protégée par un ""mode administration"" pour éviter les erreurs. Voici comment procéder :";AJOUTE
+2;Suppr_etape1;"Cliquez sur « Paramètres »";"Activez le mode administration : Cliquez sur « Paramètres » (l'icône engrenage ⚙️), Puis sur « Administration », Puis sur « Général », Cochez la case « Passer en mode administration »";MODIFIE
+2;Suppr_etape2;"Cliquez sur « Administration » puis « Général »";Sélectionnez le patient à supprimer dans la liste de gauche;MODIFIE
+2;Suppr_etape3;"Cochez « Passer en mode administration »";"Cliquez sur « Patient » dans le menu du haut";MODIFIE
+2;Suppr_etape4;Sélectionnez le patient à supprimer;"Cliquez sur « Supprimer le patient sélectionné »";MODIFIE
+2;Suppr_etape5;"Cliquez sur « Patient » → « Supprimer le patient sélectionné »";Confirmez quand on vous le demande;MODIFIE
+2;Image2_caption;;Le mode administration doit être activé (case cochée);AJOUTE
+2;H3_photo;Photo d'identité;Définir la photo d'identité;MODIFIE
+2;Intro_photo;Pour définir ou modifier la photo d'identité d'un patient :;La photo d'identité est la petite image qui apparaît à côté du nom du patient dans la liste. C'est pratique pour reconnaître rapidement un patient !;MODIFIE
+2;Sous-titre_comment;;Comment faire :;AJOUTE
+2;Photo_etape1;Sélectionnez le patient dans la liste;Sélectionnez le patient dans la liste de gauche;MODIFIE
+2;Photo_etape2;Cliquez sur la photo que vous souhaitez utiliser comme photo d'identité;Trouvez une belle photo du patient (portrait de face de préférence);MODIFIE
+2;Photo_etape3;Faites un clic droit sur la photo;Faites un clic DROIT sur cette photo (pas un clic normal !);MODIFIE
+2;Photo_etape4;"Sélectionnez « Patient » → « Photo d'identité »";"Dans le menu qui apparaît, choisissez « Patient » puis « Photo d'identité »";MODIFIE
+2;Image3_caption;Menu contextuel pour définir la photo d'identité;"Le menu du clic droit - Choisissez ""Patient"" puis ""Photo d'identité""";MODIFIE
+2;Note_astuce;;💡 Astuce : Choisissez une photo de face récente où le patient est bien reconnaissable. Évitez les radios ou les photos floues !;AJOUTE

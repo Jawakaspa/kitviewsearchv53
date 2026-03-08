@@ -1,0 +1,782 @@
+﻿# Généré par tags2syn.py V1.0.3
+# Date : 27/12/2025 19:47:33
+# Nombre de lignes : 778
+stdtag;canontag;frsynonyme
+dent en dehors de l arcade;ectopie;dent en dehors de l'arcade
+syndrome d apnees obstructives du sommeil;apnée du sommeil;syndrome d'apnées obstructives du sommeil
+dent qui ne pousse pas;inclusion;dent qui ne pousse pas
+dent qui ne sort pas;inclusion;dent qui ne sort pas
+deviation de la ligne mediane;déviation maxillaire;déviation de la ligne médiane
+relation molaire de classe i;classe i d'angle;relation molaire de classe i
+activateur de classe ii;activateur;activateur de classe ii
+appareil d expansion palatine;quad helix;appareil d'expansion palatine
+appareil mainteneur d espace;mainteneur d'espace;appareil mainteneur d'espace
+classe 1 d angle;classe i d'angle;classe 1 d'angle
+classe 2 d angle;classe ii d'angle;classe 2 d'angle
+classe 3 d angle;classe iii d'angle;classe 3 d'angle
+classe i d angle;classe i d'angle;classe i d'angle
+classe ii d angle;classe ii d'angle;classe ii d'angle
+classe iii d angle;classe iii d'angle;classe iii d'angle
+dents qui se chevauchent;crowding;dents qui se chevauchent
+deviation de la mandibule;déviation mandibulaire;déviation de la mandibule
+en forme de y;plaque y;en forme de y
+espace entre les dents;béance;espace entre les dents
+incline vers l exterieur;vestibulo-version;incliné vers l'extérieur
+incline vers la joue;vestibulo-version;incliné vers la joue
+incline vers la langue;linguo-version;incliné vers la langue
+langue entre les dents;interposition linguale;langue entre les dents
+molaire de douze ans;molaire;molaire de douze ans
+molaire de six ans;molaire;molaire de six ans
+necrose de la pulpe;nécrose pulpaire;nécrose de la pulpe
+racine qui se resorbe;résorption radiculaire;racine qui se résorbe
+resorption de la racine;résorption radiculaire;résorption de la racine
+respiration par la bouche;respiration buccale;respiration par la bouche
+respiration par le nez;ventilation nasale;respiration par le nez
+se ronger les ongles;onychophagie;se ronger les ongles
+trouble de l atm;luxation méniscale;trouble de l'atm
+trouble de la deglutition;dysfonction linguale;trouble de la déglutition
+absence de dent;agénésie;absence de dent
+absence de dents;édentation;absence de dents
+acte de deglutition;déglutition;acte de déglutition
+alignement des dents;alignement;alignement des dents
+anomalie de developpement;dysplasie;anomalie de développement
+apnee du sommeil;apnée du sommeil;apnée du sommeil
+appareil amovible fonctionnel;activateur;appareil amovible fonctionnel
+appareil amovible transparent;gouttière;appareil amovible transparent
+appareil d activation;activateur;appareil d'activation
+appareil d expansion;quad helix;appareil d'expansion
+appareil de contention;contention;appareil de contention
+appareil de herbst;herbst;appareil de herbst
+appareil multi attaches;bagues;appareil multi-attaches
+articulation temporo mandibulaire;atm;articulation temporo-mandibulaire
+bague et anse;mainteneur d'espace;bague et anse
+bague qui tombe;débandage;bague qui tombe
+beance par interposition;interposition linguale;béance par interposition
+bielle de herbst;herbst;bielle de herbst
+chirurgie des machoires;ostéotomie;chirurgie des mâchoires
+chirurgie maxillo faciale;chirurgie;chirurgie maxillo-faciale
+ci 2 propulseur;propulsor;ci 2 propulseur
+ci ii propulseur;propulsor;ci ii propulseur
+classe 1 dangle;classe i d'angle;classe 1 dangle
+classe 1 dentaire;classe i d'angle;classe 1 dentaire
+classe 1 squelettique;classe i squelettique;classe 1 squelettique
+classe 2 dangle;classe ii d'angle;classe 2 dangle
+classe 2 dentaire;classe ii d'angle;classe 2 dentaire
+classe 2 propulseur;propulsor;classe 2 propulseur
+classe 2 squelettique;classe ii squelettique;classe 2 squelettique
+classe 3 dangle;classe iii d'angle;classe 3 dangle
+classe 3 dentaire;classe iii d'angle;classe 3 dentaire
+classe 3 squelettique;classe iii squelettique;classe 3 squelettique
+classe i dangle;classe i d'angle;classe i dangle
+classe i squelettique;classe i squelettique;classe i squelettique
+classe ii dangle;classe ii d'angle;classe ii dangle
+classe ii propulseur;propulsor;classe ii propulseur
+classe ii squelettique;classe ii squelettique;classe ii squelettique
+classe iii dangle;classe iii d'angle;classe iii dangle
+classe iii squelettique;classe iii squelettique;classe iii squelettique
+cone beam ct;scanner;cone beam ct
+correction classe ii;herbst;correction classe ii
+dent de devant;incisive;dent de devant
+dent de loup;canine;dent de loup
+dent du fond;molaire;dent du fond
+dent en infraposition;infraposition;dent en infraposition
+dent en supraposition;supraposition;dent en supraposition
+dent en trop;dent surnuméraire;dent en trop
+dent mal placee;ectopie;dent mal placée
+dent mal positionnee;malposition;dent mal positionnée
+dent trop basse;infraposition;dent trop basse
+dent trop haute;supraposition;dent trop haute
+dents d adulte;dentition permanente;dents d'adulte
+dents de bebe;dentition temporaire;dents de bébé
+dents de devant;incisive;dents de devant
+dents de lait;dentition temporaire;dents de lait
+dents du bonheur;diastème;dents du bonheur
+dents qui grincent;bruxisme;dents qui grincent
+dents trop grandes;macrodontie;dents trop grandes
+dents trop petites;microdontie;dents trop petites
+deplacement du menisque;luxation méniscale;déplacement du ménisque
+deplacement en bloc;translation;déplacement en bloc
+deviation mandibulaire fonctionnelle;proglissement;déviation mandibulaire fonctionnelle
+dysfonction temporo mandibulaire;atm;dysfonction temporo-mandibulaire
+dysharmonie dento maxillaire;ddm;dysharmonie dento-maxillaire
+echange de position;transposition;échange de position
+elastiques classe ii;élastiques intermaxillaires;élastiques classe ii
+elastiques classe iii;élastiques intermaxillaires;élastiques classe iii
+elastiques de classe;élastiques intermaxillaires;élastiques de classe
+fil d arc;arc;fil d'arc
+fil de contention;contention;fil de contention
+fil qui blesse;fil qui pique;fil qui blesse
+fil qui depasse;fil qui pique;fil qui dépasse
+fil qui pique;fil qui pique;fil qui pique
+fonction de deglutition;déglutition;fonction de déglutition
+grince des dents;bruxisme;grince des dents
+grincent des dents;bruxisme;grincent des dents
+habitude de sucer;succion;habitude de sucer
+hygiene bucco dentaire;hygiène;hygiène bucco-dentaire
+implant orthodontique temporaire;minivis;implant orthodontique temporaire
+inflammation des gencives;gingivite;inflammation des gencives
+inversion de position;transposition;inversion de position
+machoire trop grande;macrognathie;mâchoire trop grande
+machoire trop petite;micrognathie;mâchoire trop petite
+mainteneur d espace;mainteneur d'espace;mainteneur d'espace
+maladie articulaire degenerative;arthrose;maladie articulaire dégénérative
+maladie des gencives;maladie parodontale;maladie des gencives
+mandibule en arriere;classe ii d'angle;mandibule en arrière
+mandibule en avant;prognathisme mandibulaire;mandibule en avant
+mandibule en retrait;classe ii d'angle;mandibule en retrait
+manque de place;crowding;manque de place
+masque de delaire;classe iii d'angle;masque de delaire
+mauvaise position linguale;dysfonction linguale;mauvaise position linguale
+maxillaire en arriere;classe iii d'angle;maxillaire en arrière
+maxillaire en avant;prognathisme maxillaire;maxillaire en avant
+maxillaire en retrait;classe iii d'angle;maxillaire en retrait
+mouvement d intrusion;ingression;mouvement d'intrusion
+mouvement de distalisation;distalisation;mouvement de distalisation
+mouvement de mesialisation;mésialisation;mouvement de mésialisation
+mouvement de version;version;mouvement de version
+obstructive sleep apnea;apnée du sommeil;obstructive sleep apnea
+perte de dents;édentation;perte de dents
+plaque de contention;contention;plaque de contention
+position linguale basse;dysfonction linguale;position linguale basse
+prise d empreinte;empreinte;prise d'empreinte
+probleme d occlusion;malocclusion;problème d'occlusion
+projection en avant;protrusion;projection en avant
+propulseur classe ii;propulsor;propulseur classe ii
+radio de profil;céphalométrie;radio de profil
+radiographie de profil;céphalométrie;radiographie de profil
+recouvrement vertical excessif;supraclusion;recouvrement vertical excessif
+relation molaire neutre;classe i d'angle;relation molaire neutre
+restauration en composite;composite;restauration en composite
+ronger les ongles;onychophagie;ronger les ongles
+scanner intra oral;scanner intra-oral;scanner intra-oral
+sous dimensionnement dentaire;microdontie;sous-dimensionnement dentaire
+sous occlusion anterieure;infraclusion;sous-occlusion antérieure
+sous occlusion dentaire;classe iii d'angle;sous-occlusion dentaire
+suce le pouce;succion;suce le pouce
+surplomb horizontal accru;classe ii d'angle;surplomb horizontal accru
+surplomb horizontal augmente;classe ii d'angle;surplomb horizontal augmenté
+systeme de bielles;bielles;système de bielles
+traitement reeducateur fonctionnel;ef;traitement rééducateur fonctionnel
+verin de herbst;herbst;vérin de herbst
+verse en lingual;linguo-version;versé en lingual
+verse en vestibulaire;vestibulo-version;versé en vestibulaire
+vis d ancrage;minivis;vis d'ancrage
+visite de controle;contrôle;visite de contrôle
+4 helix;quad helix;4 helix
+activateur orthodontique;activateur;activateur orthodontique
+alignement dentaire;alignement;alignement dentaire
+aligneur first;gouttière;aligneur first
+aligneur invisible;gouttière;aligneur invisible
+aligneurs first;gouttière;aligneurs first
+ancrage osseux;minivis;ancrage osseux
+ancrage squelettique;minivis;ancrage squelettique
+angulation radiculaire;torque;angulation radiculaire
+anneau separateur;écarteur;anneau séparateur
+anomalie alveolaire;endoalvéolie;anomalie alvéolaire
+anomalie basale;endoalvéolie;anomalie basale
+anomalie congenitale;dysplasie;anomalie congénitale
+appareil amovible;plaque amovible;appareil amovible
+appareil dentaire;bagues;appareil dentaire
+appareil fonctionnel;activateur;appareil fonctionnel
+appareil orthodontique;bagues;appareil orthodontique
+appareil pendulum;pendulum;appareil pendulum
+arc dentaire;arcade;arc dentaire
+arc orthodontique;arc;arc orthodontique
+arcade dentaire;arcade;arcade dentaire
+arrachage dentaire;avulsion;arrachage dentaire
+arthropathie degenerative;arthrose;arthropathie dégénérative
+arthropathie inflammatoire;arthrite;arthropathie inflammatoire
+articule croise;occlusion croisée;articulé croisé
+articule inverse;occlusion inversée;articulé inversé
+asymetrie faciale;asymétrie faciale;asymétrie faciale
+attache decollee;débandage;attache décollée
+attaches ceramiques;céramique;attaches céramiques
+attaches orthodontiques;bagues;attaches orthodontiques
+avancement excessif;protrusion;avancement excessif
+beance dentaire;béance;béance dentaire
+bodily movement;translation;bodily movement
+boitiers orthodontiques;bagues;boîtiers orthodontiques
+bouche ouverte;respiration buccale;bouche ouverte
+bracket decolle;débandage;bracket décollé
+brackets ceramiques;céramique;brackets céramiques
+caries dentaires;caries dentaires;caries dentaires
+cas urgent;urgence;cas urgent
+chirurgie bimaxillaire;ostéotomie;chirurgie bimaxillaire
+chirurgie mandibulaire;chirurgie;chirurgie mandibulaire
+chirurgie maxillaire;chirurgie;chirurgie maxillaire
+chirurgie orthognathique;ostéotomie;chirurgie orthognathique
+claquement articulaire;claquement articulaire;claquement articulaire
+claquement atm;claquement articulaire;claquement atm
+classe 1;classe i d'angle;classe 1
+classe 2;classe ii d'angle;classe 2
+classe 3;classe iii d'angle;classe 3
+classe dentaire;classe i d'angle;classe dentaire
+classe i;classe i d'angle;classe i
+classe ii;classe ii d'angle;classe ii
+classe iii;classe iii d'angle;classe iii
+clear aligner;gouttière;clear aligner
+cone beam;scanner;cone beam
+crowding dentaire;crowding;crowding dentaire
+decalage dentaire;déviation maxillaire;décalage dentaire
+decalage horizontal;supraposition;décalage horizontal
+decalage mandibulaire;déviation mandibulaire;décalage mandibulaire
+deep bite;supraclusion;deep bite
+deficit mandibulaire;micrognathie;déficit mandibulaire
+deficit maxillaire;micrognathie;déficit maxillaire
+deglutition primaire;dysfonction linguale;déglutition primaire
+dent absente;agénésie;dent absente
+dent ankylosee;ankylose;dent ankylosée
+dent arrachee;avulsion;dent arrachée
+dent bloquee;inclusion;dent bloquée
+dent canine;canine;dent canine
+dent ectopique;ectopie;dent ectopique
+dent incluse;inclusion;dent incluse
+dent manquante;agénésie;dent manquante
+dent pivotee;rotation;dent pivotée
+dent retenue;inclusion;dent retenue
+dent rotee;rotation;dent rotée
+dent supplementaire;dent surnuméraire;dent supplémentaire
+dent surnumeraire;dent surnuméraire;dent surnuméraire
+dent tournee;rotation;dent tournée
+dental arch;arcade;dental arch
+dental caries;caries dentaires;dental caries
+dentition adulte;dentition permanente;dentition adulte
+dentition mixte;dentition mixte;dentition mixte
+dentition permanente;dentition permanente;dentition permanente
+dentition temporaire;dentition temporaire;dentition temporaire
+dentition transitionnelle;dentition mixte;dentition transitionnelle
+dents definitives;dentition permanente;dents définitives
+dents ecartees;diastème;dents écartées
+dents espacees;diastemata;dents espacées
+dents lacteales;dentition temporaire;dents lactéales
+dents primaires;dentition temporaire;dents primaires
+dents transposees;transposition;dents transposées
+denture mixte;dentition mixte;denture mixte
+denture permanente;dentition permanente;denture permanente
+denture temporaire;dentition temporaire;denture temporaire
+depassement horizontal;supraposition;dépassement horizontal
+deplacement articulaire;luxation;déplacement articulaire
+deplacement corporel;translation;déplacement corporel
+deplacement distal;distalisation;déplacement distal
+deplacement mesial;mésialisation;déplacement mésial
+deviation faciale;asymétrie faciale;déviation faciale
+deviation laterale;latérodéviation;déviation latérale
+deviation mandibulaire;déviation mandibulaire;déviation mandibulaire
+deviation maxillaire;déviation maxillaire;déviation maxillaire
+devitalisation necessaire;nécrose pulpaire;dévitalisation nécessaire
+diasteme central;diastème;diastème central
+digital impression;scanner intra-oral;digital impression
+disjoncteur palatin;quad helix;disjoncteur palatin
+distalisation molaire;pendulum;distalisation molaire
+disto occlusion;classe ii d'angle;disto-occlusion
+distocclusion dentaire;classe ii d'angle;distocclusion dentaire
+douleur dentaire;douleur;douleur dentaire
+dysfonction linguale;dysfonction linguale;dysfonction linguale
+dysharmonie dentaire;ddm;dysharmonie dentaire
+early treatment;traitement interceptif;early treatment
+ecartement dentaire;diastème;écartement dentaire
+ectopic tooth;ectopie;ectopic tooth
+egression dentaire;égression;égression dentaire
+elastique separateur;écarteur;élastique séparateur
+elastiques intermaxillaires;élastiques intermaxillaires;élastiques intermaxillaires
+empreinte dentaire;empreinte;empreinte dentaire
+empreinte numerique;scanner intra-oral;empreinte numérique
+entassement dentaire;crowding;entassement dentaire
+eruption excessive;supraposition;éruption excessive
+espace interdentaire;béance;espace interdentaire
+espacement generalise;diastemata;espacement généralisé
+espaces interdentaires;diastemata;espaces interdentaires
+espaces multiples;diastemata;espaces multiples
+examen orthodontique;consultation;examen orthodontique
+exces mandibulaire;macrognathie;excès mandibulaire
+exces maxillaire;macrognathie;excès maxillaire
+expansion lente;quad helix;expansion lente
+expansion rapide;quad helix;expansion rapide
+extraction dentaire;avulsion;extraction dentaire
+fil metallique;arc;fil métallique
+fil niti;niti;fil niti
+fil orthodontique;arc;fil orthodontique
+fil rectangulaire;arc;fil rectangulaire
+fil rond;arc;fil rond
+fil saillant;fil qui pique;fil saillant
+fil thermoactif;niti;fil thermoactif
+follow up;contrôle;follow-up
+fonction masticatoire;mastication;fonction masticatoire
+fonction masticatrice;mastication;fonction masticatrice
+fonction phonatoire;phonation;fonction phonatoire
+functional appliance;activateur;functional appliance
+fusion osseuse;ankylose;fusion osseuse
+gencives rouges;gingivite;gencives rouges
+gingival recession;récession gingivale;gingival recession
+glissement mandibulaire;proglissement;glissement mandibulaire
+gouttiere orthodontique;gouttière;gouttière orthodontique
+gouttiere transparente;gouttière;gouttière transparente
+grande machoire;macrognathie;grande mâchoire
+grosse dent;molaire;grosse dent
+grosse machoire;macrognathie;grosse mâchoire
+hygiene dentaire;hygiène;hygiène dentaire
+hypoplasie maxillaire;classe iii d'angle;hypoplasie maxillaire
+imagerie 3d;scanner;imagerie 3d
+impacted tooth;inclusion;impacted tooth
+inclinaison dentaire;version;inclinaison dentaire
+inclinaison linguale;linguo-version;inclinaison linguale
+inclinaison radiculaire;torque;inclinaison radiculaire
+inflammation articulaire;arthrite;inflammation articulaire
+inflammation gingivale;gingivite;inflammation gingivale
+infra position;infraposition;infra-position
+interception orthodontique;traitement interceptif;interception orthodontique
+interposition linguale;interposition linguale;interposition linguale
+intrusion dentaire;ingression;intrusion dentaire
+jaw surgery;ostéotomie;jaw surgery
+langue basse;dysfonction linguale;langue basse
+lateral ceph;céphalométrie;lateral ceph
+lesion carieuse;caries dentaires;lésion carieuse
+ligature coloree;ligature;ligature colorée
+ligatures elastiques;ligature;ligatures élastiques
+ligatures metalliques;ligature;ligatures métalliques
+linguo version;linguo-version;linguo-version
+loose bracket;débandage;loose bracket
+luxation atm;luxation;luxation atm
+luxation discale;luxation méniscale;luxation discale
+luxation meniscale;luxation méniscale;luxation méniscale
+mal placee;ectopie;mal placée
+maladie parodontale;maladie parodontale;maladie parodontale
+malocclusion dentaire;malocclusion;malocclusion dentaire
+malposition dentaire;malposition;malposition dentaire
+malposition rotationnelle;rotation;malposition rotationnelle
+mandibule avancee;prognathisme mandibulaire;mandibule avancée
+mandibule proeminente;prognathisme mandibulaire;mandibule proéminente
+mandibule reculee;classe ii d'angle;mandibule reculée
+mauvais engrenement;malocclusion;mauvais engrènement
+mauvaise occlusion;malocclusion;mauvaise occlusion
+maxillaire avance;prognathisme maxillaire;maxillaire avancé
+maxillaire proeminent;prognathisme maxillaire;maxillaire proéminent
+maxillaire recule;classe iii d'angle;maxillaire reculé
+mesio occlusion;classe iii d'angle;mésio-occlusion
+mesiocclusion dentaire;classe iii d'angle;mésiocclusion dentaire
+metal inoxydable;métal;métal inoxydable
+mini implant;minivis;mini implant
+mini vis;minivis;mini-vis
+mixed dentition;dentition mixte;mixed dentition
+morsure beante;béance;morsure béante
+morsure croisee;occlusion croisée;morsure croisée
+morsure inversee;occlusion inversée;morsure inversée
+morsure ouverte;béance;morsure ouverte
+morsure profonde;supraclusion;morsure profonde
+mort pulpaire;nécrose pulpaire;mort pulpaire
+mouth breathing;respiration buccale;mouth breathing
+mouvement corporel;translation;mouvement corporel
+nail biting;onychophagie;nail biting
+nanisme dentaire;microdontie;nanisme dentaire
+nasal breathing;ventilation nasale;nasal breathing
+necrose pulpaire;nécrose pulpaire;nécrose pulpaire
+nettoyage dentaire;détartrage;nettoyage dentaire
+nickel titane;niti;nickel-titane
+occlusion croisee;occlusion croisée;occlusion croisée
+occlusion inverse;occlusion inversée;occlusion inverse
+occlusion inversee;occlusion inversée;occlusion inversée
+occlusion normale;classe i d'angle;occlusion normale
+open bite;béance;open bite
+operation machoire;chirurgie;opération mâchoire
+orthognathic surgery;chirurgie;orthognathic surgery
+over bite;supraclusion;over bite
+over jet;supraposition;over jet
+overjet augmente;classe ii d'angle;overjet augmenté
+panoramique dentaire;panoramique;panoramique dentaire
+periodontal disease;maladie parodontale;periodontal disease
+permanent dentition;dentition permanente;permanent dentition
+permutation dentaire;transposition;permutation dentaire
+petite machoire;micrognathie;petite mâchoire
+petite molaire;prémolaire;petite molaire
+plaque amovible;plaque amovible;plaque amovible
+plaque eventail;plaque éventail;plaque éventail
+plaque orthodontique;plaque amovible;plaque orthodontique
+plaque papillon;plaque papillon;plaque papillon
+plaque y;plaque y;plaque y
+polissage interproximal;stripping;polissage interproximal
+position ectopique;ectopie;position ectopique
+poussee linguale;interposition linguale;poussée linguale
+primary dentition;dentition temporaire;primary dentition
+proglissement fonctionnel;proglissement;proglissement fonctionnel
+proglissement mandibulaire;proglissement;proglissement mandibulaire
+prognathie dentaire;classe iii d'angle;prognathie dentaire
+prognathie mandibulaire;prognathisme mandibulaire;prognathie mandibulaire
+prognathie maxillaire;prognathisme maxillaire;prognathie maxillaire
+prognathisme mandibulaire;prognathisme mandibulaire;prognathisme mandibulaire
+prognathisme maxillaire;prognathisme maxillaire;prognathisme maxillaire
+pulpe necrosee;nécrose pulpaire;pulpe nécrosée
+quad helix;quad helix;quad helix
+quadri helix;quad helix;quadri-hélix
+raccourcissement radiculaire;résorption radiculaire;raccourcissement radiculaire
+radio panoramique;panoramique;radio panoramique
+radiographie panoramique;panoramique;radiographie panoramique
+receding gums;récession gingivale;receding gums
+recession gingivale;récession gingivale;récession gingivale
+recession parodontale;récession gingivale;récession parodontale
+recidive orthodontique;récidive;récidive orthodontique
+recouvrement horizontal;supraposition;recouvrement horizontal
+reduction amelaire;stripping;réduction amélaire
+reduction interproximale;stripping;réduction interproximale
+removable appliance;plaque amovible;removable appliance
+rendez vous;consultation;rendez-vous
+resin composite;composite;resin composite
+resine composite;composite;résine composite
+resorption apicale;résorption radiculaire;résorption apicale
+resorption radiculaire;résorption radiculaire;résorption radiculaire
+respirateur buccal;respiration buccale;respirateur buccal
+respiration buccale;respiration buccale;respiration buccale
+respiration nasale;ventilation nasale;respiration nasale
+respiration orale;respiration buccale;respiration orale
+ressaut articulaire;ressaut articulaire;ressaut articulaire
+ressaut atm;ressaut articulaire;ressaut atm
+retraction gingivale;récession gingivale;rétraction gingivale
+retrognathie dentaire;classe ii d'angle;rétrognathie dentaire
+retrognathie mandibulaire;classe ii d'angle;rétrognathie mandibulaire
+retrognathie maxillaire;classe iii d'angle;rétrognathie maxillaire
+retrusion dentaire;classe ii d'angle;rétrusion dentaire
+rotation axiale;rotation;rotation axiale
+rotation radiculaire;torque;rotation radiculaire
+rubber bands;élastiques intermaxillaires;rubber bands
+scan 3d;scanner;scan 3d
+scan numerique;scanner intra-oral;scan numérique
+sleep apnea;apnée du sommeil;sleep apnea
+sortie dentaire;égression;sortie dentaire
+sous eruption;infraposition;sous-éruption
+space maintainer;mainteneur d'espace;space maintainer
+supra eruption;supraposition;supra-éruption
+supra position;supraposition;supra-position
+surdimensionnement dentaire;macrodontie;surdimensionnement dentaire
+tong e;tong e;tong e
+tongue thrust;interposition linguale;tongue thrust
+tooth decay;caries dentaires;tooth decay
+torsion radiculaire;torque;torsion radiculaire
+traitement interceptif;traitement interceptif;traitement interceptif
+traitement precoce;traitement interceptif;traitement précoce
+translation dentaire;translation;translation dentaire
+troubles atm;atm;troubles atm
+twisted tooth;rotation;twisted tooth
+urgence orthodontique;urgence;urgence orthodontique
+usure dentaire;bruxisme;usure dentaire
+ventilation nasale;ventilation nasale;ventilation nasale
+ventilation orale;respiration buccale;ventilation orale
+version axiale;rotation;version axiale
+vestibulo position;vestibulo-version;vestibulo-position
+vestibulo version;vestibulo-version;vestibulo-version
+visage asymetrique;asymétrie faciale;visage asymétrique
+wire poking;fil qui pique;wire poking
+3d;scanner;3d
+4helix;quad helix;4helix
+acier;métal;acier
+activateur;activateur;activateur
+aero;aéro;aéro
+aerophonoscope;aéro;aérophonoscope
+agenesie;agénésie;agénésie
+alginate;empreinte;alginate
+alignement;alignement;alignement
+aligneur;gouttière;aligneur
+alveolie;bipro;alvéolie
+ankilose;ankylose;ankilose
+ankylose;ankylose;ankylose
+anodontie;agénésie;anodontie
+appointment;consultation;appointment
+arc;arc;arc
+arcade;arcade;arcade
+archwire;arc;archwire
+arracher;avulsion;arracher
+arthrite;arthrite;arthrite
+arthrose;arthrose;arthrose
+articulation;phonation;articulation
+asymetrie;latérodéviation;asymétrie
+atm;atm;atm
+attache;ligature;attache
+attaches;bagues;attaches
+avaler;déglutition;avaler
+avancement;mésialisation;avancement
+avulsion;avulsion;avulsion
+bagues;bagues;bagues
+bascule;version;bascule
+basculement;version;basculement
+beance;béance;béance
+bicuspide;prémolaire;bicuspide
+bielle;bielles;bielle
+bielles;bielles;bielles
+bipro;bipro;bipro
+biproalveolie;bipro;biproalvéolie
+braces;bagues;braces
+bracket;bagues;bracket
+brackets;bagues;brackets
+broches;bagues;broches
+brossage;hygiène;brossage
+bruxisme;bruxisme;bruxisme
+bruxomanie;bruxisme;bruxomanie
+canine;canine;canine
+carie;caries dentaires;carie
+cavite;béance;cavité
+cbct;scanner;cbct
+cephalo;céphalométrie;cephalo
+cephalometrie;céphalométrie;céphalométrie
+ceramic;céramique;ceramic
+ceramique;céramique;céramique
+chevauchement;crowding;chevauchement
+chewing;mastication;chewing
+chirurgie;chirurgie;chirurgie
+cinquieme;prémolaire;cinquième
+cleaning;hygiène;cleaning
+clenching;bruxisme;clenching
+clicking;claquement articulaire;clicking
+composite;composite;composite
+consultation;consultation;consultation
+consulter;consultation;consulter
+contention;contention;contention
+controle;contrôle;contrôle
+correction;alignement;correction
+couple;torque;couple
+croc;canine;croc
+croissance;croissance;croissance
+croquer;mastication;croquer
+crossbite;occlusion croisée;crossbite
+crowding;crowding;crowding
+cuspide;canine;cuspide
+ddm;ddm;ddm
+debandage;débandage;débandage
+dechaussement;maladie parodontale;déchaussement
+deciduous;dentition temporaire;deciduous
+dedentation;avulsion;dédentation
+deglutition;déglutition;déglutition
+delaire;classe iii d'angle;delaire
+detartrage;détartrage;détartrage
+developpement;croissance;développement
+diastemata;diastemata;diastemata
+diasteme;diastème;diastème
+diastemes;diastemata;diastèmes
+discrepance;ddm;discrepance
+disjoncteur;quad helix;disjoncteur
+disjonction;quad helix;disjonction
+dislocation;luxation;dislocation
+distalisation;distalisation;distalisation
+distocclusion;classe ii d'angle;distocclusion
+douleur;douleur;douleur
+douzieme;molaire;douzième
+dysharmonie;ddm;dysharmonie
+dysmorphie;dysplasie;dysmorphie
+dysmorphose;ddm;dysmorphose
+dysplasie;dysplasie;dysplasie
+ec;ectopie;ec
+ecart;béance;écart
+ecartement;béance;écartement
+ecarteur;écarteur;écarteur
+ectopie;ectopie;ectopie
+edentation;édentation;édentation
+edente;édentation;édenté
+edentement;édentation;édentement
+ef;ef;ef
+egression;égression;égression
+elastique;ligature;élastique
+elocution;phonation;élocution
+emergency;urgence;emergency
+empreinte;empreinte;empreinte
+encombrement;crowding;encombrement
+endoalveolie;endoalvéolie;endoalvéolie
+enfoncement;ingression;enfoncement
+erp;quad helix;erp
+eruption;égression;éruption
+espace;diastème;espace
+espacement;diastème;espacement
+espacements;diastème;espacements
+espaces;diastemata;espaces
+esthetique;céramique;esthétique
+eventail;plaque éventail;éventail
+exodontie;avulsion;exodontie
+expansion;quad helix;expansion
+extraction;avulsion;extraction
+extrusion;égression;extrusion
+fil;arc;fil
+forsus;bielles;forsus
+gap;diastème;gap
+gingivite;gingivite;gingivite
+gingivitis;gingivite;gingivitis
+gouttiere;gouttière;gouttière
+grandir;croissance;grandir
+grincement;bruxisme;grincement
+grinding;bruxisme;grinding
+growth;croissance;growth
+hawley;contention;hawley
+herbst;herbst;herbst
+horizontal;supraposition;horizontal
+hygiene;hygiène;hygiène
+hyperdontie;dent surnuméraire;hyperdontie
+hyperplasie;macrognathie;hyperplasie
+hypodontie;agénésie;hypodontie
+hypoplasie;classe iii d'angle;hypoplasie
+impaction;inclusion;impaction
+impression;empreinte;impression
+imu;élastiques intermaxillaires;imu
+incisive;incisive;incisive
+inclinaison;version;inclinaison
+inclusion;inclusion;inclusion
+inconfort;douleur;inconfort
+infraclusion;infraclusion;infraclusion
+infraposition;infraposition;infraposition
+ingression;ingression;ingression
+intervention;chirurgie;intervention
+intrusion;ingression;intrusion
+invisalign;gouttière;invisalign
+ipr;stripping;ipr
+irritation;fil qui pique;irritation
+laterodeviation;latérodéviation;latérodéviation
+ligature;ligature;ligature
+limage;stripping;limage
+linguoversion;linguo-version;linguoversion
+luxation;luxation;luxation
+macher;mastication;mâcher
+macrodontie;macrodontie;macrodontie
+macrognathie;macrognathie;macrognathie
+maintenance;contention;maintenance
+maintien;contention;maintien
+mal;douleur;mal
+malformation;dysplasie;malformation
+malocclusion;malocclusion;malocclusion
+maloclusion;malocclusion;maloclusion
+malposition;malposition;malposition
+mastication;mastication;mastication
+mastiquer;mastication;mastiquer
+maturation;croissance;maturation
+megalodontie;macrodontie;mégalodontie
+mesialisation;mésialisation;mésialisation
+mesiocclusion;classe iii d'angle;mésiocclusion
+mesiodens;dent surnuméraire;mésiodens
+metal;métal;métal
+metallique;métal;métallique
+meulage;stripping;meulage
+microdontie;microdontie;microdontie
+micrognathie;micrognathie;micrognathie
+minivis;minivis;minivis
+molaire;molaire;molaire
+monitoring;contrôle;monitoring
+monobloc;activateur;monobloc
+moulage;empreinte;moulage
+mouvement;translation;mouvement
+nettoyage;hygiène;nettoyage
+neutrocclusion;classe i d'angle;neutrocclusion
+niti;niti;niti
+nitinol;niti;nitinol
+normocclusion;classe i d'angle;normocclusion
+oligodontie;agénésie;oligodontie
+onychophagie;onychophagie;onychophagie
+openbite;béance;openbite
+operation;chirurgie;opération
+opg;panoramique;opg
+orthopantomogramme;panoramique;orthopantomogramme
+osa;apnée du sommeil;osa
+osteoarthrite;arthrose;ostéoarthrite
+osteotomie;ostéotomie;ostéotomie
+overbite;supraclusion;overbite
+overjet;supraposition;overjet
+pacifier;succion;pacifier
+pain;douleur;pain
+panoramique;panoramique;panoramique
+panorex;panoramique;panorex
+papillon;plaque papillon;papillon
+parler;phonation;parler
+parodontite;maladie parodontale;parodontite
+parodontopathie;maladie parodontale;parodontopathie
+parole;phonation;parole
+pendulum;pendulum;pendulum
+phonation;phonation;phonation
+popping;ressaut articulaire;popping
+pouce;succion;pouce
+powerscope;bielles;powerscope
+premolaire;prémolaire;prémolaire
+proalveolie;proalvéolie;proalvéolie
+probleme;urgence;problème
+procheilie;proalvéolie;prochéilie
+proclusion;protrusion;proclusion
+profil;céphalométrie;profil
+proglissement;proglissement;proglissement
+proinclinaison;proalvéolie;proinclinaison
+prophylaxie;détartrage;prophylaxie
+propulsor;propulsor;propulsor
+protrusion;protrusion;protrusion
+quadhelix;quad helix;quadhelix
+quatrieme;prémolaire;quatrième
+radio;panoramique;radio
+radiographie;panoramique;radiographie
+rechute;récidive;rechute
+recidive;récidive;récidive
+recul;distalisation;recul
+redressement;alignement;redressement
+relapse;récidive;relapse
+retention;contention;retention
+retour;récidive;retour
+retroalveolie;rétroalvéolie;rétroalvéolie
+retrocheilie;rétroalvéolie;rétrochéilie
+retrognathe;classe ii d'angle;rétrognathe
+retrognathie;classe ii d'angle;rétrognathie
+retroinclinaison;rétroalvéolie;rétroinclinaison
+retromandibulaire;classe ii d'angle;rétromandibulaire
+retromandibulisme;classe ii d'angle;rétromandibulisme
+retromaxillaire;classe iii d'angle;rétromaxillaire
+retroposition;classe ii d'angle;rétroposition
+retroversion;rétrusion;rétroversion
+retrusion;rétrusion;rétrusion
+rhizalyse;résorption radiculaire;rhizalyse
+ronflement;apnée du sommeil;ronflement
+rotation;rotation;rotation
+saos;apnée du sommeil;saos
+scaling;détartrage;scaling
+scanner;scanner;scanner
+sensibilite;douleur;sensibilité
+separateur;écarteur;séparateur
+separator;écarteur;separator
+serrement;bruxisme;serrement
+sixieme;molaire;sixième
+slicing;stripping;slicing
+souffrir;douleur;souffrir
+space;diastème;space
+spacing;spacing;spacing
+speech;phonation;speech
+stabilisation;contention;stabilisation
+steel;métal;steel
+straightening;alignement;straightening
+stripping;stripping;stripping
+succion;succion;succion
+sucer;succion;sucer
+sucotement;succion;sucotement
+suivi;contrôle;suivi
+superelastique;niti;superélastique
+supernumeraire;dent surnuméraire;supernuméraire
+supra;supraclusion;supra
+supraclusion;supraclusion;supraclusion
+supraocclusion;supraclusion;supraocclusion
+supraposition;supraposition;supraposition
+surfacage;détartrage;surfaçage
+surgery;chirurgie;surgery
+surjet;supraposition;surjet
+surplomb;supraposition;surplomb
+surveiller;contrôle;surveiller
+swallowing;déglutition;swallowing
+tads;minivis;tads
+tef;ef;tef
+telecrane;céphalométrie;télécrâne
+teleradio;céphalométrie;téléradio
+teleradiographie;céphalométrie;téléradiographie
+tetine;succion;tétine
+tie;ligature;tie
+tipping;version;tipping
+titane;métal;titane
+titanium;métal;titanium
+tmd;atm;tmd
+tmj;atm;tmj
+tomodensitometrie;scanner;tomodensitométrie
+tomographie;scanner;tomographie
+torque;torque;torque
+translation;translation;translation
+transparent;céramique;transparent
+transposition;transposition;transposition
+underbite;infraclusion;underbite
+urgence;urgence;urgence
+urgent;urgence;urgent
+version;version;version
+vestibuloversion;vestibulo-version;vestibuloversion
+visite;consultation;visite
+wire;arc;wire

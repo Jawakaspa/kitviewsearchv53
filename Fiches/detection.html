@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Architecture de Détection KITVIEW V5</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reset.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/moon.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+    
+    <style>
+        .reveal h1, .reveal h2, .reveal h3 {
+            text-transform: none;
+        }
+        .reveal pre {
+            width: 100%;
+            font-size: 0.55em;
+        }
+        .reveal pre code {
+            max-height: 500px;
+            padding: 15px;
+        }
+        .reveal table {
+            font-size: 0.7em;
+            margin: 20px auto;
+        }
+        .reveal table th {
+            background: rgba(255,255,255,0.1);
+            font-weight: bold;
+        }
+        .reveal table td, .reveal table th {
+            padding: 8px 15px;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .reveal blockquote.question {
+            background: rgba(255,193,7,0.15);
+            border-left: 4px solid #ffc107;
+            padding: 15px 20px;
+            font-style: normal;
+            font-size: 0.9em;
+            margin: 20px 0;
+        }
+        .reveal ul, .reveal ol {
+            display: block;
+            text-align: left;
+            margin-left: 1em;
+        }
+        .reveal li {
+            margin: 0.5em 0;
+        }
+        .reveal code {
+            background: rgba(255,255,255,0.1);
+            padding: 2px 6px;
+            border-radius: 3px;
+        }
+        .reveal .slides section {
+            height: 100%;
+        }
+        /* Template 2 colonnes */
+        .two-columns {
+            display: flex;
+            gap: 40px;
+        }
+        .two-columns > div {
+            flex: 1;
+        }
+        /* Notes de l'orateur */
+        .reveal .notes {
+            font-size: 1.2em;
+        }
+    </style>
+    
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+<section data-background-color="#1a1a2e">
+<h1>🔍 Architecture de Détection KITVIEW V5</h1>
+<h3>Du serveur à la base de données : un pipeline multilingue intelligent</h3>
+<p style="margin-top: 2em; font-size: 0.8em; opacity: 0.8;">
+⏱️ Durée : 50min
+ | 
+👥 Ingénieurs de haut niveau, architectes logiciel
+</p>
+</section>
+<section>
+<section id="intro-architecture">
+<h2>🏗️ Architecture 6 Couches</h2>
+<blockquote class="question">💬 Pourquoi isoler complètement la détection de l&#x27;accès base de données ?</blockquote>
+<p>KITVIEW Search V5 est une application de recherche multilingue permettant d'interroger une base de données orthodontique de 25 000+ patients en langage naturel. L'architecture adopte une approche <strong>6 couches</strong> avec séparation stricte des responsabilités.</p>
+
+<p><!-- DIAGRAM</p>
+<p>type: "architecture"</p>
+<p>titre: "Architecture 6 couches KITVIEW Search V5"</p>
+<p>legende: "Flux descendant de la requête utilisateur jusqu'à la base SQLite"</p>
+<p>--></p>
+<pre><code>┌─────────────────────────────────────────────────────────────────────────────┐
+│                         COUCHE 1 : API (server.py)                          │
+│           FastAPI/Uvicorn - Endpoints REST - Sessions - i18n                │
+└─────────────────────────────────────────┬───────────────────────────────────┘
+                                          │
+┌─────────────────────────────────────────▼───────────────────────────────────┐
+│                    COUCHE 2 : ORCHESTRATION (search.py)                     │
+│      Routage intelligent - Fallback IA/DeepL - Logging - Traduction         │
+└─────────────────────────────────────────┬───────────────────────────────────┘
+                                          │
+┌─────────────────────────────────────────▼───────────────────────────────────┐
+│                      COUCHE 3 : PIPELINE (trouve.py)                        │
+│            Chargement modules - Coordination détection→SQL                  │
+└─────────────────────────────────────────┬───────────────────────────────────┘
+                                          │
+          ┌───────────────────────────────┼───────────────────────────────┐
+          │                               │                               │
+┌─────────▼─────────┐         ┌───────────▼───────────┐         ┌─────────▼─────────┐
+│ COUCHE 4a         │         │ COUCHE 4b             │         │ COUCHE 4c         │
+│ DÉTECTION ALGO    │         │ DÉTECTION IA          │         │ DÉTECTION CONFIG  │
+│ (detall.py)       │         │ (detia.py)            │         │ (detiabrut.py)    │
+│ Auteur: &quot;cx&quot;      │         │ Auteur: &quot;eden/...&quot;    │         │ Auteur: variable  │
+└─────────┬─────────┘         └───────────┬───────────┘         └─────────┬─────────┘
+          │                               │                               │
+          └───────────────────────────────┼───────────────────────────────┘
+                                          │
+┌─────────────────────────────────────────▼───────────────────────────────────┐
+│                    COUCHE 5 : GÉNÉRATION SQL (jsonsql.py)                   │
+│           JSON → Clauses WHERE/JOIN → Requête SQL paramétrée                │
+└─────────────────────────────────────────┬───────────────────────────────────┘
+                                          │
+┌─────────────────────────────────────────▼───────────────────────────────────┐
+│                    COUCHE 6 : EXÉCUTION SQL (lancesql.py)                   │
+│              SQLite - Requêtes préparées - Formatage résultats              │
+└─────────────────────────────────────────┬───────────────────────────────────┘
+                                          │
+                                          ▼
+                                   base{N}.db (SQLite)</code></pre>
+
+
+
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> L&#x27;architecture KITVIEW V5 sépare strictement les responsabilités en 6 couches : API → Orchestration → Pipeline → Détection → SQL → Exécution
+<br><strong>⏱️ Timing :</strong> 4min
+</aside>
+</section>
+<section>
+<h3>Principes architecturaux</h3>
+<h3>Principes architecturaux</h3>
+
+<p><!-- TABLE</p>
+<p>titre: "5 principes fondamentaux de l'architecture"</p>
+<p>colonnes_cles: "Principe,Description"</p>
+<p>style: "compact"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Principe</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><strong>Séparation des concerns</strong></td>
+<td>Chaque module a une responsabilité unique</td>
+</tr>
+<tr>
+<td><strong>Aucun accès DB dans la détection</strong></td>
+<td>Les modules det*.py ne touchent jamais à SQLite</td>
+</tr>
+<tr>
+<td><strong>Format JSON unifié</strong></td>
+<td>Communication inter-modules via structure JSON standardisée</td>
+</tr>
+<tr>
+<td><strong>Fallback automatique</strong></td>
+<td>Escalade progressive : Algo → IA → DeepL</td>
+</tr>
+<tr>
+<td><strong>Multilingue natif</strong></td>
+<td>12 langues supportées nativement</td>
+</tr>
+</tbody>
+</table>
+
+<p><!-- /TABLE --></p>
+</section>
+</section>
+<section>
+<section id="flux-donnees">
+<h3>Diagramme de séquence simplifié</h3>
+
+<p><!-- DIAGRAM</p>
+<p>type: "sequence"</p>
+<p>titre: "Séquence d'une recherche multilingue"</p>
+<p>legende: "Exemple : question en allemand 'Tiefbiss bei Frauen über 30 Jahre'"</p>
+<p>--></p>
+<pre><code>Utilisateur          server.py       search.py       trouve.py       detall/ia       jsonsql       lancesql
+     │                   │               │               │               │               │             │
+     │ POST /search      │               │               │               │               │             │
+     │   {question,      │               │               │               │               │             │
+     │    lang, mode}    │               │               │               │               │             │
+     │──────────────────&gt;│               │               │               │               │             │
+     │                   │ search()      │               │               │               │             │
+     │                   │──────────────&gt;│               │               │               │             │
+     │                   │               │ détect lang   │               │               │             │
+     │                   │               │ traduit→FR    │               │               │             │
+     │                   │               │               │               │               │             │
+     │                   │               │ rechercher()  │               │               │             │
+     │                   │               │──────────────&gt;│               │               │             │
+     │                   │               │               │ detecter_tout()               │             │
+     │                   │               │               │──────────────&gt;│               │             │
+     │                   │               │               │               │ JSON critères │             │
+     │                   │               │               │&lt;──────────────│               │             │
+     │                   │               │               │               │               │             │
+     │                   │               │               │ generer_sql() │               │             │
+     │                   │               │               │──────────────────────────────&gt;│             │
+     │                   │               │               │               │ SQL + params  │             │
+     │                   │               │               │&lt;──────────────────────────────│             │
+     │                   │               │               │               │               │             │
+     │                   │               │               │ executer_sql()│               │             │
+     │                   │               │               │────────────────────────────────────────────&gt;│
+     │                   │               │               │               │               │  résultats  │
+     │                   │               │               │&lt;────────────────────────────────────────────│
+     │                   │               │               │               │               │             │
+     │                   │               │   résultats + │               │               │             │
+     │                   │               │   traduction  │               │               │             │
+     │                   │&lt;──────────────│&lt;──────────────│               │               │             │
+     │   JSON réponse    │               │               │               │               │             │
+     │&lt;──────────────────│               │               │               │               │             │</code></pre>
+
+
+
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> Une question traverse 7 étapes : API → Détection langue → Traduction → Détection critères → SQL → Exécution → Traduction résultats
+<br><strong>⏱️ Timing :</strong> 4min
+</aside>
+</section>
+<section>
+<h3>Exemple concret de transformation</h3>
+<h3>Exemple concret de transformation</h3>
+
+<p><strong>Question utilisateur</strong> (allemand) : <code>"Tiefbiss bei Frauen über 30 Jahre"</code></p>
+
+<p><!-- TABLE</p>
+<p>titre: "Transformation étape par étape"</p>
+<p>colonnes_cles: "Étape,Module,Sortie"</p>
+<p>style: "large"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Étape</th>
+<th>Module</th>
+<th>Entrée</th>
+<th>Sortie</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>server.py</td>
+<td>Question brute</td>
+<td>Appel search() avec lang="de"</td>
+</tr>
+<tr>
+<td>2</td>
+<td>search.py</td>
+<td>Question DE</td>
+<td><code>supraclusion femmes plus de 30 ans</code> (FR)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>trouve.py</td>
+<td>Question FR</td>
+<td>Appel module détection</td>
+</tr>
+<tr>
+<td>4</td>
+<td>detall.py</td>
+<td>Question FR</td>
+<td>JSON avec critères structurés</td>
+</tr>
+<tr>
+<td>5</td>
+<td>jsonsql.py</td>
+<td>JSON critères</td>
+<td><code>SELECT ... WHERE sexe='F' AND age > 30 JOIN...</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>lancesql.py</td>
+<td>SQL</td>
+<td>Liste de 127 patients</td>
+</tr>
+<tr>
+<td>7</td>
+<td>search.py</td>
+<td>Résultats FR</td>
+<td>Traduction labels → DE</td>
+</tr>
+</tbody>
+</table>
+
+<p><!-- /TABLE --></p>
+</section>
+</section>
+<section id="couche-api">
+<h2>🌐 Couche API : server.py</h2>
+<p><strong>Version</strong> : 1.0.50 | <strong>Framework</strong> : FastAPI + Uvicorn</p>
+
+<h3>Responsabilités</h3>
+
+<ul>
+<li>Exposition des endpoints REST</li>
+<li>Gestion des sessions et authentification</li>
+<li>Routage vers search.py</li>
+<li>Enrichissement des résultats (portraits, commentaires)</li>
+<li>Internationalisation (i18n)</li>
+</ul>
+<h3>Endpoints principaux</h3>
+
+<p><!-- TABLE</p>
+<p>titre: "Endpoints REST principaux"</p>
+<p>colonnes_cles: "Endpoint,Description"</p>
+<p>style: "compact"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Endpoint</th>
+<th>Méthode</th>
+<th>Description</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>/search</code></td>
+<td>POST</td>
+<td>Recherche patients (point d'entrée principal)</td>
+</tr>
+<tr>
+<td><code>/ia</code></td>
+<td>GET</td>
+<td>Liste des moteurs IA disponibles</td>
+</tr>
+<tr>
+<td><code>/ia/{moteur}</code></td>
+<td>PUT</td>
+<td>Activer/désactiver un moteur</td>
+</tr>
+<tr>
+<td><code>/ia/ask</code></td>
+<td>POST</td>
+<td>Interroger un LLM avec contexte</td>
+</tr>
+<tr>
+<td><code>/ia/cohorte</code></td>
+<td>POST</td>
+<td>Analyse de cohorte par IA</td>
+</tr>
+<tr>
+<td><code>/params</code></td>
+<td>GET</td>
+<td>Paramètres (langues actives)</td>
+</tr>
+<tr>
+<td><code>/i18n</code></td>
+<td>GET</td>
+<td>Textes UI traduits</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h3>Structure de la requête <code>/search</code></h3>
+
+<p><!-- CODE</p>
+<p>langage: "json"</p>
+<p>titre: "Payload de requête /search"</p>
+<p>executable: "false"</p>
+<p>--></p>
+<pre><code class="language-json">{
+  &quot;question&quot;: &quot;bruxisme sévère&quot;,
+  &quot;base&quot;: &quot;base100.db&quot;,
+  &quot;lang&quot;: &quot;fr&quot;,
+  &quot;response_lang&quot;: &quot;fr&quot;,
+  &quot;mode&quot;: &quot;standard&quot;,
+  &quot;model&quot;: null,
+  &quot;session_id&quot;: &quot;abc123&quot;
+}</code></pre>
+
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> server.py est le point d&#x27;entrée unique - FastAPI expose 20+ endpoints REST avec gestion sessions, i18n et enrichissement des résultats
+<br><strong>⏱️ Timing :</strong> 3min
+</aside>
+</section>
+<section>
+<section id="couche-orchestration">
+<h2>🎯 Couche Orchestration : search.py</h2>
+<blockquote class="question">💬 Quand faut-il utiliser le mode &#x27;purstandard&#x27; plutôt que &#x27;standard&#x27; ?</blockquote>
+<p><strong>Version</strong> : 1.0.28 | <strong>Rôle</strong> : Routage intelligent et traduction</p>
+
+<h3>Modes de détection</h3>
+
+<p><!-- TABLE</p>
+<p>titre: "4 modes de détection disponibles"</p>
+<p>colonnes_cles: "Mode,Auteur"</p>
+<p>style: "compact"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Mode</th>
+<th>Description</th>
+<th>Auteur</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>standard</code></td>
+<td>Détection algorithmique (detall.py) avec fallback IA</td>
+<td>cx ou cx→eden</td>
+</tr>
+<tr>
+<td><code>ia</code></td>
+<td>Détection IA forcée (detia.py)</td>
+<td>eden/...</td>
+</tr>
+<tr>
+<td><code>purstandard</code></td>
+<td>Algorithmique pur, sans fallback</td>
+<td>cx</td>
+</tr>
+<tr>
+<td><code>puria</code></td>
+<td>IA pure, sans fallback</td>
+<td>eden/...</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h3>Mécanisme de fallback</h3>
+
+<p><!-- DIAGRAM</p>
+<p>type: "flux"</p>
+<p>titre: "Escalade automatique en cas d'échec"</p>
+<p>legende: "🤖 = Fallback IA | 🌐 = Traduction DeepL"</p>
+<p>--></p>
+<pre><code>Question → Standard (detall.py)
+              │
+              ├─ Résultats &gt; 0 → Retour ✓
+              │
+              └─ Résultats = 0
+                    │
+                    ▼
+              Fallback IA (detia.py) 🤖
+                    │
+                    ├─ Résultats &gt; 0 → Retour ✓
+                    │
+                    └─ Résultats = 0
+                          │
+                          ▼
+                    Traduction DeepL 🌐
+                    + Nouvelle recherche</code></pre>
+
+
+
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> search.py implémente le routage intelligent avec fallback automatique : Standard → IA 🤖 → DeepL 🌐
+<br><strong>⏱️ Timing :</strong> 4min
+</aside>
+</section>
+<section>
+<h3>Indicateurs de routage</h3>
+<h3>Indicateurs de routage</h3>
+
+<p>Le champ <code>parcours_detection</code> trace le chemin emprunté :</p>
+
+<ul>
+<li><code>"standard"</code> : Résultat direct</li>
+<li><code>"standard→ia"</code> : Fallback IA utilisé</li>
+<li><code>"standard→ia→deepl→ia"</code> : Traduction après échec IA</li>
+<li><code>"ia→deepl→ia"</code> : Mode IA forcé avec traduction</li>
+</ul>
+</section>
+</section>
+<section id="couche-pipeline" data-background-color="inherit" style="background: #1e1e1e;">
+<h2>⚙️ Couche Pipeline : trouve.py</h2>
+<p><strong>Version</strong> : 1.0.18 | <strong>Rôle</strong> : Coordination détection → SQL → exécution</p>
+
+<h3>Fonction principale : <code>rechercher()</code></h3>
+
+<p><!-- CODE</p>
+<p>langage: "python"</p>
+<p>titre: "Signature de la fonction rechercher()"</p>
+<p>executable: "false"</p>
+<p>--></p>
+<pre><code class="language-python">def rechercher(
+    question: str,
+    db_path: Path,
+    mode: str = &quot;standard&quot;,      # standard | ia
+    model: str = None,           # gpt4o, sonnet, etc.
+    references: dict = None,     # Cache des référentiels
+    include_details: bool = True,
+    verbose: bool = False
+) -&gt; dict</code></pre>
+
+
+<h3>Pipeline interne</h3>
+
+<p>1. <strong>Chargement module</strong> : Sélection dynamique de detall.py ou detia.py</p>
+<p>2. <strong>Détection</strong> : Appel <code>detecter_tout()</code> → JSON critères</p>
+<p>3. <strong>Génération SQL</strong> : jsonsql.py</p>
+<p>4. <strong>Exécution</strong> : lancesql.py</p>
+<p>5. <strong>Garde-fou</strong> : Vérification si trop de résultats sans critères</p>
+<p>6. <strong>Formatage</strong> : Construction réponse finale</p>
+
+<h3>Garde-fou intégré</h3>
+
+<p>Quand aucun critère de filtrage n'est détecté et que le nombre de résultats dépasse 100, le garde-fou est activé (voir section 11).</p>
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> trouve.py coordonne le pipeline complet : Détection → JSON → SQL → Exécution → Garde-fou
+<br><strong>⏱️ Timing :</strong> 3min
+</aside>
+</section>
+<section>
+<section id="detection-algo">
+<blockquote class="question">💬 Pourquoi detmeme est-il appelé en deuxième position, avant la détection des pathologies ?</blockquote>
+<p><strong>Version</strong> : 1.0.10 | <strong>Auteur</strong> : <code>cx</code></p>
+
+<h3>Architecture interne</h3>
+
+<p>detall.py est un <strong>orchestrateur</strong> qui chaîne les modules de détection spécialisés dans un ordre précis :</p>
+
+<p><!-- DIAGRAM</p>
+<p>type: "flux"</p>
+<p>titre: "Pipeline de détection algorithmique"</p>
+<p>legende: "Chaque étape consomme une partie de la question et passe le résidu à l'étape suivante"</p>
+<p>--></p>
+<pre><code>Question standardisée
+         │
+         ▼
+┌─────────────────────┐
+│ ÉTAPE 1: detcount   │  Détection LIST/COUNT
+│ &quot;combien de...&quot;     │  → listcount = COUNT|LIST
+└─────────┬───────────┘
+          │ résidu
+          ▼
+┌─────────────────────┐
+│ ÉTAPE 1.5: detmeme  │  Similarités (même X)        ◄ NOUVEAU V5.1
+│ &quot;même portrait que&quot; │  → critère type &quot;meme&quot;
+└─────────┬───────────┘
+          │ résidu
+          ▼
+┌─────────────────────┐
+│ ÉTAPE 2: detangles  │  Angles céphalométriques
+│ &quot;ANB &gt; 4&quot;           │  → critère type &quot;tag&quot;
+└─────────┬───────────┘
+          │ résidu
+          ▼
+┌─────────────────────┐
+│ ÉTAPE 3: dettags    │  Tags orthodontiques
+│ &quot;béance gauche&quot;     │  + adjectifs (via detadjs)
+└─────────┬───────────┘
+          │ résidu
+          ▼
+┌─────────────────────┐
+│ ÉTAPE 4: detage     │  Âge et sexe
+│ &quot;femme de 30 ans&quot;   │  → critères age/sexe
+└─────────┬───────────┘
+          │ résidu
+          ▼
+┌─────────────────────┐
+│ ÉTAPE 5: motsvides  │  Nettoyage final
+│ &quot;les, de, avec...&quot;  │  → résidu minimal
+└─────────┴───────────┘</code></pre>
+
+
+
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> detall.py orchestre 6 modules spécialisés dans un ordre précis : detcount → detmeme → detangles → dettags → detage → motsvides
+<br><strong>⏱️ Timing :</strong> 5min
+</aside>
+</section>
+<section>
+<h3>Chargement des références</h3>
+<h3>Chargement des références</h3>
+
+<p><!-- CODE</p>
+<p>langage: "python"</p>
+<p>titre: "Structure retournée par charger_references()"</p>
+<p>executable: "false"</p>
+<p>--></p>
+<pre><code class="language-python">def charger_references(verbose=False, debug=False) -&gt; dict:
+    &quot;&quot;&quot;
+    Retourne:
+        {
+            &#x27;patterns_count&#x27;: [...],   # depuis commun.csv
+            &#x27;patterns_meme&#x27;: {...},    # depuis communb.csv (V5.1)
+            &#x27;patterns_angles&#x27;: [...],  # depuis angles.csv
+            &#x27;tags_data&#x27;: {...},        # depuis tags.csv
+            &#x27;adjs_data&#x27;: {...},        # depuis adjectifs.csv
+            &#x27;patterns_ages&#x27;: [...]     # depuis ages.csv
+        }
+    &quot;&quot;&quot;</code></pre>
+<p><!-- /CODE --></p>
+
+<h3>Fichiers de référence</h3>
+
+<p><!-- TABLE</p>
+<p>titre: "6 fichiers CSV de référence"</p>
+<p>colonnes_cles: "Fichier,Colonnes principales"</p>
+<p>style: "compact"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Fichier</th>
+<th>Description</th>
+<th>Colonnes principales</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>commun.csv</code></td>
+<td>Mots COUNT/LIST</td>
+<td>combien;devant;langues</td>
+</tr>
+<tr>
+<td><code>communb.csv</code></td>
+<td>Synonymes similarités (V5.1)</td>
+<td>section;parametre;valeur;description</td>
+</tr>
+<tr>
+<td><code>angles.csv</code></td>
+<td>Seuils céphalométriques</td>
+<td>expression;operateur;seuil;tag_canonique</td>
+</tr>
+<tr>
+<td><code>tags.csv</code></td>
+<td>Pathologies</td>
+<td>t;gn;as;pts</td>
+</tr>
+<tr>
+<td><code>adjectifs.csv</code></td>
+<td>Adjectifs</td>
+<td>a;f;mp;fp;pas</td>
+</tr>
+<tr>
+<td><code>ages.csv</code></td>
+<td>Patterns âge/sexe</td>
+<td>expression;operateur;valeur_sql;sexe;label</td>
+</tr>
+</tbody>
+</table>
+
+<p><!-- /TABLE --></p>
+</section>
+</section>
+<section>
+<section id="detection-ia">
+<h2>🤖 Détection IA : detia.py</h2>
+<p><strong>Version</strong> : 1.0.29 | <strong>Auteur</strong> : <code>eden/{model}</code> ou <code>openai/{model}</code></p>
+
+<h3>Différences avec detall.py</h3>
+
+<p><!-- TABLE</p>
+<p>titre: "Comparaison Algorithmique vs IA"</p>
+<p>colonnes_cles: "Aspect,detall.py,detia.py"</p>
+<p>style: "large"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Aspect</th>
+<th>detall.py</th>
+<th>detia.py</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>Méthode</td>
+<td>Pattern matching regex</td>
+<td>LLM (GPT-4, Claude)</td>
+</tr>
+<tr>
+<td>Latence</td>
+<td>~5-20ms</td>
+<td>~500-2000ms</td>
+</tr>
+<tr>
+<td>Flexibilité</td>
+<td>Limitée aux patterns</td>
+<td>Comprend le contexte</td>
+</tr>
+<tr>
+<td>Coût</td>
+<td>Gratuit</td>
+<td>Payant (API)</td>
+</tr>
+<tr>
+<td>Auteur</td>
+<td>"cx"</td>
+<td>"eden/gpt-4o", etc.</td>
+</tr>
+<tr>
+<td><strong>Similarités (meme)</strong></td>
+<td><strong>✓ via detmeme.py</strong></td>
+<td><strong>✗ via detmeme.py</strong></td>
+</tr>
+</tbody>
+</table>
+
+
+
+<p>> <strong>⚠️ Note importante</strong> : Contrairement à detall.py, detia.py <strong>n'intègre pas</strong> la détection des similarités par IA. Quand une recherche de similarité est demandée (ex: "même portrait que Dupont"), c'est <strong>detmeme.py</strong> (algorithmique) qui est utilisé, même en mode IA. Voir <a href="#annexe-f--pourquoi-detia-utilise-detmeme-algorithmique">Annexe F</a> pour les raisons de ce choix et les évolutions possibles.</p>
+
+<h3>Moteurs IA supportés (ia.csv)</h3>
+
+<p><!-- TABLE</p>
+<p>titre: "Moteurs IA configurés"</p>
+<p>colonnes_cles: "Moteur,Modèle"</p>
+<p>style: "compact"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Moteur</th>
+<th>Via</th>
+<th>Modèle complet</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>gpt41mini</td>
+<td>openai</td>
+<td>gpt-4.1-mini</td>
+</tr>
+<tr>
+<td>gpt4o</td>
+<td>openai</td>
+<td>gpt-4o</td>
+</tr>
+<tr>
+<td>sonnet</td>
+<td>eden</td>
+<td>anthropic/claude-3-7-sonnet</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> detia.py utilise un LLM avec prompt enrichi des référentiels - plus flexible mais 100x plus lent et payant
+<br><strong>⏱️ Timing :</strong> 5min
+</aside>
+</section>
+<section>
+<h3>Construction du prompt système</h3>
+<h3>Construction du prompt système</h3>
+
+<p>Le prompt est construit dynamiquement avec injection des référentiels :</p>
+
+<p><!-- CODE</p>
+<p>langage: "python"</p>
+<p>titre: "Sections injectées dans le prompt"</p>
+<p>executable: "false"</p>
+<p>--></p>
+<pre><code class="language-python">def _construire_prompt_systeme(references: dict) -&gt; str:
+    &quot;&quot;&quot;
+    Sections injectées:
+    - Liste des tags (~100 pathologies)
+    - Synonymes importants (tong-e → dysfonction linguale)
+    - Liste des adjectifs
+    - Table des angles céphalométriques
+    - Règles d&#x27;âge et sexe
+    - Format JSON attendu
+    &quot;&quot;&quot;</code></pre>
+<p><!-- /CODE --></p>
+
+<p><strong>Extrait du prompt</strong> :</p>
+
+<pre><code>=== MISSION ===
+1. Détecter les TAGS (pathologies) de la liste ci-dessous
+2. Détecter les ADJECTIFS qualifiant ces tags
+3. Détecter les critères d&#x27;ÂGE et de SEXE
+4. Détecter les demandes de COMPTAGE
+5. Détecter les ANGLES céphalométriques
+
+=== ANGLES CÉPHALOMÉTRIQUES ===
+| Angle | Condition | Valeur | Tag résultant |
+| ANB   | &gt;         | 4      | classe ii squelettique |
+...</code></pre>
+</section>
+<section>
+<h3>Post-traitement : mapping canonique</h3>
+<h3>Post-traitement : mapping vers canonique</h3>
+
+<p>Après réponse de l'IA, <code>_mapper_vers_canonique()</code> normalise les termes détectés :</p>
+
+<p><!-- CODE</p>
+<p>langage: "python"</p>
+<p>titre: "Exemple de mapping"</p>
+<p>executable: "false"</p>
+<p>--></p>
+<pre><code class="language-python"># IA retourne: {&quot;detecte&quot;: &quot;grincement&quot;}
+# Mapping: grincement → bruxisme
+# Résultat: {&quot;canonique&quot;: &quot;bruxisme&quot;}</code></pre>
+<p><!-- /CODE --></p>
+</section>
+</section>
+<section id="detection-config" data-background-color="inherit" style="background: #1e1e1e;">
+<h2>🎛️ Mode Configurable : detiabrut.py</h2>
+<p><strong>Version</strong> : 1.0.3 | <strong>Rôle</strong> : Mesure d'impact des référentiels</p>
+
+<h3>Objectif</h3>
+
+<p>Permettre l'activation/désactivation sélective des référentiels pour mesurer leur importance dans la qualité des résultats.</p>
+
+<h3>Référentiels configurables</h3>
+
+<p><!-- TABLE</p>
+<p>titre: "5 référentiels configurables"</p>
+<p>colonnes_cles: "Référentiel,Impact"</p>
+<p>style: "compact"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Référentiel</th>
+<th>Description</th>
+<th>Impact</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>tags</code></td>
+<td>Liste des tags dans le prompt</td>
+<td>Reconnaissance pathologies</td>
+</tr>
+<tr>
+<td><code>adjs</code></td>
+<td>Liste des adjectifs</td>
+<td>Qualificatifs</td>
+</tr>
+<tr>
+<td><code>ages</code></td>
+<td>Patterns âge/sexe</td>
+<td>Critères démographiques</td>
+</tr>
+<tr>
+<td><code>angles</code></td>
+<td>Seuils ANB/SNA/SNB</td>
+<td>Céphalométrie</td>
+</tr>
+<tr>
+<td><code>mapping</code></td>
+<td>Post-traitement → canonique</td>
+<td>Normalisation</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<h3>Syntaxe CLI</h3>
+
+<p><!-- CODE</p>
+<p>langage: "bash"</p>
+<p>titre: "Exemples d'utilisation CLI"</p>
+<p>executable: "false"</p>
+<p>--></p>
+<pre><code class="language-bash"># Tout actif (équivalent detia.py)
+python detiabrut.py &quot;bruxisme sévère&quot; all
+
+# Tout désactivé (IA brute)
+python detiabrut.py &quot;bruxisme sévère&quot; none
+
+# Sans liste de tags
+python detiabrut.py &quot;grincement&quot; -tags
+
+# Brut sauf mapping
+python detiabrut.py &quot;bruxisme&quot; none +mapping</code></pre>
+
+
+<h3>Signature de l'auteur</h3>
+
+<p>Le champ <code>auteur</code> reflète la configuration :</p>
+
+<ul>
+<li><code>"openai/gpt-4o"</code> → Mode all (tout activé)</li>
+<li><code>"openai/gpt-4o [none]"</code> → Mode none</li>
+<li><code>"openai/gpt-4o [-tags,-mapping]"</code> → Tags et mapping désactivés</li>
+</ul>
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> detiabrut.py permet d&#x27;activer/désactiver sélectivement les référentiels pour mesurer leur impact sur la qualité
+<br><strong>⏱️ Timing :</strong> 3min
+</aside>
+</section>
+<section id="modules-specialises" data-background-color="inherit" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+<h1>🔬 Modules de Détection Spécialisés</h1>
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> 6 modules spécialisés traitent chacun un type de critère : count, meme (similarités), angles, tags+adjectifs, âge/sexe
+<br><strong>⏱️ Timing :</strong> 1min
+</aside>
+</section>
+<section>
+<section id="couches-sql">
+<h3>10.1 jsonsql.py - Génération SQL</h3>
+
+<p><strong>Entrée</strong> : JSON unifié des critères  </p>
+<p><strong>Sortie</strong> : Requête SQL paramétrée</p>
+
+<h4>Stratégie de génération</h4>
+
+<p><!-- TABLE</p>
+<p>titre: "Stratégie SQL par type de critère"</p>
+<p>colonnes_cles: "Type,Stratégie"</p>
+<p>style: "compact"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Type critère</th>
+<th>Stratégie SQL</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>tag</td>
+<td>JOIN pathologies + patients_pathologies</td>
+</tr>
+<tr>
+<td>tag + adjectifs</td>
+<td>Pathologie composée (tag + adjs triés alphabétiquement)</td>
+</tr>
+<tr>
+<td>sexe</td>
+<td>WHERE sur colonne patients.sexe</td>
+</tr>
+<tr>
+<td>age</td>
+<td>WHERE sur colonne patients.age</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> jsonsql transforme les critères JSON en SQL paramétré, lancesql exécute et formate les résultats
+<br><strong>⏱️ Timing :</strong> 4min
+</aside>
+</section>
+<section>
+<h3>Exemple de transformation JSON → SQL</h3>
+<h4>Exemple de transformation</h4>
+
+<p><strong>Entrée JSON</strong> :</p>
+
+<p><!-- CODE</p>
+<p>langage: "json"</p>
+<p>titre: "JSON de critères"</p>
+<p>executable: "false"</p>
+<p>--></p>
+<pre><code class="language-json">{
+  &quot;criteres&quot;: [
+    {&quot;type&quot;: &quot;tag&quot;, &quot;canonique&quot;: &quot;béance&quot;, &quot;adjectifs&quot;: [{&quot;forme_accordee&quot;: &quot;antérieure&quot;}]},
+    {&quot;type&quot;: &quot;sexe&quot;, &quot;sql&quot;: {&quot;valeur&quot;: &quot;F&quot;}},
+    {&quot;type&quot;: &quot;age&quot;, &quot;sql&quot;: {&quot;operateur&quot;: &quot;&lt;&quot;, &quot;valeur&quot;: 30}}
+  ]
+}</code></pre>
+<p><!-- /CODE --></p>
+
+<p><strong>SQL généré</strong> :</p>
+
+<p><!-- CODE</p>
+<p>langage: "sql"</p>
+<p>titre: "Requête SQL générée"</p>
+<p>executable: "false"</p>
+<p>--></p>
+<pre><code class="language-sql">SELECT DISTINCT p.id, p.prenom, p.nom, p.sexe, p.age, p.idportrait, p.oripathologies
+FROM patients p
+    JOIN patients_pathologies pp1 ON p.id = pp1.patient_id
+    JOIN pathologies pa1 ON pp1.pathologie_id = pa1.id
+WHERE pa1.pathologie = ?
+  AND p.sexe = ?
+  AND p.age &lt; ?
+ORDER BY p.id
+
+-- Params: [&#x27;beance anterieure&#x27;, &#x27;F&#x27;, 30]</code></pre>
+<p><!-- /CODE --></p>
+</section>
+<section>
+<h3>lancesql.py - Exécution SQL</h3>
+<h3>10.2 lancesql.py - Exécution SQL</h3>
+
+<p><strong>Version</strong> : 1.0.4 | <strong>Entrée</strong> : SQL + params + chemin base  </p>
+<p><strong>Sortie</strong> : Résultats formatés</p>
+
+<h4>Structure de sortie</h4>
+
+<p><!-- CODE</p>
+<p>langage: "python"</p>
+<p>titre: "Format de sortie lancesql"</p>
+<p>executable: "false"</p>
+<p>--></p>
+<pre><code class="language-python">{
+    &quot;nb&quot;: 42,                    # Nombre de résultats
+    &quot;ids&quot;: [1, 5, 12, ...],      # Liste des IDs (si LIST)
+    &quot;patients&quot;: [                # Détails patients
+        {
+            &quot;id&quot;: 1,
+            &quot;prenom&quot;: &quot;Marie&quot;,
+            &quot;nom&quot;: &quot;Dupont&quot;,
+            &quot;sexe&quot;: &quot;F&quot;,
+            &quot;age&quot;: 25.3,
+            &quot;oripathologies&quot;: &quot;Béance antérieure, Bruxisme&quot;
+        },
+        ...
+    ],
+    &quot;temps_ms&quot;: 12.5,            # Temps d&#x27;exécution
+    &quot;sql_execute&quot;: &quot;SELECT ...&quot;  # SQL exécuté (debug)
+}</code></pre>
+<p><!-- /CODE --></p>
+</section>
+</section>
+<section id="protections" data-background-color="inherit" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+<h1>🛡️ Mécanismes de Protection</h1>
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> 3 niveaux de protection : garde-fou anti-saturation, normalisation des entrées, filtrage des mots vides
+<br><strong>⏱️ Timing :</strong> 1min
+</aside>
+</section>
+<section id="format-json" data-background-color="inherit" style="background: #1e1e1e;">
+<h2>📋 Format JSON Unifié</h2>
+<p>Tous les modules de détection produisent le même format JSON :</p>
+
+<p><!-- CODE</p>
+<p>langage: "json"</p>
+<p>titre: "Structure JSON unifiée"</p>
+<p>executable: "false"</p>
+<p>--></p>
+<pre><code class="language-json">{
+    &quot;auteur&quot;: &quot;cx&quot;,
+    &quot;langue&quot;: &quot;fr&quot;,
+    &quot;listcount&quot;: &quot;LIST&quot;,
+    &quot;criteres&quot;: [
+        {
+            &quot;type&quot;: &quot;meme&quot;,
+            &quot;detecte&quot;: &quot;même portrait&quot;,
+            &quot;cible&quot;: &quot;portrait&quot;,
+            &quot;label&quot;: &quot;Même portrait&quot;,
+            &quot;valeur&quot;: null
+        },
+        {
+            &quot;type&quot;: &quot;tag&quot;,
+            &quot;detecte&quot;: &quot;beance anterieure&quot;,
+            &quot;canonique&quot;: &quot;béance&quot;,
+            &quot;label&quot;: &quot;Béance&quot;,
+            &quot;gn&quot;: &quot;f&quot;,
+            &quot;sql&quot;: {
+                &quot;colonne&quot;: &quot;canontags&quot;,
+                &quot;operateur&quot;: &quot;=&quot;,
+                &quot;valeur&quot;: &quot;béance&quot;
+            },
+            &quot;adjectifs&quot;: [
+                {
+                    &quot;detecte&quot;: &quot;anterieure&quot;,
+                    &quot;canonique&quot;: &quot;antérieur&quot;,
+                    &quot;forme_accordee&quot;: &quot;antérieure&quot;
+                }
+            ]
+        },
+        {
+            &quot;type&quot;: &quot;sexe&quot;,
+            &quot;detecte&quot;: &quot;femme&quot;,
+            &quot;label&quot;: &quot;Féminin&quot;,
+            &quot;sql&quot;: {&quot;colonne&quot;: &quot;sexe&quot;, &quot;operateur&quot;: &quot;=&quot;, &quot;valeur&quot;: &quot;F&quot;}
+        },
+        {
+            &quot;type&quot;: &quot;age&quot;,
+            &quot;detecte&quot;: &quot;moins de 30 ans&quot;,
+            &quot;label&quot;: &quot;Moins de 30 ans&quot;,
+            &quot;sql&quot;: {&quot;colonne&quot;: &quot;age&quot;, &quot;operateur&quot;: &quot;&lt;&quot;, &quot;valeur&quot;: 30}
+        }
+    ],
+    &quot;reference_meme&quot;: {
+        &quot;type&quot;: &quot;nom&quot;,
+        &quot;valeur&quot;: &quot;Guillaume Moulin&quot;,
+        &quot;id&quot;: null
+    },
+    &quot;residu&quot;: &quot;&quot;,
+    &quot;question_originale&quot;: &quot;même portrait que Guillaume Moulin, femmes avec béance antérieure de moins de 30 ans&quot;
+}</code></pre>
+
+
+<h3>Types de critères</h3>
+
+<p><!-- TABLE</p>
+<p>titre: "5 types de critères"</p>
+<p>colonnes_cles: "Type,Champs spécifiques"</p>
+<p>style: "compact"</p>
+<p>--></p>
+
+<table>
+<thead><tr>
+<th>Type</th>
+<th>Description</th>
+<th>Champs spécifiques</th>
+</tr></thead>
+<tbody>
+<tr>
+<td><code>count</code></td>
+<td>Indicateur comptage</td>
+<td>detecte, label</td>
+</tr>
+<tr>
+<td><code>meme</code></td>
+<td>Similarité (V5.1)</td>
+<td>cible, valeur, label</td>
+</tr>
+<tr>
+<td><code>tag</code></td>
+<td>Pathologie/caractéristique</td>
+<td>canonique, gn, adjectifs, sql</td>
+</tr>
+<tr>
+<td><code>age</code></td>
+<td>Critère d'âge</td>
+<td>operateur, valeur, (valeur2 pour BETWEEN)</td>
+</tr>
+<tr>
+<td><code>sexe</code></td>
+<td>Critère de sexe</td>
+<td>valeur (M/F)</td>
+</tr>
+</tbody>
+</table>
+
+
+
+<hr>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> Tous les modules de détection produisent le même format JSON avec auteur, listcount, critères, résidu et reference_meme (V5.1)
+<br><strong>⏱️ Timing :</strong> 3min
+</aside>
+</section>
+<section id="annexes" data-background-color="inherit" style="background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);">
+<h1>📎 Annexes : Exemples</h1>
+<hr>
+</section>
+<section id="synthese-finale" data-background-color="inherit" style="background: linear-gradient(135deg, #0f3460 0%, #16213e 100%);">
+<h3>Points clés à retenir</h3>
+
+<p>1. <strong>Architecture modulaire</strong> : 6 couches avec responsabilités distinctes</p>
+<p>2. <strong>Détection hybride</strong> : Algorithmique (cx) + IA (eden) avec fallback automatique</p>
+<p>3. <strong>Similarités (V5.1)</strong> : detmeme.py détecte les "même X que Y" (algorithmique uniquement)</p>
+<p>4. <strong>Format unifié</strong> : JSON standardisé entre tous les modules</p>
+<p>5. <strong>Protection intégrée</strong> : Garde-fou contre les requêtes sans filtres</p>
+<p>6. <strong>Multilingue natif</strong> : 12 langues avec traduction bidirectionnelle</p>
+
+<h3>Métriques de performance</h3>
+
+<ul>
+<li><strong>detall.py</strong> : ~5-20ms, gratuit</li>
+<li><strong>detmeme.py</strong> : ~2-5ms, gratuit (V5.1)</li>
+<li><strong>detia.py</strong> : ~500-2000ms, payant</li>
+<li><strong>Taux de succès</strong> : 89% sans intervention, 100% avec correction utilisateur</li>
+</ul>
+<hr>
+
+<p><strong>Fin du document</strong></p>
+
+<p><em>Document généré le 30/01/2026 - KITVIEW Search V5 Documentation Technique</em></p>
+<p><em>Version 1.1.0 - Slides-Ready avec métadonnées Reveal.js</em></p>
+<p><em>Nouveauté V5.1 : Intégration detmeme.py (détection similarités)</em></p>
+<aside class="notes">
+<strong>🔑 Message clé :</strong> KITVIEW V5 combine détection algorithmique (rapide, gratuite) et IA (flexible, payante) avec fallback intelligent pour atteindre 89% de succès sans intervention
+<br><strong>⏱️ Timing :</strong> 2min
+</aside>
+</section>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: true,
+            showNotes: false,
+            transition: 'slide',
+            plugins: [ RevealNotes, RevealHighlight ]
+        });
+    </script>
+</body>
+</html>

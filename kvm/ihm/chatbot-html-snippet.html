@@ -1,0 +1,86 @@
+<!-- ========================================
+     CHATBOT V3 - HTML à intégrer dans les pages
+     Placer ce code avant </body>
+     ======================================== -->
+
+<!-- Bouton toggle (en bas à droite) -->
+<button id="chatbot-toggle" title="Assistant IA" aria-label="Ouvrir l'assistant">
+    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+        <circle cx="8" cy="10" r="1.5"/>
+        <circle cx="12" cy="10" r="1.5"/>
+        <circle cx="16" cy="10" r="1.5"/>
+    </svg>
+</button>
+
+<!-- Modale de chat -->
+<div id="chatbot-modal" role="dialog" aria-labelledby="chatbot-title">
+    <!-- Poignée de redimensionnement (coin supérieur gauche) -->
+    <div id="chatbot-resize-handle"></div>
+    
+    <!-- Header avec boutons de contrôle -->
+    <div id="chatbot-header">
+        <div class="avatar">🤖</div>
+        <div class="title">
+            <h4 id="chatbot-title" data-txt="txt_0601">Assistant Kitview</h4>
+            <span data-txt="txt_0602">Posez vos questions sur le manuel</span>
+        </div>
+        <div class="window-controls">
+            <button id="chatbot-minimize" title="Réduire" aria-label="Réduire">−</button>
+            <button id="chatbot-fullscreen" title="Plein écran" aria-label="Plein écran">□</button>
+        </div>
+        <button id="chatbot-close" aria-label="Fermer">×</button>
+    </div>
+    
+    <!-- Question courante (toujours visible pendant le scroll) -->
+    <div id="chatbot-current-question"></div>
+    
+    <!-- Barre d'outils -->
+    <div id="chatbot-toolbar">
+        <button id="chatbot-suggestions-btn" data-txt="txt_0603">💡 Suggestions</button>
+        <button id="chatbot-clear-btn" data-txt="txt_0604">🗑️ Effacer</button>
+        <button id="chatbot-copy-btn" data-txt="txt_0613" disabled>📋 Copier</button>
+        <button id="chatbot-settings-btn" title="Paramètres" aria-label="Paramètres">⚙️</button>
+    </div>
+    
+    <!-- Panel suggestions (masqué par défaut) -->
+    <div id="chatbot-suggestions-panel">
+        <h5 data-txt="txt_0605">Questions suggérées</h5>
+        <div class="suggestions-list"></div>
+    </div>
+    
+    <!-- Zone des messages -->
+    <div id="chatbot-messages" role="log" aria-live="polite"></div>
+    
+    <!-- Zone de saisie -->
+    <div id="chatbot-input-area">
+        <input type="text" id="chatbot-input" 
+               data-placeholder-txt="txt_0606" 
+               placeholder="Posez votre question..." 
+               autocomplete="off"
+               aria-label="Votre question">
+        <button id="chatbot-send" aria-label="Envoyer">
+            <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+        </button>
+    </div>
+</div>
+
+<!-- Modal de configuration API -->
+<div id="chatbot-config-modal" role="dialog" aria-labelledby="chatbot-config-title">
+    <div class="config-overlay"></div>
+    <div class="config-content">
+        <h3 id="chatbot-config-title" data-txt="txt_0607">🔑 Configuration</h3>
+        <p data-txt="txt_0608">Entrez votre clé API Claude pour utiliser l'assistant.</p>
+        <p><a href="https://console.anthropic.com" target="_blank" rel="noopener" data-txt="txt_0609">Obtenir une clé API →</a></p>
+        <input type="password" id="chatbot-api-key-input" placeholder="sk-ant-api03-...">
+        <div class="config-buttons">
+            <button id="chatbot-config-save" data-txt="txt_0610">💾 Enregistrer</button>
+            <button id="chatbot-config-cancel" data-txt="txt_0611">Annuler</button>
+        </div>
+        <p class="config-note" data-txt="txt_0612">🔒 La clé est stockée uniquement dans votre navigateur.</p>
+    </div>
+</div>
+
+<!-- Scripts chatbot -->
+<script src="js/chatbot-config.js"></script>
+<script src="js/chatbot.js"></script>

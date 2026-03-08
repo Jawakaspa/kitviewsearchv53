@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta class="notranslate" content="notranslate" name="google"/>
+<title data-txt="txt_0607">Manuel du manuel Kitview</title>
+<link href="https://www.kitview.com/favicon.ico" rel="icon" type="image/png"/>
+<link href="https://www.kitview.com/favicon.ico" rel="apple-touch-icon"/>
+<link rel="stylesheet" href="css/kvm.css">
+<link rel="stylesheet" href="css/themes.css">
+<style>
+/* Styles spécifiques à la page d'aide */
+.hero-section {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #1a5a7a 100%);
+    color: white;
+    padding: 3rem 2rem;
+    text-align: center;
+    border-radius: var(--border-radius);
+    margin-bottom: 2rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 50%);
+    animation: pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.hero-section h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
+}
+
+.hero-section p {
+    font-size: 1.2rem;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+}
+
+.feature-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    border-color: var(--primary-color);
+}
+
+.feature-card .icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.feature-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.75rem;
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.feature-card .try-it {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+}
+
+.feature-card .try-it:hover {
+    gap: 0.75rem;
+}
+
+.demo-box {
+    background: var(--bg-subtle);
+    border: 2px dashed var(--border-color);
+    border-radius: var(--border-radius);
+    padding: 1.5rem;
+    margin: 1.5rem 0;
+    text-align: center;
+}
+
+.demo-box.interactive {
+    border-style: solid;
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(39, 174, 96, 0.05) 0%, rgba(39, 174, 96, 0.1) 100%);
+}
+
+.shortcut-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.shortcut-table th,
+.shortcut-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.shortcut-table th {
+    background: var(--bg-subtle);
+    font-weight: 600;
+    color: var(--primary-color);
+}
+
+.shortcut-table tr:hover {
+    background: var(--bg-subtle);
+}
+
+.kbd {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background: var(--bg-subtle);
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-family: monospace;
+    font-size: 0.85rem;
+    box-shadow: 0 2px 0 var(--border-color);
+}
+
+.tip-highlight {
+    background: linear-gradient(90deg, #fff3cd 0%, #ffeaa7 100%);
+    border-left: 4px solid #f39c12;
+    padding: 1rem 1.5rem;
+    border-radius: 0 var(--border-radius) var(--border-radius) 0;
+    margin: 1.5rem 0;
+}
+
+[data-theme="dark"] .tip-highlight {
+    background: linear-gradient(90deg, rgba(243, 156, 18, 0.2) 0%, rgba(243, 156, 18, 0.1) 100%);
+}
+
+.tip-highlight strong {
+    color: #d68910;
+}
+
+.version-comparison {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+}
+
+.version-card {
+    flex: 1;
+    min-width: 200px;
+    padding: 1.25rem;
+    border-radius: var(--border-radius);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.version-card:hover {
+    transform: scale(1.02);
+}
+
+.version-card.standard {
+    background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+    color: white;
+}
+
+.version-card.debutant {
+    background: linear-gradient(135deg, #27ae60 0%, #1e8449 100%);
+    color: white;
+}
+
+.version-card.intermediaire {
+    background: linear-gradient(135deg, #f1c40f 0%, #d4ac0d 100%);
+    color: #333;
+}
+
+.version-card.expert {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    color: white;
+}
+
+.version-card .version-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.version-card h4 {
+    margin: 0.5rem 0;
+    font-size: 1.1rem;
+}
+
+.version-card p {
+    font-size: 0.85rem;
+    opacity: 0.9;
+    margin: 0;
+}
+
+.chatbot-demo {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    margin: 1rem 0;
+}
+
+.chatbot-demo .avatar {
+    font-size: 2rem;
+    background: var(--primary-color);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.chatbot-demo .bubble {
+    flex: 1;
+    background: var(--bg-subtle);
+    padding: 1rem;
+    border-radius: 1rem;
+    border-top-left-radius: 0;
+    position: relative;
+}
+
+.chatbot-demo .bubble::before {
+    content: '';
+    position: absolute;
+    left: -10px;
+    top: 10px;
+    border: 5px solid transparent;
+    border-right-color: var(--bg-subtle);
+}
+
+.example-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.example-questions .question {
+    background: var(--primary-color);
+    color: white;
+    padding: 0.4rem 0.8rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.example-questions .question:hover {
+    transform: scale(1.05);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+
+.back-to-manual {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    margin-top: 1rem;
+}
+
+.back-to-manual:hover {
+    background: var(--primary-hover);
+    transform: translateX(-4px);
+}
+
+.nav-mini {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: var(--bg-subtle);
+    border-radius: var(--border-radius);
+}
+
+.nav-mini a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+
+.nav-mini a:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+    
+    .hero-section h1 {
+        font-size: 1.8rem;
+    }
+    
+    .feature-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .version-comparison {
+        flex-direction: column;
+    }
+}
+</style>
+</head>
+<body>
+<!-- Header -->
+<header class="help-header">
+<div class="header-left">
+<img alt="Logo Kitview" class="logo" data-alt-txt="txt_0486" src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png"/>
+<h1><span class="icon">❓</span> <span data-txt="txt_0608">Guide du manuel</span></h1>
+</div>
+<div class="header-center notranslate">
+<!-- Vide pour cette page -->
+</div>
+<div class="header-right">
+<!-- Sélecteur de langue custom -->
+<div class="lang-button-container">
+<button class="lang-button" data-txt="txt_0561" id="langButton" onclick="toggleLangPopup()">
+<img alt="FR" class="flag-img" id="currentFlag" src="https://flagcdn.com/w40/fr.png"/>
+<span id="currentLangCode">FR</span>
+<span class="dropdown-arrow">▼</span>
+</button>
+<div class="lang-popup" id="langPopup" style="display: none;">
+<div class="lang-popup-header" data-txt="txt_0584">
+<span>🌐</span> Langue du manuel
+</div>
+<div class="lang-popup-section">
+<div class="lang-popup-label" data-txt="txt_0583">Sélectionnez une langue</div>
+<div class="chips-container">
+<div class="lang-chip selected" data-flag="fr" data-lang="fr" onclick="selectLanguage('fr', 'FR', 'fr')">
+<img alt="FR" class="chip-flag" src="https://flagcdn.com/w40/fr.png"/> FR
+</div>
+<div class="lang-chip" data-flag="gb" data-lang="en" onclick="selectLanguage('en', 'EN', 'gb')">
+<img alt="EN" class="chip-flag" src="https://flagcdn.com/w40/gb.png"/> EN
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Thème -->
+<button class="icon-button" id="themeToggle" title="Changer le thème">🌙</button>
+<!-- Retour au manuel -->
+<a href="kvms.html" class="back-button notranslate" data-txt="txt_0609">← Manuel</a>
+</div>
+</header>
+
+<!-- Container principal -->
+<div class="help-container">
+<!-- Contenu principal (sans sidebar) -->
+<main class="help-content" style="max-width: 1000px; margin: 0 auto;">
+<div class="content-card">
+
+<!-- Hero Section -->
+<div class="hero-section">
+<h1 data-txt="txt_0610">🎯 Bienvenue dans le manuel du manuel</h1>
+<p data-txt="txt_0611">Découvrez toutes les fonctionnalités de ce manuel interactif et apprenez à l'utiliser efficacement pour maîtriser Kitview.</p>
+</div>
+
+<!-- Navigation rapide -->
+<nav class="nav-mini">
+<a href="#fonctionnalites"><span>✨</span> <span data-txt="txt_0612">Fonctionnalités</span></a>
+<a href="#recherche"><span>🔍</span> <span data-txt="txt_0613">Recherche</span></a>
+<a href="#chatbot"><span>🤖</span> <span data-txt="txt_0614">Assistant IA</span></a>
+<a href="#versions"><span>📚</span> <span data-txt="txt_0615">Versions</span></a>
+<a href="#raccourcis"><span>⌨️</span> <span data-txt="txt_0616">Raccourcis</span></a>
+</nav>
+
+<!-- Section 1: Fonctionnalités -->
+<section class="help-section" id="fonctionnalites">
+<h2 data-txt="txt_0617">✨ Les fonctionnalités du manuel</h2>
+<p data-txt="txt_0618">Ce manuel n'est pas un simple document PDF. C'est une application web interactive conçue pour vous aider à trouver rapidement l'information dont vous avez besoin.</p>
+
+<div class="feature-grid">
+<div class="feature-card">
+<span class="icon">🔍</span>
+<h3 data-txt="txt_0619">Recherche instantanée</h3>
+<p data-txt="txt_0620">Tapez n'importe quel mot et trouvez instantanément toutes les occurrences dans le manuel. Les résultats sont surlignés en jaune.</p>
+<a href="#recherche" class="try-it" data-txt="txt_0621">En savoir plus →</a>
+</div>
+
+<div class="feature-card">
+<span class="icon">🤖</span>
+<h3 data-txt="txt_0622">Assistant IA intégré</h3>
+<p data-txt="txt_0623">Posez vos questions en langage naturel et obtenez des réponses contextuelles basées sur le contenu du manuel.</p>
+<a href="#chatbot" class="try-it" data-txt="txt_0624">En savoir plus →</a>
+</div>
+
+<div class="feature-card">
+<span class="icon">📚</span>
+<h3 data-txt="txt_0625">4 niveaux de détail</h3>
+<p data-txt="txt_0626">Choisissez la version adaptée à votre niveau : Standard, Débutant (explications détaillées), Intermédiaire ou Expert (essentiel uniquement).</p>
+<a href="#versions" class="try-it" data-txt="txt_0627">En savoir plus →</a>
+</div>
+
+<div class="feature-card">
+<span class="icon">🌍</span>
+<h3 data-txt="txt_0628">Multilingue</h3>
+<p data-txt="txt_0629">Le manuel est disponible en français et en anglais. D'autres langues sont accessibles via la traduction automatique.</p>
+<a href="#langues" class="try-it" data-txt="txt_0630">En savoir plus →</a>
+</div>
+
+<div class="feature-card">
+<span class="icon">🌙</span>
+<h3 data-txt="txt_0631">Mode sombre</h3>
+<p data-txt="txt_0632">Basculez entre le thème clair et sombre selon vos préférences ou les conditions d'éclairage. Cliquez sur 🌙 en haut à droite.</p>
+</div>
+
+<div class="feature-card">
+<span class="icon">📱</span>
+<h3 data-txt="txt_0633">Responsive</h3>
+<p data-txt="txt_0634">Le manuel s'adapte à tous les écrans : ordinateur, tablette ou smartphone. Consultez-le où que vous soyez.</p>
+</div>
+</div>
+</section>
+
+<!-- Section 2: Recherche -->
+<section class="help-section" id="recherche">
+<h2 data-txt="txt_0635">🔍 La recherche dans le manuel</h2>
+
+<p data-txt="txt_0636">La barre de recherche en haut de l'écran vous permet de trouver instantanément n'importe quelle information dans le manuel.</p>
+
+<h3 data-txt="txt_0637">Comment rechercher ?</h3>
+<ol class="step-list">
+<li data-txt="txt_0638">Cliquez dans la barre de recherche ou appuyez sur <span class="kbd">Ctrl</span> + <span class="kbd">F</span></li>
+<li data-txt="txt_0639">Tapez votre recherche (ex: "importer photos")</li>
+<li data-txt="txt_0640">Les résultats apparaissent instantanément, surlignés en jaune</li>
+<li data-txt="txt_0641">Utilisez les boutons ◀ Préc. et Suiv. ▶ pour naviguer entre les résultats</li>
+</ol>
+
+<div class="tip-highlight">
+<strong data-txt="txt_0642">💡 Astuce :</strong> <span data-txt="txt_0643">Utilisez le filtre de section pour limiter la recherche à un chapitre spécifique du manuel.</span>
+</div>
+
+<h3 data-txt="txt_0644">Raccourcis clavier pour la recherche</h3>
+<table class="shortcut-table">
+<thead>
+<tr>
+<th data-txt="txt_0645">Raccourci</th>
+<th data-txt="txt_0646">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="kbd">F3</span></td>
+<td data-txt="txt_0647">Résultat suivant</td>
+</tr>
+<tr>
+<td><span class="kbd">Shift</span> + <span class="kbd">F3</span></td>
+<td data-txt="txt_0648">Résultat précédent</td>
+</tr>
+<tr>
+<td><span class="kbd">Échap</span></td>
+<td data-txt="txt_0649">Fermer la recherche</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- Section 3: Chatbot -->
+<section class="help-section" id="chatbot">
+<h2 data-txt="txt_0650">🤖 L'assistant IA</h2>
+
+<p data-txt="txt_0651">L'assistant IA est votre guide personnel pour naviguer dans le manuel. Posez-lui vos questions en langage naturel !</p>
+
+<div class="chatbot-demo">
+<div class="avatar">🤖</div>
+<div class="bubble">
+<p data-txt="txt_0652"><strong>Assistant Kitview</strong></p>
+<p data-txt="txt_0653">Bonjour ! Je suis là pour vous aider à utiliser Kitview. Posez-moi vos questions, par exemple :</p>
+<div class="example-questions">
+<span class="question" data-txt="txt_0654">Comment importer des photos ?</span>
+<span class="question" data-txt="txt_0655">Créer un nouveau patient</span>
+<span class="question" data-txt="txt_0656">Exporter en PDF</span>
+</div>
+</div>
+</div>
+
+<h3 data-txt="txt_0657">Comment utiliser l'assistant ?</h3>
+<ol class="step-list">
+<li data-txt="txt_0658">Cliquez sur le bouton 💬 en bas à droite de l'écran</li>
+<li data-txt="txt_0659">Tapez votre question dans la zone de texte</li>
+<li data-txt="txt_0660">L'assistant analyse le manuel et vous répond avec des liens vers les sections pertinentes</li>
+<li data-txt="txt_0661">Cliquez sur les liens pour accéder directement à la documentation</li>
+</ol>
+
+<div class="note-box tip" data-note-content-txt="txt_0663">
+<strong data-txt="txt_0662">💡 Conseil</strong>
+L'assistant répond dans la langue du manuel. Si vous consultez la version anglaise, posez vos questions en anglais pour de meilleurs résultats.
+</div>
+
+<h3 data-txt="txt_0664">Exemples de questions</h3>
+<ul>
+<li data-txt="txt_0665">"Comment créer un nouveau patient dans Kitview ?"</li>
+<li data-txt="txt_0666">"Quelle est la différence entre les viewers ?"</li>
+<li data-txt="txt_0667">"Comment exporter des photos vers mon ordinateur ?"</li>
+<li data-txt="txt_0668">"Comment personnaliser les couleurs de l'interface ?"</li>
+</ul>
+</section>
+
+<!-- Section 4: Versions -->
+<section class="help-section" id="versions">
+<h2 data-txt="txt_0669">📚 Les versions du manuel</h2>
+
+<p data-txt="txt_0670">Le manuel existe en 4 versions pour s'adapter à votre niveau d'expertise. Utilisez les chips colorés en haut de l'écran pour basculer d'une version à l'autre.</p>
+
+<div class="version-comparison">
+<div class="version-card standard">
+<div class="version-icon">📘</div>
+<h4 data-txt="txt_0671">Standard</h4>
+<p data-txt="txt_0672">Version complète avec toutes les informations</p>
+</div>
+<div class="version-card debutant">
+<div class="version-icon">🟢</div>
+<h4 data-txt="txt_0673">Débutant</h4>
+<p data-txt="txt_0674">Explications détaillées, analogies simples, pas à pas</p>
+</div>
+<div class="version-card intermediaire">
+<div class="version-icon">🟡</div>
+<h4 data-txt="txt_0675">Intermédiaire</h4>
+<p data-txt="txt_0676">Pour les utilisateurs ayant les bases</p>
+</div>
+<div class="version-card expert">
+<div class="version-icon">🔴</div>
+<h4 data-txt="txt_0677">Expert</h4>
+<p data-txt="txt_0678">Essentiel uniquement, pour les utilisateurs avancés</p>
+</div>
+</div>
+
+<div class="tip-highlight">
+<strong data-txt="txt_0679">💡 Conseil :</strong> <span data-txt="txt_0680">Commencez par la version Standard. Si vous trouvez les explications trop techniques, passez à la version Débutant. Si vous maîtrisez déjà Kitview, la version Expert vous fera gagner du temps.</span>
+</div>
+</section>
+
+<!-- Section 5: Langues -->
+<section class="help-section" id="langues">
+<h2 data-txt="txt_0681">🌍 Les langues disponibles</h2>
+
+<p data-txt="txt_0682">Le manuel est disponible nativement en français et en anglais. Ces traductions ont été réalisées avec soin pour garantir la qualité du contenu.</p>
+
+<h3 data-txt="txt_0683">Langues natives</h3>
+<ul>
+<li data-txt="txt_0684">🇫🇷 <strong>Français</strong> - Version originale</li>
+<li data-txt="txt_0685">🇬🇧 <strong>Anglais</strong> - Traduction professionnelle</li>
+</ul>
+
+<h3 data-txt="txt_0686">Traduction automatique</h3>
+<p data-txt="txt_0687">Sur le serveur web, d'autres langues sont disponibles via Google Translate : allemand, espagnol, italien, portugais, polonais, roumain, thaï, arabe et chinois.</p>
+
+<div class="note-box warning" data-note-content-txt="txt_0689">
+<strong data-txt="txt_0688">⚠️ Note</strong>
+La traduction automatique peut parfois produire des résultats approximatifs. En cas de doute, référez-vous à la version française ou anglaise.
+</div>
+</section>
+
+<!-- Section 6: Raccourcis -->
+<section class="help-section" id="raccourcis">
+<h2 data-txt="txt_0690">⌨️ Tous les raccourcis clavier</h2>
+
+<table class="shortcut-table">
+<thead>
+<tr>
+<th data-txt="txt_0645">Raccourci</th>
+<th data-txt="txt_0646">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="kbd">Ctrl</span> + <span class="kbd">F</span></td>
+<td data-txt="txt_0691">Ouvrir la recherche</td>
+</tr>
+<tr>
+<td><span class="kbd">F3</span></td>
+<td data-txt="txt_0647">Résultat suivant</td>
+</tr>
+<tr>
+<td><span class="kbd">Shift</span> + <span class="kbd">F3</span></td>
+<td data-txt="txt_0648">Résultat précédent</td>
+</tr>
+<tr>
+<td><span class="kbd">Échap</span></td>
+<td data-txt="txt_0692">Fermer recherche / chatbot</td>
+</tr>
+<tr>
+<td><span class="kbd">↑</span> <span class="kbd">↓</span></td>
+<td data-txt="txt_0693">Naviguer dans le sommaire</td>
+</tr>
+</tbody>
+</table>
+</section>
+
+<!-- Retour au manuel -->
+<div style="text-align: center; margin-top: 3rem; padding-top: 2rem; border-top: 1px solid var(--border-color);">
+<p data-txt="txt_0694">Prêt à explorer le manuel ?</p>
+<a href="kvms.html" class="back-to-manual" data-txt="txt_0695">← Retour au manuel Kitview</a>
+</div>
+
+</div>
+</main>
+</div>
+
+<!-- Footer -->
+<footer class="help-footer" data-txt="txt_0696">
+Guide du manuel Kitview v1.0 - Janvier 2026
+</footer>
+
+<!-- Scripts -->
+<script src="js/kvm.js"></script>
+<script src="js/themes.js"></script>
+<script>
+// Gestion simplifiée de la langue pour cette page
+function toggleLangPopup() {
+    const popup = document.getElementById('langPopup');
+    popup.style.display = popup.style.display === 'none' ? 'block' : 'none';
+}
+
+function selectLanguage(lang, code, flag) {
+    // Rediriger vers la version appropriée
+    if (lang === 'en') {
+        window.location.href = 'aide_en.html';
+    } else {
+        window.location.href = 'aide.html';
+    }
+}
+
+// Fermer le popup si clic ailleurs
+document.addEventListener('click', function(e) {
+    const popup = document.getElementById('langPopup');
+    const button = document.getElementById('langButton');
+    if (!popup.contains(e.target) && !button.contains(e.target)) {
+        popup.style.display = 'none';
+    }
+});
+</script>
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+﻿canon;type;Xgn;synonymes;XX;adjs;XY;m;f;mp;fp;frcanon;fradjs
+activator;p;m;functional device,functional appliance,functional removable appliance,activation device,orthodontic activator,monobloc,class II activator;XX;;XY;;;;;activateur;
+aero;p;m;aerophonoscope;XX;;XY;;;;;aéro;
+agenesis;p;f;agenesie,missing tooth,absence of teeth,hypodontia,oligodonty,anodontics,missing tooth;XX;;XY;;;;;agénésie;
+alignment;p;m;turnaround,correction,straightening,dental alignment,tooth alignment;XX;;XY;;;;;alignement;
+ankylosis;p;f;ankylosed tooth,bone fusion,ankilose;XX;;XY;;;;;ankylose;
+sleep apnea;p;f;sleep apnea,OSA,obstructive sleep apnea,obstructive sleep apnoea syndrome,OSA,snoring;XX;;XY;;;;;apnée du sommeil;
+arc;p;m;orthodontic wire,wire,wire,archwire,metal wire,round wire,rectangular wire,bow wire,orthodontic arch;XX;;XY;;;;;arc;
+arcade;p;f;dental arch,dental arch,dental arch;XX;;XY;;;;;arcade;
+arthritis;p;f;joint inflammation,inflammatory arthropathy;XX;;XY;;;;;arthrite;
+osteoarthritis;p;f;osteoarthritis,degenerative arthropathy,degenerative joint disease;XX;;XY;;;;;arthrose;
+facial asymmetry;p;f;asymmetric face,facial deviation;XX;;XY;;;;;asymétrie faciale;
+ATM;p;f;temporomandibular joint,TMJ disorders,temporomandibular dysfunction,TMJ,TDG;XX;;XY;;;;;atm;
+avulsion;p;f;dental extraction,visit,exodontia,extraction,dental extraction,pull,pulled tooth;XX;immediate,deferred,programmed,total;XY;;;;;avulsion;immédiat,différé,programmé,total
+rings;p;fp;brackets,fasteners,pins,braces,bracket,orthodontic appliance,dental appliance,multi-attachment device,orthodontic brackets,orthodontic braces;XX;;XY;;;;;bagues;
+hollowness;p;f;beance,open bite,space between teeth,interdental space,gaping bite,open bite,open cock,openbite,spacing,gap,cavity;XX;previous,back,lateral,left,right,severe,moderate;XY;;;;;béance;antérieur,postérieur,latéral,gauche,droit,sévère,modéré
+connecting rods;p;fp;connecting rod,Forsus,PowerScope,connecting rod system;XX;;XY;;;;;bielles;
+bipro;p;f;biproalveolism,alveolus;XX;;XY;;;;;bipro;
+Bruxism;p;m;bruxism,clenching,squeaking,grinding,tightening,tooth wear,grits its teeth,grit their teeth,grinding teeth;XX;night,diurnal,severe,moderate;XY;;;;;bruxisme;nocturne,diurne,sévère,modéré
+canine;p;f;croc,cusp,canine tooth,wolf's tooth;XX;;XY;;;;;canine;
+dental caries;p;fp;caries,tooth decay,dental caries,carious lesion;XX;;XY;;;;;caries dentaires;
+cephalometry;p;f;teleradiography,teleradio,lateral ceph,profile,cephalo,profile radio,telecranium,profile radiography;XX;;XY;;;;;céphalométrie;
+ceramics;p;f;ceramic,aesthetics,transparent,ceramic brackets,ceramic fasteners;XX;;XY;;;;;céramique;
+surgery;p;f;intervention,operation,surgery,jaw surgery,mandibular surgery,jaw operation,orthognathic surgery,maxillo-facial surgery;XX;traumatic;XY;;;;;chirurgie;traumatique
+joint snap;p;m;ATM slam,clicking;XX;;XY;;;;;claquement articulaire;
+Angle class I;p;f;class 1 corner,Angle class I,class i dangle,class 1 dangle,class i corner,class 1 corner,Neutrocclusion,Normal occlusion,Class I molar relationship,Normocclusion,Class 1 Dental,neutral molar relationship,class 1,Class I,dental class;XX;crowded;XY;;;;;classe i d'angle;encombré
+class i skeletal;p;f;class 1 skeletal,class i skeletal;XX;ideal,moderate;XY;;;;;classe i squelettique;idéal, modéré
+Angle class II;p;f;class 2 corner,Angle class II,class ii dangle,class 2 dangle,class ii corner,class 2 corner,Distocclusion,Retrognathia,Increased horizontal overhang,Overjet increased,Class 2 Dental,increased horizontal overhang,dental distocclusion,class 2,class II,disto-occlusion,dental retrofusion,Retromandibulism,retromandibular,recessed mandible,mandibular retrognathia,retrognathy,retrognathe,retroposition,mandible backwards,receded mandible;XX;severe,moderate,division 1,division 2,unilateral;XY;;;;;classe ii d'angle;sévère,modéré,division 1,division 2,unilatéral
+class ii skeletal;p;f;class 2 skeletal,class ii skeletal;XX;;XY;;;;;classe ii squelettique;
+Angle class III;p;f;class 3 corner,Angle class III,class iii dangerous,class 3 dangle,class iii corner,class 3 corner,Mesiocclusion,Overshot teeth,Class 3 Dental,dental underbite,dental mesiocclusion,class 3,class III,mesio-occlusion,maxillary retrognathia,retromaxillary,maxilla backwards,receded maxilla,recessed maxilla,mask of delaire,delaire,hypoplasia,maxillary hypoplasia;XX;severe,moderate,unilateral;XY;;;;;classe iii d'angle;sévère,modéré,unilatéral
+class iii skeletal;p;f;class 3 skeletal,class iii skeletal;XX;severe,moderate;XY;;;;;classe iii squelettique;sévère,modéré
+composite;p;m;composite resin,resin composite,composite restoration;XX;;XY;;;;;composite;
+consultation;p;f;appointment,appointment,visit,visit,orthodontic examination;XX;;XY;;;;;consultation;
+restraint;p;f;restraint device,support wire,hawley,maintenance,maintenance,support plate,retention,stabilisation;XX;fixed,removable;XY;;;;;contention;fixe,amovible
+control;p;m;follow-up,follow-up,monitoring,monitor,inspection visit;XX;;XY;;;;;contrôle;
+growth;p;f;development,grow,growth,maturation;XX;;XY;;;;;croissance;
+crowding;p;m;space requirement,overlap,lack of space,overlapping teeth,dental crowding,dental crowding;XX;;XY;;;;;crowding;
+DDM;p;f;disharmony,discrepance,dental disharmony,dysmorphosis,dento-maxillary disharmony,dento-maxillary disharmony,dysharmony-dento-maxillary;XX;;XY;;;;;ddm;
+spreading;p;m;detached bracket,falling ring,loose bracket,detached fastener;XX;;XY;;;;;débandage;
+swallowing;p;f;swallow,swallowing,swallowing function,swallowing act;XX;;XY;;;;;déglutition;
+supernumerary tooth;p;f;extra tooth,additional tooth,hyperdontia,mesiodens,supernumerary;XX;;XY;;;;;dent surnuméraire;
+mixed dentition;p;f;mixed dentition,mixed gears,transitional dentition;XX;;XY;;;;;dentition mixte;
+permanent teeth;p;f;permanent teeth,adult teeth,permanent teeth,permanent teeth,adult teeth;XX;;XY;;;;;dentition permanente;
+temporary dentition;p;f;milk teeth,baby teeth,primary dentition,deciduous,milk teeth,primary teeth,temporary teeth;XX;including;XY;;;;;dentition temporaire;inclus
+descaling;p;m;dental cleaning,prophylaxis,scaling,surfacing;XX;;XY;;;;;détartrage;
+mandibular deviation;p;f;mandibular shift,deviation of the mandible;XX;;XY;;;;;déviation mandibulaire;
+maxillary deviation;p;f;tooth shift,deviation of the median line;XX;;XY;;;;;déviation maxillaire;
+diastemata;p;mp;diastemas,multiple spaces,spaced teeth,generalised spacing,interdental spaces,spaces;XX;central;XY;;;;;diastemata;central
+diastema;p;m;space,gap,space,spacing,central diastema,teeth apart,dental spacing,happiness teeth,spacing;XX;central;XY;;;;;diastème;central
+distalization;p;f;back,distal displacement,distancing movement;XX;;XY;;;;;distalisation;
+pain;p;f;badly,bread,suffer,discomfort,sensitivity,dental pain;XX;infectious;XY;;;;;douleur;infectieux
+lingual dysfunction;p;f;lower tongue,low lingual position,swallowing disorder,primary swallowing,poor lingual position;XX;;XY;;;;;dysfonction linguale;
+dysplasia;p;f;dysmorphia,developmental anomaly,malformation,congenital anomaly;XX;;XY;;;;;dysplasie;
+spreader;p;m;separator,separator,elastic separator,spacer ring;XX;;XY;;;;;écarteur;
+ectopy;p;f;tooth outside the arch,misplaced tooth,ectopic tooth,misplaced,ectopic position,ec,ectopic tooth;XX;;XY;;;;;ectopie;
+edentulous;p;f;edentation,lack of teeth,edentulism,tooth loss,edentulous;XX;;XY;;;;;édentation;
+ef;p;f;tef,functional rehabilitation treatment;XX;;XY;;;;;ef;
+egression;p;f;extrusion,rash,dental outing,dental erosion;XX;;XY;;;;;égression;
+intermaxillary elastics;p;mp;class elastics,class II elastics,class III elastics,rubber bands,IMU;XX;;XY;;;;;élastiques intermaxillaires;
+footprint;p;f;impression taking,moulding,printing,alginate,dental impression;XX;;XY;;;;;empreinte;
+endoalveolus;p;f;alveolar anomaly,basal abnormality;XX;mandibular,maxilla,severe,moderate;XY;;;;;endoalvéolie;mandibulaire,maxillaire,sévère,modéré
+itchy thread;p;m;thread that hurts,wire poking,irritation,projecting wire,protruding thread;XX;;XY;;;;;fil qui pique;
+gingivitis;p;f;gingival inflammation,red gums,gingivitis,inflammation of the gums;XX;;XY;;;;;gingivite;
+gutter;p;f;invisalign,aligner,invisible aligner,removable transparent device,clear align,orthodontic splint,transparent gutter,aligneur first,first aligners;XX;;XY;;;;;gouttière;
+Herbst;p;m;appliance from Herbst,Class II correction,Herbst connecting rod,Herbst cylinder;XX;;XY;;;;;herbst;
+hygiene;p;f;cleaning,brushing,cleaning,oral hygiene,dental hygiene;XX;;XY;;;;;hygiène;
+incisor;p;f;front tooth,front teeth;XX;central;XY;;;;;incisive;central
+inclusion;p;f;tooth included,tooth that won't come out,impaction,impacted tooth,retained tooth,blocked tooth,tooth that doesn't grow;XX;;XY;;;;;inclusion;
+undercover;p;f;underbite,anterior underbite;XX;;XY;;;;;infraclusion;
+infraposition;p;f;infra-position,tooth in infraposition,tooth too low,sub-eruption;XX;;XY;;;;;infraposition;
+ingression;p;f;intrusion,sinking,dental intrusion,intrusion movement;XX;;XY;;;;;ingression;
+lingual interposition;p;f;tongue between teeth,tongue thrust,gap by interposition,lingual thrust;XX;;XY;;;;;interposition linguale;
+latero-deviation;p;f;lateral deviation,asymmetry;XX;right,left,maxilla,mandibular;XY;;;;;latérodéviation;droit,gauche,maxillaire,mandibulaire
+ligation;p;f;elastic,tie,attachment,metal ligatures,elastic ligatures,coloured ligature;XX;fixed,removable;XY;;;;;ligature;fixe,amovible
+linguo-version;p;f;linguoversion,poured in lingually,inclined towards the tongue,lingual tilt;XX;;XY;;;;;linguo-version;
+dislocation;p;f;TMJ dislocation,joint displacement,dislocation;XX;;XY;;;;;luxation;
+meniscal dislocation;p;f;meniscus displacement,disc dislocation,atm disorder;XX;;XY;;;;;luxation méniscale;
+macrodontia;p;f;teeth too large,oversized teeth,megalodontics;XX;;XY;;;;;macrodontie;
+macrognathy;p;f;large jaw,hyperplasia,big jaw,jaw too big,mandibular excess,maxillary excess;XX;;XY;;;;;macrognathie;
+space maintainer;p;m;space maintainer,ring and handle,space maintainer;XX;;XY;;;;;mainteneur d'espace;
+periodontal disease;p;f;periodontitis,heaving,gum disease,periodontal disease,periodontal disease;XX;;XY;;;;;maladie parodontale;
+malocclusion;p;f;dental malocclusion,maloclusion,bad bite,poor meshing,bite problem;XX;right,left;XY;;;;;malocclusion;droit,gauche
+malposition;p;f;dental malposition,tooth in the wrong position;XX;mandibular,maxilla;XY;;;;;malposition;mandibulaire,maxillaire
+chewing;p;f;chew,chew,crunch,chewing,chewing function,chewing function;XX;;XY;;;;;mastication;
+mesialization;p;f;advancement,mesial displacement,mesialization movement;XX;;XY;;;;;mésialisation;
+metal;p;m;steel,steel,titanium,titanium,metallic,non-corrodible metal;XX;;XY;;;;;métal;
+microdontia;p;f;teeth too small,dental dwarfism,dental undersizing;XX;;XY;;;;;microdontie;
+micrognathia;p;f;small jaw,jaw too small,mandibular deficit,maxillary deficit;XX;;XY;;;;;micrognathie;
+minivis;p;f;mini-screw,mini implant,bone anchoring,TADs,skeletal anchoring,anchor screws,temporary orthodontic implant;XX;;XY;;;;;minivis;
+molar;p;f;large tooth,back tooth,sixth,twelfth,six-year-old molar,twelve-year-old molar;XX;;XY;;;;;molaire;
+pulpal necrosis;p;f;pulp death,pulp necrosis,necrotic pulp,necessary devitalisation;XX;;XY;;;;;nécrose pulpaire;
+NiTi;p;m;nitinol,nickel-titanium,superelastic,NiTi wire,thermoactive yarn;XX;;XY;;;;;niti;
+cross bite;p;f;crossbite,cross bite,articulated cross;XX;;XY;;;;;occlusion croisée;
+reverse bite;p;f;reverse bite,reverse bite,inverted hinge;XX;;XY;;;;;occlusion inversée;
+onychophagy;p;f;nail biting,nail biting,nail biting;XX;;XY;;;;;onychophagie;
+osteotomy;p;f;jaw surgery,jaw surgery,orthognathic surgery,bimaxillary surgery;XX;;XY;;;;;ostéotomie;
+panoramic;p;m;panoramic radio,orthopantomogram,OPG,panorex,radio,radiography,dental panoramic,panoramic radiograph;XX;;XY;;;;;panoramique;
+pendulum;p;m;molar distalization,pendulum device;XX;;XY;;;;;pendulum;
+phonation;p;f;word,elocution,speak,speech,phonatory function,joint;XX;;XY;;;;;phonation;
+removable plate;p;f;removable appliance,removable appliance,orthodontic plate;XX;;XY;;;;;plaque amovible;
+fan plate;p;f;range;XX;;XY;;;;;plaque éventail;
+butterfly plate;p;f;butterfly;XX;;XY;;;;;plaque papillon;
+plate y;p;f;y-shaped;XX;;XY;;;;;plaque y;
+premolar;p;f;premolar,bicuspid,fourth,fifth,small molar;XX;;XY;;;;;prémolaire;
+proalveolysis;p;f;proinclination,project;XX;incisive,mandibular,maxilla,severe,moderate;XY;;;;;proalvéolie;incisif,mandibulaire,maxillaire,sévère,modéré
+slippage;p;f;mandibular slippage,mandibular slippage,functional mandibular deviation,functional sliding;XX;;XY;;;;;proglissement ;
+Overshot mandible;p;m;mandibular prognathia,mandible forward,advanced mandible,prominent mandible;XX;severe,moderate;XY;;;;;prognathisme mandibulaire;sévère,modéré
+Overshot mouth;p;m;maxillary prognathia,maxilla forward,advanced maxilla,prominent maxilla;XX;severe,moderate;XY;;;;;prognathisme maxillaire;sévère,modéré
+Propulsor;p;m;CI II Thruster,CI 2 Thruster,Class II Thruster,Class 2 Thruster,Class II propellant;XX;;XY;;;;;propulsor;
+protrusion;p;f;excessive advancement,forward projection,proclusion;XX;;XY;;;;;protrusion;
+quad helix;p;m;circuit breaker,expansion,disconnection,pallet circuit breaker,expansion device,palatal expansion device,ERP,rapid expansion,4 helix,4helix,quadri-helix,quadri helix,slow expansion,quadhelix;XX;;XY;;;;;quad helix;
+gingival recession;p;f;gingival recession,receding gums,periodontal recession,gingival retraction;XX;;XY;;;;;récession gingivale;
+relapse;p;f;repeat offences,relapse,relapse,back,orthodontic recurrence;XX;;XY;;;;;récidive;
+root resorption;p;f;root resorption,resorbing root,rhizalysis,apical resorption,root shortening;XX;;XY;;;;;résorption radiculaire;
+mouth breathing;p;f;oral ventilation,open mouth,mouth breathing,oral respirator,oral respiration,mouth breathing;XX;;XY;;;;;respiration buccale;
+joint protrusion;p;m;ATM projection,popping;XX;;XY;;;;;ressaut articulaire;
+retroalveolus;p;f;retro-tilt,retrocheilia;XX;mandibular,maxilla,severe,moderate;XY;;;;;rétroalvéolie;mandibulaire,maxillaire,sévère,modéré
+retrofusion;p;f;retroversion;XX;;XY;;;;;rétrusion;
+rotation;p;f;turned tooth,rotated tooth,twisted tooth,axial rotation,pivoted tooth,rotational malposition,axial version;XX;;XY;;;;;rotation;
+scanner;p;m;cone beam,CBCT,computed tomography,cone beam CT,3D,3D imaging,3D scan,tomography;XX;;XY;;;;;scanner;
+intra-oral scanner;p;m;digital footprint,digital printing,digital scan;XX;;XY;;;;;scanner intra-oral;

@@ -1,0 +1,110 @@
+﻿# audit_concordance.csv généré par pipeline.py V1.0.10
+# Date: 05/01/2026 21:22:24
+# Comparaisons: 101
+# Concordance listcount: 99.0%
+# Concordance tags exacte: 85.1%
+# Concordance tags partielle (Jaccard): 88.1%
+# Latence moyenne detall: 0ms
+# Latence moyenne detia: 2108ms
+question;listcount_ok;tags_exact;tags_jaccard;tags_detall;tags_detia;latency_detall;latency_detia;ecart_latency
+fr;OUI;OUI;1.00;;;0;1449;1449
+enfants ?;OUI;OUI;1.00;;;0;1549;1549
+enfants ?;OUI;OUI;1.00;;;0;1549;1549
+Nombre de patients avec linguo-version avec déviation maxillaire ?;OUI;NON;0.33;déviation maxillaire, linguo-version;dysfonction linguale, déviation maxillaire;0;1802;1802
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1787;1787
+avec niti avec tong e femmes ?;OUI;NON;0.33;dysfonction linguale, niti;arc, dysfonction linguale;0;2061;2061
+adultes avec prémolaire avec bruxisme avec occlusion croisée ?;OUI;OUI;1.00;occlusion croisée, prémolaire, bruxisme;prémolaire, bruxisme, occlusion croisée;0;2540;2540
+enfants avec empreinte ?;OUI;OUI;1.00;empreinte;empreinte;0;1888;1888
+de plus de 12 ans avec tong e avec hygiène ?;OUI;OUI;1.00;dysfonction linguale, hygiène;dysfonction linguale, hygiène;0;1981;1981
+avec béance hommes de moins de 10 ans ?;OUI;OUI;1.00;béance;béance;0;2330;2330
+avec rétrusion femmes ?;OUI;OUI;1.00;classe ii d'angle;Classe Ii D'Angle;0;1769;1769
+avec malposition nocturne avec luxation méniscale mandibulaire ?;OUI;OUI;1.00;luxation méniscale, malposition;malposition, luxation méniscale;0;1886;1886
+avec contention avec onychophagie avec herbst femmes ?;OUI;OUI;1.00;onychophagie, contention, herbst;contention, onychophagie, herbst;0;2768;2768
+avec béance avec bruxisme ?;OUI;OUI;1.00;bruxisme, béance;béance, bruxisme;0;1918;1918
+Combien de patients avec métal avec aéro ?;OUI;OUI;1.00;métal, aéro;Métal, aéro;0;1926;1926
+Nombre de patients avec gouttière hommes ?;OUI;OUI;1.00;gouttière;Gouttière;0;2149;2149
+de plus de 9 ans avec ligature avec gouttière ?;OUI;OUI;1.00;gouttière;Gouttière;0;1891;1891
+avec bruxisme nocturne avec macrognathie ?;OUI;OUI;1.00;macrognathie, bruxisme;bruxisme, macrognathie;0;1850;1850
+avec interposition linguale ?;OUI;OUI;1.00;dysfonction linguale;dysfonction linguale;0;2014;2014
+Nombre de patients de moins de 14 ans avec béance avec dysfonction linguale ?;OUI;OUI;1.00;dysfonction linguale, béance;béance, dysfonction linguale;0;2311;2311
+avec onychophagie femmes ?;OUI;OUI;1.00;onychophagie;onychophagie;0;1725;1725
+avec minivis ?;OUI;OUI;1.00;minivis;minivis;0;1774;1774
+avec luxation femmes enfants ?;OUI;OUI;1.00;luxation;luxation;0;2719;2719
+avec fil qui pique ?;OUI;OUI;1.00;arc;arc;0;1923;1923
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1625;1625
+Nombre de patients avec malocclusion ?;OUI;OUI;1.00;malocclusion;malocclusion;0;1925;1925
+enfants ?;OUI;OUI;1.00;;;0;1549;1549
+avec douleur incluse ?;OUI;NON;0.50;douleur, inclusion;douleur;0;2267;2267
+avec béance avec récidive ?;OUI;OUI;1.00;récidive, béance;béance, récidive;0;1975;1975
+avec béance femmes de moins de 20 ans ?;OUI;OUI;1.00;béance;béance;0;2479;2479
+avec infraposition ?;OUI;OUI;1.00;infraposition;infraposition;0;2209;2209
+Nombre de patients avec béance avec bruxisme avec résorption radiculaire ?;OUI;OUI;1.00;résorption radiculaire, bruxisme, béance;béance, bruxisme, résorption radiculaire;0;2683;2683
+Combien de patients avec béance ?;OUI;OUI;1.00;béance;béance;0;1924;1924
+Combien de patients de moins de 25 ans ?;OUI;OUI;1.00;;;0;1955;1955
+de plus de 19 ans avec scanner femmes ?;OUI;NON;0.00;scanner;;0;2354;2354
+Combien de patients avec dysfonction linguale avec niti femmes de moins de 29 ans ?;OUI;OUI;1.00;dysfonction linguale, niti;dysfonction linguale, niti;0;2727;2727
+avec vestibulo-version ?;OUI;NON;0.00;vestibulo-version;;0;1327;1327
+Nombre de patients avec asymétrie faciale avec béance avec bruxisme ?;OUI;OUI;1.00;asymétrie faciale, bruxisme, béance;asymétrie faciale, béance, bruxisme;0;2842;2842
+Nombre de patients avec béance ?;OUI;OUI;1.00;béance;béance;0;1862;1862
+avec arthrite avec bruxisme ?;OUI;OUI;1.00;arthrite, bruxisme;arthrite, bruxisme;0;2187;2187
+avec béance femmes de moins de 19 ans ?;OUI;OUI;1.00;béance;béance;0;2268;2268
+avec SNA = 84 ?;OUI;OUI;1.00;position maxillaire normale;Position Maxillaire Normale;0;1788;1788
+Nombre de patients avec dent surnuméraire avec béance nocturne ?;OUI;OUI;1.00;dent surnuméraire, béance;dent surnuméraire, béance;0;2124;2124
+avec SNB de 81 avec bagues ?;OUI;OUI;1.00;position mandibulaire normale, bagues;Position Mandibulaire Normale, bagues;0;2001;2001
+avec bruxisme avec céramique ?;OUI;OUI;1.00;céramique, bruxisme;bruxisme, céramique;0;3890;3890
+Combien de patients avec mésialisation avec quad helix ?;OUI;OUI;1.00;quad helix, mésialisation;mésialisation, quad helix;0;1795;1795
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1625;1625
+avec ANB plus de 5 de plus de 13 ans ?;OUI;OUI;1.00;classe ii squelettique;classe ii squelettique;0;2157;2157
+de moins de 16 ans avec dentition permanente ?;OUI;OUI;1.00;dentition permanente;dentition permanente;0;1966;1966
+Combien de patients avec prognathisme maxillaire avec béance ?;OUI;OUI;1.00;prognathisme maxillaire, béance;prognathisme maxillaire, béance;0;1814;1814
+avec micrognathie femmes enfants ?;OUI;OUI;1.00;micrognathie;micrognathie;0;2199;2199
+Nombre de patients avec SNA de 82 de plus de 17 ans ?;OUI;OUI;1.00;position maxillaire normale;Position Maxillaire Normale;0;2326;2326
+Combien de patients avec spacing droite avec chirurgie droite ?;OUI;OUI;1.00;chirurgie, diastème;Diastème, chirurgie;0;2375;2375
+avec SNA supérieur à 85 ?;OUI;OUI;1.00;prognathisme maxillaire;prognathisme maxillaire;0;1509;1509
+avec luxation méniscale ?;OUI;OUI;1.00;luxation méniscale;luxation méniscale;0;1784;1784
+de moins de 20 ans avec plaque éventail droite ?;OUI;NON;0.00;plaque éventail;;0;1912;1912
+avec élastiques intermaxillaires avec composite avec béance ?;OUI;OUI;1.00;élastiques intermaxillaires, composite, béance;élastiques intermaxillaires, composite, béance;0;2464;2464
+avec tong e ?;OUI;OUI;1.00;dysfonction linguale;dysfonction linguale;0;1612;1612
+Combien de patients avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1566;1566
+avec succion ?;OUI;NON;0.00;succion;;0;1226;1226
+avec béance avec phonation femmes adultes ?;OUI;OUI;1.00;phonation, béance;béance, phonation;0;2548;2548
+Combien de patients avec rétrusion hommes de moins de 17 ans ?;OUI;OUI;1.00;classe ii d'angle;Classe Ii D'Angle;0;2586;2586
+avec écarteur ?;OUI;OUI;1.00;écarteur;écarteur;0;1514;1514
+avec béance hommes ?;OUI;OUI;1.00;béance;béance;0;1914;1914
+Combien de patients avec béance gauche avec bruxisme gauche hommes ?;OUI;OUI;1.00;bruxisme, béance;béance, bruxisme;0;2297;2297
+avec ectopie avec occlusion inversée hommes de moins de 22 ans ?;OUI;OUI;1.00;occlusion inversée, ectopie;ectopie, occlusion inversée;0;2869;2869
+Combien de patients avec béance hommes ?;OUI;OUI;1.00;béance;béance;0;2830;2830
+Combien de patients avec SNB moins de 77 avec macrodontie ?;OUI;OUI;1.00;rétrognathisme mandibulaire, macrodontie;Rétrognathisme Mandibulaire, macrodontie;0;2895;2895
+avec SNB supérieur à 84 avec caries dentaires ?;OUI;NON;0.33;prognathisme mandibulaire, caries dentaires;classe iii d'angle, caries dentaires;0;2243;2243
+Nombre de patients avec caries dentaires avec béance ?;OUI;OUI;1.00;caries dentaires, béance;caries dentaires, béance;0;2274;2274
+Nombre de patients de moins de 32 ans avec malocclusion gauche ?;OUI;OUI;1.00;malocclusion;malocclusion;0;1956;1956
+avec incisive centrale ?;OUI;OUI;1.00;incisive;incisive;0;1659;1659
+avec version avec dysfonction linguale ?;OUI;NON;0.50;dysfonction linguale, version;dysfonction linguale;0;1435;1435
+avec succion droite avec apnée du sommeil droite ?;OUI;NON;0.50;apnée du sommeil, succion;apnée du sommeil;0;1511;1511
+Combien de patients avec SNA > 85 avec céramique ?;OUI;OUI;1.00;prognathisme maxillaire, céramique;prognathisme maxillaire, céramique;0;2048;2048
+Nombre de patients adultes ?;OUI;OUI;1.00;;;0;1664;1664
+avec composite avec propulsor avec récession gingivale ?;OUI;OUI;1.00;récession gingivale, composite, propulsor;composite, propulsor, récession gingivale;0;3860;3860
+avec bruxisme hommes de plus de 2 ans ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2468;2468
+avec empreinte avec translation ?;OUI;NON;0.50;translation, empreinte;empreinte;0;1496;1496
+Nombre de patients avec diastemata avec consultation ?;OUI;OUI;1.00;consultation, diastemata;diastemata, consultation;0;1819;1819
+avec plaque y hommes ?;OUI;NON;0.00;plaque y;plaque amovible;0;1922;1922
+avec chirurgie femmes enfants ?;OUI;OUI;1.00;chirurgie;chirurgie;0;2346;2346
+avec béance avec maladie parodontale avec bruxisme hommes ?;OUI;OUI;1.00;maladie parodontale, bruxisme, béance;béance, maladie parodontale, bruxisme;0;2922;2922
+enfants avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;2224;2224
+avec macrodontie ?;OUI;OUI;1.00;macrodontie;macrodontie;0;2158;2158
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1625;1625
+Combien de patients de plus de 1 ans avec ostéotomie femmes ?;OUI;OUI;1.00;ostéotomie;ostéotomie;0;3008;3008
+avec nécrose pulpaire femmes ?;OUI;OUI;1.00;nécrose pulpaire;nécrose pulpaire;0;2173;2173
+avec ANB de 0 enfants avec bielles ?;NON;OUI;1.00;classe i squelettique, bielles;classe i squelettique, bielles;0;2545;2545
+de moins de 27 ans avec prognathisme maxillaire gauche ?;OUI;OUI;1.00;prognathisme maxillaire;prognathisme maxillaire;0;2562;2562
+Nombre de patients avec ANB > 7 ?;OUI;OUI;1.00;classe ii squelettique;classe ii squelettique;0;1920;1920
+enfants avec traitement interceptif ?;OUI;NON;0.00;traitement interceptif;;0;2082;2082
+avec maladie parodontale hommes de moins de 23 ans ?;OUI;OUI;1.00;maladie parodontale;maladie parodontale;0;2490;2490
+Nombre de patients de moins de 15 ans avec béance ?;OUI;OUI;1.00;béance;béance;0;2099;2099
+Nombre de patients avec béance hommes de plus de 15 ans ?;OUI;OUI;1.00;béance;béance;0;2773;2773
+Combien de patients avec propulsor ?;OUI;OUI;1.00;propulsor;propulsor;0;1506;1506
+Combien de patients avec mésialisation ?;OUI;OUI;1.00;mésialisation;mésialisation;0;1630;1630
+de moins de 22 ans avec plaque y ?;OUI;NON;0.00;plaque y;;0;2214;2214
+avec plaque éventail avec scanner intra-oral hommes ?;OUI;NON;0.00;scanner intra-oral, plaque éventail;plaque amovible;0;2098;2098
+avec asymétrie faciale avec bruxisme ?;OUI;OUI;1.00;asymétrie faciale, bruxisme;asymétrie faciale, bruxisme;0;2349;2349
+avec interposition linguale hommes ?;OUI;OUI;1.00;dysfonction linguale;dysfonction linguale;0;2518;2518

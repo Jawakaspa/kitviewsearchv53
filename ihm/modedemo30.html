@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google" content="notranslate" class="notranslate">
+    <title>Kitview Search Démo - Guide</title>
+    <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
+    <style>
+/*
+ * modedemo30.html V1.1.0 - 11/02/2026
+ * Mode d'emploi simplifié pour demo30.html
+ * Ajouts : Recherche full-text + Assistant IA chatbot
+ */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+    --primary-color: #3B9DD8;
+    --primary-light: #e3f2fd;
+    --bg-primary: #ffffff;
+    --bg-secondary: #f5f5f5;
+    --bg-tertiary: #e8e8e8;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #999999;
+    --border-color: #e0e0e0;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --code-bg: #f4f4f4;
+    --toc-bg: #fafafa;
+    --highlight-yellow: #fffb8f;
+    --tag-dark: #2c3e50;
+    --patho-light: #f0f4f8;
+}
+
+[data-theme="dark"] {
+    --primary-light: #1e3a5f;
+    --bg-primary: #1a1a1a;
+    --bg-secondary: #2d2d2d;
+    --bg-tertiary: #3a3a3a;
+    --text-primary: #e0e0e0;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888888;
+    --border-color: #404040;
+    --shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    --code-bg: #2a2a2a;
+    --toc-bg: #252525;
+    --highlight-yellow: #5a5730;
+    --tag-dark: #4a5568;
+    --patho-light: #2d3748;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+/*═══════════════════════════════════════════════════════════════
+  HEADER
+  ═══════════════════════════════════════════════════════════════*/
+
+.help-header {
+    background: var(--bg-primary);
+    padding: 15px 25px;
+    box-shadow: var(--shadow);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.header-left .logo { height: 32px; }
+
+.header-left h1 {
+    font-size: 20px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.icon-button {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background: var(--bg-secondary);
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.icon-button:hover { background: var(--bg-tertiary); }
+
+/*═══════════════════════════════════════════════════════════════
+  LAYOUT : TOC + CONTENT
+  ═══════════════════════════════════════════════════════════════*/
+
+.help-layout {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    gap: 25px;
+}
+
+.toc-sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 80px;
+    align-self: flex-start;
+    max-height: calc(100vh - 100px);
+    overflow-y: auto;
+}
+
+.toc-card {
+    background: var(--toc-bg);
+    border-radius: 12px;
+    padding: 15px;
+    border: 1px solid var(--border-color);
+}
+
+.toc-title {
+    font-weight: 700;
+    font-size: 15px;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.toc-list { list-style: none; }
+.toc-list li { margin-bottom: 4px; }
+.toc-list a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 13px;
+    display: block;
+    padding: 4px 8px;
+    border-radius: 6px;
+    transition: all 0.2s;
+}
+.toc-list a:hover { color: var(--primary-color); background: var(--primary-light); }
+.toc-list .toc-sub { padding-left: 12px; }
+.toc-list .toc-sub a { font-size: 12px; }
+
+.help-content { flex: 1; min-width: 0; }
+
+/*═══════════════════════════════════════════════════════════════
+  SECTIONS
+  ═══════════════════════════════════════════════════════════════*/
+
+.help-section {
+    background: var(--bg-primary);
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+    border: 1px solid var(--border-color);
+}
+
+.help-section h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+}
+
+.help-section h3 {
+    font-size: 16px;
+    margin: 20px 0 10px;
+    color: var(--primary-color);
+}
+
+.help-section p { margin-bottom: 12px; }
+
+.help-section ul, .help-section ol {
+    margin: 10px 0 15px 20px;
+}
+
+.help-section li { margin-bottom: 6px; }
+
+.info-box {
+    background: var(--primary-light);
+    border-left: 4px solid var(--primary-color);
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+.warning-box {
+    background: #fff8e1;
+    border-left: 4px solid #f39c12;
+    padding: 12px 16px;
+    border-radius: 0 8px 8px 0;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+[data-theme="dark"] .warning-box { background: #3d3520; }
+
+.code-inline {
+    background: var(--code-bg);
+    padding: 2px 6px;
+    border-radius: 4px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 13px;
+}
+
+.code-block {
+    background: var(--code-bg);
+    border-radius: 8px;
+    padding: 15px;
+    font-family: 'SF Mono', Monaco, monospace;
+    font-size: 13px;
+    overflow-x: auto;
+    margin: 10px 0;
+    border: 1px solid var(--border-color);
+}
+
+.tag-example {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 2px;
+}
+
+.tag-dark { background: var(--tag-dark); color: #fff; }
+.tag-light { background: var(--patho-light); color: var(--text-primary); border: 1px solid var(--border-color); }
+.tag-highlight { background: var(--highlight-yellow); color: #333; }
+
+.screenshot-placeholder {
+    background: var(--bg-secondary);
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 14px;
+    margin: 15px 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 15px 0;
+    font-size: 14px;
+}
+
+th {
+    background: var(--primary-color);
+    color: white;
+    padding: 10px 12px;
+    text-align: left;
+    font-weight: 600;
+}
+
+td {
+    padding: 8px 12px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+tr:hover td { background: var(--bg-secondary); }
+
+/*═══════════════════════════════════════════════════════════════
+  RESPONSIVE
+  ═══════════════════════════════════════════════════════════════*/
+
+@media (max-width: 768px) {
+    .help-layout { flex-direction: column; padding: 10px; }
+    .toc-sidebar {
+        position: relative;
+        top: 0;
+        width: 100%;
+        max-height: none;
+    }
+    .toc-card { display: none; }
+    .toc-card.open { display: block; }
+    .toc-mobile-toggle { display: block; }
+    .help-header { padding: 10px 15px; }
+    .header-left h1 { font-size: 16px; }
+    .help-section { padding: 15px; }
+}
+
+@media (min-width: 769px) {
+    .toc-mobile-toggle { display: none; }
+}
+
+.toc-mobile-toggle {
+    background: var(--toc-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 10px 15px;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+/*═══════════════════════════════════════════════════════════════
+  RECHERCHE FULL-TEXT DANS LA PAGE
+  ═══════════════════════════════════════════════════════════════*/
+
+.header-center-search {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    max-width: 350px;
+    margin: 0 12px;
+}
+
+.search-page-box {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 5px 10px;
+    flex: 1;
+    transition: border-color 0.2s;
+}
+
+.search-page-box:focus-within { border-color: var(--primary-color); }
+.search-page-box .search-icon { font-size: 13px; color: var(--text-muted); }
+.search-page-box input { border: none; background: transparent; outline: none; font-size: 12px; color: var(--text-primary); width: 100%; }
+.search-page-box .clear-btn { border: none; background: transparent; cursor: pointer; font-size: 13px; color: var(--text-muted); padding: 0; display: none; }
+.search-page-box .clear-btn.visible { display: block; }
+
+.search-nav {
+    display: none;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--text-secondary);
+    white-space: nowrap;
+}
+
+.search-nav.visible { display: flex; }
+.search-nav button { border: none; background: var(--bg-secondary); border-radius: 4px; padding: 3px 6px; cursor: pointer; font-size: 10px; color: var(--text-primary); }
+.search-nav button:hover { background: var(--bg-tertiary); }
+
+mark.search-highlight { background: #ffeb3b; color: #333; padding: 1px 2px; border-radius: 2px; }
+mark.search-highlight.current { background: #ff9800; color: #fff; font-weight: 600; }
+[data-theme="dark"] mark.search-highlight { background: #8d6e00; color: #fff; }
+[data-theme="dark"] mark.search-highlight.current { background: #ff9800; color: #fff; }
+
+/*═══════════════════════════════════════════════════════════════
+  CHATBOT ASSISTANT IA
+  ═══════════════════════════════════════════════════════════════*/
+
+#chatbot-toggle {
+    position: fixed; bottom: 24px; right: 24px; width: 56px; height: 56px;
+    border-radius: 50%; background: var(--primary-color); color: #fff; border: none;
+    cursor: pointer; box-shadow: 0 4px 16px rgba(59, 157, 216, 0.4);
+    display: flex; align-items: center; justify-content: center; z-index: 1000; transition: all 0.3s;
+}
+#chatbot-toggle:hover { transform: scale(1.1); box-shadow: 0 6px 24px rgba(59, 157, 216, 0.6); }
+#chatbot-toggle svg { width: 26px; height: 26px; fill: currentColor; }
+
+#chatbot-modal {
+    display: none; position: fixed; bottom: 90px; right: 24px; width: 380px; max-height: 520px;
+    background: var(--bg-primary); border: 1px solid var(--border-color); border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2); z-index: 1001; flex-direction: column; overflow: hidden;
+}
+#chatbot-modal.open { display: flex; }
+
+#chatbot-header {
+    display: flex; align-items: center; gap: 10px; padding: 14px 16px;
+    background: var(--primary-color); color: #fff;
+}
+#chatbot-header .avatar { font-size: 24px; }
+#chatbot-header .title h4 { font-size: 15px; font-weight: 600; margin: 0; }
+#chatbot-header .title span { font-size: 11px; opacity: 0.85; }
+#chatbot-close { margin-left: auto; background: none; border: none; color: #fff; font-size: 22px; cursor: pointer; opacity: 0.8; }
+#chatbot-close:hover { opacity: 1; }
+
+#chatbot-messages { flex: 1; overflow-y: auto; padding: 16px; min-height: 200px; max-height: 320px; }
+
+.chat-msg { margin-bottom: 12px; max-width: 85%; padding: 10px 14px; border-radius: 12px; font-size: 13px; line-height: 1.5; word-wrap: break-word; }
+.chat-msg.user { background: var(--primary-color); color: #fff; margin-left: auto; border-bottom-right-radius: 4px; }
+.chat-msg.assistant { background: var(--bg-secondary); color: var(--text-primary); border-bottom-left-radius: 4px; }
+.chat-msg.assistant strong { color: var(--primary-color); }
+.chat-msg.loading { background: var(--bg-secondary); color: var(--text-muted); font-style: italic; }
+.chat-msg.error { background: #fdecea; color: #c62828; border-bottom-left-radius: 4px; }
+[data-theme="dark"] .chat-msg.error { background: #3d1f1f; color: #ef9a9a; }
+
+#chatbot-suggestions { display: flex; flex-wrap: wrap; gap: 6px; padding: 0 16px 12px; }
+.suggestion-chip { font-size: 11px; padding: 5px 10px; border: 1px solid var(--border-color); border-radius: 16px; background: var(--bg-primary); color: var(--text-secondary); cursor: pointer; transition: all 0.2s; }
+.suggestion-chip:hover { border-color: var(--primary-color); color: var(--primary-color); background: var(--primary-light); }
+
+#chatbot-input-area { display: flex; align-items: center; padding: 10px 12px; border-top: 1px solid var(--border-color); gap: 8px; }
+#chatbot-input { flex: 1; border: 1px solid var(--border-color); border-radius: 20px; padding: 8px 14px; font-size: 13px; outline: none; background: var(--bg-primary); color: var(--text-primary); }
+#chatbot-input:focus { border-color: var(--primary-color); }
+#chatbot-send { width: 36px; height: 36px; border-radius: 50%; border: none; background: var(--primary-color); color: #fff; cursor: pointer; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+#chatbot-send:hover { background: #2d8bc7; }
+#chatbot-send svg { width: 18px; height: 18px; fill: currentColor; }
+
+@media (max-width: 480px) {
+    #chatbot-modal { bottom: 0; right: 0; left: 0; width: 100%; max-height: 80vh; border-radius: 16px 16px 0 0; }
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="help-header">
+        <div class="header-left">
+            <img src="https://www.kitview.com/img/logos/logo-kitview.png" alt="Kitview" class="logo"
+                 onerror="this.style.display='none'">
+            <h1><span class="icon">📖</span> Guide Démo</h1>
+        </div>
+        <div class="header-right">
+            <!-- Recherche full-text -->
+            <div class="header-center-search">
+                <div class="search-page-box">
+                    <span class="search-icon">🔍</span>
+                    <input type="text" id="pageSearchInput" placeholder="Chercher..." autocomplete="off">
+                    <button class="clear-btn" id="pageSearchClear" title="Effacer">✕</button>
+                </div>
+                <div class="search-nav" id="searchNav">
+                    <span id="searchCounter">0/0</span>
+                    <button id="searchPrev">◀</button>
+                    <button id="searchNext">▶</button>
+                </div>
+            </div>
+            <button class="icon-button" id="themeToggle" title="Thème" onclick="toggleTheme()">🌙</button>
+            <button class="icon-button" title="Fermer" onclick="window.close()">✖️</button>
+        </div>
+    </header>
+
+    <div class="help-layout">
+
+        <!-- TABLE DES MATIÈRES -->
+        <aside class="toc-sidebar">
+            <button class="toc-mobile-toggle" onclick="document.querySelector('.toc-card').classList.toggle('open')">
+                📑 Sommaire ▾
+            </button>
+            <nav class="toc-card">
+                <div class="toc-title">📑 Sommaire</div>
+                <ul class="toc-list">
+                    <li><a href="#presentation">1. Présentation</a></li>
+                    <li><a href="#interface">2. Interface</a></li>
+                    <li class="toc-sub"><a href="#header">Header</a></li>
+                    <li class="toc-sub"><a href="#zone-config">Zone de configuration</a></li>
+                    <li class="toc-sub"><a href="#zone-recherche">Zone de recherche</a></li>
+                    <li><a href="#demo-mode">3. Mode démo</a></li>
+                    <li class="toc-sub"><a href="#config-demo">Configuration</a></li>
+                    <li class="toc-sub"><a href="#lancement">Lancement</a></li>
+                    <li><a href="#recherche">4. Recherche manuelle</a></li>
+                    <li class="toc-sub"><a href="#recherche-texte">Recherche texte</a></li>
+                    <li class="toc-sub"><a href="#recherche-vocale">Recherche vocale</a></li>
+                    <li><a href="#resultats">5. Résultats</a></li>
+                    <li class="toc-sub"><a href="#fiche-patient">Fiche patient</a></li>
+                    <li class="toc-sub"><a href="#meme-que">Même X que...</a></li>
+                    <li class="toc-sub"><a href="#photofit">Photofit</a></li>
+                    <li><a href="#langue">6. Langue</a></li>
+                    <li><a href="#exemples">7. Exemples</a></li>
+                    <li><a href="#recherche-page" style="color: #e91e63; font-weight: 600;">8. Recherche guide</a></li>
+                    <li><a href="#assistant-ia" style="color: #e91e63; font-weight: 600;">9. Assistant IA</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- CONTENU -->
+        <main class="help-content">
+
+            <!-- 1. PRÉSENTATION -->
+            <section class="help-section" id="presentation">
+                <h2>📋 1. Présentation</h2>
+                <p><strong>Kitview Search Démo</strong> est une interface simplifiée destinée à la démonstration
+                    du moteur de recherche orthodontique Kitview Search V5.2.</p>
+                <p>Elle permet de :</p>
+                <ul>
+                    <li>Faire défiler automatiquement des exemples de recherches multilingues</li>
+                    <li>Effectuer des recherches manuelles en texte libre ou vocalement</li>
+                    <li>Présenter les fiches patients avec pathologies, tags et scores de similarité</li>
+                    <li>Démontrer la fonctionnalité « Même X que... » (recherche par similarité)</li>
+                </ul>
+                <div class="info-box">
+                    💡 Cette page est conçue pour les <strong>salons, présentations et formations</strong>.
+                    Pour l'utilisation complète, voir l'interface standard (chat30.html).
+                </div>
+            </section>
+
+            <!-- 2. INTERFACE -->
+            <section class="help-section" id="interface">
+                <h2>🖥️ 2. Interface</h2>
+
+                <h3 id="header">2.1 Header</h3>
+                <p>Le bandeau supérieur contient :</p>
+                <table>
+                    <tr><th>Élément</th><th>Description</th></tr>
+                    <tr><td>Logo + titre</td><td>Kitview Search + indicateur d'état (pastille colorée)</td></tr>
+                    <tr><td>Sélecteur de base</td><td>Choix de la base de données patients</td></tr>
+                    <tr><td>Bouton langue 🌐</td><td>Ouvre le popup de sélection de langue</td></tr>
+                    <tr><td>Checkbox →fr</td><td>Force la réponse en français quelle que soit la langue de la question</td></tr>
+                    <tr><td>Mode détection</td><td>Standard, IA Claude, IA GPT...</td></tr>
+                    <tr><td>Switch Démo</td><td>Active/désactive le mode démonstration automatique</td></tr>
+                    <tr><td>🌙 / ☀️</td><td>Bascule thème clair/sombre</td></tr>
+                </table>
+
+                <h3 id="zone-config">2.2 Zone de configuration (écran d'accueil)</h3>
+                <p>Au centre de l'écran d'accueil, la zone de configuration démo propose :</p>
+                <ul>
+                    <li><strong>Sélecteur de démo</strong> : choix parmi les démos prédéfinies</li>
+                    <li><strong>Textarea</strong> : liste d'exemples de recherche (un par ligne). Les lignes commençant par <span class="code-inline">#</span> sont ignorées</li>
+                    <li><strong>Bouton ▶ Lancer</strong> : démarre le cycle automatique</li>
+                    <li><strong>Bouton ■ Stop</strong> : arrête la démo (apparaît pendant l'exécution)</li>
+                    <li><strong>Bouton ? Aide</strong> : ouvre cette page</li>
+                </ul>
+
+                <h3 id="zone-recherche">2.3 Zone de recherche</h3>
+                <p>La barre de recherche en bas de l'écran contient :</p>
+                <ul>
+                    <li>Champ de saisie texte libre (multilingue)</li>
+                    <li>Bouton microphone 🎤 (recherche vocale)</li>
+                    <li>Bouton envoi ⬆️</li>
+                </ul>
+            </section>
+
+            <!-- 3. MODE DÉMO -->
+            <section class="help-section" id="demo-mode">
+                <h2>🎬 3. Mode démo</h2>
+
+                <h3 id="config-demo">3.1 Configuration</h3>
+                <p>La zone textarea accepte une liste d'exemples de recherche, un par ligne :</p>
+                <div class="code-block">
+# Exemples français
+patients qui grincent des dents
+Patientes avec béance antérieure et classe II
+
+# Exemples multilingues
+歯ぎしり
+Number of patients with linguo-version?
+Patientinnen mit Frontzahnlücke und Klasse II
+                </div>
+
+                <div class="info-box">
+                    💡 Les lignes vides et les lignes commençant par <span class="code-inline">#</span> sont ignorées.
+                    Vous pouvez ainsi organiser vos exemples par thème ou par langue.
+                </div>
+
+                <h3 id="lancement">3.2 Cycle automatique</h3>
+                <p>Lorsque la démo est lancée :</p>
+                <ol>
+                    <li><strong>Phase 1</strong> (10%) : Réinitialisation de l'écran, retour à l'accueil</li>
+                    <li><strong>Phase 2</strong> (20%) : Sélection aléatoire d'un exemple, affichage dans la barre de recherche</li>
+                    <li><strong>Phase 3</strong> (70%) : Lancement de la recherche, affichage des résultats</li>
+                    <li>Puis le cycle recommence — avec 1 chance sur 3 de réinitialiser l'écran</li>
+                </ol>
+
+                <p>La durée totale d'un cycle est configurable dans les paramètres web (<span class="code-inline">demoDuration</span>).
+                   L'anneau de progression autour du switch Démo indique visuellement l'avancement.</p>
+
+                <div class="warning-box">
+                    ⚠️ Pendant la démo automatique, la barre de recherche manuelle reste active.
+                    Toute recherche manuelle s'intègre au flux d'affichage.
+                </div>
+            </section>
+
+            <!-- 4. RECHERCHE MANUELLE -->
+            <section class="help-section" id="recherche">
+                <h2>🔍 4. Recherche manuelle</h2>
+
+                <h3 id="recherche-texte">4.1 Recherche texte</h3>
+                <p>Tapez votre question en langage naturel dans la barre en bas de l'écran.
+                   Le moteur comprend le français et 13 autres langues.</p>
+                <p>Types de recherche supportés :</p>
+                <ul>
+                    <li><strong>Pathologies</strong> : « patients avec bruxisme et béance »</li>
+                    <li><strong>Démographie</strong> : « patientes de moins de 30 ans »</li>
+                    <li><strong>Combiné</strong> : « ado diabétique avec problème de bruxisme »</li>
+                    <li><strong>Comptage</strong> : « combien de patients avec classe II ? »</li>
+                    <li><strong>Angles</strong> : « patients avec un angle ANB = 0° »</li>
+                </ul>
+
+                <h3 id="recherche-vocale">4.2 Recherche vocale 🎤</h3>
+                <p>Cliquez sur le microphone et parlez. La reconnaissance vocale transcrit votre question
+                   puis lance automatiquement la recherche.</p>
+                <div class="info-box">
+                    💡 La langue de reconnaissance vocale suit la langue sélectionnée dans l'interface.
+                </div>
+            </section>
+
+            <!-- 5. RÉSULTATS -->
+            <section class="help-section" id="resultats">
+                <h2>📊 5. Résultats</h2>
+                <p>Les résultats s'affichent en mode chat (scroll vers le bas, style conversationnel) :</p>
+                <ul>
+                    <li>La <strong>question</strong> apparaît en haut de chaque bloc</li>
+                    <li>Un <strong>bandeau résumé</strong> indique le nombre de patients trouvés</li>
+                    <li>Les <strong>fiches patients</strong> défilent en dessous</li>
+                    <li>Un bouton <strong>Page suivante →</strong> permet de charger plus de résultats</li>
+                </ul>
+
+                <h3 id="fiche-patient">5.1 Fiche patient</h3>
+                <p>Chaque fiche contient :</p>
+                <table>
+                    <tr><th>Zone</th><th>Contenu</th></tr>
+                    <tr><td>Photo</td><td>Portrait du patient (ou initiales si absent)</td></tr>
+                    <tr><td>Identité</td><td>Prénom, nom, sexe (♂/♀), âge</td></tr>
+                    <tr><td>Score</td><td>Badge coloré de similarité (si photofit actif) : 🎯100%, 🟢≥80%, 🔵≥60%, 🟠&lt;60%</td></tr>
+                    <tr><td>Pathologies</td><td>Groupées par tag, avec tags en sombre et détails en clair</td></tr>
+                    <tr><td>ID</td><td>Numéro patient en haut à droite</td></tr>
+                </table>
+                <p>Cliquez sur une fiche pour la déplier et voir les détails complets.</p>
+
+                <h3 id="meme-que">5.2 Recherche par similarité — « Même X que... »</h3>
+                <p>Chaque élément cliquable d'une fiche patient permet de lancer une recherche
+                   « Même X que [patient] » :</p>
+                <table>
+                    <tr><th>Élément cliqué</th><th>Recherche déclenchée</th></tr>
+                    <tr><td>Photo / portrait</td><td>Même portrait (Photofit par similarité faciale)</td></tr>
+                    <tr><td>Sexe (♂/♀)</td><td>Même sexe</td></tr>
+                    <tr><td>Âge</td><td>Même âge (±3 ans)</td></tr>
+                    <tr><td>Tag pathologie</td><td>Même tag (ex: même « occlusion »)</td></tr>
+                    <tr><td>Pathologie complète</td><td>Même pathologie exacte</td></tr>
+                </table>
+
+                <div class="info-box">
+                    💡 Les critères actifs apparaissent en <span style="color:red;font-weight:bold;">rouge</span>.
+                    Le patient de référence est mis en évidence avec un fond
+                    <span class="tag-highlight">jaune stabilo</span>.
+                </div>
+
+                <h3 id="photofit">5.3 Photofit — Recherche par portrait 📸</h3>
+                <p>En cliquant sur la photo d'un patient, le système compare son portrait à ceux
+                   de tous les patients de la base et retourne les plus ressemblants.</p>
+                <p>Les scores de similarité sont affichés sous forme de badges colorés :</p>
+                <ul>
+                    <li><span class="tag-example" style="background:#ffc107;color:#fff;">🎯 100%</span> Portrait de référence</li>
+                    <li><span class="tag-example" style="background:#28a745;color:#fff;">🟢 ≥80%</span> Très similaire</li>
+                    <li><span class="tag-example" style="background:#17a2b8;color:#fff;">🔵 ≥60%</span> Similaire</li>
+                    <li><span class="tag-example" style="background:#fd7e14;color:#fff;">🟠 &lt;60%</span> Peu similaire</li>
+                </ul>
+            </section>
+
+            <!-- 6. LANGUE -->
+            <section class="help-section" id="langue">
+                <h2>🌐 6. Langue</h2>
+                <p>Kitview Search détecte automatiquement la langue de la question et adapte la réponse.</p>
+                <p><strong>14 langues supportées</strong> : français, anglais, allemand, espagnol, italien,
+                   portugais, polonais, roumain, thaï, arabe, chinois, japonais, coréen, russe.</p>
+
+                <h3>Sélection manuelle</h3>
+                <p>Cliquez sur le bouton 🌐 dans le header pour ouvrir le popup de langues.
+                   Chaque langue est représentée par un <em>chip</em> avec son drapeau.
+                   Le clic change immédiatement la langue de l'interface.</p>
+
+                <h3>Option →fr</h3>
+                <p>La case à cocher <span class="code-inline">→fr</span> force les réponses en français
+                   même si la question est posée dans une autre langue. Utile pour les présentations
+                   devant un public francophone.</p>
+            </section>
+
+            <!-- 7. EXEMPLES -->
+            <section class="help-section" id="exemples">
+                <h2>💡 7. Exemples de recherches</h2>
+
+                <h3>Recherches simples</h3>
+                <div class="code-block">
+patients avec bruxisme
+patientes de moins de 30 ans
+classe II division 1
+                </div>
+
+                <h3>Recherches combinées</h3>
+                <div class="code-block">
+ado diabétique avec problème de bruxisme
+Patientes souffrant de béance antérieure et avec classe II
+patients qui zozottent des dents
+                </div>
+
+                <h3>Comptage</h3>
+                <div class="code-block">
+combien de patients avec linguo-version ?
+nombre de patients avec déviation maxillaire
+                </div>
+
+                <h3>Multilingue</h3>
+                <div class="code-block">
+Number of patients with linguo-version with maxillary deviation?
+Patientinnen mit Frontzahnlücke und Klasse II
+Pazienti di età inferiore ai 39 anni con affollamento
+歯ぎしり
+Adolescente diabético com problema de bruxismo
+                </div>
+
+                <h3>Angles et mesures</h3>
+                <div class="code-block">
+patients avec un angle ANB = 0°
+patients avec angle SNA entre 78° et 82°
+                </div>
+            </section>
+
+            <!-- 8. RECHERCHE DANS LE GUIDE -->
+            <section class="help-section" id="recherche-page">
+                <h2>🔍 8. Recherche dans le guide</h2>
+                <div class="info-box">
+                    🆕 La barre de recherche <strong>🔍 « Chercher... »</strong> dans le bandeau permet de trouver
+                    n'importe quel mot ou expression dans ce mode d'emploi.
+                </div>
+                <p>Tapez au moins 2 caractères. Les occurrences sont surlignées en jaune,
+                   l'occurrence courante en orange. Naviguez avec ◀ ▶ ou <kbd>F3</kbd> / <kbd>Shift+F3</kbd>.</p>
+            </section>
+
+            <!-- 9. ASSISTANT IA -->
+            <section class="help-section" id="assistant-ia">
+                <h2>🤖 9. Assistant IA</h2>
+                <div class="info-box">
+                    🆕 Un assistant IA est disponible via le <strong>bouton bleu 💬</strong> en bas à droite.
+                    Il répond à vos questions sur ce guide en utilisant le contenu de la page comme contexte.
+                </div>
+                <p>L'assistant utilise un modèle IA (Claude ou GPT) hébergé côté serveur via des variables
+                   d'environnement sécurisées (ANTHROPIC_API_KEY / OPENAI_API_KEY). Aucune clé API n'est
+                   stockée côté navigateur.</p>
+                <p>Des suggestions de questions sont proposées au premier lancement du chat.
+                   L'historique de conversation est conservé pendant la session.</p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- CHATBOT ASSISTANT IA -->
+    <button id="chatbot-toggle" title="Assistant IA" aria-label="Ouvrir l'assistant">
+        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"/>
+            <circle cx="8" cy="10" r="1.5"/><circle cx="12" cy="10" r="1.5"/><circle cx="16" cy="10" r="1.5"/>
+        </svg>
+    </button>
+
+    <div id="chatbot-modal" role="dialog">
+        <div id="chatbot-header">
+            <div class="avatar">🤖</div>
+            <div class="title"><h4>Assistant Kitview</h4><span>Questions sur le guide démo</span></div>
+            <button id="chatbot-close" aria-label="Fermer">×</button>
+        </div>
+        <div id="chatbot-messages" role="log" aria-live="polite">
+            <div class="chat-msg assistant">Bonjour ! 👋 Je suis l'assistant du guide Kitview Search Démo. Posez-moi vos questions !</div>
+        </div>
+        <div id="chatbot-suggestions">
+            <button class="suggestion-chip" data-q="Comment lancer la démo ?">🎬 Lancer démo</button>
+            <button class="suggestion-chip" data-q="Comment faire une recherche manuelle ?">🔍 Recherche</button>
+            <button class="suggestion-chip" data-q="Comment fonctionne le Photofit ?">📸 Photofit</button>
+            <button class="suggestion-chip" data-q="Quelles langues sont supportées ?">🌐 Langues</button>
+        </div>
+        <div id="chatbot-input-area">
+            <input type="text" id="chatbot-input" placeholder="Posez votre question..." autocomplete="off">
+            <button id="chatbot-send" aria-label="Envoyer">
+                <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <script>
+    /*
+     * modedemo30.html V1.1.0 - 11/02/2026
+     * JavaScript : Thème + TOC + Full-text search + Chatbot IA
+     */
+
+    /* ═══ THÈME ═══ */
+    function toggleTheme() {
+        const isDark = document.documentElement.hasAttribute('data-theme');
+        if (isDark) { document.documentElement.removeAttribute('data-theme'); localStorage.setItem('theme', 'light'); document.getElementById('themeToggle').textContent = '🌙'; }
+        else { document.documentElement.setAttribute('data-theme', 'dark'); localStorage.setItem('theme', 'dark'); document.getElementById('themeToggle').textContent = '☀️'; }
+    }
+
+    (function() {
+        const theme = localStorage.getItem('theme') || 'auto';
+        if (theme === 'dark' || (theme === 'auto' && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.setAttribute('data-theme', 'dark');
+            const btn = document.getElementById('themeToggle');
+            if (btn) btn.textContent = '☀️';
+        }
+    })();
+
+    /* ═══ TOC ═══ */
+    const sections = document.querySelectorAll('.help-section');
+    const tocLinks = document.querySelectorAll('.toc-list a');
+
+    function updateActiveToc() {
+        let current = '';
+        sections.forEach(section => { if (window.scrollY >= section.offsetTop - 100) current = section.id; });
+        tocLinks.forEach(link => link.classList.toggle('active', link.getAttribute('href') === '#' + current));
+    }
+
+    window.addEventListener('scroll', updateActiveToc);
+    updateActiveToc();
+
+    tocLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+            e.preventDefault();
+            const target = document.querySelector(link.getAttribute('href'));
+            if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); const card = document.querySelector('.toc-card'); if (card && window.innerWidth <= 768) card.classList.remove('open'); }
+        });
+    });
+
+    /* ═══ RECHERCHE FULL-TEXT ═══ */
+    let searchMatches = [];
+    let searchCurrentIndex = -1;
+
+    function clearSearchHighlights() {
+        document.querySelectorAll('mark.search-highlight').forEach(mark => {
+            const parent = mark.parentNode;
+            parent.replaceChild(document.createTextNode(mark.textContent), mark);
+            parent.normalize();
+        });
+        searchMatches = [];
+        searchCurrentIndex = -1;
+        updateSearchCounter();
+    }
+
+    function highlightText(query) {
+        clearSearchHighlights();
+        if (!query || query.length < 2) return;
+        const contentArea = document.querySelector('.help-content');
+        if (!contentArea) return;
+        const walker = document.createTreeWalker(contentArea, NodeFilter.SHOW_TEXT, {
+            acceptNode: (node) => node.parentElement.closest('.search-page-box, .search-nav, script, style, .code-block') ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT
+        });
+        const textNodes = [];
+        while (walker.nextNode()) textNodes.push(walker.currentNode);
+        const queryLower = query.toLowerCase();
+        textNodes.forEach(node => {
+            const text = node.textContent, lower = text.toLowerCase();
+            let idx = lower.indexOf(queryLower);
+            if (idx === -1) return;
+            const fragment = document.createDocumentFragment();
+            let lastIdx = 0;
+            while (idx !== -1) {
+                if (idx > lastIdx) fragment.appendChild(document.createTextNode(text.substring(lastIdx, idx)));
+                const mark = document.createElement('mark');
+                mark.className = 'search-highlight';
+                mark.textContent = text.substring(idx, idx + query.length);
+                fragment.appendChild(mark);
+                lastIdx = idx + query.length;
+                idx = lower.indexOf(queryLower, lastIdx);
+            }
+            if (lastIdx < text.length) fragment.appendChild(document.createTextNode(text.substring(lastIdx)));
+            node.parentNode.replaceChild(fragment, node);
+        });
+        searchMatches = Array.from(document.querySelectorAll('mark.search-highlight'));
+        if (searchMatches.length > 0) navigateSearch(0);
+        updateSearchCounter();
+    }
+
+    function navigateSearch(index) {
+        if (searchMatches.length === 0) return;
+        searchMatches.forEach(m => m.classList.remove('current'));
+        searchCurrentIndex = ((index % searchMatches.length) + searchMatches.length) % searchMatches.length;
+        searchMatches[searchCurrentIndex].classList.add('current');
+        searchMatches[searchCurrentIndex].scrollIntoView({ behavior: 'smooth', block: 'center' });
+        updateSearchCounter();
+    }
+
+    function updateSearchCounter() {
+        const counter = document.getElementById('searchCounter');
+        const nav = document.getElementById('searchNav');
+        if (searchMatches.length > 0) { counter.textContent = `${searchCurrentIndex + 1}/${searchMatches.length}`; nav.classList.add('visible'); }
+        else { counter.textContent = '0/0'; nav.classList.remove('visible'); }
+    }
+
+    (function initPageSearch() {
+        const input = document.getElementById('pageSearchInput');
+        const clearBtn = document.getElementById('pageSearchClear');
+        let debounceTimer;
+        input.addEventListener('input', () => {
+            clearBtn.classList.toggle('visible', input.value.length > 0);
+            clearTimeout(debounceTimer);
+            debounceTimer = setTimeout(() => highlightText(input.value.trim()), 300);
+        });
+        clearBtn.addEventListener('click', () => { input.value = ''; clearBtn.classList.remove('visible'); clearSearchHighlights(); input.focus(); });
+        document.getElementById('searchPrev').addEventListener('click', () => navigateSearch(searchCurrentIndex - 1));
+        document.getElementById('searchNext').addEventListener('click', () => navigateSearch(searchCurrentIndex + 1));
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'F3') { e.preventDefault(); if (searchMatches.length > 0) navigateSearch(searchCurrentIndex + (e.shiftKey ? -1 : 1)); }
+            if (e.key === 'Escape' && input.value) { input.value = ''; clearBtn.classList.remove('visible'); clearSearchHighlights(); }
+        });
+    })();
+
+    /* ═══ CHATBOT IA ═══ */
+    let chatHistory = [];
+
+    function extractPageContext() {
+        const sections = document.querySelectorAll('.help-section');
+        let text = '';
+        sections.forEach(s => { const c = s.cloneNode(true); c.querySelectorAll('script,style,mark').forEach(el => el.remove()); text += c.textContent.replace(/\s+/g, ' ').trim() + '\n\n'; });
+        return text.substring(0, 5000);
+    }
+
+    function addChatMessage(content, role) {
+        const messages = document.getElementById('chatbot-messages');
+        const div = document.createElement('div');
+        div.className = `chat-msg ${role}`;
+        if (role === 'assistant') {
+            div.innerHTML = content.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>').replace(/\n- /g, '<br>• ').replace(/\n/g, '<br>');
+        } else { div.textContent = content; }
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+        return div;
+    }
+
+    async function sendChatMessage(question) {
+        if (!question.trim()) return;
+        addChatMessage(question, 'user');
+        chatHistory.push({ role: 'user', content: question });
+        const loadingMsg = addChatMessage('⏳ Réflexion en cours...', 'loading');
+        const suggestions = document.getElementById('chatbot-suggestions');
+        if (suggestions) suggestions.style.display = 'none';
+        try {
+            const response = await fetch(`${window.location.origin}/ia/help-chatbot`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question, page_context: extractPageContext(), history: chatHistory.slice(-6), lang: 'fr' })
+            });
+            loadingMsg.remove();
+            if (!response.ok) { const err = await response.json().catch(() => ({ detail: response.statusText })); throw new Error(err.detail || `Erreur ${response.status}`); }
+            const data = await response.json();
+            addChatMessage(data.reponse, 'assistant');
+            chatHistory.push({ role: 'assistant', content: data.reponse });
+        } catch (error) {
+            loadingMsg.remove();
+            addChatMessage(`❌ ${error.message}`, 'error');
+        }
+    }
+
+    (function initChatbot() {
+        const toggle = document.getElementById('chatbot-toggle');
+        const modal = document.getElementById('chatbot-modal');
+        const close = document.getElementById('chatbot-close');
+        const input = document.getElementById('chatbot-input');
+        const send = document.getElementById('chatbot-send');
+        toggle.addEventListener('click', () => { modal.classList.toggle('open'); if (modal.classList.contains('open')) input.focus(); });
+        close.addEventListener('click', () => modal.classList.remove('open'));
+        send.addEventListener('click', () => { sendChatMessage(input.value); input.value = ''; });
+        input.addEventListener('keydown', (e) => { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChatMessage(input.value); input.value = ''; } });
+        document.querySelectorAll('.suggestion-chip').forEach(chip => {
+            chip.addEventListener('click', () => { sendChatMessage(chip.dataset.q); input.value = ''; });
+        });
+    })();
+
+    console.log('[ModeDemo] V1.1.0 - search + chatbot');
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,7 @@
+﻿# Tests Quentin;;;;
+question;L1;L2;L3;L4
+patients en classe 2 agés de plus de 20 ans et de moins de 23 ans;[tag] classe ii d'angle;[age] moins de 23 ans;[age] plus age que 20 ans;Résidu: 'patients en ages de et de'
+Patient compris entre 13 et 16 avec une classe d'angle de 1 uniquement;[tag] classe i d'angle;[age] entre 13 et 16 ans;Résidu: 'patient avec une uniquement';
+Patients avec un age supérieur à 17 ans et inférieur à 23 ans de classe 3;[tag] classe iii d'angle;[age] moins de 23 ans;[age] plus age que 17 ans;Résidu: 'patients avec un age et de'
+Patient enfant avec rétrognathie et ou classe 2;[tag] classe ii d'angle;[tag] rétrognathie mandibulaire;[age] enfant;Résidu: 'patient avec et ou'
+Patient metal compris entre 20 e 24 ans;[tag] métal;[age] entre 20 et 24 ans;Résidu: 'patient compris';

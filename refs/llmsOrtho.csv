@@ -1,0 +1,7 @@
+﻿# llmsOrtho.csv V1.0.0 - 28/01/2026 15:16:27
+Model Name;Type;Specialisation;Status;Notes
+DentalGPT;LLM spécialisé (dentaire);Dentisterie générale / Orthodontie;Recherche / Prototype;Modèle expérimental mentionné dans la littérature académique pour QA clinique dentaire
+OrthoLM;LLM spécialisé (orthodontie);Orthodontie;Recherche;Fine-tuning expérimental de LLM généralistes sur des cas orthodontiques
+"Med-PaLM;LLM médical;Médecine (applicable orthodontie);Propriétaire;""Utilisable pour raisonnement clinique; pas dédié exclusivement à l’orthodontie"""
+GPT-4 / GPT-4o (fine-tuned);LLM généraliste;Orthodontie via fine-tuning;Commercial;Souvent utilisé avec bases de connaissances orthodontiques privées
+LLaMA / Mistral (fine-tuned);Open-source;Orthodontie via fine-tuning;Open-source;Utilisé en recherche et projets hospitalo-universitaires

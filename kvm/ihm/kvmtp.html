@@ -1,0 +1,994 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta class="notranslate" content="notranslate" name="google"/>
+<title data-txt="txt_0001">[txt_0001]</title>
+<link href="https://www.kitview.com/favicon.ico" rel="icon" type="image/png"/>
+<link href="https://www.kitview.com/favicon.ico" rel="apple-touch-icon"/>
+<link href="css/kvm.css" rel="stylesheet"/>
+<link href="css/themes.css" rel="stylesheet"/>
+<link href="css/chatbot.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Header -->
+<header class="help-header">
+<div class="header-left">
+<img alt="[txt_0486]" class="logo" data-alt-txt="txt_0486" src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png"/>
+<h1><span class="icon">📖</span> <span class="" data-txt="txt_0002">[txt_0002]</span></h1>
+</div>
+<!-- Zone de recherche -->
+<div class="header-center notranslate">
+<div class="search-box" id="searchBox">
+<span class="search-icon">🔍</span>
+<input data-placeholder-txt="txt_0558" id="searchInput" placeholder="[txt_0558]" type="text"/>
+<button class="clear-search" id="clearSearch" title="Effacer">✕</button>
+</div>
+<select class="section-filter" id="sectionFilter">
+<option data-txt="txt_0563" value="all">[txt_0563]</option>
+<option data-txt="txt_0564" value="presentation">[txt_0564]</option>
+<option data-txt="txt_0565" value="gestion-patients">[txt_0565]</option>
+<option data-txt="txt_0566" value="personnalisation">[txt_0566]</option>
+<option data-txt="txt_0567" value="import-export">[txt_0567]</option>
+<option data-txt="txt_0568" value="seances">[txt_0568]</option>
+<option data-txt="txt_0569" value="gabarits">[txt_0569]</option>
+<option data-txt="txt_0570" value="viewers">[txt_0570]</option>
+<option data-txt="txt_0571" value="modification-photos">[txt_0571]</option>
+<option data-txt="txt_0572" value="presentations">[txt_0572]</option>
+<option data-txt="txt_0573" value="docking">[txt_0573]</option>
+<option data-txt="txt_0574" value="creer-presentation">[txt_0574]</option>
+<option data-txt="txt_0575" value="diaporama">[txt_0575]</option>
+<option data-txt="txt_0576" value="comparateur">[txt_0576]</option>
+<option data-txt="txt_0577" value="courrier">[txt_0577]</option>
+<option data-txt="txt_0578" value="portfolio">[txt_0578]</option>
+<option data-txt="txt_0579" value="filtre-population">[txt_0579]</option>
+<option data-txt="txt_0580" value="recherche-date">[txt_0580]</option>
+<option data-txt="txt_0581" value="formulaires">[txt_0581]</option>
+<option data-txt="txt_0582" value="support-formation">[txt_0582]</option>
+</select>
+<!-- Navigation des résultats inline -->
+<div class="search-nav-inline" id="searchNavInline">
+<span class="search-results-count-inline" id="searchResultsCount">0</span>
+<button class="search-nav-btn" data-txt="txt_0559" id="prevResult" title="Précédent (Shift+F3)">[txt_0559]</button>
+<span class="search-nav-index" id="currentResultIndex">0/0</span>
+<button class="search-nav-btn" data-txt="txt_0560" id="nextResult" title="Suivant (F3)">[txt_0560]</button>
+<button class="search-close-btn" id="closeSearchResults" title="Fermer">✕</button>
+</div>
+<!-- Chips de niveau -->
+<div class="level-chips-container notranslate">
+<a class="level-chip standard active" href="kvms.html" title="Version Standard">📘 <span class="chip-label" data-txt="txt_0585">[txt_0585]</span></a>
+<a class="level-chip debutant" href="kvmd.html" title="Version Débutant">🟢 <span class="chip-label" data-txt="txt_0586">[txt_0586]</span></a>
+<a class="level-chip intermediaire" href="kvmi.html" title="Version Intermédiaire">🟡 <span class="chip-label" data-txt="txt_0587">[txt_0587]</span></a>
+<a class="level-chip expert" href="kvme.html" title="Version Expert">🔴 <span class="chip-label" data-txt="txt_0588">[txt_0588]</span></a>
+</div>
+</div>
+<div class="header-right">
+<!-- Bouton d'aide -->
+<a class="icon-button help-button" data-title-txt="txt_0607" href="aide.html" id="helpButton" title="Guide du manuel">❓</a>
+<!-- Sélecteur de langue custom -->
+<div class="lang-button-container">
+<button class="lang-button" data-txt="txt_0561" id="langButton" onclick="toggleLangPopup()">[txt_0561]
+<img alt="FR" class="flag-img" id="currentFlag" src="https://flagcdn.com/w40/fr.png"/>
+<span id="currentLangCode">FR</span>
+<span class="dropdown-arrow">▼</span>
+</button>
+<div class="lang-popup" id="langPopup" style="display: none;">
+<div class="lang-popup-header" data-txt="txt_0584">
+<span>🌐</span>[txt_0584]</div>
+<div class="lang-popup-section">
+<div class="lang-popup-label" data-txt="txt_0583">[txt_0583]</div>
+<div class="chips-container">
+<div class="lang-chip selected" data-flag="fr" data-lang="fr" onclick="selectLanguage('fr', 'FR', 'fr')">
+<img alt="FR" class="chip-flag" src="https://flagcdn.com/w40/fr.png"/> FR
+                            </div>
+<div class="lang-chip" data-flag="gb" data-lang="en" onclick="selectLanguage('en', 'EN', 'gb')">
+<img alt="EN" class="chip-flag" src="https://flagcdn.com/w40/gb.png"/> EN
+                            </div>
+<div class="lang-chip" data-flag="de" data-lang="de" onclick="selectLanguage('de', 'DE', 'de')">
+<img alt="DE" class="chip-flag" src="https://flagcdn.com/w40/de.png"/> DE
+                            </div>
+<div class="lang-chip" data-flag="es" data-lang="es" onclick="selectLanguage('es', 'ES', 'es')">
+<img alt="ES" class="chip-flag" src="https://flagcdn.com/w40/es.png"/> ES
+                            </div>
+<div class="lang-chip" data-flag="it" data-lang="it" onclick="selectLanguage('it', 'IT', 'it')">
+<img alt="IT" class="chip-flag" src="https://flagcdn.com/w40/it.png"/> IT
+                            </div>
+<div class="lang-chip" data-flag="pt" data-lang="pt" onclick="selectLanguage('pt', 'PT', 'pt')">
+<img alt="PT" class="chip-flag" src="https://flagcdn.com/w40/pt.png"/> PT
+                            </div>
+<div class="lang-chip" data-flag="pl" data-lang="pl" onclick="selectLanguage('pl', 'PL', 'pl')">
+<img alt="PL" class="chip-flag" src="https://flagcdn.com/w40/pl.png"/> PL
+                            </div>
+<div class="lang-chip" data-flag="ro" data-lang="ro" onclick="selectLanguage('ro', 'RO', 'ro')">
+<img alt="RO" class="chip-flag" src="https://flagcdn.com/w40/ro.png"/> RO
+                            </div>
+<div class="lang-chip" data-flag="th" data-lang="th" onclick="selectLanguage('th', 'TH', 'th')">
+<img alt="TH" class="chip-flag" src="https://flagcdn.com/w40/th.png"/> TH
+                            </div>
+<div class="lang-chip" data-flag="sa" data-lang="ar" onclick="selectLanguage('ar', 'AR', 'sa')">
+<img alt="AR" class="chip-flag" src="https://flagcdn.com/w40/sa.png"/> AR
+                            </div>
+<div class="lang-chip" data-flag="cn" data-lang="zh-CN" onclick="selectLanguage('zh-CN', 'CN', 'cn')">
+<img alt="CN" class="chip-flag" src="https://flagcdn.com/w40/cn.png"/> CN
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Google Translate Widget (invisible via CSS) -->
+<div id="google_translate_element"></div>
+<!-- Thème -->
+<button class="icon-button" id="themeToggle" title="Changer le thème">
+                🌙
+            </button>
+<!-- Retour -->
+<button class="back-button notranslate" data-txt="txt_0562" onclick="goBack()">[txt_0562]</button>
+</div>
+</header>
+<!-- Container principal -->
+<div class="help-container">
+<!-- Table des matières -->
+<aside class="toc-sidebar">
+<nav class="toc-card">
+<div class="toc-title" data-txt="txt_0446">[txt_0446]</div>
+<ul class="toc-list">
+<li><a data-txt="txt_0158" href="#presentation">[txt_0158]</a></li>
+<li><a data-txt="txt_0159" href="#gestion-patients">[txt_0159]</a></li>
+<li class="toc-sub"><a data-txt="txt_0160" href="#creer-patient">[txt_0160]</a></li>
+<li class="toc-sub"><a data-txt="txt_0161" href="#supprimer-patient">[txt_0161]</a></li>
+<li class="toc-sub"><a data-txt="txt_0162" href="#photo-identite">[txt_0162]</a></li>
+<li><a data-txt="txt_0163" href="#personnalisation">[txt_0163]</a></li>
+<li class="toc-sub"><a data-txt="txt_0164" href="#onglets-style">[txt_0164]</a></li>
+<li class="toc-sub"><a data-txt="txt_0165" href="#couleurs">[txt_0165]</a></li>
+<li class="toc-sub"><a data-txt="txt_0166" href="#vignettes">[txt_0166]</a></li>
+<li><a data-txt="txt_0167" href="#import-export">[txt_0167]</a></li>
+<li class="toc-sub"><a data-txt="txt_0168" href="#import-photos">[txt_0168]</a></li>
+<li class="toc-sub"><a data-txt="txt_0169" href="#export-photos">[txt_0169]</a></li>
+<li class="toc-sub"><a data-txt="txt_0170" href="#drag-drop">[txt_0170]</a></li>
+<li><a data-txt="txt_0171" href="#seances">[txt_0171]</a></li>
+<li class="toc-sub"><a data-txt="txt_0172" href="#protocole">[txt_0172]</a></li>
+<li class="toc-sub"><a data-txt="txt_0173" href="#wifi">[txt_0173]</a></li>
+<li><a data-txt="txt_0174" href="#gabarits">[txt_0174]</a></li>
+<li class="toc-sub"><a data-txt="txt_0175" href="#creer-motcle">[txt_0175]</a></li>
+<li class="toc-sub"><a data-txt="txt_0176" href="#creer-gabarit">[txt_0176]</a></li>
+<li class="toc-sub"><a data-txt="txt_0177" href="#creer-filtre">[txt_0177]</a></li>
+<li><a data-txt="txt_0178" href="#viewers">[txt_0178]</a></li>
+<li class="toc-sub"><a data-txt="txt_0179" href="#presentation-viewers">[txt_0179]</a></li>
+<li class="toc-sub"><a data-txt="txt_0180" href="#personnaliser-viewers">[txt_0180]</a></li>
+<li class="toc-sub"><a data-txt="txt_0181" href="#ajouter-viewers">[txt_0181]</a></li>
+<li><a data-txt="txt_0182" href="#modification-photos">[txt_0182]</a></li>
+<li class="toc-sub"><a data-txt="txt_0183" href="#copier-coller">[txt_0183]</a></li>
+<li class="toc-sub"><a data-txt="txt_0184" href="#luminosite">[txt_0184]</a></li>
+<li class="toc-sub"><a data-txt="txt_0185" href="#recadrer">[txt_0185]</a></li>
+<li><a data-txt="txt_0186" href="#presentations">[txt_0186]</a></li>
+<li><a data-txt="txt_0187" href="#docking">[txt_0187]</a></li>
+<li><a data-txt="txt_0188" href="#creer-presentation">[txt_0188]</a></li>
+<li><a data-txt="txt_0189" href="#diaporama">[txt_0189]</a></li>
+<li><a data-txt="txt_0190" href="#comparateur">[txt_0190]</a></li>
+<li class="toc-sub"><a data-txt="txt_0191" href="#comparer-2vues">[txt_0191]</a></li>
+<li class="toc-sub"><a data-txt="txt_0192" href="#comparateur-colonne-ligne">[txt_0192]</a></li>
+<li class="toc-sub"><a data-txt="txt_0193" href="#comparateur-protocole">[txt_0193]</a></li>
+<li><a data-txt="txt_0194" href="#courrier">[txt_0194]</a></li>
+<li class="toc-sub"><a data-txt="txt_0195" href="#creer-courrier">[txt_0195]</a></li>
+<li><a data-txt="txt_0196" href="#portfolio">[txt_0196]</a></li>
+<li><a data-txt="txt_0197" href="#filtre-population">[txt_0197]</a></li>
+<li><a data-txt="txt_0198" href="#recherche-date">[txt_0198]</a></li>
+<li class="toc-sub"><a data-txt="txt_0199" href="#date-precise">[txt_0199]</a></li>
+<li class="toc-sub"><a data-txt="txt_0200" href="#plage-dates">[txt_0200]</a></li>
+<li><a data-txt="txt_0201" href="#formulaires">[txt_0201]</a></li>
+<li class="toc-sub"><a data-txt="txt_0202" href="#completer-formulaire">[txt_0202]</a></li>
+<li class="toc-sub"><a data-txt="txt_0203" href="#recherche-formulaires">[txt_0203]</a></li>
+<li><a data-txt="txt_0204" href="#support-formation">[txt_0204]</a></li>
+</ul>
+</nav>
+</aside>
+<!-- Contenu principal -->
+<main class="help-content">
+<div class="content-card">
+<h1 class="main-title"><span data-txt="txt_0004">[txt_0004]</span><span class="version-badge" data-txt="txt_0589">[txt_0589]</span>
+</h1>
+<p class="subtitle" data-txt="txt_0005">[txt_0005]</p>
+<!-- SECTION 1: PRÉSENTATION GÉNÉRALE -->
+<section class="help-section" id="presentation">
+<h2 data-txt="txt_0006">[txt_0006]</h2>
+<p data-txt="txt_0093">[txt_0093]</p>
+<ul>
+<li data-txt="txt_0205"><strong>Photos</strong>[txt_0205]</li>
+<li data-txt="txt_0206"><strong>Radios</strong>[txt_0206]</li>
+<li data-txt="txt_0207"><strong>Scans 3D</strong>[txt_0207]</li>
+<li data-txt="txt_0208"><strong>Documents</strong>[txt_0208]</li>
+<li data-txt="txt_0209">[txt_0209]</li>
+</ul>
+<img alt="[txt_0487]" data-alt-txt="txt_0487" src="https://placehold.co/400x300/e0e0e0/666?text=page05_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0094">[txt_0094]</p>
+<div class="note-box tip" data-note-content-txt="txt_0448">
+<strong data-txt="txt_0447">[txt_0447]</strong>
+                        Kitview s'intègre avec votre logiciel de gestion de cabinet pour synchroniser automatiquement la liste des patients.
+                    </div>
+</section>
+<!-- SECTION 2: GESTION DES PATIENTS -->
+<section class="help-section" id="gestion-patients">
+<h2 data-txt="txt_0007">[txt_0007]</h2>
+<h3 data-txt="txt_0025" id="creer-patient">[txt_0025]</h3>
+<p data-txt="txt_0095">[txt_0095]</p>
+<ol class="step-list">
+<li data-txt="txt_0210">[txt_0210]<strong>« Patient »</strong></li>
+<li data-txt="txt_0211">[txt_0211]</li>
+<li data-txt="txt_0212">[txt_0212]<strong>« Valider »</strong></li>
+</ol>
+<img alt="[txt_0488]" data-alt-txt="txt_0488" src="https://placehold.co/400x300/e0e0e0/666?text=page06_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0096">[txt_0096]</p>
+<h3 data-txt="txt_0026" id="supprimer-patient">[txt_0026]</h3>
+<div class="note-box warning" data-note-content-txt="txt_0450">
+<strong data-txt="txt_0449">[txt_0449]</strong>
+                        La suppression d'une fiche patient est définitive et supprime également toutes les photos et documents associés. Cette action nécessite le mode Administration.
+                    </div>
+<ol class="step-list">
+<li data-txt="txt_0213">[txt_0213]<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0214">[txt_0214]<strong>« Administration »</strong> puis <strong>« Général »</strong></li>
+<li data-txt="txt_0215">[txt_0215]<strong>« Passer en mode administration »</strong></li>
+<li data-txt="txt_0216">[txt_0216]</li>
+<li data-txt="txt_0217">[txt_0217]<strong>« Patient »</strong> → <strong>« Supprimer le patient sélectionné »</strong></li>
+</ol>
+<img alt="[txt_0489]" data-alt-txt="txt_0489" src="https://placehold.co/400x300/e0e0e0/666?text=page07_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0027" id="photo-identite">[txt_0027]</h3>
+<p data-txt="txt_0097">[txt_0097]</p>
+<ol class="step-list">
+<li data-txt="txt_0218">[txt_0218]</li>
+<li data-txt="txt_0219">[txt_0219]</li>
+<li data-txt="txt_0220">[txt_0220]<strong>clic droit</strong> sur la photo</li>
+<li data-txt="txt_0221">[txt_0221]<strong>« Patient »</strong> → <strong>« Photo d'identité »</strong></li>
+</ol>
+<img alt="[txt_0490]" data-alt-txt="txt_0490" src="https://placehold.co/400x300/e0e0e0/666?text=page08_img02.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0098">[txt_0098]</p>
+</section>
+<!-- SECTION 3: PERSONNALISATION -->
+<section class="help-section" id="personnalisation">
+<h2 data-txt="txt_0008">[txt_0008]</h2>
+<h3 data-txt="txt_0028" id="onglets-style">[txt_0028]</h3>
+<p data-txt="txt_0099">[txt_0099]</p>
+<h4 data-txt="txt_0065">[txt_0065]</h4>
+<ol class="step-list">
+<li data-txt="txt_0222">[txt_0222]<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0223">[txt_0223]<strong>« Affichage »</strong> → <strong>« Apparence »</strong></li>
+<li data-txt="txt_0224">[txt_0224]</li>
+</ol>
+<img alt="[txt_0491]" data-alt-txt="txt_0491" src="https://placehold.co/400x300/e0e0e0/666?text=page09_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0029" id="couleurs">[txt_0029]</h3>
+<p data-txt="txt_0100">[txt_0100]</p>
+<ol class="step-list">
+<li data-txt="txt_0225">[txt_0225]<strong>« Bureaux »</strong></li>
+<li data-txt="txt_0226">[txt_0226]<strong>« Couleurs du bureau »</strong></li>
+<li data-txt="txt_0227">[txt_0227]</li>
+<li data-txt="txt_0228">[txt_0228]<strong>« OK »</strong> pour valider</li>
+</ol>
+<img alt="[txt_0492]" data-alt-txt="txt_0492" src="https://placehold.co/400x300/e0e0e0/666?text=page09_img02.png" style=";border: 2px dashed #999;"/>
+<img alt="[txt_0493]" data-alt-txt="txt_0493" src="https://placehold.co/400x300/e0e0e0/666?text=page09_img03.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0030" id="vignettes">[txt_0030]</h3>
+<p data-txt="txt_0101">[txt_0101]</p>
+<ol class="step-list">
+<li data-txt="txt_0229">[txt_0229]<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0230">[txt_0230]<strong>« Affichage »</strong> → <strong>« Résultats »</strong></li>
+<li data-txt="txt_0231">[txt_0231]<strong>« Taille des vignettes »</strong></li>
+</ol>
+<img alt="[txt_0494]" data-alt-txt="txt_0494" src="https://placehold.co/400x300/e0e0e0/666?text=page09_img04.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0066">[txt_0066]</h4>
+<ol class="step-list">
+<li data-txt="txt_0232">[txt_0232]<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0233">[txt_0233]<strong>« Affichage »</strong> → <strong>« Résultats »</strong></li>
+<li data-txt="txt_0234">[txt_0234]<strong>« Couleur de sélection »</strong></li>
+</ol>
+<div class="note-box tip" data-note-content-txt="txt_0452">
+<strong data-txt="txt_0451">[txt_0451]</strong>
+                        Pensez à enregistrer votre bureau une fois les modifications effectuées : <strong>Bureaux → Enregistrer le bureau courant</strong>
+</div>
+</section>
+<!-- SECTION 4: IMPORT / EXPORT -->
+<section class="help-section" id="import-export">
+<h2 data-txt="txt_0009">[txt_0009]</h2>
+<h3 data-txt="txt_0031" id="import-photos">[txt_0031]</h3>
+<p data-txt="txt_0102">[txt_0102]</p>
+<h4 data-txt="txt_0067">[txt_0067]</h4>
+<ol class="step-list">
+<li data-txt="txt_0235">[txt_0235]</li>
+<li data-txt="txt_0236">[txt_0236]</li>
+<li data-txt="txt_0237">[txt_0237]</li>
+<li data-txt="txt_0238">[txt_0238]</li>
+</ol>
+<img alt="[txt_0495]" data-alt-txt="txt_0495" src="https://placehold.co/400x300/e0e0e0/666?text=page11_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0068">[txt_0068]</h4>
+<p data-txt="txt_0103">[txt_0103]</p>
+<ol class="step-list">
+<li data-txt="txt_0239">[txt_0239]</li>
+<li data-txt="txt_0240">[txt_0240]</li>
+<li data-txt="txt_0241">[txt_0241]</li>
+</ol>
+<img alt="[txt_0496]" data-alt-txt="txt_0496" src="https://placehold.co/400x300/e0e0e0/666?text=page11_img02.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0032" id="export-photos">[txt_0032]</h3>
+<p data-txt="txt_0104">[txt_0104]</p>
+<ol class="step-list">
+<li data-txt="txt_0242">[txt_0242]</li>
+<li data-txt="txt_0243">[txt_0243]<strong>clic droit</strong></li>
+<li data-txt="txt_0244">[txt_0244]<strong>« Exporter »</strong> → <strong>« Export rapide »</strong></li>
+<li data-txt="txt_0245">[txt_0245]</li>
+</ol>
+<img alt="[txt_0497]" data-alt-txt="txt_0497" src="https://placehold.co/400x300/e0e0e0/666?text=page12_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0033" id="drag-drop">[txt_0033]</h3>
+<p data-txt="txt_0105">[txt_0105]</p>
+<ul>
+<li data-txt="txt_0246"><strong>Vers Kitview</strong>[txt_0246]</li>
+<li data-txt="txt_0247"><strong>Depuis Kitview</strong>[txt_0247]</li>
+</ul>
+<img alt="[txt_0498]" data-alt-txt="txt_0498" src="https://placehold.co/400x300/e0e0e0/666?text=page12_img02.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0069">[txt_0069]</h4>
+<p data-txt="txt_0106">[txt_0106]</p>
+<ol class="step-list">
+<li data-txt="txt_0248">[txt_0248]<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0249">[txt_0249]<strong>« Courrier »</strong></li>
+<li data-txt="txt_0250">[txt_0250]</li>
+</ol>
+<img alt="[txt_0499]" data-alt-txt="txt_0499" src="https://placehold.co/400x300/e0e0e0/666?text=page13_img01.png" style=";border: 2px dashed #999;"/>
+</section>
+<!-- SECTION 5: SÉANCES PHOTOS -->
+<section class="help-section" id="seances">
+<h2 data-txt="txt_0010">[txt_0010]</h2>
+<h3 data-txt="txt_0034" id="protocole">[txt_0034]</h3>
+<p data-txt="txt_0107">[txt_0107]</p>
+<ol class="step-list">
+<li data-txt="txt_0251">[txt_0251]</li>
+<li data-txt="txt_0252">[txt_0252]<strong>« Séance »</strong></li>
+<li data-txt="txt_0253">[txt_0253]<strong>« Commencer la séance »</strong></li>
+<li data-txt="txt_0254">[txt_0254]</li>
+</ol>
+<img alt="[txt_0500]" data-alt-txt="txt_0500" src="https://placehold.co/400x300/e0e0e0/666?text=page14_img01.png" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0108">[txt_0108]</p>
+<h3 data-txt="txt_0035" id="wifi">[txt_0035]</h3>
+<p data-txt="txt_0109">[txt_0109]</p>
+<ol class="step-list">
+<li data-txt="txt_0255">[txt_0255]</li>
+<li data-txt="txt_0256">[txt_0256]<strong>« Acquisition »</strong></li>
+<li data-txt="txt_0257">[txt_0257]<strong>« WiFi »</strong></li>
+<li data-txt="txt_0258">[txt_0258]</li>
+</ol>
+<img alt="[txt_0501]" data-alt-txt="txt_0501" src="https://placehold.co/400x300/e0e0e0/666?text=page15_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box info" data-note-content-txt="txt_0454">
+<strong data-txt="txt_0453">[txt_0453]</strong>
+                        L'appareil photo et l'ordinateur doivent être connectés au même réseau WiFi.
+                    </div>
+</section>
+<!-- SECTION 6: GABARITS ET MOTS-CLÉS -->
+<section class="help-section" id="gabarits">
+<h2 data-txt="txt_0011">[txt_0011]</h2>
+<p data-txt="txt_0110">[txt_0110]</p>
+<h3 data-txt="txt_0036" id="creer-motcle">[txt_0036]</h3>
+<ol class="step-list">
+<li data-txt="txt_0259">[txt_0259]<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0260">[txt_0260]<strong>« Dictionnaire »</strong> → <strong>« Thésaurus de votre domaine »</strong></li>
+<li data-txt="txt_0261">[txt_0261]<strong>« Tout développer »</strong> pour voir toutes les familles</li>
+<li data-txt="txt_0262">[txt_0262]</li>
+<li data-txt="txt_0263">[txt_0263]<strong>« Créer une nouvelle étiquette »</strong></li>
+</ol>
+<img alt="[txt_0502]" data-alt-txt="txt_0502" src="https://placehold.co/400x300/e0e0e0/666?text=page31_img01.png" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0111">[txt_0111]</p>
+<h3 data-txt="txt_0037" id="creer-gabarit">[txt_0037]</h3>
+<ol class="step-list">
+<li data-txt="txt_0264">[txt_0264]<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0265">[txt_0265]<strong>« Gabarits »</strong> → <strong>« Boîte à outils »</strong></li>
+<li data-txt="txt_0266">[txt_0266]<strong>« Ajouter »</strong> pour créer une nouvelle famille</li>
+<li data-txt="txt_0267">[txt_0267]<strong>« Créer un nouveau gabarit »</strong></li>
+<li data-txt="txt_0268">[txt_0268]<strong>« Charger une image »</strong> pour ajouter une image au gabarit</li>
+<li data-txt="txt_0269">[txt_0269]<strong>« Désignation »</strong></li>
+<li data-txt="txt_0270">[txt_0270]</li>
+<li data-txt="txt_0271">[txt_0271]<strong>« Valider »</strong></li>
+</ol>
+<img alt="[txt_0503]" data-alt-txt="txt_0503" src="https://placehold.co/400x300/e0e0e0/666?text=page32_img01.png" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0112">[txt_0112]</p>
+<h3 data-txt="txt_0038" id="creer-filtre">[txt_0038]</h3>
+<ol class="step-list">
+<li data-txt="txt_0272">[txt_0272]<strong>« Tous »</strong> dans l'arborescence</li>
+<li data-txt="txt_0273">[txt_0273]<strong>« Ajouter une collection à la racine »</strong></li>
+<li data-txt="txt_0274">[txt_0274]</li>
+<li data-txt="txt_0275">[txt_0275]<strong>« Ajouter une condition »</strong></li>
+<li data-txt="txt_0276">[txt_0276]</li>
+<li data-txt="txt_0277">[txt_0277]<strong>« Valider »</strong></li>
+</ol>
+<img alt="[txt_0504]" data-alt-txt="txt_0504" src="https://placehold.co/400x300/e0e0e0/666?text=page34_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0456">
+<strong data-txt="txt_0455">[txt_0455]</strong>
+                        Une fois vos gabarits créés, allez dans l'onglet « Gabarit » et cliquez sur le bouton « Rafraîchir » pour voir apparaître vos nouvelles créations.
+                    </div>
+<h4 data-txt="txt_0070">[txt_0070]</h4>
+<ol class="step-list">
+<li data-txt="txt_0278">[txt_0278]<strong>« Paramètres »</strong> → <strong>« Gabarits »</strong> → <strong>« Boîte à outils »</strong></li>
+<li data-txt="txt_0279">[txt_0279]</li>
+<li data-txt="txt_0280">[txt_0280]<strong>« Modifier le gabarit sélectionné »</strong></li>
+<li data-txt="txt_0281">[txt_0281]<strong>« Charger une image »</strong></li>
+<li data-txt="txt_0282">[txt_0282]</li>
+<li data-txt="txt_0283">[txt_0283]<strong>« Valider »</strong></li>
+</ol>
+<img alt="[txt_0505]" data-alt-txt="txt_0505" src="https://placehold.co/400x300/e0e0e0/666?text=page37_img01.jpeg" style=";border: 2px dashed #999;"/>
+</section>
+<!-- SECTION 7: VIEWERS -->
+<section class="help-section" id="viewers">
+<h2 data-txt="txt_0012">[txt_0012]</h2>
+<h3 data-txt="txt_0039" id="presentation-viewers">[txt_0039]</h3>
+<p data-txt="txt_0113">[txt_0113]</p>
+<p data-txt="txt_0114">[txt_0114]</p>
+<ul>
+<li data-txt="txt_0284"><strong>1 Vue</strong>[txt_0284]</li>
+<li data-txt="txt_0285"><strong>2 Vues</strong>[txt_0285]</li>
+<li data-txt="txt_0286"><strong>4 Vues</strong>[txt_0286]</li>
+<li data-txt="txt_0287"><strong>Gabarits</strong>[txt_0287]</li>
+<li data-txt="txt_0288"><strong>Portfolio</strong>[txt_0288]</li>
+</ul>
+<img alt="[txt_0506]" data-alt-txt="txt_0506" src="https://placehold.co/400x300/e0e0e0/666?text=page42_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0115">[txt_0115]</p>
+<img alt="[txt_0507]" data-alt-txt="txt_0507" src="https://placehold.co/400x300/e0e0e0/666?text=page43_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0116">[txt_0116]</p>
+<img alt="[txt_0508]" data-alt-txt="txt_0508" src="https://placehold.co/400x300/e0e0e0/666?text=page43_img02.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0117">[txt_0117]</p>
+<h4 data-txt="txt_0071">[txt_0071]</h4>
+<ol class="step-list">
+<li data-txt="txt_0289">[txt_0289]<strong>« 1 Vue »</strong>, <strong>« 2 Vues »</strong> ou <strong>« 4 Vues »</strong></li>
+<li data-txt="txt_0290">[txt_0290]</li>
+</ol>
+<div class="note-box tip" data-note-content-txt="txt_0458">
+<strong data-txt="txt_0457">[txt_0457]</strong>
+                        Sélectionnez la photo, maintenez le clic gauche appuyé, puis relâchez au bon endroit.
+                    </div>
+<h3 data-txt="txt_0040" id="personnaliser-viewers">[txt_0040]</h3>
+<h4 data-txt="txt_0072">[txt_0072]</h4>
+<ol class="step-list">
+<li data-txt="txt_0291">[txt_0291]<strong>« Réorganiser les fenêtres sœurs »</strong> en haut à droite</li>
+<li data-txt="txt_0292">[txt_0292]</li>
+<li data-txt="txt_0293">[txt_0293]</li>
+</ol>
+<img alt="[txt_0509]" data-alt-txt="txt_0509" src="https://placehold.co/400x300/e0e0e0/666?text=page45_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0073">[txt_0073]</h4>
+<ol class="step-list">
+<li data-txt="txt_0294">[txt_0294]</li>
+<li data-txt="txt_0295">[txt_0295]<strong>« Personnaliser les menus »</strong></li>
+<li data-txt="txt_0296">[txt_0296]</li>
+<li data-txt="txt_0297">[txt_0297]<strong>« Appliquer ce menu aux autres viewers »</strong></li>
+</ol>
+<img alt="[txt_0510]" data-alt-txt="txt_0510" src="https://placehold.co/400x300/e0e0e0/666?text=page47_img01.png" style=";border: 2px dashed #999;"/>
+<img alt="[txt_0511]" data-alt-txt="txt_0511" src="https://placehold.co/400x300/e0e0e0/666?text=page48_img01.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0074">[txt_0074]</h4>
+<p data-txt="txt_0118">[txt_0118]</p>
+<ol class="step-list">
+<li data-txt="txt_0298">[txt_0298]<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0299">[txt_0299]<strong>« Affichage »</strong> → <strong>« Divers »</strong></li>
+<li data-txt="txt_0300">[txt_0300]<strong>« Viewers »</strong></li>
+<li data-txt="txt_0301">[txt_0301]</li>
+<li data-txt="txt_0302">[txt_0302]<strong>« ? »</strong> pour voir les codes disponibles (%c = date, %n = nom, etc.)</li>
+</ol>
+<img alt="[txt_0512]" data-alt-txt="txt_0512" src="https://placehold.co/400x300/e0e0e0/666?text=page50_img01.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="[txt_0513]" data-alt-txt="txt_0513" src="https://placehold.co/400x300/e0e0e0/666?text=page51_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0041" id="ajouter-viewers">[txt_0041]</h3>
+<ol class="step-list">
+<li data-txt="txt_0303">[txt_0303]<strong>« Paramètres »</strong> → <strong>« Administration »</strong> → <strong>« Général »</strong></li>
+<li data-txt="txt_0304">[txt_0304]<strong>« Mode Expert »</strong></li>
+<li data-txt="txt_0305">[txt_0305]<strong>« Bureaux »</strong> → <strong>« Réorganiser le bureau »</strong></li>
+<li data-txt="txt_0306">[txt_0306]</li>
+<li data-txt="txt_0307">[txt_0307]<strong>« Viewer »</strong>, cliquez sur <strong>« Ajouter un viewer »</strong></li>
+<li data-txt="txt_0308">[txt_0308]</li>
+<li data-txt="txt_0309">[txt_0309]<strong>« Rename »</strong></li>
+</ol>
+<img alt="[txt_0514]" data-alt-txt="txt_0514" src="https://placehold.co/400x300/e0e0e0/666?text=page52_img01.png" style=";border: 2px dashed #999;"/>
+<img alt="[txt_0515]" data-alt-txt="txt_0515" src="https://placehold.co/400x300/e0e0e0/666?text=page53_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box warning" data-note-content-txt="txt_0460">
+<strong data-txt="txt_0459">[txt_0459]</strong>
+                        N'oubliez pas d'enregistrer votre bureau après les modifications : <strong>Bureaux → Enregistrer le bureau courant</strong>
+</div>
+</section>
+<!-- SECTION 8: MODIFICATION DE PHOTOS -->
+<section class="help-section" id="modification-photos">
+<h2 data-txt="txt_0013">[txt_0013]</h2>
+<h3 data-txt="txt_0042" id="copier-coller">[txt_0042]</h3>
+<p data-txt="txt_0119">[txt_0119]</p>
+<h4 data-txt="txt_0075">[txt_0075]</h4>
+<ol class="step-list">
+<li data-txt="txt_0310">[txt_0310]</li>
+<li data-txt="txt_0311">[txt_0311]<strong>« Edition »</strong></li>
+<li data-txt="txt_0312">[txt_0312]<strong>« Copier »</strong></li>
+<li data-txt="txt_0313">[txt_0313]<strong>« Coller »</strong></li>
+</ol>
+<img alt="[txt_0516]" data-alt-txt="txt_0516" src="https://placehold.co/400x300/e0e0e0/666?text=page58_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0076">[txt_0076]</h4>
+<ol class="step-list">
+<li data-txt="txt_0314">[txt_0314]</li>
+<li data-txt="txt_0315">[txt_0315]<strong>« Edition »</strong> en haut</li>
+<li data-txt="txt_0316">[txt_0316]<strong>« Copier »</strong> puis <strong>« Coller »</strong></li>
+</ol>
+<img alt="[txt_0517]" data-alt-txt="txt_0517" src="https://placehold.co/400x300/e0e0e0/666?text=page59_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0043" id="luminosite">[txt_0043]</h3>
+<ol class="step-list">
+<li data-txt="txt_0317">[txt_0317]<strong>« 1 Vue »</strong></li>
+<li data-txt="txt_0318">[txt_0318]</li>
+<li data-txt="txt_0319">[txt_0319]<strong>palette</strong> dans la barre d'outils du viewer</li>
+<li data-txt="txt_0320">[txt_0320]</li>
+<li data-txt="txt_0321">[txt_0321]</li>
+<li data-txt="txt_0322">[txt_0322]<strong>« OK »</strong></li>
+</ol>
+<img alt="[txt_0518]" data-alt-txt="txt_0518" src="https://placehold.co/400x300/e0e0e0/666?text=page60_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0120">[txt_0120]</p>
+<h4 data-txt="txt_0077">[txt_0077]</h4>
+<p data-txt="txt_0121">[txt_0121]</p>
+<ol class="step-list">
+<li data-txt="txt_0323">[txt_0323]</li>
+<li data-txt="txt_0324">[txt_0324]<strong>« Image »</strong></li>
+<li data-txt="txt_0325">[txt_0325]<strong>« Revenir à l'original »</strong></li>
+<li data-txt="txt_0326">[txt_0326]</li>
+</ol>
+<img alt="[txt_0519]" data-alt-txt="txt_0519" src="https://placehold.co/400x300/e0e0e0/666?text=page61_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0462">
+<strong data-txt="txt_0461">[txt_0461]</strong>
+                        Si vous souhaitez effectuer des modifications sur une photo, dupliquez-la avant pour conserver l'original.
+                    </div>
+<h4 data-txt="txt_0078">[txt_0078]</h4>
+<p data-txt="txt_0122">[txt_0122]</p>
+<ol class="step-list">
+<li data-txt="txt_0327">[txt_0327]</li>
+<li data-txt="txt_0328">[txt_0328]<strong>« Menu Explorateur »</strong></li>
+<li data-txt="txt_0329">[txt_0329]<strong>« Ouvrir avec »</strong> → <strong>« Paint »</strong></li>
+<li data-txt="txt_0330">[txt_0330]</li>
+<li data-txt="txt_0331">[txt_0331]</li>
+</ol>
+<img alt="[txt_0520]" data-alt-txt="txt_0520" src="https://placehold.co/400x300/e0e0e0/666?text=page62_img01.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="[txt_0521]" data-alt-txt="txt_0521" src="https://placehold.co/400x300/e0e0e0/666?text=page63_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0044" id="recadrer">[txt_0044]</h3>
+<p data-txt="txt_0123">[txt_0123]</p>
+<ol class="step-list">
+<li data-txt="txt_0332">[txt_0332]</li>
+<li data-txt="txt_0333">[txt_0333]<strong>« 1 Vue »</strong></li>
+<li data-txt="txt_0334">[txt_0334]<strong>« Sélection rectangle »</strong></li>
+<li data-txt="txt_0335">[txt_0335]</li>
+<li data-txt="txt_0336">[txt_0336]<strong>« Massicot »</strong> pour recadrer</li>
+<li data-txt="txt_0337">[txt_0337]<strong>disquette</strong> pour enregistrer</li>
+</ol>
+<img alt="[txt_0522]" data-alt-txt="txt_0522" src="https://placehold.co/400x300/e0e0e0/666?text=page66_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0079">[txt_0079]</h4>
+<ul>
+<li data-txt="txt_0338"><strong>Rotation droite/gauche</strong>[txt_0338]</li>
+<li data-txt="txt_0339"><strong>Symétrie horizontale/verticale</strong>[txt_0339]</li>
+<li data-txt="txt_0340"><strong>Ajuster la couleur</strong>[txt_0340]</li>
+<li data-txt="txt_0341"><strong>Ajouter du texte</strong>[txt_0341]</li>
+</ul>
+<img alt="[txt_0523]" data-alt-txt="txt_0523" src="https://placehold.co/400x300/e0e0e0/666?text=page65_img01.png" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0124">[txt_0124]</p>
+</section>
+<!-- SECTION 9: PRÉSENTATIONS FIXES -->
+<section class="help-section" id="presentations">
+<h2 data-txt="txt_0014">[txt_0014]</h2>
+<p data-txt="txt_0125">[txt_0125]</p>
+<div class="note-box info" data-note-content-txt="txt_0464">
+<strong data-txt="txt_0463">[txt_0463]</strong>
+                        Pour que les présentations fonctionnent correctement, vos photos doivent avoir les bons mots-clés associés.
+                    </div>
+<h3 data-txt="txt_0045">[txt_0045]</h3>
+<ol class="step-list">
+<li data-txt="txt_0342">[txt_0342]</li>
+<li data-txt="txt_0343">[txt_0343]<strong>« Présentation »</strong></li>
+<li data-txt="txt_0344">[txt_0344]</li>
+</ol>
+<img alt="[txt_0524]" data-alt-txt="txt_0524" src="https://placehold.co/400x300/e0e0e0/666?text=page68_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0126">[txt_0126]</p>
+<h3 data-txt="txt_0046">[txt_0046]</h3>
+<h4 data-txt="txt_0080">[txt_0080]</h4>
+<p data-txt="txt_0127">[txt_0127]</p>
+<h4 data-txt="txt_0081">[txt_0081]</h4>
+<p data-txt="txt_0128">[txt_0128]</p>
+<img alt="[txt_0525]" data-alt-txt="txt_0525" src="https://placehold.co/400x300/e0e0e0/666?text=page69_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0082">[txt_0082]</h4>
+<p data-txt="txt_0129">[txt_0129]</p>
+<img alt="[txt_0526]" data-alt-txt="txt_0526" src="https://placehold.co/400x300/e0e0e0/666?text=page69_img02.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0083">[txt_0083]</h4>
+<p data-txt="txt_0130">[txt_0130]</p>
+<img alt="[txt_0527]" data-alt-txt="txt_0527" src="https://placehold.co/400x300/e0e0e0/666?text=page70_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0084">[txt_0084]</h4>
+<p data-txt="txt_0131">[txt_0131]</p>
+<img alt="[txt_0528]" data-alt-txt="txt_0528" src="https://placehold.co/400x300/e0e0e0/666?text=page70_img02.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0085">[txt_0085]</h4>
+<p data-txt="txt_0132">[txt_0132]</p>
+</section>
+<!-- SECTION 10: DOCKING (Le Bureau) -->
+<section class="help-section" id="docking">
+<h2 data-txt="txt_0015">[txt_0015]</h2>
+<p data-txt="txt_0133">[txt_0133]</p>
+<h3 data-txt="txt_0047">[txt_0047]</h3>
+<ol class="step-list">
+<li data-txt="txt_0345">[txt_0345]<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0346">[txt_0346]<strong>« Administration »</strong> → <strong>« Général »</strong></li>
+<li data-txt="txt_0347">[txt_0347]<strong>« Mode Expert »</strong></li>
+<li data-txt="txt_0348">[txt_0348]<strong>« Bureaux »</strong></li>
+<li data-txt="txt_0349">[txt_0349]<strong>« Réorganiser le bureau »</strong></li>
+</ol>
+<img alt="[txt_0529]" data-alt-txt="txt_0529" src="https://placehold.co/400x300/e0e0e0/666?text=page38_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0048">[txt_0048]</h3>
+<ul>
+<li data-txt="txt_0350"><strong>Agrandir/Rétrécir une zone</strong>[txt_0350]</li>
+<li data-txt="txt_0351"><strong>Supprimer une zone</strong>[txt_0351]</li>
+<li data-txt="txt_0352"><strong>Déplacer une zone</strong>[txt_0352]</li>
+</ul>
+<img alt="[txt_0530]" data-alt-txt="txt_0530" src="https://placehold.co/400x300/e0e0e0/666?text=page39_img01.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="[txt_0531]" data-alt-txt="txt_0531" src="https://placehold.co/400x300/e0e0e0/666?text=page40_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p class="img-caption" data-txt="txt_0134">[txt_0134]</p>
+<div class="note-box warning" data-note-content-txt="txt_0466">
+<strong data-txt="txt_0465">[txt_0465]</strong>
+                        Pensez toujours à enregistrer votre bureau après modifications : <strong>Bureaux → Enregistrer le bureau courant</strong>
+</div>
+</section>
+<!-- SECTION 11: CRÉER UNE PRÉSENTATION FIXE -->
+<section class="help-section" id="creer-presentation">
+<h2 data-txt="txt_0016">[txt_0016]</h2>
+<p data-txt="txt_0135">[txt_0135]</p>
+<h3 data-txt="txt_0049">[txt_0049]</h3>
+<ol class="step-list">
+<li data-txt="txt_0353">[txt_0353]<strong>« Paramètres »</strong></li>
+<li data-txt="txt_0354">[txt_0354]<strong>« Administration »</strong></li>
+<li data-txt="txt_0355">[txt_0355]<strong>« Général »</strong></li>
+<li data-txt="txt_0356">[txt_0356]<strong>« Mode expert »</strong></li>
+<li data-txt="txt_0357">[txt_0357]<strong>« Présentation »</strong></li>
+<li data-txt="txt_0358">[txt_0358]<strong>« Présentations libres »</strong></li>
+<li data-txt="txt_0359">[txt_0359]<strong>« Créer une présentation libre »</strong></li>
+<li data-txt="txt_0360">[txt_0360]</li>
+</ol>
+<img alt="[txt_0532]" data-alt-txt="txt_0532" src="https://placehold.co/400x300/e0e0e0/666?text=page71_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0050">[txt_0050]</h3>
+<ol class="step-list">
+<li data-txt="txt_0361">[txt_0361]<strong>+</strong></li>
+<li data-txt="txt_0362">[txt_0362]<strong>« Vignette avec attributs »</strong></li>
+<li data-txt="txt_0363">[txt_0363]</li>
+<li data-txt="txt_0364">[txt_0364]</li>
+<li data-txt="txt_0365">[txt_0365]</li>
+<li data-txt="txt_0366">[txt_0366]<strong>« Valider »</strong> - Recommencez pour chaque vignette</li>
+</ol>
+<img alt="[txt_0533]" data-alt-txt="txt_0533" src="https://placehold.co/400x300/e0e0e0/666?text=page72_img01.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0086">[txt_0086]</h4>
+<p data-txt="txt_0136">[txt_0136]<kbd>Ctrl</kbd> et cliquez sur chaque vignette, puis utilisez les outils d'alignement :</p>
+<ul>
+<li data-txt="txt_0367"><strong>Même largeur</strong>[txt_0367]</li>
+<li data-txt="txt_0368"><strong>Aligné en bas/haut</strong>[txt_0368]</li>
+<li data-txt="txt_0369"><strong>Aligné à gauche/droite</strong>[txt_0369]</li>
+</ul>
+<img alt="[txt_0534]" data-alt-txt="txt_0534" src="https://placehold.co/400x300/e0e0e0/666?text=page73_img01.png" style=";border: 2px dashed #999;"/>
+<p data-txt="txt_0137">[txt_0137]<strong>disquette</strong> pour enregistrer votre présentation.</p>
+</section>
+<!-- SECTION 12: DIAPORAMA -->
+<section class="help-section" id="diaporama">
+<h2 data-txt="txt_0017">[txt_0017]</h2>
+<p data-txt="txt_0138">[txt_0138]</p>
+<h3 data-txt="txt_0051">[txt_0051]</h3>
+<ol class="step-list">
+<li data-txt="txt_0370">[txt_0370]</li>
+<li data-txt="txt_0371">[txt_0371]<strong>« Affichage »</strong></li>
+<li data-txt="txt_0372">[txt_0372]<strong>« Diaporama »</strong></li>
+<li data-txt="txt_0373">[txt_0373]</li>
+</ol>
+<img alt="[txt_0535]" data-alt-txt="txt_0535" src="https://placehold.co/400x300/e0e0e0/666?text=page74_img01.png" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0468">
+<strong data-txt="txt_0467">[txt_0467]</strong>
+                        Pour quitter le diaporama, appuyez sur la touche <kbd>Échap</kbd> de votre clavier.
+                    </div>
+<p data-txt="txt_0139">[txt_0139]</p>
+</section>
+<!-- SECTION 13: COMPARER DES PHOTOS -->
+<section class="help-section" id="comparateur">
+<h2 data-txt="txt_0018">[txt_0018]</h2>
+<p data-txt="txt_0140">[txt_0140]</p>
+<h3 data-txt="txt_0052" id="comparer-2vues">[txt_0052]</h3>
+<ol class="step-list">
+<li data-txt="txt_0374">[txt_0374]<strong>« 2 Vues »</strong></li>
+<li data-txt="txt_0375">[txt_0375]</li>
+<li data-txt="txt_0376">[txt_0376]<strong>petit cadenas</strong></li>
+<li data-txt="txt_0377">[txt_0377]</li>
+</ol>
+<img alt="[txt_0536]" data-alt-txt="txt_0536" src="https://placehold.co/400x300/e0e0e0/666?text=page75_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0053" id="comparateur-colonne-ligne">[txt_0053]</h3>
+<p data-txt="txt_0141">[txt_0141]</p>
+<ol class="step-list">
+<li data-txt="txt_0378">[txt_0378]</li>
+<li data-txt="txt_0379">[txt_0379]<ul>
+<li data-txt="txt_0380"><strong>Comparateur en colonne</strong>[txt_0380]</li>
+<li data-txt="txt_0381"><strong>Comparateur en ligne</strong>[txt_0381]</li>
+</ul>
+</li>
+</ol>
+<img alt="[txt_0537]" data-alt-txt="txt_0537" src="https://placehold.co/400x300/e0e0e0/666?text=page76_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0087">[txt_0087]</h4>
+<p data-txt="txt_0142">[txt_0142]</p>
+<img alt="[txt_0538]" data-alt-txt="txt_0538" src="https://placehold.co/400x300/e0e0e0/666?text=page77_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0088">[txt_0088]</h4>
+<p data-txt="txt_0143">[txt_0143]</p>
+<img alt="[txt_0539]" data-alt-txt="txt_0539" src="https://placehold.co/400x300/e0e0e0/666?text=page78_img01.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="[txt_0540]" data-alt-txt="txt_0540" src="https://placehold.co/400x300/e0e0e0/666?text=page78_img02.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0470">
+<strong data-txt="txt_0469">[txt_0469]</strong>
+                        Pour quitter le comparateur, appuyez sur <kbd>Échap</kbd>.
+                    </div>
+<h3 data-txt="txt_0054" id="comparateur-protocole">[txt_0054]</h3>
+<p data-txt="txt_0144">[txt_0144]</p>
+<ol class="step-list">
+<li data-txt="txt_0382">[txt_0382]<strong>« Présentation »</strong></li>
+<li data-txt="txt_0383">[txt_0383]<strong>« Comparateur »</strong></li>
+<li data-txt="txt_0384">[txt_0384]</li>
+<li data-txt="txt_0385">[txt_0385]</li>
+</ol>
+<img alt="[txt_0541]" data-alt-txt="txt_0541" src="https://placehold.co/400x300/e0e0e0/666?text=page79_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p data-txt="txt_0145">[txt_0145]</p>
+<img alt="[txt_0542]" data-alt-txt="txt_0542" src="https://placehold.co/400x300/e0e0e0/666?text=page80_img03.jpeg" style=";border: 2px dashed #999;"/>
+</section>
+<!-- SECTION 14: MODÈLES DE COURRIER -->
+<section class="help-section" id="courrier">
+<h2 data-txt="txt_0019">[txt_0019]</h2>
+<p data-txt="txt_0146">[txt_0146]</p>
+<div class="note-box info" data-note-content-txt="txt_0472">
+<strong data-txt="txt_0471">[txt_0471]</strong>
+                        Les photos doivent être bien identifiées (mots-clés) pour que les champs de fusion fonctionnent correctement.
+                    </div>
+<h3 data-txt="txt_0055">[txt_0055]</h3>
+<ol class="step-list">
+<li data-txt="txt_0386">[txt_0386]</li>
+<li data-txt="txt_0387">[txt_0387]<strong>« Courrier »</strong></li>
+<li data-txt="txt_0388">[txt_0388]</li>
+<li data-txt="txt_0389">[txt_0389]</li>
+</ol>
+<img alt="[txt_0543]" data-alt-txt="txt_0543" src="https://placehold.co/400x300/e0e0e0/666?text=page83_img02.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="[txt_0544]" data-alt-txt="txt_0544" src="https://placehold.co/400x300/e0e0e0/666?text=page84_img01.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0089">[txt_0089]</h4>
+<p data-txt="txt_0147">[txt_0147]<strong>« Création »</strong> pour voir et modifier les champs de fusion (ex: &lt;Prenom&gt;, &lt;Nom&gt;, &lt;Date du jour&gt;...).</p>
+<img alt="[txt_0545]" data-alt-txt="txt_0545" src="https://placehold.co/400x300/e0e0e0/666?text=page85_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0056" id="creer-courrier">[txt_0056]</h3>
+<ol class="step-list">
+<li data-txt="txt_0390">[txt_0390]<strong>« Courrier »</strong></li>
+<li data-txt="txt_0391">[txt_0391]</li>
+<li data-txt="txt_0392">[txt_0392]<strong>« Création »</strong></li>
+<li data-txt="txt_0393">[txt_0393]<strong>« Nouveau »</strong> pour un document vierge</li>
+<li data-txt="txt_0394">[txt_0394]<strong>« Propriétés Page »</strong>, cochez <strong>« Paysage »</strong> si besoin</li>
+</ol>
+<img alt="[txt_0546]" data-alt-txt="txt_0546" src="https://placehold.co/400x300/e0e0e0/666?text=page86_img01.jpeg" style=";border: 2px dashed #999;"/>
+<img alt="[txt_0547]" data-alt-txt="txt_0547" src="https://placehold.co/400x300/e0e0e0/666?text=page87_img01.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0090">[txt_0090]</h4>
+<ul>
+<li data-txt="txt_0395"><strong>Ajouter du texte</strong>[txt_0395]</li>
+<li data-txt="txt_0396"><strong>Ajouter une image (champ fusion)</strong>[txt_0396]</li>
+</ul>
+<img alt="[txt_0548]" data-alt-txt="txt_0548" src="https://placehold.co/400x300/e0e0e0/666?text=page88_img01.png" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0091">[txt_0091]</h4>
+<ol class="step-list">
+<li data-txt="txt_0397">[txt_0397]<strong>« Aperçu »</strong> pour vérifier le résultat</li>
+<li data-txt="txt_0398">[txt_0398]<strong>« Enregistrer »</strong></li>
+<li data-txt="txt_0399">[txt_0399]<strong>« Letters »</strong></li>
+<li data-txt="txt_0400">[txt_0400]<strong>« Enregistrer »</strong></li>
+</ol>
+</section>
+<!-- SECTION 15: PORTFOLIO ET POWERPOINT -->
+<section class="help-section" id="portfolio">
+<h2 data-txt="txt_0020">[txt_0020]</h2>
+<p data-txt="txt_0148">[txt_0148]</p>
+<h3 data-txt="txt_0057">[txt_0057]</h3>
+<ol class="step-list">
+<li data-txt="txt_0401">[txt_0401]<strong>« Tous »</strong> dans l'arborescence</li>
+<li data-txt="txt_0402">[txt_0402]<strong>« Intrabuccales »</strong>)</li>
+<li data-txt="txt_0403">[txt_0403]<strong>« Filtrer la population selon la collection »</strong></li>
+<li data-txt="txt_0404">[txt_0404]<strong>« Sélectionner tous les patients »</strong></li>
+<li data-txt="txt_0405">[txt_0405]<strong>« Portfolio »</strong></li>
+<li data-txt="txt_0406">[txt_0406]</li>
+<li data-txt="txt_0407">[txt_0407]</li>
+<li data-txt="txt_0408">[txt_0408]</li>
+</ol>
+<img alt="[txt_0549]" data-alt-txt="txt_0549" src="https://placehold.co/400x300/e0e0e0/666?text=page89_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h4 data-txt="txt_0092">[txt_0092]</h4>
+<p data-txt="txt_0149">[txt_0149]</p>
+<img alt="[txt_0550]" data-alt-txt="txt_0550" src="https://placehold.co/400x300/e0e0e0/666?text=page90_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box warning" data-note-content-txt="txt_0474">
+<strong data-txt="txt_0473">[txt_0473]</strong>
+                        Pensez à enregistrer votre présentation PowerPoint après les modifications.
+                    </div>
+</section>
+<!-- SECTION 16: FILTRE DE POPULATION -->
+<section class="help-section" id="filtre-population">
+<h2 data-txt="txt_0021">[txt_0021]</h2>
+<p data-txt="txt_0150">[txt_0150]</p>
+<h3 data-txt="txt_0058">[txt_0058]</h3>
+<ol class="step-list">
+<li data-txt="txt_0409">[txt_0409]<strong>« Tous »</strong></li>
+<li data-txt="txt_0410">[txt_0410]<strong>« Radio »</strong> puis <strong>« Panoramique »</strong> (ou une autre catégorie)</li>
+<li data-txt="txt_0411">[txt_0411]<strong>« Filtrer la population selon la collection »</strong></li>
+<li data-txt="txt_0412">[txt_0412]<strong>« Sélectionner tous les patients »</strong></li>
+<li data-txt="txt_0413">[txt_0413]</li>
+<li data-txt="txt_0414">[txt_0414]</li>
+</ol>
+<img alt="[txt_0551]" data-alt-txt="txt_0551" src="https://placehold.co/400x300/e0e0e0/666?text=page91_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0476">
+<strong data-txt="txt_0475">[txt_0475]</strong>
+                        Pensez à revenir à votre base complète après une recherche : retournez dans les filtres de population, cliquez sur l'onglet « Tous » puis « Rafraîchir ».
+                    </div>
+</section>
+<!-- SECTION 17: RECHERCHE PAR DATE -->
+<section class="help-section" id="recherche-date">
+<h2 data-txt="txt_0022">[txt_0022]</h2>
+<p data-txt="txt_0151">[txt_0151]</p>
+<h3 data-txt="txt_0059" id="date-precise">[txt_0059]</h3>
+<p data-txt="txt_0152"><strong>Exemple :</strong>[txt_0152]</p>
+<ol class="step-list">
+<li data-txt="txt_0415">[txt_0415]<strong>« Quoi »</strong></li>
+<li data-txt="txt_0416">[txt_0416]<strong>« Ajouter une condition à la racine »</strong></li>
+<li data-txt="txt_0417">[txt_0417]<strong>« Création »</strong> – Il s'affiche dans la liste</li>
+<li data-txt="txt_0418">[txt_0418]<strong>« Création »</strong> pour qu'il s'affiche dans le tableau à droite</li>
+<li data-txt="txt_0419">[txt_0419]<strong>« Valider »</strong></li>
+<li data-txt="txt_0420">[txt_0420]<strong>« Égale à »</strong> puis modifiez la date</li>
+<li data-txt="txt_0421">[txt_0421]</li>
+<li data-txt="txt_0422">[txt_0422]</li>
+</ol>
+<img alt="[txt_0552]" data-alt-txt="txt_0552" src="https://placehold.co/400x300/e0e0e0/666?text=page92_img01.jpeg" style=";border: 2px dashed #999;"/>
+<p data-txt="txt_0153">[txt_0153]</p>
+<div class="note-box tip" data-note-content-txt="txt_0478">
+<strong data-txt="txt_0477">[txt_0477]</strong>
+                        N'oubliez pas de revenir à votre base complète après la recherche : onglet « Tous » puis « Rafraîchir ».
+                    </div>
+<h3 data-txt="txt_0060" id="plage-dates">[txt_0060]</h3>
+<p data-txt="txt_0154"><strong>Exemple :</strong>[txt_0154]</p>
+<ol class="step-list">
+<li data-txt="txt_0423">[txt_0423]<strong>« Quoi »</strong></li>
+<li data-txt="txt_0424">[txt_0424]<strong>« Ajouter une condition à la racine »</strong></li>
+<li data-txt="txt_0425">[txt_0425]<strong>« Création »</strong> et double-cliquez pour l'ajouter</li>
+<li data-txt="txt_0426">[txt_0426]<strong>« Valider »</strong></li>
+<li data-txt="txt_0427">[txt_0427]</li>
+<li data-txt="txt_0428">[txt_0428]<strong>« Antérieure à »</strong> et indiquez la date de fin</li>
+<li data-txt="txt_0429">[txt_0429]<strong>« Postérieure à »</strong> et indiquez la date de début</li>
+<li data-txt="txt_0430">[txt_0430]</li>
+</ol>
+<img alt="[txt_0553]" data-alt-txt="txt_0553" src="https://placehold.co/400x300/e0e0e0/666?text=page94_img01.jpeg" style=";border: 2px dashed #999;"/>
+<div class="note-box info" data-note-content-txt="txt_0480">
+<strong data-txt="txt_0479">[txt_0479]</strong>
+                        Les deux conditions sont combinées avec un ET logique : les photos affichées sont à la fois antérieures à la date de fin ET postérieures à la date de début.
+                    </div>
+</section>
+<!-- SECTION 18: FORMULAIRES -->
+<section class="help-section" id="formulaires">
+<h2 data-txt="txt_0023">[txt_0023]</h2>
+<p data-txt="txt_0155">[txt_0155]</p>
+<h3 data-txt="txt_0061" id="completer-formulaire">[txt_0061]</h3>
+<ol class="step-list">
+<li data-txt="txt_0431">[txt_0431]<strong>« Formulaire »</strong></li>
+<li data-txt="txt_0432">[txt_0432]</li>
+<li data-txt="txt_0433">[txt_0433]</li>
+<li data-txt="txt_0434">[txt_0434]<strong>disquette</strong></li>
+<li data-txt="txt_0435">[txt_0435]</li>
+</ol>
+<img alt="[txt_0554]" data-alt-txt="txt_0554" src="https://placehold.co/400x300/e0e0e0/666?text=page96_img01.png" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0062" id="recherche-formulaires">[txt_0062]</h3>
+<p data-txt="txt_0156"><strong>Exemple :</strong>[txt_0156]</p>
+<ol class="step-list">
+<li data-txt="txt_0436">[txt_0436]</li>
+<li data-txt="txt_0437">[txt_0437]<strong>« Formulaire »</strong></li>
+<li data-txt="txt_0438">[txt_0438]</li>
+<li data-txt="txt_0439">[txt_0439]<strong>« Mode recherche »</strong></li>
+<li data-txt="txt_0440">[txt_0440]</li>
+<li data-txt="txt_0441">[txt_0441]<strong>« Mode recherche »</strong> puis <strong>« Recherche »</strong></li>
+<li data-txt="txt_0442">[txt_0442]</li>
+</ol>
+<img alt="[txt_0555]" data-alt-txt="txt_0555" src="https://placehold.co/400x300/e0e0e0/666?text=page97_img01.png" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0482">
+<strong data-txt="txt_0481">[txt_0481]</strong>
+                        Pour consulter chaque formulaire, allez dans le dossier patient et cliquez sur l'onglet « Formulaire ».
+                    </div>
+</section>
+<!-- SECTION 19: SUPPORT DE FORMATION -->
+<section class="help-section" id="support-formation">
+<h2 data-txt="txt_0024">[txt_0024]</h2>
+<p data-txt="txt_0157">[txt_0157]</p>
+<h3 data-txt="txt_0063">[txt_0063]</h3>
+<ol class="step-list">
+<li data-txt="txt_0443">[txt_0443]<strong>« Aide »</strong></li>
+<li data-txt="txt_0444">[txt_0444]<strong>« Support formation »</strong></li>
+<li data-txt="txt_0445">[txt_0445]<strong>www.kitview-support.fr</strong></li>
+</ol>
+<img alt="[txt_0556]" data-alt-txt="txt_0556" src="https://placehold.co/400x300/e0e0e0/666?text=page98_img01.jpeg" style=";border: 2px dashed #999;"/>
+<h3 data-txt="txt_0064">[txt_0064]</h3>
+<div class="note-box info">
+<strong data-txt="txt_0483">[txt_0483]</strong><br/> </div>
+<img alt="[txt_0557]" data-alt-txt="txt_0557" src="https://placehold.co/400x300/e0e0e0/666?text=page98_img02.png" style=";border: 2px dashed #999;"/>
+<div class="note-box tip" data-note-content-txt="txt_0485">
+<strong data-txt="txt_0484">[txt_0484]</strong>
+                        Le site support contient des tutoriels vidéo, des guides pratiques et des modèles de formulaires téléchargeables pour optimiser votre utilisation de Kitview.
+                    </div>
+</section>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="help-footer" data-txt="txt_0590">[txt_0590]</footer>
+<!-- Google Translate Script -->
+<script src="js/kvm.js"></script>
+<!-- Google Translate API -->
+<script>
+// Google Translate - Chargement conditionnel (uniquement sur serveur)
+(function() {
+    // Détecter si on est en local (file://) ou sur un serveur
+    if (window.location.protocol === 'file:') {
+        console.log('[KVM] Mode local détecté - Google Translate désactivé');
+        // Masquer les options de langues autres que FR/EN
+        document.addEventListener('DOMContentLoaded', function() {
+            var chips = document.querySelectorAll('.lang-chip[data-lang]');
+            chips.forEach(function(chip) {
+                var lang = chip.getAttribute('data-lang');
+                if (lang !== 'fr' && lang !== 'en') {
+                    chip.style.opacity = '0.4';
+                    chip.style.pointerEvents = 'none';
+                    chip.title = 'Disponible uniquement sur serveur web';
+                }
+            });
+        });
+    } else {
+        // On est sur un serveur, charger Google Translate
+        var script = document.createElement('script');
+        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.head.appendChild(script);
+    }
+})();
+</script>
+<!-- ========================================
+     CHATBOT ASSISTANT IA
+     ======================================== -->
+<!-- Bouton flottant -->
+<button aria-label="Ouvrir l'assistant" id="chatbot-toggle" title="Assistant IA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"></path>
+<circle cx="8" cy="10" r="1.5"></circle>
+<circle cx="12" cy="10" r="1.5"></circle>
+<circle cx="16" cy="10" r="1.5"></circle>
+</svg>
+</button>
+<!-- Modale de chat -->
+<div aria-labelledby="chatbot-title" id="chatbot-modal" role="dialog">
+<div id="chatbot-header">
+<div class="avatar">🤖</div>
+<div class="title">
+<h4 data-txt="txt_0601" id="chatbot-title">[txt_0601]</h4>
+<span data-txt="txt_0602">[txt_0602]</span>
+</div>
+<button aria-label="Fermer" id="chatbot-close">×</button>
+</div>
+<div id="chatbot-toolbar">
+<button data-txt="txt_0603" id="chatbot-suggestions-btn">[txt_0603]</button>
+<button data-txt="txt_0604" id="chatbot-clear-btn">[txt_0604]</button>
+<button aria-label="Paramètres" id="chatbot-settings-btn" title="Paramètres">⚙️</button>
+</div>
+<div id="chatbot-suggestions-panel">
+<h5 data-txt="txt_0605">[txt_0605]</h5>
+<div class="suggestions-list"></div>
+</div>
+<div aria-live="polite" id="chatbot-messages" role="log"></div>
+<div id="chatbot-input-area">
+<input aria-label="Votre question" autocomplete="off" data-placeholder-txt="txt_0606" id="chatbot-input" placeholder="[txt_0606]" type="text"/>
+<button aria-label="Envoyer" id="chatbot-send">
+<svg viewbox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+</button>
+</div>
+</div>
+<!-- Modal de configuration API -->
+<div aria-labelledby="chatbot-config-title" id="chatbot-config-modal" role="dialog">
+<div class="config-overlay"></div>
+<div class="config-content">
+<h3 data-txt="txt_0607" id="chatbot-config-title">[txt_0607]</h3>
+<p data-txt="txt_0608">[txt_0608]</p>
+<p><a data-txt="txt_0609" href="https://console.anthropic.com" rel="noopener" target="_blank">[txt_0609]</a></p>
+<input id="chatbot-api-key-input" placeholder="sk-ant-api03-..." type="password"/>
+<div class="config-buttons">
+<button data-txt="txt_0610" id="chatbot-config-save">[txt_0610]</button>
+<button data-txt="txt_0611" id="chatbot-config-cancel">[txt_0611]</button>
+</div>
+<p class="config-note" data-txt="txt_0612">[txt_0612]</p>
+</div>
+</div>
+<!-- Scripts -->
+<script src="/kvm/js/env-config.js"></script>
+<script src="js/chatbot-config.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/themes.js"></script>
+</body>
+</html>

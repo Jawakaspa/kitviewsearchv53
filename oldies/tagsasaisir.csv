@@ -1,0 +1,224 @@
+﻿# tags à saisir.csv V1.0.0 - 16/12/2025 01:22:45;;;;;;;
+type;MSFSMPFP;canonfr;synsaisis;adjsaisis;canonadjs;synonymesfr;adjectifsfr
+#;;;;;;;
+# CLASSES SQUELETTIQUES;;;;;;;
+#;;;;;;;
+p;FS;Classe I squelettique;classe 1 squelettique,classe i squelettique;idéal|parfait|harmonieux, modéré;idéale,modérée;classe 1 squelettique,classe i squelettique;idéal|idéale|idéaux|idéales|parfait|parfaite|parfaits|parfaites|harmonieux|harmonieuse|harmonieuses,modéré|modérée|modérés|modérées
+p;FS;Classe II squelettique;classe 2 squelettique,classe ii squelettique;division 1|div 1|div1,division 2|div 2|div2;division 1,division 2;classe 2 squelettique,classe ii squelettique;division 1|div 1|div1,division 2|div 2|div2
+p;FS;Classe III squelettique;classe 3 squelettique,classe iii squelettique;;;classe 3 squelettique,classe iii squelettique;
+# CLASSES DENTAIRES (D'ANGLE);;;;;;;
+#;;;;;;;
+v;FS;classe I d'Angle;Neutrocclusion,Occlusion normale,Relation molaire de Classe I,Normocclusion,Classe 1 Dentaire,relation molaire neutre,classe 1,classe I,classe dentaire;avec diastèmes|avec espaces|espacé,avec encombrement|encombré;avec diastèmes,avec encombrement;Neutrocclusion,Neutrocclusions,Occlusion normale,Occlusions normales,Relation molaire de Classe I,Normocclusion,Normocclusions,Classe 1 Dentaire,relation molaire neutre,relations molaires neutres,classe 1,classe I,classe dentaire;avec diastèmes|avec espaces|espacé|espacée|espacés|espacées,avec encombrement|avec encombrements|encombré|encombrée|encombrés|encombrées
+v;FS;classe II d'Angle;Distocclusion,Rétrognathie dentaire,Surplomb horizontal augmenté,Overjet augmenté,Classe 2 Dentaire,surplomb horizontal accru,distocclusion dentaire,classe 2,classe II,disto-occlusion,rétrusion dentaire;sévère|grave|marqué|important,modéré|léger,division 1|div 1|div1,division 2|div 2|div2,subdivision|unilatéral|asymétrique;sévère,modérée,division 1,division 2,subdivision;Distocclusion,Distocclusions,Rétrognathie dentaire,Rétrognathies dentaires,Surplomb horizontal augmenté,Surplombs horizontaux augmentés,Overjet augmenté,Classe 2 Dentaire,surplomb horizontal accru,surplombs horizontaux accrus,distocclusion dentaire,distocclusions dentaires,classe 2,classe II,disto-occlusion,disto-occlusions,rétrusion dentaire,rétrusions dentaires;sévère|sévères|grave|graves|marqué|marquée|marqués|marquées|important|importante|importants|importantes,modéré|modérée|modérés|modérées|léger|légère|légers|légères,division 1|div 1|div1,division 2|div 2|div2,subdivision|unilatéral|unilatérale|unilatéraux|unilatérales|asymétrique|asymétriques
+v;FS;classe III d'Angle;Mésiocclusion,Prognathie dentaire,Occlusion inversée,Classe 3 Dentaire,sous-occlusion dentaire,mésiocclusion dentaire,classe 3,classe III,mésio-occlusion,protrusion;sévère|grave|marqué|important,modéré|léger,subdivision|unilatéral|asymétrique;sévère,modérée,subdivision;Mésiocclusion,Mésiocclusions,Prognathie dentaire,Prognathies dentaires,Occlusion inversée,Occlusions inversées,Classe 3 Dentaire,sous-occlusion dentaire,sous-occlusions dentaires,mésiocclusion dentaire,mésiocclusions dentaires,classe 3,classe III,mésio-occlusion,mésio-occlusions,protrusion,protrusions;sévère|sévères|grave|graves|marqué|marquée|marqués|marquées|important|importante|importants|importantes,modéré|modérée|modérés|modérées|léger|légère|légers|légères,subdivision|unilatéral|unilatérale|unilatéraux|unilatérales|asymétrique|asymétriques
+#;;;;;;;
+# RÉTROGNATHIES ET PROGNATHIES;;;;;;;
+#;;;;;;;
+p;FS;rétrognathie mandibulaire;Rétromandibulisme,rétromandibulaire,mandibule en arrière,mandibule reculée,mandibule en retrait;sévère|grave|marqué|important|majeur|complexe,modéré|léger|bénin;sévère,modérée;Rétromandibulisme,Rétromandibulismes,rétromandibulaire,rétromandibulaires,mandibule en arrière,mandibules en arrières,mandibule reculée,mandibules reculées,mandibule en retrait,mandibules en retraits;sévère|sévères|grave|graves|marqué|marquée|marqués|marquées|important|importante|importants|importantes|majeur|majeuse|majeurs|majeuses|complexe|complexes,modéré|modérée|modérés|modérées|léger|légère|légers|légères|bénin|bénigne|bénins|bénignes
+p;FS;rétrognathie maxillaire;rétromaxillaire,maxillaire en arrière,maxillaire reculé,maxillaire en retrait;sévère|grave|marqué|important|majeur|complexe,modéré|léger|bénin;sévère,modérée;rétromaxillaire,rétromaxillaires,maxillaire en arrière,maxillaires en arrières,maxillaire reculé,maxillaires reculés,maxillaire en retrait,maxillaires en retraits;sévère|sévères|grave|graves|marqué|marquée|marqués|marquées|important|importante|importants|importantes|majeur|majeuse|majeurs|majeuses|complexe|complexes,modéré|modérée|modérés|modérées|léger|légère|légers|légères|bénin|bénigne|bénins|bénignes
+p;FS;Prognathisme mandibulaire;prognathie mandibulaire,mandibule en avant,mandibule avancée,mandibule proéminente;sévère|grave|marqué|important|majeur|complexe,modéré|léger|bénin;sévère,modérée;prognathie mandibulaire,prognathies mandibulaires,mandibule en avant,mandibules en avants,mandibule avancée,mandibules avancées,mandibule proéminente,mandibules proéminentes;sévère|sévères|grave|graves|marqué|marquée|marqués|marquées|important|importante|importants|importantes|majeur|majeuse|majeurs|majeuses|complexe|complexes,modéré|modérée|modérés|modérées|léger|légère|légers|légères|bénin|bénigne|bénins|bénignes
+p;FS;Prognathisme maxillaire;prognathie maxillaire,maxillaire en avant,maxillaire avancé,maxillaire proéminent;sévère|grave|marqué|important|majeur|complexe,modéré|léger|bénin;sévère,modérée;prognathie maxillaire,prognathies maxillaires,maxillaire en avant,maxillaires en avants,maxillaire avancé,maxillaires avancés,maxillaire proéminent,maxillaires proéminents;sévère|sévères|grave|graves|marqué|marquée|marqués|marquées|important|importante|importants|importantes|majeur|majeuse|majeurs|majeuses|complexe|complexes,modéré|modérée|modérés|modérées|léger|légère|légers|légères|bénin|bénigne|bénins|bénignes
+#;;;;;;;
+# BÉANCES;;;;;;;
+#;;;;;;;
+p;FS;béance;beance,béance dentaire,espace entre les dents,espace interdentaire,morsure béante,morsure ouverte,open bite,openbite,écartement,écart,cavité;antérieur|frontal|avant,postérieur|arrière,latéral,gauche,droit,sévère|grave|marqué|important|majeur|complexe,modéré|léger|bénin;antérieure,postérieure,latérale,gauche,droite,sévère,modérée;beance,beances,béance dentaire,béances dentaires,espace entre les dents,espaces entres les dents,espace interdentaire,espaces interdentaires,morsure béante,morsures béantes,morsure ouverte,morsures ouvertes,open bite,openbite,écartement,écartemente,écartements,écartementes,écart,écarte,écarts,écartes;antérieur|antérieure|antérieurs|antérieures|frontal|frontale|frontaux|frontales|avant|avante|avants|avantes,postérieur|postérieure|postérieurs|postérieures|arrière|arrières,latéral|latérale|latéraux|latérales,gauche|gauches,droit|droite|droits|droites,sévère|sévères|grave|graves|marqué|marquée|marqués|marquées|important|importante|importants|importantes|majeur|majeuse|majeurs|majeuses|complexe|complexes,modéré|modérée|modérés|modérées|léger|légère|légers|légères|bénin|bénigne|bénins|bénignes
+#;;;;;;;
+# BRUXISME;;;;;;;
+#;;;;;;;
+p;MS;Bruxisme;bruxomanie,clenching,grincement,grinding,serrement,usure dentaire,grince des dents, grincent des dents, dents qui grincent;nocturne,diurne,sévère|grave|marqué|important,modéré|léger|bénin;nocturne,diurne,sévère,modéré;bruxomanie,bruxomanies,clenching,grincement,grincemente,grincements,grincementes,grinding,serrement,serremente,serrements,serrementes,usure dentaire,usures dentaires,grince des dents,grinces des dents,grincent des dents,grincents des dents,dents qui grincent,dents qui grincents;nocturne|nocturnes,diurne|diurnes,sévère|sévères|grave|graves|marqué|marquée|marqués|marquées|important|importante|importants|importantes,modéré|modérée|modérés|modérées|léger|légère|légers|légères|bénin|bénigne|bénins|bénignes
+#;;;;;;;
+# AVULSIONS / EXTRACTIONS;;;;;;;
+#;;;;;;;
+p;FS;avulsion;arrachage dentaire,dédentation,exodontie,extraction,extraction dentaire;immédiat,différé,programmé;immédiate,différée,programmée;arrachage dentaire,arrachages dentaires,dédentation,dédentations,exodontie,exodonties,extraction,extractions,extraction dentaire,extractions dentaires;immédiat|immédiate|immédiats|immédiates,différé|différée|différés|différées,programmé|programmée|programmés|programmées
+#;;;;;;;
+#==============================================================================;;;;;;;
+# DONNÉES EXTRAITES D'AUGIAS.CSV - À VALIDER;;;;;;;
+#==============================================================================;;;;;;;
+#;;;;;;;
+# TRAITEMENTS, APPAREILS ET DISPOSITIFS;;;;;;;
+#;;;;;;;
+t;MS;activateur;appareil fonctionnel,functional appliance,appareil amovible fonctionnel,appareil d'activation,activateur orthodontique,monobloc,activateur de classe II;;;appareil fonctionnel,appareils fonctionnels,functional appliance,functionaux appliances,appareil amovible fonctionnel,appareils amovibles fonctionnels,appareil d'activation,appareils d'activations,activateur orthodontique,activateurs orthodontiques,monobloc,monobloque,monoblocs,monobloques,activateur de classe II;
+t;MS;arc;fil orthodontique,fil,wire,archwire,fil métallique,fil rond,fil rectangulaire,fil d'arc,arc orthodontique;;;fil orthodontique,fils orthodontiques,fil,fille,fils,filles,wire,archwire,fil métallique,fils métalliques,fil rond,fils ronds,fil rectangulaire,fils rectangulaires,fil d'arc,fils d'arcs,arc orthodontique,arcs orthodontiques;
+t;FP;bagues;brackets,attaches,broches,braces,bracket,appareil orthodontique,appareil dentaire,appareil multi-attaches,attaches orthodontiques,boîtiers orthodontiques;;;brackets,bracketsse,bracketsses,attaches,attachesse,attachesses,broches,brochesse,brochesses,braces,bracesse,bracesses,bracket,brackète,brackètes,appareil orthodontique,appareils orthodontiques,appareil dentaire,appareils dentaires,appareil multi-attaches,appareils multi-attaches,attaches orthodontiques,boîtiers orthodontiques;
+t;FP;bielles;bielle,Forsus,PowerScope,système de bielles;;;bielle,bielles,Forsus,Forsusse,Forsusses,PowerScope,système de bielles,systèmes de bielles;
+t;FS;céramique;ceramic,esthétique,transparent,brackets céramiques,attaches céramiques;;;ceramic,ceramique,ceramics,ceramiques,esthétique,esthétiques,transparent,transparente,transparents,transparentes,brackets céramiques,attaches céramiques;
+t;FS;contention;appareil de contention,fil de contention,hawley,maintenance,maintien,plaque de contention,retention,stabilisation;fixe|collé,amovible;fixe,amovible;appareil de contention,appareils de contentions,fil de contention,fils de contentions,hawley,maintenance,maintenances,maintien,maintienne,maintiens,maintiennes,plaque de contention,plaques de contentions,retention,retentions,stabilisation,stabilisations;fixe|fixes|collé|collée|collés|collées,amovible|amovibles
+t;MS;disjoncteur;expansion,disjonction,disjoncteur palatin,quad helix,appareil d'expansion,appareil d'expansion palatine,ERP,expansion rapide du palais;;;expansion,expansions,disjonction,disjonctions,disjoncteur palatin,disjoncteurs palatins,quad helix,quads helix,appareil d'expansion,appareils d'expansions,appareil d'expansion palatine,appareils d'expansions palatines,ERP,ERPe,ERPs,ERPes,expansion rapide du palais,expansions rapides du palais;
+t;MS;écarteur;séparateur,separator,élastique séparateur,anneau séparateur;;;séparateur,séparatrice,séparateurs,séparatrices,separator,separatore,separators,separatores,élastique séparateur,élastiques séparateurs,anneau séparateur,anneaux séparateurs;
+t;MP;élastiques intermaxillaires;élastiques de classe,élastiques classe II,élastiques classe III,rubber bands,IMU;;;élastiques de classe,élastiques classe II,élastiques classe III,rubber bands,rubbers bands,IMU,IMUe,IMUs,IMUes;
+t;FS;gouttière;invisalign,aligneur,aligneur invisible,appareil amovible transparent,clear aligner,gouttière orthodontique,gouttière transparente,plaque;;;invisalign,invisaligne,invisaligns,invisalignes,aligneur,aligneuse,aligneurs,aligneuses,aligneur invisible,aligneurs invisibles,appareil amovible transparent,appareils amovibles transparents,clear aligner,clears aligners,gouttière orthodontique,gouttières orthodontiques,gouttière transparente,gouttières transparentes,plaque,plaques;
+t;MS;Herbst;appareil de Herbst,correction classe II,bielle de Herbst,vérin de Herbst;;;appareil de Herbst,appareils de Herbsts,correction classe II,bielle de Herbst,bielles de Herbsts,vérin de Herbst,vérins de Herbsts;
+t;FS;ligature;élastique,tie,attache,ligatures métalliques,ligatures élastiques,ligature colorée;;;élastique,élastiques,tie,ties,attache,attaches,ligatures métalliques,ligatures élastiques,ligature colorée,ligatures colorées;
+t;MS;mainteneur d'espace;space maintainer,bague et anse,appareil mainteneur d'espace;;;space maintainer,spaces maintainers,bague et anse,bagues et anses,appareil mainteneur d'espace,appareils mainteneurs d'espaces;
+t;FS;minivis;mini-vis,mini implant,ancrage osseux,TADs,ancrage squelettique,vis d'ancrage,implant orthodontique temporaire;;;mini-vis,mini-visse,mini-visses,mini implant,minis implants,ancrage osseux,ancrages osseux,TADs,TADsse,TADsses,ancrage squelettique,ancrages squelettiques,vis d'ancrage,vis d'ancrages,implant orthodontique temporaire,implants orthodontiques temporaires;
+t;MS;pendulum;distalisation molaire,appareil pendulum;;;distalisation molaire,distalisations molaires,appareil pendulum,appareils pendulums;
+t;FS;plaque amovible;appareil amovible,removable appliance,plaque orthodontique;;;appareil amovible,appareils amovibles,removable appliance,removables appliances,plaque orthodontique,plaques orthodontiques;
+t;MS;Propulsor;CI II Propulseur,CI 2 Propulseur,Classe II Propulseur,Classe 2 Propulseur,propulseur classe II;;;CI II Propulseur,CIs IIs Propulseurs,CI 2 Propulseur,Classe II Propulseur,Classe 2 Propulseur,propulseur classe II;
+t;MS;quad helix;4 helix,quadri-hélix,expansion lente;;;4 helix,quadri-hélix,quadri-hélisse,quadri-hélisses,expansion lente,expansions lentes;
+#;;;;;;;
+# PATHOLOGIES ET CONDITIONS DENTAIRES;;;;;;;
+#;;;;;;;
+p;FS;agénésie;agenesie,dent manquante,absence de dent,hypodontie,oligodontie,anodontie,dent absente;;;agenesie,agenesies,dent manquante,dents manquantes,absence de dent,absences de dents,hypodontie,hypodonties,oligodontie,oligodonties,anodontie,anodonties,dent absente,dents absentes;
+p;FS;ankylose;dent ankylosée,fusion osseuse,ankilose;;;dent ankylosée,dents ankylosées,fusion osseuse,fusions osseuses,ankilose,ankiloses;
+p;FP;caries dentaires;carie,cavité,tooth decay,dental caries,lésion carieuse;;;carie,caries,cavité,cavitée,cavités,cavitées,tooth decay,tooths decays,dental caries,dentaux caries,lésion carieuse,lésions carieuses;
+p;MS;crowding;encombrement,chevauchement,manque de place,dents qui se chevauchent,entassement dentaire,crowding dentaire;;;encombrement,encombremente,encombrements,encombrementes,chevauchement,chevauchemente,chevauchements,chevauchementes,manque de place,manques de places,dents qui se chevauchent,dents qui ses chevauchents,entassement dentaire,entassements dentaires,crowding dentaire;
+p;FS;dent surnuméraire;dent en trop,dent supplémentaire,hyperdontie,mésiodens,supernuméraire;;;dent en trop,dents en trops,dent supplémentaire,dents supplémentaires,hyperdontie,hyperdonties,mésiodens,mésiodensse,mésiodensses,supernuméraire,supernuméraires;
+p;MS;diastème;diasteme,espace,gap,space,espacement,diastème central,dents écartées,écartement dentaire,espace interdentaire,dents du bonheur;;;diasteme,diastemes,espace,espaces,gap,gape,gaps,gapes,space,spaces,espacement,espacemente,espacements,espacementes,diastème central,diastèmes centraux,dents écartées,écartement dentaire,écartements dentaires,espace interdentaire,espaces interdentaires,dents du bonheur,dents du bonheurs;
+p;MP;diastemata;diastèmes,espaces multiples,dents espacées,espacement généralisé,espaces interdentaires;;;diastèmes,diastèmesse,diastèmesses,espaces multiples,dents espacées,espacement généralisé,espacements généralisés,espaces interdentaires;
+p;FS;dysplasie;dysmorphie,anomalie de développement,malformation,anomalie congénitale;;;dysmorphie,dysmorphies,anomalie de développement,anomalies de développements,malformation,malformations,anomalie congénitale,anomalies congénitales;
+p;FS;ectopie;dent en dehors de l'arcade,dent mal placée,ectopic tooth,mal placée,position ectopique;;;dent en dehors de l'arcade,dents en dehors de l'arcades,dent mal placée,dents maux placées,ectopic tooth,ectopics tooths,mal placée,maux placées,position ectopique,positions ectopiques;
+p;FS;édentation;edentation,absence de dents,édentement,perte de dents,édenté;;;edentation,edentations,absence de dents,absences de dents,édentement,édentemente,édentements,édentementes,perte de dents,pertes de dents,édenté,édentée,édentés,édentées;
+p;FS;gingivite;inflammation gingivale,gencives rouges,gingivitis,inflammation des gencives;;;inflammation gingivale,inflammations gingivales,gencives rouges,gingivitis,gingivitisse,gingivitisses,inflammation des gencives,inflammations des gencives;
+p;FS;inclusion;dent incluse,dent qui ne sort pas,impaction,impacted tooth,dent retenue,dent bloquée,dent qui ne pousse pas;;;dent incluse,dents incluses,dent qui ne sort pas,dents qui nes sorts pas,impaction,impactions,impacted tooth,impacteds tooths,dent retenue,dents retenues,dent bloquée,dents bloquées,dent qui ne pousse pas,dents qui nes pousses pas;
+p;FS;macrodontie;dents trop grandes,surdimensionnement dentaire,mégalodontie;;;dents trop grandes,dents trops grandes,surdimensionnement dentaire,surdimensionnements dentaires,mégalodontie,mégalodonties;
+p;FS;maladie parodontale;parodontite,déchaussement,maladie des gencives,parodontopathie,periodontal disease;;;parodontite,parodontites,déchaussement,déchaussemente,déchaussements,déchaussementes,maladie des gencives,maladies des gencives,parodontopathie,parodontopathies,periodontal disease,periodontaux diseases;
+p;FS;malocclusion;malocclusion dentaire,maloclusion,mauvaise occlusion,mauvais engrènement,problème d'occlusion;droit,gauche;droite,gauche;malocclusion dentaire,malocclusions dentaires,maloclusion,maloclusions,mauvaise occlusion,mauvaises occlusions,mauvais engrènement,mauvais engrènements,problème d'occlusion,problèmes d'occlusions;droit|droite|droits|droites,gauche|gauches
+p;FS;malposition dentaire;malposition,ectopie dentaire,dent mal positionnée;mandibulaire|inférieur,maxillaire|supérieur;mandibulaire,maxillaire;malposition,malpositions,ectopie dentaire,ectopies dentaires,dent mal positionnée,dents maux positionnées;mandibulaire|mandibulaires|inférieur|inférieure|inférieurs|inférieures,maxillaire|maxillaires|supérieur|supérieure|supérieurs|supérieures
+p;FS;microdontie;dents trop petites,nanisme dentaire,sous-dimensionnement dentaire;;;dents trop petites,dents trops petites,nanisme dentaire,nanismes dentaires,sous-dimensionnement dentaire,sous-dimensionnements dentaires;
+p;FS;nécrose pulpaire;mort pulpaire,nécrose de la pulpe,pulpe nécrosée,dévitalisation nécessaire;;;mort pulpaire,morts pulpaires,nécrose de la pulpe,nécroses de la pulpes,pulpe nécrosée,pulpes nécrosées,dévitalisation nécessaire,dévitalisations nécessaires;
+p;FS;récession gingivale;gingival recession,receding gums,récession parodontale,rétraction gingivale;;;gingival recession,gingivaux recessions,receding gums,recedings gums,récession parodontale,récessions parodontales,rétraction gingivale,rétractions gingivales;
+p;FS;récidive;recidive,rechute,relapse,retour,récidive orthodontique;;;recidive,rechute,rechutes,relapse,relapses,retour,retoure,retours,retoures,récidive orthodontique;
+p;FS;résorption radiculaire;résorption de la racine,racine qui se résorbe,rhizalyse,résorption apicale,raccourcissement radiculaire;;;résorption de la racine,résorptions de la racines,racine qui se résorbe,racines qui ses résorbes,rhizalyse,rhizalyses,résorption apicale,résorptions apicales,raccourcissement radiculaire,raccourcissements radiculaires;
+p;FS;rotation;dent tournée,dent rotée,twisted tooth,rotation axiale,dent pivotée,malposition rotationnelle,version axiale;;;dent tournée,dents tournées,dent rotée,dents rotées,twisted tooth,rotation axiale,rotations axiales,dent pivotée,dents pivotées,malposition rotationnelle,malpositions rotationnelles,version axiale,versions axiales;
+p;FS;transposition;dents transposées,inversion de position,permutation dentaire,échange de position;;;dents transposées,inversion de position,inversions de positions,permutation dentaire,permutations dentaires,échange de position,échanges de positions;
+#;;;;;;;
+#;;;;;;;
+# ANOMALIES ALVÉOLAIRES;;;;;;;
+#;;;;;;;
+p;FS;proalvéolie;proinclinaison,prochéilie;incisif,mandibulaire|inférieur,maxillaire|supérieur,sévère|grave|marqué|important,modéré|léger;incisive,mandibulaire,maxillaire,sévère,modérée;proinclinaison,proinclinaisonne,proinclinaisons,proinclinaisonnes,prochéilie,prochéilies;incisif|incisive|incisifs|incisives,mandibulaire|mandibulaires|inférieur|inférieure|inférieurs|inférieures,maxillaire|maxillaires|supérieur|supérieure|supérieurs|supérieures,sévère|sévères|grave|graves|marqué|marquée|marqués|marquées|important|importante|importants|importantes,modéré|modérée|modérés|modérées|léger|légère|légers|légères
+p;FS;rétroalvéolie;rétroinclinaison,rétrochéilie;mandibulaire|inférieur,maxillaire|supérieur,sévère|grave|marqué|important,modéré|léger;mandibulaire,maxillaire,sévère,modérée;rétroinclinaison,rétroinclinaisonne,rétroinclinaisons,rétroinclinaisonnes,rétrochéilie,rétrochéilies;mandibulaire|mandibulaires|inférieur|inférieure|inférieurs|inférieures,maxillaire|maxillaires|supérieur|supérieure|supérieurs|supérieures,sévère|sévères|grave|graves|marqué|marquée|marqués|marquées|important|importante|importants|importantes,modéré|modérée|modérés|modérées|léger|légère|légers|légères
+p;FS;endoalvéolie;anomalie alvéolaire,anomalie basale;mandibulaire|inférieur,maxillaire|supérieur;mandibulaire,maxillaire;anomalie alvéolaire,anomalies alvéolaires,anomalie basale,anomalies basales;mandibulaire|mandibulaires|inférieur|inférieure|inférieurs|inférieures,maxillaire|maxillaires|supérieur|supérieure|supérieurs|supérieures
+#;;;;;;;
+# ANOMALIES DE DIMENSION;;;;;;;
+#;;;;;;;
+p;FS;macrognathie;grande mâchoire,hyperplasie,grosse mâchoire,mâchoire trop grande,excès mandibulaire,excès maxillaire;mandibulaire|inférieur,maxillaire|supérieur;mandibulaire,maxillaire;grande mâchoire,grandes mâchoires,hyperplasie,hyperplasies,grosse mâchoire,grosses mâchoires,mâchoire trop grande,mâchoires trops grandes,excès mandibulaire,excès mandibulaires,excès maxillaire,excès maxillaires;mandibulaire|mandibulaires|inférieur|inférieure|inférieurs|inférieures,maxillaire|maxillaires|supérieur|supérieure|supérieurs|supérieures
+p;FS;micrognathie;petite mâchoire,hypoplasie,mâchoire trop petite,déficit mandibulaire,déficit maxillaire;mandibulaire|inférieur,maxillaire|supérieur;mandibulaire,maxillaire;petite mâchoire,petites mâchoires,hypoplasie,hypoplasies,mâchoire trop petite,mâchoires trops petites,déficit mandibulaire,déficits mandibulaires,déficit maxillaire,déficits maxillaires;mandibulaire|mandibulaires|inférieur|inférieure|inférieurs|inférieures,maxillaire|maxillaires|supérieur|supérieure|supérieurs|supérieures
+#;;;;;;;
+# OCCLUSIONS;;;;;;;
+#;;;;;;;
+p;FS;occlusion croisée;crossbite,morsure croisée,articulé croisé;;;crossbite,morsure croisée,morsures croisées,articulé croisé,articulés croisés;
+p;FS;occlusion inversée;morsure inversée,occlusion inverse,articulé inversé;antérieur|avant,postérieur|arrière,droit,gauche;antérieure,postérieure,droite,gauche;morsure inversée,morsures inversées,occlusion inverse,occlusions inverses,articulé inversé,articulés inversés;antérieur|antérieure|antérieurs|antérieures|avant|avante|avants|avantes,postérieur|postérieure|postérieurs|postérieures|arrière|arrières,droit|droite|droits|droites,gauche|gauches
+p;FS;supraclusion;deep bite,morsure profonde,overbite,recouvrement vertical excessif,supraocclusion;prononcé|marqué|sévère,total|complet;prononcée,totale;deep bite,morsure profonde,morsures profondes,overbite,recouvrement vertical excessif,recouvrements verticaux excessifs,supraocclusion,supraocclusions;prononcé|prononcée|prononcés|prononcées|marqué|marquée|marqués|marquées|sévère|sévères,total|totale|totaux|totales|complet|complète|complets|complètes
+p;FS;infraclusion;underbite,sous-occlusion antérieure;;;underbite,sous-occlusion antérieure,sous-occlusions antérieures;
+#;;;;;;;
+# POSITIONS ET VERSIONS DENTAIRES;;;;;;;
+#;;;;;;;
+p;FS;version;inclinaison,tipping,basculement,inclinaison dentaire,bascule,mouvement de version;;;inclinaison,inclinaisonne,inclinaisons,inclinaisonnes,tipping,tippingue,tippings,tippingues,basculement,basculemente,basculements,basculementes,inclinaison dentaire,inclinaisons dentaires,bascule,bascules,mouvement de version,mouvements de versions;
+p;FS;vestibulo-version;vestibuloversion,versé en vestibulaire,incliné vers la joue,incliné vers l'extérieur,vestibulo-position;;;vestibuloversion,versé en vestibulaire,versés en vestibulaires,incliné vers la joue,inclinés vers la joues,incliné vers l'extérieur,inclinés vers l'extérieurs,vestibulo-position,vestibulo-positions;
+p;FS;linguo-version;linguoversion,versé en lingual,incliné vers la langue,inclinaison linguale;;;linguoversion,versé en lingual,versés en linguaux,incliné vers la langue,inclinés vers la langues,inclinaison linguale,inclinaisons linguales;
+p;FS;égression;extrusion,éruption,sortie dentaire,égression dentaire;;;extrusion,extrusions,éruption,éruptions,sortie dentaire,sorties dentaires,égression dentaire,égressions dentaires;
+p;FS;ingression;intrusion,enfoncement,intrusion dentaire,mouvement d'intrusion;;;intrusion,intrusions,enfoncement,enfoncemente,enfoncements,enfoncementes,intrusion dentaire,intrusions dentaires,mouvement d'intrusion,mouvements d'intrusions;
+p;FS;supraposition;supra-position,dent en supraposition,dent trop haute,supra-éruption,éruption excessive;;;supra-position,supra-positions,dent en supraposition,dents en suprapositions,dent trop haute,dents trops hautes,supra-éruption,supra-éruptions,éruption excessive,éruptions excessives;
+p;FS;infraposition;infra-position,dent en infraposition,dent trop basse,sous-éruption;;;infra-position,infra-positions,dent en infraposition,dents en infrapositions,dent trop basse,dents trops basses,sous-éruption,sous-éruptions;
+#;;;;;;;
+# MOUVEMENTS ORTHODONTIQUES;;;;;;;
+#;;;;;;;
+p;FS;distalisation;recul,déplacement distal,mouvement de distalisation;;;recul,reculle,reculs,reculles,déplacement distal,déplacements distaux,mouvement de distalisation,mouvements de distalisations;
+p;FS;mésialisation;avancement,déplacement mésial,mouvement de mésialisation;;;avancement,avancemente,avancements,avancementes,déplacement mésial,déplacements mésiaux,mouvement de mésialisation,mouvements de mésialisations;
+p;FS;translation;mouvement,déplacement corporel,mouvement corporel,déplacement en bloc,bodily movement,translation dentaire;;;mouvement,mouvemente,mouvements,mouvementes,déplacement corporel,déplacements corporels,mouvement corporel,mouvements corporels,déplacement en bloc,déplacements en blocs,bodily movement,bodilys movements,translation dentaire,translations dentaires;
+p;MS;torque;torsion radiculaire,rotation radiculaire,inclinaison radiculaire,angulation radiculaire,couple;;;torsion radiculaire,torsions radiculaires,rotation radiculaire,rotations radiculaires,inclinaison radiculaire,inclinaisons radiculaires,angulation radiculaire,angulations radiculaires,couple,couples;
+#;;;;;;;
+# DÉVIATIONS ET ASYMÉTRIES;;;;;;;
+#;;;;;;;
+v;FS;asymétrie faciale;visage asymétrique,déviation faciale;;;visage asymétrique,visages asymétriques,déviation faciale,déviations faciales;
+v;FS;déviation mandibulaire;décalage mandibulaire,déviation de la mandibule;droit,gauche;droite,gauche;décalage mandibulaire,décalages mandibulaires,déviation de la mandibule,déviations de la mandibules;droit|droite|droits|droites,gauche|gauches
+v;FS;déviation maxillaire;décalage dentaire,déviation de la ligne médiane;droit,gauche;droite,gauche;décalage dentaire,décalages dentaires,déviation de la ligne médiane,déviations de la lignes médianes;droit|droite|droits|droites,gauche|gauches
+v;FS;latérodéviation mandibulaire;déviation mandibulaire latérale,asymétrie mandibulaire;droit,gauche;droite,gauche;déviation mandibulaire latérale,déviations mandibulaires latérales,asymétrie mandibulaire,asymétries mandibulaires;droit|droite|droits|droites,gauche|gauches
+v;FS;latérodéviation maxillaire;déviation maxillaire latérale,asymétrie maxillaire;droit,gauche;droite,gauche;déviation maxillaire latérale,déviations maxillaires latérales,asymétrie maxillaire,asymétries maxillaires;droit|droite|droits|droites,gauche|gauches
+#;;;;;;;
+# ATM ET ARTICULATION;;;;;;;
+#;;;;;;;
+v;FS;ATM;articulation temporo-mandibulaire,troubles ATM,dysfonction temporo-mandibulaire,TMJ,TMD;;;articulation temporo-mandibulaire,articulations temporo-mandibulaires,troubles ATM,troubles ATMs,dysfonction temporo-mandibulaire,dysfonctions temporo-mandibulaires,TMJ,TMJe,TMJs,TMJes,TMD,TMDe,TMDs,TMDes;
+v;FS;arthrite;inflammation articulaire,arthropathie inflammatoire;infectieux|septique|bactérien,traumatique|post-traumatique;infectieuse,traumatique;inflammation articulaire,inflammations articulaires,arthropathie inflammatoire,arthropathies inflammatoires;infectieux|infectieuse|infectieuses|septique|septiques|bactérien|bactérienne|bactériens|bactériennes,traumatique|traumatiques|post-traumatique|post-traumatiques
+v;FS;arthrose;ostéoarthrite,arthropathie dégénérative,maladie articulaire dégénérative;;;ostéoarthrite,ostéoarthrites,arthropathie dégénérative,arthropathies dégénératives,maladie articulaire dégénérative,maladies articulaires dégénératives;
+v;MS;claquement articulaire;claquement ATM,clicking;droit,gauche,léger;droit,gauche,léger;claquement ATM,claquements ATMs,clicking,clickingue,clickings,clickingues;droit|droite|droits|droites,gauche|gauches,léger|légère|légers|légères
+v;MS;ressaut articulaire;ressaut ATM,popping;droit,gauche;droit,gauche;ressaut ATM,ressauts ATMs,popping,poppingue,poppings,poppingues;droit|droite|droits|droites,gauche|gauches
+v;FS;luxation;luxation ATM,déplacement articulaire,dislocation;;;luxation ATM,luxations ATMs,déplacement articulaire,déplacements articulaires,dislocation,dislocations;
+v;FS;luxation méniscale;déplacement du ménisque,luxation discale,trouble de l'atm;réductible;réductible;déplacement du ménisque,déplacements du ménisques,luxation discale,luxations discales,trouble de l'atm,troubles de l'atms;réductible|réductibles
+#;;;;;;;
+# FONCTIONS;;;;;;;
+#;;;;;;;
+v;FS;apnée du sommeil;sleep apnea,OSA,obstructive sleep apnea,syndrome d'apnées obstructives du sommeil,SAOS,ronflement;;;sleep apnea,sleeps apneas,OSA,OSAs,obstructive sleep apnea,obstructives sleeps apneas,syndrome d'apnées obstructives du sommeil,syndromes d'apnées obstructives du sommeils,SAOS,SAOSse,SAOSses,ronflement,ronflemente,ronflements,ronflementes;
+v;FS;déglutition;avaler,swallowing,fonction de déglutition,acte de déglutition;atypique|primaire;atypique;avaler,avalère,avalers,avalères,swallowing,fonction de déglutition,fonctions de déglutitions,acte de déglutition,actes de déglutitions;atypique|atypiques|primaire|primaires
+v;FS;dysfonction linguale;langue basse,position linguale basse,trouble de la déglutition,déglutition primaire,mauvaise position linguale;;;langue basse,langues basses,position linguale basse,positions linguales basses,trouble de la déglutition,troubles de la déglutitions,déglutition primaire,déglutitions primaires,mauvaise position linguale,mauvaises positions linguales;
+v;FS;interposition linguale;langue entre les dents,tongue thrust,béance par interposition,poussée linguale;;;langue entre les dents,langues entres les dents,tongue thrust,tongues thrusts,béance par interposition,béances par interpositions,poussée linguale,poussées linguales;
+v;FS;mastication;mâcher,mastiquer,croquer,chewing,fonction masticatrice,fonction masticatoire;;;mâcher,mâchère,mâchers,mâchères,mastiquer,mastiquère,mastiquers,mastiquères,croquer,croquère,croquers,croquères,chewing,fonction masticatrice,fonctions masticatrices,fonction masticatoire,fonctions masticatoires;
+v;FS;phonation;parole,élocution,parler,speech,fonction phonatoire,articulation;;;parole,paroles,élocution,élocutions,parler,parlère,parlers,parlères,speech,speeche,speechs,speeches,fonction phonatoire,fonctions phonatoires,articulation,articulations;
+v;FS;respiration buccale;ventilation orale,bouche ouverte,mouth breathing,respirateur buccal,respiration orale,respiration par la bouche;;;ventilation orale,ventilations orales,bouche ouverte,bouches ouvertes,mouth breathing,mouths breathings,respirateur buccal,respirateurs buccaux,respiration orale,respirations orales,respiration par la bouche,respirations par la bouches;
+v;FS;ventilation nasale;respiration nasale,nasal breathing,respiration par le nez;;;respiration nasale,respirations nasales,nasal breathing,nasaux breathings,respiration par le nez,respirations par le nez;
+#;;;;;;;
+# HABITUDES;;;;;;;
+#;;;;;;;
+v;FS;succion;habitude de succion,pacifier,pouce,suce le pouce,sucer,sucotement,tétine;digital|pouce;digitale;habitude de succion,habitudes de succions,pacifier,pacifière,pacifiers,pacifières,pouce,pouces,suce le pouce,suces le pouces,sucer,sucère,sucers,sucères,sucotement,sucotemente,sucotements,sucotementes,tétine,tétines;digital|digitale|digitaux|digitales|pouce|pouces
+v;FS;onychophagie;ronger les ongles,nail biting,se ronger les ongles;;;ronger les ongles,rongers les ongles,nail biting,nails bitings,se ronger les ongles,ses rongers les ongles;
+#;;;;;;;
+# PROCÉDURES ET TRAITEMENTS;;;;;;;
+#;;;;;;;
+v;MS;alignement;redressement,correction,straightening,alignement dentaire,alignement des dents;;;redressement,redressemente,redressements,redressementes,correction,corrections,straightening,straighteningue,straightenings,straighteningues,alignement dentaire,alignements dentaires,alignement des dents,alignements des dents;
+v;FS;chirurgie;intervention,opération,surgery,chirurgie maxillaire,chirurgie mandibulaire,opération mâchoire,orthognathic surgery,chirurgie maxillo-faciale;;;intervention,interventions,opération,opérations,surgery,surgerys,chirurgie maxillaire,chirurgies maxillaires,chirurgie mandibulaire,chirurgies mandibulaires,opération mâchoire,opérations mâchoires,orthognathic surgery,orthognathics surgerys,chirurgie maxillo-faciale,chirurgies maxillo-faciales;
+v;MS;détartrage;nettoyage dentaire,prophylaxie,scaling,surfaçage;;;nettoyage dentaire,nettoyages dentaires,prophylaxie,prophylaxies,scaling,scalingue,scalings,scalingues,surfaçage,surfaçages;
+v;FS;ostéotomie;chirurgie des mâchoires,jaw surgery,chirurgie orthognathique,chirurgie bimaxillaire;;;chirurgie des mâchoires,chirurgies des mâchoires,jaw surgery,chirurgie orthognathique,chirurgies orthognathiques,chirurgie bimaxillaire,chirurgies bimaxillaires;
+v;MS;stripping;IPR,réduction interproximale,polissage interproximal,meulage,limage,réduction amélaire,slicing;;;IPR,IPRe,IPRs,IPRes,réduction interproximale,réductions interproximales,polissage interproximal,polissages interproximaux,meulage,meulages,limage,limages,réduction amélaire,réductions amélaires,slicing,slicingue,slicings,slicingues;
+v;MS;traitement interceptif;traitement précoce,early treatment,interception orthodontique;;;traitement précoce,traitements précoces,early treatment,earlys treatments,interception orthodontique,interceptions orthodontiques;
+#;;;;;;;
+# MESURES CÉPHALOMÉTRIQUES;;;;;;;
+# ANB traités par angles !!!;;;;;;;
+#;;ANB;angle ANB,relation intermaxillaire,décalage squelettique,mesure ANB,relation antéropostérieure,angle squelettique,relation maxillo-mandibulaire;;;angle ANB,relation intermaxillaire,relations intermaxillaires,décalage squelettique,décalages squelettiques,mesure ANB,mesures ANBs,relation antéropostérieure,relations antéropostérieures,angle squelettique,relation maxillo-mandibulaire,relations maxillo-mandibulaires;
+#;;SNA;angle SNA,position maxillaire,mesure SNA,position du maxillaire;;;angle SNA,position maxillaire,positions maxillaires,mesure SNA,mesures SNAs,position du maxillaire,positions dus maxillaires;
+#;;SNB;angle SNB,position mandibulaire,mesure SNB,position de la mandibule;;;angle SNB,position mandibulaire,positions mandibulaires,mesure SNB,mesures SNBs,position de la mandibule,positions des las mandibules;
+#;;Wits;appraisal de Wits,analyse de Wits,AO-BO,Wits appraisal,analyse Wits,mesure de Wits;;;appraisal de Wits,analyse de Wits,AO-BO,AO-BOs,Wits appraisal,analyse Wits,mesure de Wits;
+p;FS;céphalométrie;téléradiographie,téléradio,lateral ceph,profil,cephalo,radio de profil,télécrâne,radiographie de profil;;;téléradiographie,téléradiographies,téléradio,téléradios,lateral ceph,lateraux cephs,profil,profille,profils,profilles,cephalo,cephalos,radio de profil,radios de profils,télécrâne,télécrânes,radiographie de profil,radiographies de profils;
+#;;;;;;;
+# IMAGERIE ET DIAGNOSTIC;;;;;;;
+#;;;;;;;
+v;MS;panoramique;radio panoramique,orthopantomogramme,OPG,panorex,radio,radiographie,panoramique dentaire,radiographie panoramique;;;radio panoramique,radios panoramiques,orthopantomogramme,orthopantomogrammes,OPG,OPGue,OPGs,OPGues,panorex,panoresse,panoresses,radio,radios,radiographie,radiographies,panoramique dentaire,panoramiques dentaires,radiographie panoramique,radiographies panoramiques;
+v;MS;scanner;cone beam,CBCT,tomodensitométrie,cone beam CT,3D,imagerie 3D,scan 3D,tomographie;;;cone beam,cones beams,CBCT,CBCTe,CBCTs,CBCTes,tomodensitométrie,tomodensitométries,cone beam CT,cones beams CTs,3D,imagerie 3D,scan 3D,tomographie,tomographies;
+v;MS;scanner intra-oral;empreinte numérique,digital impression,scan numérique;;;empreinte numérique,empreintes numériques,digital impression,digitaux impressions,scan numérique,scans numériques;
+v;FS;empreinte;prise d'empreinte,moulage,impression,alginate,empreinte dentaire;;;prise d'empreinte,prises d'empreintes,moulage,moulages,impression,impressions,alginate,alginates,empreinte dentaire,empreintes dentaires;
+#;;;;;;;
+# DENTS ET ARCADES;;;;;;;
+#;;;;;;;
+v;FS;arcade;arcade dentaire,arc dentaire,dental arch;maxillaire|supérieur,mandibulaire|inférieur;maxillaire,mandibulaire;arcade dentaire,arcades dentaires,arc dentaire,arcs dentaires,dental arch,dentaux archs;maxillaire|maxillaires|supérieur|supérieure|supérieurs|supérieures,mandibulaire|mandibulaires|inférieur|inférieure|inférieurs|inférieures
+v;FS;canine;croc,cuspide,dent canine,dent de loup;inclus;incluse;croc,croque,crocs,croques,cuspide,cuspides,dent canine,dents canines,dent de loup,dents de loups;inclus|incluse|incluses
+v;FS;incisive;dent de devant,dents de devant;central,latéral;centrale,latérale;dent de devant,dents de devants,dents de devant;central|centrale|centraux|centrales,latéral|latérale|latéraux|latérales
+v;FS;molaire;grosse dent,dent du fond,sixième,douzième,molaire de six ans,molaire de douze ans;premier|première,deuxième;première,deuxième;grosse dent,grosses dents,dent du fond,dents du fonds,sixième,sixièmes,douzième,douzièmes,molaire de six ans,molaires de six ans,molaire de douze ans,molaires de douzes ans;premier|première|premiers|premières,deuxième|deuxièmes
+v;FS;prémolaire;premolaire,bicuspide,quatrième,cinquième,petite molaire;premier|première,deuxième;première,deuxième;premolaire,premolaires,bicuspide,bicuspides,quatrième,quatrièmes,cinquième,cinquièmes,petite molaire,petites molaires;premier|première|premiers|premières,deuxième|deuxièmes
+#;;;;;;;
+# DENTITIONS;;;;;;;
+#;;;;;;;
+v;FS;dentition mixte;mixed dentition,denture mixte,dentition transitionnelle;;;mixed dentition,mixeds dentitions,denture mixte,dentures mixtes,dentition transitionnelle,dentitions transitionnelles;
+v;FS;dentition permanente;dents définitives,dents d'adulte,permanent dentition,denture permanente,dentition adulte;;;dents définitives,dents d'adulte,dents d'adultes,permanent dentition,permanents dentitions,denture permanente,dentures permanentes,dentition adulte,dentitions adultes;
+v;FS;dentition temporaire;dents de lait,dents de bébé,primary dentition,deciduous,dents lactéales,dents primaires,denture temporaire;;;dents de lait,dents de laits,dents de bébé,dents de bébés,primary dentition,primarys dentitions,deciduous,deciduousse,deciduousses,dents lactéales,dents primaires,denture temporaire,dentures temporaires;
+#;;;;;;;
+# DIVERS CLINIQUES;;;;;;;
+#;;;;;;;
+v;FS;croissance;développement,grandir,growth,maturation;pic|pubertaire;pic;développement,développemente,développements,développementes,grandir,grandire,grandirs,grandires,growth,maturation,maturations;pic|pics|pubertaire|pubertaires
+v;FS;DDM;dysharmonie,discrepance,dysharmonie dentaire,dysmorphose,dysharmonie dento-maxillaire;sévère|++;sévère;dysharmonie,dysharmonies,discrepance,discrepances,dysharmonie dentaire,dysharmonies dentaires,dysmorphose,dysmorphoses,dysharmonie dento-maxillaire,dysharmonies dento-maxillaires;sévère|sévères|++|++s
+v;FS;douleur;mal,pain,souffrir,inconfort,sensibilité,douleur dentaire;;;mal,male,maux,males,pain,paine,pains,paines,souffrir,souffrire,souffrirs,souffrires,inconfort,inconforte,inconforts,inconfortes,sensibilité,sensibilitée,sensibilités,sensibilitées,douleur dentaire,douleurs dentaires;
+v;FS;hygiène;nettoyage,brossage,cleaning,hygiène bucco-dentaire,hygiène dentaire;;;nettoyage,nettoyages,brossage,brossages,cleaning,cleaningue,cleanings,cleaningues,hygiène bucco-dentaire,hygiènes bucco-dentaires,hygiène dentaire,hygiènes dentaires;
+v;FS;proglissement mandibulaire;proglissement,glissement mandibulaire,déviation mandibulaire fonctionnelle,proglissement fonctionnel;;;proglissement,proglissemente,proglissements,proglissementes,glissement mandibulaire,glissements mandibulaires,déviation mandibulaire fonctionnelle,déviations mandibulaires fonctionnelles,proglissement fonctionnel,proglissements fonctionnels;
+v;MS;surplomb;recouvrement horizontal,décalage horizontal,overjet,surjet;;;recouvrement horizontal,recouvrements horizontaux,décalage horizontal,décalages horizontaux,overjet,surjet,surjète,surjets,surjètes;
+#;;;;;;;
+# AUTRES;;;;;;;
+#;;;;;;;
+v;FS;consultation;rendez-vous,appointment,visite,consulter,examen orthodontique;;;rendez-vous,rendez-vousse,rendez-vousses,appointment,appointmente,appointments,appointmentes,visite,visites,consulter,consultère,consulters,consultères,examen orthodontique,examens orthodontiques;
+v;MS;contrôle;suivi,follow-up,monitoring,surveiller,visite de contrôle;;;suivi,suivie,suivis,suivies,follow-up,monitoring,monitoringue,monitorings,monitoringues,surveiller,surveillère,surveillers,surveillères,visite de contrôle,visites de contrôles;
+v;MS;débandage;bracket décollé,bague qui tombe,loose bracket,attache décollée;;;bracket décollé,brackets décollés,bague qui tombe,bagues qui tombes,loose bracket,looses brackets,attache décollée,attaches décollées;
+v;MS;fil qui pique;fil qui blesse,wire poking,irritation,fil saillant,fil qui dépasse;;;fil qui blesse,fils qui blesses,wire poking,irritation,irritations,fil saillant,fils saillants,fil qui dépasse,fils qui dépasses;
+v;FS;urgence;urgence orthodontique,emergency,problème,urgent,cas urgent;;;urgence orthodontique,urgences orthodontiques,emergency,emergencys,problème,problèmes,urgent,urgente,urgents,urgentes,cas urgent,cas urgents;
+#;;;;;;;
+# LIGNES DOUTEUSES - À VÉRIFIER MANUELLEMENT;;;;;;;
+#;;;;;;;
+p;FS;prognathie;avancée,en avant,projection;;;avancée,avancées,en avant,en avants,projection,projections;
+p;FS;rétrognathie;en arrière,reculée,rétrognathe,rétroposition;;;en arrière,en arrières,reculée,reculées,rétrognathe,rétrognathes,rétroposition,rétropositions;
+p;FS;protrusion;avancement excessif,projection en avant,proclusion;;;avancement excessif,avancements excessifs,projection en avant,projections en avants,proclusion,proclusions;
+p;FS;rétrusion;;;;;
+t;MS;NiTi;nitinol,nickel-titane,superélastique,fil NiTi,fil thermoactif;;;nitinol,nitinole,nitinols,nitinoles,nickel-titane,nickel-titanes,superélastique,superélastiques,fil NiTi,fils NiTis,fil thermoactif,fils thermoactifs;
+t;MS;métal;acier,steel,titanium,titane,métallique,métal inoxydable;;;acier,acière,aciers,acières,steel,steelle,steels,steelles,titanium,titaniume,titaniums,titaniumes,titane,titanes,métallique,métalliques,métal inoxydable,métaux inoxydables;
+t;MS;composite;résine composite,resin composite,restauration en composite;;;résine composite,résines composites,resin composite,resins composites,restauration en composite,restaurations en composites;
+t;MS;spacing;;;;;
+#CXGTI;;;;;;;
+#  adjectifs;;;;;;;
+a;MS;sévère;grave,marqué,important,majeur,complexe,significatif;;;;
+a;MS;modéré;léger,bénin,superficiel;;;;
+a;MS;diurne;du jour, matinal;;;;

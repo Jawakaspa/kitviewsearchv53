@@ -1,0 +1,72 @@
+base.txt structure de la base de données de recherche patients ortho
+
+**-- Table patients (Avec les colonnes oripathologies et pathologies)
+CREATE TABLE patients (
+    id INTEGER PRIMARY KEY,
+    sexe TEXT,
+    prenom TEXT,
+    nom TEXT,
+    oriprenom TEXT,
+    orinom TEXT,
+    portrait TEXT,
+    age DECIMAL(5, 3),
+    datenaissance DATE,
+    ville TEXT,
+    tags TEXT,
+    datedebut DATE,
+    agedebut DECIMAL(5, 3),
+    traitement TEXT,
+    statut TEXT,
+    prix DECIMAL(10, 2),
+    dureemois INTEGER,
+    avancement INTEGER,
+    nbphotos INTEGER,
+    nodept TEXT,
+    dept TEXT,
+    region TEXT,
+    regionhisto TEXT,
+    sexepraticien TEXT,
+    prenompraticien TEXT,
+    nompraticien TEXT,
+    portraitpraticien TEXT,
+    oripathologies TEXT,  -- ← NOUVEAU : "Béance antérieure,Classe II"
+    pathologies TEXT,     -- ← NOUVEAU : "beance anterieure,classe ii"
+    search_text TEXT
+
+);
+
+-- Table des pathologies (référence)
+CREATE TABLE pathologies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    pathologie TEXT UNIQUE NOT NULL
+);
+
+-- Table de liaison entre patients et pathologies
+CREATE TABLE patients_ pathologies (
+    patient_id INTEGER NOT NULL,
+    pathologie_id INTEGER NOT NULL,
+    PRIMARY KEY (patient_id, pathologie_id),
+    FOREIGN KEY (patient_id) REFERENCES patients(id) ON DELETE CASCADE,
+    FOREIGN KEY (pathologie_id) REFERENCES pathologies(id) ON DELETE CASCADE
+);
+
+-- Table FTS 
+CREATE VIRTUAL TABLE patients_fts USING fts5(
+    search_text,
+    tokenize="unicode61 remove_diacritics 2",
+    prefix='2 3 4',
+    columnsize=0
+);**
+
+### 3. Indexation de la base
+
+Index sur colonnes de filtrage : 
+
+sexe,prenom,nom,prenomnom,age,agedebut,datenaissance,datedebut,ville,nodept,dept,region,regionhisto
+
+-- Index sur la table de liaison avec les pathologies pour accélérer les jointures
+CREATE INDEX idx_patients_ pathologies_patient_id ON patients_ pathologies(patient_id);
+CREATE INDEX idx_patients_ pathologies_ pathologie_id ON patients_ pathologies(pathologie_id);
+
+-- Index sur la table pathologies
+CREATE INDEX idx_ pathologies_nom ON pathologies(pathologie);

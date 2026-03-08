@@ -1,0 +1,103 @@
+﻿# questionspats100.csv V1.0.0 - 12/12/2025 00:23:02;;;;;;
+question;listcount;nb_criteres;tags;adjectifs;ages;residu
+crit1_canon;LIST;0;;;;crit1 canon
+plus age que 10 ans;LIST;1;;;plus age que 10 ans;
+plus age que 15 ans;LIST;1;;;plus age que 15 ans;
+Classe I squelettique idéale;LIST;1;Classe I squelettique;ideale;;
+Prognathisme maxillaire;LIST;1;Prognathisme maxillaire;;;
+Classe III squelettique;LIST;1;Classe III squelettique;;;
+Tous;LIST;1;;;Tous;
+Prognathisme mandibulaire;LIST;1;Prognathisme mandibulaire;;;
+Masculin;LIST;1;;;Masculin;
+Adultes;LIST;1;;;Adultes;
+Classe III squelettique;LIST;1;Classe III squelettique;;;
+rétrognathie maxillaire sévère;LIST;1;rétrognathie maxillaire;severe;;
+rétrognathie mandibulaire;LIST;1;rétrognathie mandibulaire;;;
+béance modérée;LIST;1;béance;moderee;;
+Toutes;LIST;1;;;Féminin;
+Enfant;LIST;1;;;Enfant;
+étudiante;LIST;2;;;Féminin, étudiante;
+rétrognathie maxillaire sévère modéré;LIST;1;rétrognathie maxillaire;modere, severe;;
+au moins 18 ans;LIST;1;;;au moins 18 ans;
+Bruxisme des dents nocturne;LIST;1;Bruxisme;nocturne;;dents
+béance;LIST;1;béance;;;
+Classe I squelettique;LIST;1;Classe I squelettique;;;
+Homme;LIST;2;;;Masculin, Homme;
+Vingtaine;LIST;1;;;Vingtaine;
+Classe III squelettique;LIST;1;Classe III squelettique;;;
+Classe II squelettique division 1 division 2;LIST;1;Classe II squelettique;division 1;;2
+rétrognathie mandibulaire sévère modérée;LIST;1;rétrognathie mandibulaire;moderee, severe;;
+Environ 17 ans;LIST;1;;;Environ 17 ans;
+Classe III squelettique;LIST;1;Classe III squelettique;;;
+Classe III squelettique;LIST;1;Classe III squelettique;;;
+Classe III squelettique;LIST;1;Classe III squelettique;;;
+avulsion immédiate différée;LIST;1;avulsion;immediate, differee;;
+Prognathisme mandibulaire;LIST;1;Prognathisme mandibulaire;;;
+rétrognathie mandibulaire sévère modérée;LIST;1;rétrognathie mandibulaire;moderee, severe;;
+Prognathisme mandibulaire modéré sévère;LIST;1;Prognathisme mandibulaire;modere, severe;;
+Classe III squelettique;LIST;1;Classe III squelettique;;;
+Mineure;LIST;0;;;;mineure
+Prognathisme maxillaire modéré;LIST;1;Prognathisme maxillaire;modere;;
+Classe II squelettique;LIST;1;Classe II squelettique;;;
+rétrognathie maxillaire;LIST;1;rétrognathie maxillaire;;;
+Classe II squelettique;LIST;1;Classe II squelettique;;;
+Classe III squelettique;LIST;1;Classe III squelettique;;;
+Entre 10 et 10 ans;LIST;1;;;Entre 10 et 10 ans;
+Prognathisme maxillaire;LIST;1;Prognathisme maxillaire;;;
+Femme;LIST;2;;;Féminin, Femme;
+rétrognathie mandibulaire modérée;LIST;1;rétrognathie mandibulaire;moderee;;
+avulsion programmée;LIST;1;avulsion;programmee;;
+avulsion;LIST;1;avulsion;;;
+19 ans;LIST;1;;;19 ans;
+Prognathisme maxillaire sévère modéré;LIST;1;Prognathisme maxillaire;modere, severe;;
+rétrognathie maxillaire sévère;LIST;1;rétrognathie maxillaire;severe;;
+Classe I squelettique;LIST;1;Classe I squelettique;;;
+Prognathisme maxillaire sévère modéré;LIST;1;Prognathisme maxillaire;modere, severe;;
+17 ans;LIST;1;;;17 ans;
+Adolescente;LIST;2;;;Féminin, Adolescente;
+Moins de 16 ans;LIST;1;;;Moins de 16 ans;
+Bruxisme modéré;LIST;1;Bruxisme;modere;;
+béance sévère postérieure modérée gauche latérale;LIST;1;béance;laterale, moderee, gauche, severe;;posterieure
+Masculin;LIST;1;;;Masculin;
+rétrognathie maxillaire modéré;LIST;1;rétrognathie maxillaire;modere;;
+Classe II squelettique division 1 division 2;LIST;1;Classe II squelettique;division 1;;2
+Classe I squelettique;LIST;1;Classe I squelettique;;;
+Classe I squelettique;LIST;1;Classe I squelettique;;;
+béance sévère;LIST;1;béance;severe;;
+rétrognathie mandibulaire modérée sévère;LIST;1;rétrognathie mandibulaire;moderee, severe;;
+Prognathisme mandibulaire;LIST;1;Prognathisme mandibulaire;;;
+Bruxisme diurne;LIST;1;Bruxisme;diurne;;
+rétrognathie mandibulaire sévère modérée;LIST;1;rétrognathie mandibulaire;moderee, severe;;
+avulsion;LIST;1;avulsion;;;
+Masculin;LIST;1;;;Masculin;
+Prognathisme mandibulaire;LIST;1;Prognathisme mandibulaire;;;
+Féminin;LIST;1;;;Féminin;
+Prognathisme mandibulaire sévère;LIST;1;Prognathisme mandibulaire;severe;;
+Prognathisme mandibulaire sévère modéré;LIST;1;Prognathisme mandibulaire;modere, severe;;
+rétrognathie maxillaire modéré;LIST;1;rétrognathie maxillaire;modere;;
+rétrognathie mandibulaire sévère;LIST;1;rétrognathie mandibulaire;severe;;
+Bruxisme des dents;LIST;1;Bruxisme;;;dents
+rétrognathie mandibulaire modérée;LIST;1;rétrognathie mandibulaire;moderee;;
+Classe II squelettique;LIST;1;Classe II squelettique;;;
+rétrognathie mandibulaire;LIST;1;rétrognathie mandibulaire;;;
+Prognathisme maxillaire modéré sévère;LIST;1;Prognathisme maxillaire;modere, severe;;
+béance postérieure modérée droite;LIST;1;béance;moderee, droite;;posterieure
+béance;LIST;1;béance;;;
+rétrognathie maxillaire modéré sévère;LIST;1;rétrognathie maxillaire;modere, severe;;
+Bruxisme des dents modéré;LIST;1;Bruxisme;modere;;dents
+Classe II squelettique;LIST;1;Classe II squelettique;;;
+rétrognathie maxillaire modéré;LIST;1;rétrognathie maxillaire;modere;;
+étudiante;LIST;2;;;Féminin, étudiante;
+rétrognathie maxillaire modéré;LIST;1;rétrognathie maxillaire;modere;;
+Prognathisme maxillaire;LIST;1;Prognathisme maxillaire;;;
+Classe I squelettique;LIST;1;Classe I squelettique;;;
+Classe III squelettique;LIST;1;Classe III squelettique;;;
+Bruxisme diurne sévère modéré;LIST;1;Bruxisme;diurne, modere, severe;;
+Génération Z;LIST;1;;;Génération Z;
+rétrognathie maxillaire sévère modéré;LIST;1;rétrognathie maxillaire;modere, severe;;
+Prognathisme maxillaire sévère;LIST;1;Prognathisme maxillaire;severe;;
+Classe III squelettique;LIST;1;Classe III squelettique;;;
+Pré adolescent;LIST;1;;;Pré adolescent;
+rétrognathie mandibulaire sévère modérée;LIST;1;rétrognathie mandibulaire;moderee, severe;;
+Tous;LIST;1;;;Tous;
+Prognathisme mandibulaire modéré;LIST;1;Prognathisme mandibulaire;modere;;

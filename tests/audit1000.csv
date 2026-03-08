@@ -1,0 +1,1010 @@
+﻿# audit_concordance.csv généré par pipeline.py V1.0.10
+# Date: 05/01/2026 20:18:01
+# Comparaisons: 1001
+# Concordance listcount: 99.7%
+# Concordance tags exacte: 85.7%
+# Concordance tags partielle (Jaccard): 89.3%
+# Latence moyenne detall: 0ms
+# Latence moyenne detia: 2089ms
+question;listcount_ok;tags_exact;tags_jaccard;tags_detall;tags_detia;latency_detall;latency_detia;ecart_latency
+fr;OUI;OUI;1.00;;;0;1162;1162
+enfants hommes avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2022;2022
+de plus de 8 ans ?;OUI;OUI;1.00;;;0;2864;2864
+Combien de patients avec béance de moins de 21 ans femmes ?;OUI;OUI;1.00;béance;béance;0;3204;3204
+de moins de 20 ans ?;OUI;OUI;1.00;;;0;1550;1550
+hommes de moins de 19 ans ?;OUI;OUI;1.00;;;0;2108;2108
+Combien de patients de moins de 19 ans hommes avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;3269;3269
+avec dysplasie ?;OUI;OUI;1.00;dysplasie;dysplasie;0;1774;1774
+avec douleur femmes ?;OUI;OUI;1.00;douleur;douleur;0;2099;2099
+adultes ?;OUI;NON;0.00;;dentition permanente;0;1630;1630
+avec vestibulo-version ?;OUI;OUI;1.00;vestibulo-version;Vestibulo-Version;0;1784;1784
+Nombre de patients avec béance ?;OUI;OUI;1.00;béance;béance;0;1800;1800
+Nombre de patients de plus de 19 ans hommes avec contrôle ?;OUI;OUI;1.00;contrôle;contrôle;0;2827;2827
+de moins de 18 ans avec contention ?;OUI;OUI;1.00;contention;contention;0;2170;2170
+avec béance hommes ?;OUI;OUI;1.00;béance;béance;0;1614;1614
+avec bruxisme femmes avec mésialisation modérée avec canine ?;OUI;OUI;1.00;mésialisation, bruxisme, canine;bruxisme, mésialisation, canine;0;3393;3393
+avec mastication de moins de 19 ans hommes ?;OUI;OUI;1.00;mastication;mastication;0;2667;2667
+Combien de patients de moins de 13 ans ?;OUI;OUI;1.00;;;0;1508;1508
+avec ingression avec arcade ?;OUI;OUI;1.00;ingression, arcade;ingression, arcade;0;1950;1950
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+hommes de moins de 25 ans avec béance postérieure|modérée|latérale|gauche ?;OUI;OUI;1.00;béance;béance;0;2730;2730
+femmes avec transposition de moins de 18 ans ?;OUI;NON;0.00;transposition;;0;2113;2113
+femmes de plus de 12 ans avec proalvéolie modérée|droite|latérale avec béance mandibulaire ?;OUI;NON;0.33;proalvéolie, béance;proalvéolie, Beance Mandibulaire;0;3387;3387
+avec béance avec bruxisme ?;OUI;OUI;1.00;bruxisme, béance;béance, bruxisme;0;1866;1866
+avec béance nocturne|sévère avec bruxisme ?;OUI;OUI;1.00;bruxisme, béance;béance, bruxisme;0;2334;2334
+Combien de patients enfants hommes ?;OUI;OUI;1.00;;;0;1868;1868
+de plus de 7 ans avec débandage avec dysfonction linguale femmes ?;OUI;OUI;1.00;dysfonction linguale, débandage;débandage, dysfonction linguale;0;2553;2553
+Combien de patients avec béance de moins de 17 ans ?;OUI;OUI;1.00;béance;béance;0;2044;2044
+avec minivis avec pendulum ?;OUI;NON;0.50;pendulum, minivis;minivis;0;1649;1649
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+avec bruxisme hommes enfants ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2344;2344
+avec prémolaire de plus de 7 ans ?;OUI;OUI;1.00;prémolaire;prémolaire;0;1984;1984
+avec latérodéviation ?;OUI;OUI;1.00;latérodéviation;latérodéviation;0;1472;1472
+avec torque ?;OUI;NON;0.00;torque;;0;1438;1438
+de moins de 18 ans avec béance latérale|sévère ?;OUI;OUI;1.00;béance;béance;0;1924;1924
+Nombre de patients de moins de 23 ans avec béance antérieure|droite|modérée hommes ?;OUI;OUI;1.00;béance;béance;0;2592;2592
+hommes avec linguo-version de moins de 24 ans ?;OUI;OUI;1.00;linguo-version;linguo-version;0;2646;2646
+avec succion enfants ?;OUI;OUI;1.00;succion;succion;0;1858;1858
+femmes avec caries dentaires ?;OUI;OUI;1.00;caries dentaires;caries dentaires;0;1954;1954
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+avec classe iii d'angle ?;OUI;OUI;1.00;classe iii d'angle;classe iii d'angle;0;1470;1470
+de moins de 12 ans avec endoalvéolie hommes ?;OUI;OUI;1.00;endoalvéolie;endoalvéolie;0;3118;3118
+femmes avec béance ?;OUI;OUI;1.00;béance;béance;0;1921;1921
+avec récidive hommes de moins de 10 ans avec infraclusion ?;OUI;NON;0.50;infraclusion, récidive;infraclusion;0;2280;2280
+Nombre de patients femmes ?;OUI;OUI;1.00;;;0;1797;1797
+Nombre de patients avec bruxisme hommes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1996;1996
+de moins de 29 ans hommes avec vestibulo-version ?;OUI;NON;0.00;vestibulo-version;;0;1852;1852
+de moins de 15 ans avec béance latérale avec microdontie ?;OUI;OUI;1.00;microdontie, béance;béance, microdontie;0;2320;2320
+Nombre de patients hommes avec ostéotomie ?;OUI;OUI;1.00;ostéotomie;ostéotomie;0;2650;2650
+hommes avec niti de plus de 10 ans ?;OUI;OUI;1.00;niti;niti;0;2183;2183
+de plus de 29 ans ?;OUI;OUI;1.00;;;0;1815;1815
+femmes avec atm ?;OUI;OUI;1.00;atm;atm;0;2214;2214
+femmes avec béance ?;OUI;OUI;1.00;béance;béance;0;1921;1921
+femmes de plus de 8 ans avec récidive postérieure|sévère|droite ?;OUI;NON;0.00;récidive;;0;2024;2024
+Nombre de patients de moins de 28 ans ?;OUI;OUI;1.00;;;0;1925;1925
+avec débandage sévère|gauche|antérieure avec béance sévère|gauche|antérieure de plus de 3 ans ?;NON;OUI;1.00;débandage, béance;débandage, béance;0;2758;2758
+femmes avec bruxisme sévère ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1861;1861
+Nombre de patients avec bruxisme hommes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1996;1996
+avec béance de moins de 24 ans ?;OUI;OUI;1.00;béance;béance;0;2019;2019
+de moins de 13 ans ?;OUI;OUI;1.00;;;0;3103;3103
+de moins de 20 ans femmes ?;OUI;OUI;1.00;;;0;2070;2070
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+Nombre de patients avec pendulum hommes ?;OUI;OUI;1.00;pendulum;pendulum;0;2166;2166
+avec bielles hommes ?;OUI;OUI;1.00;bielles;bielles;0;2465;2465
+Nombre de patients de moins de 13 ans ?;OUI;OUI;1.00;;;0;2566;2566
+adultes avec déglutition ?;OUI;OUI;1.00;déglutition;déglutition;0;2196;2196
+avec béance femmes avec herbst de plus de 3 ans ?;OUI;OUI;1.00;béance, herbst;béance, herbst;0;2318;2318
+femmes avec diastème ?;OUI;OUI;1.00;diastème;diastème;0;1826;1826
+de plus de 1 ans ?;OUI;OUI;1.00;;;0;1759;1759
+Nombre de patients avec diastemata avec croissance ?;OUI;OUI;1.00;croissance, diastemata;diastemata, croissance;0;1928;1928
+avec croissance avec interposition linguale ?;OUI;OUI;1.00;interposition linguale, croissance;croissance, interposition linguale;0;2214;2214
+Nombre de patients femmes avec aéro avec bruxisme avec scanner intra-oral ?;OUI;NON;0.67;scanner intra-oral, bruxisme, aéro;aéro, bruxisme;0;2508;2508
+avec bielles latérale|sévère|gauche ?;OUI;OUI;1.00;bielles;bielles;0;1773;1773
+de plus de 16 ans avec rétrusion ?;OUI;OUI;1.00;rétrusion;rétrusion;0;1806;1806
+hommes de plus de 8 ans ?;OUI;OUI;1.00;;;0;2187;2187
+Combien de patients enfants avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2494;2494
+Nombre de patients de plus de 10 ans hommes avec traitement interceptif avec déviation mandibulaire ?;OUI;NON;0.50;déviation mandibulaire, traitement interceptif;déviation mandibulaire;0;2132;2132
+Nombre de patients enfants ?;OUI;OUI;1.00;;;0;1727;1727
+hommes enfants avec ostéotomie ?;OUI;OUI;1.00;ostéotomie;ostéotomie;0;1701;1701
+avec chirurgie femmes ?;OUI;OUI;1.00;chirurgie;chirurgie;0;1857;1857
+adultes femmes ?;OUI;NON;0.00;;dentition permanente;0;1907;1907
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+femmes enfants avec céphalométrie ?;OUI;OUI;1.00;céphalométrie;céphalométrie;0;1950;1950
+adultes ?;OUI;NON;0.00;;dentition permanente;0;1630;1630
+femmes de plus de 11 ans ?;OUI;OUI;1.00;;;0;2012;2012
+avec contrôle centrale avec incisive de plus de 16 ans ?;OUI;OUI;1.00;contrôle, incisive;contrôle, incisive;0;2613;2613
+Nombre de patients femmes de plus de 19 ans ?;OUI;OUI;1.00;;;0;2169;2169
+avec claquement articulaire femmes avec bruxisme ?;OUI;OUI;1.00;claquement articulaire, bruxisme;claquement articulaire, bruxisme;0;3299;3299
+Combien de patients avec béance ?;OUI;OUI;1.00;béance;béance;0;1454;1454
+Combien de patients enfants avec arthrite ?;OUI;OUI;1.00;arthrite;arthrite;0;2078;2078
+Nombre de patients de moins de 24 ans avec infraposition ?;OUI;OUI;1.00;infraposition;infraposition;0;1865;1865
+avec ankylose avec douleur ?;OUI;OUI;1.00;ankylose, douleur;ankylose, douleur;0;1614;1614
+avec bruxisme hommes avec onychophagie de plus de 12 ans ?;OUI;OUI;1.00;onychophagie, bruxisme;bruxisme, onychophagie;0;2958;2958
+Combien de patients enfants ?;OUI;NON;0.00;;Enfants;0;1730;1730
+de moins de 21 ans femmes avec dentition permanente ?;OUI;OUI;1.00;dentition permanente;dentition permanente;0;2223;2223
+hommes avec niti enfants ?;NON;OUI;1.00;niti;niti;0;2233;2233
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+avec ingression ?;OUI;OUI;1.00;ingression;ingression;0;1352;1352
+avec bipro ?;OUI;OUI;1.00;bipro;bipro;0;1448;1448
+avec distalisation de plus de 3 ans ?;OUI;OUI;1.00;distalisation;distalisation;0;1934;1934
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+avec niti ?;OUI;OUI;1.00;niti;niti;0;2359;2359
+avec supraclusion hommes ?;OUI;OUI;1.00;supraclusion;supraclusion;0;1664;1664
+avec plaque amovible avec béance avec bruxisme ?;OUI;NON;0.50;plaque amovible, bruxisme, béance;contention, béance, bruxisme;0;2212;2212
+Combien de patients avec mainteneur d'espace avec douleur avec supraclusion ?;OUI;OUI;1.00;mainteneur d'espace, supraclusion, douleur;mainteneur d'espace, douleur, supraclusion;0;2084;2084
+Nombre de patients avec traitement interceptif avec linguo-version ?;OUI;NON;0.50;traitement interceptif, linguo-version;linguo-version;0;1564;1564
+avec ressaut articulaire ?;OUI;NON;0.00;ressaut articulaire;;0;1317;1317
+Nombre de patients adultes ?;OUI;NON;0.00;;dentition permanente;0;1570;1570
+Combien de patients avec béance de moins de 10 ans avec bielles avec urgence ?;OUI;NON;0.67;bielles, urgence, béance;béance, bielles;0;1911;1911
+avec classe iii d'angle hommes avec béance ?;OUI;OUI;1.00;classe iii d'angle, béance;classe iii d'angle, béance;0;2368;2368
+avec avulsion de moins de 32 ans hommes ?;OUI;OUI;1.00;avulsion;avulsion;0;2171;2171
+avec béance hommes enfants ?;OUI;OUI;1.00;béance;béance;0;2325;2325
+avec micrognathie avec transposition postérieure|latérale ?;OUI;OUI;1.00;transposition, micrognathie;micrognathie, transposition;0;2336;2336
+avec ddm ?;OUI;OUI;1.00;ddm;ddm;0;1570;1570
+avec plaque amovible adultes hommes ?;OUI;NON;0.00;plaque amovible;Plaque;0;2372;2372
+enfants femmes ?;OUI;OUI;1.00;;;0;1719;1719
+Nombre de patients adultes avec caries dentaires ?;OUI;NON;0.50;caries dentaires;caries dentaires, dentition permanente;0;1986;1986
+avec déviation mandibulaire enfants hommes ?;OUI;OUI;1.00;déviation mandibulaire;déviation mandibulaire;0;1907;1907
+avec hygiène de moins de 15 ans ?;OUI;NON;0.00;hygiène;;0;2639;2639
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+Nombre de patients avec édentation femmes ?;OUI;OUI;1.00;édentation;édentation;0;1806;1806
+avec prémolaire ?;OUI;OUI;1.00;prémolaire;prémolaire;0;1459;1459
+femmes enfants avec béance avec contrôle ?;OUI;NON;0.67;contrôle, béance;béance, Enfants, contrôle;0;2394;2394
+de plus de 10 ans avec diastème ?;OUI;OUI;1.00;diastème;diastème;0;1809;1809
+de plus de 7 ans avec bruxisme sévère|nocturne ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1945;1945
+Nombre de patients avec dentition permanente avec rétrusion de moins de 18 ans ?;OUI;NON;0.33;dentition permanente, rétrusion;dentition permanente, classe ii d'angle;0;2259;2259
+Combien de patients avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1999;1999
+de moins de 10 ans femmes ?;OUI;OUI;1.00;;;0;2608;2608
+Combien de patients de moins de 15 ans ?;OUI;OUI;1.00;;;0;1912;1912
+avec béance gauche de moins de 17 ans hommes ?;OUI;OUI;1.00;béance;béance;0;2513;2513
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+Combien de patients avec distalisation ?;OUI;OUI;1.00;distalisation;distalisation;0;1426;1426
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+Nombre de patients enfants avec caries dentaires ?;OUI;OUI;1.00;caries dentaires;caries dentaires;0;1981;1981
+avec bielles ?;OUI;OUI;1.00;bielles;bielles;0;1698;1698
+femmes enfants ?;OUI;OUI;1.00;;;0;2260;2260
+Nombre de patients femmes de plus de 14 ans ?;OUI;OUI;1.00;;;0;1788;1788
+Combien de patients avec luxation fixe|amovible avec contention enfants femmes ?;OUI;OUI;1.00;contention, luxation;luxation, contention;0;2480;2480
+de plus de 29 ans hommes ?;OUI;OUI;1.00;;;0;2172;2172
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+de moins de 20 ans femmes ?;OUI;OUI;1.00;;;0;2070;2070
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1396;1396
+Combien de patients avec bruxisme droite de moins de 25 ans ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2906;2906
+de plus de 21 ans ?;OUI;OUI;1.00;;;0;1831;1831
+avec supraclusion femmes de plus de 6 ans avec contrôle ?;OUI;OUI;1.00;supraclusion, contrôle;supraclusion, contrôle;0;2336;2336
+de moins de 10 ans avec quad helix ?;OUI;NON;0.00;quad helix;;0;1770;1770
+Combien de patients avec douleur ?;OUI;OUI;1.00;douleur;douleur;0;1531;1531
+avec contrôle de moins de 19 ans hommes ?;OUI;OUI;1.00;contrôle;contrôle;0;2211;2211
+Nombre de patients avec ressaut articulaire ?;OUI;OUI;1.00;ressaut articulaire;ressaut articulaire;0;1708;1708
+Combien de patients femmes avec supraclusion de plus de 21 ans ?;OUI;OUI;1.00;supraclusion;supraclusion;0;2481;2481
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+de moins de 21 ans avec béance sévère ?;OUI;OUI;1.00;béance;béance;0;2273;2273
+de plus de 22 ans avec infraclusion postérieure|sévère ?;OUI;OUI;1.00;infraclusion;infraclusion;0;2106;2106
+adultes ?;OUI;NON;0.00;;dentition permanente;0;1630;1630
+avec déglutition hommes avec bruxisme ?;OUI;OUI;1.00;déglutition, bruxisme;déglutition, bruxisme;0;2741;2741
+hommes avec bagues ?;OUI;OUI;1.00;bagues;bagues;0;2482;2482
+avec bruxisme avec macrognathie de moins de 18 ans ?;OUI;OUI;1.00;macrognathie, bruxisme;bruxisme, macrognathie;0;2481;2481
+Combien de patients femmes avec bruxisme enfants ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2159;2159
+de moins de 31 ans ?;OUI;OUI;1.00;;;0;1863;1863
+avec torque femmes enfants avec ectopie ?;OUI;NON;0.50;ectopie, torque;ectopie;0;3383;3383
+de plus de 15 ans hommes ?;OUI;OUI;1.00;;;0;2313;2313
+Combien de patients avec béance ?;OUI;OUI;1.00;béance;béance;0;1454;1454
+de plus de 6 ans ?;OUI;OUI;1.00;;;0;1681;1681
+avec classe i squelettique idéale avec infraclusion ?;OUI;OUI;1.00;classe i squelettique, infraclusion;classe i squelettique, infraclusion;0;2031;2031
+Nombre de patients femmes ?;OUI;OUI;1.00;;;0;1797;1797
+avec dentition temporaire sévère|unilatérale ?;OUI;OUI;1.00;dentition temporaire;dentition temporaire;0;1573;1573
+avec bruxisme idéale|modérée avec nécrose pulpaire idéale|modérée ?;OUI;OUI;1.00;nécrose pulpaire, bruxisme;bruxisme, nécrose pulpaire;0;2640;2640
+Nombre de patients de plus de 7 ans ?;OUI;OUI;1.00;;;0;2322;2322
+Nombre de patients avec mésialisation ?;OUI;OUI;1.00;mésialisation;mésialisation;0;1742;1742
+hommes de plus de 13 ans avec classe iii squelettique ?;OUI;OUI;1.00;classe iii squelettique;classe iii squelettique;0;2830;2830
+Combien de patients hommes ?;OUI;OUI;1.00;;;0;1806;1806
+Nombre de patients hommes de moins de 24 ans avec béance ?;OUI;OUI;1.00;béance;béance;0;2459;2459
+Nombre de patients avec béance avec mésialisation encombrée ?;OUI;NON;0.67;mésialisation, béance;béance, mésialisation, crowding;0;2511;2511
+Nombre de patients enfants hommes avec prémolaire ?;OUI;NON;0.00;prémolaire;;0;1567;1567
+avec rétrusion sévère|antérieure|gauche|latérale femmes avec béance sévère|antérieure|gauche|latérale avec panoramique ?;OUI;NON;0.50;panoramique, rétrusion, béance;rétrusion, Anterieur, Gauche, Laterale, béance, Anterieur, Gauche, Laterale, panoramique;0;6080;6080
+Nombre de patients hommes de moins de 25 ans ?;OUI;OUI;1.00;;;0;3923;3923
+Combien de patients avec claquement articulaire avec béance ?;OUI;OUI;1.00;claquement articulaire, béance;claquement articulaire, béance;0;1966;1966
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+femmes avec infraclusion ?;OUI;OUI;1.00;infraclusion;infraclusion;0;2403;2403
+hommes avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1859;1859
+avec béance de plus de 18 ans avec douleur ?;OUI;OUI;1.00;douleur, béance;béance, douleur;0;2950;2950
+femmes avec luxation ?;OUI;OUI;1.00;luxation;luxation;0;1922;1922
+Combien de patients avec activateur femmes avec infraposition avec herbst ?;OUI;OUI;1.00;infraposition, activateur, herbst;activateur, infraposition, herbst;0;3399;3399
+de plus de 10 ans ?;OUI;OUI;1.00;;;0;1708;1708
+avec classe iii squelettique avec proalvéolie hommes ?;OUI;OUI;1.00;classe iii squelettique, proalvéolie;classe iii squelettique, proalvéolie;0;2909;2909
+Nombre de patients de plus de 5 ans ?;OUI;OUI;1.00;;;0;1823;1823
+avec mastication ?;OUI;OUI;1.00;mastication;mastication;0;1848;1848
+Combien de patients hommes avec dentition temporaire incluse enfants ?;OUI;OUI;1.00;dentition temporaire;dentition temporaire;0;2246;2246
+avec rétroalvéolie avec diastemata ?;OUI;OUI;1.00;rétroalvéolie, diastemata;rétroalvéolie, diastemata;0;2054;2054
+avec bagues femmes de moins de 17 ans avec béance ?;OUI;OUI;1.00;bagues, béance;bagues, béance;0;3237;3237
+Combien de patients de moins de 10 ans avec tong e ?;OUI;NON;0.00;tong e;;0;2507;2507
+femmes avec quad helix de plus de 16 ans avec ventilation nasale ?;OUI;NON;0.50;ventilation nasale, quad helix;quad helix;0;3159;3159
+Nombre de patients avec arcade ?;OUI;OUI;1.00;arcade;arcade;0;1809;1809
+de moins de 11 ans avec béance sévère|gauche|latérale hommes ?;OUI;NON;0.33;béance;béance, Gauche, Laterale;0;3441;3441
+de moins de 19 ans avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2730;2730
+Combien de patients hommes de plus de 1 ans ?;OUI;OUI;1.00;;;0;2093;2093
+avec bruxisme femmes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1754;1754
+avec ingression latérale|gauche|sévère femmes ?;OUI;OUI;1.00;ingression;ingression;0;3619;3619
+Combien de patients avec dysplasie ?;OUI;OUI;1.00;dysplasie;dysplasie;0;1656;1656
+de plus de 1 ans ?;OUI;OUI;1.00;;;0;1759;1759
+de plus de 12 ans avec inclusion avec béance ?;OUI;OUI;1.00;inclusion, béance;Inclusion, béance;0;2495;2495
+hommes de moins de 19 ans ?;OUI;OUI;1.00;;;0;2108;2108
+femmes de moins de 22 ans ?;OUI;OUI;1.00;;;0;2665;2665
+avec bruxisme hommes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1878;1878
+Combien de patients avec bruxisme sévère avec béance sévère ?;OUI;OUI;1.00;bruxisme, béance;bruxisme, béance;0;2910;2910
+avec apnée du sommeil hommes ?;OUI;OUI;1.00;apnée du sommeil;apnée du sommeil;0;2743;2743
+avec bruxisme nocturne|modéré ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1957;1957
+de moins de 20 ans avec rétroalvéolie maxillaire|sévère ?;OUI;OUI;1.00;rétroalvéolie;rétroalvéolie;0;2443;2443
+femmes avec ddm postérieure|droite|latérale avec béance ?;OUI;OUI;1.00;béance, ddm;ddm, béance;0;2659;2659
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+avec arthrite ?;OUI;OUI;1.00;arthrite;arthrite;0;1888;1888
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1396;1396
+avec béance latérale enfants ?;OUI;OUI;1.00;béance;béance;0;2062;2062
+de plus de 7 ans hommes ?;OUI;OUI;1.00;;;0;2518;2518
+Combien de patients avec récidive femmes ?;OUI;OUI;1.00;récidive;Récidive;0;1998;1998
+Nombre de patients avec écarteur hommes ?;OUI;OUI;1.00;écarteur;écarteur;0;2013;2013
+Combien de patients avec arthrite enfants ?;OUI;OUI;1.00;arthrite;arthrite;0;2000;2000
+Nombre de patients avec bruxisme diurne femmes avec propulsor ?;OUI;OUI;1.00;propulsor, bruxisme;bruxisme, propulsor;0;2942;2942
+avec contrôle avec arc ?;OUI;NON;0.50;contrôle, arc;arc;0;1794;1794
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1396;1396
+Combien de patients avec béance de moins de 27 ans ?;OUI;OUI;1.00;béance;béance;0;2338;2338
+Combien de patients enfants hommes ?;OUI;OUI;1.00;;;0;1868;1868
+de plus de 10 ans avec fil qui pique ?;OUI;OUI;1.00;fil qui pique;fil qui pique;0;2048;2048
+de plus de 16 ans avec béance ?;OUI;OUI;1.00;béance;béance;0;2868;2868
+Nombre de patients adultes femmes ?;OUI;NON;0.00;;dentition permanente;0;2120;2120
+Nombre de patients de moins de 15 ans avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;2648;2648
+de plus de 1 ans avec béance ?;OUI;OUI;1.00;béance;béance;0;2034;2034
+Nombre de patients enfants ?;OUI;OUI;1.00;;;0;1727;1727
+Nombre de patients femmes de moins de 20 ans avec alignement ?;OUI;OUI;1.00;alignement;alignement;0;2559;2559
+Combien de patients avec inclusion de plus de 11 ans ?;OUI;NON;0.00;inclusion;Inclus;0;2084;2084
+avec agénésie postérieure|modérée|latérale avec ddm ?;OUI;OUI;1.00;agénésie, ddm;agénésie, ddm;0;1966;1966
+Nombre de patients enfants ?;OUI;OUI;1.00;;;0;1727;1727
+Nombre de patients avec classe iii d'angle hommes avec phonation ?;OUI;NON;0.50;classe iii d'angle, phonation;classe iii d'angle;0;1823;1823
+hommes avec classe ii d'angle ?;OUI;OUI;1.00;classe ii d'angle;classe ii d'angle;0;2574;2574
+avec infraposition ?;OUI;OUI;1.00;infraposition;infraposition;0;2716;2716
+Combien de patients avec dentition mixte ?;OUI;OUI;1.00;dentition mixte;dentition mixte;0;1583;1583
+Combien de patients avec fil qui pique ?;OUI;OUI;1.00;fil qui pique;fil qui pique;0;1792;1792
+avec dysfonction linguale modéré ?;OUI;OUI;1.00;dysfonction linguale;dysfonction linguale;0;1622;1622
+adultes avec supraclusion avec bruxisme ?;OUI;NON;0.67;supraclusion, bruxisme;supraclusion, bruxisme, dentition permanente;0;2401;2401
+avec dysfonction linguale avec béance ?;OUI;OUI;1.00;dysfonction linguale, béance;dysfonction linguale, béance;0;1901;1901
+Combien de patients femmes avec traitement interceptif ?;OUI;NON;0.00;traitement interceptif;;0;1574;1574
+adultes avec prognathisme mandibulaire ?;OUI;NON;0.00;prognathisme mandibulaire;classe iii d'angle;0;2279;2279
+Nombre de patients adultes ?;OUI;NON;0.00;;dentition permanente;0;1570;1570
+hommes adultes ?;OUI;OUI;1.00;;;0;2019;2019
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+hommes avec niti ?;OUI;OUI;1.00;niti;niti;0;1754;1754
+avec ligature ?;OUI;OUI;1.00;ligature;ligature;0;1699;1699
+avec arthrose hommes ?;OUI;OUI;1.00;arthrose;arthrose;0;2299;2299
+de plus de 11 ans avec béance ?;OUI;OUI;1.00;béance;béance;0;2180;2180
+Nombre de patients femmes avec malocclusion postérieure|modérée ?;OUI;OUI;1.00;malocclusion;malocclusion;0;3063;3063
+avec bruxisme avec herbst de plus de 1 ans ?;OUI;OUI;1.00;bruxisme, herbst;bruxisme, herbst;0;1992;1992
+Nombre de patients de plus de 17 ans avec ventilation nasale ?;OUI;NON;0.00;ventilation nasale;;0;1925;1925
+avec dentition permanente de plus de 6 ans femmes ?;OUI;OUI;1.00;dentition permanente;dentition permanente;0;2672;2672
+femmes enfants avec caries dentaires ?;OUI;OUI;1.00;caries dentaires;caries dentaires;0;2472;2472
+avec onychophagie programmée|totale ?;OUI;OUI;1.00;onychophagie;onychophagie;0;1882;1882
+avec macrodontie ?;OUI;OUI;1.00;macrodontie;macrodontie;0;1696;1696
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+Combien de patients hommes ?;OUI;OUI;1.00;;;0;1806;1806
+de plus de 9 ans avec bruxisme femmes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2500;2500
+Nombre de patients avec métal ?;OUI;OUI;1.00;métal;métal;0;1943;1943
+avec égression ?;OUI;OUI;1.00;égression;égression;0;1911;1911
+Combien de patients avec claquement articulaire hommes de plus de 10 ans avec bruxisme modéré ?;OUI;OUI;1.00;claquement articulaire, bruxisme;claquement articulaire, bruxisme;0;2702;2702
+de plus de 11 ans avec claquement articulaire avec bruxisme nocturne|sévère ?;OUI;OUI;1.00;claquement articulaire, bruxisme;claquement articulaire, bruxisme;0;2992;2992
+avec béance adultes ?;OUI;NON;0.50;béance;béance, Adulte;0;2226;2226
+de moins de 25 ans ?;OUI;OUI;1.00;;;0;1790;1790
+avec bruxisme femmes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1754;1754
+avec béance hommes de plus de 10 ans ?;OUI;OUI;1.00;béance;béance;0;2570;2570
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+hommes enfants ?;OUI;OUI;1.00;;;0;2296;2296
+avec arthrose ?;OUI;OUI;1.00;arthrose;arthrose;0;1562;1562
+avec béance sévère hommes ?;OUI;OUI;1.00;béance;béance;0;2110;2110
+Combien de patients enfants ?;OUI;NON;0.00;;Enfants;0;1730;1730
+Combien de patients de moins de 26 ans ?;OUI;OUI;1.00;;;0;2507;2507
+hommes avec béance ?;OUI;OUI;1.00;béance;béance;0;1788;1788
+hommes de moins de 24 ans ?;OUI;OUI;1.00;;;0;1979;1979
+hommes avec béance avec microdontie avec aéro ?;OUI;OUI;1.00;microdontie, béance, aéro;béance, microdontie, aéro;0;2611;2611
+Nombre de patients femmes avec élastiques intermaxillaires avec bruxisme avec onychophagie ?;OUI;OUI;1.00;élastiques intermaxillaires, onychophagie, bruxisme;élastiques intermaxillaires, bruxisme, onychophagie;0;2603;2603
+femmes adultes ?;OUI;NON;0.00;;dentition permanente;0;2008;2008
+avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;1801;1801
+avec luxation modéré|diurne ?;OUI;OUI;1.00;luxation;luxation;0;1889;1889
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+Combien de patients avec édentation sévère|latérale|antérieure adultes ?;OUI;NON;0.50;édentation;édentation, dentition permanente;0;1982;1982
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+Nombre de patients avec déviation mandibulaire hommes adultes ?;OUI;NON;0.50;déviation mandibulaire;déviation mandibulaire, dentition permanente;0;2053;2053
+hommes avec translation ?;OUI;NON;0.00;translation;;0;1723;1723
+avec rétrusion hommes ?;OUI;NON;0.00;rétrusion;classe ii d'angle;0;2000;2000
+avec microdontie de plus de 13 ans femmes ?;OUI;OUI;1.00;microdontie;microdontie;0;2588;2588
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+de plus de 19 ans hommes avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2449;2449
+Combien de patients avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1999;1999
+Combien de patients avec asymétrie faciale avec béance ?;OUI;OUI;1.00;asymétrie faciale, béance;asymétrie faciale, béance;0;2034;2034
+Combien de patients avec ingression ?;OUI;OUI;1.00;ingression;ingression;0;1593;1593
+femmes de plus de 7 ans ?;OUI;OUI;1.00;;;0;1638;1638
+hommes avec rétroalvéolie ?;OUI;OUI;1.00;rétroalvéolie;rétroalvéolie;0;1905;1905
+Combien de patients femmes avec mésialisation ?;OUI;OUI;1.00;mésialisation;mésialisation;0;1852;1852
+Combien de patients de moins de 23 ans avec ressaut articulaire ?;OUI;OUI;1.00;ressaut articulaire;ressaut articulaire;0;1916;1916
+avec béance de plus de 17 ans avec bruxisme ?;OUI;OUI;1.00;bruxisme, béance;béance, bruxisme;0;2261;2261
+Combien de patients avec béance centrale avec bruxisme centrale ?;OUI;OUI;1.00;bruxisme, béance;béance, bruxisme;0;2823;2823
+avec arc avec micrognathie avec linguo-version ?;OUI;OUI;1.00;linguo-version, micrognathie, arc;arc, micrognathie, linguo-version;0;2575;2575
+avec déglutition avec élastiques intermaxillaires ?;OUI;OUI;1.00;élastiques intermaxillaires, déglutition;déglutition, élastiques intermaxillaires;0;2091;2091
+de plus de 7 ans avec béance droite|latérale ?;OUI;OUI;1.00;béance;béance;0;2035;2035
+Combien de patients de moins de 17 ans hommes ?;OUI;OUI;1.00;;;0;1797;1797
+de moins de 14 ans ?;OUI;OUI;1.00;;;0;1478;1478
+de plus de 13 ans avec ligature ?;OUI;OUI;1.00;ligature;ligature;0;2344;2344
+hommes avec bruxisme de moins de 22 ans ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2723;2723
+Nombre de patients de moins de 22 ans femmes avec phonation fixe|amovible ?;OUI;OUI;1.00;phonation;phonation;0;2947;2947
+avec apnée du sommeil ?;OUI;OUI;1.00;apnée du sommeil;apnée du sommeil;0;1697;1697
+avec classe i d'angle de plus de 25 ans ?;OUI;OUI;1.00;classe i d'angle;classe i d'angle;0;2127;2127
+Nombre de patients femmes de moins de 12 ans avec béance ?;OUI;OUI;1.00;béance;béance;0;4608;4608
+avec rétrusion enfants femmes ?;OUI;NON;0.00;rétrusion;classe ii d'angle;0;2870;2870
+femmes de moins de 16 ans ?;OUI;OUI;1.00;;;0;2105;2105
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+Nombre de patients hommes enfants ?;OUI;OUI;1.00;;;0;1676;1676
+avec métal femmes enfants ?;OUI;NON;0.50;métal;métal, Enfants;0;2110;2110
+Combien de patients hommes avec classe iii d'angle avec débandage ?;OUI;OUI;1.00;classe iii d'angle, débandage;classe iii d'angle, débandage;0;2404;2404
+Nombre de patients hommes ?;OUI;OUI;1.00;;;0;1334;1334
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+avec latérodéviation de plus de 12 ans ?;OUI;OUI;1.00;latérodéviation;latérodéviation;0;2020;2020
+Combien de patients avec urgence ?;OUI;OUI;1.00;urgence;urgence;0;1436;1436
+adultes avec prémolaire ?;OUI;OUI;1.00;prémolaire;prémolaire;0;1916;1916
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+hommes adultes ?;OUI;OUI;1.00;;;0;2019;2019
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+de plus de 3 ans ?;OUI;OUI;1.00;;;0;1728;1728
+avec linguo-version ?;OUI;OUI;1.00;linguo-version;linguo-version;0;1767;1767
+avec bagues diurne avec ressaut articulaire femmes adultes ?;OUI;NON;0.67;ressaut articulaire, bagues;bagues, ressaut articulaire, Adulte;0;3302;3302
+avec débandage droite ?;OUI;OUI;1.00;débandage;débandage;0;2538;2538
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+Combien de patients enfants hommes avec bipro ?;OUI;OUI;1.00;bipro;bipro;0;3571;3571
+avec empreinte hommes ?;OUI;OUI;1.00;empreinte;empreinte;0;2237;2237
+Nombre de patients avec dentition temporaire avec bruxisme hommes ?;OUI;OUI;1.00;dentition temporaire, bruxisme;dentition temporaire, bruxisme;0;2625;2625
+Nombre de patients hommes de plus de 8 ans avec classe iii d'angle avec bruxisme sévère|unilatérale ?;OUI;NON;0.67;classe iii d'angle, bruxisme;classe iii d'angle, bruxisme, Unilatérale;0;3593;3593
+Combien de patients enfants avec vestibulo-version femmes avec béance ?;OUI;OUI;1.00;vestibulo-version, béance;Vestibulo-Version, béance;0;3459;3459
+Combien de patients femmes avec bruxisme diurne|sévère ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1994;1994
+Combien de patients hommes avec supraclusion ?;OUI;OUI;1.00;supraclusion;supraclusion;0;2115;2115
+Nombre de patients femmes de plus de 4 ans avec mésialisation ?;OUI;OUI;1.00;mésialisation;Mésialisation;0;2741;2741
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+avec contention hommes ?;OUI;OUI;1.00;contention;contention;0;1678;1678
+avec contention avec bruxisme ?;OUI;OUI;1.00;contention, bruxisme;contention, bruxisme;0;2007;2007
+Combien de patients avec béance ?;OUI;OUI;1.00;béance;béance;0;1454;1454
+avec endoalvéolie enfants avec béance sévère ?;OUI;OUI;1.00;endoalvéolie, béance;endoalvéolie, béance;0;2631;2631
+avec classe iii d'angle femmes ?;OUI;OUI;1.00;classe iii d'angle;classe iii d'angle;0;2689;2689
+avec récidive avec herbst de plus de 24 ans femmes ?;OUI;NON;0.50;récidive, herbst;herbst;0;4496;4496
+Nombre de patients hommes de moins de 23 ans avec débandage ?;OUI;OUI;1.00;débandage;débandage;0;2885;2885
+Nombre de patients de plus de 19 ans avec béance antérieure|latérale|gauche|sévère ?;OUI;OUI;1.00;béance;béance;0;2618;2618
+de moins de 16 ans avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;2535;2535
+avec classe ii squelettique ?;OUI;OUI;1.00;classe ii squelettique;classe ii squelettique;0;1682;1682
+avec béance antérieure|gauche avec succion ?;OUI;OUI;1.00;succion, béance;béance, succion;0;2655;2655
+de moins de 10 ans avec latérodéviation ?;OUI;OUI;1.00;latérodéviation;latérodéviation;0;2174;2174
+Combien de patients enfants avec arthrite gauche|antérieure|modérée ?;OUI;OUI;1.00;arthrite;arthrite;0;2171;2171
+Combien de patients avec version de moins de 11 ans ?;OUI;OUI;1.00;version;version;0;2469;2469
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+de plus de 6 ans ?;OUI;OUI;1.00;;;0;1681;1681
+avec ankylose ?;OUI;OUI;1.00;ankylose;ankylose;0;1441;1441
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+avec maladie parodontale de plus de 5 ans ?;OUI;OUI;1.00;maladie parodontale;maladie parodontale;0;1634;1634
+Nombre de patients femmes avec bruxisme sévère|nocturne ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2619;2619
+de plus de 16 ans ?;OUI;OUI;1.00;;;0;1802;1802
+enfants avec déglutition ?;OUI;OUI;1.00;déglutition;déglutition;0;1815;1815
+Combien de patients femmes ?;OUI;OUI;1.00;;;0;2392;2392
+de plus de 12 ans femmes avec arthrose ?;OUI;OUI;1.00;arthrose;arthrose;0;2177;2177
+Combien de patients femmes ?;OUI;OUI;1.00;;;0;2392;2392
+avec écarteur avec béance droite|postérieure|sévère|latérale ?;OUI;OUI;1.00;écarteur, béance;écarteur, béance;0;2044;2044
+Nombre de patients avec bruxisme diurne|modéré avec incisive ?;OUI;OUI;1.00;bruxisme, incisive;bruxisme, incisive;0;2975;2975
+Combien de patients de plus de 14 ans ?;OUI;OUI;1.00;;;0;1538;1538
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+avec distalisation ?;OUI;OUI;1.00;distalisation;distalisation;0;1661;1661
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+de moins de 19 ans avec dentition permanente hommes ?;OUI;OUI;1.00;dentition permanente;dentition permanente;0;2756;2756
+enfants femmes ?;OUI;OUI;1.00;;;0;1719;1719
+Nombre de patients avec béance enfants femmes ?;OUI;OUI;1.00;béance;béance;0;2643;2643
+avec infraclusion avec dysplasie ?;OUI;OUI;1.00;infraclusion, dysplasie;infraclusion, dysplasie;0;1776;1776
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1396;1396
+Combien de patients de plus de 7 ans avec béance avec bruxisme nocturne|sévère femmes ?;OUI;OUI;1.00;bruxisme, béance;béance, bruxisme;0;3166;3166
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+hommes enfants ?;OUI;OUI;1.00;;;0;2296;2296
+Nombre de patients avec résorption radiculaire avec scanner ?;OUI;NON;0.50;résorption radiculaire, scanner;résorption radiculaire;0;1452;1452
+de moins de 22 ans ?;OUI;OUI;1.00;;;0;1581;1581
+enfants avec béance ?;OUI;OUI;1.00;béance;béance;0;1667;1667
+avec pendulum avec béance hommes ?;OUI;OUI;1.00;pendulum, béance;pendulum, béance;0;2232;2232
+Combien de patients avec bruxisme enfants ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1874;1874
+avec macrognathie de plus de 1 ans femmes ?;OUI;OUI;1.00;macrognathie;macrognathie;0;2410;2410
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+Combien de patients de plus de 1 ans ?;OUI;OUI;1.00;;;0;1796;1796
+femmes avec micrognathie avec molaire ?;OUI;OUI;1.00;micrognathie, molaire;micrognathie, molaire;0;2411;2411
+de moins de 18 ans ?;OUI;OUI;1.00;;;0;1548;1548
+Nombre de patients de plus de 6 ans femmes avec consultation ?;OUI;OUI;1.00;consultation;consultation;0;2454;2454
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+femmes avec béance latérale ?;OUI;OUI;1.00;béance;béance;0;1786;1786
+avec gouttière hommes ?;OUI;OUI;1.00;gouttière;gouttière;0;1932;1932
+Nombre de patients de moins de 24 ans avec infraclusion ?;OUI;OUI;1.00;infraclusion;infraclusion;0;1793;1793
+avec détartrage hommes ?;OUI;OUI;1.00;détartrage;détartrage;0;2023;2023
+de plus de 13 ans avec scanner ?;OUI;NON;0.00;scanner;;0;2083;2083
+Nombre de patients femmes ?;OUI;OUI;1.00;;;0;1797;1797
+de moins de 30 ans hommes avec micrognathie ?;OUI;OUI;1.00;micrognathie;micrognathie;0;2523;2523
+Combien de patients de plus de 7 ans avec bruxisme avec béance femmes ?;OUI;OUI;1.00;bruxisme, béance;bruxisme, béance;0;2853;2853
+Combien de patients femmes de moins de 22 ans avec béance avec plaque éventail ?;OUI;NON;0.50;plaque éventail, béance;béance;0;2169;2169
+de plus de 12 ans avec béance ?;OUI;OUI;1.00;béance;béance;0;2580;2580
+adultes avec classe ii squelettique avec bruxisme hommes ?;OUI;OUI;1.00;classe ii squelettique, bruxisme;classe ii squelettique, bruxisme;0;2726;2726
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+Combien de patients de moins de 17 ans ?;OUI;OUI;1.00;;;0;1768;1768
+avec ddm de moins de 22 ans femmes ?;OUI;OUI;1.00;ddm;ddm;0;2187;2187
+avec pendulum avec béance ?;OUI;OUI;1.00;pendulum, béance;pendulum, béance;0;1707;1707
+Nombre de patients enfants hommes ?;OUI;OUI;1.00;;;0;1569;1569
+avec bruxisme avec déviation maxillaire ?;OUI;OUI;1.00;déviation maxillaire, bruxisme;bruxisme, déviation maxillaire;0;1930;1930
+enfants hommes ?;OUI;OUI;1.00;;;0;1344;1344
+Nombre de patients avec béance gauche hommes ?;OUI;OUI;1.00;béance;béance;0;2251;2251
+femmes avec béance ?;OUI;OUI;1.00;béance;béance;0;1921;1921
+avec bruxisme avec rotation nocturne|modéré ?;OUI;OUI;1.00;bruxisme, rotation;bruxisme, rotation;0;1906;1906
+avec contention hommes ?;OUI;OUI;1.00;contention;contention;0;1678;1678
+de plus de 25 ans ?;OUI;OUI;1.00;;;0;1463;1463
+de moins de 26 ans avec bruxisme avec panoramique ?;OUI;OUI;1.00;panoramique, bruxisme;bruxisme, panoramique;0;2693;2693
+hommes avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1859;1859
+enfants avec claquement articulaire ?;OUI;OUI;1.00;claquement articulaire;claquement articulaire;0;1714;1714
+Nombre de patients femmes avec béance ?;OUI;OUI;1.00;béance;béance;0;1880;1880
+hommes avec béance sévère|diurne ?;OUI;OUI;1.00;béance;béance;0;2073;2073
+avec classe i d'angle femmes enfants ?;OUI;OUI;1.00;classe i d'angle;classe i d'angle;0;1903;1903
+avec proalvéolie ?;OUI;NON;0.00;proalvéolie;bipro;0;1333;1333
+Nombre de patients femmes avec béance ?;OUI;OUI;1.00;béance;béance;0;1880;1880
+Nombre de patients femmes de moins de 10 ans ?;OUI;OUI;1.00;;;0;2016;2016
+Nombre de patients de plus de 5 ans femmes ?;OUI;OUI;1.00;;;0;2403;2403
+hommes avec édentation avec torque ?;OUI;NON;0.50;édentation, torque;édentation;0;1903;1903
+femmes avec phonation ?;OUI;NON;0.00;phonation;;0;1426;1426
+avec arthrose infectieuse ?;OUI;OUI;1.00;arthrose;arthrose;0;1375;1375
+Nombre de patients avec béance avec luxation méniscale ?;OUI;OUI;1.00;luxation méniscale, béance;béance, luxation méniscale;0;1872;1872
+enfants avec céphalométrie avec ef ?;OUI;OUI;1.00;céphalométrie, ef;céphalométrie, ef;0;1759;1759
+hommes enfants avec supraposition ?;OUI;NON;0.00;supraposition;;0;1805;1805
+avec récession gingivale femmes ?;OUI;OUI;1.00;récession gingivale;récession gingivale;0;3744;3744
+Combien de patients de plus de 13 ans avec transposition ?;OUI;OUI;1.00;transposition;transposition;0;3556;3556
+avec stripping gauche avec bruxisme ?;OUI;NON;0.67;stripping, bruxisme;stripping, bruxisme, Gauche;0;2432;2432
+avec dent surnuméraire enfants femmes ?;OUI;OUI;1.00;dent surnuméraire;dent surnuméraire;0;2096;2096
+Nombre de patients avec prognathisme maxillaire modéré femmes ?;OUI;OUI;1.00;prognathisme maxillaire;prognathisme maxillaire;0;2243;2243
+femmes avec béance ?;OUI;OUI;1.00;béance;béance;0;1921;1921
+avec pendulum femmes avec vestibulo-version enfants ?;OUI;NON;0.33;vestibulo-version, pendulum;Vestibulo-Version, Enfants;0;2524;2524
+hommes de plus de 19 ans ?;OUI;OUI;1.00;;;0;2842;2842
+de moins de 23 ans ?;OUI;OUI;1.00;;;0;1886;1886
+hommes avec bruxisme de plus de 12 ans avec version ?;OUI;NON;0.33;bruxisme, version;bruxisme, linguo-version;0;3400;3400
+Combien de patients avec latérodéviation avec céphalométrie enfants femmes ?;OUI;OUI;1.00;latérodéviation, céphalométrie;latérodéviation, céphalométrie;0;3249;3249
+Nombre de patients de moins de 15 ans hommes avec urgence ?;OUI;NON;0.00;urgence;;0;4849;4849
+avec classe i squelettique hommes ?;OUI;OUI;1.00;classe i squelettique;classe i squelettique;0;2100;2100
+avec béance hommes de plus de 7 ans ?;OUI;OUI;1.00;béance;béance;0;2255;2255
+avec prognathisme maxillaire avec rotation de plus de 18 ans ?;OUI;NON;0.50;prognathisme maxillaire, rotation;prognathisme maxillaire;0;1900;1900
+avec béance hommes de plus de 2 ans ?;OUI;OUI;1.00;béance;béance;0;2413;2413
+hommes avec contention avec transposition ?;OUI;OUI;1.00;transposition, contention;contention, transposition;0;2302;2302
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+de plus de 3 ans ?;OUI;OUI;1.00;;;0;1728;1728
+Combien de patients avec prémolaire ?;OUI;OUI;1.00;prémolaire;prémolaire;0;1465;1465
+avec malposition latérale ?;OUI;OUI;1.00;malposition;malposition;0;1538;1538
+enfants femmes ?;OUI;OUI;1.00;;;0;1719;1719
+avec récidive de moins de 17 ans ?;OUI;NON;0.00;récidive;;0;1719;1719
+Nombre de patients femmes enfants avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2106;2106
+avec béance gauche|latérale|sévère|postérieure hommes de moins de 22 ans ?;OUI;OUI;1.00;béance;béance;0;2801;2801
+avec bruxisme hommes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1878;1878
+avec caries dentaires ?;OUI;OUI;1.00;caries dentaires;caries dentaires;0;1483;1483
+Combien de patients avec respiration buccale femmes ?;OUI;OUI;1.00;respiration buccale;respiration buccale;0;2205;2205
+Nombre de patients enfants ?;OUI;OUI;1.00;;;0;1727;1727
+de plus de 4 ans avec infraclusion femmes ?;OUI;OUI;1.00;infraclusion;infraclusion;0;2511;2511
+avec micrognathie sévère|nocturne de moins de 26 ans femmes ?;OUI;NON;0.50;micrognathie;micrognathie, Nocturne;0;3113;3113
+avec béance modérée hommes ?;OUI;OUI;1.00;béance;béance;0;2028;2028
+de moins de 26 ans femmes avec linguo-version ?;OUI;OUI;1.00;linguo-version;linguo-version;0;2396;2396
+Combien de patients femmes de plus de 5 ans ?;OUI;OUI;1.00;;;0;2216;2216
+Combien de patients avec bruxisme adultes femmes ?;OUI;NON;0.50;bruxisme;bruxisme, dentition permanente;0;2299;2299
+de plus de 21 ans ?;OUI;OUI;1.00;;;0;1831;1831
+avec bruxisme avec rotation de moins de 18 ans ?;OUI;OUI;1.00;bruxisme, rotation;bruxisme, rotation;0;2350;2350
+femmes avec dentition permanente de moins de 19 ans ?;OUI;OUI;1.00;dentition permanente;dentition permanente;0;2545;2545
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+Nombre de patients avec ressaut articulaire ?;OUI;OUI;1.00;ressaut articulaire;ressaut articulaire;0;1708;1708
+Combien de patients avec contention modéré|diurne avec bruxisme hommes ?;OUI;OUI;1.00;contention, bruxisme;contention, bruxisme;0;3274;3274
+avec activateur hommes ?;OUI;OUI;1.00;activateur;activateur;0;1998;1998
+femmes de moins de 32 ans avec béance ?;OUI;NON;0.00;béance;;0;1632;1632
+hommes avec pendulum ?;OUI;NON;0.00;pendulum;;0;1492;1492
+avec dentition mixte de moins de 16 ans femmes ?;OUI;OUI;1.00;dentition mixte;dentition mixte;0;2262;2262
+avec aéro hommes ?;OUI;OUI;1.00;aéro;aéro;0;1701;1701
+de moins de 21 ans avec mainteneur d'espace hommes ?;OUI;OUI;1.00;mainteneur d'espace;mainteneur d'espace;0;3147;3147
+Nombre de patients de plus de 14 ans avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2191;2191
+avec récidive avec propulsor avec niti ?;OUI;NON;0.33;propulsor, récidive, niti;niti;0;1567;1567
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+Nombre de patients avec tong e ?;OUI;NON;0.00;tong e;interposition linguale;0;1862;1862
+avec bruxisme de plus de 4 ans ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1610;1610
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+avec version avec transposition ?;OUI;NON;0.00;transposition, version;;0;1284;1284
+de plus de 9 ans hommes ?;OUI;OUI;1.00;;;0;2043;2043
+Combien de patients de moins de 27 ans avec malposition ?;OUI;OUI;1.00;malposition;malposition;0;1814;1814
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+de moins de 27 ans hommes ?;OUI;OUI;1.00;;;0;1916;1916
+avec béance de moins de 29 ans ?;OUI;OUI;1.00;béance;béance;0;1896;1896
+Nombre de patients hommes de plus de 7 ans ?;OUI;OUI;1.00;;;0;1881;1881
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;1801;1801
+de moins de 14 ans ?;OUI;OUI;1.00;;;0;1478;1478
+adultes avec interposition linguale ?;OUI;OUI;1.00;interposition linguale;interposition linguale;0;2164;2164
+de plus de 8 ans avec ligature avec classe i d'angle ?;OUI;OUI;1.00;classe i d'angle, ligature;ligature, classe i d'angle;0;2413;2413
+Combien de patients femmes avec transposition de moins de 26 ans avec prémolaire ?;OUI;NON;0.50;transposition, prémolaire;transposition;0;2286;2286
+avec bruxisme adultes femmes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1668;1668
+avec ectopie ?;OUI;OUI;1.00;ectopie;ectopie;0;1612;1612
+avec claquement articulaire ?;OUI;OUI;1.00;claquement articulaire;claquement articulaire;0;1472;1472
+avec ddm de plus de 12 ans avec scanner intra-oral postérieure|gauche avec béance postérieure|gauche ?;OUI;OUI;1.00;scanner intra-oral, béance, ddm;ddm, Scanner Intra-Oral, béance;0;2465;2465
+femmes enfants avec béance ?;OUI;OUI;1.00;béance;béance;0;1739;1739
+de moins de 26 ans femmes ?;OUI;OUI;1.00;;;0;2073;2073
+de moins de 13 ans ?;OUI;OUI;1.00;;;0;3103;3103
+femmes de moins de 18 ans avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1956;1956
+avec bruxisme avec croissance ?;OUI;OUI;1.00;croissance, bruxisme;bruxisme, croissance;0;1624;1624
+avec canine ?;OUI;OUI;1.00;canine;canine;0;1326;1326
+avec ef hommes ?;OUI;OUI;1.00;ef;ef;0;1869;1869
+Combien de patients de plus de 7 ans avec bruxisme nocturne|modéré ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2043;2043
+adultes hommes ?;OUI;NON;0.00;;dentition permanente;0;1833;1833
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+avec claquement articulaire infectieuse avec douleur ?;OUI;NON;0.67;claquement articulaire, douleur;claquement articulaire, Infectieuse, douleur;0;1942;1942
+Nombre de patients de plus de 9 ans avec malposition maxillaire ?;OUI;OUI;1.00;malposition;malposition;0;1916;1916
+Combien de patients avec classe iii d'angle femmes ?;OUI;OUI;1.00;classe iii d'angle;classe iii d'angle;0;1929;1929
+femmes avec bruxisme de plus de 8 ans ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2605;2605
+Combien de patients avec distalisation avec contrôle de plus de 3 ans ?;OUI;OUI;1.00;distalisation, contrôle;distalisation, contrôle;0;1718;1718
+de moins de 20 ans ?;OUI;OUI;1.00;;;0;1550;1550
+enfants avec alignement hommes ?;OUI;OUI;1.00;alignement;alignement;0;2864;2864
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+Nombre de patients avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;2206;2206
+adultes hommes ?;OUI;NON;0.00;;dentition permanente;0;1833;1833
+avec ddm ?;OUI;OUI;1.00;ddm;ddm;0;1570;1570
+Combien de patients de moins de 15 ans hommes ?;OUI;OUI;1.00;;;0;3548;3548
+avec arcade hommes de plus de 14 ans ?;OUI;OUI;1.00;arcade;arcade;0;3855;3855
+Nombre de patients avec panoramique ?;OUI;OUI;1.00;panoramique;panoramique;0;1640;1640
+avec ventilation nasale ?;OUI;NON;0.00;ventilation nasale;;0;3197;3197
+Nombre de patients avec bruxisme modéré ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1567;1567
+femmes avec dysplasie ?;OUI;OUI;1.00;dysplasie;dysplasie;0;2636;2636
+femmes de plus de 1 ans ?;OUI;OUI;1.00;;;0;2150;2150
+Nombre de patients femmes de moins de 22 ans avec rétrusion ?;OUI;OUI;1.00;rétrusion;rétrusion;0;2793;2793
+avec spacing avec bruxisme hommes ?;OUI;OUI;1.00;bruxisme, spacing;spacing, bruxisme;0;2526;2526
+de moins de 24 ans ?;OUI;OUI;1.00;;;0;1893;1893
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+hommes avec céphalométrie ?;OUI;OUI;1.00;céphalométrie;céphalométrie;0;1984;1984
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+Nombre de patients de moins de 19 ans avec supraposition femmes ?;OUI;NON;0.00;supraposition;;0;2564;2564
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+avec détartrage avec béance femmes ?;OUI;OUI;1.00;détartrage, béance;détartrage, béance;0;2540;2540
+avec classe ii d'angle sévère|postérieure enfants ?;OUI;OUI;1.00;classe ii d'angle;classe ii d'angle;0;1977;1977
+avec métal hommes avec bruxisme antérieure|latérale ?;OUI;OUI;1.00;bruxisme, métal;métal, bruxisme;0;4300;4300
+avec prognathisme mandibulaire ?;OUI;NON;0.00;prognathisme mandibulaire;classe iii d'angle;0;1925;1925
+avec béance femmes avec bruxisme ?;OUI;OUI;1.00;bruxisme, béance;béance, bruxisme;0;2793;2793
+de moins de 23 ans ?;OUI;OUI;1.00;;;0;1886;1886
+Nombre de patients avec béance sévère ?;OUI;OUI;1.00;béance;béance;0;2309;2309
+enfants avec arthrite ?;OUI;OUI;1.00;arthrite;arthrite;0;2080;2080
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1396;1396
+avec gingivite enfants hommes ?;OUI;OUI;1.00;gingivite;gingivite;0;2962;2962
+Combien de patients hommes avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1955;1955
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+de moins de 20 ans ?;OUI;OUI;1.00;;;0;1550;1550
+Nombre de patients adultes hommes avec bruxisme ?;OUI;NON;0.50;bruxisme;bruxisme, dentition permanente;0;1958;1958
+avec activateur ?;OUI;OUI;1.00;activateur;activateur;0;1514;1514
+Nombre de patients enfants ?;OUI;OUI;1.00;;;0;1727;1727
+avec linguo-version de plus de 18 ans ?;OUI;OUI;1.00;linguo-version;linguo-version;0;1912;1912
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+Combien de patients avec béance ?;OUI;OUI;1.00;béance;béance;0;1454;1454
+de plus de 4 ans avec prognathisme mandibulaire avec composite ?;OUI;OUI;1.00;prognathisme mandibulaire, composite;prognathisme mandibulaire, composite;0;2075;2075
+Combien de patients avec agénésie avec bruxisme ?;OUI;OUI;1.00;agénésie, bruxisme;agénésie, bruxisme;0;1783;1783
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+avec plaque amovible ?;OUI;OUI;1.00;plaque amovible;plaque amovible;0;1432;1432
+de moins de 27 ans avec consultation hommes avec récidive ?;OUI;NON;0.00;consultation, récidive;;0;1840;1840
+hommes avec bielles ?;OUI;OUI;1.00;bielles;bielles;0;1800;1800
+avec récidive droite hommes enfants ?;OUI;OUI;1.00;récidive;récidive;0;2293;2293
+Nombre de patients avec panoramique femmes ?;OUI;OUI;1.00;panoramique;panoramique;0;2338;2338
+Combien de patients avec occlusion inversée hommes de plus de 6 ans ?;OUI;OUI;1.00;occlusion inversée;occlusion inversée;0;2360;2360
+de moins de 27 ans femmes ?;OUI;OUI;1.00;;;0;1786;1786
+Combien de patients de moins de 12 ans ?;OUI;OUI;1.00;;;0;1559;1559
+femmes avec niti de plus de 5 ans ?;OUI;OUI;1.00;niti;niti;0;1674;1674
+enfants avec béance ?;OUI;OUI;1.00;béance;béance;0;1667;1667
+avec béance enfants femmes ?;OUI;OUI;1.00;béance;béance;0;1706;1706
+Combien de patients femmes avec vestibulo-version avec transposition ?;OUI;OUI;1.00;vestibulo-version, transposition;Vestibulo-Version, transposition;0;2222;2222
+de moins de 12 ans hommes avec contrôle avec pendulum infectieuse ?;OUI;NON;0.67;contrôle, pendulum;contrôle, pendulum, Infectieuse;0;3192;3192
+avec égression femmes de plus de 15 ans ?;OUI;OUI;1.00;égression;égression;0;1856;1856
+Nombre de patients de moins de 10 ans avec ef ?;OUI;OUI;1.00;ef;ef;0;1900;1900
+adultes avec consultation femmes ?;OUI;NON;0.50;consultation;consultation, Adultes;0;2270;2270
+Nombre de patients de moins de 10 ans hommes avec luxation ?;OUI;OUI;1.00;luxation;luxation;0;2005;2005
+de plus de 6 ans hommes avec dent surnuméraire ?;OUI;OUI;1.00;dent surnuméraire;dent surnuméraire;0;1902;1902
+avec ankylose avec récession gingivale ?;OUI;OUI;1.00;récession gingivale, ankylose;ankylose, récession gingivale;0;1628;1628
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+hommes de moins de 20 ans avec maladie parodontale ?;OUI;OUI;1.00;maladie parodontale;maladie parodontale;0;2304;2304
+de moins de 28 ans femmes avec prognathisme maxillaire ?;OUI;OUI;1.00;prognathisme maxillaire;prognathisme maxillaire;0;2255;2255
+avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;1801;1801
+Combien de patients avec endoalvéolie hommes enfants ?;OUI;OUI;1.00;endoalvéolie;endoalvéolie;0;2334;2334
+Nombre de patients adultes ?;OUI;NON;0.00;;dentition permanente;0;1570;1570
+avec mainteneur d'espace ?;OUI;OUI;1.00;mainteneur d'espace;mainteneur d'espace;0;2238;2238
+hommes de plus de 1 ans avec béance ?;OUI;OUI;1.00;béance;béance;0;1847;1847
+Combien de patients hommes ?;OUI;OUI;1.00;;;0;1806;1806
+hommes avec pendulum de plus de 14 ans ?;OUI;OUI;1.00;pendulum;pendulum;0;2233;2233
+avec croissance femmes de plus de 13 ans ?;OUI;OUI;1.00;croissance;croissance;0;2518;2518
+enfants avec gouttière ?;OUI;OUI;1.00;gouttière;gouttière;0;1651;1651
+femmes enfants ?;OUI;OUI;1.00;;;0;2260;2260
+Combien de patients femmes avec transposition avec bruxisme de moins de 23 ans ?;OUI;OUI;1.00;transposition, bruxisme;bruxisme, transposition;0;2972;2972
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1396;1396
+Nombre de patients avec propulsor ?;OUI;OUI;1.00;propulsor;propulsor;0;1417;1417
+avec béance sévère|diurne femmes ?;OUI;OUI;1.00;béance;béance;0;2642;2642
+avec micrognathie avec maladie parodontale ?;OUI;OUI;1.00;maladie parodontale, micrognathie;micrognathie, maladie parodontale;0;1798;1798
+Combien de patients avec plaque papillon de moins de 15 ans avec bruxisme ?;OUI;OUI;1.00;plaque papillon, bruxisme;plaque papillon, bruxisme;0;2717;2717
+avec bagues ?;OUI;OUI;1.00;bagues;bagues;0;1474;1474
+Combien de patients de plus de 1 ans femmes ?;OUI;OUI;1.00;;;0;1962;1962
+avec céphalométrie enfants ?;OUI;OUI;1.00;céphalométrie;céphalométrie;0;2073;2073
+Nombre de patients avec infraposition femmes adultes ?;OUI;NON;0.50;infraposition;infraposition, dentition permanente;0;1949;1949
+Combien de patients avec ressaut articulaire de plus de 7 ans hommes ?;OUI;OUI;1.00;ressaut articulaire;ressaut articulaire;0;2195;2195
+avec distalisation de plus de 6 ans avec macrodontie ?;OUI;OUI;1.00;distalisation, macrodontie;distalisation, macrodontie;0;2212;2212
+avec déviation mandibulaire avec rétrusion ?;OUI;OUI;1.00;déviation mandibulaire, rétrusion;déviation mandibulaire, rétrusion;0;2367;2367
+Nombre de patients femmes ?;OUI;OUI;1.00;;;0;1797;1797
+Combien de patients enfants ?;OUI;NON;0.00;;Enfants;0;1730;1730
+de moins de 13 ans ?;OUI;OUI;1.00;;;0;3103;3103
+Combien de patients avec stripping hommes ?;OUI;OUI;1.00;stripping;stripping;0;1812;1812
+Combien de patients avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;3817;3817
+avec bruxisme femmes de plus de 4 ans ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1840;1840
+Combien de patients de moins de 16 ans ?;OUI;OUI;1.00;;;0;1663;1663
+avec asymétrie faciale modérée|mandibulaire adultes ?;OUI;NON;0.33;asymétrie faciale;asymétrie faciale, Mandibulaire, Adulte;0;2490;2490
+avec contrôle gauche|modérée|antérieure femmes ?;OUI;OUI;1.00;contrôle;contrôle;0;2470;2470
+avec arc hommes de moins de 11 ans ?;OUI;OUI;1.00;arc;arc;0;2287;2287
+avec classe ii d'angle adultes hommes ?;OUI;OUI;1.00;classe ii d'angle;classe ii d'angle;0;1738;1738
+Combien de patients femmes de moins de 12 ans avec rétrusion ?;OUI;OUI;1.00;rétrusion;rétrusion;0;2535;2535
+avec prémolaire nocturne|sévère de plus de 8 ans ?;OUI;NON;0.00;prémolaire;Nocturne;0;1888;1888
+avec bruxisme enfants hommes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1804;1804
+hommes avec diastème centrale ?;OUI;OUI;1.00;diastème;diastème;0;1779;1779
+avec nécrose pulpaire de plus de 7 ans femmes ?;OUI;OUI;1.00;nécrose pulpaire;nécrose pulpaire;0;3386;3386
+Combien de patients de plus de 9 ans avec endoalvéolie ?;OUI;OUI;1.00;endoalvéolie;endoalvéolie;0;1858;1858
+femmes avec béance avec plaque éventail ?;OUI;NON;0.50;plaque éventail, béance;béance;0;1862;1862
+femmes enfants ?;OUI;OUI;1.00;;;0;2260;2260
+de plus de 11 ans femmes ?;OUI;OUI;1.00;;;0;2410;2410
+Combien de patients avec plaque éventail avec herbst avec bruxisme de moins de 10 ans ?;OUI;NON;0.50;plaque éventail, bruxisme, herbst;contention, herbst, bruxisme;0;2771;2771
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+avec occlusion croisée ?;OUI;OUI;1.00;occlusion croisée;occlusion croisée;0;1814;1814
+de moins de 15 ans ?;OUI;OUI;1.00;;;0;1608;1608
+avec élastiques intermaxillaires gauche enfants ?;OUI;OUI;1.00;élastiques intermaxillaires;élastiques intermaxillaires;0;2021;2021
+avec onychophagie avec malocclusion ?;OUI;OUI;1.00;malocclusion, onychophagie;onychophagie, malocclusion;0;2072;2072
+de moins de 17 ans avec avulsion ?;OUI;OUI;1.00;avulsion;avulsion;0;1917;1917
+Combien de patients de plus de 7 ans avec torque ?;OUI;NON;0.00;torque;;0;1686;1686
+Nombre de patients femmes de plus de 10 ans avec activateur ?;OUI;OUI;1.00;activateur;activateur;0;2178;2178
+femmes enfants avec apnée du sommeil ?;OUI;OUI;1.00;apnée du sommeil;apnée du sommeil;0;1727;1727
+hommes enfants ?;OUI;OUI;1.00;;;0;2296;2296
+enfants avec écarteur femmes ?;OUI;OUI;1.00;écarteur;écarteur;0;1905;1905
+Combien de patients avec béance ?;OUI;OUI;1.00;béance;béance;0;1454;1454
+de plus de 16 ans ?;OUI;OUI;1.00;;;0;1802;1802
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+de plus de 14 ans avec supraposition ?;OUI;NON;0.00;supraposition;;0;2641;2641
+enfants avec ventilation nasale centrale ?;OUI;NON;0.00;ventilation nasale;;0;2503;2503
+de plus de 12 ans ?;OUI;OUI;1.00;;;0;1441;1441
+Nombre de patients avec canine nocturne|sévère ?;OUI;NON;0.50;canine;canine, Nocturne;0;6015;6015
+avec plaque amovible femmes ?;OUI;NON;0.00;plaque amovible;Plaque;0;2042;2042
+hommes de moins de 16 ans ?;OUI;OUI;1.00;;;0;2263;2263
+Nombre de patients avec diastemata antérieure|sévère|gauche|latérale enfants avec spacing ?;OUI;OUI;1.00;diastemata, spacing;diastemata, spacing;0;3312;3312
+adultes avec béance femmes ?;OUI;NON;0.50;béance;béance, dentition permanente;0;2484;2484
+femmes avec torque ?;OUI;NON;0.00;torque;;0;1415;1415
+avec élastiques intermaxillaires avec inclusion de plus de 7 ans femmes ?;OUI;NON;0.50;élastiques intermaxillaires, inclusion;élastiques intermaxillaires;0;2432;2432
+hommes avec croissance enfants avec céramique ?;OUI;NON;0.67;croissance, céramique;croissance, Enfants, céramique;0;2804;2804
+de moins de 26 ans avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2036;2036
+Combien de patients de moins de 17 ans femmes ?;OUI;OUI;1.00;;;0;1717;1717
+de moins de 19 ans femmes ?;OUI;OUI;1.00;;;0;1910;1910
+adultes femmes ?;OUI;NON;0.00;;dentition permanente;0;1907;1907
+hommes avec occlusion inversée de moins de 22 ans avec prognathisme maxillaire modéré ?;OUI;OUI;1.00;prognathisme maxillaire, occlusion inversée;occlusion inversée, prognathisme maxillaire;0;2935;2935
+de plus de 5 ans avec écarteur ?;OUI;OUI;1.00;écarteur;écarteur;0;1896;1896
+de plus de 18 ans ?;OUI;OUI;1.00;;;0;1409;1409
+avec bruxisme avec déviation mandibulaire nocturne|modéré ?;OUI;OUI;1.00;déviation mandibulaire, bruxisme;bruxisme, déviation mandibulaire;0;1864;1864
+Combien de patients femmes avec déglutition modérée|antérieure|latérale|droite de plus de 13 ans ?;OUI;OUI;1.00;déglutition;déglutition;0;3855;3855
+avec rétrusion ?;OUI;NON;0.00;rétrusion;classe ii d'angle;0;1391;1391
+Nombre de patients avec caries dentaires ?;OUI;OUI;1.00;caries dentaires;caries dentaires;0;1686;1686
+avec activateur sévère ?;OUI;OUI;1.00;activateur;activateur;0;1455;1455
+hommes avec interposition linguale ?;OUI;OUI;1.00;interposition linguale;interposition linguale;0;2089;2089
+avec déviation maxillaire ?;OUI;OUI;1.00;déviation maxillaire;déviation maxillaire;0;2118;2118
+avec microdontie avec niti hommes ?;OUI;OUI;1.00;microdontie, niti;microdontie, niti;0;2400;2400
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1396;1396
+avec bruxisme avec métal ?;OUI;OUI;1.00;bruxisme, métal;bruxisme, métal;0;1715;1715
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+femmes enfants avec ectopie ?;OUI;OUI;1.00;ectopie;ectopie;0;2428;2428
+de moins de 21 ans avec céphalométrie avec ressaut articulaire femmes ?;OUI;OUI;1.00;ressaut articulaire, céphalométrie;céphalométrie, ressaut articulaire;0;2782;2782
+Combien de patients adultes ?;OUI;NON;0.00;;dentition permanente;0;1746;1746
+Combien de patients femmes ?;OUI;OUI;1.00;;;0;2392;2392
+Combien de patients avec béance avec supraposition antérieure|gauche|latérale ?;OUI;OUI;1.00;supraposition, béance;béance, supraposition;0;2127;2127
+Combien de patients avec bruxisme nocturne|modéré de plus de 14 ans avec ostéotomie ?;OUI;OUI;1.00;ostéotomie, bruxisme;bruxisme, ostéotomie;0;2390;2390
+adultes ?;OUI;NON;0.00;;dentition permanente;0;1630;1630
+Nombre de patients avec métal modéré|nocturne de plus de 10 ans avec interposition linguale ?;OUI;OUI;1.00;interposition linguale, métal;métal, interposition linguale;0;3152;3152
+avec avulsion hommes de moins de 20 ans ?;OUI;OUI;1.00;avulsion;avulsion;0;2916;2916
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+avec transposition ?;OUI;NON;0.00;transposition;;0;1159;1159
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+avec édentation ?;OUI;OUI;1.00;édentation;édentation;0;1394;1394
+Combien de patients de moins de 19 ans hommes ?;OUI;OUI;1.00;;;0;1814;1814
+femmes avec macrodontie ?;OUI;OUI;1.00;macrodontie;macrodontie;0;1724;1724
+Nombre de patients avec écarteur nocturne|modéré de plus de 14 ans hommes avec bruxisme ?;OUI;OUI;1.00;bruxisme, écarteur;écarteur, bruxisme;0;2879;2879
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+Nombre de patients avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1479;1479
+Nombre de patients avec rotation hommes ?;OUI;OUI;1.00;rotation;rotation;0;1787;1787
+avec dysplasie ?;OUI;OUI;1.00;dysplasie;dysplasie;0;1774;1774
+femmes avec activateur de plus de 10 ans ?;NON;OUI;1.00;activateur;activateur;0;1990;1990
+enfants avec plaque papillon avec panoramique avec micrognathie ?;OUI;NON;0.50;plaque papillon, micrognathie, panoramique;contention, panoramique, micrognathie;0;3107;3107
+avec bielles postérieure ?;OUI;OUI;1.00;bielles;bielles;0;1572;1572
+avec bruxisme diurne ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1510;1510
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1396;1396
+de moins de 19 ans hommes ?;OUI;OUI;1.00;;;0;1776;1776
+avec dysfonction linguale hommes ?;OUI;OUI;1.00;dysfonction linguale;dysfonction linguale;0;1753;1753
+avec bruxisme hommes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1878;1878
+avec béance avec ressaut articulaire ?;OUI;OUI;1.00;ressaut articulaire, béance;béance, ressaut articulaire;0;1926;1926
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+avec ankylose femmes de moins de 11 ans ?;OUI;OUI;1.00;ankylose;ankylose;0;1969;1969
+Combien de patients femmes avec béance avec bielles de plus de 12 ans ?;OUI;OUI;1.00;bielles, béance;béance, bielles;0;2450;2450
+avec gingivite hommes adultes ?;OUI;NON;0.50;gingivite;gingivite, dentition permanente;0;2482;2482
+Nombre de patients avec béance sévère ?;OUI;OUI;1.00;béance;béance;0;2309;2309
+Nombre de patients avec consultation sévère|antérieure|latérale avec déviation mandibulaire enfants avec bruxisme ?;OUI;NON;0.60;déviation mandibulaire, consultation, bruxisme;consultation, Anterieur, Laterale, déviation mandibulaire, bruxisme;0;3864;3864
+avec canine avec atm femmes ?;OUI;OUI;1.00;canine, atm;canine, atm;0;1846;1846
+avec panoramique hommes ?;OUI;OUI;1.00;panoramique;panoramique;0;1582;1582
+de moins de 18 ans ?;OUI;OUI;1.00;;;0;1548;1548
+avec béance gauche|sévère ?;OUI;OUI;1.00;béance;béance;0;1563;1563
+Combien de patients de plus de 11 ans ?;OUI;OUI;1.00;;;0;1554;1554
+avec vestibulo-version avec latérodéviation de moins de 19 ans femmes ?;OUI;OUI;1.00;vestibulo-version, latérodéviation;Vestibulo-Version, latérodéviation;0;4036;4036
+Combien de patients avec classe iii squelettique hommes ?;OUI;OUI;1.00;classe iii squelettique;classe iii squelettique;0;2192;2192
+avec béance hommes de plus de 10 ans ?;OUI;OUI;1.00;béance;béance;0;2570;2570
+de plus de 9 ans ?;OUI;OUI;1.00;;;0;1492;1492
+femmes avec supraposition ?;OUI;NON;0.00;supraposition;;0;1550;1550
+hommes avec linguo-version adultes ?;OUI;NON;0.50;linguo-version;linguo-version, dentition permanente;0;2256;2256
+Combien de patients avec proglissement femmes ?;OUI;OUI;1.00;proglissement;proglissement;0;1751;1751
+Combien de patients femmes avec résorption radiculaire ?;OUI;OUI;1.00;résorption radiculaire;résorption radiculaire;0;1730;1730
+Combien de patients hommes avec plaque papillon de moins de 23 ans avec métal ?;OUI;OUI;1.00;plaque papillon, métal;plaque papillon, métal;0;2961;2961
+femmes avec proalvéolie de moins de 22 ans ?;OUI;OUI;1.00;proalvéolie;proalvéolie;0;2641;2641
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+Nombre de patients avec minivis femmes de plus de 3 ans ?;OUI;OUI;1.00;minivis;minivis;0;3900;3900
+avec endoalvéolie maxillaire|modérée avec molaire femmes ?;OUI;OUI;1.00;endoalvéolie, molaire;endoalvéolie, molaire;0;2306;2306
+Combien de patients de plus de 1 ans ?;OUI;OUI;1.00;;;0;1796;1796
+Combien de patients hommes avec translation ?;OUI;OUI;1.00;translation;translation;0;1872;1872
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+adultes avec béance ?;OUI;OUI;1.00;béance;béance;0;1996;1996
+avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;1801;1801
+Combien de patients avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;3817;3817
+hommes de plus de 15 ans ?;OUI;OUI;1.00;;;0;2209;2209
+femmes avec béance ?;OUI;OUI;1.00;béance;béance;0;1921;1921
+Nombre de patients femmes avec béance droite|sévère|antérieure|latérale ?;OUI;OUI;1.00;béance;béance;0;2302;2302
+avec bruxisme droite|modérée|postérieure hommes avec propulsor ?;OUI;NON;0.50;propulsor, bruxisme;bruxisme;0;1980;1980
+de moins de 27 ans avec consultation hommes ?;OUI;OUI;1.00;consultation;consultation;0;3531;3531
+Combien de patients avec gouttière ?;OUI;OUI;1.00;gouttière;gouttière;0;1594;1594
+Nombre de patients avec béance enfants ?;OUI;OUI;1.00;béance;béance;0;1488;1488
+Combien de patients avec ddm ?;OUI;OUI;1.00;ddm;ddm;0;1429;1429
+Nombre de patients hommes avec métal avec micrognathie latérale|gauche|modérée ?;OUI;OUI;1.00;micrognathie, métal;métal, micrognathie;0;2288;2288
+avec béance de plus de 1 ans ?;OUI;OUI;1.00;béance;béance;0;1555;1555
+Combien de patients hommes ?;OUI;OUI;1.00;;;0;1806;1806
+enfants femmes avec dent surnuméraire ?;OUI;OUI;1.00;dent surnuméraire;dent surnuméraire;0;1842;1842
+Nombre de patients hommes avec béance avec ventilation nasale ?;OUI;NON;0.50;ventilation nasale, béance;béance;0;2918;2918
+Nombre de patients de plus de 3 ans ?;OUI;OUI;1.00;;;0;1501;1501
+Nombre de patients femmes ?;OUI;OUI;1.00;;;0;1797;1797
+avec crowding ?;OUI;OUI;1.00;crowding;crowding;0;1825;1825
+Nombre de patients avec béance avec bruxisme de moins de 15 ans ?;OUI;OUI;1.00;bruxisme, béance;béance, bruxisme;0;2717;2717
+hommes avec récidive ?;OUI;NON;0.00;récidive;;0;1532;1532
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+femmes avec gouttière ?;OUI;OUI;1.00;gouttière;gouttière;0;1855;1855
+hommes avec minivis postérieure|droite|latérale|modérée ?;OUI;OUI;1.00;minivis;minivis;0;1983;1983
+enfants avec ectopie ?;OUI;OUI;1.00;ectopie;ectopie;0;1480;1480
+avec occlusion inversée hommes ?;OUI;OUI;1.00;occlusion inversée;occlusion inversée;0;1709;1709
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+Nombre de patients avec occlusion inversée de moins de 16 ans ?;OUI;OUI;1.00;occlusion inversée;occlusion inversée;0;2239;2239
+Combien de patients enfants ?;OUI;NON;0.00;;Enfants;0;1730;1730
+avec protrusion ?;OUI;OUI;1.00;protrusion;protrusion;0;1534;1534
+avec agénésie ?;OUI;OUI;1.00;agénésie;agénésie;0;1732;1732
+avec contrôle femmes avec béance ?;OUI;OUI;1.00;contrôle, béance;contrôle, béance;0;2263;2263
+Nombre de patients de moins de 22 ans ?;OUI;OUI;1.00;;;0;1572;1572
+Nombre de patients hommes avec agénésie ?;OUI;OUI;1.00;agénésie;agénésie;0;1772;1772
+avec bruxisme de moins de 21 ans femmes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;4107;4107
+enfants avec ostéotomie avec version ?;OUI;OUI;1.00;ostéotomie, version;ostéotomie, version;0;2642;2642
+Combien de patients avec classe i squelettique de moins de 23 ans femmes ?;OUI;OUI;1.00;classe i squelettique;classe i squelettique;0;2284;2284
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;1801;1801
+avec bielles ?;OUI;OUI;1.00;bielles;bielles;0;1698;1698
+hommes enfants ?;OUI;OUI;1.00;;;0;2296;2296
+Combien de patients adultes avec spacing avec béance ?;OUI;NON;0.67;spacing, béance;spacing, béance, dentition permanente;0;2325;2325
+Nombre de patients avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1479;1479
+de moins de 26 ans ?;OUI;OUI;1.00;;;0;1727;1727
+de plus de 2 ans avec gingivite avec béance modérée|postérieure|gauche femmes ?;OUI;OUI;1.00;gingivite, béance;gingivite, béance;0;2901;2901
+avec ectopie ?;OUI;OUI;1.00;ectopie;ectopie;0;1612;1612
+avec béance hommes ?;OUI;OUI;1.00;béance;béance;0;1614;1614
+Nombre de patients de plus de 6 ans avec molaire femmes ?;OUI;OUI;1.00;molaire;molaire;0;2636;2636
+de moins de 10 ans femmes avec tong e ?;OUI;NON;0.00;tong e;;0;2292;2292
+avec occlusion croisée enfants hommes ?;OUI;OUI;1.00;occlusion croisée;occlusion croisée;0;2692;2692
+avec ankylose femmes ?;OUI;OUI;1.00;ankylose;ankylose;0;1928;1928
+avec bruxisme femmes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1754;1754
+avec vestibulo-version de plus de 1 ans ?;OUI;OUI;1.00;vestibulo-version;Vestibulo-Version;0;2064;2064
+Combien de patients avec herbst de moins de 26 ans hommes ?;OUI;OUI;1.00;herbst;herbst;0;2633;2633
+Combien de patients de moins de 24 ans hommes ?;OUI;OUI;1.00;;;0;2273;2273
+hommes avec ddm ?;OUI;OUI;1.00;ddm;ddm;0;1856;1856
+hommes avec bipro ?;OUI;OUI;1.00;bipro;bipro;0;2048;2048
+Nombre de patients avec malposition ?;OUI;OUI;1.00;malposition;malposition;0;1510;1510
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1396;1396
+avec classe ii squelettique adultes hommes ?;OUI;OUI;1.00;classe ii squelettique;classe ii squelettique;0;1858;1858
+avec classe ii d'angle avec molaire femmes ?;OUI;OUI;1.00;classe ii d'angle, molaire;classe ii d'angle, molaire;0;2199;2199
+Nombre de patients avec mastication hommes ?;OUI;OUI;1.00;mastication;mastication;0;1969;1969
+avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1396;1396
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+Combien de patients avec béance avec dent surnuméraire ?;OUI;OUI;1.00;dent surnuméraire, béance;béance, dent surnuméraire;0;1814;1814
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+Combien de patients avec macrognathie avec bruxisme ?;OUI;OUI;1.00;macrognathie, bruxisme;macrognathie, bruxisme;0;1642;1642
+adultes avec dysplasie ?;OUI;OUI;1.00;dysplasie;dysplasie;0;1829;1829
+avec scanner intra-oral femmes ?;OUI;NON;0.00;scanner intra-oral;;0;1440;1440
+femmes avec béance mandibulaire|droite ?;OUI;OUI;1.00;béance;béance;0;2110;2110
+de moins de 24 ans hommes ?;OUI;OUI;1.00;;;0;1874;1874
+femmes de plus de 12 ans ?;OUI;OUI;1.00;;;0;1545;1545
+femmes avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2044;2044
+avec bruxisme diurne ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1510;1510
+Nombre de patients de moins de 26 ans avec arc hommes ?;OUI;OUI;1.00;arc;arc;0;2436;2436
+adultes avec béance ?;OUI;OUI;1.00;béance;béance;0;1996;1996
+de moins de 31 ans avec rétroalvéolie ?;OUI;NON;0.00;rétroalvéolie;;0;1651;1651
+Combien de patients de moins de 21 ans ?;OUI;OUI;1.00;;;0;1569;1569
+avec béance droite|sévère|antérieure de moins de 20 ans ?;OUI;OUI;1.00;béance;béance;0;1847;1847
+Nombre de patients avec empreinte ?;OUI;OUI;1.00;empreinte;empreinte;0;1389;1389
+avec scanner avec ddm ?;OUI;NON;0.50;scanner, ddm;ddm;0;1581;1581
+avec atm avec écarteur ?;OUI;OUI;1.00;écarteur, atm;atm, écarteur;0;1954;1954
+avec arc ?;OUI;OUI;1.00;arc;arc;0;1584;1584
+enfants avec arthrite ?;OUI;OUI;1.00;arthrite;arthrite;0;2080;2080
+de plus de 10 ans ?;OUI;OUI;1.00;;;0;1708;1708
+Nombre de patients avec mastication avec bruxisme modéré|nocturne hommes ?;OUI;OUI;1.00;mastication, bruxisme;mastication, bruxisme;0;2755;2755
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+avec déglutition de plus de 9 ans ?;OUI;OUI;1.00;déglutition;déglutition;0;1951;1951
+enfants femmes avec gouttière ?;OUI;NON;0.00;gouttière;;0;1719;1719
+avec métal ?;OUI;OUI;1.00;métal;métal;0;1604;1604
+avec classe ii d'angle ?;OUI;OUI;1.00;classe ii d'angle;classe ii d'angle;0;1796;1796
+Combien de patients de plus de 15 ans ?;OUI;OUI;1.00;;;0;2380;2380
+hommes avec activateur avec arthrose enfants ?;OUI;NON;0.67;activateur, arthrose;activateur, arthrose, Enfants;0;2883;2883
+Nombre de patients enfants avec prognathisme maxillaire sévère|unilatérale hommes avec prognathisme mandibulaire ?;OUI;NON;0.50;prognathisme mandibulaire;prognathisme maxillaire, prognathisme mandibulaire;0;2993;2993
+Nombre de patients avec transposition hommes de plus de 6 ans avec protrusion ?;OUI;OUI;1.00;transposition, protrusion;transposition, protrusion;0;3492;3492
+Combien de patients avec atm de moins de 21 ans femmes ?;OUI;OUI;1.00;atm;atm;0;2765;2765
+Combien de patients adultes ?;OUI;NON;0.00;;dentition permanente;0;1746;1746
+femmes de moins de 16 ans ?;OUI;OUI;1.00;;;0;2105;2105
+Nombre de patients enfants ?;OUI;OUI;1.00;;;0;1727;1727
+avec dysfonction linguale ?;OUI;OUI;1.00;dysfonction linguale;dysfonction linguale;0;2264;2264
+avec bruxisme de plus de 4 ans ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1610;1610
+de plus de 12 ans avec classe ii squelettique avec niti ?;OUI;OUI;1.00;classe ii squelettique, niti;classe ii squelettique, niti;0;2250;2250
+de plus de 18 ans avec claquement articulaire femmes ?;OUI;OUI;1.00;claquement articulaire;claquement articulaire;0;2339;2339
+avec rétroalvéolie diurne|sévère femmes avec déglutition ?;OUI;OUI;1.00;rétroalvéolie, déglutition;rétroalvéolie, déglutition;0;3510;3510
+Combien de patients femmes ?;OUI;OUI;1.00;;;0;2392;2392
+Combien de patients de moins de 25 ans avec protrusion hommes ?;OUI;OUI;1.00;protrusion;protrusion;0;2655;2655
+avec béance hommes ?;OUI;OUI;1.00;béance;béance;0;1614;1614
+de plus de 13 ans avec proalvéolie ?;OUI;OUI;1.00;proalvéolie;Proalvéolie;0;3876;3876
+Nombre de patients de plus de 7 ans hommes ?;OUI;OUI;1.00;;;0;2269;2269
+avec béance modérée|postérieure avec empreinte ?;OUI;OUI;1.00;empreinte, béance;béance, empreinte;0;2180;2180
+de plus de 10 ans hommes ?;OUI;OUI;1.00;;;0;2006;2006
+Nombre de patients avec fil qui pique de moins de 15 ans hommes ?;OUI;OUI;1.00;fil qui pique;fil qui pique;0;2458;2458
+avec protrusion avec claquement articulaire hommes ?;OUI;OUI;1.00;claquement articulaire, protrusion;claquement articulaire, protrusion;0;2516;2516
+avec béance latérale|gauche|antérieure|modérée ?;OUI;OUI;1.00;béance;béance;0;1808;1808
+de plus de 20 ans avec classe i squelettique femmes ?;OUI;OUI;1.00;classe i squelettique;classe i squelettique;0;2299;2299
+Nombre de patients de plus de 9 ans avec bruxisme diurne|modéré ?;OUI;OUI;1.00;bruxisme;bruxisme;0;3372;3372
+Nombre de patients avec scanner intra-oral avec mastication ?;OUI;NON;0.50;scanner intra-oral, mastication;mastication;0;1753;1753
+de plus de 17 ans ?;OUI;OUI;1.00;;;0;1565;1565
+femmes ?;OUI;OUI;1.00;;;0;1359;1359
+Combien de patients avec rotation hommes ?;OUI;OUI;1.00;rotation;rotation;0;2430;2430
+de moins de 12 ans hommes avec plaque amovible ?;OUI;NON;0.00;plaque amovible;Plaque;0;2396;2396
+Combien de patients de moins de 13 ans hommes avec écarteur ?;OUI;OUI;1.00;écarteur;écarteur;0;3006;3006
+femmes avec bruxisme diurne|sévère ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2011;2011
+hommes enfants ?;OUI;OUI;1.00;;;0;2296;2296
+de moins de 24 ans avec chirurgie femmes ?;OUI;OUI;1.00;chirurgie;chirurgie;0;2632;2632
+Nombre de patients avec proalvéolie enfants ?;OUI;OUI;1.00;proalvéolie;proalvéolie;0;2177;2177
+Combien de patients de plus de 14 ans ?;OUI;OUI;1.00;;;0;1538;1538
+avec atm ?;OUI;OUI;1.00;atm;atm;0;1729;1729
+avec béance postérieure|sévère femmes ?;OUI;OUI;1.00;béance;béance;0;2185;2185
+avec ligature nocturne|modéré femmes ?;OUI;OUI;1.00;ligature;ligature;0;2055;2055
+enfants femmes avec béance ?;OUI;OUI;1.00;béance;béance;0;2930;2930
+avec bruxisme nocturne|sévère hommes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1782;1782
+de plus de 10 ans avec nécrose pulpaire hommes ?;OUI;OUI;1.00;nécrose pulpaire;nécrose pulpaire;0;3089;3089
+avec tong e ?;OUI;NON;0.00;tong e;;0;1410;1410
+avec classe iii squelettique modérée femmes ?;OUI;OUI;1.00;classe iii squelettique;classe iii squelettique;0;2166;2166
+avec bruxisme de moins de 15 ans hommes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2431;2431
+avec herbst de moins de 25 ans ?;OUI;OUI;1.00;herbst;herbst;0;2510;2510
+de moins de 20 ans ?;OUI;OUI;1.00;;;0;1550;1550
+de moins de 20 ans ?;OUI;OUI;1.00;;;0;1550;1550
+femmes de plus de 21 ans avec ingression ?;OUI;OUI;1.00;ingression;ingression;0;2254;2254
+avec endoalvéolie de plus de 17 ans ?;OUI;OUI;1.00;endoalvéolie;endoalvéolie;0;2266;2266
+avec composite hommes ?;OUI;OUI;1.00;composite;composite;0;2092;2092
+avec béance avec bielles ?;OUI;OUI;1.00;bielles, béance;béance, bielles;0;2225;2225
+Nombre de patients avec gingivite ?;OUI;OUI;1.00;gingivite;gingivite;0;1749;1749
+de plus de 13 ans ?;OUI;OUI;1.00;;;0;1838;1838
+de plus de 12 ans ?;OUI;OUI;1.00;;;0;1441;1441
+avec proalvéolie modérée|maxillaire hommes ?;OUI;NON;0.00;proalvéolie;bipro, Maxillaire;0;2512;2512
+Combien de patients hommes ?;OUI;OUI;1.00;;;0;1806;1806
+Nombre de patients hommes de moins de 19 ans avec béance ?;OUI;OUI;1.00;béance;béance;0;2272;2272
+de plus de 14 ans femmes ?;OUI;OUI;1.00;;;0;2082;2082
+Nombre de patients femmes avec ostéotomie ?;OUI;OUI;1.00;ostéotomie;ostéotomie;0;1880;1880
+avec bruxisme de moins de 18 ans avec maladie parodontale ?;OUI;OUI;1.00;maladie parodontale, bruxisme;bruxisme, maladie parodontale;0;2330;2330
+de moins de 20 ans avec propulsor hommes avec béance ?;OUI;OUI;1.00;propulsor, béance;propulsor, béance;0;2425;2425
+Nombre de patients femmes de plus de 16 ans ?;OUI;OUI;1.00;;;0;2432;2432
+Nombre de patients hommes de plus de 13 ans avec déglutition avec occlusion inversée ?;OUI;OUI;1.00;occlusion inversée, déglutition;déglutition, occlusion inversée;0;2853;2853
+de plus de 12 ans ?;OUI;OUI;1.00;;;0;1441;1441
+de plus de 4 ans avec macrodontie ?;OUI;OUI;1.00;macrodontie;macrodontie;0;2508;2508
+Nombre de patients avec béance de moins de 31 ans avec asymétrie faciale ?;OUI;OUI;1.00;asymétrie faciale, béance;béance, asymétrie faciale;0;2433;2433
+Combien de patients avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1999;1999
+avec linguo-version avec apnée du sommeil ?;OUI;OUI;1.00;apnée du sommeil, linguo-version;linguo-version, apnée du sommeil;0;1875;1875
+avec chirurgie ?;OUI;OUI;1.00;chirurgie;chirurgie;0;1338;1338
+avec latérodéviation de plus de 3 ans ?;OUI;OUI;1.00;latérodéviation;latérodéviation;0;2365;2365
+de plus de 19 ans ?;OUI;OUI;1.00;;;0;1941;1941
+avec béance de plus de 3 ans femmes ?;OUI;OUI;1.00;béance;béance;0;2231;2231
+enfants avec urgence ?;OUI;NON;0.00;urgence;;0;1693;1693
+enfants femmes ?;OUI;OUI;1.00;;;0;1719;1719
+Nombre de patients avec béance latérale|sévère|droite|antérieure de moins de 12 ans hommes ?;OUI;OUI;1.00;béance;béance;0;2862;2862
+hommes avec béance antérieure enfants ?;OUI;OUI;1.00;béance;béance;0;3010;3010
+de plus de 1 ans femmes ?;OUI;OUI;1.00;;;0;3008;3008
+avec bruxisme avec proalvéolie ?;OUI;NON;0.33;proalvéolie, bruxisme;bruxisme, bipro;0;2087;2087
+Nombre de patients avec classe i d'angle hommes avec métal encombrée ?;OUI;NON;0.67;classe i d'angle, métal;classe i d'angle, métal, Encombre;0;3344;3344
+Combien de patients enfants femmes avec béance gauche|sévère ?;OUI;OUI;1.00;béance;béance;0;2384;2384
+avec pendulum ?;OUI;OUI;1.00;pendulum;pendulum;0;1936;1936
+Combien de patients avec ressaut articulaire ?;OUI;OUI;1.00;ressaut articulaire;ressaut articulaire;0;1763;1763
+hommes enfants avec canine ?;OUI;OUI;1.00;canine;canine;0;2107;2107
+avec translation avec micrognathie de moins de 14 ans avec béance ?;OUI;NON;0.67;micrognathie, translation, béance;micrognathie, béance;0;2788;2788
+avec consultation ?;OUI;OUI;1.00;consultation;consultation;0;1766;1766
+de moins de 25 ans femmes ?;OUI;OUI;1.00;;;0;2033;2033
+femmes de moins de 33 ans ?;OUI;OUI;1.00;;;0;1980;1980
+hommes avec écarteur ?;OUI;OUI;1.00;écarteur;écarteur;0;1796;1796
+avec prognathisme maxillaire enfants femmes ?;OUI;OUI;1.00;prognathisme maxillaire;prognathisme maxillaire;0;2470;2470
+Nombre de patients femmes avec ingression avec croissance ?;OUI;OUI;1.00;croissance, ingression;ingression, croissance;0;2488;2488
+Combien de patients de moins de 30 ans avec bruxisme avec succion encombrée avec fil qui pique ?;OUI;OUI;1.00;fil qui pique, bruxisme, succion;bruxisme, succion, fil qui pique;0;2891;2891
+avec bruxisme de plus de 19 ans femmes ?;OUI;OUI;1.00;bruxisme;bruxisme;0;3131;3131
+Nombre de patients hommes avec bruxisme enfants ?;OUI;OUI;1.00;bruxisme;bruxisme;0;1729;1729
+avec macrodontie ?;OUI;OUI;1.00;macrodontie;macrodontie;0;1696;1696
+Nombre de patients de moins de 13 ans avec nécrose pulpaire ?;OUI;OUI;1.00;nécrose pulpaire;nécrose pulpaire;0;2014;2014
+de moins de 29 ans ?;OUI;OUI;1.00;;;0;1573;1573
+avec béance de moins de 22 ans ?;OUI;OUI;1.00;béance;béance;0;2178;2178
+Combien de patients avec luxation méniscale de moins de 19 ans ?;OUI;OUI;1.00;luxation méniscale;luxation méniscale;0;2159;2159
+avec macrodontie ?;OUI;OUI;1.00;macrodontie;macrodontie;0;1696;1696
+de plus de 8 ans hommes ?;OUI;OUI;1.00;;;0;1860;1860
+avec herbst adultes ?;OUI;OUI;1.00;herbst;herbst, herbst;0;2240;2240
+Combien de patients avec débandage de moins de 25 ans femmes ?;OUI;OUI;1.00;débandage;débandage;0;2556;2556
+avec tong e ?;OUI;NON;0.00;tong e;;0;1410;1410
+femmes avec béance de moins de 11 ans ?;OUI;OUI;1.00;béance;béance;0;2730;2730
+avec plaque éventail de plus de 11 ans avec empreinte ?;OUI;NON;0.50;plaque éventail, empreinte;empreinte;0;2454;2454
+Combien de patients de moins de 17 ans hommes ?;OUI;OUI;1.00;;;0;1797;1797
+avec béance de plus de 2 ans hommes ?;OUI;OUI;1.00;béance;béance;0;2933;2933
+Nombre de patients femmes ?;OUI;OUI;1.00;;;0;1797;1797
+avec pendulum ?;OUI;OUI;1.00;pendulum;pendulum;0;1936;1936
+hommes adultes avec diastème ?;OUI;NON;0.50;diastème;diastème, dentition permanente;0;2677;2677
+hommes ?;OUI;OUI;1.00;;;0;1560;1560
+de moins de 21 ans ?;OUI;OUI;1.00;;;0;1686;1686
+Combien de patients femmes avec quad helix avec canine digitale ?;OUI;OUI;1.00;quad helix, canine;quad helix, canine;0;2351;2351
+enfants avec bielles ?;OUI;OUI;1.00;bielles;bielles;0;1701;1701
+Nombre de patients de moins de 17 ans avec composite ?;OUI;OUI;1.00;composite;composite;0;2292;2292
+Combien de patients avec bruxisme femmes de moins de 17 ans ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2293;2293
+femmes de plus de 6 ans avec bruxisme ?;OUI;OUI;1.00;bruxisme;bruxisme;0;2513;2513
+avec métal hommes avec inclusion de plus de 11 ans ?;OUI;OUI;1.00;inclusion, métal;métal, Inclusion;0;3245;3245
+adultes avec malocclusion ?;OUI;OUI;1.00;malocclusion;malocclusion;0;2201;2201
+avec version de plus de 9 ans femmes ?;OUI;NON;0.00;version;;0;1973;1973
+Nombre de patients avec translation division 1 avec classe ii d'angle division 1 ?;OUI;NON;0.33;classe ii d'angle, translation;Division 1, classe ii d'angle;0;1879;1879
+de plus de 21 ans hommes ?;OUI;OUI;1.00;;;0;2288;2288
+avec alignement femmes de plus de 10 ans ?;OUI;OUI;1.00;alignement;alignement;0;2087;2087
+avec panoramique ?;OUI;OUI;1.00;panoramique;panoramique;0;1542;1542
+Nombre de patients avec prognathisme maxillaire ?;OUI;OUI;1.00;prognathisme maxillaire;prognathisme maxillaire;0;1709;1709
+de plus de 12 ans ?;OUI;OUI;1.00;;;0;1441;1441
+avec béance hommes ?;OUI;OUI;1.00;béance;béance;0;1614;1614
+avec torque enfants hommes ?;OUI;NON;0.00;torque;;0;1516;1516
+avec classe iii squelettique avec rétrusion sévère ?;OUI;OUI;1.00;classe iii squelettique, rétrusion;classe iii squelettique, rétrusion;0;1688;1688
+avec béance modérée|latérale|antérieure|droite de plus de 4 ans ?;OUI;OUI;1.00;béance;béance;0;2197;2197
+avec microdontie femmes avec panoramique ?;OUI;OUI;1.00;microdontie, panoramique;microdontie, panoramique;0;2172;2172
+de moins de 20 ans avec béance ?;OUI;OUI;1.00;béance;béance;0;2630;2630
+femmes avec dentition permanente diurne|sévère avec macrodontie de plus de 17 ans ?;OUI;NON;0.67;dentition permanente, macrodontie;dentition permanente, Diurne, macrodontie;0;3418;3418
+Nombre de patients hommes avec croissance nocturne|sévère ?;OUI;OUI;1.00;croissance;croissance;0;2072;2072
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+Combien de patients hommes ?;OUI;OUI;1.00;;;0;1806;1806
+Nombre de patients avec asymétrie faciale adultes hommes ?;OUI;NON;0.50;asymétrie faciale;asymétrie faciale, dentition permanente;0;2738;2738
+de moins de 10 ans avec empreinte ?;OUI;OUI;1.00;empreinte;empreinte;0;1960;1960
+avec niti hommes avec nécrose pulpaire ?;OUI;OUI;1.00;nécrose pulpaire, niti;niti, nécrose pulpaire;0;3074;3074
+Nombre de patients hommes ?;OUI;OUI;1.00;;;0;1334;1334
+femmes avec luxation de plus de 1 ans ?;OUI;OUI;1.00;luxation;luxation;0;1884;1884
+avec bagues hommes ?;OUI;OUI;1.00;bagues;bagues;0;1689;1689
+avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;1801;1801
+avec dentition mixte enfants femmes ?;OUI;OUI;1.00;dentition mixte;dentition mixte;0;3429;3429
+avec détartrage de moins de 21 ans femmes ?;OUI;OUI;1.00;détartrage;détartrage;0;2470;2470
+avec molaire femmes ?;OUI;OUI;1.00;molaire;molaire;0;4118;4118
+enfants femmes avec béance ?;OUI;OUI;1.00;béance;béance;0;2930;2930
+Nombre de patients hommes avec béance ?;OUI;OUI;1.00;béance;béance;0;2194;2194
+de moins de 19 ans femmes ?;OUI;OUI;1.00;;;0;1910;1910
+Nombre de patients de plus de 7 ans hommes ?;OUI;OUI;1.00;;;0;2269;2269
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+avec béance de plus de 15 ans ?;OUI;OUI;1.00;béance;béance;0;2887;2887
+adultes avec classe ii squelettique ?;OUI;OUI;1.00;classe ii squelettique;classe ii squelettique;0;1812;1812
+Nombre de patients avec dysfonction linguale gauche|latérale|antérieure femmes avec béance ?;OUI;OUI;1.00;dysfonction linguale, béance;dysfonction linguale, béance;0;2290;2290
+Combien de patients enfants femmes ?;OUI;OUI;1.00;;;0;1617;1617
+Combien de patients femmes avec béance avec dentition mixte de moins de 20 ans ?;OUI;OUI;1.00;dentition mixte, béance;béance, dentition mixte;0;2850;2850
+enfants avec béance femmes ?;OUI;OUI;1.00;béance;béance;0;2236;2236
+hommes avec prognathisme mandibulaire de moins de 15 ans ?;OUI;NON;0.00;prognathisme mandibulaire;classe iii d'angle;0;2646;2646
+enfants ?;OUI;OUI;1.00;;;0;1071;1071
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+avec déglutition modérée femmes ?;OUI;OUI;1.00;déglutition;déglutition;0;1966;1966
+Nombre de patients avec infraposition ?;OUI;OUI;1.00;infraposition;infraposition;0;1872;1872
+Nombre de patients avec douleur ?;OUI;OUI;1.00;douleur;douleur;0;2258;2258
+de moins de 16 ans ?;OUI;OUI;1.00;;;0;1715;1715
+Nombre de patients de moins de 27 ans femmes avec plaque y ?;OUI;NON;0.00;plaque y;Plaque;0;2995;2995
+hommes avec aéro de plus de 7 ans ?;OUI;OUI;1.00;aéro;aéro;0;2156;2156
+enfants avec maladie parodontale modéré ?;OUI;OUI;1.00;maladie parodontale;maladie parodontale;0;2503;2503
+avec béance avec version postérieure hommes enfants ?;OUI;NON;0.33;version, béance;béance, linguo-version;0;2538;2538
+hommes avec onychophagie enfants ?;OUI;OUI;1.00;onychophagie;onychophagie;0;1860;1860
+femmes de moins de 25 ans ?;OUI;OUI;1.00;;;0;2754;2754
+avec béance ?;OUI;OUI;1.00;béance;béance;0;1503;1503
+Nombre de patients hommes avec béance enfants ?;OUI;OUI;1.00;béance;béance;0;2183;2183
+avec protrusion de plus de 5 ans ?;OUI;OUI;1.00;protrusion;protrusion;0;1645;1645
+Combien de patients avec dysplasie avec spacing enfants ?;OUI;NON;0.33;dysplasie, spacing;dysplasie, diastème;0;2259;2259
+avec rétrusion avec prognathisme mandibulaire de moins de 20 ans femmes ?;OUI;OUI;1.00;prognathisme mandibulaire, rétrusion;rétrusion, prognathisme mandibulaire;0;2433;2433
+de plus de 3 ans ?;OUI;OUI;1.00;;;0;1728;1728
+avec bruxisme avec classe i squelettique avec béance ?;OUI;OUI;1.00;classe i squelettique, bruxisme, béance;bruxisme, classe i squelettique, béance;0;2470;2470
+Nombre de patients avec vestibulo-version hommes de plus de 6 ans ?;OUI;OUI;1.00;vestibulo-version;Vestibulo-Version;0;2600;2600
+de moins de 16 ans ?;OUI;OUI;1.00;;;0;1715;1715

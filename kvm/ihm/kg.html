@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Knowledge Graph — Kitview</title>
+<link href="https://www.kitview.com/favicon.ico" rel="icon" type="image/png"/>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+/* ══════════════════════════════════════
+   RESET & BASE
+   ══════════════════════════════════════ */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg-primary: #07080d;
+    --bg-secondary: #0d1117;
+    --bg-card: #161b22;
+    --bg-hover: #1c2333;
+    --border: #21262d;
+    --border-active: #8b5cf6;
+    --text-primary: #e6edf3;
+    --text-secondary: #8b949e;
+    --text-muted: #484f58;
+    --accent: #a78bfa;
+    --accent-dim: rgba(167, 139, 250, 0.15);
+    --glow: rgba(139, 92, 246, 0.4);
+    --radius: 10px;
+    --font: 'DM Sans', -apple-system, sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+}
+
+html { font-size: 15px; }
+body {
+    font-family: var(--font);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ══════════════════════════════════════
+   LAYOUT
+   ══════════════════════════════════════ */
+.app {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 16px 20px;
+}
+
+/* ══════════════════════════════════════
+   HEADER
+   ══════════════════════════════════════ */
+.header {
+    text-align: center;
+    margin-bottom: 16px;
+}
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #e6edf3 0%, #a78bfa 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.header .subtitle {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 4px;
+}
+
+/* ══════════════════════════════════════
+   GRAPH SELECTOR TABS
+   ══════════════════════════════════════ */
+.graph-tabs {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 14px;
+}
+.graph-tab {
+    padding: 8px 20px;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-family: var(--font);
+    font-size: 0.85rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+.graph-tab:hover {
+    border-color: var(--text-muted);
+    color: var(--text-primary);
+}
+.graph-tab.active {
+    border-color: var(--border-active);
+    background: var(--accent-dim);
+    color: var(--accent);
+    box-shadow: 0 0 20px var(--glow);
+}
+.graph-tab .tab-count {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: rgba(255,255,255,0.06);
+}
+.graph-tab.active .tab-count {
+    background: rgba(167, 139, 250, 0.2);
+}
+
+/* ══════════════════════════════════════
+   CATEGORY FILTERS
+   ══════════════════════════════════════ */
+.filters {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 6px;
+    margin-bottom: 12px;
+}
+.filter-btn {
+    padding: 4px 12px;
+    border-radius: 6px;
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-family: var(--font);
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.filter-btn:hover { border-color: var(--text-muted); color: var(--text-primary); }
+.filter-btn.active-filter {
+    border-width: 2px;
+    font-weight: 600;
+}
+
+/* ══════════════════════════════════════
+   SVG CONTAINER
+   ══════════════════════════════════════ */
+.svg-wrap {
+    position: relative;
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+.svg-wrap svg {
+    display: block;
+    width: 100%;
+    max-height: 65vh;
+    min-height: 400px;
+}
+/* Navigation hint */
+.nav-hint {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    background: rgba(7,8,13,0.7);
+    padding: 4px 12px;
+    border-radius: 20px;
+    pointer-events: none;
+    backdrop-filter: blur(4px);
+}
+
+/* ══════════════════════════════════════
+   INFO PANEL
+   ══════════════════════════════════════ */
+.info-panel {
+    margin-top: 12px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 16px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    animation: fadeUp 0.2s ease;
+}
+@keyframes fadeUp {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+.info-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+}
+.info-dot {
+    width: 10px; height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+.info-name { font-weight: 600; font-size: 1rem; }
+.info-cat {
+    margin-left: auto;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: var(--mono);
+}
+.info-edges { font-size: 0.85rem; }
+.info-edge {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 0;
+}
+.info-edge .arrow { color: var(--text-muted); font-size: 0.75rem; }
+.info-edge .relation {
+    color: var(--accent);
+    font-style: italic;
+    font-size: 0.8rem;
+}
+.info-edge .target { color: var(--text-primary); }
+.info-link {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: var(--accent-dim);
+    color: var(--accent);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 500;
+    border: 1px solid rgba(167,139,250,0.3);
+    transition: all 0.2s;
+}
+.info-link:hover {
+    background: rgba(167, 139, 250, 0.25);
+    border-color: var(--accent);
+}
+
+/* ══════════════════════════════════════
+   FOOTER STATS
+   ══════════════════════════════════════ */
+.stats {
+    text-align: center;
+    margin-top: 12px;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    font-family: var(--mono);
+}
+
+/* ══════════════════════════════════════
+   BACK BUTTON
+   ══════════════════════════════════════ */
+.back-link {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-family: var(--font);
+    transition: all 0.2s;
+    z-index: 10;
+}
+.back-link:hover { color: var(--text-primary); border-color: var(--text-muted); }
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+   ══════════════════════════════════════ */
+@media (max-width: 768px) {
+    .app { padding: 10px 10px; }
+    .header h1 { font-size: 1.2rem; }
+    .graph-tabs { gap: 4px; }
+    .graph-tab { padding: 6px 12px; font-size: 0.78rem; }
+    .back-link { position: static; display: inline-block; margin-bottom: 10px; }
+}
+</style>
+</head>
+<body>
+
+<a class="back-link" href="kvms.html">← Manuel</a>
+
+<div class="app" id="app"></div>
+
+<!-- React via CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
+
+<script>
+// ══════════════════════════════════════════════════════════════
+//  DATA: KITVIEW KNOWLEDGE GRAPH
+// ══════════════════════════════════════════════════════════════
+
+const KITVIEW_CATEGORIES = {
+    core:          { color: "#a78bfa", border: "#8b5cf6", label: "Kitview" },
+    patients:      { color: "#3b82f6", border: "#2563eb", label: "Patients" },
+    medias:        { color: "#10b981", border: "#059669", label: "Médias" },
+    organisation:  { color: "#f59e0b", border: "#d97706", label: "Organisation" },
+    visualisation: { color: "#8b5cf6", border: "#7c3aed", label: "Visualisation" },
+    production:    { color: "#ef4444", border: "#dc2626", label: "Production" },
+    recherche:     { color: "#06b6d4", border: "#0891b2", label: "Recherche" },
+    interface:     { color: "#64748b", border: "#475569", label: "Interface" },
+};
+
+const KITVIEW_NODES = [
+    // Central
+    { id: "kitview", label: "Kitview", cat: "core", x: 450, y: 300, section: "presentation" },
+
+    // Patients
+    { id: "gestion-patients", label: "Gestion\npatients", cat: "patients", x: 160, y: 160, section: "gestion-patients" },
+    { id: "creer-patient", label: "Créer\npatient", cat: "patients", x: 50, y: 80, section: "creer-patient" },
+    { id: "supprimer-patient", label: "Supprimer\npatient", cat: "patients", x: 50, y: 170, section: "supprimer-patient" },
+    { id: "photo-identite", label: "Photo\nd'identité", cat: "patients", x: 80, y: 255, section: "photo-identite" },
+
+    // Médias
+    { id: "import-export", label: "Import\nExport", cat: "medias", x: 300, y: 80, section: "import-export" },
+    { id: "import-photos", label: "Importer\nphotos", cat: "medias", x: 210, y: 20, section: "import-photos" },
+    { id: "export-photos", label: "Exporter\nphotos", cat: "medias", x: 340, y: 15, section: "export-photos" },
+    { id: "drag-drop", label: "Glisser-\ndéposer", cat: "medias", x: 420, y: 55, section: "drag-drop" },
+    { id: "seances", label: "Séances\nphotos", cat: "medias", x: 180, y: 320, section: "seances" },
+    { id: "protocole", label: "Protocole", cat: "medias", x: 80, y: 350, section: "protocole" },
+    { id: "wifi", label: "WiFi", cat: "medias", x: 120, y: 420, section: "wifi" },
+    { id: "modification-photos", label: "Modification\nphotos", cat: "medias", x: 220, y: 430, section: "modification-photos" },
+    { id: "luminosite", label: "Luminosité\nContraste", cat: "medias", x: 130, y: 500, section: "luminosite" },
+    { id: "recadrer", label: "Recadrer", cat: "medias", x: 250, y: 520, section: "recadrer" },
+
+    // Organisation
+    { id: "gabarits", label: "Gabarits &\nMots-clés", cat: "organisation", x: 620, y: 110, section: "gabarits" },
+    { id: "creer-motcle", label: "Créer\nmot-clé", cat: "organisation", x: 720, y: 40, section: "creer-motcle" },
+    { id: "creer-gabarit", label: "Créer\ngabarit", cat: "organisation", x: 780, y: 130, section: "creer-gabarit" },
+    { id: "creer-filtre", label: "Créer\nfiltre", cat: "organisation", x: 740, y: 220, section: "creer-filtre" },
+    { id: "viewers", label: "Viewers", cat: "organisation", x: 650, y: 260, section: "viewers" },
+    { id: "docking", label: "Docking\n(Bureau)", cat: "organisation", x: 540, y: 170, section: "docking" },
+
+    // Visualisation
+    { id: "presentations", label: "Présentations\nfixes", cat: "visualisation", x: 700, y: 350, section: "presentations" },
+    { id: "creer-presentation", label: "Créer\nprésentation", cat: "visualisation", x: 800, y: 290, section: "creer-presentation" },
+    { id: "diaporama", label: "Diaporama", cat: "visualisation", x: 780, y: 400, section: "diaporama" },
+    { id: "comparateur", label: "Comparateur", cat: "visualisation", x: 700, y: 460, section: "comparateur" },
+
+    // Production
+    { id: "courrier", label: "Courrier", cat: "production", x: 600, y: 500, section: "courrier" },
+    { id: "portfolio", label: "Portfolio\nPowerPoint", cat: "production", x: 520, y: 540, section: "portfolio" },
+    { id: "formulaires", label: "Formulaires", cat: "production", x: 400, y: 520, section: "formulaires" },
+
+    // Recherche
+    { id: "filtre-population", label: "Filtre de\npopulation", cat: "recherche", x: 350, y: 430, section: "filtre-population" },
+    { id: "recherche-date", label: "Recherche\npar date", cat: "recherche", x: 480, y: 450, section: "recherche-date" },
+    { id: "recherche-formulaires", label: "Recherche\nde cas", cat: "recherche", x: 330, y: 340, section: "recherche-formulaires" },
+
+    // Interface
+    { id: "personnalisation", label: "Personnali-\nsation", cat: "interface", x: 530, y: 80, section: "personnalisation" },
+    { id: "support-formation", label: "Support\nformation", cat: "interface", x: 450, y: 180, section: "support-formation" },
+];
+
+const KITVIEW_EDGES = [
+    // Core → grandes familles
+    { s: "kitview", t: "gestion-patients", l: "gère" },
+    { s: "kitview", t: "import-export", l: "importe/exporte" },
+    { s: "kitview", t: "gabarits", l: "organise avec" },
+    { s: "kitview", t: "presentations", l: "visualise via" },
+    { s: "kitview", t: "filtre-population", l: "recherche avec" },
+    { s: "kitview", t: "personnalisation", l: "se configure via" },
+
+    // Patients
+    { s: "gestion-patients", t: "creer-patient", l: "permet" },
+    { s: "gestion-patients", t: "supprimer-patient", l: "permet" },
+    { s: "gestion-patients", t: "photo-identite", l: "inclut" },
+
+    // Import/Export
+    { s: "import-export", t: "import-photos", l: "inclut" },
+    { s: "import-export", t: "export-photos", l: "inclut" },
+    { s: "import-export", t: "drag-drop", l: "via" },
+
+    // Séances
+    { s: "kitview", t: "seances", l: "capture via" },
+    { s: "seances", t: "protocole", l: "suit un" },
+    { s: "seances", t: "wifi", l: "reçoit via" },
+    { s: "seances", t: "gabarits", l: "guidée par" },
+
+    // Modification photos
+    { s: "modification-photos", t: "luminosite", l: "ajuste" },
+    { s: "modification-photos", t: "recadrer", l: "permet" },
+    { s: "import-export", t: "modification-photos", l: "puis modifie" },
+
+    // Gabarits
+    { s: "gabarits", t: "creer-motcle", l: "étape 1" },
+    { s: "gabarits", t: "creer-gabarit", l: "étape 2" },
+    { s: "gabarits", t: "creer-filtre", l: "étape 3" },
+    { s: "gabarits", t: "viewers", l: "affiché dans" },
+
+    // Viewers & Docking
+    { s: "viewers", t: "docking", l: "organisé par" },
+    { s: "docking", t: "personnalisation", l: "utilise" },
+
+    // Visualisation
+    { s: "presentations", t: "creer-presentation", l: "créer" },
+    { s: "presentations", t: "gabarits", l: "basée sur" },
+    { s: "viewers", t: "diaporama", l: "lance" },
+    { s: "viewers", t: "comparateur", l: "compare via" },
+    { s: "comparateur", t: "presentations", l: "lié à" },
+
+    // Production
+    { s: "portfolio", t: "filtre-population", l: "alimenté par" },
+    { s: "courrier", t: "export-photos", l: "joint des" },
+    { s: "formulaires", t: "recherche-formulaires", l: "permet" },
+    { s: "kitview", t: "formulaires", l: "documente via" },
+    { s: "kitview", t: "courrier", l: "produit" },
+
+    // Recherche
+    { s: "filtre-population", t: "creer-filtre", l: "utilise" },
+    { s: "filtre-population", t: "recherche-date", l: "combiné avec" },
+    { s: "recherche-formulaires", t: "formulaires", l: "exploite" },
+
+    // Transversal
+    { s: "photo-identite", t: "import-photos", l: "définie après" },
+    { s: "support-formation", t: "kitview", l: "accompagne" },
+];
+
+
+// ══════════════════════════════════════════════════════════════
+//  DATA: ORTHODONTIE KNOWLEDGE GRAPH
+// ══════════════════════════════════════════════════════════════
+
+const ORTHO_CATEGORIES = {
+    core:       { color: "#6366f1", border: "#4f46e5", label: "Orthodontie" },
+    pathology:  { color: "#ef4444", border: "#dc2626", label: "Pathologies" },
+    treatment:  { color: "#10b981", border: "#059669", label: "Traitements" },
+    anatomy:    { color: "#f59e0b", border: "#d97706", label: "Anatomie" },
+    diagnostic: { color: "#3b82f6", border: "#2563eb", label: "Diagnostic" },
+    bio:        { color: "#8b5cf6", border: "#7c3aed", label: "Biomécanique" },
+};
+
+const ORTHO_NODES = [
+    { id: "orthodontie", label: "Orthodontie", cat: "core", x: 400, y: 300 },
+    { id: "malocclusion", label: "Malocclusion", cat: "pathology", x: 180, y: 120 },
+    { id: "classe1", label: "Classe I", cat: "pathology", x: 60, y: 40 },
+    { id: "classe2", label: "Classe II", cat: "pathology", x: 180, y: 20 },
+    { id: "classe3", label: "Classe III", cat: "pathology", x: 300, y: 40 },
+    { id: "encombrement", label: "Encombrement\ndentaire", cat: "pathology", x: 80, y: 200 },
+    { id: "beance", label: "Béance", cat: "pathology", x: 60, y: 300 },
+    { id: "supraclusion", label: "Supraclusion", cat: "pathology", x: 60, y: 380 },
+    { id: "traitements", label: "Traitements", cat: "treatment", x: 620, y: 120 },
+    { id: "bagues", label: "Bagues\nmétalliques", cat: "treatment", x: 700, y: 30 },
+    { id: "aligneurs", label: "Aligneurs\ntransparents", cat: "treatment", x: 760, y: 120 },
+    { id: "appareils_fn", label: "Appareils\nfonctionnels", cat: "treatment", x: 750, y: 210 },
+    { id: "contention", label: "Contention", cat: "treatment", x: 650, y: 270 },
+    { id: "chirurgie", label: "Chirurgie\northognathique", cat: "treatment", x: 520, y: 50 },
+    { id: "anatomie", label: "Anatomie", cat: "anatomy", x: 250, y: 450 },
+    { id: "maxillaire", label: "Maxillaire", cat: "anatomy", x: 120, y: 500 },
+    { id: "mandibule", label: "Mandibule", cat: "anatomy", x: 250, y: 540 },
+    { id: "atm", label: "ATM", cat: "anatomy", x: 380, y: 520 },
+    { id: "dents", label: "Dents", cat: "anatomy", x: 160, y: 440 },
+    { id: "diagnostic", label: "Diagnostic", cat: "diagnostic", x: 550, y: 450 },
+    { id: "cephalo", label: "Céphalométrie", cat: "diagnostic", x: 650, y: 520 },
+    { id: "panoramique", label: "Radio\npanoramique", cat: "diagnostic", x: 500, y: 550 },
+    { id: "empreintes", label: "Empreintes\nnumériques", cat: "diagnostic", x: 720, y: 430 },
+    { id: "photo", label: "Photos\ncliniques", cat: "diagnostic", x: 700, y: 350 },
+    { id: "biomecanique", label: "Biomécanique", cat: "bio", x: 400, y: 160 },
+    { id: "forces", label: "Forces\northodontiques", cat: "bio", x: 350, y: 80 },
+    { id: "ancrage", label: "Ancrage", cat: "bio", x: 480, y: 80 },
+    { id: "resorption", label: "Résorption\nradiculaire", cat: "bio", x: 480, y: 180 },
+];
+
+const ORTHO_EDGES = [
+    { s: "orthodontie", t: "malocclusion", l: "traite" },
+    { s: "orthodontie", t: "traitements", l: "utilise" },
+    { s: "orthodontie", t: "anatomie", l: "étudie" },
+    { s: "orthodontie", t: "diagnostic", l: "requiert" },
+    { s: "orthodontie", t: "biomecanique", l: "applique" },
+    { s: "malocclusion", t: "classe1", l: "type" },
+    { s: "malocclusion", t: "classe2", l: "type" },
+    { s: "malocclusion", t: "classe3", l: "type" },
+    { s: "malocclusion", t: "encombrement", l: "inclut" },
+    { s: "malocclusion", t: "beance", l: "inclut" },
+    { s: "malocclusion", t: "supraclusion", l: "inclut" },
+    { s: "traitements", t: "bagues", l: "type" },
+    { s: "traitements", t: "aligneurs", l: "type" },
+    { s: "traitements", t: "appareils_fn", l: "type" },
+    { s: "traitements", t: "contention", l: "suivi par" },
+    { s: "traitements", t: "chirurgie", l: "combiné à" },
+    { s: "classe2", t: "appareils_fn", l: "traité par" },
+    { s: "classe3", t: "chirurgie", l: "peut nécessiter" },
+    { s: "encombrement", t: "bagues", l: "traité par" },
+    { s: "encombrement", t: "aligneurs", l: "traité par" },
+    { s: "anatomie", t: "maxillaire", l: "comprend" },
+    { s: "anatomie", t: "mandibule", l: "comprend" },
+    { s: "anatomie", t: "atm", l: "comprend" },
+    { s: "anatomie", t: "dents", l: "comprend" },
+    { s: "atm", t: "malocclusion", l: "affectée par" },
+    { s: "diagnostic", t: "cephalo", l: "utilise" },
+    { s: "diagnostic", t: "panoramique", l: "utilise" },
+    { s: "diagnostic", t: "empreintes", l: "utilise" },
+    { s: "diagnostic", t: "photo", l: "utilise" },
+    { s: "cephalo", t: "biomecanique", l: "guide" },
+    { s: "biomecanique", t: "forces", l: "applique" },
+    { s: "biomecanique", t: "ancrage", l: "nécessite" },
+    { s: "biomecanique", t: "resorption", l: "risque" },
+    { s: "forces", t: "dents", l: "agissent sur" },
+    { s: "ancrage", t: "bagues", l: "fourni par" },
+];
+
+
+// ══════════════════════════════════════════════════════════════
+//  GRAPH CONFIGS
+// ══════════════════════════════════════════════════════════════
+
+const GRAPHS = {
+    kitview: {
+        id: "kitview",
+        title: "📖 Kitview",
+        icon: "📖",
+        nodes: KITVIEW_NODES,
+        edges: KITVIEW_EDGES,
+        categories: KITVIEW_CATEGORIES,
+        viewBox: "0 0 860 580",
+        navigable: true,
+        manualPage: "kvms.html",
+    },
+    orthodontie: {
+        id: "orthodontie",
+        title: "🦷 Orthodontie",
+        icon: "🦷",
+        nodes: ORTHO_NODES,
+        edges: ORTHO_EDGES,
+        categories: ORTHO_CATEGORIES,
+        viewBox: "0 0 820 600",
+        navigable: false,
+    },
+};
+
+
+// ══════════════════════════════════════════════════════════════
+//  REACT COMPONENT
+// ══════════════════════════════════════════════════════════════
+
+const { useState, useEffect, useRef, useCallback, useMemo } = React;
+
+function KnowledgeGraphApp() {
+    const [activeGraph, setActiveGraph] = useState("kitview");
+    const graph = GRAPHS[activeGraph];
+
+    return React.createElement("div", { className: "app" },
+        // Header
+        React.createElement("header", { className: "header" },
+            React.createElement("h1", null, "🔬 Knowledge Graph Explorer"),
+            React.createElement("p", { className: "subtitle" },
+                "Explorez les concepts et leurs relations — Survolez, cliquez, glissez"
+            )
+        ),
+
+        // Graph selector tabs
+        React.createElement("div", { className: "graph-tabs" },
+            Object.entries(GRAPHS).map(function([key, g]) {
+                return React.createElement("button", {
+                    key: key,
+                    className: "graph-tab" + (activeGraph === key ? " active" : ""),
+                    onClick: function() { setActiveGraph(key); }
+                },
+                    g.icon,
+                    " ",
+                    g.title.replace(/^[^\s]+ /, ""),
+                    React.createElement("span", { className: "tab-count" },
+                        g.nodes.length + " nœuds"
+                    )
+                );
+            })
+        ),
+
+        // The graph
+        React.createElement(KnowledgeGraph, {
+            key: activeGraph,
+            graph: graph
+        })
+    );
+}
+
+
+function KnowledgeGraph({ graph }) {
+    const svgRef = useRef(null);
+    const [hovered, setHovered] = useState(null);
+    const [selected, setSelected] = useState(null);
+    const [filterCat, setFilterCat] = useState(null);
+    const [nodes, setNodes] = useState(graph.nodes);
+    const [dragNode, setDragNode] = useState(null);
+    const [dragOffset, setDragOffset] = useState({ x: 0, y: 0 });
+
+    const categories = graph.categories;
+    const edges = graph.edges;
+
+    // Node map
+    const nodeMap = useMemo(function() {
+        var m = {};
+        nodes.forEach(function(n) { m[n.id] = n; });
+        return m;
+    }, [nodes]);
+
+    // Active node
+    const activeId = selected || hovered;
+
+    // Connected set
+    const connectedIds = useMemo(function() {
+        if (!activeId) return new Set();
+        var s = new Set([activeId]);
+        edges.forEach(function(e) {
+            if (e.s === activeId) s.add(e.t);
+            if (e.t === activeId) s.add(e.s);
+        });
+        return s;
+    }, [activeId, edges]);
+
+    // Connected edges
+    const activeEdges = useMemo(function() {
+        return activeId ? edges.filter(function(e) {
+            return e.s === activeId || e.t === activeId;
+        }) : [];
+    }, [activeId, edges]);
+
+    // Opacity logic
+    function getOpacity(node) {
+        var cats = Object.keys(categories);
+        var coreKey = cats[0];
+        if (node.id === graph.nodes[0].id) return 1; // core node always visible
+        if (filterCat && node.cat !== filterCat && node.cat !== coreKey) return 0.06;
+        if (activeId && !connectedIds.has(node.id)) return 0.1;
+        return 1;
+    }
+
+    // Drag handlers
+    function handleMouseDown(e, nodeId) {
+        e.preventDefault();
+        e.stopPropagation();
+        var svg = svgRef.current;
+        var pt = svg.createSVGPoint();
+        pt.x = e.clientX; pt.y = e.clientY;
+        var svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+        var node = nodeMap[nodeId];
+        setDragOffset({ x: svgP.x - node.x, y: svgP.y - node.y });
+        setDragNode(nodeId);
+    }
+
+    var handleMouseMove = useCallback(function(e) {
+        if (!dragNode) return;
+        var svg = svgRef.current;
+        if (!svg) return;
+        var pt = svg.createSVGPoint();
+        pt.x = e.clientX; pt.y = e.clientY;
+        var svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+        setNodes(function(prev) {
+            return prev.map(function(n) {
+                return n.id === dragNode
+                    ? Object.assign({}, n, { x: svgP.x - dragOffset.x, y: svgP.y - dragOffset.y })
+                    : n;
+            });
+        });
+    }, [dragNode, dragOffset]);
+
+    var handleMouseUp = useCallback(function() {
+        setDragNode(null);
+    }, []);
+
+    useEffect(function() {
+        window.addEventListener("mousemove", handleMouseMove);
+        window.addEventListener("mouseup", handleMouseUp);
+        return function() {
+            window.removeEventListener("mousemove", handleMouseMove);
+            window.removeEventListener("mouseup", handleMouseUp);
+        };
+    }, [handleMouseMove, handleMouseUp]);
+
+    // Touch support
+    function handleTouchStart(e, nodeId) {
+        var touch = e.touches[0];
+        var svg = svgRef.current;
+        var pt = svg.createSVGPoint();
+        pt.x = touch.clientX; pt.y = touch.clientY;
+        var svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+        var node = nodeMap[nodeId];
+        setDragOffset({ x: svgP.x - node.x, y: svgP.y - node.y });
+        setDragNode(nodeId);
+    }
+
+    useEffect(function() {
+        function onTouchMove(e) {
+            if (!dragNode) return;
+            e.preventDefault();
+            var touch = e.touches[0];
+            var svg = svgRef.current;
+            if (!svg) return;
+            var pt = svg.createSVGPoint();
+            pt.x = touch.clientX; pt.y = touch.clientY;
+            var svgP = pt.matrixTransform(svg.getScreenCTM().inverse());
+            setNodes(function(prev) {
+                return prev.map(function(n) {
+                    return n.id === dragNode
+                        ? Object.assign({}, n, { x: svgP.x - dragOffset.x, y: svgP.y - dragOffset.y })
+                        : n;
+                });
+            });
+        }
+        function onTouchEnd() { setDragNode(null); }
+        window.addEventListener("touchmove", onTouchMove, { passive: false });
+        window.addEventListener("touchend", onTouchEnd);
+        return function() {
+            window.removeEventListener("touchmove", onTouchMove);
+            window.removeEventListener("touchend", onTouchEnd);
+        };
+    }, [dragNode, dragOffset]);
+
+    // Category list (skip core)
+    var catKeys = Object.keys(categories).filter(function(k) { return k !== Object.keys(categories)[0]; });
+
+    // Selected node info
+    var selNode = selected ? nodeMap[selected] : null;
+
+    return React.createElement("div", null,
+        // Category filters
+        React.createElement("div", { className: "filters" },
+            React.createElement("button", {
+                className: "filter-btn" + (!filterCat ? " active-filter" : ""),
+                style: !filterCat ? { borderColor: "var(--accent)", color: "var(--accent)", background: "var(--accent-dim)" } : {},
+                onClick: function() { setFilterCat(null); setSelected(null); }
+            }, "Tout"),
+            catKeys.map(function(c) {
+                var meta = categories[c];
+                var isActive = filterCat === c;
+                return React.createElement("button", {
+                    key: c,
+                    className: "filter-btn" + (isActive ? " active-filter" : ""),
+                    style: isActive
+                        ? { borderColor: meta.color, color: meta.color, background: meta.color + "18" }
+                        : {},
+                    onClick: function() {
+                        setFilterCat(filterCat === c ? null : c);
+                        setSelected(null);
+                    }
+                }, meta.label);
+            })
+        ),
+
+        // SVG
+        React.createElement("div", { className: "svg-wrap" },
+            React.createElement("svg", {
+                ref: svgRef,
+                viewBox: graph.viewBox,
+                style: { cursor: dragNode ? "grabbing" : "default" }
+            },
+                // Defs
+                React.createElement("defs", null,
+                    React.createElement("marker", {
+                        id: "arr", markerWidth: "7", markerHeight: "5",
+                        refX: "7", refY: "2.5", orient: "auto"
+                    }, React.createElement("polygon", {
+                        points: "0 0,7 2.5,0 5", fill: "#334155"
+                    })),
+                    React.createElement("marker", {
+                        id: "arr-a", markerWidth: "7", markerHeight: "5",
+                        refX: "7", refY: "2.5", orient: "auto"
+                    }, React.createElement("polygon", {
+                        points: "0 0,7 2.5,0 5", fill: "#c4b5fd"
+                    })),
+                    React.createElement("filter", { id: "gl" },
+                        React.createElement("feGaussianBlur", { stdDeviation: "4", result: "b" }),
+                        React.createElement("feMerge", null,
+                            React.createElement("feMergeNode", { "in": "b" }),
+                            React.createElement("feMergeNode", { "in": "SourceGraphic" })
+                        )
+                    )
+                ),
+
+                // Edges
+                edges.map(function(edge, i) {
+                    var sn = nodeMap[edge.s], tn = nodeMap[edge.t];
+                    if (!sn || !tn) return null;
+                    var isActive = activeId && (edge.s === activeId || edge.t === activeId);
+                    var edgeOp = isActive ? 1 : (activeId ? 0.04 : 0.2);
+                    if (filterCat) {
+                        var sc = nodeMap[edge.s], tc = nodeMap[edge.t];
+                        if (sc && tc && sc.cat !== filterCat && tc.cat !== filterCat) edgeOp = 0.03;
+                    }
+                    return React.createElement("g", { key: "e" + i, opacity: edgeOp },
+                        React.createElement("line", {
+                            x1: sn.x, y1: sn.y, x2: tn.x, y2: tn.y,
+                            stroke: isActive ? "#c4b5fd" : "#334155",
+                            strokeWidth: isActive ? 1.8 : 0.6,
+                            markerEnd: isActive ? "url(#arr-a)" : "url(#arr)"
+                        }),
+                        isActive ? React.createElement("text", {
+                            x: (sn.x + tn.x) / 2,
+                            y: (sn.y + tn.y) / 2 - 6,
+                            textAnchor: "middle",
+                            fill: "#ddd6fe",
+                            fontSize: "7.5",
+                            fontStyle: "italic",
+                            fontFamily: "var(--font)"
+                        }, edge.l) : null
+                    );
+                }),
+
+                // Nodes
+                nodes.map(function(node) {
+                    var meta = categories[node.cat] || categories[Object.keys(categories)[0]];
+                    var isCore = node.id === graph.nodes[0].id;
+                    var isActive = activeId === node.id;
+                    var op = getOpacity(node);
+                    var r = isCore ? 34 : 24;
+                    var lines = node.label.split("\n");
+
+                    return React.createElement("g", {
+                        key: node.id,
+                        transform: "translate(" + node.x + "," + node.y + ")",
+                        opacity: op,
+                        style: {
+                            cursor: dragNode === node.id ? "grabbing" : "pointer",
+                            transition: dragNode ? "none" : "opacity 0.2s"
+                        },
+                        onMouseEnter: function() { if (!dragNode) setHovered(node.id); },
+                        onMouseLeave: function() { setHovered(null); },
+                        onClick: function() {
+                            setSelected(function(prev) { return prev === node.id ? null : node.id; });
+                        },
+                        onMouseDown: function(e) { handleMouseDown(e, node.id); },
+                        onTouchStart: function(e) { handleTouchStart(e, node.id); }
+                    },
+                        // Glow ring
+                        isActive ? React.createElement("circle", {
+                            r: r + 5, fill: "none",
+                            stroke: "#a78bfa", strokeWidth: "2",
+                            filter: "url(#gl)"
+                        }) : null,
+                        // Node circle
+                        React.createElement("circle", {
+                            r: r, fill: meta.color,
+                            stroke: meta.border, strokeWidth: "1.5"
+                        }),
+                        // Label
+                        lines.map(function(line, li) {
+                            var dy = lines.length === 1
+                                ? "0.35em"
+                                : ((li - (lines.length - 1) / 2) * 1.1 + 0.35) + "em";
+                            return React.createElement("text", {
+                                key: li,
+                                textAnchor: "middle",
+                                dy: dy,
+                                fill: "#fff",
+                                fontSize: isCore ? "11" : "8",
+                                fontWeight: isCore ? "700" : "500",
+                                fontFamily: "var(--font)",
+                                style: { pointerEvents: "none" }
+                            }, line);
+                        })
+                    );
+                })
+            ),
+
+            // Navigation hint
+            graph.navigable ? React.createElement("div", { className: "nav-hint" },
+                "💡 Cliquez un nœud puis \"Ouvrir dans le manuel\" pour y accéder"
+            ) : null
+        ),
+
+        // Info panel
+        selNode ? React.createElement("div", { className: "info-panel" },
+            React.createElement("div", { className: "info-header" },
+                React.createElement("div", {
+                    className: "info-dot",
+                    style: { background: (categories[selNode.cat] || {}).color }
+                }),
+                React.createElement("span", { className: "info-name" },
+                    selNode.label.replace(/\n/g, " ")
+                ),
+                React.createElement("span", { className: "info-cat" },
+                    (categories[selNode.cat] || {}).label
+                )
+            ),
+            React.createElement("div", { className: "info-edges" },
+                activeEdges.length === 0
+                    ? React.createElement("span", { style: { color: "var(--text-muted)" } }, "Aucune relation")
+                    : activeEdges.map(function(e, i) {
+                        var isSource = e.s === selected;
+                        var otherId = isSource ? e.t : e.s;
+                        var other = nodeMap[otherId];
+                        if (!other) return null;
+                        return React.createElement("div", { key: i, className: "info-edge" },
+                            React.createElement("span", { className: "arrow" }, isSource ? "→" : "←"),
+                            React.createElement("span", { className: "relation" }, e.l),
+                            React.createElement("span", { className: "target" },
+                                other.label.replace(/\n/g, " ")
+                            )
+                        );
+                    })
+            ),
+            // Navigation link (Kitview only)
+            graph.navigable && selNode.section
+                ? React.createElement("a", {
+                    className: "info-link",
+                    href: graph.manualPage + "#" + selNode.section,
+                    title: "Ouvrir la section dans le manuel"
+                }, "📖 Ouvrir dans le manuel →")
+                : null
+        ) : null,
+
+        // Stats
+        React.createElement("div", { className: "stats" },
+            nodes.length + " nœuds · " + edges.length + " relations" +
+            (graph.navigable ? " · Navigation vers kvms.html" : " · Classification d'Angle")
+        )
+    );
+}
+
+// Mount
+var root = ReactDOM.createRoot(document.getElementById("app"));
+root.render(React.createElement(KnowledgeGraphApp));
+</script>
+
+</body>
+</html>

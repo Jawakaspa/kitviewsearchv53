@@ -1,0 +1,55 @@
+﻿# AnglesANBSNASNB.txt V1.0.0 - 06/01/2026 16:50:00
+# Extrait condensé du cours de céphalométrie pour détection IA
+# Source: Cours d'ODF 3ème année DR H.CHIBANI
+
+=== CÉPHALOMÉTRIE - ANGLES SNA, SNB, ANB ===
+
+Les angles SNA et SNB étudient la position antéro-postérieure des bases osseuses
+maxillaire et mandibulaire par rapport à la base du crâne.
+
+--- ANGLE SNA (position du maxillaire) ---
+Valeur moyenne : 83° ± 3°
+• SNA > 86° : maxillaire en avant (prognathisme maxillaire)
+• SNA entre 80° et 86° : maxillaire normopositionné
+• SNA < 80° : maxillaire en arrière (rétrognathie maxillaire)
+
+--- ANGLE SNB (position de la mandibule) ---
+Valeur moyenne : 80° ± 3°
+• SNB > 83° : mandibule en avant (prognathie mandibulaire, promandibulie)
+• SNB entre 77° et 83° : mandibule normopositionnée
+• SNB < 77° : mandibule en arrière (rétrognathie mandibulaire, rétromandibulie)
+
+--- ANGLE ANB (rapport intermaxillaire) ---
+ANB = SNA - SNB
+Valeur moyenne : 3° ± 1°
+
+L'angle ANB exprime le rapport entre les deux maxillaires dans le sens antéro-postérieur.
+
+• ANB > 4° : CLASSE II SQUELETTIQUE
+  - Si SNA normal : rétromandibulie (mandibule en retrait)
+  - Si SNB normal : maxillaire en avant
+  
+• ANB entre 2° et 4° : CLASSE I SQUELETTIQUE (rapport normal)
+
+• ANB < 2° : CLASSE III SQUELETTIQUE
+  - Si SNA normal : promandibulie (mandibule en avant)
+  - Si SNB normal : maxillaire en arrière
+
+=== TERMINOLOGIE CLINIQUE ===
+
+Classe II squelettique : décalage des bases osseuses avec mandibule en retrait
+Synonymes : rétromandibulie, rétrognathie, profil convexe
+
+Classe III squelettique : décalage des bases osseuses avec mandibule en avant
+Synonymes : promandibulie, prognathie mandibulaire, profil concave
+
+Prognathisme maxillaire : maxillaire trop en avant par rapport à la base du crâne
+Rétrognathie maxillaire : maxillaire trop en arrière, hypoplasie maxillaire
+
+=== DISTINCTION IMPORTANTE ===
+
+Ne pas confondre :
+• Classe d'ANGLE (classification dentaire) : rapport des premières molaires
+• Classe SQUELETTIQUE (classification osseuse) : rapport des bases osseuses via ANB
+
+Une classe II d'Angle (dentaire) peut coexister avec une classe I squelettique et vice versa.

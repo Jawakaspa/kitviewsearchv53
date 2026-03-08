@@ -1,0 +1,55 @@
+﻿# ages_enrichi.csv V1.0.1 - 04/01/2026 18:35:54;;;;;
+# Enrichi avec expressions familières, abréviations et tranche bébé;;;;;
+expression;operateur;valeur_sql;sexe;label;pourquestion
+adulte|majeur;>=;18;;adulte;un
+18 ans minimum|18  ans au moins|au moins 18  ans|a partir de 18 ans|au dela de 18 ans|au dela de 18 ans|au moins 18 ans|des 18 ans|des 18 ans|minimum  18  ans|18 ans min|passe 18 ans|18 ans et plus|18 ans ou plus;>=;18;;au moins 18 ans ;une
+femme;>=;18;F;femme;une
+homme;>=;18;M;homme;un
+adultes|majeurs;>=;18;;adultes;des
+femmes;>=;18;F;femmes;des
+hommes;>=;18;M;hommes;des
+> {n} ans|>{n} ans;>;{1};;plus de {n} ans;
+>= {n} ans|>={n} ans;>=;{1};;au moins {n} ans;
+< {n} ans|<{n} ans;<;{1};;moins de {n} ans;
+<= {n} ans|<={n} ans;<=;{1};;{n} ans et moins;
+> {n} |>{n} ;>;{1};;plus de {n} ans;
+>= {n} |>={n} ;>=;{1};;au moins {n} ans;
+< {n} |<{n} ;<;{1};;moins de {n} ans;
+<= {n} |<={n} ;<=;{1};;{n} ans et moins;
+de {n} a {n} ans|{n}/{n} ans|{n} {n} ans|entre {n} et {n} ans|compris entre {n} et {n}|entre {n} et {n}|entre {n} e {n} ans|compris entre {n} e {n}|entre {n} e {n}|entre {n} & {n} ans|compris entre {n} & {n}|entre {n} & {n}|de {n} a {n};BETWEEN;BETWEEN {1} AND {2};;entre {n} et {n} ans;
+approximativement {n} ans|dans les {n} ans|vers les {n} ans;BETWEEN;BETWEEN {1}-1 AND {1}+1;;approximativement {n} ans;
+environ {n} ans|d'environ {n} ans;BETWEEN;BETWEEN {1}-2 AND {1}+2;;environ {n} ans;
+autour de {n} ans;BETWEEN;BETWEEN {1}-3 AND {1}+3;;autour de {n} ans;
+tous|tout;>=;0;;tous;
+toutes;;;F;toutes;
+bebe|bebes|bébé|bébés|nourrisson|nourrissons|nouveau ne|nouveau-ne|nouveau-né|nouveaux-nés|pedodontie|orthodontie pédiatrique;<;2;;bébé;un
+pre adolescent|pre adolescents|preadolescent|pre adolescents|pré-ado|pré-ados|preado|preados;BETWEEN;BETWEEN 10 AND 12;;pré adolescent;
+adolescent|adolescents|djeune|djeunes|jeune|jeunes|ado|ados;BETWEEN;BETWEEN 12 AND 18;;adolescent;
+adolescente|adolescentes|teenager|teenagers|teen|teens;BETWEEN;BETWEEN 12 AND 18;F;adolescente;
+jeunes filles;BETWEEN;BETWEEN 12 AND 18;F;jeunes filles;
+jeunes hommes;BETWEEN;BETWEEN 12 AND 18;M;jeunes hommes;
+generation z|z generation|gen z|genz;BETWEEN;BETWEEN 13 AND 28;;génération z;
+etudiante|etudiantes;BETWEEN;BETWEEN 18 AND 25;F;étudiante;
+etudiant|etudiants;BETWEEN;BETWEEN 18 AND 25;M;étudiant;
+generation y|y generation|millenial|millenials|gen y|geny|millennial|millennials;BETWEEN;BETWEEN 29 AND 44;;génération y;
+jeune adulte|jeunes adultes;BETWEEN;BETWEEN 18 AND 25;;jeune adulte;
+vingtaine;BETWEEN;BETWEEN 20 AND 29;;vingtaine;
+generation x|x generation|gen x|genx;BETWEEN;BETWEEN 45 AND 60;;génération x;
+trentaine;BETWEEN;BETWEEN 30 AND 39;;trentaine;
+quarantaine|quadra|quadras;BETWEEN;BETWEEN 40 AND 49;;quadra;
+cinquantaine|quinqua|quinquas;BETWEEN;BETWEEN 50 AND 59;;quinqua;
+soixantaine;BETWEEN;BETWEEN 60 AND 69;;soixantaine;
+{n} ans|{n} piges|{n} printemps|{n} berges|{n} balais;BETWEEN;BETWEEN {1} AND {1}+1;;{n} ans;
+tout petit|tout petits|tout-petit|tout-petits;<;10;;tout petit;
+filles|minote|bambine|fillette|fillettes;<;12;F;filles|minote|bambine;
+garcons|minot|bambin|garcon|gars|garçons|garcon|gamin|gamins;<;12;M;garçon;
+enfant|enfants|gone|gones|gosse|gosses|alpha|generation alpha|môme|mômes|mome|momes|pitchoun|pitchouns|loulou|louloute|petit|petite|petits|petites;<;12;;enfant;
+mineur|mineurs;<;18;;mineur;
+mineures;<;18;F;mineure;
+avant {n} ans|moins de {n} ans|pas encore {n} ans|strictement moins de {n} ans|en dessous de {n} ans|plus jeune que {n} ans|n'a pas {n} ans|inferieur a {n} ans|inferieur a {n};<;{1};;moins de {n} ans;
+{n} ans et moins|{n} ans ou moins|{n} ans maximum|{n} ans au plus|{n} ans max|maximum {n} ans|au plus {n} ans|jusqu a {n} ans;<=;{1};;{n} ans et moins;
+plus age que {n} ans|plus de {n} ans|plus vieux que {n} ans|strictement plus de {n} ans|a depasse {n} ans|dépasse {n} ans|superieur a {n} ans|superieur a {n};>;{1};;plus age que {n} ans;
+senior|seniors|boomer|boomers|baby boomer|baby boomers|séniors|seniors|personne agee|personne âgée|personnes agees|personnes âgées|vieux|vieille|troisieme age|troisième âge|3eme age|3ème âge|papy|papi|mamie|mamy;>=;65;;sénior;
+{n} ans minimum|{n} ans au moins|au moins {n} ans|a partir de {n} ans|au dela de {n} ans|au dela de {n} ans|au moins {n} ans|des {n} ans|minimum de {n} ans|{n} ans min|passe {n} ans|{n} ans et plus|{n} ans ou plus;>=;{1};;au moins {n} ans ;
+de sexe feminin|feminin|feminine|f|féminin|féminine|patiente|patientes;;;F;féminin;
+de sexe masculin|masculin|m|h;;;M;masculin;

@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta class="notranslate" content="notranslate" name="google"/>
+<title data-txt="txt_0001">Kitview - User manual (Standard)</title>
+<link href="https://www.kitview.com/favicon.ico" rel="icon" type="image/png"/>
+<link href="https://www.kitview.com/favicon.ico" rel="apple-touch-icon"/>
+<link href="css/kvm.css" rel="stylesheet"/>
+<link href="css/themes.css" rel="stylesheet"/>
+<link href="css/chatbot.css" rel="stylesheet"/>
+</head>
+<body>
+<!-- Header -->
+<header class="help-header">
+<div class="header-left">
+<img alt="Kitview logo" class="logo" data-alt-txt="txt_0486" src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png"/>
+<h1><span class="icon">📖</span> <span class="" data-txt="txt_0002">User manual</span></h1>
+</div>
+<!-- Zone de recherche -->
+<div class="header-center notranslate">
+<div class="search-box" id="searchBox">
+<span class="search-icon">🔍</span>
+<input data-placeholder-txt="txt_0558" id="searchInput" placeholder="Search the manual..." type="text"/>
+<button class="clear-search" id="clearSearch" title="Effacer">✕</button>
+</div>
+<select class="section-filter" id="sectionFilter">
+<option data-txt="txt_0563" value="all">📑 All sections</option>
+<option data-txt="txt_0564" value="presentation">1. Presentation</option>
+<option data-txt="txt_0565" value="gestion-patients">2. Patient management</option>
+<option data-txt="txt_0566" value="personnalisation">3. Customisation</option>
+<option data-txt="txt_0567" value="import-export">4. Import/Export</option>
+<option data-txt="txt_0568" value="seances">5. Photo sessions</option>
+<option data-txt="txt_0569" value="gabarits">6. Templates</option>
+<option data-txt="txt_0570" value="viewers">7. Viewers</option>
+<option data-txt="txt_0571" value="modification-photos">8. Photo editing</option>
+<option data-txt="txt_0572" value="presentations">9. Fixed presentations</option>
+<option data-txt="txt_0573" value="docking">10. Docking</option>
+<option data-txt="txt_0574" value="creer-presentation">11. Create presentation</option>
+<option data-txt="txt_0575" value="diaporama">12. Slide show</option>
+<option data-txt="txt_0576" value="comparateur">13. Comparator</option>
+<option data-txt="txt_0577" value="courrier">14. Mail</option>
+<option data-txt="txt_0578" value="portfolio">15. Portfolio</option>
+<option data-txt="txt_0579" value="filtre-population">16. Population filter</option>
+<option data-txt="txt_0580" value="recherche-date">17. Search date</option>
+<option data-txt="txt_0581" value="formulaires">18. Forms</option>
+<option data-txt="txt_0582" value="support-formation">19. Training support</option>
+</select>
+<!-- Navigation des résultats inline -->
+<div class="search-nav-inline" id="searchNavInline">
+<span class="search-results-count-inline" id="searchResultsCount">0</span>
+<button class="search-nav-btn" data-txt="txt_0559" id="prevResult" title="Précédent (Shift+F3)">Prec.</button>
+<span class="search-nav-index" id="currentResultIndex">0/0</span>
+<button class="search-nav-btn" data-txt="txt_0560" id="nextResult" title="Suivant (F3)">Next page</button>
+<button class="search-close-btn" id="closeSearchResults" title="Fermer">✕</button>
+</div>
+<!-- Chips de niveau -->
+<div class="level-chips-container notranslate">
+<a class="level-chip standard active" href="kvms.html" title="Version Standard">📘 <span class="chip-label" data-txt="txt_0585">Standard</span></a>
+<a class="level-chip debutant" href="kvmd.html" title="Version Débutant">🟢 <span class="chip-label" data-txt="txt_0586">Beginner</span></a>
+<a class="level-chip intermediaire" href="kvmi.html" title="Version Intermédiaire">🟡 <span class="chip-label" data-txt="txt_0587">Inter.</span></a>
+<a class="level-chip expert" href="kvme.html" title="Version Expert">🔴 <span class="chip-label" data-txt="txt_0588">Expert</span></a>
+</div>
+</div>
+<div class="header-right">
+<!-- Sélecteur de langue custom -->
+<div class="lang-button-container">
+<button class="lang-button" data-txt="txt_0561" id="langButton" onclick="toggleLangPopup()">FR▼</button>
+<div class="lang-popup" id="langPopup" style="display: none;">
+<div class="lang-popup-header" data-txt="txt_0584">Manual language</div>
+<div class="lang-popup-section">
+<div class="lang-popup-label" data-txt="txt_0583">Select a language</div>
+<div class="chips-container">
+<div class="lang-chip" data-flag="fr" data-lang="fr" onclick="selectLanguage('fr', 'FR', 'fr')">
+<img alt="FR" class="chip-flag" src="https://flagcdn.com/w40/fr.png"/> FR
+                            </div>
+<div class="lang-chip selected" data-flag="gb" data-lang="en" onclick="selectLanguage('en', 'EN', 'gb')">
+<img alt="EN" class="chip-flag" src="https://flagcdn.com/w40/gb.png"/> EN
+                            </div>
+<div class="lang-chip" data-flag="de" data-lang="de" onclick="selectLanguage('de', 'DE', 'de')">
+<img alt="DE" class="chip-flag" src="https://flagcdn.com/w40/de.png"/> DE
+                            </div>
+<div class="lang-chip" data-flag="es" data-lang="es" onclick="selectLanguage('es', 'ES', 'es')">
+<img alt="ES" class="chip-flag" src="https://flagcdn.com/w40/es.png"/> ES
+                            </div>
+<div class="lang-chip" data-flag="it" data-lang="it" onclick="selectLanguage('it', 'IT', 'it')">
+<img alt="IT" class="chip-flag" src="https://flagcdn.com/w40/it.png"/> IT
+                            </div>
+<div class="lang-chip" data-flag="pt" data-lang="pt" onclick="selectLanguage('pt', 'PT', 'pt')">
+<img alt="PT" class="chip-flag" src="https://flagcdn.com/w40/pt.png"/> PT
+                            </div>
+<div class="lang-chip" data-flag="pl" data-lang="pl" onclick="selectLanguage('pl', 'PL', 'pl')">
+<img alt="PL" class="chip-flag" src="https://flagcdn.com/w40/pl.png"/> PL
+                            </div>
+<div class="lang-chip" data-flag="ro" data-lang="ro" onclick="selectLanguage('ro', 'RO', 'ro')">
+<img alt="RO" class="chip-flag" src="https://flagcdn.com/w40/ro.png"/> RO
+                            </div>
+<div class="lang-chip" data-flag="th" data-lang="th" onclick="selectLanguage('th', 'TH', 'th')">
+<img alt="TH" class="chip-flag" src="https://flagcdn.com/w40/th.png"/> TH
+                            </div>
+<div class="lang-chip" data-flag="sa" data-lang="ar" onclick="selectLanguage('ar', 'AR', 'sa')">
+<img alt="AR" class="chip-flag" src="https://flagcdn.com/w40/sa.png"/> AR
+                            </div>
+<div class="lang-chip" data-flag="cn" data-lang="zh-CN" onclick="selectLanguage('zh-CN', 'CN', 'cn')">
+<img alt="CN" class="chip-flag" src="https://flagcdn.com/w40/cn.png"/> CN
+                            </div>
+</div>
+</div>
+</div>
+</div>
+<!-- Google Translate Widget (invisible via CSS) -->
+<div id="google_translate_element"></div>
+<!-- Thème -->
+<button class="icon-button" id="themeToggle" title="Changer le thème">
+                🌙
+            </button>
+<!-- Retour -->
+<button class="back-button notranslate" data-txt="txt_0562" onclick="goBack()">Back to</button>
+</div>
+</header>
+<!-- Container principal -->
+<div class="help-container">
+<!-- Table des matières -->
+<aside class="toc-sidebar">
+<nav class="toc-card">
+<div class="toc-title" data-txt="txt_0446">Contents</div>
+<ul class="toc-list">
+<li><a data-txt="txt_0158" href="#presentation">1. General presentation</a></li>
+<li><a data-txt="txt_0159" href="#gestion-patients">2. Patient management</a></li>
+<li class="toc-sub"><a data-txt="txt_0160" href="#creer-patient">Create a patient</a></li>
+<li class="toc-sub"><a data-txt="txt_0161" href="#supprimer-patient">Deleting a patient</a></li>
+<li class="toc-sub"><a data-txt="txt_0162" href="#photo-identite">Passport photo</a></li>
+<li><a data-txt="txt_0163" href="#personnalisation">3. Customisation</a></li>
+<li class="toc-sub"><a data-txt="txt_0164" href="#onglets-style">Tabs and style</a></li>
+<li class="toc-sub"><a data-txt="txt_0165" href="#couleurs">Office colours</a></li>
+<li class="toc-sub"><a data-txt="txt_0166" href="#vignettes">Thumbnail size</a></li>
+<li><a data-txt="txt_0167" href="#import-export">4. Import / Export</a></li>
+<li class="toc-sub"><a data-txt="txt_0168" href="#import-photos">Import photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0169" href="#export-photos">Exporting photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0170" href="#drag-drop">Drag and drop</a></li>
+<li><a data-txt="txt_0171" href="#seances">5. Photo sessions</a></li>
+<li class="toc-sub"><a data-txt="txt_0172" href="#protocole">Protocol</a></li>
+<li class="toc-sub"><a data-txt="txt_0173" href="#wifi">WiFi</a></li>
+<li><a data-txt="txt_0174" href="#gabarits">6. Templates and keywords</a></li>
+<li class="toc-sub"><a data-txt="txt_0175" href="#creer-motcle">Create a keyword</a></li>
+<li class="toc-sub"><a data-txt="txt_0176" href="#creer-gabarit">Create a template</a></li>
+<li class="toc-sub"><a data-txt="txt_0177" href="#creer-filtre">Create a filter</a></li>
+<li><a data-txt="txt_0178" href="#viewers">7. Viewers</a></li>
+<li class="toc-sub"><a data-txt="txt_0179" href="#presentation-viewers">Presentation</a></li>
+<li class="toc-sub"><a data-txt="txt_0180" href="#personnaliser-viewers">Customise</a></li>
+<li class="toc-sub"><a data-txt="txt_0181" href="#ajouter-viewers">Add viewers</a></li>
+<li><a data-txt="txt_0182" href="#modification-photos">8. Editing photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0183" href="#copier-coller">Copy and paste</a></li>
+<li class="toc-sub"><a data-txt="txt_0184" href="#luminosite">Brightness</a></li>
+<li class="toc-sub"><a data-txt="txt_0185" href="#recadrer">Reframe</a></li>
+<li><a data-txt="txt_0186" href="#presentations">9. Fixed presentations</a></li>
+<li><a data-txt="txt_0187" href="#docking">10. Docking</a></li>
+<li><a data-txt="txt_0188" href="#creer-presentation">11. Creating a presentation</a></li>
+<li><a data-txt="txt_0189" href="#diaporama">12. Slide show</a></li>
+<li><a data-txt="txt_0190" href="#comparateur">13. Comparing photos</a></li>
+<li class="toc-sub"><a data-txt="txt_0191" href="#comparer-2vues">2-view mode</a></li>
+<li class="toc-sub"><a data-txt="txt_0192" href="#comparateur-colonne-ligne">Column / Line</a></li>
+<li class="toc-sub"><a data-txt="txt_0193" href="#comparateur-protocole">Per session</a></li>
+<li><a data-txt="txt_0194" href="#courrier">14. Mail templates</a></li>
+<li class="toc-sub"><a data-txt="txt_0195" href="#creer-courrier">Create a letter</a></li>
+<li><a data-txt="txt_0196" href="#portfolio">15. Portfolio / PowerPoint</a></li>
+<li><a data-txt="txt_0197" href="#filtre-population">16. Population filter</a></li>
+<li><a data-txt="txt_0198" href="#recherche-date">17. Search by date</a></li>
+<li class="toc-sub"><a data-txt="txt_0199" href="#date-precise">Precise date</a></li>
+<li class="toc-sub"><a data-txt="txt_0200" href="#plage-dates">Date range</a></li>
+<li><a data-txt="txt_0201" href="#formulaires">18. Forms</a></li>
+<li class="toc-sub"><a data-txt="txt_0202" href="#completer-formulaire">Fill in a form</a></li>
+<li class="toc-sub"><a data-txt="txt_0203" href="#recherche-formulaires">Search for cases</a></li>
+<li><a data-txt="txt_0204" href="#support-formation">19. Training aids</a></li>
+</ul>
+</nav>
+</aside>
+<!-- Contenu principal -->
+<main class="help-content">
+<div class="content-card">
+<h1 class="main-title"><span data-txt="txt_0004">📖 Kitview user manual</span><span class="version-badge" data-txt="txt_0589">v1.5</span>
+</h1>
+<p class="subtitle" data-txt="txt_0005">A complete guide to managing your patient media files</p>
+<!-- SECTION 1: PRÉSENTATION GÉNÉRALE -->
+<section class="help-section" id="presentation">
+<h2 data-txt="txt_0006">1. General presentation</h2>
+<p data-txt="txt_0093">Kitview is a digital media library designed for orthodontic practices. It can be used to manage all types of multimedia files associated with patient records:</p>
+<ul>
+<li data-txt="txt_0205">Photos: portraits, intra-oral photos, front/profile photos</li>
+<li data-txt="txt_0206">X-rays: panoramic, teleradiography</li>
+<li data-txt="txt_0207">3D scans: digital models</li>
+<li data-txt="txt_0208">Documents: PDFs, letters, minutes</li>
+<li data-txt="txt_0209">Videos and audio</li>
+</ul>
+<img alt="Kitview main interface" data-alt-txt="txt_0487" src="imgen/page05_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0094">Kitview's main interface with patient list and thumbnails</p>
+<div class="note-box tip" data-note-content-txt="txt_0448">
+<strong data-txt="txt_0447">Council</strong>
+        Kitview integrates with your practice management software to automatically synchronise your patient list.
+    </div>
+</section>
+<!-- SECTION 2: GESTION DES PATIENTS -->
+<section class="help-section" id="gestion-patients">
+<h2 data-txt="txt_0007">2. Patient management</h2>
+<h3 data-txt="txt_0025" id="creer-patient">Create a new patient</h3>
+<p data-txt="txt_0095">To create a new patient record in Kitview :</p>
+<ol class="step-list">
+<li data-txt="txt_0210">Click on the 'Patient' tab</li>
+<li data-txt="txt_0211">A window will open: fill in the details (Surname, First name, Date of birth, Sex)</li>
+<li data-txt="txt_0212">Click on "Validate</li>
+</ol>
+<img alt="Creating a patient" data-alt-txt="txt_0488" src="imgen/page06_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0096">New patient creation window</p>
+<h3 data-txt="txt_0026" id="supprimer-patient">Delete a patient record</h3>
+<div class="note-box warning" data-note-content-txt="txt_0450">
+<strong data-txt="txt_0449">️ Caution</strong>
+        Deleting a patient record is permanent and also deletes all associated photos and documents. This action requires Administration mode.
+    </div>
+<ol class="step-list">
+<li data-txt="txt_0213">Click on 'Settings</li>
+<li data-txt="txt_0214">Click on "Administration" then "General".</li>
+<li data-txt="txt_0215">Tick "Switch to administration mode</li>
+<li data-txt="txt_0216">Select the patient to be deleted</li>
+<li data-txt="txt_0217">Click on "Patient" → "Delete the selected patient".</li>
+</ol>
+<img alt="Deleting a patient" data-alt-txt="txt_0489" src="imgen/page07_img01.jpeg"/>
+<h3 data-txt="txt_0027" id="photo-identite">Passport photo</h3>
+<p data-txt="txt_0097">To set or change a patient's passport photo :</p>
+<ol class="step-list">
+<li data-txt="txt_0218">Select the patient from the list</li>
+<li data-txt="txt_0219">Click on the photo you wish to use as your ID photo</li>
+<li data-txt="txt_0220">Right-click on the photo</li>
+<li data-txt="txt_0221">Select "Patient" → "Passport photo".</li>
+</ol>
+<img alt="Define passport photo" data-alt-txt="txt_0490" src="imgen/page08_img02.jpeg"/>
+<p class="img-caption" data-txt="txt_0098">Pop-up menu to define the passport photo</p>
+</section>
+<!-- SECTION 3: PERSONNALISATION -->
+<section class="help-section" id="personnalisation">
+<h2 data-txt="txt_0008">3. Customising the interface</h2>
+<h3 data-txt="txt_0028" id="onglets-style">Tabs and presentation style</h3>
+<p data-txt="txt_0099">Kitview offers different interface display modes that you can customise to suit your preferences.</p>
+<h4 data-txt="txt_0065">Adding/deleting tabs</h4>
+<ol class="step-list">
+<li data-txt="txt_0222">Click on 'Settings</li>
+<li data-txt="txt_0223">Select "Display" → "Appearance".</li>
+<li data-txt="txt_0224">Tick or untick the desired tabs</li>
+</ol>
+<img alt="Tab configuration" data-alt-txt="txt_0491" src="imgen/page09_img01.png"/>
+<h3 data-txt="txt_0029" id="couleurs">Office colours</h3>
+<p data-txt="txt_0100">To customise the interface colours :</p>
+<ol class="step-list">
+<li data-txt="txt_0225">Click on 'Offices</li>
+<li data-txt="txt_0226">Select "Desktop colours</li>
+<li data-txt="txt_0227">Choose the colours you want for each element</li>
+<li data-txt="txt_0228">Click on "OK" to confirm</li>
+</ol>
+<img alt="Office colours" data-alt-txt="txt_0492" src="imgen/page09_img02.png"/>
+<img alt="Examples of colours" data-alt-txt="txt_0493" src="imgen/page09_img03.png"/>
+<h3 data-txt="txt_0030" id="vignettes">Thumbnail size</h3>
+<p data-txt="txt_0101">You can adjust the size of the thumbnails displayed:</p>
+<ol class="step-list">
+<li data-txt="txt_0229">Click on 'Settings</li>
+<li data-txt="txt_0230">Select "Display" → "Results".</li>
+<li data-txt="txt_0231">Adjust the "Thumbnail size" value</li>
+</ol>
+<img alt="Thumbnail size configuration" data-alt-txt="txt_0494" src="imgen/page09_img04.png"/>
+<h4 data-txt="txt_0066">Customise the photo selection colour</h4>
+<ol class="step-list">
+<li data-txt="txt_0232">Click on 'Settings</li>
+<li data-txt="txt_0233">Select "Display" → "Results".</li>
+<li data-txt="txt_0234">Change the "Selection colour</li>
+</ol>
+<div class="note-box tip" data-note-content-txt="txt_0452">
+<strong data-txt="txt_0451">Council</strong>
+        Remember to save your desktop once you have made the changes:
+    <strong>Bureaux → Enregistrer le bureau courant</strong></div>
+</section>
+<!-- SECTION 4: IMPORT / EXPORT -->
+<section class="help-section" id="import-export">
+<h2 data-txt="txt_0009">4. Document import/export</h2>
+<h3 data-txt="txt_0031" id="import-photos">Import photos</h3>
+<p data-txt="txt_0102">There are several ways of importing documents into a patient file:</p>
+<h4 data-txt="txt_0067">Method 1: Drag and drop from Windows</h4>
+<ol class="step-list">
+<li data-txt="txt_0235">Select the patient concerned</li>
+<li data-txt="txt_0236">Open Windows Explorer with your photos</li>
+<li data-txt="txt_0237">Select the photos to import</li>
+<li data-txt="txt_0238">Drag and drop photos into Kitview's thumbnail area</li>
+</ol>
+<img alt="Drag-and-drop import" data-alt-txt="txt_0495" src="imgen/page11_img01.jpeg"/>
+<h4 data-txt="txt_0068">Method 2: Import from Outlook</h4>
+<p data-txt="txt_0103">You can import email attachments directly:</p>
+<ol class="step-list">
+<li data-txt="txt_0239">Open the email in Outlook</li>
+<li data-txt="txt_0240">Select the attachment(s)</li>
+<li data-txt="txt_0241">Drag and drop into Kitview</li>
+</ol>
+<img alt="Import from Outlook" data-alt-txt="txt_0496" src="imgen/page11_img02.png"/>
+<h3 data-txt="txt_0032" id="export-photos">Exporting photos</h3>
+<p data-txt="txt_0104">To export photos to Windows or a USB memory stick :</p>
+<ol class="step-list">
+<li data-txt="txt_0242">Select the photo(s) to be exported</li>
+<li data-txt="txt_0243">Right-click</li>
+<li data-txt="txt_0244">Select "Export"→"Quick export".</li>
+<li data-txt="txt_0245">Choose the destination folder</li>
+</ol>
+<img alt="Exporting photos" data-alt-txt="txt_0497" src="imgen/page12_img01.png"/>
+<h3 data-txt="txt_0033" id="drag-drop">Advanced drag &amp; drop</h3>
+<p data-txt="txt_0105">Drag and drop works both ways:</p>
+<ul>
+<li data-txt="txt_0246">To Kitview: to import files</li>
+<li data-txt="txt_0247">From Kitview: to export to Windows, email, etc.</li>
+</ul>
+<img alt="Bidirectional drag and drop" data-alt-txt="txt_0498" src="imgen/page12_img02.png"/>
+<h4 data-txt="txt_0069">Configuring the attachment name format</h4>
+<p data-txt="txt_0106">To customise file names when exporting :</p>
+<ol class="step-list">
+<li data-txt="txt_0248">Click on 'Settings</li>
+<li data-txt="txt_0249">Select "Mail</li>
+<li data-txt="txt_0250">Configure the desired format using the available variables (%n = last name, %p = first name, etc.).</li>
+</ol>
+<img alt="Export configuration" data-alt-txt="txt_0499" src="imgen/page13_img01.png"/>
+</section>
+<!-- SECTION 5: SÉANCES PHOTOS -->
+<section class="help-section" id="seances">
+<h2 data-txt="txt_0010">5. Photo sessions</h2>
+<h3 data-txt="txt_0034" id="protocole">Session protocol</h3>
+<p data-txt="txt_0107">The protocol guides the taking of photos in a predefined order using templates.</p>
+<ol class="step-list">
+<li data-txt="txt_0251">Select the patient</li>
+<li data-txt="txt_0252">Click on "Session</li>
+<li data-txt="txt_0253">Click on "Start session</li>
+<li data-txt="txt_0254">Follow the templates shown to take the photos in the correct order</li>
+</ol>
+<img alt="Session mode" data-alt-txt="txt_0500" src="imgen/page14_img01.png"/>
+<p class="img-caption" data-txt="txt_0108">Session mode interface with templates</p>
+<h3 data-txt="txt_0035" id="wifi">WiFi acquisition</h3>
+<p data-txt="txt_0109">Kitview lets you receive photos directly from a WiFi camera:</p>
+<ol class="step-list">
+<li data-txt="txt_0255">Configure your camera in WiFi mode</li>
+<li data-txt="txt_0256">In Kitview, click on "Acquisition</li>
+<li data-txt="txt_0257">Select "WiFi</li>
+<li data-txt="txt_0258">Photos are received automatically</li>
+</ol>
+<img alt="WiFi acquisition" data-alt-txt="txt_0501" src="imgen/page15_img01.jpeg"/>
+<div class="note-box info" data-note-content-txt="txt_0454">
+<strong data-txt="txt_0453">️ Information</strong>
+        The camera and computer must be connected to the same WiFi network.
+    </div>
+</section>
+<!-- SECTION 6: GABARITS ET MOTS-CLÉS -->
+<section class="help-section" id="gabarits">
+<h2 data-txt="txt_0011">6. Templates and keywords</h2>
+<p data-txt="txt_0110">Templates can be used to automatically classify your photos using associated keywords. There are 3 steps to creating a custom template:</p>
+<h3 data-txt="txt_0036" id="creer-motcle">Step 1: Create the keyword in the dictionary</h3>
+<ol class="step-list">
+<li data-txt="txt_0259">Click on 'Settings</li>
+<li data-txt="txt_0260">Select "Dictionary" → "Thesaurus for your field".</li>
+<li data-txt="txt_0261">Click on "Expand all" to see all families</li>
+<li data-txt="txt_0262">Position yourself in the right family</li>
+<li data-txt="txt_0263">Click on "Create a new label</li>
+</ol>
+<img alt="Keyword creation" data-alt-txt="txt_0502" src="imgen/page31_img01.png"/>
+<p class="img-caption" data-txt="txt_0111">Thesaurus management interface</p>
+<h3 data-txt="txt_0037" id="creer-gabarit">Step 2: Create the template</h3>
+<ol class="step-list">
+<li data-txt="txt_0264">Click on 'Settings</li>
+<li data-txt="txt_0265">Select "Templates" → "Toolbox".</li>
+<li data-txt="txt_0266">Right-click on a family → "Add" to create a new family</li>
+<li data-txt="txt_0267">Click on "Create a new template".</li>
+<li data-txt="txt_0268">Click on "Load an image" to add an image to the template</li>
+<li data-txt="txt_0269">Fill in the "Description" field</li>
+<li data-txt="txt_0270">Double-click on the family to associate the keyword with it.</li>
+<li data-txt="txt_0271">Click on "Validate</li>
+</ol>
+<img alt="Template creation" data-alt-txt="txt_0503" src="imgen/page32_img01.png"/>
+<p class="img-caption" data-txt="txt_0112">Template creation window</p>
+<h3 data-txt="txt_0038" id="creer-filtre">Step 3: Create the filter (collection)</h3>
+<ol class="step-list">
+<li data-txt="txt_0272">Right-click on "All" in the tree structure</li>
+<li data-txt="txt_0273">Select "Add a collection to the root".</li>
+<li data-txt="txt_0274">Give the collection a name (identical to the keyword)</li>
+<li data-txt="txt_0275">Click on "Add a condition</li>
+<li data-txt="txt_0276">Select the keyword you created earlier</li>
+<li data-txt="txt_0277">Click on "Validate</li>
+</ol>
+<img alt="Filter creation" data-alt-txt="txt_0504" src="imgen/page34_img01.jpeg"/>
+<div class="note-box tip" data-note-content-txt="txt_0456">
+<strong data-txt="txt_0455">Council</strong>
+        Once you have created your templates, go to the "Template" tab and click on the "Refresh" button to see your new creations appear.
+    </div>
+<h4 data-txt="txt_0070">Modify the image of an existing template</h4>
+<ol class="step-list">
+<li data-txt="txt_0278">Click on "Settings"→"Templates"→"Toolbox".</li>
+<li data-txt="txt_0279">Select the template to be modified</li>
+<li data-txt="txt_0280">Click on "Modify the selected template".</li>
+<li data-txt="txt_0281">Click on "Upload an image</li>
+<li data-txt="txt_0282">Select the new image</li>
+<li data-txt="txt_0283">Click on "Validate</li>
+</ol>
+<img alt="Modify template" data-alt-txt="txt_0505" src="imgen/page37_img01.jpeg"/>
+</section>
+<!-- SECTION 7: VIEWERS -->
+<section class="help-section" id="viewers">
+<h2 data-txt="txt_0012">7. Viewers</h2>
+<h3 data-txt="txt_0039" id="presentation-viewers">Presentation of viewers</h3>
+<p data-txt="txt_0113">Viewers are customisable display areas for viewing photos in large format. You can have as many as you like.</p>
+<p data-txt="txt_0114">Kitview offers several display modes:</p>
+<ul>
+<li data-txt="txt_0284">1 View: a single large photo</li>
+<li data-txt="txt_0285">2 Views: two photos side by side for comparison</li>
+<li data-txt="txt_0286">4 Views: four photos for an overview</li>
+<li data-txt="txt_0287">Templates: display according to templates</li>
+<li data-txt="txt_0288">Portfolio: gallery view</li>
+</ul>
+<img alt="Viewer 1 view" data-alt-txt="txt_0506" src="imgen/page42_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0115">Mode 1 View</p>
+<img alt="Viewer 2 views" data-alt-txt="txt_0507" src="imgen/page43_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0116">2-view mode</p>
+<img alt="Viewer 4 views" data-alt-txt="txt_0508" src="imgen/page43_img02.jpeg"/>
+<p class="img-caption" data-txt="txt_0117">4 views mode</p>
+<h4 data-txt="txt_0071">Select the photos to display</h4>
+<ol class="step-list">
+<li data-txt="txt_0289">Position yourself in the "1 View", "2 Views" or "4 Views" tab.</li>
+<li data-txt="txt_0290">Click or drag and drop the photo you want</li>
+</ol>
+<div class="note-box tip" data-note-content-txt="txt_0458">
+<strong data-txt="txt_0457">Drag and drop reminder</strong>
+        Select the photo, hold down the left click and release at the right point.
+    </div>
+<h3 data-txt="txt_0040" id="personnaliser-viewers">Customise viewers</h3>
+<h4 data-txt="txt_0072">Set viewers to the same size</h4>
+<ol class="step-list">
+<li data-txt="txt_0291">In 4 views mode, click on the "Reorder sister windows" icon in the top right-hand corner.</li>
+<li data-txt="txt_0292">To adjust manually: position yourself on the dividing line (a double arrow appears)</li>
+<li data-txt="txt_0293">Hold down the left click and adjust</li>
+</ol>
+<img alt="Reorganise viewers" data-alt-txt="txt_0509" src="imgen/page45_img01.jpeg"/>
+<h4 data-txt="txt_0073">Customise the viewer toolbar</h4>
+<ol class="step-list">
+<li data-txt="txt_0294">Right-click in the viewer area</li>
+<li data-txt="txt_0295">Click on "Customise menus".</li>
+<li data-txt="txt_0296">Select the toolbars you require</li>
+<li data-txt="txt_0297">To apply to all viewers: right-click → "Apply this menu to other viewers".</li>
+</ol>
+<img alt="Customise toolbar" data-alt-txt="txt_0510" src="imgen/page47_img01.png"/>
+<img alt="Toolbar selection" data-alt-txt="txt_0511" src="imgen/page48_img01.png"/>
+<h4 data-txt="txt_0074">Modify the information overlay</h4>
+<p data-txt="txt_0118">To change the information displayed on photos (date, name, etc.) :</p>
+<ol class="step-list">
+<li data-txt="txt_0298">Click on 'Settings</li>
+<li data-txt="txt_0299">Select "Display" → "Miscellaneous".</li>
+<li data-txt="txt_0300">Double-click on 'Viewers</li>
+<li data-txt="txt_0301">Change the size, colour and information displayed</li>
+<li data-txt="txt_0302">Use the "?" to see the codes available (%c = date, %n = name, etc.).</li>
+</ol>
+<img alt="Picture-in-picture viewers" data-alt-txt="txt_0512" src="imgen/page50_img01.jpeg"/>
+<img alt="Overlay configuration" data-alt-txt="txt_0513" src="imgen/page51_img01.png"/>
+<h3 data-txt="txt_0041" id="ajouter-viewers">Add viewers</h3>
+<ol class="step-list">
+<li data-txt="txt_0303">Click on "Settings" → "Administration" → "General".</li>
+<li data-txt="txt_0304">Tick Expert Mode</li>
+<li data-txt="txt_0305">Click on "Desktops" → "Reorganise desktop".</li>
+<li data-txt="txt_0306">Icons appear on the interface</li>
+<li data-txt="txt_0307">In the "Viewer" tab, click on "Add a viewer".</li>
+<li data-txt="txt_0308">A viewer window opens: move it to the required position using the arrow keys</li>
+<li data-txt="txt_0309">To rename the tab: right-click → "Rename".</li>
+</ol>
+<img alt="Expert mode" data-alt-txt="txt_0514" src="imgen/page52_img01.png"/>
+<img alt="Add viewer" data-alt-txt="txt_0515" src="imgen/page53_img01.jpeg"/>
+<div class="note-box warning" data-note-content-txt="txt_0460">
+<strong data-txt="txt_0459">️ Important</strong>
+        Don't forget to save your desktop after making the changes:
+    <strong>Bureaux → Enregistrer le bureau courant</strong></div>
+</section>
+<!-- SECTION 8: MODIFICATION DE PHOTOS -->
+<section class="help-section" id="modification-photos">
+<h2 data-txt="txt_0013">8. Editing photos</h2>
+<h3 data-txt="txt_0042" id="copier-coller">Copy and paste a photo</h3>
+<p data-txt="txt_0119">To duplicate a photo in the patient file :</p>
+<h4 data-txt="txt_0075">Method 1: Context menu</h4>
+<ol class="step-list">
+<li data-txt="txt_0310">Right-click on the photo to be duplicated</li>
+<li data-txt="txt_0311">Click on 'Edit</li>
+<li data-txt="txt_0312">Click on 'Copy</li>
+<li data-txt="txt_0313">Click on 'Paste</li>
+</ol>
+<img alt="Copy and paste photo" data-alt-txt="txt_0516" src="imgen/page58_img01.jpeg"/>
+<h4 data-txt="txt_0076">Method 2: Edit menu</h4>
+<ol class="step-list">
+<li data-txt="txt_0314">Select photo</li>
+<li data-txt="txt_0315">Click on the "Edit" menu at the top</li>
+<li data-txt="txt_0316">Click on "Copy" then "Paste".</li>
+</ol>
+<img alt="Edit menu" data-alt-txt="txt_0517" src="imgen/page59_img01.jpeg"/>
+<h3 data-txt="txt_0043" id="luminosite">Changing the brightness</h3>
+<ol class="step-list">
+<li data-txt="txt_0317">Position yourself on the "1 View" tab</li>
+<li data-txt="txt_0318">Select the photo to be edited</li>
+<li data-txt="txt_0319">Click on thepalette icon in the viewer toolbar</li>
+<li data-txt="txt_0320">Adjust brightness and contrast with the sliders</li>
+<li data-txt="txt_0321">The photo on the left shows the result, the one on the right the original.</li>
+<li data-txt="txt_0322">Click on 'OK</li>
+</ol>
+<img alt="Brightness setting" data-alt-txt="txt_0518" src="imgen/page60_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0120">Brightness/contrast adjustment interface</p>
+<h4 data-txt="txt_0077">Return to original photo</h4>
+<p data-txt="txt_0121">If you have modified a photo and wish to return to the original :</p>
+<ol class="step-list">
+<li data-txt="txt_0323">Right-click on the edited photo</li>
+<li data-txt="txt_0324">Select 'Image</li>
+<li data-txt="txt_0325">Click on "Revert to original".</li>
+<li data-txt="txt_0326">Refresh if necessary</li>
+</ol>
+<img alt="Back to the original" data-alt-txt="txt_0519" src="imgen/page61_img01.jpeg"/>
+<div class="note-box tip" data-note-content-txt="txt_0462">
+<strong data-txt="txt_0461">Council</strong>
+        If you want to make changes to a photo, duplicate it first to preserve the original.
+    </div>
+<h4 data-txt="txt_0078">Editing with Paint</h4>
+<p data-txt="txt_0122">For more advanced retouching with an external editor :</p>
+<ol class="step-list">
+<li data-txt="txt_0327">Right-click on the photo</li>
+<li data-txt="txt_0328">Select "Explorer Menu</li>
+<li data-txt="txt_0329">Click on "Open with"→"Paint".</li>
+<li data-txt="txt_0330">Make your changes</li>
+<li data-txt="txt_0331">Save with the floppy disk so that the changes appear in Kitview</li>
+</ol>
+<img alt="Open with Paint" data-alt-txt="txt_0520" src="imgen/page62_img01.jpeg"/>
+<img alt="Editing in Paint" data-alt-txt="txt_0521" src="imgen/page63_img01.jpeg"/>
+<h3 data-txt="txt_0044" id="recadrer">Cropping a photo</h3>
+<p data-txt="txt_0123">To select and keep only an area of the photo :</p>
+<ol class="step-list">
+<li data-txt="txt_0332">Select photo</li>
+<li data-txt="txt_0333">Click on the "1 View" tab</li>
+<li data-txt="txt_0334">In the toolbar, use the "Rectangle selection" tool</li>
+<li data-txt="txt_0335">Draw a rectangle around the area to be preserved</li>
+<li data-txt="txt_0336">Click on the 'Trimmer' tool to crop the image</li>
+<li data-txt="txt_0337">Click on the diskette to save</li>
+</ol>
+<img alt="Photo cropping" data-alt-txt="txt_0522" src="imgen/page66_img01.jpeg"/>
+<h4 data-txt="txt_0079">Viewer bar tools</h4>
+<ul>
+<li data-txt="txt_0338">Rotate right/left: rotate the photo</li>
+<li data-txt="txt_0339">Horizontal/vertical symmetry: mirror effect</li>
+<li data-txt="txt_0340">Adjusting colour: brightness, contrast</li>
+<li data-txt="txt_0341">Add text: annotations on the photo</li>
+</ul>
+<img alt="Viewers toolbar" data-alt-txt="txt_0523" src="imgen/page65_img01.png"/>
+<p class="img-caption" data-txt="txt_0124">Full viewer toolbar</p>
+</section>
+<!-- SECTION 9: PRÉSENTATIONS FIXES -->
+<section class="help-section" id="presentations">
+<h2 data-txt="txt_0014">9. Fixed presentations</h2>
+<p data-txt="txt_0125">Fixed presentations can be used to automatically generate comparative views based on keywords associated with the photos. They are ideal for showing the progress of a treatment to patients or colleagues.</p>
+<div class="note-box info" data-note-content-txt="txt_0464">
+<strong data-txt="txt_0463">️ Prerequisites</strong>
+        For presentations to work properly, your photos need to have the right keywords associated with them.
+    </div>
+<h3 data-txt="txt_0045">Access to presentations</h3>
+<ol class="step-list">
+<li data-txt="txt_0342">Select a patient</li>
+<li data-txt="txt_0343">Click on the 'Presentation' tab</li>
+<li data-txt="txt_0344">Choose from the presentations available at the bottom of the screen</li>
+</ol>
+<img alt="Fixed presentations" data-alt-txt="txt_0524" src="imgen/page68_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0126">Fixed presentation interface</p>
+<h3 data-txt="txt_0046">Types of presentation available</h3>
+<h4 data-txt="txt_0080">Complete sequence</h4>
+<p data-txt="txt_0127">Overview with portrait, intra-oral and panoramic photos.</p>
+<h4 data-txt="txt_0081">Start End ¾</h4>
+<p data-txt="txt_0128">Before-and-after comparison in three-quarter view.</p>
+<img alt="Presentation Start End" data-alt-txt="txt_0525" src="imgen/page69_img01.jpeg"/>
+<h4 data-txt="txt_0082">Complete sequence 2</h4>
+<p data-txt="txt_0129">Full view including profile and teleradiography.</p>
+<img alt="Complete sequence 2" data-alt-txt="txt_0526" src="imgen/page69_img02.jpeg"/>
+<h4 data-txt="txt_0083">Moulds</h4>
+<p data-txt="txt_0130">Presentation of photos of dental casts.</p>
+<img alt="Presentation Mouldings" data-alt-txt="txt_0527" src="imgen/page70_img01.jpeg"/>
+<h4 data-txt="txt_0084">Start In progress End</h4>
+<p data-txt="txt_0131">Three-step comparison to monitor treatment progress.</p>
+<img alt="Start In progress End" data-alt-txt="txt_0528" src="imgen/page70_img02.jpeg"/>
+<h4 data-txt="txt_0085">Compare</h4>
+<p data-txt="txt_0132">Customisable side-by-side comparison tool.</p>
+</section>
+<!-- SECTION 10: DOCKING (Le Bureau) -->
+<section class="help-section" id="docking">
+<h2 data-txt="txt_0015">10. Docking (customising the desktop)</h2>
+<p data-txt="txt_0133">Each desktop is fully customisable. You can add, remove or move items as required.</p>
+<h3 data-txt="txt_0047">Activate customisation mode</h3>
+<ol class="step-list">
+<li data-txt="txt_0345">Click on 'Settings</li>
+<li data-txt="txt_0346">Select "Administration" → "General".</li>
+<li data-txt="txt_0347">Tick Expert Mode</li>
+<li data-txt="txt_0348">Click on 'Offices</li>
+<li data-txt="txt_0349">Select "Reorganise desktop</li>
+</ol>
+<img alt="Docking mode" data-alt-txt="txt_0529" src="imgen/page38_img01.png"/>
+<h3 data-txt="txt_0048">Actions available</h3>
+<ul>
+<li data-txt="txt_0350">Enlarge/shrink an area: position yourself between two areas (an arrow will appear), then drag</li>
+<li data-txt="txt_0351">Delete a zone: click on the cross in the zone</li>
+<li data-txt="txt_0352">Move a zone: hold the click on the zone title and move using the directional arrows.</li>
+</ul>
+<img alt="Office customisation" data-alt-txt="txt_0530" src="imgen/page39_img01.jpeg"/>
+<img alt="Customisation result" data-alt-txt="txt_0531" src="imgen/page40_img01.jpeg"/>
+<p class="img-caption" data-txt="txt_0134">Example of a personalised desk</p>
+<div class="note-box warning" data-note-content-txt="txt_0466">
+<strong data-txt="txt_0465">️ Important</strong>
+        Always remember to save your desktop after making changes:
+    <strong>Bureaux → Enregistrer le bureau courant</strong></div>
+</section>
+<!-- SECTION 11: CRÉER UNE PRÉSENTATION FIXE -->
+<section class="help-section" id="creer-presentation">
+<h2 data-txt="txt_0016">11. Create a custom fixed presentation</h2>
+<p data-txt="txt_0135">You can create your own fixed presentations with the thumbnails and keywords of your choice.</p>
+<h3 data-txt="txt_0049">Creation stages</h3>
+<ol class="step-list">
+<li data-txt="txt_0353">Click on the 'Settings' tab</li>
+<li data-txt="txt_0354">Click on 'Administration</li>
+<li data-txt="txt_0355">Click on "General</li>
+<li data-txt="txt_0356">Tick "Expert mode</li>
+<li data-txt="txt_0357">Click on the 'Presentation' tab</li>
+<li data-txt="txt_0358">A window opens: click on "Free presentations".</li>
+<li data-txt="txt_0359">Click on "Create a free presentation".</li>
+<li data-txt="txt_0360">Name your presentation</li>
+</ol>
+<img alt="Create a fixed presentation" data-alt-txt="txt_0532" src="imgen/page71_img01.png"/>
+<h3 data-txt="txt_0050">Add thumbnails to the presentation</h3>
+<ol class="step-list">
+<li data-txt="txt_0361">Click on the small+.</li>
+<li data-txt="txt_0362">A window opens: click on "Thumbnail with attributes".</li>
+<li data-txt="txt_0363">Hold down the left mouse button and draw a square or rectangle, then double-click in the thumbnail you have created</li>
+<li data-txt="txt_0364">A window opens: search for the keyword you want, then double-click on it</li>
+<li data-txt="txt_0365">The keyword is displayed in the table on the right</li>
+<li data-txt="txt_0366">Click on "Validate" - Repeat for each thumbnail</li>
+</ol>
+<img alt="Add thumbnails" data-alt-txt="txt_0533" src="imgen/page72_img01.png"/>
+<h4 data-txt="txt_0086">Resize and align thumbnails</h4>
+<p data-txt="txt_0136">For a multiple selection, holdCtrandclick on each thumbnail, then use the alignment tools :</p>
+<ul>
+<li data-txt="txt_0367">Same width: standardises width</li>
+<li data-txt="txt_0368">Aligned top/bottom: aligns vertically</li>
+<li data-txt="txt_0369">Left/right aligned: aligns horizontally</li>
+</ul>
+<img alt="Alignment tools" data-alt-txt="txt_0534" src="imgen/page73_img01.png"/>
+<p data-txt="txt_0137">Click on the diskette to save your presentation.</p>
+</section>
+<!-- SECTION 12: DIAPORAMA -->
+<section class="help-section" id="diaporama">
+<h2 data-txt="txt_0017">12. Slide show</h2>
+<p data-txt="txt_0138">The slideshow displays all the photos in a patient file in full screen mode.</p>
+<h3 data-txt="txt_0051">Launch a slideshow</h3>
+<ol class="step-list">
+<li data-txt="txt_0370">Select the patient</li>
+<li data-txt="txt_0371">Click on "Display</li>
+<li data-txt="txt_0372">Click on 'Slideshow</li>
+<li data-txt="txt_0373">Use the arrows to scroll through the photos</li>
+</ol>
+<img alt="Slideshow mode" data-alt-txt="txt_0535" src="imgen/page74_img01.png"/>
+<div class="note-box tip" data-note-content-txt="txt_0468">
+<strong data-txt="txt_0467">Council</strong>
+        To exit the slideshow, press the Escape key on your keyboard.
+    <kbd>Échap</kbd></div>
+<p data-txt="txt_0139">If you want to display only certain photos, select them first and then click on "Slideshow".</p>
+</section>
+<!-- SECTION 13: COMPARER DES PHOTOS -->
+<section class="help-section" id="comparateur">
+<h2 data-txt="txt_0018">13. Comparing photos</h2>
+<p data-txt="txt_0140">Kitview offers a number of tools for comparing photos and showing the evolution of a treatment.</p>
+<h3 data-txt="txt_0052" id="comparer-2vues">Comparing two photos (2 views mode)</h3>
+<ol class="step-list">
+<li data-txt="txt_0374">Click on the "2 Views" tab</li>
+<li data-txt="txt_0375">Select the two photos to be compared</li>
+<li data-txt="txt_0376">To lock a photo, click on the small padlock</li>
+<li data-txt="txt_0377">The locked photo remains fixed while the other can scroll</li>
+</ol>
+<img alt="Compare 2 views" data-alt-txt="txt_0536" src="imgen/page75_img01.jpeg"/>
+<h3 data-txt="txt_0053" id="comparateur-colonne-ligne">Column or line comparator</h3>
+<p data-txt="txt_0141">The comparator lets you compare several selected photos:</p>
+<ol class="step-list">
+<li data-txt="txt_0378">Select the photos to compare</li>
+<li data-txt="txt_0379">Click on the icon of the desired comparator:Column comparator(manual or automatic)Online comparator(manual or automatic)</li>
+</ol>
+<img alt="Comparator selection" data-alt-txt="txt_0537" src="imgen/page76_img01.jpeg"/>
+<h4 data-txt="txt_0087">Manual mode</h4>
+<p data-txt="txt_0142">Use the arrows to scroll through the photos. The reference photo (left or top) remains frozen.</p>
+<img alt="Manual column comparator" data-alt-txt="txt_0538" src="imgen/page77_img01.jpeg"/>
+<h4 data-txt="txt_0088">Automatic mode</h4>
+<p data-txt="txt_0143">Photos are automatically scrolled by shooting date.</p>
+<img alt="Automatic column comparator" data-alt-txt="txt_0539" src="imgen/page78_img01.jpeg"/>
+<img alt="Automatic line comparator" data-alt-txt="txt_0540" src="imgen/page78_img02.jpeg"/>
+<div class="note-box tip" data-note-content-txt="txt_0470">
+<strong data-txt="txt_0469">Council</strong>
+        To exit the comparator, press Esc .
+    <kbd>Échap</kbd></div>
+<h3 data-txt="txt_0054" id="comparateur-protocole">Protocol session comparator</h3>
+<p data-txt="txt_0144">If you follow a precise protocol when taking photos, this feature allows you to compare sessions over time.</p>
+<ol class="step-list">
+<li data-txt="txt_0382">Click on the 'Presentation' tab</li>
+<li data-txt="txt_0383">Click on the 'Comparator' tab</li>
+<li data-txt="txt_0384">Select the photos to be shown (e.g. the 3 intra-oral photos)</li>
+<li data-txt="txt_0385">Choose mode: Horizontal/Vertical, Manual/Automatic</li>
+</ol>
+<img alt="Comparator by session" data-alt-txt="txt_0541" src="imgen/page79_img01.jpeg"/>
+<p data-txt="txt_0145">The photos of the first appointment remain static (at the top or on the left) and those of subsequent appointments scroll by date.</p>
+<img alt="Session comparison result" data-alt-txt="txt_0542" src="imgen/page80_img03.jpeg"/>
+</section>
+<!-- SECTION 14: MODÈLES DE COURRIER -->
+<section class="help-section" id="courrier">
+<h2 data-txt="txt_0019">14. Mail templates</h2>
+<p data-txt="txt_0146">Kitview allows you to use mail templates with merge fields that automatically include patient information (surname, first name, address, photos, etc.).</p>
+<div class="note-box info" data-note-content-txt="txt_0472">
+<strong data-txt="txt_0471">️ Prerequisites</strong>
+        Photos must be clearly identified (keywords) for the merge fields to work properly.
+    </div>
+<h3 data-txt="txt_0055">Use an existing model</h3>
+<ol class="step-list">
+<li data-txt="txt_0386">Select the patient</li>
+<li data-txt="txt_0387">Click on the 'Mail' tab</li>
+<li data-txt="txt_0388">Select the desired model from the list</li>
+<li data-txt="txt_0389">The letter opens with the patient's details pre-filled in</li>
+</ol>
+<img alt="List of letter templates" data-alt-txt="txt_0543" src="imgen/page83_img02.jpeg"/>
+<img alt="Mail with merge" data-alt-txt="txt_0544" src="imgen/page84_img01.png"/>
+<h4 data-txt="txt_0089">See the merge fields</h4>
+<p data-txt="txt_0147">Switch to "Create" mode to view and modify the merge fields (e.g. &lt;First name&gt;, &lt;Last name&gt;, &lt;Today's date&gt;...).</p>
+<img alt="Mail creation mode" data-alt-txt="txt_0545" src="imgen/page85_img01.png"/>
+<h3 data-txt="txt_0056" id="creer-courrier">Create a new letter template</h3>
+<ol class="step-list">
+<li data-txt="txt_0390">Click on the 'Mail' tab</li>
+<li data-txt="txt_0391">Select an existing model as a base</li>
+<li data-txt="txt_0392">Click on "Creation</li>
+<li data-txt="txt_0393">Click on 'New' for a blank document</li>
+<li data-txt="txt_0394">In "Page Properties", tick "Landscape" if necessary</li>
+</ol>
+<img alt="Mail creation" data-alt-txt="txt_0546" src="imgen/page86_img01.jpeg"/>
+<img alt="Blank document" data-alt-txt="txt_0547" src="imgen/page87_img01.png"/>
+<h4 data-txt="txt_0090">Adding items</h4>
+<ul>
+<li data-txt="txt_0395">Add text: Click on "Add" → "Add text", draw a zone, double-click to enter</li>
+<li data-txt="txt_0396">Add an image (merge field): Click on "Add" → "Image field", draw a zone, double-click and select the desired field</li>
+</ul>
+<img alt="Add mail items" data-alt-txt="txt_0548" src="imgen/page88_img01.png"/>
+<h4 data-txt="txt_0091">Save the model</h4>
+<ol class="step-list">
+<li data-txt="txt_0397">Click on "Preview" to check the result</li>
+<li data-txt="txt_0398">Click on "Save</li>
+<li data-txt="txt_0399">Select the 'Letters' folder</li>
+<li data-txt="txt_0400">Name your file and click on "Save".</li>
+</ol>
+</section>
+<!-- SECTION 15: PORTFOLIO ET POWERPOINT -->
+<section class="help-section" id="portfolio">
+<h2 data-txt="txt_0020">15. Portfolio and PowerPoint presentation</h2>
+<p data-txt="txt_0148">The Portfolio can be used to group together photos of several patients and automatically generate a PowerPoint presentation.</p>
+<h3 data-txt="txt_0057">Example: All intra-oral scans of all patients</h3>
+<ol class="step-list">
+<li data-txt="txt_0401">Click on the 'All' tab in the tree structure</li>
+<li data-txt="txt_0402">Select the desired category (e.g. "Intra-oral")</li>
+<li data-txt="txt_0403">Click on "Filter population by collection".</li>
+<li data-txt="txt_0404">Click on "Select all patients</li>
+<li data-txt="txt_0405">Click on the 'Portfolio' tab</li>
+<li data-txt="txt_0406">All the corresponding photos are displayed</li>
+<li data-txt="txt_0407">Select the photos you want to include and drag and drop them into the area on the right</li>
+<li data-txt="txt_0408">Click on the PowerPoint icon and choose the number of images per slide</li>
+</ol>
+<img alt="Intra-oral portfolio" data-alt-txt="txt_0549" src="imgen/page89_img01.jpeg"/>
+<h4 data-txt="txt_0092">Result in PowerPoint</h4>
+<p data-txt="txt_0149">The presentation opens automatically in PowerPoint. You can then add text, change the page layout, etc.</p>
+<img alt="PowerPoint presentation" data-alt-txt="txt_0550" src="imgen/page90_img01.jpeg"/>
+<div class="note-box warning" data-note-content-txt="txt_0474">
+<strong data-txt="txt_0473">️ Important</strong>
+        Remember to save your PowerPoint presentation after making any changes.
+    </div>
+</section>
+<!-- SECTION 16: FILTRE DE POPULATION -->
+<section class="help-section" id="filtre-population">
+<h2 data-txt="txt_0021">16. Population filter</h2>
+<p data-txt="txt_0150">Population filters allow you to search by type of object or photo for one or more patients. Filters are organised by category.</p>
+<h3 data-txt="txt_0058">Example: Display all panoramic X-rays</h3>
+<ol class="step-list">
+<li data-txt="txt_0409">Click on the 'All' tab</li>
+<li data-txt="txt_0410">Click on 'Radio' then 'Panoramic' (or another category)</li>
+<li data-txt="txt_0411">Click on "Filter population by collection".</li>
+<li data-txt="txt_0412">Click on "Select all patients</li>
+<li data-txt="txt_0413">Result: all your patients' panoramic X-rays are displayed</li>
+<li data-txt="txt_0414">You can go to each patient file to find the corresponding radio</li>
+</ol>
+<img alt="Population filter - Interface" data-alt-txt="txt_0551" src="imgen/page91_img01.jpeg"/>
+<div class="note-box tip" data-note-content-txt="txt_0476">
+<strong data-txt="txt_0475">Tip</strong>
+        Remember to return to your complete database after a search: go back to the population filters, click on the "All" tab and then "Refresh".
+    </div>
+</section>
+<!-- SECTION 17: RECHERCHE PAR DATE -->
+<section class="help-section" id="recherche-date">
+<h2 data-txt="txt_0022">17. Find photos by date</h2>
+<p data-txt="txt_0151">Population filters can also be used to search for photos taken on a specific date or within a date range.</p>
+<h3 data-txt="txt_0059" id="date-precise">Search for a specific date</h3>
+<p data-txt="txt_0152">Example:Search for all photos taken on 24/11/2017</p>
+<ol class="step-list">
+<li data-txt="txt_0415">Click on "What</li>
+<li data-txt="txt_0416">Click on "Add a condition to the root".</li>
+<li data-txt="txt_0417">A window opens - Enter the word "Creation" - It appears in the list</li>
+<li data-txt="txt_0418">Double-click on the word "Creation" to display it in the table on the right</li>
+<li data-txt="txt_0419">Click on "Validate</li>
+<li data-txt="txt_0420">Change the condition to 'Equal to' and then change the date</li>
+<li data-txt="txt_0421">All patients with photos taken on this date are displayed</li>
+<li data-txt="txt_0422">All photos taken on this date are displayed</li>
+</ol>
+<img alt="Search by date" data-alt-txt="txt_0552" src="imgen/page92_img01.jpeg"/>
+<p data-txt="txt_0153">To view photos of each patient, click on each patient file.</p>
+<div class="note-box tip" data-note-content-txt="txt_0478">
+<strong data-txt="txt_0477">Reminder</strong>
+        Don't forget to return to your complete database after the search: "All" tab, then "Refresh".
+    </div>
+<h3 data-txt="txt_0060" id="plage-dates">Search within a date range</h3>
+<p data-txt="txt_0154">Example:Search for all photos taken between 13/09/2017 and 13/09/2018</p>
+<ol class="step-list">
+<li data-txt="txt_0423">Click on "What</li>
+<li data-txt="txt_0424">Click on "Add a condition to the root".</li>
+<li data-txt="txt_0425">Write "Creation" and double-click to add it</li>
+<li data-txt="txt_0426">Click on "Validate</li>
+<li data-txt="txt_0427">Repeat the operation to add a second condition</li>
+<li data-txt="txt_0428">For the first condition, select 'Prior to' and enter the end date.</li>
+<li data-txt="txt_0429">For the second condition, select 'After' and enter the start date.</li>
+<li data-txt="txt_0430">All patients with photos in this range are displayed</li>
+</ol>
+<img alt="Search by date range" data-alt-txt="txt_0553" src="imgen/page94_img01.jpeg"/>
+<div class="note-box info" data-note-content-txt="txt_0480">
+<strong data-txt="txt_0479">️ Note</strong>
+        The two conditions are combined with a logical AND: the photos displayed are both before the end date AND after the start date.
+    </div>
+</section>
+<!-- SECTION 18: FORMULAIRES -->
+<section class="help-section" id="formulaires">
+<h2 data-txt="txt_0023">18. Forms</h2>
+<p data-txt="txt_0155">Forms are used to store all the information relating to a patient, to provide rapid access to information, and to present and use the data entered.</p>
+<h3 data-txt="txt_0061" id="completer-formulaire">Fill in a form</h3>
+<ol class="step-list">
+<li data-txt="txt_0431">Click on the 'Form' tab</li>
+<li data-txt="txt_0432">Select the form you need</li>
+<li data-txt="txt_0433">Complete the information</li>
+<li data-txt="txt_0434">Save the form by clicking on the label</li>
+<li data-txt="txt_0435">The summary of the form is generated. To view it in full, click on the small folder</li>
+</ol>
+<img alt="Fill in a form" data-alt-txt="txt_0554" src="imgen/page96_img01.png"/>
+<h3 data-txt="txt_0062" id="recherche-formulaires">Search for similar cases</h3>
+<p data-txt="txt_0156">Example:Search forms for patients with gingivitis</p>
+<ol class="step-list">
+<li data-txt="txt_0436">Click on a patient file</li>
+<li data-txt="txt_0437">Click on the 'Form' tab</li>
+<li data-txt="txt_0438">Open the summary of forms by clicking on the small folder</li>
+<li data-txt="txt_0439">Click on the "Search mode" magnifying glass</li>
+<li data-txt="txt_0440">Click on the criteria you want to find (e.g. "gingivitis")</li>
+<li data-txt="txt_0441">Click on the "Search mode" magnifying glass again, then on "Search".</li>
+<li data-txt="txt_0442">The corresponding patient files are displayed</li>
+</ol>
+<img alt="Search for similar cases" data-alt-txt="txt_0555" src="imgen/page97_img01.png"/>
+<div class="note-box tip" data-note-content-txt="txt_0482">
+<strong data-txt="txt_0481">Tip</strong>
+        To view each form, go to the patient file and click on the 'Forms' tab.
+    </div>
+</section>
+<!-- SECTION 19: SUPPORT DE FORMATION -->
+<section class="help-section" id="support-formation">
+<h2 data-txt="txt_0024">19. Training aids</h2>
+<p data-txt="txt_0157">A training support site is available to help you use Kitview. You'll find a number of explanatory videos and sample forms.</p>
+<h3 data-txt="txt_0063">Go to the support site</h3>
+<ol class="step-list">
+<li data-txt="txt_0443">Click on the 'Help' tab</li>
+<li data-txt="txt_0444">Select "Training support</li>
+<li data-txt="txt_0445">You will be redirected to the website :www.kitview-support.fr</li>
+</ol>
+<img alt="Access to training material" data-alt-txt="txt_0556" src="imgen/page98_img01.jpeg"/>
+<h3 data-txt="txt_0064">Login details</h3>
+<div class="note-box info">
+<strong data-txt="txt_0483">🔐 Connection to the support site</strong><br/> </div>
+<img alt="Support login page" data-alt-txt="txt_0557" src="imgen/page98_img02.png"/>
+<div class="note-box tip" data-note-content-txt="txt_0485">
+<strong data-txt="txt_0484">Available resources</strong>
+        The support site contains video tutorials, practical guides and downloadable form templates to help you get the most out of Kitview.
+    </div>
+</section>
+</div>
+</main>
+</div>
+<!-- Footer -->
+<footer class="help-footer" data-txt="txt_0590">Kitview - User manual v1.5 (Standard) - January 2026</footer>
+<!-- Google Translate Script -->
+<script src="js/kvm.js"></script>
+<!-- Google Translate API -->
+<script>
+// Google Translate - Chargement conditionnel (uniquement sur serveur)
+(function() {
+    // Détecter si on est en local (file://) ou sur un serveur
+    if (window.location.protocol === 'file:') {
+        console.log('[KVM] Mode local détecté - Google Translate désactivé');
+        // Masquer les options de langues autres que FR/EN
+        document.addEventListener('DOMContentLoaded', function() {
+            var chips = document.querySelectorAll('.lang-chip[data-lang]');
+            chips.forEach(function(chip) {
+                var lang = chip.getAttribute('data-lang');
+                if (lang !== 'fr' && lang !== 'en') {
+                    chip.style.opacity = '0.4';
+                    chip.style.pointerEvents = 'none';
+                    chip.title = 'Disponible uniquement sur serveur web';
+                }
+            });
+        });
+    } else {
+        // On est sur un serveur, charger Google Translate
+        var script = document.createElement('script');
+        script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+        document.head.appendChild(script);
+    }
+})();
+</script>
+<!-- ========================================
+     CHATBOT ASSISTANT IA
+     ======================================== -->
+<!-- Bouton flottant -->
+<button aria-label="Ouvrir l'assistant" id="chatbot-toggle" title="Assistant IA">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm0 14H6l-2 2V4h16v12z"></path>
+<circle cx="8" cy="10" r="1.5"></circle>
+<circle cx="12" cy="10" r="1.5"></circle>
+<circle cx="16" cy="10" r="1.5"></circle>
+</svg>
+</button>
+<!-- Modale de chat -->
+<div aria-labelledby="chatbot-title" id="chatbot-modal" role="dialog">
+<div id="chatbot-header">
+<div class="avatar">🤖</div>
+<div class="title">
+<h4 data-txt="txt_0601" id="chatbot-title">Assistant Kitview</h4>
+<span data-txt="txt_0602">Posez vos questions sur le manuel</span>
+</div>
+<button aria-label="Fermer" id="chatbot-close">×</button>
+</div>
+<div id="chatbot-toolbar">
+<button data-txt="txt_0603" id="chatbot-suggestions-btn">💡 Suggestions</button>
+<button data-txt="txt_0604" id="chatbot-clear-btn">🗑️ Effacer</button>
+<button aria-label="Paramètres" id="chatbot-settings-btn" title="Paramètres">⚙️</button>
+</div>
+<div id="chatbot-suggestions-panel">
+<h5 data-txt="txt_0605">Questions suggérées</h5>
+<div class="suggestions-list"></div>
+</div>
+<div aria-live="polite" id="chatbot-messages" role="log"></div>
+<div id="chatbot-input-area">
+<input aria-label="Votre question" autocomplete="off" data-placeholder-txt="txt_0606" id="chatbot-input" placeholder="Posez votre question..." type="text"/>
+<button aria-label="Envoyer" id="chatbot-send">
+<svg viewbox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path></svg>
+</button>
+</div>
+</div>
+<!-- Modal de configuration API -->
+<div aria-labelledby="chatbot-config-title" id="chatbot-config-modal" role="dialog">
+<div class="config-overlay"></div>
+<div class="config-content">
+<h3 data-txt="txt_0607" id="chatbot-config-title">🔑 Configuration</h3>
+<p data-txt="txt_0608">Entrez votre clé API Claude pour utiliser l'assistant.</p>
+<p><a data-txt="txt_0609" href="https://console.anthropic.com" rel="noopener" target="_blank">Obtenir une clé API →</a></p>
+<input id="chatbot-api-key-input" placeholder="sk-ant-api03-..." type="password"/>
+<div class="config-buttons">
+<button data-txt="txt_0610" id="chatbot-config-save">💾 Enregistrer</button>
+<button data-txt="txt_0611" id="chatbot-config-cancel">Annuler</button>
+</div>
+<p class="config-note" data-txt="txt_0612">🔒 La clé est stockée uniquement dans votre navigateur.</p>
+</div>
+</div>
+<!-- Scripts -->
+<script src="/api/kvm/env-config.js"></script>
+<script src="js/chatbot-config.js"></script>
+<script src="js/chatbot.js"></script>
+<script src="js/themes.js"></script>
+</body>
+</html>

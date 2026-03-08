@@ -1,0 +1,13 @@
+﻿# Généré par detia.py V1.0.27 avec gpt41mini
+question;listcount;nb_criteres;tags;adjectifs;ages;residu;latency_ms
+fr;LIST;0;;;;"Analyse cette question et retourne le JSON: ""fr""";1320.6
+Bruxisme;LIST;1;bruxisme;;;;1383.7
+Nombre de patients avec linguo-version avec déviation maxillaire ?;COUNT;3;dysfonction linguale, déviation maxillaire;linguo-version;;patients avec;1835.9
+Patientes souffrant de béance antérieure et avec classe II;LIST;3;béance, Classe Ii D'Angle;antérieur;Féminin;souffrant de et avec;2539.5
+Patientes de moins de 39 ans présentant un encombrement et une rotation dentaire antihoraire;LIST;3;crowding;;Féminin, Âge < 39;présentant une rotation dentaire antihoraire;2469.1
+Patient diabétique avec problème de bruxisme;LIST;1;bruxisme;;;Patient diabétique avec problème de;1495.1
+Patientes présentant une malocclusion avec bruxisme;LIST;3;malocclusion, bruxisme;;Féminin;présentant une avec;2909.2
+Adulte présentant une malocclusion;LIST;2;malocclusion;;Âge >= 18;présentant une;1920.2
+ado diabétique avec problème de bruxisme;LIST;1;bruxisme;;;ado diabétique avec problème de;1434.0
+patiente d'environ 15 ans avec Cas complexe avec classe II squelettique et béance latérale gauche;LIST;4;classe ii squelettique, Béance;sévère, latérale, gauche;Féminin, Âge < 18;Cas;3972.8
+Patientes d'environ 14 ans avec malocclusion et bruxisme sévère;LIST;4;malocclusion, bruxisme;sévère;Féminin, Âge < 18;;3305.4
