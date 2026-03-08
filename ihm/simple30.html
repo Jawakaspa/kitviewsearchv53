@@ -54,7 +54,7 @@
             background: rgba(255, 255, 255, 0.12);
         }
     
-        /* ── Bouton Manuel avec dropdown ─────────────── */
+        /* ── Bouton Manuel avec dropdown (click) ─────── */
         .manuel-dropdown { position: relative; display: inline-block; }
         .manuel-dropdown-menu {
             display: none; position: absolute; right: 0; top: calc(100% + 4px);
@@ -62,7 +62,7 @@
             border-radius: 8px; box-shadow: 0 4px 16px rgba(0,0,0,.15);
             min-width: 180px; z-index: 1000; overflow: hidden;
         }
-        .manuel-dropdown:hover .manuel-dropdown-menu { display: block; }
+        .manuel-dropdown-menu.open { display: block; }
         .manuel-dropdown-menu a {
             display: block; padding: 9px 14px; text-decoration: none;
             color: var(--text-primary, #333); font-size: 13px; white-space: nowrap;
@@ -148,12 +148,12 @@
                     📖
                 </button>
                 <div class="manuel-dropdown-menu" id="manuelMenu">
-                    <a href="../kvm/ihm/kvms.html" target="_blank">🇫🇷 Standard FR</a>
-                    <a href="../kvm/ihm/kvm_en.html" target="_blank">🇬🇧 English</a>
+                    <a href="/kvm/kvms.html" target="_blank">🇫🇷 Standard FR</a>
+                    <a href="/kvm/kvm_en.html" target="_blank">🇬🇧 English</a>
                     <hr>
-                    <a href="../kvm/ihm/kvmd.html" target="_blank">🟢 Débutant</a>
-                    <a href="../kvm/ihm/kvmi.html" target="_blank">🟡 Intermédiaire</a>
-                    <a href="../kvm/ihm/kvme.html" target="_blank">🔴 Expert</a>
+                    <a href="/kvm/kvmd.html" target="_blank">🟢 Débutant</a>
+                    <a href="/kvm/kvmi.html" target="_blank">🟡 Intermédiaire</a>
+                    <a href="/kvm/kvme.html" target="_blank">🔴 Expert</a>
                 </div>
             </div>
             <button class="icon-button" id="themeToggle" title="Changer le thème">
@@ -302,5 +302,23 @@
     <script src="js/simple30_i18n.js"></script>
     <script src="js/simple30_meme.js"></script>
     <script src="js/simple30_main.js"></script>
+    <script>
+    /* ── Dropdown Manuel : toggle au clic, fermeture au clic extérieur ── */
+    (function() {
+        var btn  = document.getElementById('manuelButton');
+        var menu = document.getElementById('manuelMenu');
+        if (!btn || !menu) return;
+        btn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            menu.classList.toggle('open');
+        });
+        document.addEventListener('click', function() {
+            menu.classList.remove('open');
+        });
+        menu.addEventListener('click', function(e) {
+            e.stopPropagation(); // garder ouvert si clic sur un lien
+        });
+    })();
+    </script>
 </body>
 </html>
