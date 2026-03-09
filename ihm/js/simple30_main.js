@@ -1382,7 +1382,7 @@ function getActiveSearchInput() {
             if (nbTotal > 0 && patients.length > 0) {
                 if (nbTotal > nbRetournes) {
                     // Cas avec pagination
-                    metaDiv.textContent = `${nbRetournes} / ${formatResultMessage(nbTotal, descFiltres, item.elapsedTime, langEffective)}`;
+                    metaDiv.textContent = formatResultMessage(nbTotal, descFiltres, item.elapsedTime, langEffective);
                 } else {
                     metaDiv.textContent = formatResultMessage(nbTotal, descFiltres, item.elapsedTime, langEffective);
                 }
