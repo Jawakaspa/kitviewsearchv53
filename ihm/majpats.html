@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
- * majpats.html V1.0.0 - 19/02/2026
+ * majpats.html V1.0.1 - 10/03/2026
  * Kitview Search - Page de modification d'un patient
  * Paramètres URL : ?base=base10.db&id=10002
  * 
@@ -760,13 +760,15 @@ document.getElementById('btnAddLine').addEventListener('click', () => addTagLine
 /*═══════════════════════════════════════════════════════════════════════
    CHARGEMENT DU PATIENT
    ═══════════════════════════════════════════════════════════════════════*/
-async function loadPatient() {
+async function loadPatient(silent = false) {
     if (!currentBase || !currentId) {
         showStatus('❌ Paramètres manquants dans l\'URL. Attendu : ?base=baseN.db&id=XXXXX', 'error');
         return;
     }
 
-    showStatus('<span class="loading-spinner"></span> Chargement du patient...', 'info');
+    if (!silent) {
+        showStatus('<span class="loading-spinner"></span> Chargement du patient...', 'info');
+    }
 
     try {
         const resp = await fetch(`${API_BASE_URL}/patient?base=${encodeURIComponent(currentBase)}&id=${currentId}`);
@@ -777,7 +779,9 @@ async function loadPatient() {
 
         originalPatient = await resp.json();
         displayPatient(originalPatient);
-        hideStatus();
+        if (!silent) {
+            hideStatus();
+        }
     } catch (e) {
         showStatus(`❌ Erreur : ${e.message}`, 'error');
     }
@@ -975,10 +979,15 @@ async function doUpdate() {
         }
 
         const result = await resp.json();
-        showStatus(`✅ Patient ${currentId} mis à jour avec succès ! (${result.nb_pathologies} pathologies indexées)`, 'success');
+        const successMsg = `✅ Patient ${currentId} mis à jour avec succès ! (${result.nb_pathologies} pathologies indexées)`;
+        showStatus(successMsg, 'success');
 
-        // Recharger pour montrer les données fraîches
-        setTimeout(() => loadPatient(), 1500);
+        // Recharger les données fraîches en mode silencieux (ne pas écraser le message)
+        await loadPatient(true);
+        
+        // Réafficher le message de succès (au cas où) et le garder 8 secondes
+        showStatus(successMsg, 'success');
+        setTimeout(hideStatus, 8000);
     } catch (e) {
         showStatus(`❌ Erreur mise à jour : ${e.message}`, 'error');
     }
