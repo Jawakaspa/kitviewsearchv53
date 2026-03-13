@@ -260,7 +260,7 @@ INFORMATION ABOUT YOURSELF (answer these questions directly):
         
         const basePrompt = lang === 'fr' 
             ? `Tu es ${assistantName}, un assistant spécialisé dans le logiciel Kitview pour orthodontistes.
-Tu réponds UNIQUEMENT en français.
+Tu réponds TOUJOURS dans la langue utilisée par l'utilisateur dans sa question.
 ${selfHelp}
 
 RÈGLES POUR LES QUESTIONS SUR KITVIEW:
@@ -272,7 +272,7 @@ RÈGLES POUR LES QUESTIONS SUR KITVIEW:
 CONTENU DU MANUEL:
 ${pageContent}`
             : `You are ${assistantName}, an assistant specialized in Kitview software for orthodontists.
-You respond ONLY in English.
+You ALWAYS respond in the same language as the user's question.
 ${selfHelp}
 
 RULES FOR KITVIEW QUESTIONS:
@@ -1049,6 +1049,44 @@ ${pageContent}`;
     // INITIALISATION
     // ========================================
     
+    // ========================================
+    // CHARGEMENT DYNAMIQUE env-local.js
+    // ========================================
+
+    /**
+     * Tente de charger env-local.js (clés API dev local).
+     * Fichier absent en prod → onerror → on continue sans.
+     * Retourne une Promise résolue dans tous les cas.
+     */
+    function loadEnvLocal() {
+        return new Promise((resolve) => {
+            if (window.ENV_LOCAL || window.ENV_CONFIG) {
+                // Déjà chargé ou en mode Render → pas besoin
+                resolve();
+                return;
+            }
+            const script = document.createElement('script');
+            script.src = 'js/env-local.js';
+            script.onload = () => {
+                console.log('[Chatbot] env-local.js chargé (clés dev local)');
+                resolve();
+            };
+            script.onerror = () => {
+                // Fichier absent = normal en prod
+                resolve();
+            };
+            document.head.appendChild(script);
+        });
+    }
+
+    function debugKeySource() {
+        const src = (window.ENV_CONFIG && window.ENV_CONFIG.claudeApiKey) ? "ENV_CONFIG (Render)"
+                  : (window.ENV_LOCAL && window.ENV_LOCAL.claudeApiKey)   ? "ENV_LOCAL (dev local)"
+                  : localStorage.getItem('chatbot_api_key_claude')        ? "localStorage (modale ⚙️)"
+                  : "❌ absente";
+        console.log(`[Chatbot] Clé Claude source : ${src}`);
+    }
+
     function init() {
         initDOMElements();
         
@@ -1056,6 +1094,9 @@ ${pageContent}`;
             console.warn('[Chatbot] Éléments HTML non trouvés');
             return;
         }
+        
+        // Debug source des clés
+        debugKeySource();
         
         // Injecter les styles du switch provider
         injectProviderSwitchStyles();
@@ -1109,11 +1150,18 @@ ${pageContent}`;
             console.log('[Chatbot] Aucune clé API - configuration requise');
         }
     }
+
+    /**
+     * Bootstrap : charger env-local.js puis initialiser le chatbot
+     */
+    function bootstrap() {
+        loadEnvLocal().then(init);
+    }
     
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
+        document.addEventListener('DOMContentLoaded', bootstrap);
     } else {
-        init();
+        bootstrap();
     }
     
 })();

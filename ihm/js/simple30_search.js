@@ -197,14 +197,12 @@ async function loadAvailableBases() {
         
         // ╔═══════════════════════════════════════════════════════════════
         // ║ V2.0.1 : Filtrer les bases - Garder uniquement base*.db
-        // ║ Pattern : commence par "base", suivi de chiffres, finit par ".db"
+        // ║ Pattern : commence par "base", suivi de n'importe quoi, finit par ".db"
         // ║ Exclut : test*.db, brut*.db, net*.db, etc.
         // ╚═══════════════════════════════════════════════════════════════
-// AVANT : /^base\d+\.db$/i  → uniquement base + chiffres
-// APRÈS : /^base.+\.db$/i   → base + n'importe quoi
-const bases = allBases.filter(base => {
-    return /^base.+\.db$/i.test(base);
-});
+        // V2.0.1 : Accepter base + n'importe quoi + .db (pas uniquement des chiffres)
+        const bases = allBases.filter(base => {
+            return /^base.+\.db$/i.test(base);
         });
         
         addDebugLog(`Bases filtrées: ${bases.length}/${allBases.length} (pattern base*.db)`, 'info');
