@@ -1,9 +1,16 @@
 <!DOCTYPE html>
 <!--
- * majpats.html V1.0.1 - 10/03/2026
+ * majpats.html V1.0.2 - 13/03/2026
  * Kitview Search - Page de modification d'un patient
  * Paramètres URL : ?base=base10.db&id=10002
  * 
+ * CHANGEMENTS V1.0.2 (13/03/2026) :
+ *   - FIX : idportrait en readonly (lié à portraits.csv + photofit.db)
+ *
+ * CHANGEMENTS V1.0.1 (10/03/2026) :
+ *   - FIX : Message de succès visible 8s après mise à jour
+ *   - loadPatient(silent) pour ne pas écraser le status bar
+ *
  * Fonctionnalités :
  *   - Lecture d'un patient via GET /patient?base=...&id=...
  *   - Affichage fusionné canontags+canonadjs en lignes éditables
@@ -19,453 +26,79 @@
     <title>Kitview - Modification Patient</title>
     <link rel="icon" type="image/png" href="https://www.kitview.com/favicon.ico">
     <style>
-/*═══════════════════════════════════════════════════════════════════════
-   VARIABLES & THEME
-   ═══════════════════════════════════════════════════════════════════════*/
 :root {
-    --bg-primary: #ffffff;
-    --bg-secondary: #f5f5f5;
-    --bg-card: #ffffff;
-    --bg-input: #ffffff;
-    --text-primary: #1a1a1a;
-    --text-secondary: #666666;
-    --text-muted: #999999;
-    --border-color: #e0e0e0;
-    --primary-color: #2563eb;
-    --primary-hover: #1d4ed8;
-    --success-color: #16a34a;
-    --danger-color: #dc2626;
-    --danger-hover: #b91c1c;
-    --warning-color: #f59e0b;
-    --tag-bg: #e0e7ff;
-    --tag-text: #3730a3;
-    --canon-bg: #d1fae5;
-    --canon-text: #065f46;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.1);
-    --radius: 8px;
+    --bg-primary: #ffffff; --bg-secondary: #f5f5f5; --bg-card: #ffffff; --bg-input: #ffffff;
+    --text-primary: #1a1a1a; --text-secondary: #666666; --text-muted: #999999;
+    --border-color: #e0e0e0; --primary-color: #2563eb; --primary-hover: #1d4ed8;
+    --success-color: #16a34a; --danger-color: #dc2626; --danger-hover: #b91c1c;
+    --warning-color: #f59e0b; --canon-bg: #d1fae5; --canon-text: #065f46;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08); --shadow-md: 0 4px 12px rgba(0,0,0,0.1); --radius: 8px;
 }
-
 [data-theme="dark"] {
-    --bg-primary: #1a1a2e;
-    --bg-secondary: #16213e;
-    --bg-card: #1e293b;
-    --bg-input: #0f172a;
-    --text-primary: #e2e8f0;
-    --text-secondary: #94a3b8;
-    --text-muted: #64748b;
-    --border-color: #334155;
-    --primary-color: #3b82f6;
-    --primary-hover: #2563eb;
-    --tag-bg: #312e81;
-    --tag-text: #c7d2fe;
-    --canon-bg: #064e3b;
-    --canon-text: #a7f3d0;
-    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-    --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
+    --bg-primary: #1a1a2e; --bg-secondary: #16213e; --bg-card: #1e293b; --bg-input: #0f172a;
+    --text-primary: #e2e8f0; --text-secondary: #94a3b8; --text-muted: #64748b;
+    --border-color: #334155; --primary-color: #3b82f6; --primary-hover: #2563eb;
+    --canon-bg: #064e3b; --canon-text: #a7f3d0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.3); --shadow-md: 0 4px 12px rgba(0,0,0,0.4);
 }
-
-/*═══════════════════════════════════════════════════════════════════════
-   RESET & BASE
-   ═══════════════════════════════════════════════════════════════════════*/
 * { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    min-height: 100vh;
-}
-
-/*═══════════════════════════════════════════════════════════════════════
-   HEADER
-   ═══════════════════════════════════════════════════════════════════════*/
-.header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 12px 24px;
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.header-left {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.header-left img.logo {
-    height: 32px;
-}
-
-.header-title {
-    font-size: 18px;
-    font-weight: 600;
-}
-
-.header-title small {
-    font-size: 12px;
-    color: var(--text-muted);
-    font-weight: 400;
-    margin-left: 8px;
-}
-
-.header-right {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.icon-button {
-    background: none;
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    padding: 6px 10px;
-    cursor: pointer;
-    font-size: 16px;
-    color: var(--text-primary);
-    transition: background 0.2s;
-}
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--bg-primary); color: var(--text-primary); line-height: 1.6; min-height: 100vh; }
+.header { display: flex; align-items: center; justify-content: space-between; padding: 12px 24px; background: var(--bg-secondary); border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 100; }
+.header-left { display: flex; align-items: center; gap: 12px; }
+.header-left img.logo { height: 32px; }
+.header-title { font-size: 18px; font-weight: 600; }
+.header-title small { font-size: 12px; color: var(--text-muted); font-weight: 400; margin-left: 8px; }
+.header-right { display: flex; align-items: center; gap: 8px; }
+.icon-button { background: none; border: 1px solid var(--border-color); border-radius: var(--radius); padding: 6px 10px; cursor: pointer; font-size: 16px; color: var(--text-primary); transition: background 0.2s; }
 .icon-button:hover { background: var(--bg-secondary); }
-
-/*═══════════════════════════════════════════════════════════════════════
-   MAIN CONTAINER
-   ═══════════════════════════════════════════════════════════════════════*/
-.main-container {
-    max-width: 960px;
-    margin: 24px auto;
-    padding: 0 20px;
-}
-
-/*═══════════════════════════════════════════════════════════════════════
-   PATIENT INFO CARD
-   ═══════════════════════════════════════════════════════════════════════*/
-.patient-card {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-sm);
-    padding: 24px;
-    margin-bottom: 20px;
-}
-
-.patient-card h2 {
-    font-size: 20px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.patient-id {
-    background: var(--primary-color);
-    color: white;
-    padding: 2px 10px;
-    border-radius: 12px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 12px;
-    margin-bottom: 16px;
-}
-
-.info-item {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-}
-
-.info-label {
-    font-size: 11px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-    font-weight: 600;
-    letter-spacing: 0.5px;
-}
-
-.info-value {
-    font-size: 15px;
-    color: var(--text-primary);
-}
-
-.info-value input, .info-value select {
-    width: 100%;
-    padding: 6px 10px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--bg-input);
-    color: var(--text-primary);
-    font-size: 14px;
-    font-family: inherit;
-}
-
-.info-value input:focus, .info-value select:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
-}
-
-/*═══════════════════════════════════════════════════════════════════════
-   TAGS EDITOR
-   ═══════════════════════════════════════════════════════════════════════*/
-.tags-section {
-    background: var(--bg-card);
-    border: 1px solid var(--border-color);
-    border-radius: var(--radius);
-    box-shadow: var(--shadow-sm);
-    padding: 24px;
-    margin-bottom: 20px;
-}
-
-.tags-section h2 {
-    font-size: 18px;
-    margin-bottom: 8px;
-}
-
-.tags-section .section-help {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-bottom: 16px;
-    line-height: 1.5;
-}
-
-.tag-line {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    margin-bottom: 10px;
-    animation: fadeIn 0.2s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-4px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.tag-line input.tag-input {
-    flex: 1;
-    padding: 8px 12px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--bg-input);
-    color: var(--text-primary);
-    font-size: 14px;
-    font-family: inherit;
-}
-
-.tag-line input.tag-input:focus {
-    outline: none;
-    border-color: var(--primary-color);
-    box-shadow: 0 0 0 2px rgba(37,99,235,0.2);
-}
-
-.tag-line .canon-preview {
-    font-size: 12px;
-    padding: 4px 10px;
-    border-radius: 12px;
-    background: var(--canon-bg);
-    color: var(--canon-text);
-    white-space: nowrap;
-    min-width: 120px;
-    text-align: center;
-    cursor: help;
-    transition: all 0.2s;
-}
-
-.tag-line .canon-preview.empty {
-    background: var(--bg-secondary);
-    color: var(--text-muted);
-    font-style: italic;
-}
-
-.tag-line .canon-preview.error {
-    background: #fef2f2;
-    color: var(--danger-color);
-}
-[data-theme="dark"] .tag-line .canon-preview.error {
-    background: #450a0a;
-}
-
-.btn-icon {
-    width: 32px;
-    height: 32px;
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 16px;
-    transition: all 0.15s;
-    flex-shrink: 0;
-}
-
+.main-container { max-width: 960px; margin: 24px auto; padding: 0 20px; }
+.patient-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 24px; margin-bottom: 20px; }
+.patient-card h2 { font-size: 20px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.patient-id { background: var(--primary-color); color: white; padding: 2px 10px; border-radius: 12px; font-size: 14px; font-weight: 600; }
+.info-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin-bottom: 16px; }
+.info-item { display: flex; flex-direction: column; gap: 2px; }
+.info-label { font-size: 11px; text-transform: uppercase; color: var(--text-muted); font-weight: 600; letter-spacing: 0.5px; }
+.info-value input, .info-value select { width: 100%; padding: 6px 10px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-input); color: var(--text-primary); font-size: 14px; font-family: inherit; }
+.info-value input:focus, .info-value select:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 2px rgba(37,99,235,0.2); }
+.info-value input[readonly] { background: var(--bg-secondary); cursor: not-allowed; }
+.tags-section { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 24px; margin-bottom: 20px; }
+.tags-section h2 { font-size: 18px; margin-bottom: 8px; }
+.tags-section .section-help { font-size: 13px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5; }
+.tag-line { display: flex; align-items: center; gap: 8px; margin-bottom: 10px; animation: fadeIn 0.2s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.tag-line input.tag-input { flex: 1; padding: 8px 12px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-input); color: var(--text-primary); font-size: 14px; font-family: inherit; }
+.tag-line input.tag-input:focus { outline: none; border-color: var(--primary-color); box-shadow: 0 0 0 2px rgba(37,99,235,0.2); }
+.tag-line .canon-preview { font-size: 12px; padding: 4px 10px; border-radius: 12px; background: var(--canon-bg); color: var(--canon-text); white-space: nowrap; min-width: 120px; text-align: center; cursor: help; transition: all 0.2s; }
+.tag-line .canon-preview.empty { background: var(--bg-secondary); color: var(--text-muted); font-style: italic; }
+.tag-line .canon-preview.error { background: #fef2f2; color: var(--danger-color); }
+[data-theme="dark"] .tag-line .canon-preview.error { background: #450a0a; }
+.btn-icon { width: 32px; height: 32px; border: 1px solid var(--border-color); border-radius: 6px; background: var(--bg-secondary); color: var(--text-primary); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: all 0.15s; flex-shrink: 0; }
 .btn-icon:hover { background: var(--border-color); }
 .btn-icon.danger:hover { background: #fef2f2; color: var(--danger-color); }
 [data-theme="dark"] .btn-icon.danger:hover { background: #450a0a; }
-
-.btn-add-line {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-    padding: 6px 14px;
-    border: 1px dashed var(--border-color);
-    border-radius: 6px;
-    background: transparent;
-    color: var(--text-secondary);
-    cursor: pointer;
-    font-size: 13px;
-    transition: all 0.15s;
-    margin-top: 4px;
-}
-.btn-add-line:hover {
-    border-color: var(--primary-color);
-    color: var(--primary-color);
-    background: rgba(37,99,235,0.05);
-}
-
-/*═══════════════════════════════════════════════════════════════════════
-   ACTIONS BAR
-   ═══════════════════════════════════════════════════════════════════════*/
-.actions-bar {
-    display: flex;
-    justify-content: flex-end;
-    gap: 12px;
-    margin-bottom: 20px;
-}
-
-.btn {
-    padding: 10px 24px;
-    border: none;
-    border-radius: var(--radius);
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.15s;
-    display: flex;
-    align-items: center;
-    gap: 6px;
-}
-
-.btn-primary {
-    background: var(--primary-color);
-    color: white;
-}
+.btn-add-line { display: flex; align-items: center; gap: 6px; padding: 6px 14px; border: 1px dashed var(--border-color); border-radius: 6px; background: transparent; color: var(--text-secondary); cursor: pointer; font-size: 13px; transition: all 0.15s; margin-top: 4px; }
+.btn-add-line:hover { border-color: var(--primary-color); color: var(--primary-color); background: rgba(37,99,235,0.05); }
+.actions-bar { display: flex; justify-content: flex-end; gap: 12px; margin-bottom: 20px; }
+.btn { padding: 10px 24px; border: none; border-radius: var(--radius); font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.15s; display: flex; align-items: center; gap: 6px; }
+.btn-primary { background: var(--primary-color); color: white; }
 .btn-primary:hover { background: var(--primary-hover); }
-.btn-primary:disabled {
-    opacity: 0.5;
-    cursor: not-allowed;
-}
-
-.btn-success {
-    background: var(--success-color);
-    color: white;
-}
+.btn-primary:disabled { opacity: 0.5; cursor: not-allowed; }
+.btn-success { background: var(--success-color); color: white; }
 .btn-success:hover { background: #15803d; }
-
-.btn-danger {
-    background: var(--danger-color);
-    color: white;
-}
-.btn-danger:hover { background: var(--danger-hover); }
-
-.btn-secondary {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
-    border: 1px solid var(--border-color);
-}
+.btn-secondary { background: var(--bg-secondary); color: var(--text-primary); border: 1px solid var(--border-color); }
 .btn-secondary:hover { background: var(--border-color); }
-
-/*═══════════════════════════════════════════════════════════════════════
-   CONFIRMATION MODAL
-   ═══════════════════════════════════════════════════════════════════════*/
-.modal-overlay {
-    display: none;
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.5);
-    z-index: 1000;
-    justify-content: center;
-    align-items: center;
-}
+.modal-overlay { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.5); z-index: 1000; justify-content: center; align-items: center; }
 .modal-overlay.active { display: flex; }
-
-.modal {
-    background: var(--bg-card);
-    border-radius: 12px;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-    max-width: 700px;
-    width: 95%;
-    max-height: 85vh;
-    overflow-y: auto;
-    padding: 28px;
-}
-
-.modal h3 {
-    font-size: 18px;
-    margin-bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-}
-
-.diff-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 13px;
-    margin-bottom: 16px;
-}
-
-.diff-table th {
-    text-align: left;
-    padding: 8px 12px;
-    background: var(--bg-secondary);
-    border-bottom: 2px solid var(--border-color);
-    font-size: 11px;
-    text-transform: uppercase;
-    color: var(--text-muted);
-}
-
-.diff-table td {
-    padding: 8px 12px;
-    border-bottom: 1px solid var(--border-color);
-    vertical-align: top;
-}
-
+.modal { background: var(--bg-card); border-radius: 12px; box-shadow: 0 20px 60px rgba(0,0,0,0.3); max-width: 700px; width: 95%; max-height: 85vh; overflow-y: auto; padding: 28px; }
+.modal h3 { font-size: 18px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+.diff-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-bottom: 16px; }
+.diff-table th { text-align: left; padding: 8px 12px; background: var(--bg-secondary); border-bottom: 2px solid var(--border-color); font-size: 11px; text-transform: uppercase; color: var(--text-muted); }
+.diff-table td { padding: 8px 12px; border-bottom: 1px solid var(--border-color); vertical-align: top; }
 .diff-table .old { color: var(--danger-color); text-decoration: line-through; opacity: 0.7; }
 .diff-table .new { color: var(--success-color); font-weight: 500; }
 .diff-table .unchanged { color: var(--text-secondary); }
-
-.modal-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 20px;
-    padding-top: 16px;
-    border-top: 1px solid var(--border-color);
-}
-
-/*═══════════════════════════════════════════════════════════════════════
-   STATUS & ALERTS
-   ═══════════════════════════════════════════════════════════════════════*/
-.status-bar {
-    padding: 10px 16px;
-    border-radius: var(--radius);
-    margin-bottom: 16px;
-    font-size: 14px;
-    display: none;
-}
+.modal-actions { display: flex; justify-content: flex-end; gap: 10px; margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-color); }
+.status-bar { padding: 10px 16px; border-radius: var(--radius); margin-bottom: 16px; font-size: 14px; display: none; }
 .status-bar.active { display: block; }
 .status-bar.info { background: #eff6ff; color: #1e40af; border: 1px solid #bfdbfe; }
 .status-bar.success { background: #f0fdf4; color: #166534; border: 1px solid #bbf7d0; }
@@ -473,536 +106,210 @@ body {
 [data-theme="dark"] .status-bar.info { background: #1e3a5f; color: #93c5fd; border-color: #1e40af; }
 [data-theme="dark"] .status-bar.success { background: #052e16; color: #86efac; border-color: #166534; }
 [data-theme="dark"] .status-bar.error { background: #450a0a; color: #fca5a5; border-color: #991b1b; }
-
-.loading-spinner {
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 2px solid var(--border-color);
-    border-top-color: var(--primary-color);
-    border-radius: 50%;
-    animation: spin 0.6s linear infinite;
-    vertical-align: middle;
-    margin-right: 6px;
-}
+.loading-spinner { display: inline-block; width: 16px; height: 16px; border: 2px solid var(--border-color); border-top-color: var(--primary-color); border-radius: 50%; animation: spin 0.6s linear infinite; vertical-align: middle; margin-right: 6px; }
 @keyframes spin { to { transform: rotate(360deg); } }
-
-/*═══════════════════════════════════════════════════════════════════════
-   RESPONSIVE
-   ═══════════════════════════════════════════════════════════════════════*/
 @media (max-width: 640px) {
-    .header { padding: 10px 14px; }
-    .main-container { padding: 0 12px; margin-top: 16px; }
-    .patient-card, .tags-section { padding: 16px; }
-    .info-grid { grid-template-columns: 1fr 1fr; }
-    .tag-line { flex-wrap: wrap; }
-    .tag-line input.tag-input { min-width: 100%; }
-    .tag-line .canon-preview { min-width: unset; }
-    .actions-bar { flex-wrap: wrap; }
+    .header { padding: 10px 14px; } .main-container { padding: 0 12px; margin-top: 16px; }
+    .patient-card, .tags-section { padding: 16px; } .info-grid { grid-template-columns: 1fr 1fr; }
+    .tag-line { flex-wrap: wrap; } .tag-line input.tag-input { min-width: 100%; }
+    .tag-line .canon-preview { min-width: unset; } .actions-bar { flex-wrap: wrap; }
 }
     </style>
 </head>
 <body>
-
-    <!-- Header -->
     <header class="header">
         <div class="header-left">
-            <img src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png" alt="Logo" class="logo">
-            <div class="header-title">
-                Modification Patient
-                <small id="headerBaseName"></small>
-            </div>
+            <img src="https://www.kitview.com/wp-content/uploads/2023/03/cropped-logo-kitview-1.png" alt="Logo Kitview" class="logo">
+            <div class="header-title">Modification Patient <small id="headerBaseName"></small></div>
         </div>
         <div class="header-right">
-            <button class="icon-button" id="btnBack" title="Retour à la recherche">↩</button>
-            <button class="icon-button" id="themeToggle" title="Changer le thème">🌙</button>
+            <button class="icon-button" id="btnBack" title="Retour">&#x21A9;</button>
+            <button class="icon-button" id="themeToggle" title="Thème">&#x1F319;</button>
         </div>
     </header>
-
-    <!-- Status bar -->
     <div class="main-container">
         <div class="status-bar" id="statusBar"></div>
-
-        <!-- Patient info card -->
         <div class="patient-card" id="patientCard" style="display:none;">
-            <h2>
-                <span>📋</span>
-                Patient <span class="patient-id" id="displayId"></span>
-                <span id="displayName" style="font-weight:400; color:var(--text-secondary); font-size:16px; margin-left:8px;"></span>
-            </h2>
-
+            <h2><span>&#x1F4CB;</span> Patient <span class="patient-id" id="displayId"></span>
+                <span id="displayName" style="font-weight:400;color:var(--text-secondary);font-size:16px;margin-left:8px;"></span></h2>
             <div class="info-grid">
-                <div class="info-item">
-                    <span class="info-label">Prénom</span>
-                    <div class="info-value"><input type="text" id="fieldPrenom" /></div>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">Nom</span>
-                    <div class="info-value"><input type="text" id="fieldNom" /></div>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">Sexe</span>
-                    <div class="info-value">
-                        <select id="fieldSexe">
-                            <option value="M">M</option>
-                            <option value="F">F</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">Âge</span>
-                    <div class="info-value"><input type="text" id="fieldAge" readonly style="background:var(--bg-secondary);cursor:not-allowed;" /></div>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">Date de naissance</span>
-                    <div class="info-value"><input type="date" id="fieldDateNaissance" /></div>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">ID Portrait</span>
-                    <div class="info-value"><input type="text" id="fieldIdPortrait" /></div>
-                </div>
+                <div class="info-item"><span class="info-label">Prénom</span><div class="info-value"><input type="text" id="fieldPrenom" /></div></div>
+                <div class="info-item"><span class="info-label">Nom</span><div class="info-value"><input type="text" id="fieldNom" /></div></div>
+                <div class="info-item"><span class="info-label">Sexe</span><div class="info-value"><select id="fieldSexe"><option value="M">M</option><option value="F">F</option></select></div></div>
+                <div class="info-item"><span class="info-label">Âge</span><div class="info-value"><input type="text" id="fieldAge" readonly /></div></div>
+                <div class="info-item"><span class="info-label">Date de naissance</span><div class="info-value"><input type="date" id="fieldDateNaissance" /></div></div>
+                <div class="info-item"><span class="info-label">ID Portrait &#x1F512;</span><div class="info-value"><input type="text" id="fieldIdPortrait" readonly title="Lié à portraits.csv et photofit.db — modification non autorisée" /></div></div>
             </div>
         </div>
-
-        <!-- Tags editor -->
         <div class="tags-section" id="tagsSection" style="display:none;">
-            <h2>🏷️ Pathologies (tags + adjectifs)</h2>
-            <div class="section-help">
-                Chaque ligne = un tag suivi de ses adjectifs. Vous pouvez saisir des synonymes, 
-                le système résoudra les formes canoniques (affichées en vert à droite).
-                Validez pour voir la prévisualisation.
-            </div>
-
+            <h2>&#x1F3F7;&#xFE0F; Pathologies (tags + adjectifs)</h2>
+            <div class="section-help">Chaque ligne = un tag suivi de ses adjectifs. Vous pouvez saisir des synonymes, le système résoudra les formes canoniques (affichées en vert à droite).</div>
             <div id="tagLinesContainer"></div>
-
             <button class="btn-add-line" id="btnAddLine">+ Ajouter une ligne</button>
         </div>
-
-        <!-- Actions -->
         <div class="actions-bar" id="actionsBar" style="display:none;">
-            <button class="btn btn-secondary" id="btnResolve">🔍 Résoudre les tags</button>
-            <button class="btn btn-primary" id="btnValidate" disabled>✅ Valider la modification</button>
+            <button class="btn btn-secondary" id="btnResolve">&#x1F50D; Résoudre les tags</button>
+            <button class="btn btn-primary" id="btnValidate" disabled>&#x2705; Valider la modification</button>
         </div>
     </div>
-
-    <!-- Confirmation modal -->
     <div class="modal-overlay" id="confirmModal">
         <div class="modal">
-            <h3>⚠️ Confirmer la modification</h3>
+            <h3>&#x26A0;&#xFE0F; Confirmer la modification</h3>
             <div id="modalContent"></div>
             <div class="modal-actions">
                 <button class="btn btn-secondary" id="btnCancelModal">Annuler</button>
-                <button class="btn btn-success" id="btnConfirmModal">✅ Confirmer et mettre à jour</button>
+                <button class="btn btn-success" id="btnConfirmModal">&#x2705; Confirmer et mettre à jour</button>
             </div>
         </div>
     </div>
-
 <script>
-/*═══════════════════════════════════════════════════════════════════════
-   CONFIGURATION
-   ═══════════════════════════════════════════════════════════════════════*/
-const API_BASE_URL = (function() {
-    const origin = window.location.origin;
-    if (origin.includes('onrender.com') || origin.startsWith('http://localhost') || origin.startsWith('http://127.0.0.1')) return origin;
-    if (origin.startsWith('file://') || origin === 'null') return 'http://localhost:8000';
-    return origin;
+const API_BASE_URL = (() => {
+    const o = window.location.origin;
+    if (o.includes('onrender.com') || o.startsWith('http://localhost') || o.startsWith('http://127.0.0.1')) return o;
+    if (o.startsWith('file://') || o === 'null') return 'http://localhost:8000';
+    return o;
 })();
-
-/*═══════════════════════════════════════════════════════════════════════
-   ÉTAT
-   ═══════════════════════════════════════════════════════════════════════*/
-let currentBase = '';
-let currentId = null;
-let originalPatient = null;   // Données originales
-let resolvedData = null;      // Données résolues par dettags
-
-/*═══════════════════════════════════════════════════════════════════════
-   URL PARAMS
-   ═══════════════════════════════════════════════════════════════════════*/
+let currentBase = '', currentId = null, originalPatient = null, resolvedData = null;
 const urlParams = new URLSearchParams(window.location.search);
 currentBase = urlParams.get('base') || '';
 currentId = parseInt(urlParams.get('id')) || null;
+document.getElementById('headerBaseName').textContent = currentBase ? '(' + currentBase + ')' : '';
 
-document.getElementById('headerBaseName').textContent = currentBase ? `(${currentBase})` : '';
-
-/*═══════════════════════════════════════════════════════════════════════
-   THEME
-   ═══════════════════════════════════════════════════════════════════════*/
+/* THEME */
 function initTheme() {
-    const saved = localStorage.getItem('theme');
-    if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    const s = localStorage.getItem('theme');
+    if (s === 'dark' || (!s && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
         document.documentElement.setAttribute('data-theme', 'dark');
-        document.getElementById('themeToggle').textContent = '☀️';
+        document.getElementById('themeToggle').textContent = '\u2600\uFE0F';
     }
 }
-
 document.getElementById('themeToggle').addEventListener('click', () => {
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
-    document.getElementById('themeToggle').textContent = isDark ? '🌙' : '☀️';
-    localStorage.setItem('theme', isDark ? 'light' : 'dark');
+    const d = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', d ? 'light' : 'dark');
+    document.getElementById('themeToggle').textContent = d ? '\uD83C\uDF19' : '\u2600\uFE0F';
+    localStorage.setItem('theme', d ? 'light' : 'dark');
 });
-
 initTheme();
+document.getElementById('btnBack').addEventListener('click', () => { if (window.opener) window.close(); else history.back(); });
 
-/*═══════════════════════════════════════════════════════════════════════
-   RETOUR
-   ═══════════════════════════════════════════════════════════════════════*/
-document.getElementById('btnBack').addEventListener('click', () => {
-    if (window.opener) {
-        window.close();
-    } else {
-        history.back();
-    }
-});
+/* STATUS */
+function showStatus(msg, type) { const b = document.getElementById('statusBar'); b.className = 'status-bar active ' + (type||'info'); b.innerHTML = msg; }
+function hideStatus() { document.getElementById('statusBar').className = 'status-bar'; }
 
-/*═══════════════════════════════════════════════════════════════════════
-   STATUS HELPER
-   ═══════════════════════════════════════════════════════════════════════*/
-function showStatus(msg, type = 'info') {
-    const bar = document.getElementById('statusBar');
-    bar.className = `status-bar active ${type}`;
-    bar.innerHTML = msg;
-}
-
-function hideStatus() {
-    document.getElementById('statusBar').className = 'status-bar';
-}
-
-/*═══════════════════════════════════════════════════════════════════════
-   FUSION canontags + canonadjs → lignes affichées
-   ═══════════════════════════════════════════════════════════════════════*/
-function mergeTagsAdjs(canontags, canonadjs) {
-    const tags = (canontags || '').split(',').map(t => t.trim());
-    const adjsGroups = (canonadjs || '').split(',').map(g => g.trim());
-    
-    const lines = [];
-    for (let i = 0; i < tags.length; i++) {
-        const tag = tags[i];
-        if (!tag) continue;
-        const adjsStr = (i < adjsGroups.length) ? adjsGroups[i] : '';
-        const adjs = adjsStr.split('|').map(a => a.trim()).filter(a => a);
-        adjs.sort((a, b) => a.localeCompare(b, 'fr'));
-        const line = [tag, ...adjs].join(' ');
-        lines.push(line);
-    }
+/* MERGE canontags+canonadjs */
+function mergeTagsAdjs(ct, ca) {
+    const tags = (ct||'').split(',').map(t=>t.trim()), ag = (ca||'').split(',').map(g=>g.trim()), lines = [];
+    for (let i = 0; i < tags.length; i++) { if (!tags[i]) continue; const a = (i<ag.length?ag[i]:'').split('|').map(x=>x.trim()).filter(x=>x); a.sort((x,y)=>x.localeCompare(y,'fr')); lines.push([tags[i],...a].join(' ')); }
     return lines;
 }
 
-/*═══════════════════════════════════════════════════════════════════════
-   GESTION DES LIGNES DE TAGS
-   ═══════════════════════════════════════════════════════════════════════*/
+/* TAG LINES */
 let tagLineCounter = 0;
-
-function addTagLine(value = '', canonTag = '', canonAdjs = '') {
+function addTagLine(value, canonTag, canonAdjs) {
     tagLineCounter++;
-    const container = document.getElementById('tagLinesContainer');
-    const lineDiv = document.createElement('div');
-    lineDiv.className = 'tag-line';
-    lineDiv.dataset.lineId = tagLineCounter;
-
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.className = 'tag-input';
-    input.value = value;
-    input.placeholder = 'Ex: béance antérieure sévère';
-    input.addEventListener('input', onTagInputChange);
-
-    const canonPreview = document.createElement('span');
-    canonPreview.className = 'canon-preview empty';
-    if (canonTag) {
-        const adjs = canonAdjs ? canonAdjs.split('|').sort((a, b) => a.localeCompare(b, 'fr')).join(', ') : '';
-        canonPreview.textContent = canonTag + (adjs ? ' → ' + adjs : '');
-        canonPreview.className = 'canon-preview';
-        canonPreview.title = `canontag: ${canonTag}\ncanonadjs: ${canonAdjs || '(aucun)'}`;
-    } else {
-        canonPreview.textContent = '…';
-        canonPreview.title = 'Cliquez "Résoudre" pour voir les formes canoniques';
-    }
-
-    const btnRemove = document.createElement('button');
-    btnRemove.className = 'btn-icon danger';
-    btnRemove.textContent = '✕';
-    btnRemove.title = 'Supprimer cette ligne';
-    btnRemove.addEventListener('click', () => {
-        const allLines = container.querySelectorAll('.tag-line');
-        if (allLines.length <= 1) {
-            showStatus('⚠️ Il faut au moins une ligne de pathologie.', 'error');
-            setTimeout(hideStatus, 3000);
-            return;
-        }
-        lineDiv.style.opacity = '0';
-        lineDiv.style.transform = 'translateX(20px)';
-        lineDiv.style.transition = 'all 0.2s';
-        setTimeout(() => lineDiv.remove(), 200);
-        onTagInputChange();
-    });
-
-    lineDiv.appendChild(input);
-    lineDiv.appendChild(canonPreview);
-    lineDiv.appendChild(btnRemove);
-    container.appendChild(lineDiv);
+    const c = document.getElementById('tagLinesContainer'), d = document.createElement('div');
+    d.className = 'tag-line';
+    const inp = document.createElement('input'); inp.type='text'; inp.className='tag-input'; inp.value=value||''; inp.placeholder='Ex: béance antérieure sévère'; inp.addEventListener('input', onTagInputChange);
+    const cp = document.createElement('span');
+    if (canonTag) { const a = canonAdjs ? canonAdjs.split('|').sort((x,y)=>x.localeCompare(y,'fr')).join(', ') : ''; cp.className='canon-preview'; cp.textContent=canonTag+(a?' \u2192 '+a:''); cp.title='canontag: '+canonTag+'\ncanonadjs: '+(canonAdjs||'(aucun)'); }
+    else { cp.className='canon-preview empty'; cp.textContent='\u2026'; }
+    const br = document.createElement('button'); br.className='btn-icon danger'; br.textContent='\u2715'; br.title='Supprimer';
+    br.addEventListener('click', () => { if (c.querySelectorAll('.tag-line').length<=1) { showStatus('\u26A0\uFE0F Au moins une ligne requise.','error'); setTimeout(hideStatus,3000); return; } d.style.opacity='0'; d.style.transition='all 0.2s'; setTimeout(()=>d.remove(),200); onTagInputChange(); });
+    d.appendChild(inp); d.appendChild(cp); d.appendChild(br); c.appendChild(d);
 }
+function onTagInputChange() { resolvedData=null; document.getElementById('btnValidate').disabled=true; document.querySelectorAll('.tag-line .canon-preview').forEach(el=>{el.className='canon-preview empty';el.textContent='\u2026';}); }
+document.getElementById('btnAddLine').addEventListener('click', ()=>addTagLine());
 
-function onTagInputChange() {
-    // Reset resolved state
-    resolvedData = null;
-    document.getElementById('btnValidate').disabled = true;
-    // Reset canon previews
-    document.querySelectorAll('.tag-line .canon-preview').forEach(el => {
-        el.className = 'canon-preview empty';
-        el.textContent = '…';
-    });
-}
-
-document.getElementById('btnAddLine').addEventListener('click', () => addTagLine());
-
-/*═══════════════════════════════════════════════════════════════════════
-   CHARGEMENT DU PATIENT
-   ═══════════════════════════════════════════════════════════════════════*/
-async function loadPatient(silent = false) {
-    if (!currentBase || !currentId) {
-        showStatus('❌ Paramètres manquants dans l\'URL. Attendu : ?base=baseN.db&id=XXXXX', 'error');
-        return;
-    }
-
-    if (!silent) {
-        showStatus('<span class="loading-spinner"></span> Chargement du patient...', 'info');
-    }
-
+/* LOAD PATIENT */
+async function loadPatient(silent) {
+    if (!currentBase||!currentId) { showStatus('\u274C Paramètres manquants (?base=...&id=...)','error'); return; }
+    if (!silent) showStatus('<span class="loading-spinner"></span> Chargement du patient...','info');
     try {
-        const resp = await fetch(`${API_BASE_URL}/patient?base=${encodeURIComponent(currentBase)}&id=${currentId}`);
-        if (!resp.ok) {
-            const err = await resp.json().catch(() => ({ detail: resp.statusText }));
-            throw new Error(err.detail || `HTTP ${resp.status}`);
-        }
-
-        originalPatient = await resp.json();
-        displayPatient(originalPatient);
-        if (!silent) {
-            hideStatus();
-        }
-    } catch (e) {
-        showStatus(`❌ Erreur : ${e.message}`, 'error');
-    }
+        const r = await fetch(API_BASE_URL+'/patient?base='+encodeURIComponent(currentBase)+'&id='+currentId);
+        if (!r.ok) throw new Error((await r.json().catch(()=>({}))).detail||'HTTP '+r.status);
+        originalPatient = await r.json(); displayPatient(originalPatient);
+        if (!silent) hideStatus();
+    } catch(e) { showStatus('\u274C Erreur : '+e.message,'error'); }
 }
-
 function displayPatient(p) {
     document.getElementById('displayId').textContent = p.id;
-    document.getElementById('displayName').textContent = `${p.prenom || ''} ${p.nom || ''}`.trim();
-    
-    document.getElementById('fieldPrenom').value = p.prenom || '';
-    document.getElementById('fieldNom').value = p.nom || '';
-    document.getElementById('fieldSexe').value = p.sexe || 'M';
+    document.getElementById('displayName').textContent = ((p.prenom||'')+' '+(p.nom||'')).trim();
+    document.getElementById('fieldPrenom').value = p.prenom||'';
+    document.getElementById('fieldNom').value = p.nom||'';
+    document.getElementById('fieldSexe').value = p.sexe||'M';
     document.getElementById('fieldAge').value = p.age ? parseFloat(p.age).toFixed(1) : '';
-    document.getElementById('fieldDateNaissance').value = p.datenaissance || '';
-    document.getElementById('fieldIdPortrait').value = p.idportrait || '';
-
-    // Fusionner canontags + canonadjs en lignes
+    document.getElementById('fieldDateNaissance').value = p.datenaissance||'';
+    document.getElementById('fieldIdPortrait').value = p.idportrait||'';
     const lines = mergeTagsAdjs(p.canontags, p.canonadjs);
-    
-    // Créer les tag lines avec les canoniques d'origine
-    const tags = (p.canontags || '').split(',').map(t => t.trim());
-    const adjsGroups = (p.canonadjs || '').split(',').map(g => g.trim());
-    
+    const tags = (p.canontags||'').split(',').map(t=>t.trim()), ag = (p.canonadjs||'').split(',').map(g=>g.trim());
     document.getElementById('tagLinesContainer').innerHTML = '';
-    for (let i = 0; i < lines.length; i++) {
-        addTagLine(lines[i], tags[i] || '', adjsGroups[i] || '');
-    }
-    if (lines.length === 0) addTagLine();
-
-    document.getElementById('patientCard').style.display = '';
-    document.getElementById('tagsSection').style.display = '';
-    document.getElementById('actionsBar').style.display = '';
+    for (let i=0;i<lines.length;i++) addTagLine(lines[i], tags[i]||'', ag[i]||'');
+    if (!lines.length) addTagLine();
+    document.getElementById('patientCard').style.display='';
+    document.getElementById('tagsSection').style.display='';
+    document.getElementById('actionsBar').style.display='';
 }
 
-/*═══════════════════════════════════════════════════════════════════════
-   RÉSOLUTION DES TAGS (appel dettags backend)
-   ═══════════════════════════════════════════════════════════════════════*/
+/* RESOLVE TAGS */
 document.getElementById('btnResolve').addEventListener('click', resolveTags);
-
 async function resolveTags() {
-    const lines = [];
-    document.querySelectorAll('.tag-line').forEach(div => {
-        const val = div.querySelector('.tag-input').value.trim();
-        if (val) lines.push(val);
-    });
-
-    if (lines.length === 0) {
-        showStatus('⚠️ Saisissez au moins une ligne de pathologie.', 'error');
-        setTimeout(hideStatus, 3000);
-        return;
-    }
-
-    showStatus('<span class="loading-spinner"></span> Résolution des tags via dettags...', 'info');
-
+    const lines=[]; document.querySelectorAll('.tag-line').forEach(d=>{const v=d.querySelector('.tag-input').value.trim();if(v)lines.push(v);});
+    if (!lines.length) { showStatus('\u26A0\uFE0F Saisissez au moins une ligne.','error'); setTimeout(hideStatus,3000); return; }
+    showStatus('<span class="loading-spinner"></span> Résolution des tags via dettags...','info');
     try {
-        const resp = await fetch(`${API_BASE_URL}/patient/resolve-tags`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ lines: lines })
-        });
-
-        if (!resp.ok) {
-            const err = await resp.json().catch(() => ({ detail: resp.statusText }));
-            throw new Error(err.detail || `HTTP ${resp.status}`);
-        }
-
-        resolvedData = await resp.json();
-
-        // Mettre à jour les previews
-        const tagDivs = document.querySelectorAll('.tag-line');
-        tagDivs.forEach((div, i) => {
-            const preview = div.querySelector('.canon-preview');
-            if (i < resolvedData.resolved.length) {
-                const r = resolvedData.resolved[i];
-                if (r.canontag) {
-                    const adjs = r.canonadjs ? r.canonadjs.split('|').sort((a, b) => a.localeCompare(b, 'fr')).join(', ') : '';
-                    preview.textContent = r.canontag + (adjs ? ' → ' + adjs : '');
-                    preview.className = 'canon-preview';
-                    preview.title = `canontag: ${r.canontag}\ncanonadjs: ${r.canonadjs || '(aucun)'}\nsource: "${r.input}"`;
-                } else {
-                    preview.textContent = '⚠ Non résolu';
-                    preview.className = 'canon-preview error';
-                    preview.title = `"${r.input}" non reconnu dans tags.csv`;
-                }
+        const r = await fetch(API_BASE_URL+'/patient/resolve-tags',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({lines})});
+        if (!r.ok) throw new Error((await r.json().catch(()=>({}))).detail||'HTTP '+r.status);
+        resolvedData = await r.json();
+        const divs = document.querySelectorAll('.tag-line');
+        divs.forEach((d,i)=>{
+            const p=d.querySelector('.canon-preview');
+            if (i<resolvedData.resolved.length) { const rr=resolvedData.resolved[i];
+                if (rr.canontag) { const a=rr.canonadjs?rr.canonadjs.split('|').sort((x,y)=>x.localeCompare(y,'fr')).join(', '):''; p.textContent=rr.canontag+(a?' \u2192 '+a:''); p.className='canon-preview'; p.title='canontag: '+rr.canontag+'\ncanonadjs: '+(rr.canonadjs||'(aucun)'); }
+                else { p.textContent='\u26A0 Non résolu'; p.className='canon-preview error'; }
             }
         });
-
-        // Vérifier si tout est résolu
-        const allResolved = resolvedData.resolved.every(r => r.canontag);
-        document.getElementById('btnValidate').disabled = !allResolved;
-
-        if (allResolved) {
-            showStatus('✅ Tous les tags sont résolus. Vous pouvez valider.', 'success');
-        } else {
-            showStatus('⚠️ Certains tags n\'ont pas été résolus. Vérifiez les lignes en erreur.', 'error');
-        }
-    } catch (e) {
-        showStatus(`❌ Erreur résolution : ${e.message}`, 'error');
-    }
+        const ok = resolvedData.resolved.every(r=>r.canontag);
+        document.getElementById('btnValidate').disabled = !ok;
+        showStatus(ok?'\u2705 Tous les tags résolus. Vous pouvez valider.':'\u26A0\uFE0F Certains tags non résolus.', ok?'success':'error');
+    } catch(e) { showStatus('\u274C Erreur résolution : '+e.message,'error'); }
 }
 
-/*═══════════════════════════════════════════════════════════════════════
-   VALIDATION → MODALE DE CONFIRMATION
-   ═══════════════════════════════════════════════════════════════════════*/
+/* CONFIRM */
 document.getElementById('btnValidate').addEventListener('click', showConfirmation);
-
 function showConfirmation() {
     if (!resolvedData) return;
-
-    // Recalculer les valeurs à écrire
-    const newCanontags = resolvedData.resolved.map(r => r.canontag).join(',');
-    const newCanonadjs = resolvedData.resolved.map(r => r.canonadjs || '').join(',');
-    const newOripatho = resolvedData.resolved.map(r => {
-        const adjs = r.canonadjs ? r.canonadjs.split('|').sort((a, b) => a.localeCompare(b, 'fr')).join(' ') : '';
-        return r.canontag + (adjs ? ' ' + adjs : '');
-    }).join(',');
-
-    // Construire le diff
-    let html = '<table class="diff-table">';
-    html += '<tr><th>Champ</th><th>Avant</th><th>Après</th></tr>';
-
-    const fields = [
-        { label: 'Prénom', old: originalPatient.prenom, new: document.getElementById('fieldPrenom').value },
-        { label: 'Nom', old: originalPatient.nom, new: document.getElementById('fieldNom').value },
-        { label: 'Sexe', old: originalPatient.sexe, new: document.getElementById('fieldSexe').value },
-        { label: 'Date naissance', old: originalPatient.datenaissance, new: document.getElementById('fieldDateNaissance').value },
-        { label: 'ID Portrait', old: originalPatient.idportrait, new: document.getElementById('fieldIdPortrait').value },
-        { label: 'canontags', old: originalPatient.canontags, new: newCanontags },
-        { label: 'canonadjs', old: originalPatient.canonadjs, new: newCanonadjs },
-        { label: 'oripathologies', old: originalPatient.oripathologies, new: newOripatho },
-    ];
-
-    for (const f of fields) {
-        const changed = f.old !== f.new;
-        const oldClass = changed ? 'old' : 'unchanged';
-        const newClass = changed ? 'new' : 'unchanged';
-        html += `<tr><td><strong>${f.label}</strong></td><td class="${oldClass}">${f.old || '—'}</td><td class="${newClass}">${f.new || '—'}</td></tr>`;
-    }
-
-    // Pathologies combinatoires
-    html += '<tr><td><strong>pathologies</strong><br><small>(recalculé)</small></td>';
-    html += `<td class="old" style="font-size:12px;">${originalPatient.pathologies || '—'}</td>`;
-    html += `<td class="new" style="font-size:12px;"><em>sera recalculé côté serveur</em></td></tr>`;
-
-    html += '</table>';
-
-    document.getElementById('modalContent').innerHTML = html;
-    document.getElementById('confirmModal').classList.add('active');
+    const ct = resolvedData.resolved.map(r=>r.canontag).join(',');
+    const ca = resolvedData.resolved.map(r=>r.canonadjs||'').join(',');
+    const op = resolvedData.resolved.map(r=>{ const a=r.canonadjs?r.canonadjs.split('|').sort((x,y)=>x.localeCompare(y,'fr')).join(' '):''; return r.canontag+(a?' '+a:''); }).join(',');
+    let h='<table class="diff-table"><tr><th>Champ</th><th>Avant</th><th>Après</th></tr>';
+    const fields=[{l:'Prénom',o:originalPatient.prenom,n:document.getElementById('fieldPrenom').value},{l:'Nom',o:originalPatient.nom,n:document.getElementById('fieldNom').value},{l:'Sexe',o:originalPatient.sexe,n:document.getElementById('fieldSexe').value},{l:'Date naissance',o:originalPatient.datenaissance,n:document.getElementById('fieldDateNaissance').value},{l:'ID Portrait',o:originalPatient.idportrait,n:document.getElementById('fieldIdPortrait').value},{l:'canontags',o:originalPatient.canontags,n:ct},{l:'canonadjs',o:originalPatient.canonadjs,n:ca},{l:'oripathologies',o:originalPatient.oripathologies,n:op}];
+    fields.forEach(f=>{const ch=f.o!==f.n;h+='<tr><td><strong>'+f.l+'</strong></td><td class="'+(ch?'old':'unchanged')+'">'+(f.o||'\u2014')+'</td><td class="'+(ch?'new':'unchanged')+'">'+(f.n||'\u2014')+'</td></tr>';});
+    h+='<tr><td><strong>pathologies</strong><br><small>(recalculé)</small></td><td class="old" style="font-size:12px;">'+(originalPatient.pathologies||'\u2014')+'</td><td class="new" style="font-size:12px;"><em>sera recalculé côté serveur</em></td></tr></table>';
+    document.getElementById('modalContent').innerHTML=h; document.getElementById('confirmModal').classList.add('active');
 }
+document.getElementById('btnCancelModal').addEventListener('click',()=>document.getElementById('confirmModal').classList.remove('active'));
 
-document.getElementById('btnCancelModal').addEventListener('click', () => {
-    document.getElementById('confirmModal').classList.remove('active');
-});
-
-/*═══════════════════════════════════════════════════════════════════════
-   MISE À JOUR EFFECTIVE
-   ═══════════════════════════════════════════════════════════════════════*/
+/* UPDATE */
 document.getElementById('btnConfirmModal').addEventListener('click', doUpdate);
-
 async function doUpdate() {
     document.getElementById('confirmModal').classList.remove('active');
-
-    const newCanontags = resolvedData.resolved.map(r => r.canontag).join(',');
-    const newCanonadjs = resolvedData.resolved.map(r => r.canonadjs || '').join(',');
-    const newOripatho = resolvedData.resolved.map(r => {
-        const adjs = r.canonadjs ? r.canonadjs.split('|').sort((a, b) => a.localeCompare(b, 'fr')).join(' ') : '';
-        return r.canontag + (adjs ? ' ' + adjs : '');
-    }).join(',');
-
-    const payload = {
-        base: currentBase,
-        id: currentId,
-        prenom: document.getElementById('fieldPrenom').value,
-        nom: document.getElementById('fieldNom').value,
-        sexe: document.getElementById('fieldSexe').value,
-        datenaissance: document.getElementById('fieldDateNaissance').value,
-        idportrait: document.getElementById('fieldIdPortrait').value,
-        canontags: newCanontags,
-        canonadjs: newCanonadjs,
-        oripathologies: newOripatho
-    };
-
-    showStatus('<span class="loading-spinner"></span> Mise à jour en cours...', 'info');
-
+    const ct = resolvedData.resolved.map(r=>r.canontag).join(',');
+    const ca = resolvedData.resolved.map(r=>r.canonadjs||'').join(',');
+    const op = resolvedData.resolved.map(r=>{ const a=r.canonadjs?r.canonadjs.split('|').sort((x,y)=>x.localeCompare(y,'fr')).join(' '):''; return r.canontag+(a?' '+a:''); }).join(',');
+    const payload = {base:currentBase,id:currentId,prenom:document.getElementById('fieldPrenom').value,nom:document.getElementById('fieldNom').value,sexe:document.getElementById('fieldSexe').value,datenaissance:document.getElementById('fieldDateNaissance').value,idportrait:document.getElementById('fieldIdPortrait').value,canontags:ct,canonadjs:ca,oripathologies:op};
+    showStatus('<span class="loading-spinner"></span> Mise à jour en cours...','info');
     try {
-        const resp = await fetch(`${API_BASE_URL}/patient/update`, {
-            method: 'PUT',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
-        });
-
-        if (!resp.ok) {
-            const err = await resp.json().catch(() => ({ detail: resp.statusText }));
-            throw new Error(err.detail || `HTTP ${resp.status}`);
-        }
-
-        const result = await resp.json();
-        const successMsg = `✅ Patient ${currentId} mis à jour avec succès ! (${result.nb_pathologies} pathologies indexées)`;
-        showStatus(successMsg, 'success');
-
-        // Recharger les données fraîches en mode silencieux (ne pas écraser le message)
+        const r = await fetch(API_BASE_URL+'/patient/update',{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)});
+        if (!r.ok) throw new Error((await r.json().catch(()=>({}))).detail||'HTTP '+r.status);
+        const res = await r.json();
+        const msg = '\u2705 Patient '+currentId+' mis à jour avec succès ! ('+res.nb_pathologies+' pathologies indexées)';
+        showStatus(msg,'success');
         await loadPatient(true);
-        
-        // Réafficher le message de succès (au cas où) et le garder 8 secondes
-        showStatus(successMsg, 'success');
-        setTimeout(hideStatus, 8000);
-    } catch (e) {
-        showStatus(`❌ Erreur mise à jour : ${e.message}`, 'error');
-    }
+        showStatus(msg,'success'); setTimeout(hideStatus,8000);
+    } catch(e) { showStatus('\u274C Erreur mise à jour : '+e.message,'error'); }
 }
-
-// Fermer modal avec Escape
-document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') document.getElementById('confirmModal').classList.remove('active');
-});
-
-/*═══════════════════════════════════════════════════════════════════════
-   INIT
-   ═══════════════════════════════════════════════════════════════════════*/
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('confirmModal').classList.remove('active');});
 loadPatient();
-
 </script>
 </body>
 </html>
