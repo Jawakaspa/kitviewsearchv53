@@ -4,7 +4,7 @@ __version__ = "0.0.0"
 __date__ = "07/03/2026 00:00"
 
 """
-synchro_render.py — Synchronisation C:\\cx → D:\\kitviewsearchv52 + push Render
+synchro_render.py — Synchronisation C:\\cx → D:\\kitviewsearchvNN + push Render
 
 Usage :
   python synchro_render.py                         # Affiche l'aide
@@ -232,7 +232,11 @@ def git_push(diff: dict, dst: Path = None, branch: str = "main") -> bool:
 
     # git commit
     nb = len(changed)
-    msg = f"KVS52 sync {datetime.now().strftime('%d/%m/%Y %H:%M')} — {nb} fichier(s) mis à jour"
+    # Déduire le label depuis le nom du dossier destination (ex: kitviewsearchv53 → KVS53)
+    import re
+    version_match = re.search(r'v(\d+)', dst.name, re.IGNORECASE)
+    label = f"KVS{version_match.group(1)}" if version_match else "KVS"
+    msg = f"{label} sync {datetime.now().strftime('%d/%m/%Y %H:%M')} — {nb} fichier(s) mis à jour"
     log(f"\n  📝 git commit : {msg}")
     r = subprocess.run(["git", "-C", str(dst), "commit", "-m", msg],
                        capture_output=True, text=True)

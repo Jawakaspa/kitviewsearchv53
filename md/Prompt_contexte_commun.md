@@ -98,6 +98,16 @@ Fichiers contenant des données utilisateur (motsvides.csv, ages.csv, glossaire.
 - Un fichier Python par opération de transformation
 - Debug intégré dès la conception
 
+## Sécurité
+
+On ne fait aucune confiance au client. Toute la sécurité doit être du côté serveur même si je n'ai rien contre une protection complémentaire côté client. Tout le code que tu produis doit être à l'état de l'art de la sécurité web en évitant les XSS, injections SQL, etc...
+
+Une implémentation comme celle que jci-dessous 'ai découverte dans un projet est totalement innaceptable : 
+
+"" **tous les endpoints acceptent n'importe quel nom de base** en paramètre. Quelqu'un peut simplement taper dans son navigateur `/count?base=prospects.db` ou `/patient?base=prospects.db&id=1` sans même toucher au JS.
+
+Le filtre côté client n'est qu'un confort d'affichage, pas une sécurité."
+
 ## Instructions IA
 
 - Respecter strictement les règles, pas de validations inutiles

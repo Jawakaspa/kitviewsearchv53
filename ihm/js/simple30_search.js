@@ -1,9 +1,9 @@
 /**
- * search.js V2.0.0 - 26/01/2026
+ * search.js V2.0.1 - 26/01/2026
  * Kitview Search - Module de recherche API
  * 
- * CHANGEMENTS V2.0.0 :
- *   - FILTRE BASES : Affiche uniquement base*.db (exclut test*.db, etc.)
+ * CHANGEMENTS V2.0.1 :
+ *   - FILTRE BASES : Affiche uniquement basexxx*.db (exclut test*.db, etc.) mais accepte basegg007.db refusé en 2.0.0
  * 
  * Ce module gère toutes les interactions avec l'API backend :
  * - Configuration de l'URL API
@@ -54,7 +54,7 @@ const API_BASE_URL = (function() {
 })();
 
 // Base par défaut
-const DEFAULT_BASE = 'base25000.db';
+const DEFAULT_BASE = 'base1964.db';
 
 /* ═══════════════════════════════════════════════════════════════════════
    ÉTAT DE LA RECHERCHE
@@ -196,12 +196,15 @@ async function loadAvailableBases() {
         const allBases = data.bases || [];
         
         // ╔═══════════════════════════════════════════════════════════════
-        // ║ V2.0.0 : Filtrer les bases - Garder uniquement base*.db
+        // ║ V2.0.1 : Filtrer les bases - Garder uniquement base*.db
         // ║ Pattern : commence par "base", suivi de chiffres, finit par ".db"
         // ║ Exclut : test*.db, brut*.db, net*.db, etc.
         // ╚═══════════════════════════════════════════════════════════════
-        const bases = allBases.filter(base => {
-            return /^base\d+\.db$/i.test(base);
+// AVANT : /^base\d+\.db$/i  → uniquement base + chiffres
+// APRÈS : /^base.+\.db$/i   → base + n'importe quoi
+const bases = allBases.filter(base => {
+    return /^base.+\.db$/i.test(base);
+});
         });
         
         addDebugLog(`Bases filtrées: ${bases.length}/${allBases.length} (pattern base*.db)`, 'info');
