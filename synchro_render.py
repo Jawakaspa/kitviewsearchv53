@@ -32,7 +32,7 @@ DEFAULT_DST = Path(r"D:\kitviewsearchv53")
 # Dossiers et fichiers à ignorer dans la comparaison
 IGNORE_DIRS  = {".git", "__pycache__", ".pytest_cache", "node_modules",
                 "prospects_photos", "logs"}
-IGNORE_FILES = {".gitignore", "*.pyc", "*.log"}
+IGNORE_FILES = {".gitignore", "*.pyc", "*.log", "env-local.js"}
 
 # Extensions à comparer (None = tout comparer)
 EXTENSIONS   = None   # ou {".py", ".html", ".js", ".css", ".json", ".md"}
